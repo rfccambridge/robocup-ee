@@ -1,0 +1,44 @@
+Photoplotter Info File: /Users/wrchan/robocup/branches/board1/kicker/kicker2.gpi
+
+ Date              : 12/28/2006 16:50:29 
+ Plotfile          : /Users/wrchan/robocup/branches/board1/kicker/kicker2.sts
+ Apertures         : generated: 
+ Device            : Gerber photoplotter with RS-274-X aperture generation
+
+Parameter settings:
+
+ Emulate Apertures : no
+ Emulate Thermal   : no
+ Emulate Annulus   : no
+ Tolerance Draw  + :  0.00 %
+ Tolerance Draw  - :  0.00 %
+ Tolerance Flash + :  0.00 %
+ Tolerance Flash - :  0.00 %
+ Rotate            : no
+ Mirror            : yes
+ Optimize          : yes
+ Auto fit          : yes
+ OffsetX           : 0inch
+ OffsetY           : 0inch
+
+Plotfile Info:
+
+ Coordinate Format : 2.4
+ Coordinate Units  : Inch
+ Data Mode         : Absolute
+ Zero Suppression  : None
+ End Of Block      : *
+
+Apertures used:
+
+ Code     Shape     Size                  used
+
+ D10      oval      0.1120inch x 0.0600inch    16
+ D11      octagon   0.0600inch              10
+ D12      oval      0.1400inch x 0.0740inch     3
+ D13      round     0.1380inch               1
+ D14      oval      0.0680inch x 0.1280inch    20
+ D15      octagon   0.1580inch              12
+ D16      octagon   0.1320inch               4
+ D17      round     0.1320inch               1
+

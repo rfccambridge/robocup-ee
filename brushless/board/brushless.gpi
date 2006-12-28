@@ -1,0 +1,45 @@
+Photoplotter Info File: /Users/wrchan/robocup/branches/board1/brushless/board/brushless.gpi
+
+ Date              : 12/28/2006 16:48:31 
+ Plotfile          : /Users/wrchan/robocup/branches/board1/brushless/board/brushless.sts
+ Apertures         : generated: 
+ Device            : Gerber photoplotter with RS-274-X aperture generation
+
+Parameter settings:
+
+ Emulate Apertures : no
+ Emulate Thermal   : no
+ Emulate Annulus   : no
+ Tolerance Draw  + :  0.00 %
+ Tolerance Draw  - :  0.00 %
+ Tolerance Flash + :  0.00 %
+ Tolerance Flash - :  0.00 %
+ Rotate            : no
+ Mirror            : yes
+ Optimize          : yes
+ Auto fit          : yes
+ OffsetX           : 0inch
+ OffsetY           : 0inch
+
+Plotfile Info:
+
+ Coordinate Format : 2.4
+ Coordinate Units  : Inch
+ Data Mode         : Absolute
+ Zero Suppression  : None
+ End Of Block      : *
+
+Apertures used:
+
+ Code     Shape     Size                  used
+
+ D10      round     0.0600inch               2
+ D11      oval      0.1400inch x 0.0740inch    18
+ D12      round     0.1380inch               6
+ D13      oval      0.0600inch x 0.1120inch     9
+ D14      round     0.1080inch               2
+ D15      octagon   0.1080inch               2
+ D16      oval      0.0680inch x 0.1280inch    24
+ D17      round     0.0476inch              51
+ D18      square    0.0476inch               1
+

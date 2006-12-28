@@ -1,0 +1,15 @@
+EAGLE Version 4.16r1 Copyright (c) 1988-2006 CadSoft
+
+Electrical Rule Check for /Users/wrchan/robocup/branches/board1/logic/board/logic.sch at 12/28/2006 16:45:36 
+
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC4 T2IN
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC4 R2IN
+WARNING: Sheet 1/1: POWER Pin IC4P VCC connected to +5V
+WARNING: Only 1 Pin on net ACT
+WARNING: Only 1 Pin on net LINK
+WARNING: No Pins on net N$3
+
+Board and schematic are consistent
+
+    2 errors
+    4 warnings

@@ -1,0 +1,50 @@
+Photoplotter Info File: /Users/wrchan/robocup/branches/board1/motherboard/motherboard.gpi
+
+ Date              : 12/28/2006 16:42:16 
+ Plotfile          : /Users/wrchan/robocup/branches/board1/motherboard/motherboard.sts
+ Apertures         : generated: 
+ Device            : Gerber photoplotter with RS-274-X aperture generation
+
+Parameter settings:
+
+ Emulate Apertures : no
+ Emulate Thermal   : no
+ Emulate Annulus   : no
+ Tolerance Draw  + :  0.00 %
+ Tolerance Draw  - :  0.00 %
+ Tolerance Flash + :  0.00 %
+ Tolerance Flash - :  0.00 %
+ Rotate            : no
+ Mirror            : yes
+ Optimize          : yes
+ Auto fit          : yes
+ OffsetX           : 0inch
+ OffsetY           : 0inch
+
+Plotfile Info:
+
+ Coordinate Format : 2.4
+ Coordinate Units  : Inch
+ Data Mode         : Absolute
+ Zero Suppression  : None
+ End Of Block      : *
+
+Apertures used:
+
+ Code     Shape     Size                  used
+
+ D10      round     0.1340inch               4
+ D11      round     0.0640inch               1
+ D12      octagon   0.0640inch              39
+ D13      oval      0.1120inch x 0.0600inch   112
+ D14      oval      0.0740inch x 0.1400inch     3
+ D15      round     0.1380inch               1
+ D16      oval      0.2210inch x 0.1145inch     3
+ D17      oval      0.0680inch x 0.1280inch    16
+ D18      oval      0.2080inch x 0.1080inch     2
+ D19      round     0.1180inch               1
+ D20      round     0.0595inch               8
+ D21      round     0.0316inch               4
+ D22      square    0.0476inch               8
+ D23      round     0.0480inch              45
+
