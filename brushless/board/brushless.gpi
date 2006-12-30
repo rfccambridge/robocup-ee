@@ -1,7 +1,7 @@
-Photoplotter Info File: /Users/wrchan/robocup/branches/board1/brushless/board/brushless.gpi
+Photoplotter Info File: C:/svn/branches/board1/brushless/board/brushless.gpi
 
- Date              : 12/28/2006 16:48:31 
- Plotfile          : /Users/wrchan/robocup/branches/board1/brushless/board/brushless.sts
+ Date              : 12/30/2006 04:08:27p
+ Plotfile          : C:/svn/branches/board1/brushless/board/brushless.bor
  Apertures         : generated: 
  Device            : Gerber photoplotter with RS-274-X aperture generation
 
@@ -33,13 +33,5 @@ Apertures used:
 
  Code     Shape     Size                  used
 
- D10      round     0.0600inch               2
- D11      oval      0.1400inch x 0.0740inch    18
- D12      round     0.1380inch               6
- D13      oval      0.0600inch x 0.1120inch     9
- D14      round     0.1080inch               2
- D15      octagon   0.1080inch               2
- D16      oval      0.0680inch x 0.1280inch    24
- D17      round     0.0476inch              51
- D18      square    0.0476inch               1
+ D10      draw      0.0000inch               4
 

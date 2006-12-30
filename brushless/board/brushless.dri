@@ -1,6 +1,6 @@
-Drill Station Info File: /Users/wrchan/robocup/branches/board1/brushless/board/brushless.dri
+Drill Station Info File: C:/svn/branches/board1/brushless/board/brushless.dri
 
- Date              : 12/28/2006 16:48:16 
+ Date              : 12/30/2006 04:08:01p
  Drills            : generated
  Device            : Excellon drill station
 
@@ -9,7 +9,7 @@ Parameter settings:
  Tolerance Drill + :  2.50 %
  Tolerance Drill - :  2.50 %
  Rotate            : no
- Mirror            : yes
+ Mirror            : no
  Optimize          : yes
  Auto fit          : yes
  OffsetX           : 0inch
@@ -27,12 +27,10 @@ Drills used:
 
  T01   0.0236inch    52
  T02   0.0320inch    11
- T03   0.0400inch    28
- T04   0.0440inch    18
- T05   0.1300inch     6
+ T03   0.0400inch    46
 
-Total number of drills: 115
+Total number of drills: 109
 
 Plotfiles:
 
- /Users/wrchan/robocup/branches/board1/brushless/board/brushless.drd
+ C:/svn/branches/board1/brushless/board/brushless.drd
