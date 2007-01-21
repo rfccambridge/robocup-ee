@@ -26,11 +26,11 @@ enum ReceiveState {ESCAPE, HEADER, SOURCE, PORT, DATA, DATAESC, IGNORE};
 
 void handleRx(PacketBuffer * RxPacket);
 
-void handleTx(PacketBuffer * TxPacket);
-void transmit(PacketBuffer * TxPacket);
+void handleTx();
+void transmit();
 
 void initRx(PacketBuffer * RxPacket);
-void initTx(PacketBuffer * TxPacket);
+void initTx(PacketBuffer TxPacket);
 
 void delay();
 

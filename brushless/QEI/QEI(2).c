@@ -90,7 +90,7 @@ const unsigned char backdrive[8] = {0b00000000, 	//0: error
 									0b00000000};	//7
 #pragma code high_vector=0x08			//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
 void interrupt_high_vector(){
-_asm GOTO high_ISR _endasm}				//branching to the actual ISR
+	_asm GOTO high_ISR _endasm}				//branching to the actual ISR
 #pragma code
 
 #pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
@@ -177,16 +177,16 @@ void main(){
 	T5CONbits.TMR5ON = 1;				//TMR 5 enabled; other settings are left to default
 		
 	//QEI ini'n.  inefficient, but readable
-		QEICONbits.VELM=0;					//Velocity Mode enabled
-		QEICONbits.QEIM2=1;
-		QEICONbits.QEIM1=1;
-		QEICONbits.QEIM0=0;					//4x update mode, reset when POSCNT=MAXCNT
-		QEICONbits.PDEC1=1;
-		QEICONbits.PDEC0=0;					//Velocity Pulse reduction 1:16	
+	QEICONbits.VELM=0;					//Velocity Mode enabled
+	QEICONbits.QEIM2=1;
+	QEICONbits.QEIM1=1;
+	QEICONbits.QEIM0=0;					//4x update mode, reset when POSCNT=MAXCNT
+	QEICONbits.PDEC1=1;
+	QEICONbits.PDEC0=0;					//Velocity Pulse reduction 1:16	
 
 	// formula constant calculations (does not need to be calculated by PIC, but included for completeness)
-		INST_CYCLE = OSCILLATOR/4;
-		RPM_CONST = ((INST_CYCLE)/(ENCODER_PPR*QEI_UPDATE*VELOCITY_PULSE_DECIMATION*TIMER5_PRESCALE)) * 60;
+	INST_CYCLE = OSCILLATOR/4;
+	RPM_CONST = ((INST_CYCLE)/(ENCODER_PPR*QEI_UPDATE*VELOCITY_PULSE_DECIMATION*TIMER5_PRESCALE)) * 60;
 		
 	//PWM ini'n
 	PWMCON0 = 0b01001111;					// PWM0-5 enabled, independent mode. 
@@ -208,15 +208,15 @@ void main(){
 	
 
 	//commutation sequence
-	do{
-	if (PORTDbits.RD0 = 1){OVDCOND = fordrive[PORTC&0b00000111];}
-	if (PORTDbits.RD0 = 0){OVDCOND = backdrive[PORTC&0b00000111];}
-	i++;
-	if(i>100){
-		ADCON0bits.GO = 1;  				//Starts ADC.  This bit automatically cleared after conversion.
-		i=0;
-	}					
-	}while(1);
+	while(1) {
+		if (PORTDbits.RD0 = 1){OVDCOND = fordrive[PORTC&0b00000111];}
+		if (PORTDbits.RD0 = 0){OVDCOND = backdrive[PORTC&0b00000111];}
+		i++;
+		if(i>100){
+			ADCON0bits.GO = 1;  			//Starts ADC.  This bit automatically cleared after conversion.
+			i=0;
+		}					
+	}
 
 	//default settings included for completeness
 	//ADCON0bits.ADCONV = 0;				//Single shot mode.(Default)

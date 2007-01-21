@@ -1,6 +1,9 @@
 #include "4Enet.h"
 #include <p18f4431.h>
 
+static signed char txPtr;
+
+
 // global variable into which the each received packet is placed.
 // The contents are only valid when RxPacket.done = 1.
 //PacketBuffer RxPacket;

@@ -1,6 +1,7 @@
 // kicker.c
 
 #include "kicker.h"
+#include "pins.h"
 #include <p18f4431.h>
 
 static enum KickerState kickState;
@@ -31,6 +32,8 @@ void initKicker()
 
 void handleKicker()
 {
+	LED2 = !LED2;
+
 	kickCon.updated = 1;
 
 	switch (kickState){

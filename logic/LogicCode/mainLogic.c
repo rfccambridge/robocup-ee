@@ -64,12 +64,14 @@ RC0 is used as test output
 #include <p18f4431.h>
 #include "4Enet.h"
 #include "kicker.h"
+#include "pins.h"
 
 
 void high_ISR();	 //Interrupt Service Routine
 void handleTimer0();
 
 PacketBuffer RxPacket;
+extern PacketBuffer TxPacket;
 
 extern KickerControl kickCon;
 
@@ -98,6 +100,21 @@ void main(){
 
 	PORTDbits.RD1=1;						// Turn on power LED
 	PORTDbits.RD0=1;	
+
+	TxPacket.destination = 1;
+	TxPacket.port = 31;
+	TxPacket.data[0] = '=';
+	TxPacket.data[1] = 'B';
+	TxPacket.data[2] = 'e';
+	TxPacket.data[3] = 'm';
+	TxPacket.data[4] = 'i';
+	TxPacket.data[5] = 'x';
+	TxPacket.data[6] = 'O';
+	TxPacket.data[7] = 'S';
+	TxPacket.data[8] = '=';
+	TxPacket.length = 9;
+	transmit();
+
 
 	// === Main Loop ===	
 	while(1){
@@ -162,7 +179,7 @@ void main(){
 					break;
 
 				default:
-					// bad packet
+					LED1 = 1;
 					break;
 			}
 
@@ -193,6 +210,9 @@ void high_ISR()
 	} else if (INTCONbits.TMR0IF) {
 		handleKicker();
 		INTCONbits.TMR0IF = 0;
+	} else if (PIR1bits.TXIF) {
+		handleTx();
+		PIR1bits.TXIF = 0;
 	}
 }
 #pragma
