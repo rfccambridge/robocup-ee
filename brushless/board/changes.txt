@@ -1,0 +1,8 @@
+* removed crystal
+* disconnected keying pin
+* smaller diodes (100V switching diode, MINIMELF package, mouser part number 833-DL4448-TP)
+
+to do:
+* make board shorter
+* bypass mosfet driver
+* surface mount electrolytics
