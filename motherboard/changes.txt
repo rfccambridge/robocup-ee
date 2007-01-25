@@ -1,2 +1,2 @@
-* Corrected error where hall sensors for 3 and 4 were shorted
+* Corrected error where hall sensors for M3 and M4 were shorted
 * 
