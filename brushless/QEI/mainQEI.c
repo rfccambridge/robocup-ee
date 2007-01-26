@@ -1,6 +1,9 @@
 //coded by Minjae Kim
 //Jan 2006
-//Motor control feedback
+//Note
+//Motor control through ADC works fine. (Finalized)
+//No encoder implemented
+//Direction needs to be implemented.
 /* ===== pin out =====
  * 01 - MCLR
  * 02 - AN0 = speed
@@ -45,12 +48,19 @@
 */
 
 #include	<p18f4431.h>
-#define		OSCILLATOR					40000000
+//==========Speed Calculation=================
+#define		OSCILLATOR					8000000		//internal 8MHz
 #define		ENCODER_PPR 				256 		//PPR of Encoder on the motor
 #define 	TIMER5_PRESCALE 			1 			//Timer5 prescaler
 #define 	QEI_UPDATE 					4 			//Define the QEI mode of operation.
 #define 	VELOCITY_PULSE_DECIMATION 	16			//ratio
 #define		MAX_RPM						5000		//assumed value of maximum rpm of the motor
+
+//==========PI control=======================
+#define		Kp							2			//Proportional Constant
+#define		Ki							1			//Integral Constant
+
+
 
 
 #define LED1	PORTDbits.RD4
@@ -60,6 +70,7 @@
 //Used for measured RPM caculation and ADC
 unsigned char	i;	//a counter for ADC
 
+
 int VELREAD;
 int VELREADH;    	//only lower byte occupied
 int VELREADL;		//only lower byte occupied
@@ -67,13 +78,15 @@ int INST_CYCLE;
 int	RPM_CONST;
 int SPEED;
 
-int SPEED_BYTE;  	//measured speed in byte
-int SPEED_REC;		//received speed (desired speed) in byte
-int Error_Spd;		//desired speed - measured speed (unitless in bytes)
-int IntegralC;		//Integral Component 		
-int	PropC;			//Proportional Component 
-int PIDvalue;		//Finaly PID correction.
+unsigned int SPEED_BYTE;  	//measured speed in byte
+unsigned int Error_Spd;		//desired speed - measured speed (unitless in bytes)
+unsigned int IntegralC;		//Integral Component 		
+unsigned int PropC;			//Proportional Component 
+unsigned int DuCyValue;		//Duty Cycle value.
+
+
 void high_ISR();	 //Interrupt Service Routine
+
 
 const unsigned char fordrive[8] = { 0b00000000, 	//	0:error
 									0b00010100, 	//	1
@@ -92,10 +105,18 @@ const unsigned char backdrive[8] = {0b00000000, 	//0: error
 									0b00001100,		//6
 									0b00000000};	//7
 
+
 void main(){
-	TRISDbits.TRISD0=1;						//RD0 is input for direction of speed
+
+	TRISB = 0x00;
+	TRISC = 0xFF;							//TRISC all inputs for hall sensors (RC0-RC2)
+
+	TRISDbits.TRISD0 = 1;					//RD0 is input for direction of speed
 	TRISDbits.TRISD4 = 0;					// output for LED1
 	TRISDbits.TRISD5 = 0;					// output for LED2
+	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
+
+
 
 	//interrupts ini'n
 	INTCONbits.GIE = 1;					//Global Interrupt bit enabled.  Interrupts can be used.
@@ -133,60 +154,68 @@ void main(){
 	PTCON1 = 0x80;							//PTMR enabled, counts up
 	
 	//ADC ini'n
-	ADCON2 = 10001010;						//right justified, 2 TAD delay, FOSC/32  -> Tacq on the order of 10 uS.
+	ADCON2 = 0b10001010;						//right justified, 2 TAD delay, FOSC/32  -> Tacq on the order of 10 uS.
 	ADCON3=0b00000000;						//no FIFO. All triggers disabled.	
 	ADCON0bits.ADON = 1;					//ADC on
 	ANSEL0bits.ANS0 = 1;					//AN0 (RA0) is analog input
 	TRISA = 0b00000001;						//RA0 (AN0) is input
 	i=0;									//counter initialization
-	TRISC = 0xFF;							//TRISC all inputs for hall sensors (RC0-RC2).
 	
-
-	// for testing
-	PDC1L=0x00;								//upper bits discarded
-	PDC1H=0xff;						//lower bits discarded
-	PDC2L=0x00;								//upper bits discarded
-	PDC2H=0xff;						//lower bits discarded
-	PDC3L=0x00;								//upper bits discarded
-	PDC3H=0xff;						//lower bits discarded
+	
+	//==============For PWM testing purpose only=======
+	//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
+			DuCyValue=0x0000<<2;				//bit shifting compensating for last two digits of PWM DC registers
+			PDC1L=DuCyValue;								//upper bits discarded
+			PDC1H=DuCyValue>>8;							//lower bits discarded
+			PDC2L=DuCyValue;								
+			PDC2H=DuCyValue>>8;
+			PDC3L=DuCyValue;								
+			PDC3H=DuCyValue>>8;
 
 
 
 	//commutation sequence
 	do{
-	
+		
 		// flash power light
-	
 		LED1 = 0;
-		if (i>50)
-			LED1 = 1;
-
-		if (PORTDbits.RD0 = 1){OVDCOND = fordrive[PORTC&0b00000111];}
-		if (PORTDbits.RD0 = 0){OVDCOND = backdrive[PORTC&0b00000111];}
-
+		if (i>50)	LED1 = 1;
 		LED2 = 0;
-		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))
-			LED2 = 1;
+		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))LED2 = 1;
 
+
+
+	//======direction control==================
+		//if (PORTDbits.RD0 = 1)OVDCOND = fordrive[PORTC&0b00000111];
+		//if (PORTDbits.RD0 = 0)OVDCOND = backdrive[PORTC&0b00000111];
+		OVDCOND = fordrive[PORTC&0b00000111];
+
+		
+	
+
+
+		
 
 		i++;
-		if(i>100){
+		if(i>100){	
 			ADCON0bits.GO = 1;  				//Starts ADC.  This bit automatically cleared after conversion.
-			i=0;
-		}					
+			i=0;}
+		
+		
+							
 	}while(1);
 
 	//default settings included for completeness
-	//ADCON0bits.ADCONV = 0;				//Single shot mode.(Default)
+	ADCON0bits.ACONV = 0;				//Single shot mode.(Default)
 		
-	//ADCON0bits.ACSCH = 0; 				//single-channel mode(default)
-	//ADCON0bits.ACMOD1 = 0;				
-	//ADCON0bits.ACMOD0 = 0; 				//using Group A(default)  Group A: AN0, AN4, AN8  (AN0 selected by default)
-											//AN0 is for speed information.
+	ADCON0bits.ACSCH = 0; 				//single-channel mode(default)
+	ADCON0bits.ACMOD1 = 0;				
+	ADCON0bits.ACMOD0 = 0; 				//using Group A(default)  Group A: AN0, AN4, AN8  (AN0 selected by default)
+										//AN0 is for speed information.
 
-	//ADCON1bits.VCFG1 = 0;					
-	//ADCON1bits.VCFG0 = 0;					//AVDD and AVSS used as reference voltage(default)
-	//ADCON1bits.FIFOEN = 0; 				// don't need multiple level addressing(default)
+	ADCON1bits.VCFG1 = 0;					
+	ADCON1bits.VCFG0 = 0;				//AVDD and AVSS used as reference voltage(default)
+	ADCON1bits.FIFOEN = 0; 				// don't need multiple level addressing(default)
 
 }
 
@@ -204,33 +233,37 @@ _asm GOTO high_ISR _endasm}				//branching to the actual ISR
 void high_ISR(){
 	//ADC update interrupt
 	if (PIR1bits.ADIF=1){
-	SPEED_REC=ADRESH*0x0100+ADRESL;				//ADC value received as Speed Received.
-	PIR1bits.ADIF=0;
-	
+		
+		PIR1bits.ADIF=0;
+			
+			
 
-//for testing purpose
-			PIDvalue=SPEED_REC<<2;						//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
-			PIDvalue=0x03FF-PIDvalue;
-			PDC1L=PIDvalue;								//upper bits discarded
-			PDC1H=PIDvalue/0x0100;						//lower bits discarded
-			PDC2L=PIDvalue;								
-			PDC2H=PIDvalue/0x0100;
-			PDC3L=PIDvalue;								
-			PDC3H=PIDvalue/0x0100;
+		//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
+		
+		DuCyValue=(0x03ff-ADRES)<<2;				//bit shifting compensating for last two digits of PWM DC registers
+		PDC1L=DuCyValue;								//upper bits discarded
+		PDC1H=DuCyValue>>8;							//lower bits discarded
+		PDC2L=DuCyValue;								
+		PDC2H=DuCyValue>>8;
+		PDC3L=DuCyValue;								
+		PDC3H=DuCyValue>>8;
 
 
 
-	}
-	
+
+
+
+		}
+	//=======================QEI needs to be worked on majorly========================================
 	//Encoder velocity update interrupt
-	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
+/*	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
 												//Whenever VELR is updated, velocity is calculated
 		VELREADH=VELRH;							//only lower byte occupied
 		VELREADL=VELRL;							//only lower byte occupied
 		VELREAD=VELREADH*0x0100+VELREADL; 		// lower byte + lower byte concatenation; total time of TMR5
 		SPEED=RPM_CONST/VELREAD;				//baby, how fast are you going?  (unit in RPM)
 	
-
+*/
 		/*PID feedback.  For regular motor control, D component=0.
 		(Q: at what voltage will ADRES be saturated?)
 		Full ADRES (0x03FF: right justified) should give full Duty Cycle (PDCn=PTPER, which is set 03FF), hence full speed.
@@ -239,11 +272,9 @@ void high_ISR(){
 		Measured speed is dealt differently.  MAX_RPM is the speed at full Duty Cycle.  Let us assume that Duty Cycle varies linearly with actual RPM.  
 		(This assumption will be valid since PID feedback *makes it* linear or whatever model we take.)
 		Hence, SPEED_BYTE = (SPEED)(0x03FF)/MAX_RPM.  The difference between ADRES and SPEED_BYTE is the error in measured and desired speeds in binary.
-		Note that overshooting cannot be corrected by software since there is no "negative" duty cycle.  However, the load of the motor quickly corrects it.
-		Hence, in software, when there is overshooting, we don't do anything; we let the motor die down and when it goes below desired level, we then correct 
-		under-error.
+		
 		*/
-		SPEED_BYTE = SPEED*0x03FF/MAX_RPM;				//SPEED_BYTE max value is 0x03FF
+/*		SPEED_BYTE = SPEED*0x03FF/MAX_RPM;				//SPEED_BYTE max value is 0x03FF
 		Error_Spd = SPEED_REC-SPEED_BYTE;				//Error_Spd max value is 0x03FF
 		if (Error_Spd>0x00F){							//no calculation done if error is negative.  See above explanation.  0x000F is the allowed error.
 														//That is 1.5% error in speed.
@@ -265,5 +296,6 @@ void high_ISR(){
 		PIR3bits.IC1IF=0;								//re-clearing the Interrupt Flag
 	}
 	
-										
+*/										
 }
+
