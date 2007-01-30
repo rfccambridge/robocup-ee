@@ -2,8 +2,8 @@
 //Jan 2006
 //Note
 //Motor control through ADC works fine. (Finalized)
+//Direction Implemented
 //No encoder implemented
-//Direction needs to be implemented.
 /* ===== pin out =====
  * 01 - MCLR
  * 02 - AN0 = speed
@@ -23,8 +23,8 @@
  * 16 - RC1 = hall 2
  * 17 - RC2 = hall 3
  * 18 - INT0\
- * 19 - RD0 = direction
- * 20 - RD1 = break
+ * 19 - RD0  
+ * 20 - RD1 = direction 
  * 21 - RD2
  * 22 - RD3
  * 23 - RC4
@@ -161,7 +161,7 @@ void main(){
 	TRISA = 0b00000001;						//RA0 (AN0) is input
 	i=0;									//counter initialization
 	
-	
+/*	
 	//==============For PWM testing purpose only=======
 	//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
 			DuCyValue=0x0000<<2;				//bit shifting compensating for last two digits of PWM DC registers
@@ -172,7 +172,7 @@ void main(){
 			PDC3L=DuCyValue;								
 			PDC3H=DuCyValue>>8;
 
-
+*/
 
 	//commutation sequence
 	do{
@@ -185,10 +185,14 @@ void main(){
 
 
 
-	//======direction control==================
-		//if (PORTDbits.RD0 = 1)OVDCOND = fordrive[PORTC&0b00000111];
-		//if (PORTDbits.RD0 = 0)OVDCOND = backdrive[PORTC&0b00000111];
-		OVDCOND = fordrive[PORTC&0b00000111];
+	//=================direction control==================
+		if (PORTDbits.RD1 == 1)OVDCOND = fordrive[PORTC&0b00000111];
+		if (PORTDbits.RD1 == 0)OVDCOND = backdrive[PORTC&0b00000111];
+		
+
+	
+		//for testing purpose
+		//OVDCOND = backdrive[PORTC&0b00000111];
 
 		
 	
