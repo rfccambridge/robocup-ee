@@ -16,7 +16,7 @@
 typedef struct {
 	unsigned char destination;
 	unsigned char address;							// source for rx, destination for tx
-	unsigned char port;
+	unsigned char port;								//'w' = wheels
 	unsigned char data[MAX_PACKET_SIZE];
 	unsigned length:7;
 	unsigned done:1;

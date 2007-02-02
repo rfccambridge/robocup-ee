@@ -58,7 +58,7 @@
 
 //==========PI control=======================
 #define		Kp							2			//Proportional Constant
-#define		Ki							1			//Integral Constant
+#define		Ki							10			//Integral Constant
 
 
 
@@ -71,19 +71,18 @@
 unsigned char	i;	//a counter for ADC
 
 
-int VELREAD;
-int VELREADH;    	//only lower byte occupied
-int VELREADL;		//only lower byte occupied
-int INST_CYCLE;  
-int	RPM_CONST;
-int SPEED;
+unsigned int 	VELREAD;
+unsigned int 	INST_CYCLE;  
+unsigned int	RPM_CONST;
 
-unsigned int SPEED_BYTE;  	//measured speed in byte
-unsigned int Error_Spd;		//desired speed - measured speed (unitless in bytes)
-unsigned int IntegralC;		//Integral Component 		
-unsigned int PropC;			//Proportional Component 
-unsigned int DuCyValue;		//Duty Cycle value.
 
+unsigned int 	SPEED_BYTE;  		//measured speed in byte
+signed int 		Error_Spd;			//desired speed - measured speed (unitless in bytes).  Must be signed
+signed int 		IntComp;			//Integral Component 		
+signed int		ProComp;			//Proportional Component 
+signed int 		DuCyValue;			//Duty Cycle value
+//========PI formula=========
+// output = Kp(Error + 1/Ki * Integral(Error))
 
 void high_ISR();	 //Interrupt Service Routine
 
@@ -107,7 +106,22 @@ const unsigned char backdrive[8] = {0b00000000, 	//0: error
 
 
 void main(){
+	
 
+
+//==================testing
+	DuCyValue = -0x6000;
+	if (DuCyValue>0x03FF) DuCyValue=0x03FF; 					//maximum PID value allowed.
+	if (DuCyValue<0x0000) DuCyValue=0x0000;
+
+
+
+
+
+
+	IntComp = 0;
+	ProComp = 0;
+	
 	TRISB = 0x00;
 	TRISC = 0xFF;							//TRISC all inputs for hall sensors (RC0-RC2)
 
@@ -161,18 +175,6 @@ void main(){
 	TRISA = 0b00000001;						//RA0 (AN0) is input
 	i=0;									//counter initialization
 	
-/*	
-	//==============For PWM testing purpose only=======
-	//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
-			DuCyValue=0x0000<<2;				//bit shifting compensating for last two digits of PWM DC registers
-			PDC1L=DuCyValue;								//upper bits discarded
-			PDC1H=DuCyValue>>8;							//lower bits discarded
-			PDC2L=DuCyValue;								
-			PDC2H=DuCyValue>>8;
-			PDC3L=DuCyValue;								
-			PDC3H=DuCyValue>>8;
-
-*/
 
 	//commutation sequence
 	do{
@@ -185,19 +187,19 @@ void main(){
 
 
 
+
+
+
+
+
+
+
 	//=================direction control==================
 		if (PORTDbits.RD1 == 1)OVDCOND = fordrive[PORTC&0b00000111];
 		if (PORTDbits.RD1 == 0)OVDCOND = backdrive[PORTC&0b00000111];
 		
 
 	
-		//for testing purpose
-		//OVDCOND = backdrive[PORTC&0b00000111];
-
-		
-	
-
-
 		
 
 		i++;
@@ -260,46 +262,49 @@ void high_ISR(){
 		}
 	//=======================QEI needs to be worked on majorly========================================
 	//Encoder velocity update interrupt
-/*	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
-												//Whenever VELR is updated, velocity is calculated
-		VELREADH=VELRH;							//only lower byte occupied
-		VELREADL=VELRL;							//only lower byte occupied
-		VELREAD=VELREADH*0x0100+VELREADL; 		// lower byte + lower byte concatenation; total time of TMR5
-		SPEED=RPM_CONST/VELREAD;				//baby, how fast are you going?  (unit in RPM)
-	
-*/
-		/*PID feedback.  For regular motor control, D component=0.
-		(Q: at what voltage will ADRES be saturated?)
-		Full ADRES (0x03FF: right justified) should give full Duty Cycle (PDCn=PTPER, which is set 03FF), hence full speed.
-		Since full ADRES matches full Duty Cycle, ADRES can be set directly to PDCn.  This is the desired speed
-	
-		Measured speed is dealt differently.  MAX_RPM is the speed at full Duty Cycle.  Let us assume that Duty Cycle varies linearly with actual RPM.  
-		(This assumption will be valid since PID feedback *makes it* linear or whatever model we take.)
-		Hence, SPEED_BYTE = (SPEED)(0x03FF)/MAX_RPM.  The difference between ADRES and SPEED_BYTE is the error in measured and desired speeds in binary.
+	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
 		
-		*/
-/*		SPEED_BYTE = SPEED*0x03FF/MAX_RPM;				//SPEED_BYTE max value is 0x03FF
-		Error_Spd = SPEED_REC-SPEED_BYTE;				//Error_Spd max value is 0x03FF
-		if (Error_Spd>0x00F){							//no calculation done if error is negative.  See above explanation.  0x000F is the allowed error.
-														//That is 1.5% error in speed.
-			PropC = 2*Error_Spd;
-			IntegralC = Error_Spd*VELREAD/0x1000;		//0x1000 is a arbitrary constant factor to prevent overflow (16 bit max)
-			PIDvalue = PropC+IntegralC;
-			if (PIDvalue>0x03FF){
-				PIDvalue=0x03FF;} 						//maximum PID value allowed.
+		VELREAD = VELRH;
+		VELREAD <<= 8;
+		VELREAD +=VELRL;											
+		
+	
+
+		//PID feedback.  For regular motor control, D component=0.
+		//(Q: at what voltage will ADRES be saturated?)
+		//Full ADRES (0x03FF: right justified) should give full Duty Cycle (PDCn=PTPER, which is set 03FF), hence full speed.
+		//Since full ADRES matches full Duty Cycle, ADRES can be set directly to PDCn.  This is the desired speed
+	
+		//Measured speed is dealt differently.  MAX_RPM is the speed at full Duty Cycle.  Let us assume that Duty Cycle varies linearly with actual RPM.  
+		//(This assumption will be valid since PID feedback *makes it* linear or whatever model we take.)
+		//Hence, SPEED_BYTE = (SPEED)(0x03FF)/MAX_RPM.  The difference between ADRES and SPEED_BYTE is the error in measured and desired speeds in binary.
+		
+		
+		SPEED_BYTE = RPM_CONST/VELREAD*0x03FF/MAX_RPM;				//RPM_CONST/VELREAD gives the RPM of the motor.  SPEED_BYTE max value is 0x03FF
+		Error_Spd = ADRES-SPEED_BYTE;								//Error_Spd max value is 0x03FF
+		
+		if (Error_Spd>0x00F){										//no calculation done if error is negative.  See above explanation.  0x000F is the allowed error.
+																
+			//ProComp = Kp*Error_Spd;
+			IntComp += Error_Spd*VELREAD/Ki;					
+			//DuCyValue = ProComp+IntComp;
+			DuCyValue = Kp*(Error_Spd + IntComp);
 			
-			PIDvalue=0x03FF-PIDvalue;					//Duty Cycle inversion.
-			PIDvalue=PIDvalue<<2;						//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
-			PDC1L=PIDvalue;								//upper bits discarded
-			PDC1H=PIDvalue/0x0100;						//lower bits discarded
-			PDC2L=PIDvalue;								
-			PDC2H=PIDvalue/0x0100;
-			PDC3L=PIDvalue;								
-			PDC3H=PIDvalue/0x0100;
+			if ((DuCyValue>0x03FF)&&(DuCyValue<0x7fff)) DuCyValue=0x03FF; 				
+			if (DuCyValue>0x7fff)DuCyValue=0x0000;									//greater than 0x7fff means that DuCy is negative.
+			
+			DuCyValue=0x03FF-DuCyValue;								//Duty Cycle inversion.
+			DuCyValue=DuCyValue<<2;									//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
+			PDC1L=DuCyValue;										//upper bits discarded
+			PDC1H=DuCyValue/0x0100;									//lower bits discarded
+			PDC2L=DuCyValue;								
+			PDC2H=DuCyValue/0x0100;
+			PDC3L=DuCyValue;								
+			PDC3H=DuCyValue/0x0100;
 		}
 		PIR3bits.IC1IF=0;								//re-clearing the Interrupt Flag
 	}
 	
-*/										
+										
 }
 

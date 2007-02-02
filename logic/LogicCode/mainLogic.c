@@ -82,13 +82,15 @@ void main(){
 	// === Initialization ===
 	initRx(&RxPacket);
 	initKicker();
+	//======oscillator configuration: internal used======
+	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
 
 	// initialize timer0 for kicker
 	T0CON = 0b10001000;
 	INTCONbits.TMR0IE = 1;	
 
 	//Power PWM.  PWM 1,3,5,7 used.
-	PWMCON0=0b01110000; 						 //Only Odd pins enabled (default)
+	PWMCON0=0b01110000; 						 //Only Odd PWM pins enabled (default)
 	TRISB = 0b11011010;							//5,2,0 for directional I/O outputs
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
@@ -98,9 +100,16 @@ void main(){
 	TRISD = 0b00000000;
 	PORTD = 0b00000000;
 
-	PORTDbits.RD1=1;						// Turn on power LED
-	PORTDbits.RD0=1;	
 
+				
+
+
+
+
+
+
+		
+/*
 	TxPacket.destination = 1;
 	TxPacket.port = 31;
 	TxPacket.data[0] = '=';
@@ -114,7 +123,7 @@ void main(){
 	TxPacket.data[8] = '=';
 	TxPacket.length = 9;
 	transmit();
-
+*/
 
 	// === Main Loop ===	
 	while(1){
@@ -130,21 +139,20 @@ void main(){
 					//give signal out to the brushless pic	
 					//0-5v corresponds 0-100% of speed, which is 0-5000 RPM
 					
-					PORTDbits.RD0 = 1;					
-
+					
 					PORTBbits.RB0 = ((RxPacket.data[4]&0b00000001)==1); 					//checking motor 0 (RB bit 0)	RB0
 					PORTBbits.RB2 = ((RxPacket.data[4]&0b00000010)==2);
 					PORTBbits.RB5 = ((RxPacket.data[4]&0b00000100)==4);
 					PORTDbits.RD6 = ((RxPacket.data[4]&0b00001000)==8); 
 											
-					//speed info by PWM
-					PDC0H=RxPacket.data[0]>>6;			//Duty cycle for PWM0 -> motor 0
+					//speed info by PWM  works fine
+					PDC0H=RxPacket.data[0]>>6;			//Duty cycle for PWM1 -> motor 0
 					PDC0L=RxPacket.data[0]<<2;
-					PDC1H=RxPacket.data[1]>>6;			//Duty cycle for PWM0 -> motor 1
+					PDC1H=RxPacket.data[1]>>6;			//Duty cycle for PWM3 -> motor 1
 					PDC1L=RxPacket.data[1]<<2;
-					PDC2H=RxPacket.data[2]>>6;			//Duty cycle for PWM0 -> motor 2
+					PDC2H=RxPacket.data[2]>>6;			//Duty cycle for PWM5 -> motor 2
 					PDC2L=RxPacket.data[2]<<2;
-					PDC3H=RxPacket.data[3]>>6;			//Duty cycle for PWM0 -> motor 3
+					PDC3H=RxPacket.data[3]>>6;			//Duty cycle for PWM7 -> motor 3
 					PDC3L=RxPacket.data[3]<<2;
 				
 					PTCON1bits.PTEN = 1;					//PWM timer enabled
@@ -211,8 +219,8 @@ void high_ISR()
 		handleKicker();
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
-		handleTx();
-		PIR1bits.TXIF = 0;
+	//	handleTx();
+	//	PIR1bits.TXIF = 0;
 	}
 }
 #pragma

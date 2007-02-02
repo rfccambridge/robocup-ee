@@ -18,7 +18,7 @@ void main()
 		PORTE = 0xff;
 
 		for (i=0; i<255; i++)
-			for (j=0; j<255; j++)
+	//		for (j=0; j<255; j++)
 				Nop();
 
 		PORTA = 0x00;
@@ -27,7 +27,7 @@ void main()
 		PORTD = 0x00;
 		PORTE = 0x00;
 
-		for (i=0; i<255; i++)
+	//	for (i=0; i<255; i++)
 			for (j=0; j<255; j++)
 				Nop();
 

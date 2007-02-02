@@ -16,7 +16,7 @@ void initRx(PacketBuffer * RxPacket)//Needs to be worked on --Minjae
 	RCSTAbits.SPEN = 1;						//Serial Port Enabled
 	TRISC = 0b11000000;						//Pins initialized as inputs.
 	PORTC = 0b00000000;
-	SPBRG = 64;								//This would make approx 9600 baud rate @ 40MHz
+	SPBRG = 12;								//This would make approx 9600 baud rate @ 8MHz
 	RCSTAbits.CREN = 1;						//Receiving enabled (asynchronous mode)
 	TXSTAbits.TXEN = 1;
 
