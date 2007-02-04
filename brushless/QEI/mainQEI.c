@@ -4,54 +4,13 @@
 //Motor control through ADC works fine. (Finalized)
 //Direction Implemented
 //No encoder implemented
-/* ===== pin out =====
- * 01 - MCLR
- * 02 - AN0 = speed
- * 03 - AN1
- * 04 - INDX = N/C
- * 05 - QEA = encoder A
- * 06 - QEB = encoder B
- * 07 - AN5\
- * 08 - AN6 = P
- * 09 - AN7 = I
- * 10 - AN8 = D
- * 11 - Vdd = +5
- * 12 - Vss = gnd
- * 13 - OSC1 = 40 MHz crystal
- * 14 - OSC2 = 40 MHz crystal
- * 15 - RC0 = hall 1
- * 16 - RC1 = hall 2
- * 17 - RC2 = hall 3
- * 18 - INT0\
- * 19 - RD0  
- * 20 - RD1 = direction 
- * 21 - RD2
- * 22 - RD3
- * 23 - RC4
- * 24 - RC5
- * 25 - RC6
- * 26 - RC7
- * 27 - RD4 = LED
- * 28 - RD5 = LED
- * 29 - RD6
- * 30 - RD7
- * 31 - Vss = gnd
- * 32 - Vdd = +5
- * 33 - PWM0
- * 34 - PWM1
- * 35 - PWM2
- * 36 - PWM3
- * 37 - PWM5
- * 38 - PWM4
- * 39 - RB6/PGC
- * 40 - RB7/PGD
-*/
+
 
 #include	<p18f4431.h>
 //==========Speed Calculation=================
 #define		OSCILLATOR					8000000		//internal 8MHz
 #define		ENCODER_PPR 				256 		//PPR of Encoder on the motor
-#define 	TIMER5_PRESCALE 			1 			//Timer5 prescaler
+#define 	TIMER5_PRESCALE 			8 			//Timer5 prescaler
 #define 	QEI_UPDATE 					4 			//Define the QEI mode of operation.
 #define 	VELOCITY_PULSE_DECIMATION 	16			//ratio
 #define		MAX_RPM						5000		//assumed value of maximum rpm of the motor
@@ -69,7 +28,7 @@
 
 //Used for measured RPM caculation and ADC
 unsigned char	i;	//a counter for ADC
-
+char Errsign;
 
 unsigned int 	VELREAD;
 unsigned int 	INST_CYCLE;  
@@ -77,12 +36,14 @@ unsigned int	RPM_CONST;
 
 
 unsigned int 	SPEED_BYTE;  		//measured speed in byte
-signed int 		Error_Spd;			//desired speed - measured speed (unitless in bytes).  Must be signed
-signed int 		IntComp;			//Integral Component 		
-signed int		ProComp;			//Proportional Component 
-signed int 		DuCyValue;			//Duty Cycle value
+
+//"signed", but it really doesn't matter because the code use hex and binary
+unsigned int 		Error_Spd;			//desired speed - measured speed (unitless in bytes).  Must be signed
+signed int 			IntComp;			//Integral Component 		
+signed int			ProComp;			//Proportional Component 
+signed int 			DuCyValue;			//Duty Cycle value
 //========PI formula=========
-// output = Kp(Error + 1/Ki * Integral(Error))
+// The formula:  output = Kp(Error + 1/Ki * Integral(Error))
 
 void high_ISR();	 //Interrupt Service Routine
 
@@ -142,17 +103,18 @@ void main(){
 	ADCON3bits.ADRS1 = 0;				
 	ADCON3bits.ADRS0 = 0;				//ADC interrupt set when each data buffer word is written
 	
-	//TMR ini'n
+	//Timer 5 intialization
+	T5CON = T5CON | 0b00011000;			//Prescaler of 8
 	CAP1CONbits.CAP1REN = 1;			//TMR5 reset at every capture event
-	T5CONbits.TMR5ON = 1;				//TMR 5 enabled; other settings are left to default
+	T5CONbits.TMR5ON = 1;				//TMR 5 enabled
 		
 	//QEI ini'n.  inefficient, but readable
-	QEICONbits.VELM=0;					//Velocity Mode enabled
-	QEICONbits.QEIM2=1;
-	QEICONbits.QEIM1=1;
-	QEICONbits.QEIM0=0;					//4x update mode, reset when POSCNT=MAXCNT
-	QEICONbits.PDEC1=1;
-	QEICONbits.PDEC0=0;					//Velocity Pulse reduction 1:16	
+	QEICONbits.VELM = 0;					//Velocity Mode enabled
+	QEICONbits.QEIM2 = 1;
+	QEICONbits.QEIM1 = 1;
+	QEICONbits.QEIM0 = 0;					//4x update mode, reset when POSCNT=MAXCNT
+	QEICONbits.PDEC1 = 1;
+	QEICONbits.PDEC0 = 0;					//Velocity Pulse reduction 1:16	
 
 	// formula constant calculations (does not need to be calculated by PIC, but included for completeness)
 	INST_CYCLE = OSCILLATOR/4;
@@ -182,6 +144,7 @@ void main(){
 		// flash power light
 		LED1 = 0;
 		if (i>50)	LED1 = 1;
+		
 		LED2 = 0;
 		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))LED2 = 1;
 
@@ -238,6 +201,9 @@ _asm GOTO high_ISR _endasm}				//branching to the actual ISR
 #pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
 void high_ISR(){
 	//ADC update interrupt
+	int beforeInt;
+
+
 	if (PIR1bits.ADIF=1){
 		
 		PIR1bits.ADIF=0;
@@ -262,7 +228,9 @@ void high_ISR(){
 		}
 	//=======================QEI needs to be worked on majorly========================================
 	//Encoder velocity update interrupt
-	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
+	if (PIR3bits.IC1IF = 1){											//if the interrupt source is IC1 (VELR update)
+		PIR3bits.IC1IF=0;												//re-clearing the Interrupt Flag
+		
 		
 		VELREAD = VELRH;
 		VELREAD <<= 8;
@@ -271,7 +239,6 @@ void high_ISR(){
 	
 
 		//PID feedback.  For regular motor control, D component=0.
-		//(Q: at what voltage will ADRES be saturated?)
 		//Full ADRES (0x03FF: right justified) should give full Duty Cycle (PDCn=PTPER, which is set 03FF), hence full speed.
 		//Since full ADRES matches full Duty Cycle, ADRES can be set directly to PDCn.  This is the desired speed
 	
@@ -280,29 +247,48 @@ void high_ISR(){
 		//Hence, SPEED_BYTE = (SPEED)(0x03FF)/MAX_RPM.  The difference between ADRES and SPEED_BYTE is the error in measured and desired speeds in binary.
 		
 		
-		SPEED_BYTE = RPM_CONST/VELREAD*0x03FF/MAX_RPM;				//RPM_CONST/VELREAD gives the RPM of the motor.  SPEED_BYTE max value is 0x03FF
-		Error_Spd = ADRES-SPEED_BYTE;								//Error_Spd max value is 0x03FF
+		SPEED_BYTE = RPM_CONST/VELREAD*0x03FF/MAX_RPM;						//RPM_CONST/VELREAD gives the RPM of the motor.  SPEED_BYTE max value is 0x03FF
 		
-		if (Error_Spd>0x00F){										//no calculation done if error is negative.  See above explanation.  0x000F is the allowed error.
-																
-			//ProComp = Kp*Error_Spd;
-			IntComp += Error_Spd*VELREAD/Ki;					
-			//DuCyValue = ProComp+IntComp;
+		//Error_Spd is the absolute value of the error.  The sign of the error will be handled by Errsign
+		if (ADRES>SPEED_BYTE){
+		Errsign = 1;
+		Error_Spd = ADRES-SPEED_BYTE;
+		}
+		else if (ADRES<SPEED_BYTE){
+		Errsign = 0;
+		Error_Spd = SPEED_BYTE-ADRES; 
+		}
+												
+			
+
+		if (Error_Spd>0x000F){												//maximum allowed error 0x000F
+			
+			beforeInt = IntComp;											//saving the previous value of int											
+			if	(Errsign = 1) IntComp += Error_Spd*VELREAD/Ki;				//adding or subtracting depending on the sign
+			else if (Errsign =0) IntComp -= Error_Spd*VELREAD/Ki;
+					
+
+
+			if ((IntComp - beforeInt)>((beforeInt>>2)+0x00FF)) IntComp = 0xFFFF;
+																			//some fudge formula to detect overflow: if overflow does occur for IntComp, 
+																			//IntComp - beforeInt will be 2's complement negative (meaning it will be a large value)
+																			
+
 			DuCyValue = Kp*(Error_Spd + IntComp);
 			
-			if ((DuCyValue>0x03FF)&&(DuCyValue<0x7fff)) DuCyValue=0x03FF; 				
-			if (DuCyValue>0x7fff)DuCyValue=0x0000;									//greater than 0x7fff means that DuCy is negative.
+			//if ((DuCyValue>0x03FF)&&(DuCyValue<0x7fff)) DuCyValue=0x03FF; 				
+			//if (DuCyValue>0x7fff) DuCyValue=0x0000;							//greater than 0x7fff means that DuCy is negative.
+																			//Theoretically, this should never happen.
 			
-			DuCyValue=0x03FF-DuCyValue;								//Duty Cycle inversion.
-			DuCyValue=DuCyValue<<2;									//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
-			PDC1L=DuCyValue;										//upper bits discarded
-			PDC1H=DuCyValue/0x0100;									//lower bits discarded
+			DuCyValue=(0x03FF-DuCyValue)<<2;								//Duty Cycle inversion.
+			PDC1L=DuCyValue;									
+			PDC1H=DuCyValue>>8;									
 			PDC2L=DuCyValue;								
-			PDC2H=DuCyValue/0x0100;
+			PDC2H=DuCyValue>>8;
 			PDC3L=DuCyValue;								
-			PDC3H=DuCyValue/0x0100;
+			PDC3H=DuCyValue>>8;
 		}
-		PIR3bits.IC1IF=0;								//re-clearing the Interrupt Flag
+										
 	}
 	
 										
