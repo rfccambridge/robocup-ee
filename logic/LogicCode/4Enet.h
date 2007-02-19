@@ -9,7 +9,7 @@
 #define HEADER_CODE 'H'
 #define END_CODE    'E'
 
-#define MY_ADDRESS  'v'
+#define MY_ADDRESS  '2'
 
 //#define TX_ENABLE PORTAbits.RA0
 

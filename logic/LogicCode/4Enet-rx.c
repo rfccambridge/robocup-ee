@@ -1,4 +1,5 @@
 #include "4Enet.h"
+#include "pins.h"
 #include <p18f4431.h>
 
 static signed char txPtr;
@@ -116,4 +117,5 @@ void handleRx(PacketBuffer * RxPacket) {
 			receiveState = IGNORE;
 			break;
 	}
+
 }

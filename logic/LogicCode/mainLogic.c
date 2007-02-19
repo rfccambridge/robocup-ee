@@ -101,32 +101,27 @@ void main(){
 	PORTD = 0b00000000;
 
 
-				
+	RxPacket.data[0]=0xff;
+	RxPacket.data[1]=0xff;
+	RxPacket.data[2]=0xff;
+	RxPacket.data[3]=0xff;
+	PDC0H=RxPacket.data[0]>>6;			//Duty cycle for PWM1 -> motor 0
+	PDC0L=RxPacket.data[0]<<2;
+	PDC1H=RxPacket.data[1]>>6;			//Duty cycle for PWM3 -> motor 1
+	PDC1L=RxPacket.data[1]<<2;
+	PDC2H=RxPacket.data[2]>>6;			//Duty cycle for PWM5 -> motor 2
+	PDC2L=RxPacket.data[2]<<2;
+	PDC3H=RxPacket.data[3]>>6;			//Duty cycle for PWM7 -> motor 3
+	PDC3L=RxPacket.data[3]<<2;
+	PTCON1bits.PTEN = 1;					//PWM timer enabled
 
 
-
-
-
-
-		
-/*
-	TxPacket.destination = 1;
-	TxPacket.port = 31;
-	TxPacket.data[0] = '=';
-	TxPacket.data[1] = 'B';
-	TxPacket.data[2] = 'e';
-	TxPacket.data[3] = 'm';
-	TxPacket.data[4] = 'i';
-	TxPacket.data[5] = 'x';
-	TxPacket.data[6] = 'O';
-	TxPacket.data[7] = 'S';
-	TxPacket.data[8] = '=';
-	TxPacket.length = 9;
-	transmit();
-*/
 
 	// === Main Loop ===	
 	while(1){
+
+		LED2 = RxPacket.done;
+
 		if (RxPacket.done){
 
 			// clear done flag so that don't keep looping though
@@ -187,7 +182,6 @@ void main(){
 					break;
 
 				default:
-					LED1 = 1;
 					break;
 			}
 
@@ -216,7 +210,7 @@ void high_ISR()
 		handleRx(&RxPacket);	
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
-		handleKicker();
+//		handleKicker();
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
 	//	handleTx();

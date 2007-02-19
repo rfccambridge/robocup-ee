@@ -151,23 +151,10 @@ void main(){
 		LED2 = 0;
 		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))LED2 = 1;
 
-
-
-
-
-
-
-
-
-
 	//=================direction control==================
 		if (PORTDbits.RD1 == 1)OVDCOND = fordrive[PORTC&0b00000111];
 		if (PORTDbits.RD1 == 0)OVDCOND = backdrive[PORTC&0b00000111];
 		
-
-	
-		
-
 		i++;
 		if(i>100){	
 			ADCON0bits.GO = 1;  				//Starts ADC.  This bit automatically cleared after conversion.
@@ -211,8 +198,6 @@ void high_ISR(){
 		
 		PIR1bits.ADIF=0;
 			
-			
-
 		//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
 		
 		DuCyValue=(0x03ff-ADRES)<<2;				//bit shifting compensating for last two digits of PWM DC registers
@@ -223,12 +208,9 @@ void high_ISR(){
 		PDC3L=DuCyValue;								
 		PDC3H=DuCyValue>>8;
 
+	}
 
-
-
-
-
-		}
+	/*
 	//=======================QEI needs to be worked on majorly========================================
 	//Encoder velocity update interrupt
 	if (PIR3bits.IC1IF = 1){											//if the interrupt source is IC1 (VELR update)
@@ -293,6 +275,8 @@ void high_ISR(){
 		}
 										
 	}
+
+	*/
 	
 										
 }
