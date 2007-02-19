@@ -3,7 +3,10 @@
 //Note
 //Motor control through ADC works fine. (Finalized)
 //Direction Implemented
-//No encoder implemented
+
+// to do:
+// only PWM high side
+// implement encoder
 
 
 #include	<p18f4431.h>
