@@ -94,33 +94,13 @@ void main(){
 	TRISB = 0b11011010;							//5,2,0 for directional I/O outputs
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
-	
 
-
-	TRISD = 0b00000000;
-	PORTD = 0b00000000;
-
-
-	RxPacket.data[0]=0xff;
-	RxPacket.data[1]=0xff;
-	RxPacket.data[2]=0xff;
-	RxPacket.data[3]=0xff;
-	PDC0H=RxPacket.data[0]>>6;			//Duty cycle for PWM1 -> motor 0
-	PDC0L=RxPacket.data[0]<<2;
-	PDC1H=RxPacket.data[1]>>6;			//Duty cycle for PWM3 -> motor 1
-	PDC1L=RxPacket.data[1]<<2;
-	PDC2H=RxPacket.data[2]>>6;			//Duty cycle for PWM5 -> motor 2
-	PDC2L=RxPacket.data[2]<<2;
-	PDC3H=RxPacket.data[3]>>6;			//Duty cycle for PWM7 -> motor 3
-	PDC3L=RxPacket.data[3]<<2;
-	PTCON1bits.PTEN = 1;					//PWM timer enabled
-
+	TRISD = 0x00;
+	PORTD = 0x00;
 
 
 	// === Main Loop ===	
 	while(1){
-
-		LED2 = RxPacket.done;
 
 		if (RxPacket.done){
 
@@ -181,16 +161,13 @@ void main(){
 					kickCon.enable = 0;
 					break;
 
+				// some other port
 				default:
 					break;
 			}
-
-										//	PORTDbits.RD0 = RxPacket.done;
-
-		}
-	
-		}
+		}	
 	}
+}
 
 
 
@@ -210,7 +187,7 @@ void high_ISR()
 		handleRx(&RxPacket);	
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
-//		handleKicker();
+		handleKicker();
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
 	//	handleTx();
