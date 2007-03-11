@@ -1,0 +1,9 @@
+Changes from board 1:
+* removed crystal
+* disconnected keying pin
+* smaller diodes (100V switching diode, MINIMELF package, mouser part number 833-DL4448-TP)
+* smaller passives (0805)
+
+
+To do:
+* surface mount electrolytics
