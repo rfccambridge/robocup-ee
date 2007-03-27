@@ -1,6 +1,13 @@
-//coded by Minjae Kim
-//December 2006
-//Motor control feedback
+///////////////////////////////////////////////////////////////////////
+// brushless.c
+// brushless motor driver for Rev. 2 boards
+//
+// Revision History:
+// 1. coded by Minjae Kim, December 2006
+// 2. Hall sensor error correction, Walker Chan, March 2007
+//
+//////////////////////////////////////////////////////////////////////
+//
 /* ===== pin out =====
  * 01 - MCLR
  * 02 - AN0 = speed
@@ -8,10 +15,10 @@
  * 04 - INDX = N/C
  * 05 - QEA = encoder A
  * 06 - QEB = encoder B
- * 07 - AN5\
- * 08 - AN6 = P
- * 09 - AN7 = I
- * 10 - AN8 = D
+ * 07 - AN5
+ * 08 - AN6
+ * 09 - AN7
+ * 10 - AN8
  * 11 - Vdd = +5
  * 12 - Vss = gnd
  * 13 - OSC1 = 40 MHz crystal
@@ -20,8 +27,8 @@
  * 16 - RC1 = hall 2
  * 17 - RC2 = hall 3
  * 18 - INT0\
- * 19 - RD0 = direction
- * 20 - RD1 = break
+ * 19 - RD0
+ * 20 - RD1 = direction
  * 21 - RD2
  * 22 - RD3
  * 23 - RC4
@@ -75,22 +82,12 @@ int	PropC;			//Proportional Component
 int PIDvalue;		//Finaly PID correction.
 void high_ISR();	 //Interrupt Service Routine
 
-const unsigned char fordrive[8] = { 0b00000000, 	//	0:error
-									0b00010100, 	//	1
-									0b00001010, 	//	2
-									0b00001100, 	//	3
-									0b00100001, 	//	4
-									0b00010001, 	//	5
-									0b00100010, 	//	6
-									0b00000000}; 	//	7
-const unsigned char backdrive[8] = {0b00000000, 	//0: error
-									0b00100001,		//1
-									0b00010100,		//2
-									0b00010001,		//3
-									0b00001010,		//4
-									0b00100010,		//5
-									0b00001100,		//6
-									0b00000000};	//7
+
+// commutates motor
+unsigned char commutate(unsigned char hall, unsigned:1 direction);
+
+
+
 
 void main(){
 	TRISDbits.TRISD0=1;						//RD0 is input for direction of speed
@@ -160,8 +157,7 @@ void main(){
 		if (i>50)
 			LED1 = 1;
 
-		if (PORTDbits.RD0 = 1){OVDCOND = fordrive[PORTC&0b00000111];}
-		if (PORTDbits.RD0 = 0){OVDCOND = backdrive[PORTC&0b00000111];}
+		OVDCOND = commutate (PORTC, PORTDbits.RD0);
 
 		LED2 = 0;
 		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))
@@ -190,6 +186,44 @@ void main(){
 }
 
 
+// commutes the brushless motor
+unsigned char commutate(unsigned char hall, unsigned:1 direction)
+{
+	unsigned char position;
+	static unsigned char oldPosition;
+
+	// hall sensor and coil lookup tables
+	const unsigned char forward[8] = {0x00, 0x21, 0x11, 0x14, 0x0c, 0x0a, 0x82, 0x00};
+	const unsigned char reverse[8] = {0x00, 0x21, 0x11, 0x14, 0x0c, 0x0a, 0x82, 0x00};
+	const unsigned char sequence[8] = {	3, 5, 4, 1, 2, 6, 7, 8 };
+	
+	
+	// bitmask hall sensor input
+	hall = hall & 0b00000111;
+	
+	
+	// determine position in commutation sequence
+	// from hall sensor input and oldPosition
+	if (hall == 0 || hall == 7) {
+		// current hall sensor input invalid
+		if (direction)
+			// driving forward
+			position = (oldPosition + 1) % 6;
+		else
+			// driving backward
+			position = (oldPosition - 1) % 6;
+	} else {
+		// current hall sensor input valid
+		position = sequence[hall];
+	}
+	
+	
+	// look up value for OVDCOND based on current position
+	if (direction)
+		return forward[position];
+	else
+		return reverse[position];
+}
 
 
 
