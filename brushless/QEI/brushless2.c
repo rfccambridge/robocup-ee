@@ -1,124 +1,48 @@
-///////////////////////////////////////////////////////////////////////
-// brushless.c
-// brushless motor driver for Rev. 2 boards
-//
-// Revision History:
-// 1. coded by Minjae Kim, December 2006
-// 2. Hall sensor error correction, Walker Chan, March 2007
-//
-//////////////////////////////////////////////////////////////////////
-//
-/* ===== pin out =====
- * 01 - MCLR
- * 02 - AN0 = speed
- * 03 - AN1
- * 04 - INDX = N/C
- * 05 - QEA = encoder A
- * 06 - QEB = encoder B
- * 07 - AN5
- * 08 - AN6
- * 09 - AN7
- * 10 - AN8
- * 11 - Vdd = +5
- * 12 - Vss = gnd
- * 13 - OSC1 = 40 MHz crystal
- * 14 - OSC2 = 40 MHz crystal
- * 15 - RC0 = hall 1
- * 16 - RC1 = hall 2
- * 17 - RC2 = hall 3
- * 18 - INT0\
- * 19 - RD0
- * 20 - RD1 = direction
- * 21 - RD2
- * 22 - RD3
- * 23 - RC4
- * 24 - RC5
- * 25 - RC6
- * 26 - RC7
- * 27 - RD4 = LED
- * 28 - RD5 = LED
- * 29 - RD6
- * 30 - RD7
- * 31 - Vss = gnd
- * 32 - Vdd = +5
- * 33 - PWM0
- * 34 - PWM1
- * 35 - PWM2
- * 36 - PWM3
- * 37 - PWM5
- * 38 - PWM4
- * 39 - RB6/PGC
- * 40 - RB7/PGD
-*/
+//coded by Minjae Kim
+//Jan 2006
+//Note
+//Motor control through ADC works fine. (Finalized)
+//Direction Implemented
+
+// to do:
+// only PWM high side
+// implement encoder
+
 
 #include	<p18f4431.h>
-#define		OSCILLATOR					40000000
-#define		ENCODER_PPR 				256 		//PPR of Encoder on the motor
-#define 	TIMER5_PRESCALE 			1 			//Timer5 prescaler
-#define 	QEI_UPDATE 					4 			//Define the QEI mode of operation.
-#define 	VELOCITY_PULSE_DECIMATION 	16			//ratio
-#define		MAX_RPM						5000		//assumed value of maximum rpm of the motor
-
 
 #define LED1	PORTDbits.RD4
 #define LED2	PORTDbits.RD5
 
-
 //Used for measured RPM caculation and ADC
 unsigned char	i;	//a counter for ADC
 
-int VELREAD;
-int VELREADH;    	//only lower byte occupied
-int VELREADL;		//only lower byte occupied
-int INST_CYCLE;  
-int	RPM_CONST;
-int SPEED;
+signed int 			DuCyValue;			//Duty Cycle value
 
-int SPEED_BYTE;  	//measured speed in byte
-int SPEED_REC;		//received speed (desired speed) in byte
-int Error_Spd;		//desired speed - measured speed (unitless in bytes)
-int IntegralC;		//Integral Component 		
-int	PropC;			//Proportional Component 
-int PIDvalue;		//Finaly PID correction.
 void high_ISR();	 //Interrupt Service Routine
 
 
-// commutates motor
-unsigned char commutate(unsigned char hall, unsigned:1 direction);
-
-
+unsigned char commutate(unsigned char hall);
 
 
 void main(){
-	TRISDbits.TRISD0=1;						//RD0 is input for direction of speed
+	
+//==================testing
+	DuCyValue = -0x6000;
+	if (DuCyValue>0x03FF) DuCyValue=0x03FF; 					//maximum PID value allowed.
+	if (DuCyValue<0x0000) DuCyValue=0x0000;
+
+	TRISB = 0x00;
+	TRISC = 0xFF;							//TRISC all inputs for hall sensors (RC0-RC2)
+
+	TRISDbits.TRISD0 = 1;					//RD0 is input for direction of speed
 	TRISDbits.TRISD4 = 0;					// output for LED1
 	TRISDbits.TRISD5 = 0;					// output for LED2
-
-	//interrupts ini'n
-//	INTCONbits.GIE = 1;					//Global Interrupt bit enabled.  Interrupts can be used.
-										//No Interrupt Priority is used.
-	PIE1bits.ADIE = 1;					//ADC interrupt enabled.
-	PIE3bits.IC1IE = 1;					//IC1 interrupt enabled.
+	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
 	
 	ADCON3bits.ADRS1 = 0;				
-	ADCON3bits.ADRS0 = 0;				//ADC interrupt set when each data buffer word is written
+	ADCON3bits.ADRS0 = 0;					//ADC interrupt set when each data buffer word is written
 	
-	//TMR ini'n
-	CAP1CONbits.CAP1REN = 1;			//TMR5 reset at every capture event
-	T5CONbits.TMR5ON = 1;				//TMR 5 enabled; other settings are left to default
-		
-	//QEI ini'n.  inefficient, but readable
-	QEICONbits.VELM=0;					//Velocity Mode enabled
-	QEICONbits.QEIM2=1;
-	QEICONbits.QEIM1=1;
-	QEICONbits.QEIM0=0;					//4x update mode, reset when POSCNT=MAXCNT
-	QEICONbits.PDEC1=1;
-	QEICONbits.PDEC0=0;					//Velocity Pulse reduction 1:16	
-
-	// formula constant calculations (does not need to be calculated by PIC, but included for completeness)
-	INST_CYCLE = OSCILLATOR/4;
-	RPM_CONST = ((INST_CYCLE)/(ENCODER_PPR*QEI_UPDATE*VELOCITY_PULSE_DECIMATION*TIMER5_PRESCALE)) * 60;
-
 	//PWM ini'n
 	PWMCON0 = 0b01001111;					// PWM0-5 enabled, independent mode. 
 	PTPERH=0x03;
@@ -129,174 +53,104 @@ void main(){
 	PTCON1 = 0x80;							//PTMR enabled, counts up
 	
 	//ADC ini'n
-	ADCON2 = 10001010;						//right justified, 2 TAD delay, FOSC/32  -> Tacq on the order of 10 uS.
+	ADCON2 = 0b10001010;						//right justified, 2 TAD delay, FOSC/32  -> Tacq on the order of 10 uS.
 	ADCON3=0b00000000;						//no FIFO. All triggers disabled.	
 	ADCON0bits.ADON = 1;					//ADC on
 	ANSEL0bits.ANS0 = 1;					//AN0 (RA0) is analog input
-	TRISA = 0b00000001;						//RA0 (AN0) is input
+	TRISA = 0b00011101;						//RA0 (AN0) is input
 	i=0;									//counter initialization
-	TRISC = 0xFF;							//TRISC all inputs for hall sensors (RC0-RC2).
-	
 
-	// for testing
-	PDC1L=0x00;								//upper bits discarded
-	PDC1H=0xff;						//lower bits discarded
-	PDC2L=0x00;								//upper bits discarded
-	PDC2H=0xff;						//lower bits discarded
-	PDC3L=0x00;								//upper bits discarded
-	PDC3H=0xff;						//lower bits discarded
+	// init QEI
+	QEICON = 0b00001000;
+		// velocity mode enabled
+		// inc on QEA (2x update)	
 
-
+	//interrupts init
+	INTCONbits.GIE = 1;						//Global Interrupt bit enabled.  Interrupts can be used.
+	INTCONbits.PEIE = 1;					//Peripheral Interrupt enabled
+	PIE1bits.ADIE = 1;						//ADC interrupt enabled.
 
 	//commutation sequence
 	do{
-	
 		// flash power light
-	
 		LED1 = 0;
-		if (i>50)
-			LED1 = 1;
-
-		OVDCOND = commutate (PORTC, PORTDbits.RD0);
+		if (i>50) LED1 = 1;
+		
+//		LED2 = 0;
+//		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07)) LED2 = 1;
 
 		LED2 = 0;
-		if (((PORTC&0b00000111)==0x00) || ((PORTC&0b00000111)==0x07))
-			LED2 = 1;
+		if (VELRL > 10) LED2 = 1;
 
+		OVDCOND = commutate(PORTC);
 
 		i++;
-		if(i>100){
+		if(i>100){	
 			ADCON0bits.GO = 1;  				//Starts ADC.  This bit automatically cleared after conversion.
 			i=0;
 		}					
+
+
 	}while(1);
 
 	//default settings included for completeness
-	//ADCON0bits.ADCONV = 0;				//Single shot mode.(Default)
+	ADCON0bits.ACONV = 0;				//Single shot mode.(Default)
 		
-	//ADCON0bits.ACSCH = 0; 				//single-channel mode(default)
-	//ADCON0bits.ACMOD1 = 0;				
-	//ADCON0bits.ACMOD0 = 0; 				//using Group A(default)  Group A: AN0, AN4, AN8  (AN0 selected by default)
-											//AN0 is for speed information.
+	ADCON0bits.ACSCH = 0; 				//single-channel mode(default)
+	ADCON0bits.ACMOD1 = 0;				
+	ADCON0bits.ACMOD0 = 0; 				//using Group A(default)  Group A: AN0, AN4, AN8  (AN0 selected by default)
+										//AN0 is for speed information.
 
-	//ADCON1bits.VCFG1 = 0;					
-	//ADCON1bits.VCFG0 = 0;					//AVDD and AVSS used as reference voltage(default)
-	//ADCON1bits.FIFOEN = 0; 				// don't need multiple level addressing(default)
+	ADCON1bits.VCFG1 = 0;					
+	ADCON1bits.VCFG0 = 0;				//AVDD and AVSS used as reference voltage(default)
+	ADCON1bits.FIFOEN = 0; 				// don't need multiple level addressing(default)
 
 }
 
 
-// commutes the brushless motor
-unsigned char commutate(unsigned char hall, unsigned:1 direction)
+
+unsigned char commutate(unsigned char hall)
 {
-	unsigned char position;
-	static unsigned char oldPosition;
+	const unsigned char fordrive[8] = { 0b00000000, 	//	0:error
+										0b00010100, 	//	1
+										0b00001010, 	//	2
+										0b00001100, 	//	3
+										0b00100001, 	//	4
+										0b00010001, 	//	5
+										0b00100010, 	//	6
+										0b00000000}; 	//	7
+	const unsigned char backdrive[8] = {0b00000000, 	//0: error
+										0b00100001,		//1
+										0b00010100,		//2
+										0b00010001,		//3
+										0b00001010,		//4
+										0b00100010,		//5
+										0b00001100,		//6
+										0b00000000};	//7
 
-	// hall sensor and coil lookup tables
-	const unsigned char forward[8] = {0x00, 0x21, 0x11, 0x14, 0x0c, 0x0a, 0x82, 0x00};
-	const unsigned char reverse[8] = {0x00, 0x21, 0x11, 0x14, 0x0c, 0x0a, 0x82, 0x00};
-	const unsigned char sequence[8] = {	3, 5, 4, 1, 2, 6, 7, 8 };
-	
-	
-	// bitmask hall sensor input
-	hall = hall & 0b00000111;
-	
-	
-	// determine position in commutation sequence
-	// from hall sensor input and oldPosition
-	if (hall == 0 || hall == 7) {
-		// current hall sensor input invalid
-		if (direction)
-			// driving forward
-			position = (oldPosition + 1) % 6;
-		else
-			// driving backward
-			position = (oldPosition - 1) % 6;
-	} else {
-		// current hall sensor input valid
-		position = sequence[hall];
-	}
-	
-	
-	// look up value for OVDCOND based on current position
-	if (direction)
-		return forward[position];
+	if (PORTDbits.RD0)
+		return fordrive[PORTC&0x07];
 	else
-		return reverse[position];
+		return backdrive[PORTC&0x07];		
 }
-
-
 
 
 #pragma code high_vector=0x08			//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
 void interrupt_high_vector(){
-_asm GOTO high_ISR _endasm}				//branching to the actual ISR
+	_asm GOTO high_ISR _endasm}				//branching to the actual ISR
 #pragma code
 
 #pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
 void high_ISR(){
-	//ADC update interrupt
-	if (PIR1bits.ADIF=1){
-	SPEED_REC=ADRESH*0x0100+ADRESL;				//ADC value received as Speed Received.
-	PIR1bits.ADIF=0;
-	
-
-//for testing purpose
-			PIDvalue=SPEED_REC<<2;						//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
-			PIDvalue=0x03FF-PIDvalue;
-			PDC1L=PIDvalue;								//upper bits discarded
-			PDC1H=PIDvalue/0x0100;						//lower bits discarded
-			PDC2L=PIDvalue;								
-			PDC2H=PIDvalue/0x0100;
-			PDC3L=PIDvalue;								
-			PDC3H=PIDvalue/0x0100;
-
-
-
-	}
-	
-	//Encoder velocity update interrupt
-	if (PIR3bits.IC1IF = 1){					//if the interrupt source is IC1 (VELR update)
-												//Whenever VELR is updated, velocity is calculated
-		VELREADH=VELRH;							//only lower byte occupied
-		VELREADL=VELRL;							//only lower byte occupied
-		VELREAD=VELREADH*0x0100+VELREADL; 		// lower byte + lower byte concatenation; total time of TMR5
-		SPEED=RPM_CONST/VELREAD;				//baby, how fast are you going?  (unit in RPM)
-	
-
-		/*PID feedback.  For regular motor control, D component=0.
-		(Q: at what voltage will ADRES be saturated?)
-		Full ADRES (0x03FF: right justified) should give full Duty Cycle (PDCn=PTPER, which is set 03FF), hence full speed.
-		Since full ADRES matches full Duty Cycle, ADRES can be set directly to PDCn.  This is the desired speed
-	
-		Measured speed is dealt differently.  MAX_RPM is the speed at full Duty Cycle.  Let us assume that Duty Cycle varies linearly with actual RPM.  
-		(This assumption will be valid since PID feedback *makes it* linear or whatever model we take.)
-		Hence, SPEED_BYTE = (SPEED)(0x03FF)/MAX_RPM.  The difference between ADRES and SPEED_BYTE is the error in measured and desired speeds in binary.
-		Note that overshooting cannot be corrected by software since there is no "negative" duty cycle.  However, the load of the motor quickly corrects it.
-		Hence, in software, when there is overshooting, we don't do anything; we let the motor die down and when it goes below desired level, we then correct 
-		under-error.
-		*/
-		SPEED_BYTE = SPEED*0x03FF/MAX_RPM;				//SPEED_BYTE max value is 0x03FF
-		Error_Spd = SPEED_REC-SPEED_BYTE;				//Error_Spd max value is 0x03FF
-		if (Error_Spd>0x00F){							//no calculation done if error is negative.  See above explanation.  0x000F is the allowed error.
-														//That is 1.5% error in speed.
-			PropC = 2*Error_Spd;
-			IntegralC = Error_Spd*VELREAD/0x1000;		//0x1000 is a arbitrary constant factor to prevent overflow (16 bit max)
-			PIDvalue = PropC+IntegralC;
-			if (PIDvalue>0x03FF){
-				PIDvalue=0x03FF;} 						//maximum PID value allowed.
-			
-			PIDvalue=0x03FF-PIDvalue;					//Duty Cycle inversion.
-			PIDvalue=PIDvalue<<2;						//bit shifting required for PDCn (14 bit).  Lower 2 bits filled with 00, so PWM edge at Q1.
-			PDC1L=PIDvalue;								//upper bits discarded
-			PDC1H=PIDvalue/0x0100;						//lower bits discarded
-			PDC2L=PIDvalue;								
-			PDC2H=PIDvalue/0x0100;
-			PDC3L=PIDvalue;								
-			PDC3H=PIDvalue/0x0100;
-		}
-		PIR3bits.IC1IF=0;								//re-clearing the Interrupt Flag
-	}
-	
-										
+	if (PIR1bits.ADIF) {
+		PIR1bits.ADIF = 0;
+		//bit shifting required for PDCn (14 bit).  Actual duty cycle 12 bit.  Lower 2 bits filled with 00, so PWM edge at Q1.
+		DuCyValue=(0x03ff-ADRES)<<2;				//bit shifting compensating for last two digits of PWM DC registers
+		PDC1L=DuCyValue;								//upper bits discarded
+		PDC1H=DuCyValue>>8;							//lower bits discarded
+		PDC2L=DuCyValue;								
+		PDC2H=DuCyValue>>8;
+		PDC3L=DuCyValue;								
+		PDC3H=DuCyValue>>8;
+	}									
 }
