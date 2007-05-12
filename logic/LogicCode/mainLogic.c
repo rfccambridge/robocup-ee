@@ -79,6 +79,8 @@ extern KickerControl kickCon;
 
 void main(){
 
+	unsigned char temp;
+
 	// === Initialization ===
 	initRx(&RxPacket);
 	initKicker();
@@ -95,8 +97,20 @@ void main(){
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
 
+	TRISA = 0x00;
+	PORTA = 0x00;
+
 	TRISD = 0x00;
 	PORTD = 0x00;
+
+	TRISE = 0x00;
+	PORTE = 0x00;
+
+	// it's PNP!!!
+	K_KICK1 = 1;
+	K_KICK2 = 1;
+	K_KICK3 = 1;
+	K_KICK4 = 1;
 
 
 	// === Main Loop ===	
@@ -144,21 +158,45 @@ void main(){
 			// === KICKER ===				
 				// kick
 				case 'K':
-					kickCon.kick1 = ((RxPacket.data[0] & 0x01) == 0x01);
-					kickCon.kick2 = ((RxPacket.data[0] & 0x02) == 0x02);
-					kickCon.kick3 = ((RxPacket.data[0] & 0x04) == 0x04);
-					kickCon.kick4 = ((RxPacket.data[0] & 0x08) == 0x08);
-					kickCon.kick = 1;
+					K_KICK1 = 0;
+					K_KICK2 = 0;
+					K_KICK3 = 0;
+					K_KICK4 = 0;
+
+					for (temp=0; temp<255; temp++);
+
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					K_KICK3 = 1;
+					K_KICK4 = 1;
+
+//					kickCon.kick1 = ((RxPacket.data[0] & 0x01) == 0x01);
+//					kickCon.kick2 = ((RxPacket.data[0] & 0x02) == 0x02);
+//					kickCon.kick3 = ((RxPacket.data[0] & 0x04) == 0x04);
+//					kickCon.kick4 = ((RxPacket.data[0] & 0x08) == 0x08);
+//					kickCon.kick = 1;
 					break;
 
 				// enable kicker
 				case 'E':
-					kickCon.enable = 1;
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					K_KICK3 = 1;
+					K_KICK4 = 1;
+					LED1 = 1;
+					K_CHARGE = 1;
+				//	kickCon.enable = 1;
 					break;
 
 				// disable kicker
 				case 'D':
-					kickCon.enable = 0;
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					K_KICK3 = 1;
+					K_KICK4 = 1;
+					LED1 = 0;			
+					K_CHARGE = 0;
+				//	kickCon.enable = 0;
 					break;
 
 				// some other port
@@ -187,7 +225,8 @@ void high_ISR()
 		handleRx(&RxPacket);	
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
-		handleKicker();
+//		handleKicker();
+		LED2 = !LED2;
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
 	//	handleTx();

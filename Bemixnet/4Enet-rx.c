@@ -1,5 +1,5 @@
 #include "4Enet.h"
-#include "pins.h"
+#include "..\logic\logiccode\pins.h"
 #include <p18f4431.h>
 
 static signed char txPtr;

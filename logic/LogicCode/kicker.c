@@ -32,8 +32,6 @@ void initKicker()
 
 void handleKicker()
 {
-	LED2 = !LED2;
-
 	kickCon.updated = 1;
 
 	switch (kickState){
