@@ -1,0 +1,28 @@
+4 Capacitor Headers
+4 Capacitor Connectors
+8 Diodes
+4 SCR
+1 20 Pin Header
+1 555
+1 Mosfet Driver
+1 Mosfet
+6 100uF caps
+1 2k Power Resistor
+1 Discharge Switch
+4 PNP BJT
+1 Transformer
+4 RFC Modified Capacitors
+1 Solenoid
+Wire
+
+Small Resistors and Capacitors:
+Res-
+5 1k
+2 10
+1 2.2k
+1 390
+4 50
+
+Cap-
+8 .1u 
+1 1000p
