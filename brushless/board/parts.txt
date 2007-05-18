@@ -12,11 +12,11 @@ qty	board	package		description
 1	RN3	0603-concave	4 resistor network, 220, 5%
 2	RN2,4	0603-concave	4 resistor network, 10K, 5%
 
-5	C1-6	0805		0.1uF ceramic capacitor
-2	C7-8	radial		100uF electrolytic capacitor
+5	C1-6	0805		0.1uF, at least 25 volt ceramic capacitor
+2	C7-8	radial		100uF, at least 24 volt electrolytic capacitor
 
 1	J1	0.1 inch	20 pin right angle header
 1	ICSP	0.1 inch	4 pin right angle header
 
-3	D1-3	minimelf	small signal diode
+3	D1-3	minimelf	small signal diode, at least 25 volt
 3	LED1-3	0805		red led
