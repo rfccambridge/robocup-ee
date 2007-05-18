@@ -1,0 +1,22 @@
+Brushless parts
+
+qty	board	package		description
+1	IC1	TQFP44		PIC18F4431
+1	IC2	SO28		IR2130
+
+6	Q1-6	TO220		mosfet
+
+3	R1-3	0805		resistor 10, 5%
+1	R4	0805		resistor 220, 5%
+1	RN1	0603-concave	4 resistor network, 10, 5%
+1	RN3	0603-concave	4 resistor network, 220, 5%
+2	RN2,4	0603-concave	4 resistor network, 10K, 5%
+
+5	C1-6	0805		0.1uF ceramic capacitor
+2	C7-8	radial		100uF electrolytic capacitor
+
+1	J1	0.1 inch	20 pin right angle header
+1	ICSP	0.1 inch	4 pin right angle header
+
+3	D1-3	minimelf	small signal diode
+3	LED1-3	0805		red led
