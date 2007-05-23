@@ -1,7 +1,6 @@
-Brushless parts
-
+=== Brushless parts ===
 qty	board	package		description
-1	IC1	TQFP44		PIC18F4431
+a 1	IC1	TQFP44		PIC18F4431
 1	IC2	SO28		IR2130
 
 6	Q1-6	TO220		mosfet
@@ -9,15 +8,24 @@ qty	board	package		description
 3	R1-3	0805		resistor 10, 5%
 1	R4	0805		resistor 220, 5%
 
-1	RN1	0603-concave	4 resistor network, 10, 5%
-1	RN3	0603-concave	4 resistor network, 220, 5%
-2	RN2,4	0603-concave	4 resistor network, 10K, 5%
+x 1	RN1	0603-concave	4 resistor network, 10, 5%
+x 1	RN3	0603-concave	4 resistor network, 220, 5%
+x 2	RN2,4	0603-concave	4 resistor network, 10K, 5%
 
-5	C1-6	0805		0.1uF, at least 25 volt ceramic capacitor
-2	C7-8	radial		100uF, at least 24 volt electrolytic capacitor
+x 5	C1-6	0805		0.1uF, at least 25 volt ceramic capacitor
+a 2	C7-8	radial		100uF, at least 24 volt electrolytic capacitor
 
 1	J1	0.1 inch	20 pin right angle header
 1	ICSP	0.1 inch	4 pin right angle header
 
-3	D1-3	minimelf	small signal diode, at least 25 volt
-3	LED1-3	0805		red led
+x 3	D1-3	minimelf	small signal diode, at least 25 volt
+x 3	LED1-3	0805		red led
+
+
+Qty	Part Number		Description		Cost	Vendor
+-----------------------------------------------------------------------
+100	TC164J-10CT-ND		10 ohm res net		$1.12	Digikey
+100	TC164J-220CT-ND		220 ohm res net		$1.12	Digikey
+100	TC164J-10KCT-ND		10K res net		$1.12	Digikey
+100	833-DL4448-TP		switching diodes	$3.00	Mouser
+200	80-C0805C104K5RAC	0.1uF 0805 cap		$6.00	Mouser
