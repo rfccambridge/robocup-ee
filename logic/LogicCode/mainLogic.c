@@ -82,8 +82,8 @@ void main(){
 	unsigned char temp;
 
 	// === Initialization ===
-	initRx(&RxPacket);
-	initKicker();
+//	initRx(&RxPacket);
+//	initKicker();
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
 
@@ -97,8 +97,9 @@ void main(){
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
 
+	ANSEL0 = 0x3f;
 	TRISA = 0x00;
-	PORTA = 0x00;
+	LATA = 0xff;
 
 	TRISD = 0x00;
 	PORTD = 0x00;
@@ -112,6 +113,8 @@ void main(){
 	K_KICK3 = 1;
 	K_KICK4 = 1;
 
+
+	while(1);
 
 	// === Main Loop ===	
 	while(1){
