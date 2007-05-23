@@ -12,10 +12,10 @@ void initKicker()
 {
 	K_CHARGE = 0;
 	K_DISCHARGE = 0;
-	K_KICK1 = 0;
-	K_KICK2 = 0;
-	K_KICK3 = 0;
-	K_KICK4 = 0;
+	K_KICK1 = 1;
+	K_KICK2 = 1;
+	K_KICK3 = 1;
+	K_KICK4 = 1;
 
 	kickState = DISCHARGE;
 
@@ -48,10 +48,10 @@ void handleKicker()
 		case CHARGE:
 			K_CHARGE = 1;
 			K_DISCHARGE = 0;
-			K_KICK1 = 0;
-			K_KICK2 = 0;
-			K_KICK3 = 0;
-			K_KICK4 = 0;
+			K_KICK1 = 1;
+			K_KICK2 = 1;
+			K_KICK3 = 1;
+			K_KICK4 = 1;
 			if (!kickCon.enable)
 				kickState = DISCHARGE;
 			else if (kickCon.kick)
@@ -62,10 +62,10 @@ void handleKicker()
 		case FULL:
 			K_CHARGE = 0;
 			K_DISCHARGE = 0;
-			K_KICK1 = 0;
-			K_KICK2 = 0;
-			K_KICK3 = 0;
-			K_KICK4 = 0;
+			K_KICK1 = 1;
+			K_KICK2 = 1;
+			K_KICK3 = 1;
+			K_KICK4 = 1;
 			if (!kickCon.enable)
 				kickState = DISCHARGE;
 			else if (kickCon.kick)
