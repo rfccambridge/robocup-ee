@@ -8,6 +8,7 @@ qty	board	package		description
 
 3	R1-3	0805		resistor 10, 5%
 1	R4	0805		resistor 220, 5%
+
 1	RN1	0603-concave	4 resistor network, 10, 5%
 1	RN3	0603-concave	4 resistor network, 220, 5%
 2	RN2,4	0603-concave	4 resistor network, 10K, 5%
