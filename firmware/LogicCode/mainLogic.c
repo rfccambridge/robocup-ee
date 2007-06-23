@@ -157,8 +157,10 @@ void main(){
 			// === DRIBBLER ===
 				// dribbler
 				case 'd':
-					// set speed using CCP module
-					// set direction
+					if (RxPacket.data[0] == '0')
+						DRIBBLER = 0;
+					else if (RxPacket.data[0] == '1')
+						DRIBBLER = 1;
 					break;
 
 			// === KICKER ===				
