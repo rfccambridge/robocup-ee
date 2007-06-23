@@ -16,4 +16,7 @@
 #define LED1			PORTDbits.RD2
 #define LED2			PORTDbits.RD3
 
+// === DRIBBLER ===
+#define DRIBBLER		PORTCbits.RC2
+
 #endif // __PINS_H

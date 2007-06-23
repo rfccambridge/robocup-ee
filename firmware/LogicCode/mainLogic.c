@@ -62,18 +62,24 @@ RC0 is used as test output
 
 
 #include <p18f4431.h>
-#include "4Enet.h"
+#include "..\bemixnet\4Enet.h"
 #include "kicker.h"
 #include "pins.h"
+
+
+// *** set configuration word ***
+#pragma config OSC = IRCIO
+#pragma config WDTEN = OFF
+#pragma config LVP = OFF
+
 
 
 void high_ISR();	 //Interrupt Service Routine
 void handleTimer0();
 
 PacketBuffer RxPacket;
-extern PacketBuffer TxPacket;
-
-extern KickerControl kickCon;
+//extern PacketBuffer TxPacket;
+//extern KickerControl kickCon;
 
 
 
@@ -82,8 +88,9 @@ void main(){
 	unsigned char temp;
 
 	// === Initialization ===
-//	initRx(&RxPacket);
-//	initKicker();
+	initRx(&RxPacket);
+	initKicker();
+
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
 
@@ -113,14 +120,14 @@ void main(){
 	K_KICK3 = 1;
 	K_KICK4 = 1;
 
-
-	while(1);
+	// both LEDs off
+	LED1 = 1;
+	LED2 = 1;
 
 	// === Main Loop ===	
 	while(1){
 
 		if (RxPacket.done){
-
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
 
@@ -128,10 +135,6 @@ void main(){
 
 			// === WHEELS ===
 				case 'w':        	//wheel speed and direction control
-					//give signal out to the brushless pic	
-					//0-5v corresponds 0-100% of speed, which is 0-5000 RPM
-					
-					
 					PORTBbits.RB0 = ((RxPacket.data[4]&0b00000001)==1); 					//checking motor 0 (RB bit 0)	RB0
 					PORTBbits.RB2 = ((RxPacket.data[4]&0b00000010)==2);
 					PORTBbits.RB5 = ((RxPacket.data[4]&0b00000100)==4);
@@ -172,12 +175,6 @@ void main(){
 					K_KICK2 = 1;
 					K_KICK3 = 1;
 					K_KICK4 = 1;
-
-//					kickCon.kick1 = ((RxPacket.data[0] & 0x01) == 0x01);
-//					kickCon.kick2 = ((RxPacket.data[0] & 0x02) == 0x02);
-//					kickCon.kick3 = ((RxPacket.data[0] & 0x04) == 0x04);
-//					kickCon.kick4 = ((RxPacket.data[0] & 0x08) == 0x08);
-//					kickCon.kick = 1;
 					break;
 
 				// enable kicker
@@ -186,7 +183,7 @@ void main(){
 					K_KICK2 = 1;
 					K_KICK3 = 1;
 					K_KICK4 = 1;
-					LED1 = 1;
+					LED1 = 0;
 					K_CHARGE = 1;
 				//	kickCon.enable = 1;
 					break;
@@ -197,7 +194,7 @@ void main(){
 					K_KICK2 = 1;
 					K_KICK3 = 1;
 					K_KICK4 = 1;
-					LED1 = 0;			
+					LED1 = 1;			
 					K_CHARGE = 0;
 				//	kickCon.enable = 0;
 					break;
@@ -225,7 +222,7 @@ void interrupt_high_vector(){
 void high_ISR()
 {
 	if (PIR1bits.RCIF) {
-		handleRx(&RxPacket);	
+		handleRx(&RxPacket);
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
 //		handleKicker();

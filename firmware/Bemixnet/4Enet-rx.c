@@ -1,5 +1,5 @@
 #include "4Enet.h"
-#include "..\logic\logiccode\pins.h"
+#include "..\logiccode\pins.h"
 #include <p18f4431.h>
 
 static signed char txPtr;
@@ -46,7 +46,7 @@ void handleRx(PacketBuffer * RxPacket) {
 
 	switch (receiveState) {
 		// expecting escape to start packet
-		case IGNORE:									
+		case IGNORE:
 			if (newByte == ESCAPE_CODE)
 				receiveState = ESCAPE;
 			break;
