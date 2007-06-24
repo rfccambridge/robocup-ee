@@ -69,8 +69,9 @@ RC0 is used as test output
 
 // *** set configuration word ***
 #pragma config OSC = IRCIO
-#pragma config WDTEN = OFF
+#pragma config WDTEN = ON
 #pragma config LVP = OFF
+#pragma config WDPS = 512
 
 
 
@@ -81,48 +82,60 @@ PacketBuffer RxPacket;
 //extern PacketBuffer TxPacket;
 //extern KickerControl kickCon;
 
-
+unsigned char led;
+#define LED_LINK	0x02
+#define LED_POWER	0x01
 
 void main(){
-
 	unsigned char temp;
 
 	// === Initialization ===
 	initRx(&RxPacket);
 	initKicker();
-
+	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
-
+	
 	// initialize timer0 for kicker
 	T0CON = 0b10001000;
 	INTCONbits.TMR0IE = 1;	
-
+	
 	//Power PWM.  PWM 1,3,5,7 used.
 	PWMCON0=0b01110000; 						 //Only Odd PWM pins enabled (default)
 	TRISB = 0b11011010;							//5,2,0 for directional I/O outputs
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
-
+	
 	ANSEL0 = 0x3f;
 	TRISA = 0x00;
 	LATA = 0xff;
-
+	
 	TRISD = 0x00;
 	PORTD = 0x00;
-
+	
 	TRISE = 0x00;
 	PORTE = 0x00;
-
+	
 	// it's PNP!!!
 	K_KICK1 = 1;
 	K_KICK2 = 1;
 	K_KICK3 = 1;
 	K_KICK4 = 1;
-
+	
 	// both LEDs off
 	LED1 = 1;
 	LED2 = 1;
+	led = LED_POWER;
+
+	PDC0H=0;			//Duty cycle for PWM1 -> motor 0
+	PDC0L=0;
+	PDC1H=0;			//Duty cycle for PWM3 -> motor 1
+	PDC1L=0;
+	PDC2H=0;			//Duty cycle for PWM5 -> motor 2
+	PDC2L=0;
+	PDC3H=0;			//Duty cycle for PWM7 -> motor 3
+	PDC3L=0;
+
 
 	// === Main Loop ===	
 	while(1){
@@ -130,6 +143,9 @@ void main(){
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
+
+			ClrWdt();
+			led = LED_LINK;
 
 			switch (RxPacket.port){
 
@@ -228,7 +244,10 @@ void high_ISR()
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
 //		handleKicker();
-		LED2 = !LED2;
+		if (led == LED_POWER)
+			LED2 = !LED2;
+		else if (led == LED_LINK)
+			LED2 = 0;
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
 	//	handleTx();
