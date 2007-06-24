@@ -9,10 +9,6 @@
 #define HEADER_CODE 'H'
 #define END_CODE    'E'
 
-#define MY_ADDRESS  '6'
-
-//#define TX_ENABLE PORTAbits.RA0
-
 typedef struct {
 	unsigned char destination;
 	unsigned char address;							// source for rx, destination for tx
@@ -33,5 +29,7 @@ void initRx(PacketBuffer * RxPacket);
 void initTx(PacketBuffer TxPacket);
 
 void delay();
+
+unsigned char getAddress();
 
 #endif

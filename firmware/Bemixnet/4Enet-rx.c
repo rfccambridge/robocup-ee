@@ -5,6 +5,12 @@
 static signed char txPtr;
 
 
+unsigned char getAddress()
+{
+	return '2' + (PORTDbits.RD4 ? 0 : 1) + (PORTDbits.RD1 ? 0 : 2) + (PORTDbits.RD0 ? 0 : 4);
+}
+
+
 // global variable into which the each received packet is placed.
 // The contents are only valid when RxPacket.done = 1.
 //PacketBuffer RxPacket;
@@ -60,7 +66,7 @@ void handleRx(PacketBuffer * RxPacket) {
 		// expecting destination address, if it matches continue to next state
 		// otherwise go back to IGNORE
 		case HEADER:
-			if (newByte == MY_ADDRESS)
+			if (newByte == getAddress())
 				receiveState = SOURCE;
 			else if (newByte == ESCAPE_CODE)
 				receiveState = ESCAPE;

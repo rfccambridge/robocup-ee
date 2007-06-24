@@ -110,7 +110,7 @@ void main(){
 	TRISA = 0x00;
 	LATA = 0xff;
 	
-	TRISD = 0x00;
+	TRISD = 0b00010011;
 	PORTD = 0x00;
 	
 	TRISE = 0x00;
@@ -139,7 +139,6 @@ void main(){
 
 	// === Main Loop ===	
 	while(1){
-
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
