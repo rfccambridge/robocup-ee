@@ -7,7 +7,7 @@ static signed char txPtr;
 
 unsigned char getAddress()
 {
-	return '2' + (PORTDbits.RD4 ? 0 : 1) + (PORTDbits.RD1 ? 0 : 2) + (PORTDbits.RD0 ? 0 : 4);
+	return '1' + (PORTDbits.RD4 ? 0 : 1) + (PORTDbits.RD1 ? 0 : 2) + (PORTDbits.RD0 ? 0 : 4);
 }
 
 
