@@ -1,5 +1,9 @@
 #include	<p18f4431.h>
 
+// *** Issues ***
+// Low side still PWM'ed
+
+
 // *** set configuration word ***
 #pragma config OSC = IRCIO
 #pragma config WDTEN = OFF
@@ -96,6 +100,9 @@ void main(){
 	} while(1);
 }
 
+
+// OVCONS = mask
+// OVCOND = value when masked
 
 void commutateMotor()
 {
