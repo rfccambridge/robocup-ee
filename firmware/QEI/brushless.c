@@ -101,8 +101,8 @@ void main(){
 }
 
 
-// OVCONS = mask
-// OVCOND = value when masked
+// OVCOND = mask
+// OVCONS = value when masked
 
 void commutateMotor()
 {
@@ -139,5 +139,5 @@ void commutateMotor()
 void breakMotor()
 {
 	OVDCOND = 0x00;
-	OVDCONS = 0x07;
+	OVDCONS = 0x38;
 }
