@@ -1,9 +1,5 @@
 #include	<p18f4431.h>
 
-// *** Issues ***
-// Low side still PWM'ed
-
-
 // *** set configuration word ***
 #pragma config OSC = IRCIO
 #pragma config WDTEN = OFF
@@ -125,19 +121,28 @@ void commutateMotor()
 	// read the hall sensors
 	unsigned char hall = HALL;
 
+	// to prevent glitching
+	unsigned char _OVDCOND;
+	unsigned char _OVDCONS;
+
 	if (DIRECTION) {
 		// PWM high side
-		OVDCOND = fordrive[hall] & 0b00111000;
+		_OVDCOND = fordrive[hall] & 0b00111000;
 		// turn on low side
-		OVDCONS = ~(fordrive[hall] & 0b00000111);
+		_OVDCONS = ~(fordrive[hall] & 0b00000111);
 	} else {
-		OVDCOND = backdrive[hall] & 0b00111000;
-		OVDCONS = ~(backdrive[hall] & 0b00000111);
+		_OVDCOND = backdrive[hall] & 0b00111000;
+		_OVDCONS = ~(backdrive[hall] & 0b00000111);
 	}
+
+	OVDCOND = _OVDCOND;
+	OVDCONS = _OVDCONS;
 }
 
 void breakMotor()
 {
+	// All PWMs masked
 	OVDCOND = 0x00;
+	// low side mosfets on, high side off
 	OVDCONS = 0x38;
 }
