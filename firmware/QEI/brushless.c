@@ -2,8 +2,9 @@
 
 // *** set configuration word ***
 #pragma config OSC = IRCIO
-#pragma config WDTEN = OFF
+#pragma config WDTEN = ON
 #pragma config LVP = OFF
+#pragma config WDPS = 256
 
 // *** pin definitions ***
 #define LED1		LATEbits.LATE2
@@ -21,6 +22,7 @@ void main(){
 	unsigned char dutyCycle;
 	unsigned char dutyHigh;
 	unsigned char dutyLow;
+	unsigned char oldHall;
 
 	// *** 8 MHz clock ***
 	OSCCON = 0b01110000;
@@ -70,6 +72,12 @@ void main(){
 			LED3 = 0;
 		else
 			LED3 = 1;
+
+		// watchdog timer
+		if (oldHall != HALL) {
+			ClrWdt();
+			oldHall = HALL;
+		}
 
 		// break for low speeds
 		if (dutyHigh==0x03 && dutyLow>0xA0)

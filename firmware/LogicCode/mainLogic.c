@@ -91,7 +91,6 @@ void main(){
 
 	// === Initialization ===
 	initRx(&RxPacket);
-	initKicker();
 	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
@@ -121,6 +120,7 @@ void main(){
 	K_KICK2 = 1;
 	K_KICK3 = 1;
 	K_KICK4 = 1;
+	K_CHARGE = 0;
 	
 	// both LEDs off
 	LED1 = 1;
@@ -135,7 +135,6 @@ void main(){
 	PDC2L=0;
 	PDC3H=0;			//Duty cycle for PWM7 -> motor 3
 	PDC3L=0;
-
 
 	// === Main Loop ===	
 	while(1){
@@ -242,15 +241,13 @@ void high_ISR()
 		handleRx(&RxPacket);
 		PIR1bits.RCIF = 0;
 	} else if (INTCONbits.TMR0IF) {
-//		handleKicker();
 		if (led == LED_POWER)
 			LED2 = !LED2;
 		else if (led == LED_LINK)
 			LED2 = 0;
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
-	//	handleTx();
-	//	PIR1bits.TXIF = 0;
+		PIR1bits.TXIF = 0;
 	}
 }
 #pragma

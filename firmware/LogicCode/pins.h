@@ -4,13 +4,11 @@
 #define __PINS_H
 
 // === KICKER ===
-#define	K_KICK1			PORTAbits.RA4		// SCR 1 (out)
-#define	K_KICK2			PORTAbits.RA5		// SCR 2 (out)
-#define	K_KICK3			PORTEbits.RE0		// SCR 3 (out)
-#define	K_KICK4			PORTEbits.RE1		// SCR 4 (out)
-#define	K_CHARGE		PORTEbits.RE2		// charges (out)
-#define	K_DISCHARGE		PORTDbits.RD5		// discharges (out)
-#define	K_OVERVOLTAGE	PORTAbits.RA0		// threshold voltage reached (in)
+#define K_KICK1			LATAbits.LATA0
+#define K_KICK2			LATAbits.LATA4
+#define K_KICK3			LATAbits.LATA5
+#define K_KICK4			LATEbits.LATE0
+#define K_CHARGE		LATEbits.LATE2
 
 // === DEBUG ===
 #define LED1			PORTDbits.RD2
