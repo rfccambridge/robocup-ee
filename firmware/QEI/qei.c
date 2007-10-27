@@ -231,6 +231,7 @@ void interrupt_high_vector(){
 #pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
 void high_ISR()
 {
+	unsigned static int integral, old_error;
 	unsigned int velocity;
 	unsigned char velh, vell;
 	unsigned char dutyHigh, dutyLow;
@@ -267,8 +268,11 @@ void high_ISR()
 		while(!PIR1bits.TXIF);		
 		txHex(velh);
 		txHex(vell);
-
+		
+		//p 
 		velocity = velocity * 25;
+		//i
+
 		vell = velocity;
 		velh = velocity >> 8;
 		if (velh > 0x03) velh = 0x03;
