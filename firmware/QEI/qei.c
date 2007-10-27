@@ -241,7 +241,7 @@ void high_ISR()
 		// read and reset position accumulator
 		velocity = POSCNTH;
 		velocity = velocity << 8;
-		velocity += POSCNTL;
+		velocity += POSCNTL;//16 bit "velocity"
 		POSCNTH = 0x80;
 		POSCNTL = 0x00;
 		
@@ -274,6 +274,7 @@ void high_ISR()
 		if (velh > 0x03) velh = 0x03;
 		
 
+		//Sett
 		dutyHigh = 0x03 - velh;
 		dutyLow = 0xff - vell;
 
@@ -297,7 +298,8 @@ void high_ISR()
 		while(!PIR1bits.TXIF);
 		TXREG = 10;
 
-
+		
+//Setting outputs
 		PDC0H = dutyHigh;
 		PDC0L = dutyLow;
 		PDC1H = dutyHigh;
