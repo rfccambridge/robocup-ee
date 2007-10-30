@@ -1,49 +1,27 @@
-Digikey,,,,,
-Part Number,Description,Package,Unit Price,Quantity,Total
-210526PS,Mosfet IRF620,TO220,$0.45 ,150,$67.50 
-RXM-900-HP3-PPS-ND,radio,SIP,$44.98 ,5,$224.90 
-ANT-916-SP-ND,ANTENNA 916MHZ PLANAR (SMT),,$2.08 ,2,$4.16 
-497-4668-2-ND,Dribbler Mosfet,SOT223,$0.33 ,10,$3.28 
-US1M-FDICT-ND,DIODE ULTRA-FST GPP 1000V 1A SMA,SMA,$0.77 ,10,$7.70 
-GS1M-TPCT-ND,slow diodes,SMA,$0.15 ,30,$4.50 
-S6025L-ND,,TO-220,$1.87 ,25,$46.75 
-MMBT3906LT1GOSCT-ND,SOT23 PNP Transistor ,SOT23,$0.15 ,50,$7.30 
-576-1191-ND,SO-08 MIC4420 MOSFET Driver,8-SOIC,$1.55 ,10,$15.50 
-LM555CM-ND,SO-08 LM555 Timer,8-SOIC,$1.13 ,10,$11.30 
-TC164J-10CT-ND,10 ohm res net,603,$0.01 ,100,$1.00 
-TC164J-220CT-ND,220 ohm res net,603,$0.01 ,100,$1.00 
-TC164J-10KCT-ND,10K res net,603,$0.01 ,100,$1.00 
-,,,,,
-,,,,,
-Newark,,,,,
-61K3473,PIC 18F4431,44-TQFP,$4.23 ,25,$105.75 
-58K5837,IC DRIVER BRIDGE 3-PHASE 28-SOIC,28SOIC,$8.67 ,25,$216.75 
-,,,,,
-,,,,,
-Mouser,,,,,
-260-220-RC,R0805 Resistor 220,R0805,$0.02 ,100,$2.00 
-260-10K-RC,R0805 Resistor 10k,R0805,$0.02 ,100,$2.00 
-260-10-RC,R0805 Resistor 10 Ohm,R0805,$0.02 ,100,$2.00 
-260-2.2K-RC,R0805 Resistor 2.2k,R0805,$0.02 ,100,$2.00 
-260-1K-RC,R0805 Resistor 1k,R0805,$0.02 ,100,$2.00 
-260-390-RC,R0805 Resistor 390 Ohm,R0805,$0.02 ,100,$2.00 
-260-51-RC,R0805 Resistor 51 Ohm,R0805,$0.02 ,100,$2.00 
-645-598-8110-107F,Red LED,805,$0.12 ,100,$12.00 
-611-1101m2s3aqe2,switch,,$2.66 ,10,$26.60 
-538-51021-0400,1.25mm Connectors RECEPTACLE 4 POS,,$0.32 ,16,$5.12 
-538-50079-8000,1.25mm Connectors TERMINAL 26-28 REEL,,$0.06 ,16,$0.96 
-844-IRFP250PBF,Charging Mosfet,To-247,$3.26 ,10,$32.60 
-10pa220,Power pushbutton switch for discharging 1a/125v,,$1.22 ,5,$6.10 
-833-DL4448-TP,switching diode,minimelf,$0.03 ,100,$3.00 
-80-C0805C104K5RAC,0.1uF ceramic cap,805,$0.03 ,200,$6.00 
-121-0622/O-GR,battery pack connectors/snaps,,$0.29 ,25,$7.25 
-533-24-6337-6417,Solder 63/37 .025 1#SPL,,$24.96 ,1,$24.96 
-533-2331,WS FLUX PEN,,$4.23 ,1,$4.23 
-,,,,,
-,,,,,
-Jameco,,,,,
-210260cg,"Neon lamp, 0.7mA, wire leads",,$0.25 ,25,$6.25 
- 
-,,,,,
-,,,,,
-,,,,,"$1,030.00 "
+Vendor,Part Number,Description,Package,Unit Price,Quantity
+
+Examples,,,,,
+Digikey,210526PS,Mosfet IRF620,TO220,$0.45 ,150
+Digikey,RXM-900-HP3-PPS-ND,radio,SIP,$44.98 ,5
+Newark,61K3473,PIC 18F4431,44-TQFP,$4.23 ,25
+Newark,58K5837,IC DRIVER BRIDGE 3-PHASE 28-SOIC,28SOIC,$8.67 ,25
+Mouser,260-220-RC,R0805 Resistor 220,R0805,$0.02 ,100
+Mouser,260-10K-RC,R0805 Resistor 10k,R0805,$0.02 ,100
+Jameco,210260cg,"Neon lamp, 0.7mA, wire leads",,$0.25 ,25
+Jameco,338394CG,2 Pin Connecter (female),,$0.25 ,25
+
+
+Kicker,,,,,
+
+
+Ball Detector,
+
+
+Power Convertor,
+
+
+Driver Chip,
+
+
+Other,
+,breadboarding wires
