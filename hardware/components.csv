@@ -7,6 +7,14 @@ Newark,61K3473,PIC 18F4431,44-TQFP,$4.23 ,25
 Newark,58K5837,IC DRIVER BRIDGE 3-PHASE 28-SOIC,28SOIC,$8.67 ,25
 
 
+Brushless,
+
+Digikey,620-1130-1-ND,Drivers Chip (A3938SLDTR-T),TSSOP,5.94,1
+Mouser,512-IRF720B,MOSFET(IRF720B),TO-220,0.86,6
+Mouser,531-PT6KV-2K,Variable Resistor (PT6KV-02300-PT6KV-202A2020),,0.28,1
+
+
+
 Kicker,
 
 
@@ -21,17 +29,24 @@ Big Resistor	Not Ordering More
 							
 Resistors							
 Value	Quantity						
-0	9						
-1k	15						
-80k	12						
-220	3						
+0,	10
+10,	6						
+1k,	16
+5.1k,	1
+10k,	6
+20k,	1
+40k,	1
+50k,	1						
+80k,	12						
+220,	3						
 							
 Capacitors							
-Value	Quantity						
-.01u	3						
-.1u	9						
-100u	3						
-10u	3						
+Value	Quantity
+.001u,	1						
+.01u,	3						
+.1u,	16											
+10u,	5
+100u,	4						
 
 
 
