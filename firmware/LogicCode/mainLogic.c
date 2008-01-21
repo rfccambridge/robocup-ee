@@ -100,17 +100,21 @@ void main(){
 	INTCONbits.TMR0IE = 1;	
 	
 	//Power PWM.  PWM 1,3,5,7 used.
-	PWMCON0=0b01110000; 						 //Only Odd PWM pins enabled (default)
-	TRISB = 0b11011010;							//5,2,0 for directional I/O outputs
-	PTPERH = 0x00;
-	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
+	PWMCON0=0b00000000;// no pwm, except dribbler. I think this disable just the brushless? 0b01110000; //Only Odd PWM pins enabled (default)
+	
+	TRISB = 0b11000000;							//5-0 are set as outputs
+	//PTPERH = 0x00;Don't need cause no pwm
+	//PTPERL = 0xFF;								//Setting PWM Period to 8 bits
+
+	//Speed and direction are used to signal burshless number where speed is the least significant bit, so
+	PORTB = 0b00001001;
 	
 	ANSEL0 = 0x3f;
 	TRISA = 0x00;
 	LATA = 0xff;
 	
 	TRISD = 0b00010011;
-	PORTD = 0x00;
+	PORTD = 0b11000000;//sets the old dir4 and speed4 pins high so that brushless board knows it's board 4 (where 00 is one)
 	
 	TRISE = 0x00;
 	PORTE = 0x00;
@@ -127,14 +131,16 @@ void main(){
 	LED2 = 1;
 	led = LED_POWER;
 
-	PDC0H=0;			//Duty cycle for PWM1 -> motor 0
+//pwm not used because those pins are now being used to tell
+// the brushless boards which board they are.
+	/*PDC0H=0;			//Duty cycle for PWM1 -> motor 0
 	PDC0L=0;
 	PDC1H=0;			//Duty cycle for PWM3 -> motor 1
 	PDC1L=0;
 	PDC2H=0;			//Duty cycle for PWM5 -> motor 2
 	PDC2L=0;
 	PDC3H=0;			//Duty cycle for PWM7 -> motor 3
-	PDC3L=0;
+	PDC3L=0;*/
 
 	// === Main Loop ===	
 	while(1){
@@ -149,6 +155,8 @@ void main(){
 
 			// === WHEELS ===
 				case 'w':        	//wheel speed and direction control
+//Do nothing because the logic pic now has nothing to do with driving the brushless
+/*
 					PORTBbits.RB0 = ((RxPacket.data[4]&0b00000001)==1); 					//checking motor 0 (RB bit 0)	RB0
 					PORTBbits.RB2 = ((RxPacket.data[4]&0b00000010)==2);
 					PORTBbits.RB5 = ((RxPacket.data[4]&0b00000100)==4);
@@ -165,6 +173,7 @@ void main(){
 					PDC3L=RxPacket.data[3]<<2;
 				
 					PTCON1bits.PTEN = 1;					//PWM timer enabled
+*/
 		
 					break;
 			
