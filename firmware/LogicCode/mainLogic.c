@@ -87,6 +87,7 @@ unsigned char led;
 #define LED_POWER	0x01
 
 void main(){
+	int q = 0;
 	unsigned char temp;
 
 	// === Initialization ===
@@ -142,14 +143,28 @@ void main(){
 	PDC3H=0;			//Duty cycle for PWM7 -> motor 3
 	PDC3L=0;*/
 
-	// === Main Loop ===	
+	// === Main Loop ===
+
+	/*LED1 = 1;
+	LED2 = 1;
+	LED1 = 0;
+	LED2 = 0;
+	LED1 = 1;
+	LED2 = 1;
+	LED1 = 0;
+	LED2 = 0;*/
+
 	while(1){
+
+
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
 
 			ClrWdt();
 			led = LED_LINK;
+
+
 
 			switch (RxPacket.port){
 
@@ -204,11 +219,29 @@ void main(){
 
 				// enable kicker
 				case 'E':
+					/*
 					K_KICK1 = 1;
 					K_KICK2 = 1;
 					K_KICK3 = 1;
 					K_KICK4 = 1;
-					LED1 = 0;
+					*/
+
+					if(LED2 == 0) {
+						LED1 = 1;
+						LED2 = 1;
+						LED1 = 0;
+						LED2 = 0;
+						LED1 = 1;
+						LED2 = 1;
+					} else {
+						LED1 = 0;
+						LED2 = 0;
+						LED1 = 1;
+						LED2 = 1;
+						LED1 = 0;
+						LED2 = 0;
+					}
+
 					K_CHARGE = 1;
 				//	kickCon.enable = 1;
 					break;
