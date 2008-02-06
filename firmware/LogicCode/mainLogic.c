@@ -204,6 +204,7 @@ void main(){
 			// === KICKER ===				
 				// kick
 				case 'K':
+					K_CHARGE = 0;
 					K_KICK1 = 0;
 					K_KICK2 = 0;
 					K_KICK3 = 0;
@@ -226,21 +227,7 @@ void main(){
 					K_KICK4 = 1;
 					*/
 
-					if(LED2 == 0) {
-						LED1 = 1;
-						LED2 = 1;
-						LED1 = 0;
-						LED2 = 0;
-						LED1 = 1;
-						LED2 = 1;
-					} else {
-						LED1 = 0;
-						LED2 = 0;
-						LED1 = 1;
-						LED2 = 1;
-						LED1 = 0;
-						LED2 = 0;
-					}
+					
 
 					K_CHARGE = 1;
 				//	kickCon.enable = 1;
@@ -252,7 +239,7 @@ void main(){
 					K_KICK2 = 1;
 					K_KICK3 = 1;
 					K_KICK4 = 1;
-					LED1 = 1;			
+					
 					K_CHARGE = 0;
 				//	kickCon.enable = 0;
 					break;
