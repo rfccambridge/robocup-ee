@@ -155,8 +155,6 @@ void main(){
 	LED2 = 0;*/
 
 	while(1){
-
-
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;

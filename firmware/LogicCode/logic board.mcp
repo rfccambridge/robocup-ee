@@ -25,12 +25,12 @@ file_004=no
 file_005=no
 file_006=no
 [FILE_INFO]
-file_000=mainLogic.c
-file_001=kicker.c
-file_002=C:\Documents and Settings\Robocup\Desktop\RobocupEE\trunk\firmware\Bemixnet\4Enet-rx.c
-file_003=pins.h
-file_004=kicker.h
-file_005=C:\Documents and Settings\Robocup\Desktop\RobocupEE\trunk\firmware\Bemixnet\4Enet.h
+file_000=kicker.c
+file_001=mainLogic.c
+file_002=C:\RobocupEE\trunk\firmware\Bemixnet\4Enet-rx.c
+file_003=kicker.h
+file_004=pins.h
+file_005=C:\RobocupEE\trunk\firmware\Bemixnet\4Enet.h
 file_006=C:\MCC18\lkr\18f4431.lkr
 [SUITE_INFO]
 suite_guid={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
