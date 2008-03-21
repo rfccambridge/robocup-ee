@@ -1,102 +1,87 @@
-Vendor,Part Number,Description,Package,Unit Price,Quantity
-
-Examples,,,,,
-
-Brushless,
-
-Digikey,620-1130-1-ND,Drivers Chip (A3938SLDTR-T),TSSOP,5.94,1
-Mouser,512-IRF720B,MOSFET(IRF720B),TO-220,0.86,6
-Mouser,531-PT6KV-2K,Variable Resistor (PT6KV-02300-PT6KV-202A2020),,0.28,1
-
-
-
-Kicker,
-
-
-Linear, LT1070CT, ???, 7.08, 3
-Transformer	Not Ordering More						
-Mouser, 512-IRF720B, MOSFET, TO220, 0.86, 3
-Mouser, 511-TYN608, SCR,TO220CS, 0.89, 3
-Mouser, 511-LM317T, Regulator, TO220H, 0.35, 3
-Mouser, 821-ES2D, Diode, SMB, 0.16, 3
-
-Big Resistor	Not Ordering More						
-							
-Resistors	Total						
-Value	Quantity						
-0,	10
-10,	6	
-110	12
-510	3					
-1k,	16
-3.3K	3
-4.7K	3
-5.1k,	1
-8.2K	3
-10k,	6
-15k	3
-20k,	1
-40k,	1
-50k,	1					
-80k,	12
-160K	3					
-220,	3					
-							
-Capacitors							
-Value	Quantity
-
-220 pF
-.001u,	1						
-.01u,	3						
-.022uF
-.1u,	16											
-.68uF
-4.7uF
-10u,	5
-100u,	4
-
-
-Ball Detector,
-
-Part Number (digikey)	Description	Quantity
-296-1337-5-ND, IC CMOS TIMER 8-SOIC,	3
-LTC1440CS8-ND,	IC COMP W/REF LP SINGLE 8-SOIC,	6
-MM74HC86MXCT-ND, IC GATE OR QUAD 2INP EXCL 14SOIC, 3
-		SMD LED, 6
-
-
-
-Resistors		
-Value	Description	Quantity
-110	SMD		12
-510	SMD		3
-1000	SMD		6
-8.2K	SMD		33
-160K	SMD		3
-
-Capacitors		
-Value	Description	Quantity
-0.1 microF	SMD	9
-
-
-Power Convertor,
-
-Linear, LT3430EFE, Buck switching regulator, TSSOP, $7.07, 3
-                       
-DigiKey, 308-1433-1-ND, INDUCTOR POWER 33UH 2.30A, CutTape(CT) $ 2.45, 3
-      (CDRH104RNP-330NC)                                   or Tape & Reel(TR) $ 1.24
-                                                 (10.5mm x 10.3mm x 4mm)
-
-DigiKey, 30BQ060-ND, DIODE SCHOTTKY 60V 3A SMC, DO-214AB (SMC), $1.75, 3
-3
-DigiKey, MMSD914T1GOSCT-ND, DIODE SWITCH 100V SOD123 ON, SOD-123, $0.214, 3
-
-
-Capacitors:
-Ceramic: 4.7 microF(100V), 0.022microF, 220 pF, 0.68microF
-Solid tantalum capacitor of 100 microF,10V (should this go as a special part??)
-
-Resistors: 3.3k, <15.4k, <4.99k
-
-Other,
-,breadboarding wires
+"Vendor","Distributer part # (manufacturer part number)","Description","Package","Unit Price","Quantity"
+,,,,,
+"Examples",,,,,
+,,,,,
+"Brushless",,,,,
+,,,,,
+"Digikey","620-1130-1-ND","Drivers Chip (A3938SLDTR-T)","TSSOP",5.94,1
+"Mouser","512-IRF720B","MOSFET(IRF720B)","TO-220",0.86,6
+"Mouser","531-PT6KV-2K","Variable Resistor (PT6KV-02300-PT6KV-202A2020)",,0.28,1
+,,,,,
+,,,,,
+,,,,,
+"Kicker",,,,,
+,,,,,
+,,,,,
+"Linear"," LT1070CT"," ???",7.08,3,
+"Transformer	Not Ordering More						",,,,,
+"Mouser"," 512-IRF720B"," MOSFET"," TO220",0.86,3
+"Mouser"," 511-TYN608"," SCR","TO220CS",0.89,3
+"Mouser"," 511-LM317T"," Regulator"," TO220H",0.35,3
+"Mouser"," 821-ES2D"," Diode"," SMB",0.16,3
+,,,,,
+"Big Resistor	Not Ordering More						",,,,,
+"							",,,,,
+"Resistors	Total						",,,,,
+"Value	Quantity						",,,,,
+0,"	10",,,,
+10,"	6	",,,,
+"110	12",,,,,
+"510	3					",,,,,
+"1k","	16",,,,
+"3.3K	3",,,,,
+"4.7K	3",,,,,
+"5.1k","	1",,,,
+"8.2K	3",,,,,
+"10k","	6",,,,
+"15k	3",,,,,
+"20k","	1",,,,
+"40k","	1",,,,
+"50k","	1					",,,,
+"80k","	12",,,,
+"160K	3					",,,,,
+220,"	3					",,,,
+"							",,,,,
+"Capacitors							",,,,,
+"Value	Quantity",,,,,
+,,,,,
+"220 pF",,,,,
+".001u","	1						",,,,
+".01u","	3						",,,,
+".022uF",,,,,
+".1u","	16											",,,,
+".68uF",,,,,
+"4.7uF",,,,,
+"10u","	5",,,,
+"100u","	4",,,,
+,,,,,
+,,,,,
+"Ball Detector",,,,,
+,,,,,
+"Part Number (digikey)	Description	Quantity",,,,,
+"296-1337-5-ND"," IC CMOS TIMER 8-SOIC","	3",,,
+"LTC1440CS8-ND","	IC COMP W/REF LP SINGLE 8-SOIC","	6",,,
+"MM74HC86MXCT-ND"," IC GATE OR QUAD 2INP EXCL 14SOIC",3,,,
+"		SMD LED",6,,,,
+,,,,,
+"Mother Board",,,,,
+"Digikey","296-15361-1-nd (LMV324SIDR)","Op amp quad 16-SOIC",,,
+,,,,,
+,,,,,
+,,,,,
+"Generic: (parts that apply to multiple boards all surface mount resistors capacitors and LEDs)",,,,,
+,,,,,
+"Resistors  ",,,,,
+"Value       ","Quantity kicker","Quantity auxillery kicker","Quantity motherboard","Quantity brushless",
+,,,,,
+,,,,,
+,,,,,
+"Capacitors       ",,,,,
+"Value      ","Quantity kicker","Quantity auxillery kicker","Quantity motherboard","Quantity brushless",
+,,,,,
+,,,,,
+,,,,,
+"LEDs",,,,,
+"Part number","Quantity kicker","Quantity auxillery kicker","Quantity motherboard","Quantity brushless",
+,,,,,
+"Pics",,,,,
