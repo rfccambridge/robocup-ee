@@ -1,6 +1,6 @@
 "Vendor","Distributer part # (manufacturer part number)","Description","Package","Unit Price","Quantity",,
 ,,,,,,,
-"Examples",,,,,,,
+"Examples blabity blab2",,,,,,,
 ,,,,,,,
 "Brushless",,,,,,,
 "Mouser","512-IRF720B","MOSFET(IRF720B)","TO-220",0.86,6,,
@@ -9,7 +9,7 @@
 "Mouser","210526PS","Mosfet IRF620","TO220",,,150,0
 "Digikey","833-DL4448-TP","switching diode","minimelf",,,100,0
 ,,,,,,,
-"Kicker blabity blab",,,,,,,
+"Kicker",,,,,,,
 ," LT1070CT"," ???",7.08,3,,,
 ,,,,,,,
 "Linear"," 512-IRF720B"," MOSFET"," TO220",0.86,3,,
