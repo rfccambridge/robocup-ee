@@ -18,7 +18,7 @@
 "Newark","61K3473","PIC 18F4431","44-TQFP",,,25,0
 "Newark","58K5837","IC DRIVER BRIDGE 3-PHASE 28-SOIC","28SOIC",,,25,0
 "Mouser","210526PS","Mosfet IRF620","TO220",,,150,0
-"Digikey","833-DL4448-TP","switching diode","minimelf",,,100,0
+"Digikey","DL4151TPMSCT-ND ","switching diode","minimelf",0.05,100,,
 ,,,,,,,
 "Kicker",,,,,,,
 "Linear"," LT1070CT"," ???",,7.08,3,,
