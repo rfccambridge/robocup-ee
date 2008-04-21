@@ -1,0 +1,223 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf440
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid0\'02\'05.;}{\levelnumbers\'01;}}{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid0\'02\'05.;}{\levelnumbers\'01;}}{\listlevel\levelnfc23\levelnfcn23\leveljc2\leveljcn2\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'02\'05.;}{\levelnumbers\'01;}}{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww24280\viewh15120\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Kicker not working wrong mode?\
+Prioritze.\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Brushless:
+\f0\b0 \
+Fault pin from Mosfet driver to PIC with resistor and zener diode.\
+current sense hooked up for mosfet driver\
+Detect bad encoders and bad hall sensors.\
+rev. 3 updated with edits (capacitors)\
+move LEDs farther apart.\
+only transmit data when requested\
+increase transmit speed.\
+on header connected to 5v\
+Pins:\
+ground\
++5\
++12(battery)\
+encoder1\
+encoder2\
+hall1\
+hall2\
+hall3\
+motor1\
+motor2\
+motor3\
+Transmit, \
+enable transmit (float if not transmitting, pull low if transmitting) or vice versa, so that transmitter is only on when there is data to be transmitted.\
+receive pin to receive radio commands.\
+brushless motor id bit0 (set in hardware on motherboard)\
+brushless motor id bit1\
+Robot id bit0 (from switch on motherboard)\
+Robot id bit 1\
+Robot id bit 2\
+Robot id bit 3\
+\
+\
+\
+
+\f1\b Kicker:
+\f0\b0 \
+Will have charging and discharging circuitry,\
+Connect through the header to Capacitors(which are on the motherboard) and to the 3 solenoids(which will plug into the motherboard).\
+	One solenoid for main kicker. The other two solenoids in series (Walker in favor of Ben mostly agrees Kyle less sure). Should do math to check series better than parallel.\
+2 powers of kicking.\
+A header pin that can take high current and high voltage.\
+Each power trace coupled with its own ground. (Both solenoid wires should go to the kicker board so current \
+\
+Pins:\
+capacitor1 +\
+cap1 -\
+cap2 +\
+cap2 -\
+main inductor +\
+main inductor -\
+inductor pair +\
+inductor pair -\
+------\
++5\
+ground\
++ 12(battery voltage)\
+kick main solenoid 1/2 strength\
+kick main solenoid full strength\
+kick chip solenoids 1/2 strength\
+kick chip solenoids full strength\
+enable charging (charging when high)\
+discharge through power resistor when high\
+\
+
+\f1\b Auxillery Kicker Board\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 a few indicator LEDs\
+Pins:\
+Dribbler +\
+Dribbler -\
+Photo diode +\
+photo diode -\
+photo LED\
+kick main solenoid 1/2 strength\
+kick main solenoid full strength\
+kick chip solenoids 1/2 strength\
+kick chip solenoids full strength\
+enable charging (charging when high)\
+discharge through power resistor when high\
+cap1 voltage (0-5v) [from voltage divider on motherboard]\
+cap2 voltage (0-5v) [from voltage divider on motherboard]\
+transmit\
+transmit enable\
+receive\
+ground\
++5\
++12(battery)\
+Robot id bit0\
+Robot id bit 1\
+Robot id bit 2\
+Robot id bit 3\
+\
+Variable speed dribbling in one direction\
+Receives and parses radio commands to control kicker. Send back any relevant information.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Motheboard:
+\f0\b0 \
+Power switch\
+Robot ID selector switches\
+\
+
+\f1\b Radio:
+\f0\b0 \
+Communication each board.\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\ql\qnatural\pardirnatural
+\ls1\ilvl0\cf0 3 communication pins:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 1. Transmit, \
+2. enable transmit (float if not transmitting, pull low if transmitting) or vice versa, so that transmitter is only on when there is data to be transmitted.\
+receive pin to receive radio commands.\
+Gyro board when plugged in, can intercept radio commands change if needed and retransmit.\
+The USB and radios will go to the Gyro board, which will then send things on to the rest of the robot.\
+Transmitter and receiver on Motherboard with better (bigger) antennas. \
+Have a usb hub with built in usb to serial convertor. (transmit is always connected to USB Receive is switch activated)\
+Radio Channel Selector for transmitter and receiver.\
+Switch to switch between listening to radios and listening to the usb Hub.\
+\
+2 Capacitors soldered on directly.\
+\
+Connectors:\
+each battery pack\
+3 solenoid\
+1 dribbler\
+photodiode\
+breakbeam LED\
+4 motor\
+4 encoder (probable)\
+4 Brushless headers\
+1 Auxiliary Kicker header\
+1 Kicker header\
+1 Gryo board header\
+1 USB connector\
+3 Widgets(Kyle)\
+\
+Indicators:\
+Power on\
+LED's from Voltage monitor \
+Neon for each capacitor.\
+LED's for transmit, receive, and transmit enabled lines (just wired across serial through a buffer).\
+\
+\
+Switching Regulator:\
+step down battery voltage to +5\
+\
+Voltage dividers for each capacitor:\
+Resistor voltage divider and buffer(Op amp) to Auxiliary brushless board.\
+\
+ Voltage monitor:\
+(comparator with voltage divider) Yellow-Low Red-Dead.\
+\
+\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1\cf0 \
+\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1
+\f1\b \cf0 Power:
+\f0\b0 \
+Battery voltage should be between 12 and 20v so can drive the motors as is.\
+Need to handle 5Amps peak draw and ?????Ah\
+\
+separate power regulated(+12) and or bipassed for ICs, current limit motors.\
+\
+\ls2\ilvl1
+\f1\b Gyro board:\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1
+\f0\b0 \cf0 Gyro board will serve as a bridge between the usb and radio, and the rest of the boards(if it wants for now just a dummy board)\
+Has a Pic, some indicator LED's and a Gyro and related circuitry.\
+How position and orient board?\
+\
+Pins:\
++5\
++12\
+ground\
+receive data in\
+receive data out\
+transmitter enable in\
+transmitter enable out\
+transmitter enable in\
+transmitter enable out\
+\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1
+\f1\b \cf0 \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\ql\qnatural\pardirnatural
+\ls2\ilvl1
+\f0\b0 \cf0 \
+\
+\
+Board sizes and side header pins are on.\
+\
+Find specs for 2 smaller solenoids take 400v?}
