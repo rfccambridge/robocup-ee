@@ -7,7 +7,7 @@ static signed char txPtr;
 
 unsigned char getAddress()
 {
-	return ROBOT_NUMBER;
+	return 8*PORTDbits.RD3 + 4*PORTDbits.RD2 + 2*PORTDbits.RD1 + PORTDbits.RD0;
 }
 
 
