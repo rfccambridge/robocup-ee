@@ -148,10 +148,10 @@ void main()
 	// Front right wheel, then is the front left wheel and then the rear left wheel. The byte contains a signed 8 bit number.
 	
 			Presently soley for the purposes of hacked 2006-2007 bots for the 2008 qual video, Robot ID will be hardcoded. 
-The logic board will pull up/down the speed and direction bits, so each robot knows which wheel it's for.
+The logic board will pull up/down the speed and direction bits, so each robot knows which wheel it's for.//now two bbid pins
 Depending on which wheel this board is for will determine which element of the data array it will get, and which bit is its direction
 */				
-					command = RxPacket.data[PORTAbits.AN0 + 2*PORTDbits.RD1];//RxPacket.data[0];
+					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];
 							
 					break;
 				case 'f':
