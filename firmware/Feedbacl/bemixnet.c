@@ -3,11 +3,11 @@
 
 static signed char txPtr;
 
-#define ROBOT_NUMBER	'1'
+#define ROBOT_NUMBER	'0'
 
 unsigned char getAddress()
 {
-	return 8*PORTDbits.RD3 + 4*PORTDbits.RD2 + 2*PORTDbits.RD1 + PORTDbits.RD0;
+	return '0'+ 8*PORTDbits.RD3 + 4*PORTDbits.RD2 + 2*PORTDbits.RD1 + PORTDbits.RD0;
 }
 
 

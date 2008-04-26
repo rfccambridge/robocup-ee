@@ -14,6 +14,7 @@
 #define LED1			LATEbits.LATE2
 #define LED2			LATEbits.LATE1
 #define LED3			LATEbits.LATE0
+#define LED4			LATAbits.LATA5
 
 #define min(a,b) (a<b) ? a : b
 
@@ -62,7 +63,7 @@ void main()
 	// *** Configure IO ***
 	ANSEL0 = 0x00;//ANSEL0 = 0x01;						// AN0 analog, all others digital
 	ANSEL1 = 0x00;
-	TRISA = 0xff;
+	TRISA = 0xdf;
 	TRISB = 0xff;
 	TRISC = 0xff;
 	TRISD = 0xff; 
@@ -91,12 +92,12 @@ void main()
 	LED3 = 1;
 
 	// speed for testing
-//	PDC0H = dutyHigh;
-//	PDC0L = dutyLow;
-//	PDC1H = dutyHigh;
-//	PDC1L = dutyLow;
-//	PDC2H = dutyHigh;
-//	PDC2L = dutyLow;
+	PDC0H = 0x80;
+	PDC0L = 0x80;
+	PDC1H = 0x80;
+	PDC1L = 0x80;
+	PDC2H = 0x80;
+	PDC2L = 0x80;
 
 	// *** Configure serial ***
 	// (this needs to be last)
@@ -107,16 +108,24 @@ void main()
 	encoderCount = 0;
 
 // defaults for testing
-	Pconst = 25;
-	Dconst = 1;
-	Iconst = 4;
-	command = 0;
-	Iterm = 0;
-	previous_error = 0;
+//	Pconst = 25;
+//	Dconst = 1;
+//	Iconst = 4;
+//	command = 0;
+//	Iterm = 0;
+//	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
 
 	while(1) {
+
+
+	//Check fault pin
+	LED4 = PORTDbits.RD7;
+	//LED1 = !PORTDbits.RD0;
+	//LED2 = !PORTDbits.RD1;
+	//LED3 = !PORTDbits.RD2;
+	//LED4 = !PORTDbits.RD3;
 
 		commutateMotor();
 		
@@ -142,6 +151,7 @@ void main()
 					break;
 				case 'w':
 					// update wheel speed
+					LED3 = !LED3;
 
 	/**********note on the protocal****************
 	//five data bytes are used. The first four are speeds. RxPacket.data[0] is the Rear right wheel, RxPacket.data[1] is the
@@ -261,7 +271,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		else
 			error = 119;
 	}
-
+	//set P, I, and D to 100 and its tuned.
 	//duty = (signed int)error * (signed int)Pconst / ((signed int)4);
 	//Dterm = (signed int)Dconst * ((signed int)error - (signed int)previous_error) / ((signed int)667);
 	//Iterm += (signed int)Iconst * (signed int)error / ((signed int)28);
@@ -303,6 +313,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->data[encoderCount++] = duty;
 	}
 
+
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
 		direction = 1;
@@ -315,9 +326,10 @@ void handleQEI(PacketBuffer * encoderPacket)
 	if (duty >= 1020)
 		duty=1020;
 	duty = 1020 - duty;
+
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
-
+	
 	// set duty cycle
 	PDC0H = dutyHigh;
 	PDC0L = dutyLow;
@@ -358,10 +370,10 @@ void high_ISR()
 		handleRx(&RxPacket);
 		LED2 = 1;
 	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
-		LED3 = 0;
+	//	LED3 = 0;
 		PIR1bits.TXIF = 0;
 		handleTx(&TxPacket);
-		LED3 = 1;
+	//	LED3 = 1;
 	} 
 }
 #pragma
