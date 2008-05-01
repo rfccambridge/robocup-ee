@@ -4,7 +4,7 @@
 
 // *** set configuration word ***
 #pragma	config OSC 		= IRCIO
-#pragma	config WDTEN 	= OFF
+#pragma	config WDTEN 	= OFF//ON
 #pragma	config LVP 		= OFF
 #pragma	config WDPS 	= 256
 #pragma config BOREN	= ON
@@ -92,12 +92,12 @@ void main()
 	LED3 = 1;
 
 	// speed for testing
-	PDC0H = 0x80;
-	PDC0L = 0x80;
-	PDC1H = 0x80;
-	PDC1L = 0x80;
-	PDC2H = 0x80;
-	PDC2L = 0x80;
+	//PDC0H = 0x80;
+	//PDC0L = 0x80;
+	//PDC1H = 0x80;
+	//PDC1L = 0x80;
+	//PDC2H = 0x80;
+	//PDC2L = 0x80;
 
 	// *** Configure serial ***
 	// (this needs to be last)
@@ -108,26 +108,25 @@ void main()
 	encoderCount = 0;
 
 // defaults for testing
-//	Pconst = 25;
-//	Dconst = 1;
-//	Iconst = 4;
-//	command = 0;
-//	Iterm = 0;
-//	previous_error = 0;
+	Pconst = 25;
+	Dconst = 1;
+	Iconst = 4;
+	command = 0;
+	Iterm = 0;
+	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
 
 	while(1) {
-
-
-	//Check fault pin
-	LED4 = PORTDbits.RD7;
-	//LED1 = !PORTDbits.RD0;
-	//LED2 = !PORTDbits.RD1;
-	//LED3 = !PORTDbits.RD2;
-	//LED4 = !PORTDbits.RD3;
-
-		commutateMotor();
+		//Check fault pin
+		if (!PORTDbits.RD7) {
+			LED4 = 0;
+			OVDCOND = 0x00;
+			OVDCONS = 0x00;
+		} else {
+			LED4 = 1;
+			commutateMotor();
+		}
 		
 		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
 			TxPacket.length = MAX_PACKET_SIZE;
@@ -150,27 +149,14 @@ void main()
 					transmit(&TxPacket);
 					break;
 				case 'w':
-					// update wheel speed
-					LED3 = !LED3;
-
-	/**********note on the protocal****************
-	//five data bytes are used. The first four are speeds. RxPacket.data[0] is the Rear right wheel, RxPacket.data[1] is the
-	// Front right wheel, then is the front left wheel and then the rear left wheel. The byte contains a signed 8 bit number.
-	
-			Presently soley for the purposes of hacked 2006-2007 bots for the 2008 qual video, Robot ID will be hardcoded. 
-The logic board will pull up/down the speed and direction bits, so each robot knows which wheel it's for.//now two bbid pins
-Depending on which wheel this board is for will determine which element of the data array it will get, and which bit is its direction
-*/				
-					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];
-							
+					// update wheel speed			
+					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];							
 					break;
 				case 'f':
 					Pconst = RxPacket.data[0];
 					Iconst = RxPacket.data[1];
 					Dconst = RxPacket.data[2];
-					
 					break;
-
 				case 'e':
 					if (RxPacket.data[0]=='1')
 						encoderFlags = SPEW_ENCODER;
@@ -271,7 +257,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		else
 			error = 119;
 	}
-	//set P, I, and D to 100 and its tuned.
+	//set P, I, and D to 100 and its tuned. However it doesn't seem to work well. Motors jitter etc.
 	//duty = (signed int)error * (signed int)Pconst / ((signed int)4);
 	//Dterm = (signed int)Dconst * ((signed int)error - (signed int)previous_error) / ((signed int)667);
 	//Iterm += (signed int)Iconst * (signed int)error / ((signed int)28);
@@ -370,10 +356,10 @@ void high_ISR()
 		handleRx(&RxPacket);
 		LED2 = 1;
 	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
-	//	LED3 = 0;
+		LED3 = 0;
 		PIR1bits.TXIF = 0;
 		handleTx(&TxPacket);
-	//	LED3 = 1;
+		LED3 = 1;
 	} 
 }
 #pragma
