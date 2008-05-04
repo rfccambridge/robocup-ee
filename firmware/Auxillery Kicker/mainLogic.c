@@ -7,7 +7,7 @@ This code is for the auxillery kicker board
 
 
 #include <p18f4431.h>
-#include "..\Bemixnet\4Enet.h"
+#include "Bemixnet.h"
 #include "pins.h"
 
 
@@ -35,25 +35,23 @@ void main(){
 
 
 
-	ANSEL0 = 0x3f;
-	TRISA = 0x00;
-	LATA = 0xff;
+	//ANSEL0 = 0x3f;
 	
-	TRISA = 0X00;
+	TRISA = 0X20;//
 	TRISB = 0X00;
 	TRISC = 0X00;
-	TRISD = 0X00;
-	TRISE = 0X00;
+	TRISD = 0X0F;
+	TRISE = 0X03;
 	PORTA = 0XFF;
 	PORTB = 0XFF;
 	PORTC = 0XFF;
 	PORTD = 0XFF;
 	PORTE = 0XFF;
 
-	while(1);
+
 
 	// === Initialization ===
-//	initRx(&RxPacket);
+	initRx(&RxPacket);
 	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
@@ -81,30 +79,20 @@ void main(){
 	// it's PNP!!!
 	K_KICK1 = 1;
 	K_KICK2 = 1;
-	K_KICK3 = 1;
-	K_KICK4 = 1;
+	
 	K_CHARGE = 0;
 	
 	// both LEDs off
 	LED1 = 1;
 	LED2 = 1;
+	LED3 = 1;
 	led = LED_POWER;
-
-	PDC0H=0;			//Duty cycle for PWM1 -> motor 0
-	PDC0L=0;
-	PDC1H=0;			//Duty cycle for PWM3 -> motor 1
-	PDC1L=0;
-	PDC2H=0;			//Duty cycle for PWM5 -> motor 2
-	PDC2L=0;
-	PDC3H=0;			//Duty cycle for PWM7 -> motor 3
-	PDC3L=0;
 
 	// === Main Loop ===	
 	while(1){
-		LED1 = 0;
-		LED2 = 0;
+		LED3 = !LED3;
 
-/*	if (RxPacket.done){
+	if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
 
@@ -112,28 +100,6 @@ void main(){
 			led = LED_LINK;
 
 			switch (RxPacket.port){
-
-			// === WHEELS ===
-				case 'w':        	//wheel speed and direction control
-					PORTBbits.RB0 = ((RxPacket.data[4]&0b00000001)==1); 					//checking motor 0 (RB bit 0)	RB0
-					PORTBbits.RB2 = ((RxPacket.data[4]&0b00000010)==2);
-					PORTBbits.RB5 = ((RxPacket.data[4]&0b00000100)==4);
-					PORTDbits.RD6 = ((RxPacket.data[4]&0b00001000)==8); 
-											
-					//speed info by PWM  works fine
-					PDC0H=RxPacket.data[0]>>6;			//Duty cycle for PWM1 -> motor 0
-					PDC0L=RxPacket.data[0]<<2;
-					PDC1H=RxPacket.data[1]>>6;			//Duty cycle for PWM3 -> motor 1
-					PDC1L=RxPacket.data[1]<<2;
-					PDC2H=RxPacket.data[2]>>6;			//Duty cycle for PWM5 -> motor 2
-					PDC2L=RxPacket.data[2]<<2;
-					PDC3H=RxPacket.data[3]>>6;			//Duty cycle for PWM7 -> motor 3
-					PDC3L=RxPacket.data[3]<<2;
-				
-					PTCON1bits.PTEN = 1;					//PWM timer enabled
-		
-					break;
-			
 			// === DRIBBLER ===
 				// dribbler
 				case 'd':
@@ -146,25 +112,21 @@ void main(){
 			// === KICKER ===				
 				// kick
 				case 'K':
+					K_CHARGE = 0;
 					K_KICK1 = 0;
 					K_KICK2 = 0;
-					K_KICK3 = 0;
-					K_KICK4 = 0;
 
 					for (temp=0; temp<255; temp++);
 
 					K_KICK1 = 1;
 					K_KICK2 = 1;
-					K_KICK3 = 1;
-					K_KICK4 = 1;
 					break;
 
 				// enable kicker
 				case 'E':
 					K_KICK1 = 1;
 					K_KICK2 = 1;
-					K_KICK3 = 1;
-					K_KICK4 = 1;
+					
 					LED1 = 0;
 					K_CHARGE = 1;
 				//	kickCon.enable = 1;
@@ -174,8 +136,7 @@ void main(){
 				case 'D':
 					K_KICK1 = 1;
 					K_KICK2 = 1;
-					K_KICK3 = 1;
-					K_KICK4 = 1;
+					
 					LED1 = 1;			
 					K_CHARGE = 0;
 				//	kickCon.enable = 0;
@@ -185,7 +146,7 @@ void main(){
 				default:
 					break;
 			}
-		}	*/
+		}	
 	}
 }
 
@@ -203,18 +164,19 @@ void interrupt_high_vector(){
 #pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
 void high_ISR()
 {
-	/*if (PIR1bits.RCIF) {
+	if (PIR1bits.RCIF) {
 		handleRx(&RxPacket);
 		PIR1bits.RCIF = 0;
+		LED2 = !LED2;
 	} else if (INTCONbits.TMR0IF) {
 		if (led == LED_POWER)
-			LED2 = !LED2;
+			LED2 = LED2;//!LED2;
 		else if (led == LED_LINK)
-			LED2 = 0;
+			//LED2 = 0;
 		INTCONbits.TMR0IF = 0;
 	} else if (PIR1bits.TXIF) {
 		PIR1bits.TXIF = 0;
-	}*/
+	}
 }
 #pragma
 

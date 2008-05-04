@@ -122,7 +122,7 @@ void main()
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
 			OVDCOND = 0x00;
-			OVDCONS = 0x00;
+			OVDCONS = 0xff;
 		} else {
 			LED4 = 1;
 			commutateMotor();
