@@ -8,7 +8,7 @@
 #define K_KICK2			LATDbits.LATD6
 #define K_CHIP1			LATCbits.LATC2
 #define K_CHIP2			LATCbits.LATC1
-#define K_CHARGE		LATDbits.LATD7
+#define K_CHARGE		PORTDbits.RD7
 #define K_DISCHARGE		LATBbits.LATB4
 
 // === DEBUG ===
@@ -17,8 +17,8 @@
 #define LED3			LATAbits.LATA2
 
 //Mother board LEDs
-#define MBLED1			PORTAbits.LATA3
-#define MBLED2			PORTAbits.LATA4
+#define MBLED1			LATAbits.LATA3
+#define MBLED2			LATAbits.LATA4
 
 //Incoming voltages
 #define BattV			PORTAbits.LATA5
