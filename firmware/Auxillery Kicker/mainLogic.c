@@ -19,6 +19,7 @@ This code is for the auxillery kicker board
 
 
 void blink();
+void blink2();
 
 void high_ISR();	 //Interrupt Service Routine
 void handleTimer0();
@@ -177,6 +178,16 @@ void blink(){
 	for (i=0; i<0xFE; i++)ClrWdt();
 	LED1 = 1;
 	for (i=0; i<0xFE; i++)ClrWdt();
+}
+
+void blink2(){
+	unsigned short i;
+	MBLED1 = 0;
+	MBLED2 = 0;
+	for (i=0; i<0xFF; i++)ClrWdt();
+	MBLED1 = 1;
+	MBLED2 = 1;
+	for (i=0; i<0xFF; i++)ClrWdt();
 }
 	
 
