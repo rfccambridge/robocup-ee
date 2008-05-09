@@ -168,15 +168,17 @@ void main(){
 					break;
 			}
 		}
+	if (PORTBbits.RB3 == 0)
+		blink();
 	}
 }
 
 
 void blink(){
 	unsigned short i;
-	LED1 = 0;
+	LED1 = 0; LED2 = 0; LED3 = 0;
 	for (i=0; i<0xFE; i++)ClrWdt();
-	LED1 = 1;
+	LED1 = 1; LED2 = 1; LED3 = 1;
 	for (i=0; i<0xFE; i++)ClrWdt();
 }
 
