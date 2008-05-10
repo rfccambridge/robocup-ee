@@ -26,4 +26,8 @@
 // === DRIBBLER ===
 #define DRIBBLER		PORTCbits.RC2
 
+//===Break beam
+//goes low when the ball is seen
+#define	BBEAM			PORTBbits.RB3
+
 #endif // __PINS_H

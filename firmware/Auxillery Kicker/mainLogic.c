@@ -36,20 +36,20 @@ void main(){
 	unsigned char j;//for a wait loop when kicking
 
 
-	TRISA = 0x20;
+	//TRISA = 0x20;
 	//LATA = 0xff;
 
-	blink();
+//	blink();
 	// === Initialization ===
 	initRx(&RxPacket);
-	blink();
+//	blink();
 	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
 	
 	// initialize timer0 for kicker
 	T0CON = 0b10001000;
-	INTCONbits.TMR0IE = 1;	
+	INTCONbits.TMR0IE = 0;	
 	
 	//Power PWM.  PWM 1,3,5,7 used.
 	PWMCON0= 0x00;//0b01110000; 						 //Only Odd PWM pins enabled (default)
@@ -83,7 +83,6 @@ void main(){
 
 	// === Main Loop ===	
 	while(1){
-
 	//	blink();
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
@@ -130,6 +129,8 @@ void main(){
 					break;
 					
 				case 'K':
+					j = 0;
+					while (BBEAM == 1 && (TMR0L != 0b11111111 && TMR0H != 0b11111111));
 					K_CHARGE = 0;
 					K_KICK1 = 0;
 					K_KICK2 = 0;
