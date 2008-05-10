@@ -126,7 +126,7 @@ void main(){
 					K_CHARGE = 0; // stop charging
 					K_KICK1 = 0;  // stop kicking
 					K_KICK2 = 0;  // stop kicking
-					kick_counter = 10000000;
+					kick_counter = 1000000000000;
 					break;
 
 				// enable kicker - begin charging, don't kick
@@ -156,21 +156,23 @@ void main(){
 					break;
 			}
 		}
-//	if (kick_counter > 0)
-//		kick_counter--;
+	if (kick_counter > 0)
+		kick_counter--;
+	
 	// break bream check
-	if ((PORTBbits.RB3 == 0) && kick_counter > 0){
+	if ((PORTBbits.RB3 == 0) && (kick_counter > 0)){
 		blink();	
 		K_KICK1 = 1;
 		K_KICK2 = 1;
 		K_CHARGE = 1;
 	}
-	if(PORTBbits.RB3 == 0){
+/*	if(PORTBbits.RB3 == 0){
 		LED3 = 0;
 		kick_counter++;
 	}
 	else
 		LED3 = 1;
+*/
 }
 }
 
