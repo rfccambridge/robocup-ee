@@ -35,10 +35,10 @@ void main(){
 	//TRISA = 0x20;
 	//LATA = 0xff;
 
-//	blink();
+	blink();
 	// === Initialization ===
 	initRx(&RxPacket);
-//	blink();
+	blink();
 	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
@@ -56,7 +56,7 @@ void main(){
 	ANSEL0 = 0x3f;
 	TRISA = 0b11100000;
 	//LATA = 0xff;	
-	TRISC = 0b11110011;
+	TRISC = 0b11110001;
 	TRISD = 0x1F;
 	//PORTD = 0x00;	
 	TRISE = 0x03;
@@ -83,7 +83,6 @@ void main(){
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
 		LED1 = !LED1;//!LED3;
-
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
@@ -157,26 +156,34 @@ void main(){
 					break;
 			}
 		}
-
-	if (kick_counter > 0)
-		kick_counter--;
+//	if (kick_counter > 0)
+//		kick_counter--;
 	// break bream check
-	if ((PORTBbits.RB3 == 0) && kick_counter > 0)
+	if ((PORTBbits.RB3 == 0) && kick_counter > 0){
 		blink();	
 		K_KICK1 = 1;
 		K_KICK2 = 1;
 		K_CHARGE = 1;
 	}
-	if(PORTBbits.RB3 == 1)
-		blink();
+	if(PORTBbits.RB3 == 0){
+		LED3 = 0;
+		kick_counter++;
+	}
+	else
+		LED3 = 1;
+}
 }
 
 
 void blink(){
 	unsigned short i;
-	LED1 = 0; LED2 = 0; LED3 = 0;
+	LED1 = 0; 
+	LED2 = 0; 
+	LED3 = 0;
 	for (i=0; i<0xFE; i++)ClrWdt();
-	LED1 = 1; LED2 = 1; LED3 = 1;
+	LED1 = 1; 
+	LED2 = 1; 
+	LED3 = 1;
 	for (i=0; i<0xFE; i++)ClrWdt();
 }
 
