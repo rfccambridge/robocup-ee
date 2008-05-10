@@ -3,13 +3,9 @@ RS232 communication working perfectly.
 Protocol \H<destination><address>
 This code is for the auxillery kicker board
 */
-
-
-
 #include <p18f4431.h>
 #include "Bemixnet.h"
 #include "pins.h"
-
 
 // *** set configuration word ***
 #pragma config OSC = IRCIO
@@ -34,7 +30,7 @@ unsigned char led;
 
 void main(){
 	unsigned char j;//for a wait loop when kicking
-
+	unsigned int kick_counter = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -58,9 +54,9 @@ void main(){
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
 	
 	ANSEL0 = 0x3f;
-	TRISA = 0x20;
+	TRISA = 0b11100000;
 	//LATA = 0xff;	
-	TRISC = 0b11110001;
+	TRISC = 0b11110011;
 	TRISD = 0x1F;
 	//PORTD = 0x00;	
 	TRISE = 0x03;
@@ -83,7 +79,6 @@ void main(){
 
 	// === Main Loop ===	
 	while(1){
-	//	blink();
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
@@ -109,7 +104,7 @@ void main(){
 
 			// === KICKER ===				
 				// kick
-				case 'L':
+				case 'L'://for testing
 					K_KICK1 = 0;
 					K_KICK2 = 0;	
 					K_CHIP1	 = 0;
@@ -118,7 +113,7 @@ void main(){
 					K_DISCHARGE	 = 0;
 					LED3 = 1;
 					break;
-				case 'H':
+				case 'H'://for testing
 					K_KICK1 = 1;
 					K_KICK2 = 1;	
 					K_CHIP1	= 1;
@@ -128,21 +123,14 @@ void main(){
 					LED3 =0;
 					break;
 					
-				case 'K':
-					j = 0;
-					while (BBEAM == 1 && (TMR0L != 0b11111111 && TMR0H != 0b11111111));
-					K_CHARGE = 0;
-					K_KICK1 = 0;
-					K_KICK2 = 0;
-
-					for (j=0; j<255; j++);
-
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-					K_CHARGE = 1;
+				case 'K':		
+					K_CHARGE = 0; // stop charging
+					K_KICK1 = 0;  // stop kicking
+					K_KICK2 = 0;  // stop kicking
+					kick_counter = 10000000;
 					break;
 
-				// enable kicker
+				// enable kicker - begin charging, don't kick
 				case 'E':
 					K_DISCHARGE = 0;
 					K_KICK1 = 1;
@@ -153,7 +141,7 @@ void main(){
 				//	kickCon.enable = 1;
 					break;
 
-				// disable kicker
+				// disable kicker - stop kicking
 				case 'D':
 					K_DISCHARGE = 1;
 					K_KICK1 = 1;
@@ -169,9 +157,18 @@ void main(){
 					break;
 			}
 		}
-	if (PORTBbits.RB3 == 0)
-		blink();
+
+	if (kick_counter > 0)
+		kick_counter--;
+	// break bream check
+	if ((PORTBbits.RB3 == 0) && kick_counter > 0)
+		blink();	
+		K_KICK1 = 1;
+		K_KICK2 = 1;
+		K_CHARGE = 1;
 	}
+	if(PORTBbits.RB3 == 1)
+		blink();
 }
 
 
