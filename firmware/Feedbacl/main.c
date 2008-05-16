@@ -4,17 +4,17 @@
 
 // *** set configuration word ***
 #pragma	config OSC 		= IRCIO
-#pragma	config WDTEN 	= OFF//ON
+#pragma	config WDTEN 	= OFF
 #pragma	config LVP 		= OFF
 #pragma	config WDPS 	= 256
 #pragma config BOREN	= ON
 #pragma config BORV		= 42
 
 // *** pin definitions ***
-#define LED1			LATEbits.LATE2
-#define LED2			LATEbits.LATE1
-#define LED3			LATEbits.LATE0
-#define LED4			LATAbits.LATA5
+#define LED1			LATEbits.LATE2		// Power
+#define LED2			LATEbits.LATE1		// Rx
+#define LED3			LATEbits.LATE0		// Hall error
+#define LED4			LATAbits.LATA5		// Mosfet driver error
 
 #define min(a,b) (a<b) ? a : b
 
@@ -91,14 +91,6 @@ void main()
 	LED2 = 1;
 	LED3 = 1;
 
-	// speed for testing
-	//PDC0H = 0x80;
-	//PDC0L = 0x80;
-	//PDC1H = 0x80;
-	//PDC1L = 0x80;
-	//PDC2H = 0x80;
-	//PDC2L = 0x80;
-
 	// *** Configure serial ***
 	// (this needs to be last)
 	initRx(&RxPacket);
@@ -107,7 +99,7 @@ void main()
 	encoderFlags = DONT_SPEW_ENCODER;
 	encoderCount = 0;
 
-// defaults for testing
+	// defaults for testing
 	Pconst = 25;
 	Dconst = 1;
 	Iconst = 4;
@@ -118,7 +110,7 @@ void main()
 	INTCONbits.TMR0IE = 1;
 
 	while(1) {
-		//Check fault pin
+		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
 			OVDCOND = 0x00;
@@ -127,13 +119,17 @@ void main()
 			LED4 = 1;
 			commutateMotor();
 		}
-		
+
+		// Check for dead hall
+		LED3 = 1;
+		if (HALL == 0 || HALL == 7)
+			LED3 = 0;
+
 		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
 			TxPacket.length = MAX_PACKET_SIZE;
 			transmit(&TxPacket);
 			encoderCount = 0;
 		}
-			
 		
 		if (RxPacket.done) {
 			ClrWdt();
@@ -165,10 +161,9 @@ void main()
 				default:
 					break;	
 			}
-		}
-		
-	}//closing while
-}//closing main()
+		}		
+	} //closing while(1)
+} //closing main()
 
 // OVCOND = mask
 // OVCONS = value when masked
@@ -220,8 +215,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	signed char error = 0;
 	signed int duty = 0;
 	unsigned char dutyHigh, dutyLow;
-
-
 	signed int Dterm;
 
 	// transmit
@@ -269,15 +262,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 	//check things are small
 	if (duty > 900){
 		duty = 900;
-	}
-	else if (duty < -900){
+	} else if (duty < -900){
 		duty = -900;
 	}
 
 	if (Dterm > 127){
 		Dterm = 127;
-	}
-	else if (Dterm < -127){
+	} else if (Dterm < -127){
 		Dterm = -127;
 	}
 
@@ -285,11 +276,9 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = 0;
 	if (Iterm > 500){
 		Iterm = 500;
-	}
-	else if (Iterm < -500){
+	} else if (Iterm < -500){
 		Iterm = -500;
 	}
-
 
 	duty += Dterm + Iterm;
 
@@ -298,7 +287,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;
 	}
-
 
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
@@ -324,7 +312,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	PDC2H = dutyHigh;
 	PDC2L = dutyLow;
 	
-
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
 		encoderPacket->data[encoderCount++] = 0;
 		encoderPacket->data[encoderCount++] = command;
@@ -356,10 +343,8 @@ void high_ISR()
 		handleRx(&RxPacket);
 		LED2 = 1;
 	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
-		LED3 = 0;
 		PIR1bits.TXIF = 0;
 		handleTx(&TxPacket);
-		LED3 = 1;
 	} 
 }
 #pragma

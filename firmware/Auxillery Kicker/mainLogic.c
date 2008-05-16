@@ -35,10 +35,9 @@ void main(){
 	//TRISA = 0x20;
 	//LATA = 0xff;
 
-	blink();
 	// === Initialization ===
 	initRx(&RxPacket);
-	blink();
+
 	
 	//======oscillator configuration: internal used======
 	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
@@ -70,15 +69,16 @@ void main(){
 	
 	K_CHARGE = 0;
 	
-	// both LEDs off
+	// all LEDs off
 	LED1 = 1;
 	LED2 = 1;
 	LED3 = 1;
 	//led = LED_POWER;
 	
-
+	blink();
 	// === Main Loop ===	
 	while(1){
+		unsigned short i;
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
@@ -123,11 +123,22 @@ void main(){
 					break;
 					
 				case 'K':		
-					K_CHARGE = 0; // stop charging
-					K_KICK1 = 0;  // stop kicking
-					K_KICK2 = 0;  // stop kicking
+					K_CHARGE = 1; // keep charging until we actually kick
+					K_KICK1 = 1;  // stop kicking
+					K_KICK2 = 1;  // stop kicking
 					kick_counter = 1000000000000;
 					break;
+				
+				case 'B':
+					
+					K_CHARGE = 0;//stop charging while kicking.	
+					K_KICK1 = 0;
+					K_KICK2 = 0;
+					for (i=0; i<0xFF; i++);
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					break;
+					
 
 				// enable kicker - begin charging, don't kick
 				case 'E':
@@ -142,12 +153,12 @@ void main(){
 
 				// disable kicker - stop kicking
 				case 'D':
+					K_CHARGE = 0;
 					K_DISCHARGE = 1;
 					K_KICK1 = 1;
 					K_KICK2 = 1;
 					
-					LED3 = 1;			
-					K_CHARGE = 0;
+					LED3 = 1;	
 				//	kickCon.enable = 0;
 					break;
 
@@ -161,10 +172,14 @@ void main(){
 	
 	// break bream check
 	if ((PORTBbits.RB3 == 0) && (kick_counter > 0)){
-		blink();	
+		unsigned short i;
+		K_CHARGE = 0;//stop charging while kicking.	
+		K_KICK1 = 0;
+		K_KICK2 = 0;
+		for (i=0; i<0xFF; i++);
 		K_KICK1 = 1;
 		K_KICK2 = 1;
-		K_CHARGE = 1;
+		//blink();
 	}
 /*	if(PORTBbits.RB3 == 0){
 		LED3 = 0;
@@ -189,7 +204,7 @@ void blink(){
 	for (i=0; i<0xFE; i++)ClrWdt();
 }
 
-void blink2(){
+/*void blink2(){
 	unsigned short i;
 	MBLED1 = 0;
 	MBLED2 = 0;
@@ -197,7 +212,7 @@ void blink2(){
 	MBLED1 = 1;
 	MBLED2 = 1;
 	for (i=0; i<0xFF; i++)ClrWdt();
-}
+}*/
 	
 
 
