@@ -1,92 +1,93 @@
-Vendor,Distributer part # (manufacturer part number),Description,Package,Unit Price,Quantity
-
-Mother Board,,,,,
-Digikey,RXM-900-HP3-PPS-ND,900MHz Radio Receiver,--,44.98,1
-Digikey,TXM-900-HP3-PPS-ND,900MHz Radio Transmitter,--,30.33,1
-Digikey,ANT-916-JJB-ST ,Antenna,--,1.96,2
---,--,Motor Connector,--,,0
-Digikey,ED1601-ND ,"TERMINAL BLOCK 5MM VERT 2POS (Battery, dribbler connector)",5mm,0.46,5
-Digikey,ED1558-ND ,TERMINAL BLOCK 5MM VERT 4POS (Kicker connector),5mm,1.76,1
-Digikey,CT20810-ND ,"SWITCH SPST TIN 10 SEC (robot id, channel)",DIP,0.92,1
-Digikey,WM17131-ND ,CONN USB RT ANG RECPT TYPE B WHT ,--,1.87,1
-Digikey,296-9569-1-ND (LMV324IDR),Op amp quad,SOIC-14,0.48,1
-digikey,MC7812CT-BPMS-ND (MC7812CT-BP),12 Volt regulator,TO-220,0.4,1
-Digikey,MC7805CT-BPMS-ND (MC7805CT-BP),5 volt regulator,TO-220,0.4,1
-digikey,604-00043-ND,Ft232rl usb to serial chip,SSOP-28,4.02,1
-
-
-
-Brushless,,,,,,,
-Mouser,512-IRF720B,MOSFET(IRF720B),TO-220,0.86,6,,
-Newark,61K3473,PIC 18F4431,44-TQFP,,,25,0
-Newark,58K5837,IC DRIVER BRIDGE 3-PHASE 28-SOIC,28SOIC,,,25,0
-Mouser,210526PS,Mosfet IRF620,TO220,,,150,0
-Digikey,DL4151TPMSCT-ND ,switching diode,minimelf,0.05,100,,
-
-Kicker,,,,,,,
-Linear, LT1070CT, ???,,7.08,3,,
+"Vendor","Distributer part # (manufacturer part number)","Description","Package","Unit Price","Quantity",,
+,,,,,,,
+"Mother Board",,,,,,,
+"Digikey","RXM-900-HP3-PPS-ND","900MHz Radio Receiver","--",44.98,1,,
+"Digikey","TXM-900-HP3-PPS-ND","900MHz Radio Transmitter","--",30.33,1,,
+"Digikey","ANT-916-JJB-ST ","Antenna","--",1.96,2,,
+"--","--","Motor Connector","--",,0,,
+"Digikey","ED1601-ND ","TERMINAL BLOCK 5MM VERT 2POS (Battery, dribbler connector)","5mm",0.46,5,,
+"Digikey","ED1558-ND ","TERMINAL BLOCK 5MM VERT 4POS (Kicker connector)","5mm",1.76,1,,
+"Digikey","CT20810-ND ","SWITCH SPST TIN 10 SEC (robot id, channel)","DIP",0.92,1,,
+"Digikey","WM17131-ND ","CONN USB RT ANG RECPT TYPE B WHT ","--",1.87,1,,
+"Digikey","296-9569-1-ND (LMV324IDR)","Op amp quad","SOIC-14",0.48,1,,
+"digikey","MC7812CT-BPMS-ND (MC7812CT-BP)","12 Volt regulator","TO-220",0.4,1,,
+"Digikey","MC7805CT-BPMS-ND (MC7805CT-BP)","5 volt regulator","TO-220",0.4,1,,
+"digikey","604-00043-ND","Ft232rl usb to serial chip","SSOP-28",4.02,1,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+"Brushless",,,,,,,
+"Mouser","512-IRF720B obsolete","MOSFET(IRF720B)","TO-220",0.86,6,,
+"Mouser","210526PS obsolete","Mosfet IRF620","TO220",,,150,0
+"Digikey","RFP3055LE-ND","MOSFET N-CH 60V 11A TO-220AB",,,,,
+"Newark","61K3473","PIC 18F4431","44-TQFP",,,25,0
+"Newark","58K5837","IC DRIVER BRIDGE 3-PHASE 28-SOIC","28SOIC",,,25,0
+"Digikey","DL4151TPMSCT-ND ","switching diode","minimelf",0.05,100,,
+,,,,,,,
+"Kicker",,,,,,,
+"Linear"," LT1070CT"," ???",,7.08,3,,
 "Transformer	Not Ordering More						",,,,,,,
-Mouser, 512-IRF720B, MOSFET, TO220,0.86,1,,
-Mouser, 511-TYN608, SCR,TO220CS,0.89,2,,
-Mouser,512-KSA812OMTF,PNP,SOT23,0.05,3,,
-Mouser, 821-ES2D, Diode, SMB,0.16,4,,
-Mouser,101-TS6111T1601-EV ,Switch,,0.13,1
-Digikey,1SMB5941BT3GOSCT-ND (1SMB5941BT3G),47V zener diode,Smb,0.33,1
-Digikey,1SMB5939BT3GOSCT-ND (1SMB5939BT3G),39V Zener Diode,Smb,0.33,1
-
-
-,,Heat sinks,,,
-"Big Resistor	Not Ordering More						",,,,,
-"							",,,,,
-
-
-
-
-Ball Detector (parts/board),,,,,Quantity/Board
-Digikey,296-1337-5-ND, IC CMOS TIMER 8-SOIC,8-SOIC,,1
-Digikey,LTC1440CS8-ND,"	IC COMP W/REF LP SINGLE 8-SOIC",8-SOIC,,2
-Digikey,MM74HC86MXCT-ND, IC GATE OR QUAD 2INP EXCL 14SOIC,14-SOIC,,1
-Digikey,576-1189-1-ND,IC DRIVER MOSFET 6A LOSIDE 8SOIC,8-SOIC,,1
-Mouser,210526PS,Mosfet IRF620,TO220,,1
-Mouser,859-LTE-3271B,"Emitter, Clear - Lite-On Infrared Phototransistors",,,1
-Mouser,512-QSD122,1mA Photo Trans - Fairchild Infrared Emitter/Sensor Assemblies,,,1
-Mouser,652-3362X-1-102LF,1K Timmer Potentiometer,,,2
-For Next Year,,,,,
-Mouser,512-QRD1114,Reflective Object Sensor,,,1
-
-
-Generic: (parts that apply to multiple boards all surface mount resistors capacitors and LEDs),,,,,
-,Quantity kicker,Quantity auxiliary kicker,Quantity motherboard,Quantity brushless,
-Resistors  ,,,,,
-10 ohms (0805),,,,3,
-110 ohms (0805),,4,,,
-510 ohms (0805),,3,,,
-10K (0805),2,,,2,
-10 ohm net (0603),,,,1
-220 ohm net (0603),,1,,1
-10k net (0603),,,,1
-10K (1210),,,,
-1K (0805),6,2,10,
-8.2K (0805),,1,,
-80K (0805),4,,,
-160K (0805),,1,,
-0.5 (1210),,,,1
-0.0 (1210),,,,1
-,,,,1
-1K POTS,,2,,
-
-
-
-,Quantity kicker,Quantity auxiliary kicker,Quantity motherboard,Quantity brushless
-Capacitors       ,,,,
-0.1uF Ceramic (0805),4,9,4,5
-1uF Ceramic (1210),1,5,0,3
-100uF electrolytic,3,1,4,3
-0.47 uF (1210),1,,,
-
-
-,Quantity kicker,Quantity auxiliary kicker,Quantity motherboard,Quantity brushless
-LEDs,,,,
-Red (0805),,5,1,4
-Yellow (0805),0,0,1,0
-Pics,0,1,0,1
+"Mouser","511-STP16NK60Z"," MOSFET"," TO220",1.49,1,,
+"Mouser"," 511-TYN608"," SCR","TO220CS",0.89,2,,
+"Mouser","512-KSA812OMTF","PNP","SOT23",0.05,3,,
+"Mouser"," 821-ES2D"," Diode"," SMB",0.16,4,,
+"Mouser","101-TS6111T1601-EV ","Switch",,0.13,1,,
+"Digikey","1SMB5941BT3GOSCT-ND (1SMB5941BT3G)","47V zener diode","Smb",0.33,1,,
+"Digikey","1SMB5939BT3GOSCT-ND (1SMB5939BT3G)","39V Zener Diode","Smb",0.33,1,,
+,,,,,,,
+,,,,,,,
+,,"Heat sinks",,,,,
+"Big Resistor	Not Ordering More						",,,,,,,
+"							",,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+"Ball Detector (parts/board)",,,,,"Quantity/Board",,
+"Digikey","296-1337-5-ND"," IC CMOS TIMER 8-SOIC","8-SOIC",,1,,
+"Digikey","LTC1440CS8-ND","	IC COMP W/REF LP SINGLE 8-SOIC","8-SOIC",,2,,
+"Digikey","MM74HC86MXCT-ND"," IC GATE OR QUAD 2INP EXCL 14SOIC","14-SOIC",,1,,
+"Digikey","576-1189-1-ND","IC DRIVER MOSFET 6A LOSIDE 8SOIC","8-SOIC",,1,,
+"Digikey","RFP3055LE-ND","MOSFET N-CH 60V 11A TO-220AB",,,1,,
+"Mouser","859-LTE-3271B","Emitter, Clear - Lite-On Infrared Phototransistors",,,1,,
+"Mouser","512-QSD122","1mA Photo Trans - Fairchild Infrared Emitter/Sensor Assemblies",,,1,,
+"Mouser","652-3362X-1-102LF","1K Timmer Potentiometer",,,2,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+"Generic: (parts that apply to multiple boards all surface mount resistors capacitors and LEDs)",,,,,,,
+,"Quantity kicker","Quantity auxiliary kicker","Quantity motherboard","Quantity brushless",,,
+"Resistors  ",,,,,,,
+"10 ohms (0805)",,,,3,,,
+"110 ohms (0805)",,4,,,,,
+"510 ohms (0805)",,3,,,,,
+"10K (0805)",2,,,2,,,
+"10 ohm net (0603)",,,,1,,,
+"220 ohm net (0603)",,1,,1,,,
+"10k net (0603)",,,,1,,,
+"10K (1210)",,,,,,,
+"1K (0805)",6,2,10,,,,
+"8.2K (0805)",,1,,,,,
+"80K (0805)",4,,,,,,
+"160K (0805)",,1,,,,,
+"0.5 (1210)",,,,1,,,
+"0.0 (1210)",,,,1,,,
+,,,,1,,,
+"1K POTS",,2,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,"Quantity kicker","Quantity auxiliary kicker","Quantity motherboard","Quantity brushless",,,
+"Capacitors       ",,,,,,,
+"0.1uF Ceramic (0805)",4,9,4,5,,,
+"1uF Ceramic (1210)",1,5,0,3,,,
+"100uF electrolytic",3,1,4,3,,,
+"0.47 uF (1210)",1,,,,,,
+,,,,,,,
+,,,,,,,
+,"Quantity kicker","Quantity auxiliary kicker","Quantity motherboard","Quantity brushless",,,
+"LEDs",,,,,,,
+"Red (0805)",,5,1,4,,,
+"Yellow (0805)",0,0,1,0,,,
+"Pics",0,1,0,1,,,
