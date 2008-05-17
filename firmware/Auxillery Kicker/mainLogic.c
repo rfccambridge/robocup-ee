@@ -60,6 +60,11 @@ void main(){
 	//PORTD = 0x00;	
 	TRISE = 0x03;
 	//PORTE = 0x00;
+
+	//Setting up the analog input for the battery voltage
+	ADCON0 = 0b00000111;//coninuous, single channel, simultaneous group A and group B, start cycle, a/d on
+	ADCON1 = ADCON1&&0b00111111;//00 =VREF+ = AVDD, VREF- = AVSS, (AN2 and AN3 are Analog inputs or Digital I/O)
+	ADCON2 = 0b0100 ;//left justified highbit = data low bit = data0000
 	
 	// it's PNP!!!
 	K_KICK1 = 1;
@@ -73,6 +78,9 @@ void main(){
 	LED1 = 1;
 	LED2 = 1;
 	LED3 = 1;
+	//Mother board LEDs on
+	MBLED1 = 0;
+	MBLED2 = 0;
 	//led = LED_POWER;
 	
 	blink();
