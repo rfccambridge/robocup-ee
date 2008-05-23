@@ -4,6 +4,7 @@ Protocol \H<destination><address>
 This code is for the auxillery kicker board
 */
 #include <p18f4431.h>
+#include <ADC.h>
 #include "Bemixnet.h"
 #include "pins.h"
 
@@ -62,9 +63,15 @@ void main(){
 	//PORTE = 0x00;
 
 	//Setting up the analog input for the battery voltage
-	ADCON0 = 0b00000111;//coninuous, single channel, simultaneous group A and group B, start cycle, a/d on
+	/*ADCON0 = 0b00100111;//coninuous, single channel, simultaneous group A and group B, start cycle, a/d on
 	ADCON1 = ADCON1&&0b00111111;//00 =VREF+ = AVDD, VREF- = AVSS, (AN2 and AN3 are Analog inputs or Digital I/O)
-	ADCON2 = 0b0100 ;//left justified highbit = data low bit = data0000
+	ADCON2 = 0b0100 ;//left justified highbit = data low bit = data0000*/
+
+	MBLED1 = 1;
+	MBLED2 = 1;
+	OpenADC(ADC_FOSC_32 & ADC_RRIGHT_JUST & ADC_12_TAD,ADC_CH0 & ADC_INT_OFF, 0);
+	ADCON1 =0x00;
+
 	
 	// it's PNP!!!
 	K_KICK1 = 1;
@@ -79,10 +86,12 @@ void main(){
 	LED2 = 1;
 	LED3 = 1;
 	//Mother board LEDs on
-	MBLED1 = 0;
-	MBLED2 = 0;
+	//MBLED1 = 0;
+	//MBLED2 = 0;
 	//led = LED_POWER;
 	
+	double adc_result = 10;
+
 	blink();
 	// === Main Loop ===	
 	while(1){
@@ -91,6 +100,30 @@ void main(){
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
 		LED1 = !LED1;//!LED3;
+
+		//Battery Info
+
+		SetChanADC(ADC_CH0);    //set ADC input to pin 2
+		ConvertADC();           //perform ADC conversion
+		While(BusyADC());       //wait for result
+		adc_result = double(ReadADC()); //stores ADC result into a predefined integer
+		adc_result = adc_result*10.4/2.2;
+
+		if(adc_result < (.24*.05 + .96)){
+			MBLED1 = 0;
+			MBLED2 = 0;
+		} else if(adc_result < (.24*.20 + .96)) {
+			MBLED1 = 1;
+			MBLED2 = 0;
+		} else if(adc_result < (.24*.40 + .96)) {
+			MBLED1 = 0;
+			MBLED2 = 1;
+		} else {
+			MBLED1 = 1;
+			MBLED2 = 1;
+		}
+
+
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
