@@ -70,7 +70,7 @@ void main()
 	TRISE = 0x00;
 
 	// *** initialize timer0 ***
-	T0CON = 0b11000110;
+	T0CON = 0b11000101;
 	INTCON = 0b11100000;
 
 	// *** Initialize encoder ***
@@ -233,12 +233,17 @@ void handleQEI(PacketBuffer * encoderPacket)
 	POSCNTL = 0x00;
 
 	// convert encoder value to 8 bit 2's comp
-	if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
-	if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
-	if (encoderCentered >=0x8000)
+	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
+	//if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
+
+    if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
+	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
+		
+
+    if (encoderCentered >=0x8000)
 		encoder = (encoderCentered - 0x8000)/ 4; //14;
 	else
-		encoder = -((0x8000-encoderCentered)/ 4); //14);
+		encoder = -(signed char)((0x8000-encoderCentered)/ 4); //14);
 
 	// calculate error, check for rollover
 	error = encoder - command;
