@@ -32,6 +32,9 @@ unsigned char led;
 void main(){
 	unsigned char j;//for a wait loop when kicking
 	unsigned int kick_counter = 0;
+	double adc_result = 10;
+	int test_adc = 0;
+	int test_old = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -69,7 +72,7 @@ void main(){
 
 	MBLED1 = 1;
 	MBLED2 = 1;
-	OpenADC(ADC_FOSC_32 & ADC_RRIGHT_JUST & ADC_12_TAD,ADC_CH0 & ADC_INT_OFF, 0);
+	OpenADC(ADC_FOSC_RC & ADC_RIGHT_JUST & ADC_0_TAD,BattV & ADC_INT_ON, 0);
 	ADCON1 =0x00;
 
 	
@@ -78,7 +81,7 @@ void main(){
 	K_KICK2 = 1;
 	K_CHIP1 = 1;
 	K_CHIP2 = 1;
-	
+	K_DISCHARGE = 0;
 	K_CHARGE = 0;
 	
 	// all LEDs off
@@ -89,10 +92,11 @@ void main(){
 	//MBLED1 = 0;
 	//MBLED2 = 0;
 	//led = LED_POWER;
+
 	
-	double adc_result = 10;
 
 	blink();
+
 	// === Main Loop ===	
 	while(1){
 		unsigned short i;
@@ -103,27 +107,48 @@ void main(){
 
 		//Battery Info
 
-		SetChanADC(ADC_CH0);    //set ADC input to pin 2
+		SetChanADC(BattV);    //set ADC input to pin 2
 		ConvertADC();           //perform ADC conversion
-		While(BusyADC());       //wait for result
-		adc_result = double(ReadADC()); //stores ADC result into a predefined integer
-		adc_result = adc_result*10.4/2.2;
+		while(BusyADC());       //wait for result
 
-		if(adc_result < (.24*.05 + .96)){
+		//adc_result = (double)(ReadADC()); //stores ADC result into a predefined integer
+		//adc_result = adc_result*10.4*5.0/(2.2*1023.0);
+/*
+		if(adc_result < 12.0*(.24*.05 + .96)){
 			MBLED1 = 0;
 			MBLED2 = 0;
-		} else if(adc_result < (.24*.20 + .96)) {
+		} else if(adc_result < 12.0*(.24*.20 + .96)) {
 			MBLED1 = 1;
 			MBLED2 = 0;
-		} else if(adc_result < (.24*.40 + .96)) {
+		} else if(adc_result < 12.0*(.24*.40 + .96)) {
 			MBLED1 = 0;
 			MBLED2 = 1;
 		} else {
 			MBLED1 = 1;
 			MBLED2 = 1;
 		}
+*/
 
+	/*	test_adc = ReadADC();
 
+		if((test_adc & 0b00000001) != (test_old & 0b00000001)) {
+			LED1 = !LED1;
+		}
+		if((test_adc & 0b00000010) != (test_old & 0b00000010)) {
+			LED2 = !LED2;
+		}
+		if((test_adc & 0b00000100) != (test_old & 0b00000100)) {
+			LED3 = !LED3;
+		}
+		if((test_adc & 0b00001000) != (test_old & 0b00001000)) {
+			MBLED1 = !MBLED1;
+		}
+		if((test_adc & 0b00010000) != (test_old & 0b00010000)) {
+			MBLED2 = !MBLED2;
+		}
+
+		test_old = test_adc;
+*/
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
@@ -163,16 +188,20 @@ void main(){
 					LED3 =0;
 					break;
 					
-				case 'K':		
-					K_CHARGE = 1; // keep charging until we actually kick
+				case 'B':		
+					LED3 = 1;
+					TRISDbits.TRISD7 = 1;
+					//K_CHARGE = 1; // keep charging until we actually kick
 					K_KICK1 = 1;  // stop kicking
 					K_KICK2 = 1;  // stop kicking
 					kick_counter = 1000000000000;
 					break;
 				
-				case 'B':
-					
+				case 'K':
+					LED3 = 1;
+					TRISDbits.TRISD7 = 0;
 					K_CHARGE = 0;//stop charging while kicking.	
+					for (i=0; i<0xFF; i++);
 					K_KICK1 = 0;
 					K_KICK2 = 0;
 					for (i=0; i<0xFF; i++);
@@ -186,21 +215,28 @@ void main(){
 					K_DISCHARGE = 0;
 					K_KICK1 = 1;
 					K_KICK2 = 1;
-					
+					TRISDbits.TRISD7 = 1;//set as an input so Vc on the lt1070 floats.
 					K_CHARGE = 1;
 					LED3 = 0;
 				//	kickCon.enable = 1;
 					break;
 
 				// disable kicker - stop kicking
-				case 'D':
+				case 'D'://STOP CHARGING
+					TRISDbits.TRISD7 = 0;
+					K_CHARGE = 0;
+					K_DISCHARGE = 0;
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					 
+					LED3 = 1;	
+				//	kickCon.enable = 0;
+				case 'Q':
+					TRISDbits.TRISD7 = 0;
 					K_CHARGE = 0;
 					K_DISCHARGE = 1;
 					K_KICK1 = 1;
 					K_KICK2 = 1;
-					
-					LED3 = 1;	
-				//	kickCon.enable = 0;
 					break;
 
 				// some other port

@@ -21,7 +21,7 @@
 #define MBLED2			LATAbits.LATA4
 
 //Incoming voltages
-#define BattV			PORTAbits.LATA5
+#define BattV			PORTAbits.RA5
 
 // === DRIBBLER ===
 #define DRIBBLER		PORTCbits.RC2
