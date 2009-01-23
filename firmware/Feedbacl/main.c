@@ -6,7 +6,7 @@
 #pragma	config OSC 		= IRCIO
 #pragma	config WDTEN 	= OFF
 #pragma	config LVP 		= OFF
-#pragma	config WDPS 	= 256
+#pragma	config WDPS 	= 64
 #pragma config BOREN	= ON
 #pragma config BORV		= 42
 
@@ -16,11 +16,11 @@
 #define LED3			LATEbits.LATE0		// Hall error
 #define LED4			LATAbits.LATA5		// Mosfet driver error
 
-#define min(a,b) (a<b) ? a : b
+#define min(a,b)		(a<b) ? a : b
 
-#define HALL		(PORTC & 0x07)
+#define HALL			(PORTC & 0x07)
 
-#define SPEW_ENCODER 1
+#define SPEW_ENCODER 	1
 #define DONT_SPEW_ENCODER 0
 
 PacketBuffer RxPacket;
@@ -29,9 +29,9 @@ PacketBuffer TxPacket;
 unsigned char encoderCount;
 unsigned char encoderFlags;
 
+
+
 unsigned char Pconst, Iconst, Dconst;
-signed char previous_error = 0;
-signed int Iterm = 0;
 signed char command = 0;
 unsigned char direction = 0;
 
@@ -45,7 +45,7 @@ rom const char *rom stringTable[] = { "012345678901234657890123456789011111111",
 									 "string 4"};
 void main()
 {
-	unsigned char timer, timer2;
+//	unsigned char timer, timer2;
 
 	TRISE = 0xf8;
 
@@ -67,6 +67,7 @@ void main()
 	TRISB = 0xff;
 	TRISC = 0xff;
 	TRISD = 0xff; 
+	TRISDbits.TRISD5 = 0;
 	TRISE = 0x00;
 
 	// *** initialize timer0 ***
@@ -76,6 +77,7 @@ void main()
 	// *** Initialize encoder ***
 	QEICON = 0b00011000;
 
+/*
 	// *** Blink LEDs ***
 	LED1 = 1;
 	LED2 = 1;
@@ -90,6 +92,7 @@ void main()
 	LED1 = 1;
 	LED2 = 1;
 	LED3 = 1;
+*/
 
 	// *** Configure serial ***
 	// (this needs to be last)
@@ -104,12 +107,14 @@ void main()
 	Dconst = 1;
 	Iconst = 4;
 	command = 0;
-	Iterm = 0;
-	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
+	PORTDbits.RD5 = 1;
 
 	while(1) {
+
+		ClrWdt();
+
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
@@ -132,7 +137,7 @@ void main()
 		}
 		
 		if (RxPacket.done) {
-			ClrWdt();
+		//	ClrWdt();
 			RxPacket.done = 0;
 			switch(RxPacket.port) {
 				case 'r':
@@ -213,17 +218,25 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned int encoderCentered = 0;
 	signed char encoder = 0;
 	signed char error = 0;
+	static signed char previous_error = 0;
+	static signed int Iterm = 0;
+	signed int Dterm;
 	signed int duty = 0;
 	unsigned char dutyHigh, dutyLow;
-	signed int Dterm;
+
+	static unsigned char outputData = 0;
+
+	outputData++;
 
 	// transmit
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
+	if (outputData%2 == 0 && encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
 		encoderPacket->data[encoderCount++] = POSCNTH;
 		encoderPacket->data[encoderCount++] = POSCNTL;
+
 		encoderPacket->address = '2';
 		encoderPacket->port = 'a';
 	}
+	
 
 	// read and reset position accumulator
 	encoderCentered = POSCNTH;
@@ -239,22 +252,27 @@ void handleQEI(PacketBuffer * encoderPacket)
     if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
 	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
-
     if (encoderCentered >=0x8000)
-		encoder = (encoderCentered - 0x8000)/ 4; //14;
+		encoder = (encoderCentered - 0x8000)/4;
 	else
-		encoder = -(signed char)((0x8000-encoderCentered)/ 4); //14);
+		encoder = -(signed char)((0x8000-encoderCentered)/4);
 
-	// calculate error, check for rollover
+	// calculate error
 	error = encoder - command;
 
+	// check for rollover
+	if (encoder>command && error<0)
+		error = 127;
+	else if (encoder<command && error>0)
+		error = -127;
+
 	//if ((((encoder>>7)&1)!=(command>>7)) && (((error>>7)&1)==((command>>7)&1))) {
-	if ((command>0)!=(encoder>0) && (encoder>0)==(command>0)) {
-		if (error > 0)
-			error = -119;
-		else
-			error = 119;
-	}
+	//if ((command>0)!=(encoder>0) && (encoder>0)==(command>0)) {
+	//	if (error > 0)
+	//		error = -119;
+	//	else
+	//		error = 119;
+	//}
 	//set P, I, and D to 100 and its tuned. However it doesn't seem to work well. Motors jitter etc.
 	//duty = (signed int)error * (signed int)Pconst / ((signed int)4);
 	//Dterm = (signed int)Dconst * ((signed int)error - (signed int)previous_error) / ((signed int)667);
@@ -286,12 +304,15 @@ void handleQEI(PacketBuffer * encoderPacket)
 	}
 
 	duty += Dterm + Iterm;
-
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
+	
+	if (outputData%2 == 0 && encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;
 	}
+	
+	//testing
+	duty = command;
 
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
@@ -317,11 +338,9 @@ void handleQEI(PacketBuffer * encoderPacket)
 	PDC2H = dutyHigh;
 	PDC2L = dutyLow;
 	
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
+	if (outputData%2 == 0 && encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
 		encoderPacket->data[encoderCount++] = 0;
 		encoderPacket->data[encoderCount++] = command;
-		//encoderPacket->data[encoderCount++] = Dterm >> 8;
-		//encoderPacket->data[encoderCount++] = Dterm;
 		encoderPacket->data[encoderCount++] = encoder;
 	}
 
@@ -348,10 +367,10 @@ void high_ISR()
 		handleRx(&RxPacket);
 		LED2 = 1;
 	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
+		LED3 = 0;
 		PIR1bits.TXIF = 0;
 		handleTx(&TxPacket);
+		LED3 = 1;
 	} 
 }
 #pragma
-
-
