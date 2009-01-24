@@ -39,10 +39,6 @@ void commutateMotor();
 void high_ISR();	 //Interrupt Service Routine
 void handleQEI(PacketBuffer * TxPacket);
 
-rom const char *rom stringTable[] = { "012345678901234657890123456789011111111",
-									"RFC BLDC Driver Rev 0.13",
-									"string 3",
-									 "string 4"};
 void main()
 {
 	unsigned char timer, timer2;
@@ -137,13 +133,6 @@ void main()
 			switch(RxPacket.port) {
 				case 'r':
 					Reset();
-				case 'v':
-					// transmit firmware version
-					while(!TxPacket.done);
-					strncpypgm2ram(&(TxPacket.data), stringTable[1], MAX_PACKET_SIZE);
-					TxPacket.length = min(strlen(&(TxPacket.data)), MAX_PACKET_SIZE);
-					transmit(&TxPacket);
-					break;
 				case 'w':
 					// update wheel speed			
 					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];							
@@ -239,11 +228,10 @@ void handleQEI(PacketBuffer * encoderPacket)
     if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
 	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
-
     if (encoderCentered >=0x8000)
-		encoder = (encoderCentered - 0x8000)/ 4; //14;
+		encoder = (encoderCentered - 0x8000)/ 4;
 	else
-		encoder = -(signed char)((0x8000-encoderCentered)/ 4); //14);
+		encoder = -(signed char)((0x8000-encoderCentered)/ 4);
 
 	// calculate error, check for rollover
 	error = ((signed int) encoder) - ((signed int) command);
