@@ -29,8 +29,8 @@ PacketBuffer TxPacket;
 unsigned char encoderCount;
 unsigned char encoderFlags;
 
-unsigned char Pconst, Iconst, Dconst;
-signed char previous_error = 0;
+signed int Pconst, Iconst, Dconst;
+signed int previous_error = 0;
 signed int Iterm = 0;
 signed char command = 0;
 unsigned char direction = 0;
@@ -149,9 +149,9 @@ void main()
 					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];							
 					break;
 				case 'f':
-					Pconst = RxPacket.data[0];
-					Iconst = RxPacket.data[1];
-					Dconst = RxPacket.data[2];
+					Pconst = (signed int) RxPacket.data[0];
+					Iconst = (signed int) RxPacket.data[1];
+					Dconst = (signed int) RxPacket.data[2];
 					break;
 				case 'e':
 					if (RxPacket.data[0]=='1')
@@ -171,7 +171,7 @@ void commutateMotor()
 {
 	const unsigned char backdrive[8] = { 0b00000000, 	// 0 error
 										0b00100001, 	// 4
-										0b00001010, 	// 2										
+										0b00001010, 	// 2		
 										0b00100010, 	// 6
 										0b00010100, 	// 1
 										0b00010001, 	// 5
@@ -212,7 +212,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 {
 	unsigned int encoderCentered = 0;
 	signed char encoder = 0;
-	signed char error = 0;
+	signed int error = 0;
 	signed int duty = 0;
 	unsigned char dutyHigh, dutyLow;
 	signed int Dterm;
@@ -246,23 +246,11 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoder = -(signed char)((0x8000-encoderCentered)/ 4); //14);
 
 	// calculate error, check for rollover
-	error = encoder - command;
+	error = ((signed int) encoder) - ((signed int) command);
 
-	//if ((((encoder>>7)&1)!=(command>>7)) && (((error>>7)&1)==((command>>7)&1))) {
-	if ((command>0)!=(encoder>0) && (encoder>0)==(command>0)) {
-		if (error > 0)
-			error = -119;
-		else
-			error = 119;
-	}
-	//set P, I, and D to 100 and its tuned. However it doesn't seem to work well. Motors jitter etc.
-	//duty = (signed int)error * (signed int)Pconst / ((signed int)4);
-	//Dterm = (signed int)Dconst * ((signed int)error - (signed int)previous_error) / ((signed int)667);
-	//Iterm += (signed int)Iconst * (signed int)error / ((signed int)28);
-
-	duty = (signed int)error * (signed int)Pconst / 3;
-	Dterm = (signed int)Dconst * ((signed int)error - (signed int)previous_error) / 3;
-	Iterm += (signed int)Iconst * (signed int)error / 3;
+	duty = error * Pconst / 3;
+	Dterm = Dconst * (error - previous_error) / 3;
+	Iterm += Iconst * error / 3;
 
 	//check things are small
 	if (duty > 900){
@@ -271,10 +259,10 @@ void handleQEI(PacketBuffer * encoderPacket)
 		duty = -900;
 	}
 
-	if (Dterm > 127){
-		Dterm = 127;
-	} else if (Dterm < -127){
-		Dterm = -127;
+	if (Dterm > 900){
+		Dterm = 900;
+	} else if (Dterm < -900){
+		Dterm = -900;
 	}
 
 	if (command == 0 && encoder == 0)
@@ -286,8 +274,12 @@ void handleQEI(PacketBuffer * encoderPacket)
 	}
 
 	duty += Dterm + Iterm;
-
+	
+	if(duty > 1023) duty = 1023;
+	if(duty < -1023) duty = -1023;
+	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
+		encoderPacket->data[encoderCount++] = error>>8;
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;
