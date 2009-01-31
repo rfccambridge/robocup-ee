@@ -3,12 +3,45 @@
 #include "bemixnet.h"
 
 // *** set configuration word ***
-#pragma	config OSC 		= IRCIO
-#pragma	config WDTEN 	= OFF
-#pragma	config LVP 		= OFF
-#pragma	config WDPS 	= 256
-#pragma config BOREN	= ON
-#pragma config BORV		= 42
+#pragma	config OSC 		= IRCIO		// internal oscillator
+#pragma config FCMEN	= ON  		// fail-safe clock monitor off
+#pragma config IESO		= ON    	// int/ext switchover off
+#pragma config PWRTEN	= OFF		// powerup timer off
+#pragma config BOREN	= ON    	// brown out reset on
+#pragma config BORV		= 42    	// brown out voltage 4.2
+#pragma	config WDTEN 	= OFF   	// watchdog timer
+#pragma	config WDPS 	= 256   	// watchdog timer prescaler
+#pragma	config T1OSCMX	= OFF    	// timer1 osc mux
+#pragma	config HPOL		= HIGH		// high side transsitor polarity
+#pragma	config LPOL		= HIGH		// low side transistor polarity
+#pragma	config PWMPIN	= OFF    	// PWM output pins Reset state control
+#pragma	config MCLRE	= OFF		// MCLR enable
+#pragma	config EXCLKMX	= RC3    	// External clock MUX bit
+#pragma	config PWM4MX	= RB5		// PWM MUX
+#pragma	config SSPMX	= RC7
+#pragma	config FLTAMX	= RC1
+#pragma	config STVREN	= ON		// stack overflow reset
+#pragma	config LVP 		= OFF		// low voltage programming
+#pragma config DEBUG	= OFF		// backgroud degugger
+#pragma	config CP0		= OFF		// code protection
+#pragma	config CP1		= OFF		// code protection
+#pragma	config CP2		= OFF		// code protection
+#pragma	config CP3		= OFF		// code protection
+#pragma	config CPB		= OFF		// boot protection
+#pragma	config CPD		= OFF		// eeprom protection
+#pragma	config WRT0		= OFF		// write protection
+#pragma	config WRT1		= OFF		// write protection
+#pragma	config WRT2		= OFF		// write protection
+#pragma	config WRT3		= OFF		// write protection
+#pragma	config WRTB		= OFF		// write protection
+#pragma	config WRTC		= OFF		// write protection
+#pragma	config WRTD		= OFF		// write protection
+#pragma	config EBTR0	= OFF		// table protection
+#pragma	config EBTR1	= OFF		// table protection
+#pragma	config EBTR2	= OFF		// table protection
+#pragma	config EBTR3	= OFF		// table protection
+
+
 
 // *** pin definitions ***
 #define LED1			LATEbits.LATE2		// Power
@@ -42,7 +75,7 @@ void handleQEI(PacketBuffer * TxPacket);
 void main()
 {
 	unsigned char timer, timer2;
-
+	
 	TRISE = 0xf8;
 
 	// *** 8 MHz clock ***
