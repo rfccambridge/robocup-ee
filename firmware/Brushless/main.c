@@ -96,7 +96,7 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 25;
+	Pconst = 10;
 	Dconst = 1;
 	Iconst = 4;
 	command = 0;
