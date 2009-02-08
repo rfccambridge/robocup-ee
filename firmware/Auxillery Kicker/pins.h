@@ -24,7 +24,7 @@
 #define BattV			PORTAbits.RA5
 
 // === DRIBBLER ===
-#define DRIBBLER		PORTCbits.RC2
+#define DRIBBLER		LATEbits.LATE1
 
 //===Break beam
 //goes low when the ball is seen

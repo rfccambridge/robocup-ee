@@ -72,8 +72,8 @@ void main(){
 
 	MBLED1 = 1;
 	MBLED2 = 1;
-	OpenADC(ADC_FOSC_RC & ADC_RIGHT_JUST & ADC_0_TAD,BattV & ADC_INT_ON, 0);
-	ADCON1 =0x00;
+	//OpenADC(ADC_FOSC_RC & ADC_RIGHT_JUST & ADC_0_TAD,BattV & ADC_INT_ON, 0);
+	//ADCON1 =0x00;
 
 	
 	// it's PNP!!!
@@ -83,6 +83,7 @@ void main(){
 	K_CHIP2 = 1;
 	K_DISCHARGE = 0;
 	K_CHARGE = 0;
+	DRIBBLER = 1;
 	
 	// all LEDs off
 	LED1 = 1;
@@ -93,24 +94,28 @@ void main(){
 	//MBLED2 = 0;
 	//led = LED_POWER;
 
-	
+	//LED1 = 0;
+	//LED1 = 0;
 
 	blink();
+
+	LED1 = 0;
 
 	// === Main Loop ===	
 	while(1){
 		unsigned short i;
+
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
-		LED1 = !LED1;//!LED3;
+//		LED1 = !LED1;//!LED3;
 
 		//Battery Info
-
+/*
 		SetChanADC(BattV);    //set ADC input to pin 2
 		ConvertADC();           //perform ADC conversion
 		while(BusyADC());       //wait for result
-
+*/
 		//adc_result = (double)(ReadADC()); //stores ADC result into a predefined integer
 		//adc_result = adc_result*10.4*5.0/(2.2*1023.0);
 /*
@@ -160,16 +165,17 @@ void main(){
 			// === DRIBBLER ===
 				// dribbler
 				
-				case 'd':
+				case 'd':/*
 					if (RxPacket.data[0] == '0')
 						DRIBBLER = 0;
 					else if (RxPacket.data[0] == '1')
-						DRIBBLER = 1;
+						DRIBBLER = 1;*/
+					DRIBBLER = !DRIBBLER;
 					break;
 
 			// === KICKER ===				
 				// kick
-				case 'L'://for testing
+/*				case 'L'://for testing
 					K_KICK1 = 0;
 					K_KICK2 = 0;	
 					K_CHIP1	 = 0;
@@ -237,35 +243,74 @@ void main(){
 					K_DISCHARGE = 1;
 					K_KICK1 = 1;
 					K_KICK2 = 1;
+				    break;
+					*/
+				case 'k': //Kick
+					K_CHARGE = 0;//stop charging while kicking.	
+					K_DISCHARGE = 0;
+					for (i=0; i<0xFF; i++);
+					K_KICK1 = 0;
+					K_KICK2 = 0;
+					for (i=0; i<0xFF; i++);
+					K_KICK1 = 1;
+					K_KICK2 = 1;
 					break;
-
+				case 'c': //Charge
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					for (i=0; i<0xFF; i++);
+					K_CHARGE = 1;
+					K_DISCHARGE = 0;
+					break;
+				case 'p': //Discharge
+					K_CHARGE = 0;//stop charging while kicking.	
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					for (i=0; i<0xFF; i++);
+					K_DISCHARGE = 1;
+					for (i=0; i<0xFF; i++);
+					for (i=0; i<0xFF; i++);
+					for (i=0; i<0xFF; i++);
+					for (i=0; i<0xFF; i++);
+					K_DISCHARGE = 0;
+					break;
+				case 's': //Stop Charging
+					K_CHARGE = 0;//stop charging while kicking.	
+					K_DISCHARGE = 0;
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					break;
 				// some other port
 				default:
+					LED3 = !LED3;
 					break;
 			}
 		}
-	if (kick_counter > 0)
-		kick_counter--;
+
+
+/*
+		if (kick_counter > 0)
+			kick_counter--;
 	
-	// break bream check
-	if ((PORTBbits.RB3 == 0) && (kick_counter > 0)){
-		unsigned short i;
-		K_CHARGE = 0;//stop charging while kicking.	
-		K_KICK1 = 0;
-		K_KICK2 = 0;
-		for (i=0; i<0xFF; i++);
-		K_KICK1 = 1;
-		K_KICK2 = 1;
-		//blink();
+		// break bream check
+		if ((PORTBbits.RB3 == 0) && (kick_counter > 0)){
+			unsigned short i;
+			K_CHARGE = 0;//stop charging while kicking.	
+			K_KICK1 = 0;
+			K_KICK2 = 0;
+			for (i=0; i<0xFF; i++);
+			K_KICK1 = 1;
+			K_KICK2 = 1;
+			//blink();
+		}*/
+	/*	if(PORTBbits.RB3 == 0){
+			LED3 = 0;
+			kick_counter++;
+		}
+		else
+			LED3 = 1;
+	*/
 	}
-/*	if(PORTBbits.RB3 == 0){
-		LED3 = 0;
-		kick_counter++;
-	}
-	else
-		LED3 = 1;
-*/
-}
 }
 
 
