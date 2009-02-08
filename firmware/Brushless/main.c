@@ -3,45 +3,43 @@
 #include "bemixnet.h"
 
 // *** set configuration word ***
-#pragma	config OSC 		= IRCIO		// internal oscillator
-#pragma config FCMEN	= ON  		// fail-safe clock monitor off
-#pragma config IESO		= ON    	// int/ext switchover off
-#pragma config PWRTEN	= OFF		// powerup timer off
-#pragma config BOREN	= ON    	// brown out reset on
-#pragma config BORV		= 42    	// brown out voltage 4.2
-#pragma	config WDTEN 	= OFF   	// watchdog timer
-#pragma	config WDPS 	= 256   	// watchdog timer prescaler
-#pragma	config T1OSCMX	= OFF    	// timer1 osc mux
-#pragma	config HPOL		= HIGH		// high side transsitor polarity
-#pragma	config LPOL		= HIGH		// low side transistor polarity
-#pragma	config PWMPIN	= OFF    	// PWM output pins Reset state control
-#pragma	config MCLRE	= OFF		// MCLR enable
-#pragma	config EXCLKMX	= RC3    	// External clock MUX bit
-#pragma	config PWM4MX	= RB5		// PWM MUX
-#pragma	config SSPMX	= RC7
-#pragma	config FLTAMX	= RC1
-#pragma	config STVREN	= ON		// stack overflow reset
-#pragma	config LVP 		= OFF		// low voltage programming
-#pragma config DEBUG	= OFF		// backgroud degugger
-#pragma	config CP0		= OFF		// code protection
-#pragma	config CP1		= OFF		// code protection
-#pragma	config CP2		= OFF		// code protection
-#pragma	config CP3		= OFF		// code protection
-#pragma	config CPB		= OFF		// boot protection
-#pragma	config CPD		= OFF		// eeprom protection
-#pragma	config WRT0		= OFF		// write protection
-#pragma	config WRT1		= OFF		// write protection
-#pragma	config WRT2		= OFF		// write protection
-#pragma	config WRT3		= OFF		// write protection
-#pragma	config WRTB		= OFF		// write protection
-#pragma	config WRTC		= OFF		// write protection
-#pragma	config WRTD		= OFF		// write protection
-#pragma	config EBTR0	= OFF		// table protection
-#pragma	config EBTR1	= OFF		// table protection
-#pragma	config EBTR2	= OFF		// table protection
-#pragma	config EBTR3	= OFF		// table protection
-
-
+#pragma	config OSC      = IRCIO		// internal oscillator
+#pragma	config LVP 	    = OFF		// low voltage programming
+#pragma	config WDTEN    = OFF   	// watchdog timer
+#pragma	config WDPS     = 256   	// watchdog timer prescaler
+#pragma config BOREN    = ON    	// brown out reset on
+#pragma config BORV     = 42    	// brown out voltage 4.2
+#pragma config FCMEN    = ON  		// fail-safe clock monitor off
+#pragma config IESO     = ON    	// int/ext switchover off
+#pragma config PWRTEN   = OFF		// powerup timer off
+#pragma	config T1OSCMX  = OFF    	// timer1 osc mux
+#pragma	config HPOL	    = HIGH		// high side transsitor polarity
+#pragma	config LPOL	    = HIGH		// low side transistor polarity
+#pragma	config PWMPIN   = OFF    	// PWM output pins Reset state control
+#pragma	config MCLRE    = OFF       // MCLR enable
+#pragma	config EXCLKMX  = RC3    	// External clock MUX bit
+#pragma	config PWM4MX   = RB5		// PWM MUX
+#pragma	config SSPMX    = RC7
+#pragma	config FLTAMX   = RC1
+#pragma	config STVREN   = ON		// stack overflow reset
+#pragma config DEBUG    = OFF		// backgroud degugger
+#pragma	config CP0      = OFF		// code protection
+#pragma	config CP1      = OFF		// code protection
+#pragma	config CP2      = OFF		// code protection
+#pragma	config CP3	    = OFF		// code protection
+#pragma	config CPB      = OFF		// boot protection
+#pragma	config CPD      = OFF		// eeprom protection
+#pragma	config WRT0     = OFF		// write protection
+#pragma	config WRT1     = OFF		// write protection
+#pragma	config WRT2     = OFF		// write protection
+#pragma	config WRT3     = OFF		// write protection
+#pragma	config WRTB     = OFF		// write protection
+#pragma	config WRTC     = OFF		// write protection
+#pragma	config WRTD     = OFF		// write protection
+#pragma	config EBTR0    = OFF		// table protection
+#pragma	config EBTR1    = OFF		// table protection
+#pragma	config EBTR2    = OFF		// table protection
+#pragma	config EBTR3    = OFF		// table protection
 
 // *** pin definitions ***
 #define LED1			LATEbits.LATE2		// Power
@@ -49,12 +47,15 @@
 #define LED3			LATEbits.LATE0		// Hall error
 #define LED4			LATAbits.LATA5		// Mosfet driver error
 
-#define min(a,b) (a<b) ? a : b
+#define min(a,b)        (a<b) ? a : b
+#define HALL            (PORTC & 0x07)
 
-#define HALL		(PORTC & 0x07)
-
-#define SPEW_ENCODER 1
+#define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
+
+// initial value of timer0
+// increase for shorter period
+#define TIMER0INIT        32
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -99,6 +100,12 @@ void main()
 	TRISE = 0x00;
 
 	// *** initialize timer0 ***
+	// 8 bit mode
+	// prescaler   period
+	// 110         16.4ms
+	// 101          8.2ms
+	// 100          4.1ms
+
 	T0CON = 0b11000101;
 	INTCON = 0b11100000;
 
@@ -129,9 +136,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 10;
-	Dconst = 1;
-	Iconst = 4;
+	Pconst = 12;
+	Dconst = 3;
+	Iconst = 3;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -253,6 +260,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 	encoderCentered += POSCNTL;
 	POSCNTH = 0x80;
 	POSCNTL = 0x00;
+
+	TMR0L = TIMER0INIT;
 
 	// convert encoder value to 8 bit 2's comp
 	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
