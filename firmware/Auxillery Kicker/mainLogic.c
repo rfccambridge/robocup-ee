@@ -63,7 +63,7 @@ void main(){
 	TRISD = 0x1F;
 	//PORTD = 0x00;	
 	TRISE = 0x03;
-	//PORTE = 0x00;
+	//PORTE = 0xFF;
 
 	//Setting up the analog input for the battery voltage
 	/*ADCON0 = 0b00100111;//coninuous, single channel, simultaneous group A and group B, start cycle, a/d on
@@ -83,7 +83,7 @@ void main(){
 	K_CHIP2 = 1;
 	K_DISCHARGE = 0;
 	K_CHARGE = 0;
-	DRIBBLER = 1;
+	DRIBBLER = 0;
 	
 	// all LEDs off
 	LED1 = 1;
