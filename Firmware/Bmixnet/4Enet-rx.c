@@ -54,20 +54,22 @@ void handleRx(PacketBuffer * RxPacket) {
 	newByte = RCREG;
 
 	switch (receiveState) {
-		// expecting escape to start packet
+		// If we're ignoring, and we see an escape sequence, that could be the start
+		// of a packet
 		case IGNORE:
 			if (newByte == ESCAPE_CODE)
 				receiveState = ESCAPE;
 			break;
-		// expecting the header code
+		// Having seen an escape sequence, we now expect a header. If not, go back
+		// to ignoring
 		case ESCAPE:
 			if (newByte == HEADER_CODE)
 				receiveState = HEADER;
 			else	// must have been a framing error, ignore rest of packet
 				receiveState = IGNORE;
 			break;
-		// expecting destination address, if it matches continue to next state
-		// otherwise go back to IGNORE
+		// Next should be the robot ID (address). If it matches ours, we go on to get data.
+		// Otherwise, go back to ignoring or looking for a header if we see an escape
 		case HEADER:
 			if (newByte == getAddress())
 				receiveState = SOURCE;
@@ -76,12 +78,14 @@ void handleRx(PacketBuffer * RxPacket) {
 			else
 				receiveState = IGNORE;
 			break;
-		// at this point, packet is addressed to MY_ADDRESS, go ahead recieving
-		// reset length counter and clear done flag to let program know that
+		// At this point, packet is addressed to MY_ADDRESS, go ahead recieving
+		// Reset length counter and clear done flag to let program know that
 		// RxPacket is currently invalid
 		case SOURCE:
+			// An escape? Go back to expecting a header
 			if (newByte == ESCAPE_CODE)
 				receiveState = ESCAPE;
+			// Otherwise, store the address
 			else {
 				receiveState = PORT;
 				RxPacket->address = newByte;
@@ -102,7 +106,8 @@ void handleRx(PacketBuffer * RxPacket) {
 				RxPacket->data[RxPacket->length] = newByte;
 				RxPacket->length++;
 			} else {
-				// if Rx buffer is full then stop recieving
+				// If Rx buffer is full then stop recieving (avoid buffer 
+				// overflow)
 				RxPacket->length--;
 				receiveState = IGNORE;
 				RxPacket->done = 1;
