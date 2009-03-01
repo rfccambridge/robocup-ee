@@ -53,9 +53,6 @@
 #define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
 
-// this is the maximum error
-#define MAX_ERROR 200
-
 // initial value of timer0
 // increase for shorter period
 #define TIMER0INIT        32
@@ -194,9 +191,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 50;
+	Pconst = 12;
 	Dconst = 3;
-	Iconst = 0;
+	Iconst = 3;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -323,9 +320,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	POSCNTH = 0x80;
 	POSCNTL = 0x00;
 
-	//  Set duty to estimated value
-	//	duty = rotationsToDuty(speedToRotations(command));
-	
 	TMR0L = TIMER0INIT;
 
 	// convert encoder value to 8 bit 2's comp
@@ -375,7 +369,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm;
+	duty += Dterm + Iterm + command;
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
