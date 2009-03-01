@@ -303,7 +303,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm;
+	duty += Dterm + Iterm + command;
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
