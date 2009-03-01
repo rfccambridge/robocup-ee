@@ -53,6 +53,9 @@
 #define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
 
+// this is the maximum error
+#define MAX_ERROR 200
+
 // initial value of timer0
 // increase for shorter period
 #define TIMER0INIT        32
@@ -69,9 +72,64 @@ signed int Iterm = 0;
 signed char command = 0;
 unsigned char direction = 0;
 
+// the following is a debugging tool: flag for feedback, 0 for off, 1 for on
+// feedback should always be on - only turn off to see what robot does if it thinks there is no error
+unsigned short feedback_on = 1;
+
 void commutateMotor();
 void high_ISR();	 //Interrupt Service Routine
 void handleQEI(PacketBuffer * TxPacket);
+
+// hard-coded, hacky functions for translating between speed & duty cycle
+// these are designed for testing dead reckoning for wheel speeds
+
+// rotations is measured in how many thousandths of a rotation
+// the robot can make per second (millihertz) using one wheel
+signed int speedToRotations(signed int commandSpeed){
+	signed int positiveSpeed = (commandSpeed < 0 ? -commandSpeed : commandSpeed);
+	signed int rotations = 0;
+	if(positiveSpeed < 10){
+		rotations = (331)/10*positiveSpeed;
+	}
+	else if(positiveSpeed < 20){
+		rotations = (687-331)/10*(positiveSpeed-10) + 331;
+	}
+	else if(positiveSpeed < 30){
+		rotations = (1197-687)/10*(positiveSpeed-20) + 687;
+	}
+	else if(positiveSpeed < 40){
+		rotations = (1741-1197)/10*(positiveSpeed-30) + 1197;
+	}
+	else{
+		rotations = (2242-1741)/10*(positiveSpeed-40) + 1741;
+	}
+	return (commandSpeed > 0 ? rotations : -rotations);
+}
+
+signed int rotationsToDuty(signed int rotations){
+	signed int positiveRotations = (rotations < 0 ? -rotations : rotations);
+	signed int dutyvalue = 0;
+	if(positiveRotations < 652){
+		dutyvalue = (165-0)/652*positiveRotations;
+	}
+	else if(positiveRotations < 755){
+		dutyvalue = (175-165)/(755-652)*(positiveRotations-652) + 652;
+	}
+	else if(positiveRotations < 965){
+		dutyvalue = (185-175)/(965-755)*(positiveRotations-755) + 755;
+	}
+	else if(positiveRotations < 1272){
+		dutyvalue = (195-185)/(1272-965)*(positiveRotations-965) + 965;
+	}
+	else if(positiveRotations < 1513){
+		dutyvalue = (210-195)/(1513-1272)*(positiveRotations-1272) + 1272;
+	}
+	else{
+		dutyvalue = (230-210)/(2073-1513)*(positiveRotations-2073) + 1513;
+	}
+	return (rotations > 0 ? positiveRotations : -positiveRotations);
+}
+
 
 void main()
 {
@@ -136,9 +194,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 12;
+	Pconst = 50;
 	Dconst = 3;
-	Iconst = 3;
+	Iconst = 0;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -187,6 +245,10 @@ void main()
 						encoderFlags = SPEW_ENCODER;
 					else
 						encoderFlags = DONT_SPEW_ENCODER;
+					break;
+				case 's': // temporary value - make this work
+					// TODO: estimate wheel speed
+					break;
 				default:
 					break;	
 			}
@@ -242,8 +304,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned int encoderCentered = 0;
 	signed char encoder = 0;
 	signed int error = 0;
-	signed int duty = 0;
-	unsigned char dutyHigh, dutyLow;
+	signed int duty = 0;				// modifies speed based on PID feedback
+	unsigned char dutyHigh, dutyLow;	// high and low bits for duty cycle
 	signed int Dterm;
 
 	// transmit
@@ -261,6 +323,9 @@ void handleQEI(PacketBuffer * encoderPacket)
 	POSCNTH = 0x80;
 	POSCNTL = 0x00;
 
+	//  Set duty to estimated value
+	//	duty = rotationsToDuty(speedToRotations(command));
+	
 	TMR0L = TIMER0INIT;
 
 	// convert encoder value to 8 bit 2's comp
@@ -278,7 +343,14 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// calculate error, check for rollover
 	error = ((signed int) encoder) - ((signed int) command);
 
-	duty = error * Pconst / 3;
+	// if feedback is off, set error to 0; otherwise, keep it the same
+	error *= feedback_on;
+
+	// cap error to prevent an individual wheel from drawing too much current
+	if(error > MAX_ERROR) error = MAX_ERROR;
+	if(error < -MAX_ERROR) error = -MAX_ERROR;
+
+	duty += error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
 	Iterm += Iconst * error / 3;
 
@@ -303,7 +375,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm + command;
+	duty += Dterm + Iterm;
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
@@ -313,7 +385,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;
-	}
+	}	
 
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
