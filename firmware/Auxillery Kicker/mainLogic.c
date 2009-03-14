@@ -35,6 +35,7 @@ void main(){
 	double adc_result = 10;
 	int test_adc = 0;
 	int test_old = 0;
+	int bb = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -52,7 +53,7 @@ void main(){
 	
 	//Power PWM.  PWM 1,3,5,7 used.
 	PWMCON0= 0x00;//0b01110000; 						 //Only Odd PWM pins enabled (default)
-	TRISB = 0b11001010;							//5,2,0 for directional I/O outputs
+	TRISB = 0b11001110;							//5,2,0 for directional I/O outputs
 	PTPERH = 0x00;
 	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
 	
@@ -280,9 +281,18 @@ void main(){
 					K_KICK1 = 1;
 					K_KICK2 = 1;
 					break;
+				case 'b': //Charge
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					for (i=0; i<0xFF; i++);
+					K_CHARGE = 1;
+					K_DISCHARGE = 0;
+					bb = 1;
+					break;
 				// some other port
 				default:
-					LED3 = !LED3;
+					//LED3 = !LED3;
+					LED3 = PORTBbits.RB2;
 					break;
 			}
 		}
@@ -310,6 +320,19 @@ void main(){
 		else
 			LED3 = 1;
 	*/
+
+		if(bb == 1 && PORTBbits.RB2 == 0){
+			bb = 0;
+			K_CHARGE = 0;//stop charging while kicking.	
+			K_DISCHARGE = 0;
+			for (i=0; i<0xFF; i++);
+			K_KICK1 = 0;
+			K_KICK2 = 0;
+			for (i=0; i<0xFF; i++);
+			K_KICK1 = 1;
+			K_KICK2 = 1;
+		}
+
 	}
 }
 
