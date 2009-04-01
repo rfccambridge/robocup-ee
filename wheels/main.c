@@ -196,7 +196,7 @@ void main()
 	// defaults for testing
 	Pconst = 50;
 	Dconst = 3;
-	Iconst = 0;
+	Iconst = 1;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
