@@ -60,7 +60,7 @@
 // increase for shorter period
 #define TIMER0INIT        32
 
-#define ERR_BUFFER_SIZE		100
+#define ERR_BUFFER_SIZE		10
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -204,7 +204,7 @@ void main()
 	// defaults for testing
 	Pconst = 50;
 	Dconst = 3;
-	Iconst = 8;
+	Iconst = 40;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -352,7 +352,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	error = ((signed int) encoder) - ((signed int) command);
 
 	// if feedback is off, set error to 0; otherwise, keep it the same
-	error *= feedback_on;
+	//error *= feedback_on;
 
 	// cap error to prevent an individual wheel from drawing too much current
 	if(error > MAX_ERROR) error = MAX_ERROR;
@@ -390,15 +390,18 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Dterm = -900;
 	}
 
-	/*if (command == 0 && encoder == 0)
-		Iterm = 0;*/
+	if (command == 0 && error < 2 && error > -2) {
+		duty = 0;
+	} else {
+		duty += Dterm + Iconst*Iterm/30;		
+	}
 	/*if (Iterm > 500){
 		Iterm = 500;
 	} else if (Iterm < -500){
 		Iterm = -500;
 	}*/
 
-	duty += Dterm + Iconst*Iterm/30;
+
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
