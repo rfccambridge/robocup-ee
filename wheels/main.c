@@ -60,6 +60,8 @@
 // increase for shorter period
 #define TIMER0INIT        32
 
+#define ERR_BUFFER_SIZE		100
+
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
 
@@ -69,6 +71,12 @@ unsigned char encoderFlags;
 signed int Pconst, Iconst, Dconst;
 signed int previous_error = 0;
 signed int Iterm = 0;
+
+//these three go togheter
+signed char prev_errors[ERR_BUFFER_SIZE];
+unsigned char err_start=0;
+unsigned char err_end=ERR_BUFFER_SIZE - 1;
+
 signed char command = 0;
 unsigned char direction = 0;
 
@@ -196,7 +204,7 @@ void main()
 	// defaults for testing
 	Pconst = 50;
 	Dconst = 3;
-	Iconst = 1;
+	Iconst = 8;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -352,7 +360,22 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 	duty += error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
-	Iterm += Iconst * error / 3;
+	Iterm += (error - prev_errors[err_start]);
+	
+	//efectively throw away the oldest error we kept
+	//prev_errors[prev_start] = 0;
+	err_start++;
+	if(err_start == ERR_BUFFER_SIZE)
+		err_start = 0;	
+	
+	//reserve space for the new error
+	err_end++;
+	if(err_end == ERR_BUFFER_SIZE)
+		err_end = 0;
+	
+	//...and save it there
+	prev_errors[err_end] = error;
+
 
 	//check things are small
 	if (duty > 900){
@@ -367,15 +390,15 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Dterm = -900;
 	}
 
-	if (command == 0 && encoder == 0)
-		Iterm = 0;
-	if (Iterm > 500){
+	/*if (command == 0 && encoder == 0)
+		Iterm = 0;*/
+	/*if (Iterm > 500){
 		Iterm = 500;
 	} else if (Iterm < -500){
 		Iterm = -500;
-	}
+	}*/
 
-	duty += Dterm + Iterm;
+	duty += Dterm + Iconst*Iterm/30;
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
