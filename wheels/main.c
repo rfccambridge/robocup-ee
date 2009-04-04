@@ -54,13 +54,13 @@
 #define DONT_SPEW_ENCODER 0
 
 // this is the maximum error
-#define MAX_ERROR 200
+#define MAX_ERROR 4
 
 // initial value of timer0
 // increase for shorter period
 #define TIMER0INIT        32
 
-#define ERR_BUFFER_SIZE		10
+#define ERR_BUFFER_SIZE		4
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -73,7 +73,7 @@ signed int previous_error = 0;
 signed int Iterm = 0;
 
 //these three go togheter
-signed char prev_errors[ERR_BUFFER_SIZE];
+signed int prev_errors[ERR_BUFFER_SIZE];
 unsigned char err_start=0;
 unsigned char err_end=ERR_BUFFER_SIZE - 1;
 
@@ -202,9 +202,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 50;
-	Dconst = 3;
-	Iconst = 40;
+	Pconst = 100;
+	Dconst = 0;
+	Iconst = 0;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -360,7 +360,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 	duty += error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
-	Iterm += (error - prev_errors[err_start]);
+	Iterm += (error-prev_errors[err_start]);
 	
 	//efectively throw away the oldest error we kept
 	//prev_errors[prev_start] = 0;
@@ -390,11 +390,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Dterm = -900;
 	}
 
-	if (command == 0 && error < 2 && error > -2) {
-		duty = 0;
-	} else {
-		duty += Dterm + Iconst*Iterm/30;		
-	}
+	duty += Dterm + Iconst*Iterm;		
+	
 	/*if (Iterm > 500){
 		Iterm = 500;
 	} else if (Iterm < -500){
@@ -424,7 +421,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// hacked, weird around 0, don't change
 	if (duty >= 1020)
 		duty=1020;
-	duty = 1020 - duty;
+	duty = 1023 - duty;
 
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
