@@ -54,13 +54,11 @@
 #define DONT_SPEW_ENCODER 0
 
 // this is the maximum error
-#define MAX_ERROR 4
+#define MAX_ERROR 200
 
 // initial value of timer0
 // increase for shorter period
 #define TIMER0INIT        32
-
-#define ERR_BUFFER_SIZE		4
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -71,12 +69,6 @@ unsigned char encoderFlags;
 signed int Pconst, Iconst, Dconst;
 signed int previous_error = 0;
 signed int Iterm = 0;
-
-//these three go togheter
-signed int prev_errors[ERR_BUFFER_SIZE];
-unsigned char err_start=0;
-unsigned char err_end=ERR_BUFFER_SIZE - 1;
-
 signed char command = 0;
 unsigned char direction = 0;
 
@@ -202,8 +194,8 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 100;
-	Dconst = 0;
+	Pconst = 50;
+	Dconst = 3;
 	Iconst = 0;
 	command = 0;
 	Iterm = 0;
@@ -241,7 +233,19 @@ void main()
 					Reset();
 				case 'w':
 					// update wheel speed			
-					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];							
+					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];
+					if(command == 0){
+						Pconst = 50;
+					} else if(command < 0) {
+						Pconst = 100+command*3;
+					} else {
+						Pconst = 100-command*3;
+					}			
+
+					if(Pconst < 20) {
+						Pconst = 50;
+					}
+
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
@@ -352,7 +356,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	error = ((signed int) encoder) - ((signed int) command);
 
 	// if feedback is off, set error to 0; otherwise, keep it the same
-	//error *= feedback_on;
+	error *= feedback_on;
 
 	// cap error to prevent an individual wheel from drawing too much current
 	if(error > MAX_ERROR) error = MAX_ERROR;
@@ -360,22 +364,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 	duty += error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
-	Iterm += (error-prev_errors[err_start]);
-	
-	//efectively throw away the oldest error we kept
-	//prev_errors[prev_start] = 0;
-	err_start++;
-	if(err_start == ERR_BUFFER_SIZE)
-		err_start = 0;	
-	
-	//reserve space for the new error
-	err_end++;
-	if(err_end == ERR_BUFFER_SIZE)
-		err_end = 0;
-	
-	//...and save it there
-	prev_errors[err_end] = error;
-
+	Iterm += Iconst * error / 3;
 
 	//check things are small
 	if (duty > 900){
@@ -390,15 +379,15 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Dterm = -900;
 	}
 
-	duty += Dterm + Iconst*Iterm;		
-	
-	/*if (Iterm > 500){
+	if (command == 0 && encoder == 0)
+		Iterm = 0;
+	if (Iterm > 500){
 		Iterm = 500;
 	} else if (Iterm < -500){
 		Iterm = -500;
-	}*/
+	}
 
-
+	duty += Dterm + Iterm;
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
@@ -421,7 +410,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// hacked, weird around 0, don't change
 	if (duty >= 1020)
 		duty=1020;
-	duty = 1023 - duty;
+	duty = 1020 - duty;
 
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
