@@ -243,7 +243,7 @@ void main()
 					}			
 
 					if(Pconst < 20) {
-						Pconst = 50;
+						Pconst = 20;
 					}
 
 					break;
