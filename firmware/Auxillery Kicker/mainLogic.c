@@ -36,6 +36,8 @@ void main(){
 	int test_adc = 0;
 	int test_old = 0;
 	int bb = 0;
+	int ii = 0;
+	int iii = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -284,12 +286,39 @@ void main(){
 					K_KICK2 = 1;
 					break;
 				case 'b': //Charge
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-					for (i=0; i<0xFF; i++);
-					K_CHARGE = 1;
-					K_DISCHARGE = 0;
-					bb = 1;
+					if(PORTBbits.RB3 == 1) {
+						K_KICK1 = 1;
+						K_KICK2 = 1;
+						for (i=0; i<0xFF; i++);
+						K_CHARGE = 1;
+						K_DISCHARGE = 0;
+						bb = 1;
+					} else {
+						bb = 0;
+						K_KICK1 = 1;
+						K_KICK2 = 1;
+						for (i=0; i<0xFF; i++);
+						K_CHARGE = 1;
+						K_DISCHARGE = 0;
+						iii = 0;
+						while(iii<11) {
+							ii = 0;
+							while (ii<10000){
+								ii++;
+							}
+							iii++;
+						}
+
+						K_CHARGE = 0;//stop charging while kicking.	
+						K_DISCHARGE = 0;
+						for (i=0; i<0xFF; i++);
+						K_KICK1 = 0;
+						K_KICK2 = 0;
+						for (i=0; i<0xFF; i++);
+						K_KICK1 = 1;
+						K_KICK2 = 1;
+						
+					}
 					break;
 				// some other port
 				default:
