@@ -1,13 +1,13 @@
 Vendor,Distributer part # (manufacturer part number),Description,Package,Unit Price,Quantity,,To Buy
 
 Mother Board,,,,,,,
-Digikey,RXM-900-HP3-PPS-ND,900MHz Radio Receiver,--,44.98,1,,1
+Digikey,RXM-900-HP3-PPS-ND,900MHz Radio Receiver,--,44.98,1,,2
 Digikey,TXM-900-HP3-PPS-ND,900MHz Radio Transmitter,--,30.33,1,,0
 Digikey,ANT-916-JJB-ST ,Antenna,--,1.96,2,,0
 --,--,Motor Connector,--,,0,,0
 Digikey,ED1601-ND ,"TERMINAL BLOCK 5MM VERT 2POS (Battery, dribbler connector)",5mm,0.46,5,,0
 Digikey,ED1558-ND ,TERMINAL BLOCK 5MM VERT 4POS (Kicker connector),5mm,1.76,1,,0
-Digikey,CT20810-ND ,"SWITCH SPST TIN 10 SEC (robot id, channel)",DIP,0.92,1,,0
+Digikey,CT20810-ND ,"SWITCH SPST TIN 10 SEC (robot id, channel)",DIP,0.92,1,,2
 Digikey,WM17131-ND ,CONN USB RT ANG RECPT TYPE B WHT ,--,1.87,1,,0
 Digikey,296-9569-1-ND (LMV324IDR),Op amp quad,SOIC-14,0.48,1,,5
 digikey,MC7812CT-BPMS-ND (MC7812CT-BP),12 Volt regulator,TO-220,0.4,1,,3
@@ -26,10 +26,10 @@ Newark,58K5837,IC DRIVER BRIDGE 3-PHASE 28-SOIC,28SOIC,,,25,6
 Digikey,DL4151TPMSCT-ND ,switching diode,minimelf,0.05,100,,0
 
 Kicker,,,,,,,
-Linear, LT1070CT, ???,,7.08,3,,
+Linear, LT1070CT, ???,,7.08,3,,6
 "Transformer	Not Ordering More						",,,,,,,5
 Mouser,511-STP16NK60Z, MOSFET, TO220,1.49,1,,0
-Mouser, 511-TYN608, SCR,TO220CS,0.89,2,,
+Mouser, 511-TYN608, SCR,TO220CS,0.89,2,,0
 Mouser,512-KSA812OMTF,PNP,SOT23,0.05,3,,0
 Mouser, 821-ES2D, Diode, SMB,0.16,4,,0
 Mouser,101-TS6111T1601-EV ,push button,,0.13,1,,0
@@ -45,14 +45,14 @@ Digikey,1SMB5939BT3GOSCT-ND (1SMB5939BT3G),39V Zener Diode,Smb,0.33,1,,0
 
 
 Ball Detector (parts/board),,,,,Quantity/Board,,
-Digikey,296-1337-5-ND, IC CMOS TIMER 8-SOIC,8-SOIC,,1,,
-Digikey,LTC1440CS8-ND,"	IC COMP W/REF LP SINGLE 8-SOIC",8-SOIC,,2,,
-Digikey,MM74HC86MXCT-ND, IC GATE OR QUAD 2INP EXCL 14SOIC,14-SOIC,,1,,
-Digikey,576-1189-1-ND,IC DRIVER MOSFET 6A LOSIDE 8SOIC,8-SOIC,,1,,
+Digikey,296-1337-5-ND, IC CMOS TIMER 8-SOIC,8-SOIC,,1,,4
+Digikey,LTC1440CS8-ND,"	IC COMP W/REF LP SINGLE 8-SOIC",8-SOIC,,2,,8
+Digikey,MM74HC86MXCT-ND, IC GATE OR QUAD 2INP EXCL 14SOIC,14-SOIC,,1,,4
+Digikey,576-1189-1-ND,IC DRIVER MOSFET 6A LOSIDE 8SOIC,8-SOIC,,1,,4
 Digikey,RFP3055LE-ND,MOSFET N-CH 60V 11A TO-220AB,,,1,,0
-Mouser,859-LTE-3271B,"Emitter, Clear - Lite-On Infrared Phototransistors",,,1,,
-Mouser,512-QSD122,1mA Photo Trans - Fairchild Infrared Emitter/Sensor Assemblies,,,1,,
-Mouser,652-3362X-1-102LF,1K Timmer Potentiometer,,,2,,
+Mouser,859-LTE-3271B,"Emitter, Clear - Lite-On Infrared Phototransistors",,,1,,0
+Mouser,512-QSD122,1mA Photo Trans - Fairchild Infrared Emitter/Sensor Assemblies,,,1,,0
+Mouser,652-3362X-1-102LF,1K Timmer Potentiometer,,,2,,0
 
 
 
