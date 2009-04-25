@@ -39,6 +39,13 @@ void main(){
 	int ii = 0;
 	int iii = 0;
 
+
+	//stuff for hardcoded simple PID
+	int fakePWM_T = 32;	//pwm PERIOD
+	int fakePWM_High = 16;//# of counts period is high. Controls the duty cycle
+	int fakePWM_count = 0;	//count for keeping track of things
+	int dribblerState = 0;					// 0 is inactive. 1 is active
+
 	//TRISA = 0x20;
 	//LATA = 0xff;
 
@@ -53,12 +60,20 @@ void main(){
 	T0CON = 0b10001000;
 	INTCONbits.TMR0IE = 0;	
 	
-	//Power PWM.  PWM 1,3,5,7 used.
-	PWMCON0= 0x00;//0b01110000; 						 //Only Odd PWM pins enabled (default)
-	TRISB = 0b11001010;							//5,2,0 for directional I/O outputs
+	//Enable PWM for the dribbler
+/*	PWMCON0= 0x00;//0b01001111; 		//enable pwm0-5, because can't just enable 4
+										//set all pwm outputs independent of others
+	PTCON0 = 0x00;// 00 is default, which is fine
+	PTCON1 = 0x80;//maybe need 0x80
 	PTPERH = 0x00;
-	PTPERL = 0xFF;								//Setting PWM Period to 8 bits
+	PTPERL = 0xFF;		*/						//Setting PWM Period to 8 bits
 	
+
+
+
+
+	TRISB = 0b11001010;							//2,4,7,8 inputs rest outputs
+
 	ANSEL0 = 0x3f;
 	TRISA = 0b11100000;
 	//LATA = 0xff;	
@@ -103,9 +118,10 @@ void main(){
 	blink();
 
 	LED1 = 0;
-
+	
 	// === Main Loop ===	
 	while(1){
+		
 		unsigned short i;
 
 		LED3 = PORTBbits.RB3;  // Breakbeam Check - If broken, then LED3 turns on - adw
@@ -159,6 +175,24 @@ void main(){
 
 		test_old = test_adc;
 */
+
+	//	DRIBBLER = dribblerState;
+		MBLED1 = dribblerState;
+		//a hardcoded simple PID scheme
+		if (dribblerState) {
+			fakePWM_count++;
+			if (fakePWM_count >= fakePWM_T){
+				//start a new period
+				fakePWM_count = 0;
+			}
+			if (fakePWM_count <= fakePWM_High)
+				DRIBBLER = 0;
+			else
+				DRIBBLER = 1;
+		}
+		else
+			DRIBBLER = 1;
+
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
@@ -175,8 +209,46 @@ void main(){
 						DRIBBLER = 0;
 					else if (RxPacket.data[0] == '1')
 						DRIBBLER = 1;*/
-					DRIBBLER = !DRIBBLER;
-					break;
+					//DRIBBLER = !DRIBBLER;
+					dribblerState = !dribblerState;
+					MBLED2 = !MBLED2;
+					switch( RxPacket.data[0]){//set one of a number of duty cycles
+						case '1':
+							fakePWM_High = 2;//fakePWM_T/10;
+							break;
+						case '2':
+							fakePWM_High = 5;//fakePWM_T/5;
+							break;
+						case '3':
+							fakePWM_High = 8;//fakePWM_T*3/10;
+							break;
+						case '4':
+							fakePWM_High = 11;//fakePWM_T*2/5;
+							break;
+						case '5':
+							fakePWM_High = 14;//fakePWM_T/2;
+							break;
+						case '6':
+							fakePWM_High = 17;//fakePWM_T*6/10;
+							break;
+						case '7':
+							fakePWM_High = 20;//fakePWM_T*7/10;
+							break;
+						case '8':
+							fakePWM_High = 23;//fakePWM_T*8/10;
+							break;
+						case '9':
+							fakePWM_High = 26;//fakePWM_T*9/10;
+							break;
+						case '0':
+							fakePWM_High = 32;//fakePWM_T;
+							break;
+						default:
+							fakePWM_High = fakePWM_T/100;
+
+
+					}
+					
 
 			// === KICKER ===				
 				// kick
