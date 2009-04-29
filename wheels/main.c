@@ -72,6 +72,14 @@ signed int Iterm = 0;
 signed char command = 0;
 unsigned char direction = 0;
 
+unsigned int wheel;
+
+unsigned char speedCount = 1;
+signed char oldSign = 0;
+signed char newSign;
+signed char newSpeed;
+#define SPEED_THRESHOLD 2
+
 // the following is a debugging tool: flag for feedback, 0 for off, 1 for on
 // feedback should always be on - only turn off to see what robot does if it thinks there is no error
 unsigned short feedback_on = 1;
@@ -185,6 +193,15 @@ void main()
 	LED2 = 1;
 	LED3 = 1;
 
+	/* Figure out which wheel this is 
+	 0 -- Front right
+	 1 -- Front left
+    	 2 -- Rear left
+	 3 -- Rear right
+	*/
+	wheel = PORTAbits.AN0 + 2*PORTAbits.AN1;
+
+
 	// *** Configure serial ***
 	// (this needs to be last)
 	initRx(&RxPacket);
@@ -232,8 +249,34 @@ void main()
 				case 'r':
 					Reset();
 				case 'w':
-					// update wheel speed			
-					command = RxPacket.data[PORTAbits.AN0 + 2*PORTAbits.AN1];//RxPacket.data[0];
+					// Get the transmitted wheel speed			
+					newSpeed = RxPacket.data[wheel];//RxPacket.data[0];
+	
+					// Figure out the sign of the new speed
+					if(newSpeed < 0)
+						newSign = -1;
+					else if (newSpeed > 0)
+						newSign = 1;
+					else
+						newSign = 0;
+
+					// If the signs match, we're fine
+					if(newSign == oldSign || newSign == 0 || oldSign == 0) {
+						command = newSpeed;	
+						speedCount = 1;
+						oldSign = newSign;
+					}
+					// If not, see whether the sign has been different long enough
+					else if(speedCount > SPEED_THRESHOLD) {
+						speedCount = 1;
+						oldSign = newSign;
+						command = newSpeed;
+					}
+					else {
+						speedCount++;
+					}
+
+					// Now adjust P term based on our speed
 					if(command == 0){
 						Pconst = 50;
 					} else if(command < 0) {
