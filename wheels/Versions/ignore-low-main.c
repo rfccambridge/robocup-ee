@@ -80,7 +80,7 @@ unsigned char direction = 0;
 
 unsigned int wheel;
 
-#define SPEED_THRESHOLD 4 	// Minimum value of speed for us to not treat it
+#define SPEED_THRESHOLD 6 	// Minimum value of speed for us to not treat it
 							// as 0
 
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
@@ -416,13 +416,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm
+	duty += Dterm + Iterm;
 	
-	if(duty > 1023) duty = 1023
-	if(duty < -1023) duty = -1023
+	if(duty > 1023) duty = 1023;
+	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8
+		encoderPacket->data[encoderCount++] = error>>8;
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;

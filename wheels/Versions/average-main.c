@@ -6,6 +6,10 @@
  * ensures that the speed always advances towards the target by at least 1.
  *
  * As always, 0 is a special case.
+ *
+ * As of 4/29/09, this version brongs back the halting problem -- the wheels
+ * fail to stop properly. This is a deep-rooted problem that warrants 
+ * further investigation.
  */
 
 #include <p18f4431.h>
@@ -15,7 +19,7 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
-#pragma	config WDTEN    = ON	   	// watchdog timer
+#pragma	config WDTEN    = OFF	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
@@ -256,7 +260,7 @@ void main()
 			ClrWdt();
 			RxPacket.done = 0;
 			switch(RxPacket.port) {
-				case '':
+				case 'r':
 					Reset();
 				case 'w':
 					// Get the transmitted wheel speed			
@@ -267,9 +271,7 @@ void main()
 						command = 0;
 						oldAverage = 0;
 					}
-
-					// Otherwise, we average them
-					else {
+					else { // Otherwise, we average the the old and new speeds.
 						oldAverage = command;
 						command = NEW_WEIGHT * newSpeed + 
 								  OLD_WEIGHT * command;
@@ -437,13 +439,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm
+	duty += Dterm + Iterm;
 	
-	if(duty > 1023) duty = 1023
-	if(duty < -1023) duty = -1023
+	if(duty > 1023) duty = 1023;
+	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8
+		encoderPacket->data[encoderCount++] = error>>8;
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;

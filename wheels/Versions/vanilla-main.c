@@ -11,7 +11,7 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
-#pragma	config WDTEN    = ON	   	// watchdog timer
+#pragma	config WDTEN    = OFF	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
@@ -407,13 +407,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm
+	duty += Dterm + Iterm;
 	
-	if(duty > 1023) duty = 1023
-	if(duty < -1023) duty = -1023
+	if(duty > 1023) duty = 1023;
+	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8
+		encoderPacket->data[encoderCount++] = error>>8;
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;

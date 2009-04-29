@@ -1,3 +1,9 @@
+/* ignore-low-main.c
+ *
+ * This version of the wheels code ignores commands that give a speed that 
+ * is below SPEED_THRESHOLD, and use 0 instead.
+ */
+
 #include <p18f4431.h>
 #include <string.h>
 #include "bemixnet.h"
@@ -5,7 +11,7 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
-#pragma	config WDTEN    = OFF   	// watchdog timer
+#pragma	config WDTEN    = OFF	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
@@ -53,7 +59,7 @@
 #define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
 
-// this is the maximum error
+// this is the maximum erro
 #define MAX_ERROR 200
 
 // initial value of timer0
@@ -74,25 +80,23 @@ unsigned char direction = 0;
 
 unsigned int wheel;
 
-unsigned char speedCount = 1;
-signed char oldSign = 0;
-signed char newSign;
-signed char newSpeed;
-#define SPEED_THRESHOLD 2
+#define SPEED_THRESHOLD 6 	// Minimum value of speed for us to not treat it
+							// as 0
 
-// the following is a debugging tool: flag for feedback, 0 for off, 1 for on
-// feedback should always be on - only turn off to see what robot does if it thinks there is no error
+/* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
+ feedback should always be on - only turn off to see what robot does if it 
+ thinks there is no error */
 unsigned short feedback_on = 1;
 
 void commutateMotor();
 void high_ISR();	 //Interrupt Service Routine
 void handleQEI(PacketBuffer * TxPacket);
 
-// hard-coded, hacky functions for translating between speed & duty cycle
-// these are designed for testing dead reckoning for wheel speeds
+/* hard-coded, hacky functions for translating between speed & duty cycle
+   these are designed for testing dead reckoning for wheel speeds */
 
-// rotations is measured in how many thousandths of a rotation
-// the robot can make per second (millihertz) using one wheel
+/* rotations is measured in how many thousandths of a rotation
+   the robot can make per second (millihertz) using one wheel */
 signed int speedToRotations(signed int commandSpeed){
 	signed int positiveSpeed = (commandSpeed < 0 ? -commandSpeed : commandSpeed);
 	signed int rotations = 0;
@@ -157,7 +161,7 @@ void main()
 	PTPERL = 0xff;
 	
 	// *** Configure IO ***
-	ANSEL0 = 0x00;//ANSEL0 = 0x01;						// AN0 analog, all others digital
+	ANSEL0 = 0x00;//ANSEL0 = 0x01;		// AN0 analog, all others digital
 	ANSEL1 = 0x00;
 	TRISA = 0xdf;
 	TRISB = 0xff;
@@ -196,7 +200,7 @@ void main()
 	/* Figure out which wheel this is 
 	 0 -- Front right
 	 1 -- Front left
-    	 2 -- Rear left
+   	 2 -- Rear left
 	 3 -- Rear right
 	*/
 	wheel = PORTAbits.AN0 + 2*PORTAbits.AN1;
@@ -250,30 +254,12 @@ void main()
 					Reset();
 				case 'w':
 					// Get the transmitted wheel speed			
-					newSpeed = RxPacket.data[wheel];//RxPacket.data[0];
-	
-					// Figure out the sign of the new speed
-					if(newSpeed < 0)
-						newSign = -1;
-					else if (newSpeed > 0)
-						newSign = 1;
-					else
-						newSign = 0;
+					command = RxPacket.data[wheel];
 
-					// If the signs match, we're fine
-					if(newSign == oldSign || newSign == 0 || oldSign == 0) {
-						command = newSpeed;	
-						speedCount = 1;
-						oldSign = newSign;
-					}
-					// If not, see whether the sign has been different long enough
-					else if(speedCount > SPEED_THRESHOLD) {
-						speedCount = 1;
-						oldSign = newSign;
-						command = newSpeed;
-					}
-					else {
-						speedCount++;
+					// But set it to 0 if it is too small
+					if(command > 0 && command < SPEED_THRESHOLD ||
+					   command < 0 && command > (-1)*SPEED_THRESHOLD) {
+						command = 0;
 					}
 
 					// Now adjust P term based on our speed
@@ -359,8 +345,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned int encoderCentered = 0;
 	signed char encoder = 0;
 	signed int error = 0;
-	signed int duty = 0;				// modifies speed based on PID feedback
-	unsigned char dutyHigh, dutyLow;	// high and low bits for duty cycle
+	signed int duty = 0;			// modifies speed based on PID feedback
+	unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
 	signed int Dterm;
 
 	// transmit
@@ -401,7 +387,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// if feedback is off, set error to 0; otherwise, keep it the same
 	error *= feedback_on;
 
-	// cap error to prevent an individual wheel from drawing too much current
+	// cap error to prevent a single wheel from drawing too much current
 	if(error > MAX_ERROR) error = MAX_ERROR;
 	if(error < -MAX_ERROR) error = -MAX_ERROR;
 
@@ -477,13 +463,14 @@ void handleQEI(PacketBuffer * encoderPacket)
 	previous_error = error;
 }
 
-#pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
+#pragma code high_vector=0x08 	// We are not using Priortized Interrupts: 
+								// so all interrupts go to 0x08. 
 void interrupt_high_vector(){
-	_asm GOTO high_ISR _endasm				//branching to the actual ISR
+	_asm GOTO high_ISR _endasm	//branching to the actual ISR
 }
 #pragma code
 
-#pragma interrupt high_ISR					 //Interrupt Service Routine (the real one)
+#pragma interrupt high_ISR		// Interrupt Service Routine (the real one)
 void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {

@@ -445,13 +445,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm
+	duty += Dterm + Iterm;
 	
-	if(duty > 1023) duty = 1023
-	if(duty < -1023) duty = -1023
+	if(duty > 1023) duty = 1023;
+	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8
+		encoderPacket->data[encoderCount++] = error>>8;
 		encoderPacket->data[encoderCount++] = error;
 		encoderPacket->data[encoderCount++] = duty>>8;
 		encoderPacket->data[encoderCount++] = duty;
