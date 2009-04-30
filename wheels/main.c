@@ -1,7 +1,15 @@
-/* ignore-low-main.c
+/* average-main.c
  *
- * This version of the wheels code ignores commands that give a speed that 
- * is below SPEED_THRESHOLD, and use 0 instead.
+ * This version of the wheels code keeps a running average of wheels speed.
+ * When determining how to respond to a given command, it averages the 
+ * given speed with the previous average. There is a special case that 
+ * ensures that the speed always advances towards the target by at least 1.
+ *
+ * As always, 0 is a special case.
+ *
+ * As of 4/29/09, this version brongs back the halting problem -- the wheels
+ * fail to stop properly. This is a deep-rooted problem that warrants 
+ * further investigation.
  */
 
 #include <p18f4431.h>
@@ -80,8 +88,11 @@ unsigned char direction = 0;
 
 unsigned int wheel;
 
-#define SPEED_THRESHOLD 6 	// Minimum value of speed for us to not treat it
-							// as 0
+// Stuff for the averages
+#define OLD_WEIGHT .5 // Weight to give the old average
+#define NEW_WEIGHT .5 // Weight to give the newly receieved speed
+signed char newSpeed; 
+signed char oldAverage = 0;
 
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
  feedback should always be on - only turn off to see what robot does if it 
@@ -205,7 +216,6 @@ void main()
 	*/
 	wheel = PORTAbits.AN0 + 2*PORTAbits.AN1;
 
-
 	// *** Configure serial ***
 	// (this needs to be last)
 	initRx(&RxPacket);
@@ -254,12 +264,25 @@ void main()
 					Reset();
 				case 'w':
 					// Get the transmitted wheel speed			
-					command = RxPacket.data[wheel];
+					newSpeed = RxPacket.data[wheel];
 
-					// But set it to 0 if it is too small
-					if(command > 0 && command < SPEED_THRESHOLD ||
-					   command < 0 && command > (-1)*SPEED_THRESHOLD) {
+					// Special case for 0
+					if(newSpeed == 0) {
 						command = 0;
+						oldAverage = 0;
+					}
+					else { // Otherwise, we average the the old and new speeds.
+						oldAverage = command;
+						command = NEW_WEIGHT * newSpeed + 
+								  OLD_WEIGHT * command;
+					}
+
+					// Ensure that we change the speed by at least one
+					if(command == oldAverage && command != newSpeed) {
+						if(command < newSpeed)
+							command++;
+						else
+							command--;
 					}
 
 					// Now adjust P term based on our speed
