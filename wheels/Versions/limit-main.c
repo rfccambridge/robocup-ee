@@ -10,7 +10,8 @@
  *
  * As of 4/29/09, this does not work. The difference in wheel response times
  * is exacerbated, and the wheels do NOT always stop when they recieve a 0
- * command. This may be the old halting problem.
+ * command. NOTE: This may have been an issue with the transmitter that I was
+ * using. Using the new, working one may yield better results.
  */
 
 

@@ -7,9 +7,7 @@
  *
  * As always, 0 is a special case.
  *
- * As of 4/29/09, this version brongs back the halting problem -- the wheels
- * fail to stop properly. This is a deep-rooted problem that warrants 
- * further investigation.
+ * As of 4/29/09, this version works quite nicely.
  */
 
 #include <p18f4431.h>
