@@ -80,8 +80,8 @@ unsigned char direction = 0;
 
 unsigned int wheel;
 
-#define SPEED_THRESHOLD 6 	// Minimum value of speed for us to not treat it
-							// as 0
+#define POS_THRESHOLD 6 	// Minimum value of speed for us to not treat it
+#define NEG_THRESHOLD -6	// as 0
 
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
  feedback should always be on - only turn off to see what robot does if it 
@@ -257,8 +257,7 @@ void main()
 					command = RxPacket.data[wheel];
 
 					// But set it to 0 if it is too small
-					if(command > 0 && command < SPEED_THRESHOLD ||
-					   command < 0 && command > (-1)*SPEED_THRESHOLD) {
+					if(command < POS_THRESHOLD && command > NEG_THRESHOLD) {
 						command = 0;
 					}
 
