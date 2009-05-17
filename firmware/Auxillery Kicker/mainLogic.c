@@ -1,6 +1,4 @@
-/* Coded by Minjae Kim, January 2007
-RS232 communication working perfectly.
-Protocol \H<destination><address>
+/* Protocol \H<destination><address>
 This code is for the auxillery kicker board
 */
 #include <p18f4431.h>
@@ -41,8 +39,8 @@ void main(){
 
 
 	//stuff for hardcoded simple PID
-	int fakePWM_T = 32;	//pwm PERIOD
-	int fakePWM_High = 16;//# of counts period is high. Controls the duty cycle
+	int fakePWM_T = 30;	//pwm PERIOD
+	int fakePWM_High = 0;//# of counts period is high. Controls the duty cycle
 	int fakePWM_count = 0;	//count for keeping track of things
 	int dribblerState = 0;					// 0 is inactive. 1 is active
 
@@ -177,7 +175,8 @@ void main(){
 */
 
 	//	DRIBBLER = dribblerState;
-		MBLED1 = dribblerState;
+	//	MBLED1 = dribblerState;
+	//	MBLED2 = DRIBBLER;
 		//a hardcoded simple PID scheme
 		if (dribblerState) {
 			fakePWM_count++;
@@ -185,13 +184,20 @@ void main(){
 				//start a new period
 				fakePWM_count = 0;
 			}
-			if (fakePWM_count <= fakePWM_High)
-				DRIBBLER = 0;
-			else
+			if (fakePWM_count <= fakePWM_High){
 				DRIBBLER = 1;
+				MBLED1 = 0;
+			}
+			else{
+				DRIBBLER = 0;
+				MBLED2 = 0;
+			}
 		}
-		else
-			DRIBBLER = 1;
+		else {
+			DRIBBLER = 0;
+		//	MBLED1 = 1;
+		}
+		//DRIBBLER = 0;
 
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
@@ -211,37 +217,37 @@ void main(){
 						DRIBBLER = 1;*/
 					//DRIBBLER = !DRIBBLER;
 					dribblerState = !dribblerState;
-					MBLED2 = !MBLED2;
+					//MBLED2 = !MBLED2;
 					switch( RxPacket.data[0]){//set one of a number of duty cycles
 						case '1':
-							fakePWM_High = 2;//fakePWM_T/10;
+							fakePWM_High = 3;//fakePWM_T/10;
 							break;
 						case '2':
-							fakePWM_High = 5;//fakePWM_T/5;
+							fakePWM_High = 6;//fakePWM_T/5;
 							break;
 						case '3':
-							fakePWM_High = 8;//fakePWM_T*3/10;
+							fakePWM_High = 9;//fakePWM_T*3
 							break;
 						case '4':
-							fakePWM_High = 11;//fakePWM_T*2/5;
+							fakePWM_High = 12;//fakePWM_T*2/5;
 							break;
 						case '5':
-							fakePWM_High = 14;//fakePWM_T/2;
+							fakePWM_High = 15;//fakePWM_T/2;
 							break;
 						case '6':
-							fakePWM_High = 17;//fakePWM_T*6/10;
+							fakePWM_High = 18;//fakePWM_T*6/10;
 							break;
 						case '7':
-							fakePWM_High = 20;//fakePWM_T*7/10;
+							fakePWM_High = 21;//fakePWM_T*7/10;
 							break;
 						case '8':
-							fakePWM_High = 23;//fakePWM_T*8/10;
+							fakePWM_High = 24;//fakePWM_T*8/10;
 							break;
 						case '9':
-							fakePWM_High = 26;//fakePWM_T*9/10;
+							fakePWM_High = 27;//fakePWM_T*9/10;
 							break;
 						case '0':
-							fakePWM_High = 32;//fakePWM_T;
+							fakePWM_High = 30;//fakePWM_T;
 							break;
 						default:
 							fakePWM_High = fakePWM_T/100;
