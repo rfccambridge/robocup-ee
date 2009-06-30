@@ -462,7 +462,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// hacked, weird around 0, don't change
 	if (duty >= 1020)
 		duty=1020;
-	duty = 1020 - duty;
+	duty = 1023 - duty;
 
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
