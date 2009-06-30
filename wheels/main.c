@@ -72,7 +72,7 @@
 
 // initial value of timer0
 // increase for shorter period
-#define TIMER0INIT        32
+#define TIMER0INIT        32		//32 is 200 Hz
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -439,7 +439,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm;
+	duty += Dterm + Iterm + 2*command;  //+command not really difference
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
