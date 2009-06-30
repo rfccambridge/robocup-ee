@@ -33,7 +33,7 @@ void main(){
 	double adc_result = 10;
 	int test_adc = 0;
 	int test_old = 0;
-	int bb = 0;
+//	int bb = 0;
 	int ii = 0;
 	int iii = 0;
 
@@ -43,6 +43,9 @@ void main(){
 	int fakePWM_High = 0;//# of counts period is high. Controls the duty cycle
 	int fakePWM_count = 0;	//count for keeping track of things
 	int dribblerState = 0;					// 0 is inactive. 1 is active
+
+	//if true then it kicks as soon as it sees the ball
+	int breakBeam = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -174,10 +177,7 @@ void main(){
 		test_old = test_adc;
 */
 
-	//	DRIBBLER = dribblerState;
-	//	MBLED1 = dribblerState;
-	//	MBLED2 = DRIBBLER;
-		//a hardcoded simple PID scheme
+		//a hardcoded simple PWM scheme
 		if (dribblerState) {
 			fakePWM_count++;
 			if (fakePWM_count >= fakePWM_T){
@@ -216,7 +216,7 @@ void main(){
 					else if (RxPacket.data[0] == '1')
 						DRIBBLER = 1;*/
 					//DRIBBLER = !DRIBBLER;
-					dribblerState = !dribblerState;
+					dribblerState = 1;
 					//MBLED2 = !MBLED2;
 					switch( RxPacket.data[0]){//set one of a number of duty cycles
 						case '1':
@@ -251,9 +251,15 @@ void main(){
 							break;
 						default:
 							fakePWM_High = fakePWM_T/100;
-
+							break;
 
 					}
+				case 'o':
+					dribblerState = 0;
+					break;
+
+
+				
 					
 
 			// === KICKER ===				
@@ -337,7 +343,9 @@ void main(){
 					for (i=0; i<0xFF; i++);
 					K_KICK1 = 1;
 					K_KICK2 = 1;
+					breakBeam = 0; //just in case a kick was forced.
 					break;
+
 				case 'c': //Charge
 					K_KICK1 = 1;
 					K_KICK2 = 1;
@@ -345,6 +353,7 @@ void main(){
 					K_CHARGE = 1;
 					K_DISCHARGE = 0;
 					break;
+
 				case 'p': //Discharge
 					K_CHARGE = 0;//stop charging while kicking.	
 					K_KICK1 = 1;
@@ -362,42 +371,21 @@ void main(){
 					K_DISCHARGE = 0;
 					K_KICK1 = 1;
 					K_KICK2 = 1;
+					breakBeam = 0; //don't want to kick anymore.
 					break;
-				case 'b': //Charge
-					if(PORTBbits.RB3 == 1) {
-						K_KICK1 = 1;
-						K_KICK2 = 1;
-						for (i=0; i<0xFF; i++);
-						K_CHARGE = 1;
-						K_DISCHARGE = 0;
-						bb = 1;
-					} else {
-						bb = 0;
-						K_KICK1 = 1;
-						K_KICK2 = 1;
-						for (i=0; i<0xFF; i++);
-						K_CHARGE = 1;
-						K_DISCHARGE = 0;
-						iii = 0;
-						while(iii<11) {
-							ii = 0;
-							while (ii<10000){
-								ii++;
-							}
-							iii++;
-						}
 
-						K_CHARGE = 0;//stop charging while kicking.	
-						K_DISCHARGE = 0;
-						for (i=0; i<0xFF; i++);
-						K_KICK1 = 0;
-						K_KICK2 = 0;
-						for (i=0; i<0xFF; i++);
-						K_KICK1 = 1;
-						K_KICK2 = 1;
-						
-					}
-					break;
+				case 'b': //Starts charging the kicker and sets the breakbeam flag, so it will kick as soon as it sees the ball.
+					//Start Charging
+					K_KICK1 = 1;
+					K_KICK2 = 1;
+					for (i=0; i<0xFF; i++);
+					K_CHARGE = 1;
+					K_DISCHARGE = 0;
+
+					//set the flag
+					breakBeam = 1;
+
+
 				// some other port
 				default:
 					//LED3 = !LED3;
@@ -407,31 +395,9 @@ void main(){
 		}
 
 
-/*
-		if (kick_counter > 0)
-			kick_counter--;
-	
-		// break bream check
-		if ((PORTBbits.RB3 == 0) && (kick_counter > 0)){
-			unsigned short i;
-			K_CHARGE = 0;//stop charging while kicking.	
-			K_KICK1 = 0;
-			K_KICK2 = 0;
-			for (i=0; i<0xFF; i++);
-			K_KICK1 = 1;
-			K_KICK2 = 1;
-			//blink();
-		}*/
-	/*	if(PORTBbits.RB3 == 0){
-			LED3 = 0;
-			kick_counter++;
-		}
-		else
-			LED3 = 1;
-	*/
-
-		if(bb == 1 && PORTBbits.RB3 == 0){
-			bb = 0;
+		//Check if we need to kick
+		if(PORTBbits.RB3 == 0 && breakBeam){
+			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
 			K_DISCHARGE = 0;
 			for (i=0; i<0xFF; i++);
