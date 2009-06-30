@@ -7,11 +7,43 @@ This code is for the auxillery kicker board
 #include "pins.h"
 
 // *** set configuration word ***
-#pragma config OSC = IRCIO
-#pragma config WDTEN = OFF
-#pragma config LVP = OFF
-#pragma config WDPS = 512
-
+#pragma	config OSC      = IRCIO		// internal oscillator
+#pragma	config LVP 	    = OFF		// low voltage programming
+#pragma	config WDTEN    = OFF   	// watchdog timer
+#pragma	config WDPS     = 256   	// watchdog timer prescaler
+#pragma config BOREN    = ON    	// brown out reset on
+#pragma config BORV     = 42    	// brown out voltage 4.2
+#pragma config FCMEN    = ON  		// fail-safe clock monitor off 
+#pragma config IESO     = ON    	// int/ext switchover off
+#pragma config PWRTEN   = OFF		// powerup timer off
+#pragma	config T1OSCMX  = OFF    	// timer1 osc mux
+#pragma	config HPOL	    = HIGH		// high side transsitor polarity
+#pragma	config LPOL	    = HIGH		// low side transistor polarity
+#pragma	config PWMPIN   = OFF    	// PWM output pins Reset state control
+#pragma	config MCLRE    = OFF       // MCLR enable
+#pragma	config EXCLKMX  = RC3    	// External clock MUX bit
+#pragma	config PWM4MX   = RB5		// PWM MUX
+#pragma	config SSPMX    = RC7
+#pragma	config FLTAMX   = RC1
+#pragma	config STVREN   = ON		// stack overflow reset
+#pragma config DEBUG    = OFF		// backgroud degugger
+#pragma	config CP0      = OFF		// code protection
+#pragma	config CP1      = OFF		// code protection
+#pragma	config CP2      = OFF		// code protection
+#pragma	config CP3	    = OFF		// code protection
+#pragma	config CPB      = OFF		// boot protection
+#pragma	config CPD      = OFF		// eeprom protection
+#pragma	config WRT0     = OFF		// write protection
+#pragma	config WRT1     = OFF		// write protection
+#pragma	config WRT2     = OFF		// write protection
+#pragma	config WRT3     = OFF		// write protection
+#pragma	config WRTB     = OFF		// write protection
+#pragma	config WRTC     = OFF		// write protection
+#pragma	config WRTD     = OFF		// write protection
+#pragma	config EBTR0    = OFF		// table protection
+#pragma	config EBTR1    = OFF		// table protection
+#pragma	config EBTR2    = OFF		// table protection
+#pragma	config EBTR3    = OFF		// table protection
 
 void blink();
 void blink2();
@@ -40,9 +72,9 @@ void main(){
 
 	//stuff for hardcoded simple PID
 	int fakePWM_T = 30;	//pwm PERIOD
-	int fakePWM_High = 0;//# of counts period is high. Controls the duty cycle
+	int fakePWM_High = 0;//# of counts period is high. Controls the duty cycle, 0 is off.
 	int fakePWM_count = 0;	//count for keeping track of things
-	int dribblerState = 0;					// 0 is inactive. 1 is active
+//	int dribblerState = 0;					// 0 is inactive. 1 is active
 
 	//if true then it kicks as soon as it sees the ball
 	int breakBeam = 0;
@@ -177,27 +209,21 @@ void main(){
 		test_old = test_adc;
 */
 
-		//a hardcoded simple PWM scheme
-		if (dribblerState) {
-			fakePWM_count++;
-			if (fakePWM_count >= fakePWM_T){
-				//start a new period
-				fakePWM_count = 0;
-			}
-			if (fakePWM_count <= fakePWM_High){
-				DRIBBLER = 1;
-				MBLED1 = 0;
-			}
-			else{
-				DRIBBLER = 0;
-				MBLED2 = 0;
-			}
+
+
+		if (fakePWM_count <= fakePWM_High){
+			DRIBBLER = 1;
+			MBLED1 = 0;
 		}
-		else {
+		else{
 			DRIBBLER = 0;
-		//	MBLED1 = 1;
+			MBLED2 = 0;
 		}
-		//DRIBBLER = 0;
+		if (fakePWM_count >= fakePWM_T){
+			//start a new period
+			fakePWM_count = 0;
+		}
+		fakePWM_count++;
 
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
@@ -210,15 +236,11 @@ void main(){
 			// === DRIBBLER ===
 				// dribbler
 				
-				case 'd':/*
-					if (RxPacket.data[0] == '0')
-						DRIBBLER = 0;
-					else if (RxPacket.data[0] == '1')
-						DRIBBLER = 1;*/
-					//DRIBBLER = !DRIBBLER;
-					dribblerState = 1;
-					//MBLED2 = !MBLED2;
+				case 'd':
 					switch( RxPacket.data[0]){//set one of a number of duty cycles
+						case '0':
+							fakePWM_High = 0;//fakePWM_T;
+							break;
 						case '1':
 							fakePWM_High = 3;//fakePWM_T/10;
 							break;
@@ -246,21 +268,9 @@ void main(){
 						case '9':
 							fakePWM_High = 27;//fakePWM_T*9/10;
 							break;
-						case '0':
-							fakePWM_High = 30;//fakePWM_T;
-							break;
 						default:
-							fakePWM_High = fakePWM_T/100;
 							break;
-
 					}
-				case 'o':
-					dribblerState = 0;
-					break;
-
-
-				
-					
 
 			// === KICKER ===				
 				// kick
