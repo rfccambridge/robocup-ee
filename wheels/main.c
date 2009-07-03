@@ -19,6 +19,7 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
+#pragma	config WDTEN    = ON	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
