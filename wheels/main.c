@@ -225,9 +225,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 50;//40;//50;
-	Dconst = 3;//1;//3;
-	Iconst = 0;//4;//0;
+	Pconst = 127;//50;
+	Iconst = 3;//0;
+	Dconst = 14;//3;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -235,6 +235,13 @@ void main()
 	INTCONbits.TMR0IE = 1;
 
 	while(1) {
+
+
+
+
+	//	if (Pconst == 42 || Dconst == 40 || Iconst == 41){
+	//					LED4 = 0;
+	//	} else LED4 = 1;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
@@ -246,9 +253,9 @@ void main()
 		}
 
 		// Check for dead hall
-		LED3 = 1;
-		if (HALL == 0 || HALL == 7)
-			LED3 = 0;
+		//LED3 = 1;
+		//if (HALL == 0 || HALL == 7)
+		//	LED3 = 0;
 
 		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
 			TxPacket.length = MAX_PACKET_SIZE;
@@ -265,7 +272,8 @@ void main()
 				case 'w':
 					// Get the transmitted wheel speed			
 					newSpeed = RxPacket.data[wheel];
-
+					command = newSpeed;
+/*
 					// Special case for 0
 					if(newSpeed == 0) {
 						command = 0;
@@ -284,9 +292,9 @@ void main()
 						else
 							command--;
 					}
-
+*/
 					// Now adjust P term based on our speed
-					if(command == 0){
+				/*	if(command == 0){
 						Pconst = 50;
 					} else if(command < 0) {
 						Pconst = 100+command*3;
@@ -297,22 +305,12 @@ void main()
 					if(Pconst < 20) {
 						Pconst = 20;
 					}
-
+*/
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
-					if (Pconst==42){
-						LED4 = 0;
-					}
-
 					Iconst = (signed int) RxPacket.data[1];
-					if (Iconst == 42){
-						LED3 = 0;
-					}
 					Dconst = (signed int) RxPacket.data[2];
-					if (Dconst == 42){
-						LED3 = 0;
-					}
 					break;
 				case 'e':
 					if (RxPacket.data[0]=='1')
@@ -433,29 +431,51 @@ void handleQEI(PacketBuffer * encoderPacket)
 	Iterm += Iconst * error / 3;
 
 	//check things are small
-	if (duty > 900){
-		duty = 900;
-	} else if (duty < -900){
-		duty = -900;
+	if (duty > 2000){
+		duty = 2000;
+	} else if (duty < -2000){
+		duty = -2000;
 	}
 
-	if (Dterm > 900){
-		Dterm = 900;
-	} else if (Dterm < -900){
-		Dterm = -900;
+	if (Dterm > 2000){
+		Dterm = 2000;
+	} else if (Dterm < -2000){
+		Dterm = -2000;
 	}
 
-	if (command == 0 && encoder == 0)
+	if (command == 0){
 		Iterm = 0;
-	if (Iterm > 500){
-		Iterm = 500;
-	} else if (Iterm < -500){
-		Iterm = -500;
+
+		if (duty > 200){
+			duty = 200;
+		} else if (duty < -200){
+			duty = -200;
+		}
+	
+		if (Dterm > 200){
+			Dterm = 200;
+		} else if (Dterm < -200){
+			Dterm = -200;
+		}
+		if (Iterm > 200){
+			Iterm = 200;
+		} else if (Iterm < -200){
+			Iterm = -200;
+		}
+
+	}
+	if (Iterm > 2000){
+		Iterm = 2000;
+	} else if (Iterm < -2000){
+		Iterm = -2000;
 	}
 
-	duty += Dterm + Iterm + 2*command;  //+command not really difference
-	
-	if(duty > 1023) duty = 1023;
+	duty += -Dterm + Iterm + 2*command;  //+command not really difference
+	duty = duty/8;
+	if(duty > 1023){
+		duty = 1023;
+		LED3=0;
+	}
 	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
