@@ -19,7 +19,7 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
-#pragma	config WDTEN    = ON	   	// watchdog timer
+#pragma	config WDTEN    = OFF	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
@@ -310,6 +310,9 @@ void main()
 						LED3 = 0;
 					}
 					Dconst = (signed int) RxPacket.data[2];
+					if (Dconst == 42){
+						LED3 = 0;
+					}
 					break;
 				case 'e':
 					if (RxPacket.data[0]=='1')
@@ -411,9 +414,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		
     if (encoderCentered >=0x8000)
 		encoder = (encoderCentered - 0x8000)/ 4;
-		encoder = (encoderCentered - 0x8000) / 4;
 	else
-		encoder = -(signed char)((0x8000-encoderCentered)/ 4);
 		encoder = -(signed char)((((0x8000-encoderCentered) & 0x00FF)) / 4);
 	
 
