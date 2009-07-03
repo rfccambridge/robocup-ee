@@ -19,7 +19,6 @@
 // *** set configuration word ***
 #pragma	config OSC      = IRCIO		// internal oscillator
 #pragma	config LVP 	    = OFF		// low voltage programming
-#pragma	config WDTEN    = OFF	   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
 #pragma config BOREN    = ON    	// brown out reset on
 #pragma config BORV     = 42    	// brown out voltage 4.2
@@ -225,9 +224,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 50;
-	Dconst = 3;
-	Iconst = 0;
+	Pconst = 50;//40;//50;
+	Dconst = 3;//1;//3;
+	Iconst = 0;//4;//0;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -301,7 +300,14 @@ void main()
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
+					if (Pconst==42){
+						LED4 = 0;
+					}
+
 					Iconst = (signed int) RxPacket.data[1];
+					if (Iconst == 42){
+						LED3 = 0;
+					}
 					Dconst = (signed int) RxPacket.data[2];
 					break;
 				case 'e':
@@ -309,6 +315,8 @@ void main()
 						encoderFlags = SPEW_ENCODER;
 					else
 						encoderFlags = DONT_SPEW_ENCODER;
+					LED3 = 0;
+					LED4 = 0;
 					break;
 				case 's': // temporary value - make this work
 					// TODO: estimate wheel speed
@@ -396,13 +404,17 @@ void handleQEI(PacketBuffer * encoderPacket)
 	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
 	//if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
 
+	//Check 
     if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
 	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
     if (encoderCentered >=0x8000)
 		encoder = (encoderCentered - 0x8000)/ 4;
+		encoder = (encoderCentered - 0x8000) / 4;
 	else
 		encoder = -(signed char)((0x8000-encoderCentered)/ 4);
+		encoder = -(signed char)((((0x8000-encoderCentered) & 0x00FF)) / 4);
+	
 
 	// calculate error, check for rollover
 	error = ((signed int) encoder) - ((signed int) command);
