@@ -276,7 +276,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 	// calculate error, check for rollover
 	error = ((signed int) encoder) - ((signed int) command);
-
+	duty = command; //This is to be able to test the dynamics of the robots, without the PID affecting things
+/*	
 	duty = error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
 	Iterm += Iconst * error / 3;
@@ -303,7 +304,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	}
 
 	duty += Dterm + Iterm;
-	
+*/
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
 	
