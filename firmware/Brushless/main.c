@@ -53,6 +53,10 @@
 #define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
 
+// currently set up to transmit five bytes of Data, so we want 6 of those groups 
+// in a packets (maximum size is 32), so desired size is 30.
+#define DESIRED_PACKET_SIZE 30  
+
 // initial value of timer0
 // increase for shorter period
 #define TIMER0INIT        32
@@ -161,8 +165,11 @@ void main()
 		if (HALL == 0 || HALL == 7)
 			LED3 = 0;
 
-		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
-			TxPacket.length = MAX_PACKET_SIZE;
+		
+
+		if (encoderFlags==SPEW_ENCODER && encoderCount == DESIRED_PACKET_SIZE) 
+		{
+			TxPacket.length = DESIRED_PACKET_SIZE;
 			transmit(&TxPacket);
 			encoderCount = 0;
 		}
@@ -183,10 +190,10 @@ void main()
 					Dconst = (signed int) RxPacket.data[2];
 					break;
 				case 'e':
-					if (RxPacket.data[0]=='1')
-						encoderFlags = SPEW_ENCODER;
-					else
-						encoderFlags = DONT_SPEW_ENCODER;
+					//if (RxPacket.data[0]=='1')//&& RxPacket.data[1] == PORTAbits.AN0 + 2*PORTAbits.AN1)
+					//	encoderFlags = DONT_SPEW_ENCODER;
+					//else
+					encoderFlags = SPEW_ENCODER;
 				default:
 					break;	
 			}
@@ -246,14 +253,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned char dutyHigh, dutyLow;
 	signed int Dterm;
 
-	// transmit
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = POSCNTH;
-		encoderPacket->data[encoderCount++] = POSCNTL;
-		encoderPacket->address = '2';
-		encoderPacket->port = 'a';
-	}
-
 	// read and reset position accumulator
 	encoderCentered = POSCNTH;
 	encoderCentered = encoderCentered << 8;
@@ -308,13 +307,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
 	
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8;
-		encoderPacket->data[encoderCount++] = error;
-		encoderPacket->data[encoderCount++] = duty>>8;
-		encoderPacket->data[encoderCount++] = duty;
-	}
-
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
 		direction = 1;
@@ -338,13 +330,16 @@ void handleQEI(PacketBuffer * encoderPacket)
 	PDC1L = dutyLow;
 	PDC2H = dutyHigh;
 	PDC2L = dutyLow;
-	
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = 0;
+
+	// put data in transmit buffer
+	if (encoderFlags==SPEW_ENCODER && encoderCount < DESIRED_PACKET_SIZE) {
+		encoderPacket->address = '2';
+		encoderPacket->port = 'a';
+		encoderPacket->data[encoderCount++] = POSCNTH;
+		encoderPacket->data[encoderCount++] = POSCNTL;
+		encoderPacket->data[encoderCount++] = dutyHigh;
+		encoderPacket->data[encoderCount++] = dutyLow;
 		encoderPacket->data[encoderCount++] = command;
-		//encoderPacket->data[encoderCount++] = Dterm >> 8;
-		//encoderPacket->data[encoderCount++] = Dterm;
-		encoderPacket->data[encoderCount++] = encoder;
 	}
 
 	previous_error = error;
