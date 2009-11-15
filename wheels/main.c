@@ -72,7 +72,7 @@
 
 // initial value of timer0
 // increase for shorter period
-#define TIMER0INIT        32		//32 is 200 Hz
+#define TIMER0INIT        32
 
 PacketBuffer RxPacket;
 PacketBuffer TxPacket;
@@ -225,9 +225,9 @@ void main()
 	encoderCount = 0;
 
 	// defaults for testing
-	Pconst = 127;//50;
-	Iconst = 3;//0;
-	Dconst = 14;//3;
+	Pconst = 50;
+	Dconst = 3;
+	Iconst = 0;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -235,27 +235,20 @@ void main()
 	INTCONbits.TMR0IE = 1;
 
 	while(1) {
-
-
-
-
-	//	if (Pconst == 42 || Dconst == 40 || Iconst == 41){
-	//					LED4 = 0;
-	//	} else LED4 = 1;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
-			LED4 = 0;
+		//	LED4 = 0;
 			OVDCOND = 0x00;
 			OVDCONS = 0xff;
 		} else {
-			LED4 = 1;
+		//	LED4 = 1;
 			commutateMotor();
 		}
 
 		// Check for dead hall
-		//LED3 = 1;
-		//if (HALL == 0 || HALL == 7)
-		//	LED3 = 0;
+		LED3 = 1;
+		if (HALL == 0 || HALL == 7)
+			LED3 = 0;
 
 		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
 			TxPacket.length = MAX_PACKET_SIZE;
@@ -272,8 +265,7 @@ void main()
 				case 'w':
 					// Get the transmitted wheel speed			
 					newSpeed = RxPacket.data[wheel];
-					command = newSpeed;
-/*
+
 					// Special case for 0
 					if(newSpeed == 0) {
 						command = 0;
@@ -292,9 +284,9 @@ void main()
 						else
 							command--;
 					}
-*/
+
 					// Now adjust P term based on our speed
-				/*	if(command == 0){
+					if(command == 0){
 						Pconst = 50;
 					} else if(command < 0) {
 						Pconst = 100+command*3;
@@ -305,7 +297,7 @@ void main()
 					if(Pconst < 20) {
 						Pconst = 20;
 					}
-*/
+
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
@@ -317,8 +309,6 @@ void main()
 						encoderFlags = SPEW_ENCODER;
 					else
 						encoderFlags = DONT_SPEW_ENCODER;
-					LED3 = 0;
-					LED4 = 0;
 					break;
 				case 's': // temporary value - make this work
 					// TODO: estimate wheel speed
@@ -335,13 +325,23 @@ void main()
 void commutateMotor()
 {
 	const unsigned char backdrive[8] = { 0b00000000, 	// 0 error
-										0b00100001, 	// 4
+										 0b00010001,	//these are new commutation order, didn't fix direction biase problem :(
+										 0b00100010,
+										 0b00100001,
+										 0b00001100,
+										 0b00010100,
+										 0b00001010,
+									 	 0b00000000}; 	// 7 error
+
+
+
+										/*0b00100001, 	// 4
 										0b00001010, 	// 2		
 										0b00100010, 	// 6
 										0b00010100, 	// 1
 										0b00010001, 	// 5
 										0b00001100, 	// 3
-										0b00000000}; 	// 7 error
+										0b00000000}; 	// 7 error*/
 	const unsigned char fordrive[8] = {0b00000000, 	// 0 error
 										0b00001010,		// 4
 										0b00010100,		// 2
@@ -359,12 +359,14 @@ void commutateMotor()
 
 	if (direction==0) {
 		// PWM high side
+		LED4 = 0;
 		_OVDCOND = fordrive[hall] & 0b00111000;
 		// turn on low side
 		_OVDCONS = ~(fordrive[hall] & 0b00000111);
 	} else if (direction == 1){
 		_OVDCOND = backdrive[hall] & 0b00111000;
 		_OVDCONS = ~(backdrive[hall] & 0b00000111);
+		LED4 = 1;
 	}
 
 	OVDCOND = _OVDCOND;
@@ -406,15 +408,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
 	//if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
 
-	//Check 
     if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
 	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
     if (encoderCentered >=0x8000)
 		encoder = (encoderCentered - 0x8000)/ 4;
 	else
-		encoder = -(signed char)((((0x8000-encoderCentered) & 0x00FF)) / 4);
-	
+		encoder = -(signed char)((0x8000-encoderCentered)/ 4);
 
 	// calculate error, check for rollover
 	error = ((signed int) encoder) - ((signed int) command);
@@ -431,51 +431,29 @@ void handleQEI(PacketBuffer * encoderPacket)
 	Iterm += Iconst * error / 3;
 
 	//check things are small
-	if (duty > 2000){
-		duty = 2000;
-	} else if (duty < -2000){
-		duty = -2000;
+	if (duty > 900){
+		duty = 900;
+	} else if (duty < -900){
+		duty = -900;
 	}
 
-	if (Dterm > 2000){
-		Dterm = 2000;
-	} else if (Dterm < -2000){
-		Dterm = -2000;
+	if (Dterm > 900){
+		Dterm = 900;
+	} else if (Dterm < -900){
+		Dterm = -900;
 	}
 
-	if (command == 0){
+	if (command == 0 && encoder == 0)
 		Iterm = 0;
+	if (Iterm > 500){
+		Iterm = 500;
+	} else if (Iterm < -500){
+		Iterm = -500;
+	}
 
-		if (duty > 200){
-			duty = 200;
-		} else if (duty < -200){
-			duty = -200;
-		}
+	duty += Dterm + Iterm;
 	
-		if (Dterm > 200){
-			Dterm = 200;
-		} else if (Dterm < -200){
-			Dterm = -200;
-		}
-		if (Iterm > 200){
-			Iterm = 200;
-		} else if (Iterm < -200){
-			Iterm = -200;
-		}
-
-	}
-	if (Iterm > 2000){
-		Iterm = 2000;
-	} else if (Iterm < -2000){
-		Iterm = -2000;
-	}
-
-	duty += -Dterm + Iterm + 2*command;  //+command not really difference
-	duty = duty/8;
-	if(duty > 1023){
-		duty = 1023;
-		LED3=0;
-	}
+	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
 	
 	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
@@ -496,7 +474,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// hacked, weird around 0, don't change
 	if (duty >= 1020)
 		duty=1020;
-	duty = 1023 - duty;
+	duty = 1020 - duty;
 
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
