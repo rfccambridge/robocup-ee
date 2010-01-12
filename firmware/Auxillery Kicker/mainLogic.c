@@ -78,6 +78,10 @@ void main(){
 
 	//if true then it kicks as soon as it sees the ball
 	int breakBeam = 0;
+	
+	//maintain charge on capacitors (true when most recent command is charge, 
+	//false when most recent command is discharge, kick, or stop charge)
+	bool k_maintain = false;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -122,16 +126,16 @@ void main(){
 	ADCON2 = 0b0100 ;//left justified highbit = data low bit = data0000*/
 
 	MBLED1 = 1;
-	MBLED2 = 1;
+	//MBLED2 = 1; only 1 LED on motherboard
 	//OpenADC(ADC_FOSC_RC & ADC_RIGHT_JUST & ADC_0_TAD,BattV & ADC_INT_ON, 0);
 	//ADCON1 =0x00;
 
 	
 	// it's PNP!!!
 	K_KICK1 = 1;
-	K_KICK2 = 1;
+	//K_KICK2 = 1; 2nd power of kicking not used currently
 	K_CHIP1 = 1;
-	K_CHIP2 = 1;
+	//K_CHIP2 = 1; 2nd power of chipping is not used currently
 	K_DISCHARGE = 0;
 	K_CHARGE = 0;
 	DRIBBLER = 0;
@@ -157,7 +161,7 @@ void main(){
 		
 		unsigned short i;
 
-		LED3 = PORTBbits.RB3;  // Breakbeam Check - If broken, then LED3 turns on - adw
+		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
 
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
@@ -208,8 +212,13 @@ void main(){
 
 		test_old = test_adc;
 */
-
-
+        //tests to see if charging cycle is complete in order to
+        //maintain charge, if necessary
+        if (k_maintain && K_DONE == 0){
+            //toggle charge pin
+            K_CHARGE = 0;
+            K_CHRAGE = 1;
+        }
 
 		if (fakePWM_count <= fakePWM_High){
 			DRIBBLER = 1;
@@ -217,7 +226,7 @@ void main(){
 		}
 		else{
 			DRIBBLER = 0;
-			MBLED2 = 0;
+			//MBLED2 = 0; only 1 LED on motherboard
 		}
 		if (fakePWM_count >= fakePWM_T){
 			//start a new period
@@ -349,25 +358,27 @@ void main(){
 					K_DISCHARGE = 0;
 					for (i=0; i<0xFF; i++);
 					K_KICK1 = 0;
-					K_KICK2 = 0;
+					//K_KICK2 = 0; 2nd power of kicking not used currently
 					for (i=0; i<0xFF; i++);
 					K_KICK1 = 1;
-					K_KICK2 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
 					breakBeam = 0; //just in case a kick was forced.
+					k_maintain = false; //do not maintain full charge on capacitors
 					break;
 
 				case 'c': //Charge
 					K_KICK1 = 1;
-					K_KICK2 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
 					for (i=0; i<0xFF; i++);
 					K_CHARGE = 1;
 					K_DISCHARGE = 0;
+					k_maintain = true; //do maintain full charge on capacitors
 					break;
 
 				case 'p': //Discharge
 					K_CHARGE = 0;//stop charging while kicking.	
 					K_KICK1 = 1;
-					K_KICK2 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
 					for (i=0; i<0xFF; i++);
 					K_DISCHARGE = 1;
 					for (i=0; i<0xFF; i++);
@@ -375,47 +386,52 @@ void main(){
 					for (i=0; i<0xFF; i++);
 					for (i=0; i<0xFF; i++);
 					K_DISCHARGE = 0;
+					k_maintain = false; //do not maintain full charge on capacitors
 					break;
 				case 's': //Stop Charging
 					K_CHARGE = 0;//stop charging while kicking.	
 					K_DISCHARGE = 0;
 					K_KICK1 = 1;
-					K_KICK2 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
 					breakBeam = 0; //don't want to kick anymore.
+					k_maintain = false; //do not maintain full charge on capacitors
 					break;
 
 				case 'b': //Starts charging the kicker and sets the breakbeam flag, so it will kick as soon as it sees the ball.
 					//Start Charging
 					K_KICK1 = 1;
-					K_KICK2 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
 					for (i=0; i<0xFF; i++);
 					K_CHARGE = 1;
 					K_DISCHARGE = 0;
 
 					//set the flag
 					breakBeam = 1;
-
+                    
+                    k_maintain = true; //do maintain full charge on capacitors
 
 				// some other port
 				default:
 					//LED3 = !LED3;
-					LED3 = PORTBbits.RB2;
+					//LED3 = PORTBbits.RB2;
 					break;
 			}
 		}
 
 
 		//Check if we need to kick
-		if(PORTBbits.RB3 == 0 && breakBeam){
+		if(BBEAM == 0 && breakBeam){
 			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
 			K_DISCHARGE = 0;
 			for (i=0; i<0xFF; i++);
 			K_KICK1 = 0;
-			K_KICK2 = 0;
+			//K_KICK2 = 0; 2nd power of kicking not used currently
 			for (i=0; i<0xFF; i++);
 			K_KICK1 = 1;
-			K_KICK2 = 1;
+			//K_KICK2 = 1; 2nd power of kicking not used currently
+			
+			k_maintain = false; //do not maintain full charge on capacitors
 		}
 
 	}

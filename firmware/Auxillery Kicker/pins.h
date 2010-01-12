@@ -5,29 +5,32 @@
 #include <p18f4431.h>
 // === KICKER ===
 #define K_KICK1			LATCbits.LATC3
-#define K_KICK2			LATDbits.LATD6
+//2nd power of kicking is not used currently
+//#define K_KICK2		LATDbits.LATD6 
 #define K_CHIP1			LATCbits.LATC2
-#define K_CHIP2			LATCbits.LATC1
-#define K_CHARGE		PORTDbits.RD7
-#define K_DISCHARGE		LATBbits.LATB4
+//2nd power of chipping is not used currently
+//#define K_CHIP2		LATCbits.LATC1
+#define K_CHARGE		LATDbits.LATD7
+#define K_DISCHARGE		LATCbits.LATC1
+#define K_DONE          PORTCbits.RC4
 
 // === DEBUG ===
-#define LED1			LATAbits.LATA0
+#define LED3			LATAbits.LATA0
 #define LED2			LATAbits.LATA1
-#define LED3			LATAbits.LATA2
+#define LED1			LATAbits.LATA2
 
-//Mother board LEDs
+//Mother board LEDs (only one)
 #define MBLED1			LATAbits.LATA3
-#define MBLED2			LATAbits.LATA4
+//#define MBLED2		LATAbits.LATA4
 
 //Incoming voltages
-#define BattV			PORTAbits.RA5
+#define BattV			PORTEbits.RE1
 
 // === DRIBBLER ===
 #define DRIBBLER		PORTBbits.RB5
 
 //===Break beam
 //goes low when the ball is seen
-#define	BBEAM			PORTBbits.RB3
+#define	BBEAM			PORTCbits.RC5
 
 #endif // __PINS_H
