@@ -70,7 +70,7 @@ void main(){
 	int iii = 0;
 
 
-	//stuff for hardcoded simple PID
+	//stuff for hardcoded simple PWM
 	int fakePWM_T = 30;	//pwm PERIOD
 	int fakePWM_High = 0;//# of counts period is high. Controls the duty cycle, 0 is off.
 	int fakePWM_count = 0;	//count for keeping track of things
@@ -81,7 +81,7 @@ void main(){
 	
 	//maintain charge on capacitors (true when most recent command is charge, 
 	//false when most recent command is discharge, kick, or stop charge)
-	bool k_maintain = false;
+	int k_maintain = 0;
 
 	//TRISA = 0x20;
 	//LATA = 0xff;
@@ -166,7 +166,7 @@ void main(){
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
-//		LED1 = !LED1;//!LED3;
+		LED1 = !LED1;//!LED3;
 
 		//Battery Info
 /*
@@ -214,10 +214,10 @@ void main(){
 */
         //tests to see if charging cycle is complete in order to
         //maintain charge, if necessary
-        if (k_maintain && K_DONE == 0){
+        if (k_maintain == 1 && K_DONE == 0){
             //toggle charge pin
             K_CHARGE = 0;
-            K_CHRAGE = 1;
+            K_CHARGE = 1;
         }
 
 		if (fakePWM_count <= fakePWM_High){
@@ -281,78 +281,6 @@ void main(){
 							break;
 					}
 
-			// === KICKER ===				
-				// kick
-/*				case 'L'://for testing
-					K_KICK1 = 0;
-					K_KICK2 = 0;	
-					K_CHIP1	 = 0;
-					K_CHIP2	 = 0;
-					K_CHARGE = 0;
-					K_DISCHARGE	 = 0;
-					LED3 = 1;
-					break;
-				case 'H'://for testing
-					K_KICK1 = 1;
-					K_KICK2 = 1;	
-					K_CHIP1	= 1;
-					K_CHIP2	= 1;
-					K_CHARGE = 1;
-					K_DISCHARGE	 = 1;
-					LED3 =0;
-					break;
-					
-				case 'B':		
-					LED3 = 1;
-					TRISDbits.TRISD7 = 1;
-					//K_CHARGE = 1; // keep charging until we actually kick
-					K_KICK1 = 1;  // stop kicking
-					K_KICK2 = 1;  // stop kicking
-					kick_counter = 1000000000000;
-					break;
-				
-				case 'K':
-					LED3 = 1;
-					TRISDbits.TRISD7 = 0;
-					K_CHARGE = 0;//stop charging while kicking.	
-					for (i=0; i<0xFF; i++);
-					K_KICK1 = 0;
-					K_KICK2 = 0;
-					for (i=0; i<0xFF; i++);
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-					break;
-					
-
-				// enable kicker - begin charging, don't kick
-				case 'E':
-					K_DISCHARGE = 0;
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-					TRISDbits.TRISD7 = 1;//set as an input so Vc on the lt1070 floats.
-					K_CHARGE = 1;
-					LED3 = 0;
-				//	kickCon.enable = 1;
-					break;
-
-				// disable kicker - stop kicking
-				case 'D'://STOP CHARGING
-					TRISDbits.TRISD7 = 0;
-					K_CHARGE = 0;
-					K_DISCHARGE = 0;
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-					 
-					LED3 = 1;	
-				//	kickCon.enable = 0;
-				case 'Q':
-					TRISDbits.TRISD7 = 0;
-					K_CHARGE = 0;
-					K_DISCHARGE = 1;
-					K_KICK1 = 1;
-					K_KICK2 = 1;
-				    break;
-					*/
 				case 'k': //Kick
 					K_CHARGE = 0;//stop charging while kicking.	
 					K_DISCHARGE = 0;
@@ -363,7 +291,7 @@ void main(){
 					K_KICK1 = 1;
 					//K_KICK2 = 1; 2nd power of kicking not used currently
 					breakBeam = 0; //just in case a kick was forced.
-					k_maintain = false; //do not maintain full charge on capacitors
+					k_maintain = 0; //do not maintain full charge on capacitors
 					break;
 
 				case 'c': //Charge
@@ -372,7 +300,7 @@ void main(){
 					for (i=0; i<0xFF; i++);
 					K_CHARGE = 1;
 					K_DISCHARGE = 0;
-					k_maintain = true; //do maintain full charge on capacitors
+					k_maintain = 1; //do maintain full charge on capacitors
 					break;
 
 				case 'p': //Discharge
@@ -386,7 +314,7 @@ void main(){
 					for (i=0; i<0xFF; i++);
 					for (i=0; i<0xFF; i++);
 					K_DISCHARGE = 0;
-					k_maintain = false; //do not maintain full charge on capacitors
+					k_maintain = 0; //do not maintain full charge on capacitors
 					break;
 				case 's': //Stop Charging
 					K_CHARGE = 0;//stop charging while kicking.	
@@ -394,7 +322,7 @@ void main(){
 					K_KICK1 = 1;
 					//K_KICK2 = 1; 2nd power of kicking not used currently
 					breakBeam = 0; //don't want to kick anymore.
-					k_maintain = false; //do not maintain full charge on capacitors
+					k_maintain = 0; //do not maintain full charge on capacitors
 					break;
 
 				case 'b': //Starts charging the kicker and sets the breakbeam flag, so it will kick as soon as it sees the ball.
@@ -408,7 +336,7 @@ void main(){
 					//set the flag
 					breakBeam = 1;
                     
-                    k_maintain = true; //do maintain full charge on capacitors
+                    k_maintain = 1; //do maintain full charge on capacitors
 
 				// some other port
 				default:
@@ -431,7 +359,7 @@ void main(){
 			K_KICK1 = 1;
 			//K_KICK2 = 1; 2nd power of kicking not used currently
 			
-			k_maintain = false; //do not maintain full charge on capacitors
+			k_maintain = 0; //do not maintain full charge on capacitors
 		}
 
 	}
