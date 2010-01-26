@@ -1,32 +1,32 @@
-"Vendor","Distributer part # (manufacturer part number)","Description","Package","Unit Price","Quantity",,"To Buy"
+"Vendor","Distributer part # (manufacturer part number)","Description","Package","Unit Price","Quantity","Want (6 robots, 2 radios and spares)","Have"
 ,,,,,,,
 "Mother Board",,,,,,,
-"Digikey","RXM-900-HP3-PPS-ND","900MHz Radio Receiver","--",44.98,1,,
-"Digikey","TXM-900-HP3-PPS-ND","900MHz Radio Transmitter","--",30.33,1,,
-"Digikey","ANT-916-CW-RH-ND","ANTENNA 916MHZ 1/4 WAVE WHIP","--",1.96,2,,
-"Digikey","CONREVSMA005C08.5-ND","CONN RPSMA Black CRJA-CPV 8.5"" COAX",,,2,,
-"Digikey","CONREVSMA001-ND","antenna cable connector",,,2,,
-"Digikey","CT2086-ND","DIP switch (6 switches)",,,1,,
-"Digikey",,"10 ohm 0805",,,1,,
-"Digikey","WM17131-ND ","CONN USB RT ANG RECPT TYPE B WHT ","--",1.87,1,,
-"Digikey","604-00043-ND","Ft232rl usb to serial chip","SSOP-28",4.02,1,,
-"Digikey",,"jumpers",,,2,,
-"Digikey",,"0805 .1 uF","“0805",,5,,
-"Digikey",,"electrolytic 100uf",,,3,,
-"Digikey",,"0805 220 0hm",805,,1,,
-"Digikey",,"10k",805,,4,,
-"Digikey","CT2084-ND","SWITCH SPST TIN 4 SEC (robot id","DIP",0.92,1,,
+"Digikey","RXM-900-HP3-PPS-ND","900MHz Radio Receiver","--",44.98,1,9,2
+"Digikey","TXM-900-HP3-PPS-ND","900MHz Radio Transmitter","--",30.33,1,9,0
+"Digikey","ANT-916-CW-RH-ND","ANTENNA 916MHZ 1/4 WAVE WHIP","--",1.96,2,12,1
+"Digikey","CONREVSMA005C08.5-ND","CONN RPSMA Black CRJA-CPV 8.5"" COAX",,,2,12,0
+"Digikey","CONREVSMA001-ND","antenna cable connector",,,2,5,0
+"Digikey","CT2086-ND","DIP switch (6 switches)",,,1,6,0
+"Digikey",,"10 ohm 0805",,,1,6,20
+"Digikey","WM17131-ND ","CONN USB RT ANG RECPT TYPE B WHT ","--",1.87,1,6,2
+"Digikey","604-00043-ND","Ft232rl usb to serial chip","SSOP-28",4.02,1,6,2
+"Digikey",,"jumpers",,,2,12,15
+"Digikey",,"0805 .1 uF","“0805",,5,30,100
+"Digikey",,"electrolytic 100uf",,,3,18,24
+"Digikey",,"0805 220 0hm",805,,1,6,"lots"
+"Digikey",,"10k",805,,4,24,20
+"Digikey","CT2084-ND","SWITCH SPST TIN 4 SEC (robot id","DIP",0.92,1,6,0
 ,,,,,,,
-"Digikey","MC7805CT-BPMS-ND (MC7805CT-BP)","5 volt regulator","TO-220",0.4,1,,
+"Digikey","MC7805CT-BPMS-ND (MC7805CT-BP)","5 volt regulator need fancy one","TO-220",0.4,1,6,1
 ,,,,,,,
-"--","--","Motor Connector","--",,4,,
-"Digikey","ED1601-ND ","TERMINAL BLOCK 5MM VERT 2POS (Battery, dribbler connector)","5mm",0.46,3,,
-"Digikey","ED1558-ND ","TERMINAL BLOCK 5MM VERT 4POS (Kicker connector)","5mm",1.76,1,,
-,,"Power switch",,,1,,
+"--","--","Motor Connector","--",,4,,0
+"Digikey","ED1601-ND ","TERMINAL BLOCK 5MM VERT 2POS (Battery, dribbler connector)","5mm",0.46,5,,22
+,,,"5mm",1.76,,,
+,,"Power switch",,,1,,0
 ,,,,,,,
-,"A26509-40-ND","male header 40 pins (straight) breakbeam, encoders, radio selectors need 26 pins",,,1,,
-,"S7023-ND","female header pins (board plugins except kicker) need 125 pins",,,6,,
-"Digikey","SAM1039-50-ND","male header pins bent (kicker) (50 pin strip) need 20 pins on motherboard",,,3,,
+,"A26509-40-ND","male header 40 pins (straight) breakbeam, encoders, radio selectors need 26 pins",,,1,,"4 40 pins"
+,"S7023-ND","female header pins (board plugins except kicker) need 125 pins",,,6,,"4 25pin"
+"Digikey","SAM1039-50-ND","male header pins bent (kicker) (50 pin strip) need 20 pins on motherboard",,,3,,"9 50 pin"
 ,,,,,,,
 ,,,,,,,
 ,,,,,,,
@@ -35,77 +35,77 @@
 "Mouser","210526PS obsolete","Mosfet IRF620","TO220",,,150,0
 "Digikey","RFP3055LE-ND","MOSFET N-CH 60V 11A TO-220AB",,,,,0
 "Digikey","IRFZ14PBF-ND","MOSFET N-CH 60V 10A TO-220AB",,,,,24
-"Digikey","785-1108-1-ND","surface mount power fet n-ch 12A 60V 20W",,,,,
-"Newark","61K3473","PIC 18F4431","44-TQFP",,,25,12
-"Newark","58K5837","IC DRIVER BRIDGE 3-PHASE 28-SOIC","28SOIC",,,25,6
-"Digikey","DL4151TPMSCT-ND ","switching diode","minimelf",0.05,100,,0
+"Digikey","785-1108-1-ND","surface mount power fet n-ch 12A 60V 20W",,,,,0
+"Newark","61K3473","PIC 18F4431","44-TQFP",,,25,30
+"Newark","58K5837","IC DRIVER BRIDGE 3-PHASE 28-SOIC","28SOIC",,,25,19
+"Digikey","DL4151TPMSCT-ND ","switching diode","minimelf",0.05,100,,16
 ,,"10k",,,6,,
 ,,"10 ohm 0805",,,6,,
 ,"yc164j-220ct-nd","220 ohm for LEDs and separate pic and fet driver",,,3,,
 ,"yc164j-10kct-nd","10k ohm pullups on halls",,,1,,
-,"Pcd1482ct-nd","4.7 uH pi filter inductor",805,,1,,
+,"Pcd1482ct-nd","4.7 uH pi filter inductor",805,,1,,0
 ,,"25 pin bent male header",,,1,,
 ,,"100 uf",,,3,,
-,,"0.1 uF",,,4,,
-,,"1 uF",1210,,4,,
-,"P47NCCT-ND","47 milliOhm",,,1,,
+,,"0.1 uF",,,4,,"lots"
+,,"1 uF",1210,,4,,"lots"
+,"P47NCCT-ND","47 milliOhm",,,1,,14
 "Kicker",,,,,,,
 ,,,,,,,
-"Digikey","2.0KW-5-ND","Power resistor",,,1,,
+"Digikey","2.0KW-5-ND","Power resistor",,,1,,4
 "Digikey","have","Switch",,,1,,
-"Digikey","Use a brushless","MOSFET (discharging)",,,1,,
+"Digikey",,"MOSFET (discharging)",,,1,,0
 "Digikey","BC857CINCT-ND","PNP transistor",,,2,,
-"Digikey","have","SCR",,,2,,
+"Digikey","S6025L","SCR",,,2,,8
 "Digikey",,,,,,,
-"Digikey","MCS1632R010FERCT-ND","Resistor - 10m",,,1,,
-"Digikey","P1.0KACT-ND","Resistor - 1k",,,2,,
-"Digikey","RHM2.49KCCT-ND","Resistor - 2.49k",,,1,,
-"Digikey","RHM10.0KCCT-ND","Resistor - 10k",,,3,,
-"Digikey","RHC251215KFCT-ND","Resistor - 15k",,,1,,
-"Digikey","RHM60.4KCRCT-ND","Resistor - 60.4k",,,1,,
-"Digikey","RHM80.6KCCT-ND","Resistor - 80.6k",,,1,,
-"Digikey","RHM100KCCT-ND","Resistor - 100k",,,2,,
+"Digikey","MCS1632R010FERCT-ND","Resistor - 10m",,,1,,9
+"Digikey","P1.0KACT-ND","Resistor - 1k",,,2,,"few"
+"Digikey","RHM2.49KCCT-ND","Resistor - 2.49k",,,1,,"9 50 pin"
+"Digikey","RHM10.0KCCT-ND","Resistor - 10k",,,3,,17
+"Digikey","RHC251215KFCT-ND","Resistor - 15k",,,1,,9
+"Digikey","RHM60.4KCRCT-ND","Resistor - 60.4k",,,1,,9
+"Digikey","RHM80.6KCCT-ND","Resistor - 80.6k",,,1,,9
+"Digikey","RHM100KCCT-ND","Resistor - 100k",,,2,,18
 "Digikey",,,,,,,
-"Digikey","399-1121-1-ND","Capacitor - 100pF",,,1,,
-"Digikey","PCC2000CT-ND","Capacitor - 3.3nF",,,1,,
-"Digikey","311-1140-1-ND","Capacitor - 1uF",,,2,,
-"Digikey","709-1229-1-ND","Capacitor - 10uF",,,1,,
-"Digikey","445-3476-1-ND","Capacitor - 47uF",,,3,,
+"Digikey","399-1121-1-ND","Capacitor - 100pF",,,1,,9
+"Digikey","PCC2000CT-ND","Capacitor - 3.3nF",,,1,,9
+"Digikey","311-1140-1-ND","Capacitor - 1uF",,,2,,18
+"Digikey","709-1229-1-ND","Capacitor - 10uF",,,1,,9
+"Digikey","445-3476-1-ND","Capacitor - 47uF",,,3,,24
 "Digikey",,,,,,,
-"Digikey","SK106-TPCT-ND","Diode (snubber)",,,1,,
-"Digikey","US1M-E3/61TGICT-ND","Diode (charging)",,,1,,
-"Digikey","S2M-FDICT-ND","Diode (discharging)",,,1,,
+"Digikey","SK106-TPCT-ND","Diode (snubber)",,,1,,8
+"Digikey","US1M-E3/61TGICT-ND","Diode (charging)",,,1,,8
+"Digikey","S2M-FDICT-ND","Diode (discharging)",,,1,,8
 "Digikey",,,,,,,
-"Digikey","FDP39N20-ND","MOSFET (charging)",,,1,,
+"Digikey","FDP39N20-ND","MOSFET (charging)",,,1,,5
 "Digikey",,,,,,,
-"Digikey","732-2129-1-ND","Transformer",,,1,,
+"Digikey","732-2129-1-ND","Transformer",,,1,,2
 "Digikey",,,,,,,
-"Digikey","LT3750EMS#PBF-ND","LT3750 Charging Chip",,,1,,
+"Digikey","LT3750EMS#PBF-ND","LT3750 Charging Chip",,,1,,1
 ,,,,,,,
 ,,,,,,,
 ,,,,,,,
 "							",,,,,,,
 "Ball Detector (parts/board)",,,,,"Quantity/Board",,
-"Digikey","296-1390-5-ND","lm324D op amp",,,1,,
-"Digikey","LTC1440CS8-ND","	IC COMP W/REF LP SINGLE 8-SOIC","8-SOIC",,2,,8
-"Digikey","MM74HC86MXCT-ND"," IC GATE OR QUAD 2INP EXCL 14SOIC","14-SOIC",,1,,4
-"Digikey","576-1189-1-ND","IC DRIVER MOSFET 6A LOSIDE 8SOIC","8-SOIC",,1,,4
-"Digikey","RFP3055LE-ND","MOSFET N-CH 60V 11A TO-220AB",,,1,,0
-"Mouser","859-LTE-3271B","Emitter, Clear - Lite-On Infrared Phototransistors",,,1,,0
-"digikey","QSD122-nd","1mA Photo Trans - Fairchild Infrared Emitter/Sensor Assemblies",,,1,,0
+"Digikey","296-1390-5-ND","lm324D op amp",,,1,,5
+"Digikey","LTC1440CS8-ND","	IC COMP W/REF LP SINGLE 8-SOIC","8-SOIC",,2,,4
+"Digikey","MM74HC86MXCT-ND"," IC GATE OR QUAD 2INP EXCL 14SOIC","14-SOIC",,1,,5
+"Digikey","576-1189-1-ND","IC DRIVER MOSFET 6A LOSIDE 8SOIC","8-SOIC",,1,,7
+"Digikey","RFP3055LE-ND","MOSFET N-CH 60V 11A TO-220AB",,,1,,5
+"digikey","160-1063-nd","emitter ir 940nm ",,,1,,4
+"digikey","160-1065-nd","phototran npn ir clear",,,1,,4
 "Mouser","652-3362X-1-102LF","1K Timmer Potentiometer",,,2,,0
-,,"100 uf",,,1,,
-,,".1uf 0805",,,1,,
-,,"1 uF",1210,,1,,
+,,"100 uf",,,1,,0
+,,".1uf 0805",,,1,,"lots"
+,,"1 uF",1210,,1,,"lots"
 ,,,,,,,
 "Radio",,,,,,,
 ,,"receiver",,,1,,
-,,"transmitter",,,1,,
+,,"transmitter",,,1,,1
 ,,"ANTENNA 916MHZ 1/4 WAVE WHIP",,,2,,
 ,,"CONN RPSMA Black CRJA-CPV 8.5"" COAX",,,2,,
-,,"antenna cable connector",,,2,,
-,"CT2093MS-ND","3 switch dip switches",,,2,,
-,,"CONN USB RT ANG RECPT TYPE B WHT ",,,1,,
+,,"antenna cable connector",,,2,,0
+,"CT2093MS-ND","3 switch dip switches",,,2,,0
+,,"CONN USB RT ANG RECPT TYPE B WHT ",,,1,,2
 ,,"220 ohm",,,1,,
 ,,"led",,,1,,
 ,,"0.1 uF",,,3,,
@@ -119,16 +119,16 @@
 ,,,,,,,
 ,,,,,,,
 "Generic: (parts that apply to multiple boards all surface mount resistors capacitors and LEDs)",,,,,,,
-,"Quantity kicker","auxiliary kicker","motherboard","brushless","brushless","total",
+,"Quantity kicker","auxiliary kicker","motherboard","brushless","brushless","total","Have"
 "Resistors  ",,,,,,,
-"10 ohms (0805)",0,0,,6,"have",,
-"110 ohms (0805)",0,2,,0,"have",,
-"10K (0805)",3,1,4,1,"have",,
-"220 4 array",,1,805,0,"have",,
-220,0,0,1,0,"have",,
-"1K (0805)",0,3,10,0,"have",,
-"8.2K (0805)",0,1,,0,"need",,
-"160K (0805)",0,1,,0,"have",,
+"10 ohms (0805)",0,0,,6,"have",,20
+"110 ohms (0805)",0,2,,0,"have",,30
+"10K (0805)",3,1,4,1,"have",,20
+"220 4 array",,1,805,0,"have",,20
+220,0,0,1,0,"have",,100
+"1K (0805)",0,3,10,0,"have",,20
+"8.2K (0805)",0,1,,0,"need",,1
+"160K (0805)",0,1,,0,"have",,20
 "0.5 (1210)",0,,,1,"need",,
 "0.0 (1210)",0,,,1,"need",,
 ,,,,,,,
@@ -141,14 +141,14 @@
 "0.1uF Ceramic (0805)",,1,5,4,22,,
 "1uF Ceramic (1210)",,1,0,4,17,,
 "100uF electrolytic",,1,3,3,16,,
-"10K (0805)",,,4,6,28,,
-,,,,,0,,
+,,,4,6,,,
+,,,,,,,
 ,,,,,,,
 ,"Quantity kicker","Quantity auxiliary kicker","motherboard","brushless",,,
 "LEDs",,,,,,,
-"Red (0805)",,5,1,4,,,
+"Red (0805)",,5,1,4,"need",,
 "Yellow (0805)",0,0,1,0,,,
-"Pics",0,1,0,1,,,
+"Pics",0,1,0,1,"Have 30",,
 ,,,,,,,
 "Other",,,,,,,
 "Heat shrink",,,,,,,
@@ -157,4 +157,4 @@
 "wire (if we can't find it)",,,,,,,
 ,,,,,,,
 "Encoder PCB from US Digital","E4p-300-157-D-D-D-B",,,,,,
-"Battery Connectors",,,,,,,
+"Mouser","651-1755736","battery connector",,,,2,
