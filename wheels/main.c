@@ -237,11 +237,11 @@ void main()
 	while(1) {
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
-		//	LED4 = 0;
+			LED4 = 0;
 			OVDCOND = 0x00;
 			OVDCONS = 0xff;
 		} else {
-		//	LED4 = 1;
+			LED4 = 1;
 			commutateMotor();
 		}
 
@@ -264,40 +264,7 @@ void main()
 					Reset();
 				case 'w':
 					// Get the transmitted wheel speed			
-					newSpeed = RxPacket.data[wheel];
-
-					// Special case for 0
-					if(newSpeed == 0) {
-						command = 0;
-						oldAverage = 0;
-					}
-					else { // Otherwise, we average the the old and new speeds.
-						oldAverage = command;
-						command = NEW_WEIGHT * newSpeed + 
-								  OLD_WEIGHT * command;
-					}
-
-					// Ensure that we change the speed by at least one
-					if(command == oldAverage && command != newSpeed) {
-						if(command < newSpeed)
-							command++;
-						else
-							command--;
-					}
-
-					// Now adjust P term based on our speed
-					if(command == 0){
-						Pconst = 50;
-					} else if(command < 0) {
-						Pconst = 100+command*3;
-					} else {
-						Pconst = 100-command*3;
-					}			
-
-					if(Pconst < 20) {
-						Pconst = 20;
-					}
-
+					command = RxPacket.data[wheel];
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
@@ -305,10 +272,10 @@ void main()
 					Dconst = (signed int) RxPacket.data[2];
 					break;
 				case 'e':
-					if (RxPacket.data[0]=='1')
+					//if (RxPacket.data[0]=='1')
 						encoderFlags = SPEW_ENCODER;
-					else
-						encoderFlags = DONT_SPEW_ENCODER;
+				//	else
+				//		encoderFlags = DONT_SPEW_ENCODER;
 					break;
 				case 's': // temporary value - make this work
 					// TODO: estimate wheel speed
@@ -356,17 +323,19 @@ void commutateMotor()
 	// to prevent glitching
 	unsigned char _OVDCOND;
 	unsigned char _OVDCONS;
-
-	if (direction==0) {
+	if (command == 0){ // if command is zero we want to coast! (Not for use with feedback)
+		_OVDCOND = fordrive[0];
+		_OVDCONS = ~fordrive[0];
+	} else if (direction==0) {
 		// PWM high side
-		LED4 = 0;
+	//	LED4 = 0;
 		_OVDCOND = fordrive[hall] & 0b00111000;
 		// turn on low side
 		_OVDCONS = ~(fordrive[hall] & 0b00000111);
 	} else if (direction == 1){
 		_OVDCOND = backdrive[hall] & 0b00111000;
 		_OVDCONS = ~(backdrive[hall] & 0b00000111);
-		LED4 = 1;
+	//	LED4 = 1;
 	}
 
 	OVDCOND = _OVDCOND;
@@ -412,12 +381,15 @@ void handleQEI(PacketBuffer * encoderPacket)
 	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
     if (encoderCentered >=0x8000)
-		encoder = (encoderCentered - 0x8000)/ 4;
-	else
-		encoder = -(signed char)((0x8000-encoderCentered)/ 4);
+		encoder = -(encoderCentered - 0x8000)/ 4; //these signs are opposite of what you'd expect because 
+	else									//the encoder has the opposite sign convention from everything else.
+		encoder = (signed char)((0x8000-encoderCentered)/ 4);
 
-	// calculate error, check for rollover
-	error = ((signed int) encoder) - ((signed int) command);
+
+
+
+	// calculate error, check for rollover 
+	error = ((signed int) command) - ((signed int) encoder); 
 
 	// if feedback is off, set error to 0; otherwise, keep it the same
 	error *= feedback_on;
@@ -451,9 +423,10 @@ void handleQEI(PacketBuffer * encoderPacket)
 		Iterm = -500;
 	}
 
-	duty += Dterm + Iterm;
 	duty = command;
-	duty = duty*4;
+	duty = duty*8;
+	duty += Dterm + Iterm;
+
 	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;
