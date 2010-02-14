@@ -97,7 +97,7 @@ signed char oldAverage = 0;
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
  feedback should always be on - only turn off to see what robot does if it 
  thinks there is no error */
-unsigned short feedback_on = 1;
+unsigned short feedback_on = 0;
 
 void commutateMotor();
 void high_ISR();	 //Interrupt Service Routine
@@ -221,13 +221,13 @@ void main()
 	initRx(&RxPacket);
 	initTx(&TxPacket);
 
-	encoderFlags = DONT_SPEW_ENCODER;
+	encoderFlags = SPEW_ENCODER;
 	encoderCount = 0;
 
 	// defaults for testing
 	Pconst = 50;
 	Dconst = 3;
-	Iconst = 0;
+	Iconst = 1;
 	command = 0;
 	Iterm = 0;
 	previous_error = 0;
@@ -246,9 +246,9 @@ void main()
 		}
 
 		// Check for dead hall
-		LED3 = 1;
-		if (HALL == 0 || HALL == 7)
-			LED3 = 0;
+	//	LED3 = 1;
+	//	if (HALL == 0 || HALL == 7)
+	//		LED3 = 0;
 
 		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
 			TxPacket.length = MAX_PACKET_SIZE;
@@ -323,10 +323,11 @@ void commutateMotor()
 	// to prevent glitching
 	unsigned char _OVDCOND;
 	unsigned char _OVDCONS;
-	if (command == 0){ // if command is zero we want to coast! (Not for use with feedback)
+/*	if (command == 0){ // if command is zero we want to coast! (Not for use with feedback)
 		_OVDCOND = fordrive[0];
 		_OVDCONS = ~fordrive[0];
-	} else if (direction==0) {
+	} else */
+	if (direction==0) {
 		// PWM high side
 	//	LED4 = 0;
 		_OVDCOND = fordrive[hall] & 0b00111000;
@@ -347,7 +348,7 @@ void commutateMotor()
 void handleQEI(PacketBuffer * encoderPacket)
 {
 	unsigned int encoderCentered = 0;
-	signed char encoder = 0;
+	signed int encoder = 0;
 	signed int error = 0;
 	signed int duty = 0;			// modifies speed based on PID feedback
 	unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
@@ -376,15 +377,31 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// convert encoder value to 8 bit 2's comp
 	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
 	//if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
-
-    if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
-	if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
+	//I don't know what any of these are for
+    //if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
+	//if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
     if (encoderCentered >=0x8000)
-		encoder = -(encoderCentered - 0x8000)/ 4; //these signs are opposite of what you'd expect because 
-	else									//the encoder has the opposite sign convention from everything else.
-		encoder = (signed char)((0x8000-encoderCentered)/ 4);
+		encoder = (encoderCentered - 0x8000)/ 4;
+	else									
+		encoder = -(signed int)((0x8000-encoderCentered)/ 4);
 
+	encoder = - encoder; //Because + direction conventions are switched between the encoder and the commutation.
+	
+	//find size of encoder
+/*	if (encoder < 0x75 && -encoder < 0x75){
+		LED3 = 0;
+		LED4 = 0;
+	} else if (encoder < 0x100 && -encoder < 0x100){
+		LED3 = 1;
+		LED4 = 0;
+	} else if (encoder < 0x103 && -encoder < 0x103){
+		LED3 = 0;
+		LED4 = 1;
+	} else if (encoder < 0x200 && -encoder < 0x200){
+		LED3 = 1;
+		LED4 = 1;
+	}*///It appears the max of encoder is about 0x100 or 2^8, when the wheel is full speed and and the robot is in the air.
 
 
 
@@ -422,10 +439,11 @@ void handleQEI(PacketBuffer * encoderPacket)
 	} else if (Iterm < -500){
 		Iterm = -500;
 	}
-
-	duty = command;
-	duty = duty*8;
-	duty += Dterm + Iterm;
+	if (feedback_on == 0){
+		duty = command;
+		duty = duty*8;
+	}
+	else duty += Dterm + Iterm;
 
 	
 	if(duty > 1023) duty = 1023;
@@ -446,7 +464,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		direction = 0;
 	}
 
-	// hacked, weird around 0, don't change
+	// hacked, weird around 0, don't change ?????
 	if (duty >= 1020)
 		duty=1020;
 	duty = 1020 - duty;
