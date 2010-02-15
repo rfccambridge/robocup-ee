@@ -68,7 +68,7 @@
 #define DONT_SPEW_ENCODER 0
 // currently set up to transmit five bytes of Data, so we want 6 of those groups 
 // in a packets (maximum size is 32), so desired size is 30.
-#define DESIRED_PACKET_SIZE 30  
+#define DESIRED_PACKET_SIZE 32  
 
 
 // this is the maximum error
@@ -85,7 +85,7 @@ unsigned char direction = 0;
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
  feedback should always be on - only turn off to see what robot does if it 
  thinks there is no error */
-unsigned short feedback_on = 0;
+unsigned short feedback_on = 1;
 
 // initial value of timer0
 // increase for shorter period
@@ -221,7 +221,7 @@ void main()
 	initRx(&RxPacket);
 	initTx(&TxPacket);
 
-	encoderFlags = SPEW_ENCODER;
+	encoderFlags = DONT_SPEW_ENCODER;
 	encoderCount = 0;
 
 	// defaults for testing
@@ -400,7 +400,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	if(error > MAX_ERROR) error = MAX_ERROR;
 	if(error < -MAX_ERROR) error = -MAX_ERROR;
 
-	duty += error * Pconst / 3;
+	duty = error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
 	Iterm += Iconst * error / 3;
 
@@ -424,11 +424,19 @@ void handleQEI(PacketBuffer * encoderPacket)
 	} else if (Iterm < -500){
 		Iterm = -500;
 	}
+
+
+	//Negate the feedback calc if necessary
 	if (feedback_on == 0){
 		duty = command;
 		duty = duty*8;
 	}
-	else duty += Dterm + Iterm;
+	else{
+		//P +   D  +   I  + feed forward term
+		 duty += Dterm + Iterm + 8*command;
+		if (duty < 0) duty= duty-80;
+		else if (duty > 0) duty= duty + 80; 
+	}
 
 	
 	if(duty > 1023) duty = 1023;
@@ -460,15 +468,21 @@ void handleQEI(PacketBuffer * encoderPacket)
 	
 	// put data in transmit buffer
 	if (encoderFlags==SPEW_ENCODER && encoderCount < DESIRED_PACKET_SIZE) {
+		//CONVERT duty back to big number is faster
+		duty = 1020 - duty;
+		dutyHigh = duty >> 8;
+		dutyLow = duty;
+
 		encoderPacket->address = '2';
 		encoderPacket->destination = '2';
 		encoderPacket->port = 'a';
-		encoderPacket->data[encoderCount++] = 66;
-		encoderPacket->data[encoderCount++] = 66;
-		encoderPacket->data[encoderCount++] = 66;
-		encoderPacket->data[encoderCount++] = 66;
-		encoderPacket->data[encoderCount++] = command;
-		encoderPacket = 0;
+		encoderPacket->data[encoderCount++] = encoder; //command
+		encoderPacket->data[encoderCount++] = 2;//?
+		encoderPacket->data[encoderCount++] = dutyHigh;//duty high
+		encoderPacket->data[encoderCount++] = dutyLow; //duty low
+
+	//	encoderPacket->data[encoderCount++] = 5;
+	//	encoderPacket = 0;
 	}
 
 	previous_error = error;
