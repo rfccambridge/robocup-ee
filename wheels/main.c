@@ -66,9 +66,26 @@
 
 #define SPEW_ENCODER      1
 #define DONT_SPEW_ENCODER 0
+// currently set up to transmit five bytes of Data, so we want 6 of those groups 
+// in a packets (maximum size is 32), so desired size is 30.
+#define DESIRED_PACKET_SIZE 30  
 
-// this is the maximum erro
+
+// this is the maximum error
 #define MAX_ERROR 200
+
+
+signed int Pconst, Iconst, Dconst;
+signed int previous_error = 0;
+signed int Iterm = 0;
+signed char command = 0;
+unsigned char direction = 0;
+
+
+/* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
+ feedback should always be on - only turn off to see what robot does if it 
+ thinks there is no error */
+unsigned short feedback_on = 0;
 
 // initial value of timer0
 // increase for shorter period
@@ -80,24 +97,7 @@ PacketBuffer TxPacket;
 unsigned char encoderCount;
 unsigned char encoderFlags;
 
-signed int Pconst, Iconst, Dconst;
-signed int previous_error = 0;
-signed int Iterm = 0;
-signed char command = 0;
-unsigned char direction = 0;
-
 unsigned int wheel;
-
-// Stuff for the averages
-#define OLD_WEIGHT .5 // Weight to give the old average
-#define NEW_WEIGHT .5 // Weight to give the newly receieved speed
-signed char newSpeed; 
-signed char oldAverage = 0;
-
-/* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
- feedback should always be on - only turn off to see what robot does if it 
- thinks there is no error */
-unsigned short feedback_on = 0;
 
 void commutateMotor();
 void high_ISR();	 //Interrupt Service Routine
@@ -250,8 +250,8 @@ void main()
 	//	if (HALL == 0 || HALL == 7)
 	//		LED3 = 0;
 
-		if (encoderFlags==SPEW_ENCODER && encoderCount == MAX_PACKET_SIZE) {
-			TxPacket.length = MAX_PACKET_SIZE;
+		if (encoderFlags==SPEW_ENCODER && encoderCount == DESIRED_PACKET_SIZE) {
+			TxPacket.length = DESIRED_PACKET_SIZE;
 			transmit(&TxPacket);
 			encoderCount = 0;
 		}
@@ -323,10 +323,10 @@ void commutateMotor()
 	// to prevent glitching
 	unsigned char _OVDCOND;
 	unsigned char _OVDCONS;
-/*	if (command == 0){ // if command is zero we want to coast! (Not for use with feedback)
+	if (command == 0 && feedback_on == 0){ // if command is zero we want to coast! (Not for use with feedback)
 		_OVDCOND = fordrive[0];
 		_OVDCONS = ~fordrive[0];
-	} else */
+	} else 
 	if (direction==0) {
 		// PWM high side
 	//	LED4 = 0;
@@ -354,14 +354,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
 	signed int Dterm;
 
-	// transmit
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = POSCNTH;
-		encoderPacket->data[encoderCount++] = POSCNTL;
-		encoderPacket->address = '2';
-		encoderPacket->port = 'a';
-	}
-
 	// read and reset position accumulator
 	encoderCentered = POSCNTH;
 	encoderCentered = encoderCentered << 8;
@@ -373,13 +365,6 @@ void handleQEI(PacketBuffer * encoderPacket)
 	//	duty = rotationsToDuty(speedToRotations(command));
 	
 	TMR0L = TIMER0INIT;
-
-	// convert encoder value to 8 bit 2's comp
-	//if (encoderCentered >= 0x8800) encoderCentered = 0x8800-1;
-	//if (encoderCentered <= 0x7800) encoderCentered = 0x7800+1;
-	//I don't know what any of these are for
-    //if (encoderCentered >= 0x8400) encoderCentered = 0x8400-1;
-	//if (encoderCentered <= 0x7c00) encoderCentered = 0x7c00+1;
 		
     if (encoderCentered >=0x8000)
 		encoder = (encoderCentered - 0x8000)/ 4;
@@ -447,14 +432,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 	
 	if(duty > 1023) duty = 1023;
-	if(duty < -1023) duty = -1023;
-	
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = error>>8;
-		encoderPacket->data[encoderCount++] = error;
-		encoderPacket->data[encoderCount++] = duty>>8;
-		encoderPacket->data[encoderCount++] = duty;
-	}	
+	if(duty < -1023) duty = -1023;	
 
 	// convert to 10 bit sign magnitude
 	if (duty >= 0) {
@@ -480,12 +458,17 @@ void handleQEI(PacketBuffer * encoderPacket)
 	PDC2H = dutyHigh;
 	PDC2L = dutyLow;
 	
-	if (encoderFlags==SPEW_ENCODER && encoderCount < MAX_PACKET_SIZE) {
-		encoderPacket->data[encoderCount++] = 0;
+	// put data in transmit buffer
+	if (encoderFlags==SPEW_ENCODER && encoderCount < DESIRED_PACKET_SIZE) {
+		encoderPacket->address = '2';
+		encoderPacket->destination = '2';
+		encoderPacket->port = 'a';
+		encoderPacket->data[encoderCount++] = 66;
+		encoderPacket->data[encoderCount++] = 66;
+		encoderPacket->data[encoderCount++] = 66;
+		encoderPacket->data[encoderCount++] = 66;
 		encoderPacket->data[encoderCount++] = command;
-		//encoderPacket->data[encoderCount++] = Dterm >> 8;
-		//encoderPacket->data[encoderCount++] = Dterm;
-		encoderPacket->data[encoderCount++] = encoder;
+		encoderPacket = 0;
 	}
 
 	previous_error = error;
