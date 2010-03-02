@@ -68,7 +68,7 @@
 #define DONT_SPEW_ENCODER 0
 // currently set up to transmit five bytes of Data, so we want 6 of those groups 
 // in a packets (maximum size is 32), so desired size is 30.
-#define DESIRED_PACKET_SIZE 32  
+#define DESIRED_PACKET_SIZE 30
 
 
 // this is the maximum error
@@ -250,6 +250,7 @@ void main()
 	//	if (HALL == 0 || HALL == 7)
 	//		LED3 = 0;
 
+		
 		if (encoderFlags==SPEW_ENCODER && encoderCount == DESIRED_PACKET_SIZE) {
 			TxPacket.length = DESIRED_PACKET_SIZE;
 			transmit(&TxPacket);
@@ -354,6 +355,9 @@ void handleQEI(PacketBuffer * encoderPacket)
 	unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
 	signed int Dterm;
 
+	signed char encHigh;
+	signed char encLow;
+
 	// read and reset position accumulator
 	encoderCentered = POSCNTH;
 	encoderCentered = encoderCentered << 8;
@@ -434,8 +438,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 	else{
 		//P +   D  +   I  + feed forward term
 		 duty += Dterm + Iterm + 8*command;
-		if (duty < 0) duty= duty-80;
-		else if (duty > 0) duty= duty + 80; 
+		//if (duty < 0) duty= duty-80;
+		//else if (duty > 0) duty= duty + 80; 
 	}
 
 	
@@ -466,6 +470,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	PDC2H = dutyHigh;
 	PDC2L = dutyLow;
 	
+	
 	// put data in transmit buffer
 	if (encoderFlags==SPEW_ENCODER && encoderCount < DESIRED_PACKET_SIZE) {
 		//CONVERT duty back to big number is faster
@@ -473,13 +478,17 @@ void handleQEI(PacketBuffer * encoderPacket)
 		dutyHigh = duty >> 8;
 		dutyLow = duty;
 
+		encHigh = encoder >> 8;
+		encLow = encoder;
+
 		encoderPacket->address = '2';
 		encoderPacket->destination = '2';
 		encoderPacket->port = 'a';
-		encoderPacket->data[encoderCount++] = encoder; //command
-		encoderPacket->data[encoderCount++] = 2;//?
+		encoderPacket->data[encoderCount++] = encHigh;//encoder; //command
+		encoderPacket->data[encoderCount++] = encLow;//2;//?
 		encoderPacket->data[encoderCount++] = dutyHigh;//duty high
 		encoderPacket->data[encoderCount++] = dutyLow; //duty low
+		encoderPacket->data[encoderCount++] = (signed char)command;
 
 	//	encoderPacket->data[encoderCount++] = 5;
 	//	encoderPacket = 0;
