@@ -68,7 +68,9 @@
 #define DONT_SPEW_ENCODER 0
 // currently set up to transmit five bytes of Data, so we want 6 of those groups 
 // in a packets (maximum size is 32), so desired size is 30.
+
 #define DESIRED_PACKET_SIZE 30
+
 
 
 // this is the maximum error
@@ -85,7 +87,7 @@ unsigned char direction = 0;
 /* The following is a debugging tool: flag for feedback, 0 for off, 1 for on
  feedback should always be on - only turn off to see what robot does if it 
  thinks there is no error */
-unsigned short feedback_on = 1;
+unsigned short feedback_on = 0;
 
 // initial value of timer0
 // increase for shorter period
@@ -273,10 +275,11 @@ void main()
 					Dconst = (signed int) RxPacket.data[2];
 					break;
 				case 'e':
-					//if (RxPacket.data[0]=='1')
+					if (RxPacket.data[0]==wheel){
 						encoderFlags = SPEW_ENCODER;
-				//	else
-				//		encoderFlags = DONT_SPEW_ENCODER;
+					}
+					else
+						encoderFlags = DONT_SPEW_ENCODER;
 					break;
 				case 's': // temporary value - make this work
 					// TODO: estimate wheel speed
@@ -371,9 +374,9 @@ void handleQEI(PacketBuffer * encoderPacket)
 	TMR0L = TIMER0INIT;
 		
     if (encoderCentered >=0x8000)
-		encoder = (encoderCentered - 0x8000)/ 4;
+		encoder = (signed int)(encoderCentered - 0x8000);
 	else									
-		encoder = -(signed int)((0x8000-encoderCentered)/ 4);
+		encoder = -(signed int)(0x8000-encoderCentered);
 
 	encoder = - encoder; //Because + direction conventions are switched between the encoder and the commutation.
 	
@@ -391,6 +394,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		LED3 = 1;
 		LED4 = 1;
 	}*///It appears the max of encoder is about 0x100 or 2^8, when the wheel is full speed and and the robot is in the air.
+//max about 120 with divide by 4, with duty = 127*8 its about 486 without naturally
 
 
 
@@ -454,10 +458,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		direction = 0;
 	}
 
-	// hacked, weird around 0, don't change ?????
-	if (duty >= 1020)
-		duty=1020;
-	duty = 1020 - duty;
+	duty = 1023 - duty;
 
 	dutyHigh = duty >> 8;
 	dutyLow = duty;
@@ -484,14 +485,13 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->address = '2';
 		encoderPacket->destination = '2';
 		encoderPacket->port = 'a';
-		encoderPacket->data[encoderCount++] = encHigh;//encoder; //command
-		encoderPacket->data[encoderCount++] = encLow;//2;//?
+
+		encoderPacket->data[encoderCount++] = encHigh;
+		encoderPacket->data[encoderCount++] = encLow;
 		encoderPacket->data[encoderCount++] = dutyHigh;//duty high
 		encoderPacket->data[encoderCount++] = dutyLow; //duty low
-		encoderPacket->data[encoderCount++] = (signed char)command;
+		encoderPacket->data[encoderCount++] = command;
 
-	//	encoderPacket->data[encoderCount++] = 5;
-	//	encoderPacket = 0;
 	}
 
 	previous_error = error;
