@@ -189,8 +189,8 @@ void main()
 	// 101          8.2ms
 	// 100          4.1ms
 
-	T0CON = 0b11000101;
-	INTCON = 0b11100000;
+	T0CON = 0b11000101; //enabled, 8bit, internal clock, low->high transition, Use of prescaler, 1:64
+	INTCON = 0b11100000; 
 
 	// *** Initialize encoder ***
 	QEICON = 0b00011000;
@@ -399,7 +399,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 
 
 	// calculate error, check for rollover 
-	error = ((signed int) command) - ((signed int) encoder); 
+	error = ((signed int) command) - ((signed int) encoder)/4; 
 
 	// if feedback is off, set error to 0; otherwise, keep it the same
 	error *= feedback_on;
@@ -475,7 +475,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 	// put data in transmit buffer
 	if (encoderFlags==SPEW_ENCODER && encoderCount < DESIRED_PACKET_SIZE) {
 		//CONVERT duty back to big number is faster
-		duty = 1020 - duty;
+		duty = 1023 - duty;
 		dutyHigh = duty >> 8;
 		dutyLow = duty;
 
