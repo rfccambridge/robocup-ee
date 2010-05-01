@@ -108,53 +108,6 @@ void handleQEI(PacketBuffer * TxPacket);
 /* hard-coded, hacky functions for translating between speed & duty cycle
    these are designed for testing dead reckoning for wheel speeds */
 
-/* rotations is measured in how many thousandths of a rotation
-   the robot can make per second (millihertz) using one wheel */
-signed int speedToRotations(signed int commandSpeed){
-	signed int positiveSpeed = (commandSpeed < 0 ? -commandSpeed : commandSpeed);
-	signed int rotations = 0;
-	if(positiveSpeed < 10){
-		rotations = (331)/10*positiveSpeed;
-	}
-	else if(positiveSpeed < 20){
-		rotations = (687-331)/10*(positiveSpeed-10) + 331;
-	}
-	else if(positiveSpeed < 30){
-		rotations = (1197-687)/10*(positiveSpeed-20) + 687;
-	}
-	else if(positiveSpeed < 40){
-		rotations = (1741-1197)/10*(positiveSpeed-30) + 1197;
-	}
-	else{
-		rotations = (2242-1741)/10*(positiveSpeed-40) + 1741;
-	}
-	return (commandSpeed > 0 ? rotations : -rotations);
-}
-
-signed int rotationsToDuty(signed int rotations){
-	signed int positiveRotations = (rotations < 0 ? -rotations : rotations);
-	signed int dutyvalue = 0;
-	if(positiveRotations < 652){
-		dutyvalue = (165-0)/652*positiveRotations;
-	}
-	else if(positiveRotations < 755){
-		dutyvalue = (175-165)/(755-652)*(positiveRotations-652) + 652;
-	}
-	else if(positiveRotations < 965){
-		dutyvalue = (185-175)/(965-755)*(positiveRotations-755) + 755;
-	}
-	else if(positiveRotations < 1272){
-		dutyvalue = (195-185)/(1272-965)*(positiveRotations-965) + 965;
-	}
-	else if(positiveRotations < 1513){
-		dutyvalue = (210-195)/(1513-1272)*(positiveRotations-1272) + 1272;
-	}
-	else{
-		dutyvalue = (230-210)/(2073-1513)*(positiveRotations-2073) + 1513;
-	}
-	return (rotations > 0 ? positiveRotations : -positiveRotations);
-}
-
 
 void main()
 {
@@ -254,6 +207,8 @@ void main()
 
 		
 		if (encoderFlags==SPEW_ENCODER && encoderCount == DESIRED_PACKET_SIZE) {
+
+//test
 			TxPacket.length = DESIRED_PACKET_SIZE;
 			transmit(&TxPacket);
 			encoderCount = 0;
@@ -396,7 +351,10 @@ void handleQEI(PacketBuffer * encoderPacket)
 	}*///It appears the max of encoder is about 0x100 or 2^8, when the wheel is full speed and and the robot is in the air.
 //max about 120 with divide by 4, with duty = 127*8 its about 486 without naturally
 
+////////////////////
 
+
+//Top of comment out usually here
 
 	// calculate error, check for rollover 
 	error = ((signed int) command) - ((signed int) encoder)/4; 
@@ -408,9 +366,19 @@ void handleQEI(PacketBuffer * encoderPacket)
 	if(error > MAX_ERROR) error = MAX_ERROR;
 	if(error < -MAX_ERROR) error = -MAX_ERROR;
 
+
+// only the below three commented out still get just 4 spikes in a period while In synch.
+//everything else commented out, out of synch at 4 spikes and about 3 other places
+
+//only two spikes in three periods instead of 4 in a period, but out of synch
 	duty = error * Pconst / 3;
 	Dterm = Dconst * (error - previous_error) / 3;
 	Iterm += Iconst * error / 3;
+//	Iterm = Iterm/3;
+//	Iterm = Iterm/7;// adding these in made it go out of synch with only the three above lines running.
+//		Dterm = Dterm/11;
+
+//four spikes per period 50, 54, 48 between the two around a max/min. In Synch
 
 	//check things are small
 	if (duty > 900){
@@ -424,6 +392,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 	} else if (Dterm < -900){
 		Dterm = -900;
 	}
+
+//commented out to here out of syncyh for spikes onlythat are 50 or 54 mostly 54.
 
 	if (command == 0 && encoder == 0)
 		Iterm = 0;
@@ -445,8 +415,8 @@ void handleQEI(PacketBuffer * encoderPacket)
 		//if (duty < 0) duty= duty-80;
 		//else if (duty > 0) duty= duty + 80; 
 	}
+//commented out to here, periodic down to up 50 or 54
 
-	
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;	
 
@@ -486,6 +456,15 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->destination = '2';
 		encoderPacket->port = 'a';
 
+//temp-----------------------------------------------
+	//		duty = 0;
+//	duty= command;
+//	duty = duty*8;
+//dutyHigh = duty >> 8;
+//		dutyLow = duty;
+
+//temp-----------------------------------------------
+
 		encoderPacket->data[encoderCount++] = encHigh;
 		encoderPacket->data[encoderCount++] = encLow;
 		encoderPacket->data[encoderCount++] = dutyHigh;//duty high
@@ -493,6 +472,7 @@ void handleQEI(PacketBuffer * encoderPacket)
 		encoderPacket->data[encoderCount++] = command;
 
 	}
+	 else {	LED4= !LED4;}
 
 	previous_error = error;
 }
@@ -512,12 +492,12 @@ void high_ISR()
 		INTCONbits.TMR0IF = 0;
 		handleQEI(&TxPacket);
 		LED1 = 1;
-	} else if (PIE1bits.RCIE && PIR1bits.RCIF) {
+	}if (PIE1bits.RCIE && PIR1bits.RCIF) {
 		LED2 = 0;
 		PIR1bits.RCIF = 0;
 		handleRx(&RxPacket);
 		LED2 = 1;
-	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
+	}if (PIE1bits.TXIE && PIR1bits.TXIF) {
 		PIR1bits.TXIF = 0;
 		handleTx(&TxPacket);
 	} 
