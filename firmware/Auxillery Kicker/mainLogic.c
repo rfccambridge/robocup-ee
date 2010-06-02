@@ -60,6 +60,11 @@ unsigned char led;
 #define LED_POWER	0x01
 
 void main(){
+
+
+
+
+
 	unsigned char j;//for a wait loop when kicking
 	unsigned int kick_counter = 0;
 	double adc_result = 10;
@@ -90,35 +95,48 @@ void main(){
 	initRx(&RxPacket);
 
 	
-	//======oscillator configuration: internal used======
-	OSCCON = OSCCON | 0b01110000;			//internal oscillator 8MHz
+
+
+
+	TRISE = 0xf8;
+
+	// *** 8 MHz clock ***
+	OSCCON = 0b01110000;
+
+	// *** Initialize PWM ***
+	PTCON0 = 0x00;
+	PTCON1 = 0x80;						// PTMR enabled, counts up
+	PWMCON0 = 0b01001111;				// PWM0-5 enabled, independent mode. 
+	PWMCON1 = 0x00;
+	PTPERH = 0x00;						// 10 bit duty cycle, 7.7KHz @ 8MHz
+	PTPERL = 0x33;
 	
-	// initialize timer0 for kicker
-	T0CON = 0b10001000;
-	INTCONbits.TMR0IE = 0;	
-	
-	//Enable PWM for the dribbler
-/*	PWMCON0= 0x00;//0b01001111; 		//enable pwm0-5, because can't just enable 4
-										//set all pwm outputs independent of others
-	PTCON0 = 0x00;// 00 is default, which is fine
-	PTCON1 = 0x80;//maybe need 0x80
-	PTPERH = 0x00;
-	PTPERL = 0xFF;		*/						//Setting PWM Period to 8 bits
-	
-
-
-
-
-	TRISB = 0b11001010;							//2,4,7,8 inputs rest outputs
-
+	// *** Configure IO ***
 	ANSEL0 = 0x3f;
+	ANSEL1 = 0x00;
 	TRISA = 0b11100000;
-	//LATA = 0xff;	
+	TRISB = 0b11001010;							//2,4,7,8 inputs rest outputs
 	TRISC = 0b11110001;
 	TRISD = 0x1F;
-	//PORTD = 0x00;	
 	TRISE = 0x03;
-	//PORTE = 0xFF;
+
+	// *** initialize timer0 ***
+	// 8 bit mode
+	// prescaler   period
+	// 110         16.4ms
+	// 101          8.2ms
+	// 100          4.1ms
+
+	T0CON = 0b11000101; //enabled, 8bit, internal clock, low->high transition, Use of prescaler, 1:64
+	INTCON = 0b11100000; 
+
+
+
+
+
+
+
+
 
 	//Setting up the analog input for the battery voltage
 	/*ADCON0 = 0b00100111;//coninuous, single channel, simultaneous group A and group B, start cycle, a/d on
@@ -155,11 +173,24 @@ void main(){
 	blink();
 
 	LED1 = 0;
+
+
+		OVDCOND = 0xff;
+		OVDCONS = 0xff;
+		// set duty cycle
+		PDC0H = 0x00;
+		PDC0L = 0x59;
+		PDC1H = 0x00;
+		PDC1L = 0xff;
+		PDC2H = 0x00;
+		PDC2L = 0xff;
 	
+
 	// === Main Loop ===	
 	while(1){
-		
+
 		unsigned short i;
+
 
 		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
 
