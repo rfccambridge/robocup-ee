@@ -67,12 +67,14 @@ void main(){
 
 	unsigned char j;//for a wait loop when kicking
 	unsigned int kick_counter = 0;
-	double adc_result = 10;
+//	double adc_result = 10;
 	int test_adc = 0;
 	int test_old = 0;
 //	int bb = 0;
-	int ii = 0;
-	int iii = 0;
+//	int ii = 0;
+//	int iii = 0;
+
+	int breakbeam_count = 0;
 
 
 	//stuff for hardcoded simple PWM
@@ -191,13 +193,22 @@ void main(){
 
 		unsigned short i;
 
-
+		
 		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
 
 	//	LED2 = PORTDbits.RD0;
 	//	LED3 = PORTDbits.RD1;
 		//LED1 = PORTDbits.RD1;
 		LED1 = !LED1;//!LED3;
+		if (breakbeam_count <=25){
+			OVDCOND = 0xff;
+			breakbeam_count++;
+		}
+		else if (breakbeam_count <= 30){
+			OVDCOND = 0xfe;
+			breakbeam_count++;
+		} else
+			breakbeam_count = 0;
 
 		//Battery Info
 /*
