@@ -201,11 +201,11 @@ void main(){
 		//LED1 = PORTDbits.RD1;
 		LED1 = !LED1;//!LED3;
 		if (breakbeam_count <=25){
-			OVDCOND = 0xff;
+			OVDCOND = 0xef;
 			breakbeam_count++;
 		}
 		else if (breakbeam_count <= 30){
-			OVDCOND = 0xfe;
+			OVDCOND = 0xee;
 			breakbeam_count++;
 		} else
 			breakbeam_count = 0;
@@ -263,11 +263,11 @@ void main(){
         }
 
 		if (fakePWM_count <= fakePWM_High){
-			DRIBBLER = 1;
+			OVDCONS = 0xff;//DRIBBLER = 1;
 			MBLED1 = 0;
 		}
 		else{
-			DRIBBLER = 0;
+			OVDCONS = 0x00;//DRIBBLER = 0;
 			//MBLED2 = 0; only 1 LED on motherboard
 		}
 		if (fakePWM_count >= fakePWM_T){
@@ -390,7 +390,7 @@ void main(){
 
 
 		//Check if we need to kick
-		if(BBEAM == 0 && breakBeam){
+		if(BBEAM == 1 && breakBeam){
 			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
 			K_DISCHARGE = 0;
