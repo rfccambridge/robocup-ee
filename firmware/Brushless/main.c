@@ -92,6 +92,59 @@ static void commutateMotor(void);
 void high_ISR(void);
 void handleQEI(PacketBuffer * TxPacket);
 
+void Fixposition(){
+	unsigned char hall = HALL;
+	unsigned char _OVDCOND;
+	unsigned char _OVDCONS;
+	
+	_OVDCOND = 0b00100001;
+	_OVDCONS = ~0b00100001;
+	OVDCOND = _OVDCOND;
+	OVDCONS = _OVDCONS;
+
+	if(hall==0){
+		LED1 = 1;
+		LED2 = 1;
+		LED3 = 1;
+	}
+	else if(hall==1){
+		LED1 = 0;
+		LED2 = 1;
+		LED3 = 1;;
+	}
+	else if(hall==2){
+		LED1 = 1;
+		LED2 = 0;
+		LED3 = 1;
+	}
+	else if(hall==3){
+		LED1 = 0;
+		LED2 = 0;
+		LED3 = 1;
+	}
+	else if(hall==4){
+		LED1 = 1;
+		LED2 = 1;
+		LED3 = 0;;
+	}
+	else if(hall==5){
+		LED1 = 0;
+		LED2 = 1;
+		LED3 = 0;
+	}
+	else if(hall==6){
+		LED1 = 1;
+		LED2 = 0;
+		LED3 = 0;
+	}
+	else if(hall==7){
+		LED1 = 0;
+		LED2 = 0;
+		LED3 = 0;
+	}
+}
+
+
 void main()
 {
 	TRISE = 0xf8;
@@ -156,22 +209,25 @@ void main()
 	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
-
+	LED1 =0;
 	while(1) {
+	//	command = -0x08;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
 			OVDCOND = 0x00;
 			OVDCONS = 0xff;
+			//commutateMotor();
 		} else {
 			LED4 = 1;
 			commutateMotor();
 		}
+		//Fixposition();
 
 		// Check for dead hall
-	//	LED3 = 1;
-	//	if (HALL == 0 || HALL == 7)
-	//		LED3 = 0;
+		LED3 = 1;
+		if (HALL == 0 || HALL == 7)
+			LED3 = 0;
 
 		// TxPacket.done is not set while the packet is in transmission
 		if ((cfgFlags & CFG_SPEW_ENCODER) && TxPacket.done && subPkt == NUM_TX_SUBPKTS) {
@@ -215,11 +271,11 @@ void commutateMotor(void)
 {
 	const unsigned char backdrive[8] = { 0b00000000, 	// 0 error
 										 0b00010001,	//these are new commutation order, didn't fix direction biase problem :(
-										 0b00100010,
-										 0b00100001,
-										 0b00001100,
-										 0b00010100,
-										 0b00001010,
+										 0b00100010,//2
+										 0b00100001,//3
+										 0b00001100,//4
+										 0b00010100,//5
+										 0b00001010,//6
 									 	 0b00000000}; 	// 7 error
 
 
@@ -232,23 +288,92 @@ void commutateMotor(void)
 										0b00001100, 	// 3
 										0b00000000}; 	// 7 error*/
 	const unsigned char fordrive[8] = {0b00000000, 	// 0 error
-										0b00001010,		// 4
+										0b00001010,		// 1
 										0b00010100,		// 2
-										0b00001100,		// 6
-										0b00100001,		// 1
+										0b00001100,		// 3
+										0b00100001,		// 4
 										0b00100010,		// 5
-										0b00010001,		// 3
+										0b00010001,		// 6
 										0b00000000};	// 7 error
 	// read the hall sensors
 	unsigned char hall = HALL;
-
 	// to prevent glitching
 	unsigned char _OVDCOND;
 	unsigned char _OVDCONS;
-	if (command == 0 && !(cfgFlags & CFG_FEEDBACK)){ // if command is zero we want to coast! (Not for use with feedback)
-		_OVDCOND = fordrive[0];
-		_OVDCONS = ~fordrive[0];
-	} else 
+
+
+	//				I	II	III	IV	V	VI
+	//U12 high low 	h			l
+	//U23 high low			h			l
+	//U31 high low 		l			h
+
+	//RC0 high low 	h			l
+	//RC2 high low			h			l
+	//Rc1 high low 		l			h
+	
+
+
+
+
+
+
+
+/*	if(hall==0){
+		LED1 = 1;
+		LED2 = 1;
+		LED3 = 1;
+	}
+	else if(hall==1){
+		LED1 = 0;
+		LED2 = 1;
+		LED3 = 1;;
+	}
+	else if(hall==2){
+		LED1 = 1;
+		LED2 = 0;
+		LED3 = 1;
+	}
+	else if(hall==3){
+		LED1 = 0;
+		LED2 = 0;
+		LED3 = 1;
+	}
+	else if(hall==4){
+		LED1 = 1;
+		LED2 = 1;
+		LED3 = 0;;
+	}
+	else if(hall==5){
+		LED1 = 0;
+		LED2 = 1;
+		LED3 = 0;
+	}
+	else if(hall==6){
+		LED1 = 1;
+		LED2 = 0;
+		LED3 = 0;
+	}
+	else if(hall==7){
+		LED1 = 0;
+		LED2 = 0;
+		LED3 = 0;
+	}
+*/
+
+
+
+
+
+
+
+
+	//hall = 0b001;
+	//direction = 1;
+//	if (command == 0 && !(cfgFlags & CFG_FEEDBACK)){ // if command is zero we want to coast! (Not for use with feedback)
+//		_OVDCOND = fordrive[0];
+//		_OVDCONS = ~fordrive[0];
+//LED4=0;
+//	} else 
 	if (direction==0) {
 		// PWM high side
 	//	LED4 = 0;
@@ -267,6 +392,7 @@ void commutateMotor(void)
 
 
 
+int cycle = 0;
 void handleQEI(PacketBuffer * txPkt)
 {
 	unsigned int encoderCentered = 0;
@@ -294,20 +420,32 @@ void handleQEI(PacketBuffer * txPkt)
 		encoder = -(signed int)(0x8000-encoderCentered);
 
 	encoder = - encoder;
-
+	//command = 0x08
+	//duty = 0x8f;
 	//Do the controls math;
-	command2 = ((signed long int)command)*4;
-	error = command2 - (signed long int)encoder;
-	m = error + m_n1;
-	e2 = 3*m-encoder;
-	duty = 2*(e2-e2_n1)+e2;//
-//	if (encoder == 0 && command2 == 0) duty = 0; //to help with the nonlinearity;
+
+		command2 = ((signed long int)command)*4;
+		error = command2 - (signed long int)encoder;
+	//	error = error/4; test
+		m = error + m_n1;
+		e2 = 3*m-encoder;//3*m-encoder;
+		duty = 2*(e2-e2_n1)+e2;//2*(e2-e2_n1)+e2;
+
+	//	duty = 2*error;test
 	
-	m_n1 = m;
-	e2_n1 = e2;
-	
+	//	if (encoder == 0 && command2 == 0) duty = 0; //to help with the nonlinearity;
+		
+		m_n1 = m;
+		e2_n1 = e2;
+//	}
+//	cycle = cycle + 1;
+
 //	duty = command;
+//	duty = 0x8f;//command;
 	//duty = duty*8;
+
+//	if(duty > 400) duty = 10;
+//	if(duty < -400) duty = -10;	
 
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;	
@@ -351,7 +489,7 @@ void handleQEI(PacketBuffer * txPkt)
 	}
 
 
-	LED3=!LED3;
+//	LED3=!LED3;
 }
 
 #pragma code high_vector=0x08 	// We are not using Priortized Interrupts: 
