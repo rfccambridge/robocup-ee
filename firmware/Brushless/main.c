@@ -215,18 +215,9 @@ void main()
 	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
-	//LED1 =0;
-	LED3 = 1;
+	LED1 =0;
 	while(1) {
-
 	
-	//start_delay++;
-//	if (start_delay >= 65535)
-//		start_delay = 65533;
-	
-	
-
-	//	command = -0x08;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
 			LED4 = 0;
@@ -240,9 +231,9 @@ void main()
 		//Fixposition();
 
 		// Check for dead hall
-	//	LED3 = 1;
+		LED3 = 1;
 		if (HALL == 0 || HALL == 7)
-	//		LED3 = 0;
+			LED3 = 0;
 
 		// TxPacket.done is not set while the packet is in transmission
 		if ((cfgFlags & CFG_SPEW_ENCODER) && TxPacket.done && subPkt == NUM_TX_SUBPKTS) {
@@ -259,9 +250,9 @@ void main()
 				case 'w':
 					// Get the transmitted wheel speed			
 					command = RxPacket.data[wheel];
-					if (command == 0)
-						LED3 = 0;
-					else LED3 = 1;
+				//	if (command == 0)
+				//		LED3 = 0;
+				//	else LED3 = 1;
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
@@ -296,15 +287,6 @@ void commutateMotor(void)
 										 0b00001010,//6
 									 	 0b00000000}; 	// 7 error
 
-
-
-										/*0b00100001, 	// 4
-										0b00001010, 	// 2		
-										0b00100010, 	// 6
-										0b00010100, 	// 1
-										0b00010001, 	// 5
-										0b00001100, 	// 3
-										0b00000000}; 	// 7 error*/
 	const unsigned char fordrive[8] = {0b00000000, 	// 0 error
 										0b00001010,		// 1
 										0b00010100,		// 2
@@ -419,7 +401,6 @@ void handleQEI(PacketBuffer * txPkt)
 	signed char encLow;
 	signed long int command2;
 	
-	LED2 = 0;
 	TMR0L = TIMER0INIT;
 
 	// read and reset position accumulator
@@ -435,8 +416,7 @@ void handleQEI(PacketBuffer * txPkt)
 		encoder = -(signed int)(0x8000-encoderCentered);
 
 	encoder = - encoder;
-	//command = 0x08
-	//duty = 0x8f;
+
 	//Do the controls math;
 		LED1 = command == 0;
 		
@@ -448,29 +428,10 @@ void handleQEI(PacketBuffer * txPkt)
 		duty = 2*(e2-e2_n1)+e2;//2*(e2-e2_n1)+e2;
 
 	//	duty = 12*error;//test
-	
-	//	if (encoder == 0 && command2 == 0) duty = 0; //to help with the nonlinearity;
 		
 		m_n1 = m;
 		e2_n1 = e2;
-	
-	//temporary hack
-/*	if (start_delay ==0){//<= 25530){
-		start_delay = 6;
-		LED4 = 0;
-		duty = 0;
-		m_n1 = 0;
-		e2_n1 = 0;
-	}else LED4= 1;*/
-//	}
-//	cycle = cycle + 1;
 
-//	duty = command;
-//	duty = 0x8f;//command;
-	//duty = duty*8;
-
-//	if(duty > 400) duty = 10;
-//	if(duty < -400) duty = -10;	
 
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;	
@@ -528,16 +489,16 @@ void interrupt_high_vector(){
 void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-	//	LED1 = 0;
+		LED1 = 0;
 		INTCONbits.TMR0IF = 0;
 		handleQEI(&TxPacket);
-	//	LED1 = 1;
+		LED1 = 1;
 	}
 	if (PIE1bits.RCIE && PIR1bits.RCIF) {
-	//	LED2 = 0;
+		LED2 = 0;
 		PIR1bits.RCIF = 0;
 		handleRx(&RxPacket);
-	//	LED2 = 1;
+		LED2 = 1;
 	}
 	if (PIE1bits.TXIE && PIR1bits.TXIF) {
 		PIR1bits.TXIF = 0;
