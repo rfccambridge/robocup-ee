@@ -432,7 +432,14 @@ void handleQEI(PacketBuffer * txPkt)
 		m_n1 = m;
 		e2_n1 = e2;
 
-
+/*	if (start_delay <= 990){
+		m_n1 = 0;
+		e2_n1 = 0;
+		duty = 0;
+		start_delay++;
+		LED4 = 0;
+	}
+*/
 	if(duty > 1023) duty = 1023;
 	if(duty < -1023) duty = -1023;	
 
@@ -489,10 +496,10 @@ void interrupt_high_vector(){
 void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-		LED1 = 0;
+		LED1 = 1;
 		INTCONbits.TMR0IF = 0;
 		handleQEI(&TxPacket);
-		LED1 = 1;
+		LED1 = 0;
 	}
 	if (PIE1bits.RCIE && PIR1bits.RCIF) {
 		LED2 = 0;
