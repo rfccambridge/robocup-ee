@@ -79,6 +79,7 @@ signed int previous_error = 0;
 signed int Iterm = 0;
 signed char command = 0;
 unsigned char direction = 0;
+//unsigned int start_delay = 0;
 
 // Ben's minor loop velocity controller
 signed long int m = 0;
@@ -147,6 +148,11 @@ void Fixposition(){
 
 void main()
 {
+	//Initialize position accumulator correctly from the beginning.
+	POSCNTH = 0x80;
+	POSCNTL = 0x00;
+
+
 	TRISE = 0xf8;
 
 	// *** 8 MHz clock ***
@@ -209,25 +215,33 @@ void main()
 	previous_error = 0;
 
 	INTCONbits.TMR0IE = 1;
-	LED1 =0;
+	//LED1 =0;
 	while(1) {
+
+	
+	//start_delay++;
+//	if (start_delay >= 65535)
+//		start_delay = 65533;
+	
+	
+
 	//	command = -0x08;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
-			LED4 = 0;
+			//LED4 = 0;
 			OVDCOND = 0x00;
 			OVDCONS = 0xff;
 			//commutateMotor();
 		} else {
-			LED4 = 1;
+			//LED4 = 1;
 			commutateMotor();
 		}
 		//Fixposition();
 
 		// Check for dead hall
-		LED3 = 1;
+		//LED3 = 1;
 		if (HALL == 0 || HALL == 7)
-			LED3 = 0;
+		//	LED3 = 0;
 
 		// TxPacket.done is not set while the packet is in transmission
 		if ((cfgFlags & CFG_SPEW_ENCODER) && TxPacket.done && subPkt == NUM_TX_SUBPKTS) {
@@ -297,6 +311,7 @@ void commutateMotor(void)
 										0b00000000};	// 7 error
 	// read the hall sensors
 	unsigned char hall = HALL;
+
 	// to prevent glitching
 	unsigned char _OVDCOND;
 	unsigned char _OVDCONS;
@@ -318,7 +333,7 @@ void commutateMotor(void)
 
 
 
-/*	if(hall==0){
+	if(hall==0){
 		LED1 = 1;
 		LED2 = 1;
 		LED3 = 1;
@@ -358,10 +373,6 @@ void commutateMotor(void)
 		LED2 = 0;
 		LED3 = 0;
 	}
-*/
-
-
-
 
 
 
@@ -426,17 +437,26 @@ void handleQEI(PacketBuffer * txPkt)
 
 		command2 = ((signed long int)command)*4;
 		error = command2 - (signed long int)encoder;
-	//	error = error/4; test
+	//	error = error/4; //test
 		m = error + m_n1;
 		e2 = 3*m-encoder;//3*m-encoder;
 		duty = 2*(e2-e2_n1)+e2;//2*(e2-e2_n1)+e2;
 
-	//	duty = 2*error;test
+	//	duty = 12*error;//test
 	
 	//	if (encoder == 0 && command2 == 0) duty = 0; //to help with the nonlinearity;
 		
 		m_n1 = m;
 		e2_n1 = e2;
+	
+	//temporary hack
+/*	if (start_delay ==0){//<= 25530){
+		start_delay = 6;
+		LED4 = 0;
+		duty = 0;
+		m_n1 = 0;
+		e2_n1 = 0;
+	}else LED4= 1;*/
 //	}
 //	cycle = cycle + 1;
 
@@ -465,11 +485,11 @@ void handleQEI(PacketBuffer * txPkt)
 	
 	// set duty cycle
 	PDC0H = dutyHigh;
-	PDC0L = dutyLow;
+	PDC0L = dutyLow&0xfc;
 	PDC1H = dutyHigh;
-	PDC1L = dutyLow;
+	PDC1L = dutyLow&0xfc;
 	PDC2H = dutyHigh;
-	PDC2L = dutyLow;
+	PDC2L = dutyLow&0xfc;
 
 	
 	// put data in transmit buffer
@@ -503,16 +523,16 @@ void interrupt_high_vector(){
 void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
-		LED1 = 0;
+	//	LED1 = 0;
 		INTCONbits.TMR0IF = 0;
 		handleQEI(&TxPacket);
-		LED1 = 1;
+	//	LED1 = 1;
 	}
 	if (PIE1bits.RCIE && PIR1bits.RCIF) {
-		LED2 = 0;
+	//	LED2 = 0;
 		PIR1bits.RCIF = 0;
 		handleRx(&RxPacket);
-		LED2 = 1;
+	//	LED2 = 1;
 	}
 	if (PIE1bits.TXIE && PIR1bits.TXIF) {
 		PIR1bits.TXIF = 0;
