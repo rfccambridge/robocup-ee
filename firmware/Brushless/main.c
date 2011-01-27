@@ -216,6 +216,7 @@ void main()
 
 	INTCONbits.TMR0IE = 1;
 	//LED1 =0;
+	LED3 = 1;
 	while(1) {
 
 	
@@ -228,20 +229,20 @@ void main()
 	//	command = -0x08;
 		// Check for mosfet driver fault
 		if (!PORTDbits.RD7) {
-			//LED4 = 0;
+			LED4 = 0;
 			OVDCOND = 0x00;
 			OVDCONS = 0xff;
 			//commutateMotor();
 		} else {
-			//LED4 = 1;
+			LED4 = 1;
 			commutateMotor();
 		}
 		//Fixposition();
 
 		// Check for dead hall
-		//LED3 = 1;
+	//	LED3 = 1;
 		if (HALL == 0 || HALL == 7)
-		//	LED3 = 0;
+	//		LED3 = 0;
 
 		// TxPacket.done is not set while the packet is in transmission
 		if ((cfgFlags & CFG_SPEW_ENCODER) && TxPacket.done && subPkt == NUM_TX_SUBPKTS) {
@@ -258,6 +259,9 @@ void main()
 				case 'w':
 					// Get the transmitted wheel speed			
 					command = RxPacket.data[wheel];
+					if (command == 0)
+						LED3 = 0;
+					else LED3 = 1;
 					break;
 				case 'f':
 					Pconst = (signed int) RxPacket.data[0];
@@ -330,9 +334,7 @@ void commutateMotor(void)
 
 
 
-
-
-
+/*
 	if(hall==0){
 		LED1 = 1;
 		LED2 = 1;
@@ -374,7 +376,7 @@ void commutateMotor(void)
 		LED3 = 0;
 	}
 
-
+*/
 
 
 
@@ -406,6 +408,7 @@ void commutateMotor(void)
 int cycle = 0;
 void handleQEI(PacketBuffer * txPkt)
 {
+	
 	unsigned int encoderCentered = 0;
 	signed int encoder = 0;
 	signed long int error = 0;
@@ -416,6 +419,7 @@ void handleQEI(PacketBuffer * txPkt)
 	signed char encLow;
 	signed long int command2;
 	
+	LED2 = 0;
 	TMR0L = TIMER0INIT;
 
 	// read and reset position accumulator
@@ -434,7 +438,8 @@ void handleQEI(PacketBuffer * txPkt)
 	//command = 0x08
 	//duty = 0x8f;
 	//Do the controls math;
-
+		LED1 = command == 0;
+		
 		command2 = ((signed long int)command)*4;
 		error = command2 - (signed long int)encoder;
 	//	error = error/4; //test
@@ -509,7 +514,7 @@ void handleQEI(PacketBuffer * txPkt)
 	}
 
 
-//	LED3=!LED3;
+LED2 = 1;
 }
 
 #pragma code high_vector=0x08 	// We are not using Priortized Interrupts: 
