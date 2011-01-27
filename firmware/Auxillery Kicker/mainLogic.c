@@ -11,7 +11,7 @@ This code is for the auxillery kicker board
 #pragma	config LVP 	    = OFF		// low voltage programming
 #pragma	config WDTEN    = OFF   	// watchdog timer
 #pragma	config WDPS     = 256   	// watchdog timer prescaler
-#pragma config BOREN    = ON    	// brown out reset on
+#pragma config BOREN    = ON    	// brown out reset oned
 #pragma config BORV     = 42    	// brown out voltage 4.2
 #pragma config FCMEN    = ON  		// fail-safe clock monitor off 
 #pragma config IESO     = ON    	// int/ext switchover off
@@ -65,11 +65,13 @@ void main(){
 
 
 
+
 	unsigned char j;//for a wait loop when kicking
 	unsigned int kick_counter = 0;
 //	double adc_result = 10;
 	int test_adc = 0;
 	int test_old = 0;
+	int k=0;
 //	int bb = 0;
 //	int ii = 0;
 //	int iii = 0;
@@ -98,10 +100,6 @@ void main(){
 
 	
 
-
-
-	TRISE = 0xf8;
-
 	// *** 8 MHz clock ***
 	OSCCON = 0b01110000;
 
@@ -114,13 +112,23 @@ void main(){
 	PTPERL = 0x33;
 	
 	// *** Configure IO ***
+
 	ANSEL0 = 0x3f;
 	ANSEL1 = 0x00;
 	TRISA = 0b11100000;
 	TRISB = 0b11001010;							//2,4,7,8 inputs rest outputs
 	TRISC = 0b11110001;
 	TRISD = 0x1F;
-	TRISE = 0x03;
+	TRISE = 0x3;
+
+	//A/D
+	//ADCON1 |= 0xd0;
+	//ADCHS = 0x40;
+	//ADCON0 |= 0x3c;
+	//ANSEL0 = 0xbf;
+	//ADCON2 |= 0x80;
+	//ACSCH = 0;
+	
 
 	// *** initialize timer0 ***
 	// 8 bit mode
@@ -131,12 +139,6 @@ void main(){
 
 	T0CON = 0b11000101; //enabled, 8bit, internal clock, low->high transition, Use of prescaler, 1:64
 	INTCON = 0b11100000; 
-
-
-
-
-
-
 
 
 
@@ -165,13 +167,6 @@ void main(){
 	LED2 = 1;
 	LED3 = 1;
 	//Mother board LEDs on
-	//MBLED1 = 0;
-	//MBLED2 = 0;
-	//led = LED_POWER;
-
-	//LED1 = 0;
-	//LED1 = 0;
-
 	blink();
 
 	LED1 = 0;
@@ -185,22 +180,18 @@ void main(){
 		PDC1H = 0x00;
 		PDC1L = 0xff;
 		PDC2H = 0x00;
-		PDC2L = 0xff;
-	
-
+		PDC2L = 0xff;	
 	// === Main Loop ===	
 	while(1){
 
 		unsigned short i;
 
-		
-		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
+		//int batt_voltage = ADRESH;
 
-	//	LED2 = PORTDbits.RD0;
-	//	LED3 = PORTDbits.RD1;
-		//LED1 = PORTDbits.RD1;
-		LED1 = !LED1;//!LED3;
-		if (breakbeam_count <=25){
+
+		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
+		LED1 = !LED1;
+		if (breakbeam_count <=20){
 			OVDCOND = 0xef;
 			breakbeam_count++;
 		}
@@ -211,49 +202,6 @@ void main(){
 			breakbeam_count = 0;
 
 		//Battery Info
-/*
-		SetChanADC(BattV);    //set ADC input to pin 2
-		ConvertADC();           //perform ADC conversion
-		while(BusyADC());       //wait for result
-*/
-		//adc_result = (double)(ReadADC()); //stores ADC result into a predefined integer
-		//adc_result = adc_result*10.4*5.0/(2.2*1023.0);
-/*
-		if(adc_result < 12.0*(.24*.05 + .96)){
-			MBLED1 = 0;
-			MBLED2 = 0;
-		} else if(adc_result < 12.0*(.24*.20 + .96)) {
-			MBLED1 = 1;
-			MBLED2 = 0;
-		} else if(adc_result < 12.0*(.24*.40 + .96)) {
-			MBLED1 = 0;
-			MBLED2 = 1;
-		} else {
-			MBLED1 = 1;
-			MBLED2 = 1;
-		}
-*/
-
-	/*	test_adc = ReadADC();
-
-		if((test_adc & 0b00000001) != (test_old & 0b00000001)) {
-			LED1 = !LED1;
-		}
-		if((test_adc & 0b00000010) != (test_old & 0b00000010)) {
-			LED2 = !LED2;
-		}
-		if((test_adc & 0b00000100) != (test_old & 0b00000100)) {
-			LED3 = !LED3;
-		}
-		if((test_adc & 0b00001000) != (test_old & 0b00001000)) {
-			MBLED1 = !MBLED1;
-		}
-		if((test_adc & 0b00010000) != (test_old & 0b00010000)) {
-			MBLED2 = !MBLED2;
-		}
-
-		test_old = test_adc;
-*/
         //tests to see if charging cycle is complete in order to
         //maintain charge, if necessary
         if (k_maintain == 1 && K_DONE == 0){
@@ -322,6 +270,7 @@ void main(){
 						default:
 							break;
 					}
+					break;
 
 				case 'k': //Kick
 					K_CHARGE = 0;//stop charging while kicking.	
@@ -334,6 +283,17 @@ void main(){
 					//K_KICK2 = 1; 2nd power of kicking not used currently
 					breakBeam = 0; //just in case a kick was forced.
 					k_maintain = 0; //do not maintain full charge on capacitors
+					
+					OVDCOND = 0xee; //reset breakbeam LED
+					for (k=0; k<1000; k++)
+					{
+						for (i=0; i<0xFF; i++)
+						{
+							LED1 ^= 1;
+						}
+					}
+					OVDCOND = 0xef;
+
 					break;
 
 				case 'c': //Charge
@@ -368,6 +328,8 @@ void main(){
 					break;
 
 				case 'b': //Starts charging the kicker and sets the breakbeam flag, so it will kick as soon as it sees the ball.
+					
+					OVDCOND = 0xef;
 					//Start Charging
 					K_KICK1 = 1;
 					//K_KICK2 = 1; 2nd power of kicking not used currently
@@ -379,6 +341,8 @@ void main(){
 					breakBeam = 1;
                     
                     k_maintain = 1; //do maintain full charge on capacitors
+					
+					break;
 
 				// some other port
 				default:
@@ -391,6 +355,7 @@ void main(){
 
 		//Check if we need to kick
 		if(BBEAM == 1 && breakBeam){
+			//LED3= 0;
 			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
 			K_DISCHARGE = 0;
@@ -401,7 +366,16 @@ void main(){
 			K_KICK1 = 1;
 			//K_KICK2 = 1; 2nd power of kicking not used currently
 			
+			OVDCOND = 0xee; //reset breakbeam LED
 			k_maintain = 0; //do not maintain full charge on capacitors
+			for (k=0; k<1000; k++)
+			{
+				for (i=0; i<0xFF; i++)
+				{
+					LED1 ^= 1;
+				}
+			}
+			OVDCOND = 0xef;
 		}
 
 	}
@@ -453,28 +427,10 @@ void high_ISR()
 		handleRx(&RxPacket);
 		
 	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
-	//	LED3 = 0;
+	
 		PIR1bits.TXIF = 0;
 		//handleTx(&TxPacket);
-	//	LED3 = 1;
+	
 	} 
 }
 #pragma
-
-
-/*void high_ISR()
-{
-	if (PIR1bits.RCIF) {
-		handleRx(&RxPacket);
-		PIR1bits.RCIF = 0;
-	//	LED2 = !LED2;
-	//} else if (INTCONbits.TMR0IF) {
-	//	if (led == LED_POWER)
-	//		LED2 = !LED2;
-	//	else if (led == LED_LINK)
-	//		//LED2 = 0;
-	//	INTCONbits.TMR0IF = 0;
-	} else if (PIR1bits.TXIF) {
-		PIR1bits.TXIF = 0;
-	}
-}*/

@@ -25,6 +25,7 @@
 
 //Incoming voltages
 #define BattV			PORTEbits.RE1
+#define CapV            PORTAbits.RA5
 
 // === DRIBBLER ===
 #define DRIBBLER		PORTBbits.RB5

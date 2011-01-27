@@ -30,8 +30,8 @@ void initRx(PacketBuffer * RxPacket)
 
 	TRISCbits.TRISC6 = 1;
 	TRISCbits.TRISC7 = 1;
-
-	SPBRG = 12;								//This would make approx 9600 baud rate @ 8MHz
+	TXSTAbits.BRGH = 1;						//high baud rate mode
+	SPBRG = 12;								//This would make approx 38461 baud rate @ 8 Mhz
 	RCSTAbits.CREN = 1;						//Receiving enabled (asynchronous mode)
 }
 
@@ -47,7 +47,8 @@ void initTx(PacketBuffer * TxPacket)
 	TRISCbits.TRISC6 = 1;
 	TRISCbits.TRISC7 = 1;
 
-	SPBRG = 12;								//This would make approx 9600 baud rate @ 8MHz
+	TXSTAbits.BRGH = 1;						//high baud rate mode
+	SPBRG = 12;								//This would make approx 38461 baud rate @ 8MHz
 	RCSTAbits.CREN = 1;						//Receiving enabled (asynchronous mode)
 	TXSTAbits.TXEN = 1;
 }
