@@ -87,6 +87,9 @@ void main(){
 
 	//if true then it kicks as soon as it sees the ball
 	int breakBeam = 0;
+
+	//if true then it is in the state when it kicks if Full charged and breakbeam is broken
+	int fullKick=0;
 	
 	//maintain charge on capacitors (true when most recent command is charge, 
 	//false when most recent command is discharge, kick, or stop charge)
@@ -200,15 +203,6 @@ void main(){
 			breakbeam_count++;
 		} else
 			breakbeam_count = 0;
-
-		//Battery Info
-        //tests to see if charging cycle is complete in order to
-        //maintain charge, if necessary
-        if (k_maintain == 1 && K_DONE == 0){
-            //toggle charge pin
-            K_CHARGE = 0;
-            K_CHARGE = 1;
-        }
 
 		if (fakePWM_count <= fakePWM_High){
 			OVDCONS = 0xff;//DRIBBLER = 1;
@@ -343,6 +337,23 @@ void main(){
                     k_maintain = 1; //do maintain full charge on capacitors
 					
 					break;
+				
+				//I am adding the case 'f'
+				case 'f': //It waits until the capacitor is charged and the breakbeam is broken to kick
+					OVDCOND = 0xef;
+					//Start Charging
+					K_KICK1 = 1;
+					//K_KICK2 = 1; 2nd power of kicking not used currently
+					for (i=0; i<0xFF; i++);
+					K_CHARGE = 1;
+					K_DISCHARGE = 0;
+					
+					//set the flag
+					fullKick = 1;
+                    
+                    k_maintain = 1; //do maintain full charge on capacitors
+					
+					break;
 
 				// some other port
 				default:
@@ -351,7 +362,22 @@ void main(){
 					break;
 			}
 		}
+		
+		//Check if capacitor is fully charged before setting the breakbeam flag
+		if(fullKick==1 && K_DONE==0){
+			breakBeam=1;
+			fullKick=0;
+		}
 
+		//Battery Info
+        //tests to see if charging cycle is complete in order to
+        //maintain charge, if necessary
+        if (k_maintain == 1 && K_DONE == 0){
+            //toggle charge pin
+            K_CHARGE = 0;
+            K_CHARGE = 1;
+        }
+		
 
 		//Check if we need to kick
 		if(BBEAM == 1 && breakBeam){
