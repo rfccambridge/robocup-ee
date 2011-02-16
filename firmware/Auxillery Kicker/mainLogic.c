@@ -72,9 +72,12 @@ void main(){
 	int test_adc = 0;
 	int test_old = 0;
 	int k=0;
+	int i=0;
 //	int bb = 0;
 //	int ii = 0;
 //	int iii = 0;
+
+	int capV = 0;
 
 	int breakbeam_count = 0;
 
@@ -125,12 +128,15 @@ void main(){
 	TRISE = 0x3;
 
 	//A/D
-	//ADCON1 |= 0xd0;
-	//ADCHS = 0x40;
-	//ADCON0 |= 0x3c;
-	//ANSEL0 = 0xbf;
-	//ADCON2 |= 0x80;
-	//ACSCH = 0;
+	ADCON1 = 0b00000000;
+	ADCHS = 0b00010000;
+	ADCON0 = ADCON0 & 0b11100111;
+	ADCON0 = ADCON0 | 0b00100100;
+	ADCON2 = 0b00111000;
+	ADCON0 = ADCON0 | 0b00000001;
+
+	PIR1bits.ADIF = 0;
+    ADCON0bits.GO = 1; 	
 	
 
 	// *** initialize timer0 ***
@@ -188,8 +194,10 @@ void main(){
 	while(1){
 
 		unsigned short i;
-
-		//int batt_voltage = ADRESH;
+		int capVH = ADRESH;
+		int capVL = ADRESL;
+		capV = capVH << 8;
+		capV += capVL;
 
 
 		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
@@ -204,7 +212,7 @@ void main(){
 		} else
 			breakbeam_count = 0;
 
-		if (fakePWM_count <= fakePWM_High){
+ 		if (fakePWM_count <= fakePWM_High){
 			OVDCONS = 0xff;//DRIBBLER = 1;
 			MBLED1 = 0;
 		}
@@ -240,7 +248,7 @@ void main(){
 						case '2':
 							fakePWM_High = 6;//fakePWM_T/5;
 							break;
-						case '3':
+					case '3':
 							fakePWM_High = 9;//fakePWM_T*3
 							break;
 						case '4':
