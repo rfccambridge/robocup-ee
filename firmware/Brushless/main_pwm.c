@@ -163,8 +163,8 @@ void main()
 	PTCON1 = 0x80;						// PTMR enabled, counts up
 	PWMCON0 = 0b01001111;				// PWM0-5 enabled, independent mode. 
 	PWMCON1 = 0x00;
-	PTPERH = 0x00;						// 10 bit duty cycle, 7.7KHz @ 8MHz
-	PTPERL = 0xff;
+	PTPERH = 0x00;						// 8 bit duty cycle, 31.25KHz @ 8MHz
+	PTPERL = 0x3f;
 	
 	// *** Configure IO ***
 	ANSEL0 = 0x00;//ANSEL0 = 0x01;		// AN0 analog, all others digital
@@ -395,7 +395,7 @@ void handleQEI(PacketBuffer * txPkt)
 	signed int encoder = 0;
 	signed long int error = 0;
 	signed int duty = 0;			// modifies speed based on PID feedback
-	unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
+	//unsigned char dutyHigh, dutyLow;// high and low bits for duty cycle
 	
 	signed char encHigh;
 	signed char encLow;
@@ -452,17 +452,23 @@ void handleQEI(PacketBuffer * txPkt)
 	}
 
 	duty = 1023 - duty;
+	
+	//added to convert duty to 8 bit duty
+	duty = duty / 4;
 
-	dutyHigh = duty >> 8;
-	dutyLow = duty;
+	//dutyHigh = duty >> 8;
+	//dutyLow = duty;
 	
 	// set duty cycle
-	PDC0H = dutyHigh;
-	PDC0L = dutyLow&0xfc;
-	PDC1H = dutyHigh;
-	PDC1L = dutyLow&0xfc;
-	PDC2H = dutyHigh;
-	PDC2L = dutyLow&0xfc;
+	//PDC0H = dutyHigh;
+	//PDC0L = dutyLow&0xfc;
+	PDC0L = duty&0xfc;
+	//PDC1H = dutyHigh;
+	//PDC1L = dutyLow&0xfc;
+	PDC1L = duty&0xfc;
+	//PDC2H = dutyHigh;
+	//PDC2L = dutyLow&0xfc;
+	PDC2L = duty&0xfc;
 
 	
 	// put data in transmit buffer
