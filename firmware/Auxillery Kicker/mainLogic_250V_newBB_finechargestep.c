@@ -435,8 +435,8 @@ void main(){
 					
 					break;
 
-				//variable charge (supply voltage 1<=V<=5 where the robot charges and maintains
-				//the caps at 100*V volts)
+				//variable charge (supply voltage 1<=V<=25 where the robot charges and maintains
+				//the caps at 10*V volts)
 				case 'v':
 					maintainV = (int)RxPacket.data[0] * 10;
 					if (maintainV > 250)
