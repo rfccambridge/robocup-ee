@@ -345,8 +345,8 @@ void main(){
 					breakBeam = 0; //just in case a kick was forced.
 					k_maintain = 0; //do not maintain full charge on capacitors
 					
-					/*
-					OVDCOND = 0xee; //reset breakbeam LED
+					
+					//OVDCOND = 0xee; //reset breakbeam LED
 					for (k=0; k<1000; k++)
 					{
 						for (i=0; i<0xFF; i++)
@@ -354,8 +354,8 @@ void main(){
 							LED1 ^= 1;
 						}
 					}
-					OVDCOND = 0xef;
-					*/
+					K_KICK1 = 1;
+					//OVDCOND = 0xef;
 
 					break;
 
@@ -516,10 +516,10 @@ void main(){
 			for (i=0; i<0xFF; i++);
 			K_KICK1 = 1;
 			//K_KICK2 = 1; 2nd power of kicking not used currently
-			
-			/*
-			OVDCOND = 0xee; //reset breakbeam LED
 			k_maintain = 0; //do not maintain full charge on capacitors
+			
+			
+			//OVDCOND = 0xee; //reset breakbeam LED
 			for (k=0; k<1000; k++)
 			{
 				for (i=0; i<0xFF; i++)
@@ -527,8 +527,9 @@ void main(){
 					LED1 ^= 1;
 				}
 			}
-			OVDCOND = 0xef;
-			*/
+			K_KICK1 = 1;
+			//OVDCOND = 0xef;
+			
 		}
 
 	}
