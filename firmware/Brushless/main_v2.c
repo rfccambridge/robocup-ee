@@ -1,7 +1,7 @@
 #include <string.h>
 #include "bemixnet_v2.h"
 #include "pins_v2.h"
-#include <p33FJ32MC304.h>
+#include <p30F4011.h>
 
 // Configuration flags
 #define CFG_SPEW_ENCODER      0b00000001
@@ -13,25 +13,24 @@
 #define NUM_TX_SUBPKTS 1
 
 /*Power-on-reset Configuration*/
-//POR timer off, low side active-low, high side active-high, PWM pins configured as digital I/O on POR
-_FPOR(FPWRT_PWR1 & LPOL_OFF & HPOL_ON & PWMPIN_ON) 
-_FOSCSEL(FNOSC_FRCPLL) //fast RC clock with PLL
-//no clock output, no clock switching, no clock failsafe, allow multiple peripheral reconfigurations
-_FOSC(OSCIOFNC_ON & POSCMD_NONE & FCKSM_CSDCMD & IOL1WAY_OFF) 
-_FWDT(FWDTEN_OFF) //no watchdog timer
-_FICD(JTAGEN_OFF & ICS_PGD1); //no JTAG, program through PGD1 and PGE1
-_FGS(GWRP_OFF & GCP_OFF); //no code protection
+//POR timer off, brown-out reset off, low side active-low, high side active-high, PWM pins configured as digital I/O on POR
+_FBORPOR(PWRT_OFF & PBOR_OFF & PWMxL_ACT_LO & PWMxH_ACT_HI & RST_IOPIN);
+_FOSC(FRC_PLL16 & CSW_FSCM_OFF); //fast RC clock with 16x PLL, no clock switching and no clock monitor
+_FWDT(WDT_OFF); //no watchdog timer
+_FGS(GWRP_OFF & CODE_PROT_OFF); //no code protection
+_ICD(PGD); //communicate through PGC and PGD pins
 
 /* Global Variables and Functions */
 int main (void);
 void Interrupt_Init(void);
 void IO_Init(void);
 void PWM_Init(void);
-void Comparator_Init(void);
+void ADC_Init(void);
 void Encoder_Init(void);
-void __attribute__((__interrupt__)) _T1Interrupt(void);
-void __attribute__((__interrupt__)) _U1RXInterrupt(void);
-void __attribute__((__interrupt__)) _U1TXInterrupt(void);
+void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void);
+void __attribute__((__interrupt__, auto_psv)) _U2RXInterrupt(void);
+void __attribute__((__interrupt__, auto_psv)) _U2TXInterrupt(void);
+void __attribute__((__interrupt__, auto_psv)) _OscillatorFail(void);
 void handleQEI(PacketBuffer * TxPacket);
 static void blinkLEDs(void);
 static void commutateMotor(void);
@@ -60,17 +59,19 @@ signed long int e2_n1 = 0; //e2 from the last iteration
 
 /*Encoder frequency*/
 //frequency of encoder sampling
-const unsigned int encoder_freq_dividend = 61891; //do not change
+const unsigned int encoder_freq_dividend = 46062; //do not change
 int encoder_freq = 160; //in Hz, may be changed
+
+int num_overcurrent = 0; //number of consecutive overcurrent trips by the ADC
+unsigned int adc_value; //current ADC value
 
 int main (void)
 {
-	//setup internal clock for 80MHz/40MIPS
-	//7.37/2=3.685*43=158.455/2=79.2275
-	//F_CY=39.61MHz
-	CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2 
-	PLLFBD = 41; //pll multiplier (M) = +2
-	CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+	//setup internal clock for 120MHz/30MIPS
+	//7.37*16=117.92MHz
+	//F_CY=117.92MHz/4=29.48MHz/MIPS
+	OSCCONbits.COSC = 0b01; //FRC oscillator
+	OSCCONbits.POST = 0b00; //no postscaler
     while(!OSCCONbits.LOCK); //wait for PLL ready
 
 	//set up I/O
@@ -79,8 +80,8 @@ int main (void)
 	//set up PWM
 	PWM_Init();
 
-	//set up comparator
-	Comparator_Init();
+	//set up ADC
+	ADC_Init();
 
 	cfgFlags = CFG_FEEDBACK; // | CFG_SPEW_ENCODER;
 
@@ -115,13 +116,20 @@ int main (void)
 	while (1)
 	{
 		//check for overcurrent condition
-		if (CMCONbits.C1OUT == 1)
+		while(!ADCON1bits.DONE)
+		adc_value = ADCBUF0;
+		if (adc_value > 100)
 		{
-			LED4_O = 0;
-			P1OVDCON = 0x003F;
+			num_overcurrent++;
+			if (num_overcurrent >= 10) //ten consecutive overcurrents
+			{
+				LED4_O = 0;
+				OVDCON = 0x003F;
+			}
 		}
 		else
 		{
+			num_overcurrent = 0;
 			LED4_O = 1;
 			commutateMotor();
 		}
@@ -275,9 +283,9 @@ static void commutateMotor(void)
 	hall = 4*HALL1_I + 2*HALL2_I + HALL3_I; //notice the inversion!
 
 	if (direction==0) {
-		P1OVDCON = fordrive[hall];
+		OVDCON = fordrive[hall];
 	} else if (direction == 1){
-		P1OVDCON = backdrive[hall];
+		OVDCON = backdrive[hall];
 	}
 }
 
@@ -289,11 +297,11 @@ void handleQEI(PacketBuffer * txPkt)
 	signed int duty = 0;			// modifies speed based on PID feedback
 	signed long int command2;
 	
-	TMR1 = 0x0000; //reset timer 1 register
+	//TMR1 = 0x0000; //reset timer 1 register
 
 	// read and reset position accumulator
-	encoderCentered = POS1CNT;
-	POS1CNT = 0x8000;
+	encoderCentered = POSCNT;
+	POSCNT = 0x8000;
 		
     if (encoderCentered >=0x8000)
 		encoder = (signed int)(encoderCentered - 0x8000);
@@ -329,9 +337,9 @@ void handleQEI(PacketBuffer * txPkt)
 	duty = duty * 2;
 	
 	// set duty cycle
-	P1DC1 = duty;
-	P1DC2 = duty;
-	P1DC3 = duty;
+	PDC1 = duty;
+	PDC2 = duty;
+	PDC3 = duty;
 	
 	// put data in transmit buffer
 	if ((cfgFlags & CFG_SPEW_ENCODER) && txPkt->done && subPkt < NUM_TX_SUBPKTS) 
@@ -354,26 +362,19 @@ void handleQEI(PacketBuffer * txPkt)
 
 /*
 Functions:
-Interrupt_Init() sets up the Timer 1, U1RX, and U1TX interrupts.
-Priority: U1RX highest, then Timer 1, then U1TX lowest
+Interrupt_Init() sets up the Timer 1, U2RX, and U2TX interrupts.
+Priority: U2RX highest, then Timer 1, then U2TX lowest
 */
 void Interrupt_Init(void)
 {
-	//assign UART pins
-	U1RXR_I = 9; //set U1RX to RP9
-	RP8_O = U1TX_O; //set U1TX to RP8
-
 	//set up UART
-    U1BRG = 256; //38500 baud rate = 39.61E6/4/(U1BRG+1)
-    U1MODE = 0; //clear mode register
-    U1MODEbits.BRGH = 1; //use high percison baud generator
+	//F_CY = 29.48MHz
+	U2MODE = 0; //clear mode register
+    U2BRG = 47; //38385 baud rate = 29.48E6/16/(U2BRG+1)
 	
 	initRx(&RxPacket);
 	initTx(&TxPacket);
 	subPkt = 0;
-
-	U1STAbits.UTXEN = 1; //enable the transmitter
-	U1MODEbits.UARTEN = 1; //enable the UART
 
 	//set up Timer 1
 	T1CONbits.TON = 0; // disable timer
@@ -384,17 +385,19 @@ void Interrupt_Init(void)
 	// frequency of timer interrupts is 160Hz
 	PR1 = (encoder_freq_dividend/encoder_freq)*10; 
 
+	__asm__ volatile ("DISI #0x1FFF"); //disable interrupts
+
 	INTCON1bits.NSTDIS = 0; //interrupts can interrupt each other
 	
-	IPC3bits.U1TXIP = 0b100; //U1TX has priority 4
+	IPC6bits.U2TXIP = 0b100; //U2TX has priority 4
 	IPC0bits.T1IP = 0b101; //Timer 1 has priority 5
-	IPC2bits.U1RXIP = 0b110; //U1RX has priority 6
+	IPC6bits.U2RXIP = 0b110; //U2RX has priority 6
 	
-	//clear U1RX flag
-	IFS0bits.U1RXIF = 0;
+	//clear U2RX flag
+	IFS1bits.U2RXIF = 0;
 
-	//clear U1TX flag
-	IFS0bits.U1TXIF = 0;
+	//clear U2TX flag
+	IFS1bits.U2TXIF = 0;
 
 	//clear T1 flag
 	IFS0bits.T1IF = 0;
@@ -402,10 +405,15 @@ void Interrupt_Init(void)
 	//enable T1 interrupt
 	IEC0bits.T1IE = 1;
 
-	//enable U1RX interrupt
-	IEC0bits.U1RXIE = 1;
+	//enable U2RX interrupt
+	IEC1bits.U2RXIE = 1;
 
-	//U1TX interrupt is not enabled because that is done by transmit()
+	//U2TX interrupt is not enabled because that is done by transmit()
+
+	DISICNT = 0; //enable interrupts
+
+	U2MODEbits.UARTEN = 1; //enable the UART
+	U2STAbits.UTXEN = 1; //enable the transmitter
 
 	//turn T1 on
 	T1CONbits.TON = 1;
@@ -417,20 +425,17 @@ IO_Init() sets up all digital and analog pins.
 */
 void IO_Init(void)
 {
-	AD1PCFGL = 0xFFFF;
-	AD1PCFGLbits.PCFG4 = 0; //only AN4 (sense) is analog pin
-	TRISA = 0x031C; //A2,3,4,8,9 are inputs, rest are outputs
-	LATAbits.LATA7 = 0; //unused pin
-	LATAbits.LATA10 = 0; //unused pin
-	TRISB = 0x02F7; //B0,1,2,4,5,6,7,9 are inputs, rest are outputs
-	TRISC = 0x0018; //C3,4 are inputs, rest are outputs
-	LATCbits.LATC1 = 0; //unused pin
-	LATCbits.LATC2 = 0; //unused pin
-	LATCbits.LATC5 = 0; //unused pin
-	LATCbits.LATC7 = 0; //unused pin
-	LATCbits.LATC8 = 0; //unused pin
-	LATCbits.LATC9 = 0; //PWMDIS pin, always pulled low to enable PWM
-	LATCbits.LATC6 = 1; //TXEN pin, always high to enable TX
+	ADPCFG = 0xFFFF;
+	ADPCFGbits.PCFG6 = 0; //only analog input in analog mode
+	TRISB = 0x01F0; //B4,5,6,7,8 are inputs, rest are outputs
+	TRISC = 0x4000; //C14 is an input, rest are outputs
+	TRISD = 0x000F; //D1,2,3,4 are inputs, rest are outputs
+	TRISE = 0x0100; //E8 is an input, rest are outputs
+	TRISF = 0x0050; //F4,6 are inputs, rest are outputs
+	LATCbits.LATC13 = 0; //unused pin
+	LATCbits.LATC15 = 0; //unused pin
+	PWMDIS_O = 0; //PWMDIS pin, always pulled low to enable PWM
+	TXEN_O = 1; //TXEN pin, always high to enable TX
 }
 
 /*
@@ -439,58 +444,75 @@ PWM_Init() sets up the PWM registers and starts the PWM (with duty cycle 0).
 */
 void PWM_Init(void)
 {
-	P1TCONbits.PTMOD = 0b00; //time base in free running mode
+	PTCONbits.PTMOD = 0b00; //time base in free running mode
 	/* PWM time base input clock period is TCY (1:1 prescale) */
 	/* PWM time base output post scale is 1:1 */
-	P1TCONbits.PTCKPS = 0b00;
-	P1TCONbits.PTOPS = 0b00;
+	PTCONbits.PTCKPS = 0b00;
+	PTCONbits.PTOPS = 0b00;
 	/* 11 bits PWM resolution
-	   F_PWM = 2*F_CY/2^11 = 38.685kHz
+	   F_CY = 29.48MHz
+	   F_PWM = 2*F_CY/2^11 = 28.79kHz
        P1TPER = F_CY/(F_PWM) - 1 = 1023
 	   There are 11 bits of resolution because each unit in the duty cycle
        is half a unit of the period
        Thus, duty cycle can be from 0-2047
 	*/
-	P1TPER = 1023;
+	PTPER = 1023;
 	//all PWM pin pairs are in independent mode
-	PWM1CON1bits.PMOD1 = 1;
-	PWM1CON1bits.PMOD2 = 1;
-	PWM1CON1bits.PMOD3 = 1;
+	PWMCON1bits.PMOD1 = 1;
+	PWMCON1bits.PMOD2 = 1;
+	PWMCON1bits.PMOD3 = 1;
 	//enable all pins for PWM output
-	PWM1CON1bits.PEN1H = 1;
-	PWM1CON1bits.PEN2H = 1;
-	PWM1CON1bits.PEN3H = 1;
-	PWM1CON1bits.PEN1L = 1;
-	PWM1CON1bits.PEN2L = 1;
-	PWM1CON1bits.PEN3L = 1;
+	PWMCON1bits.PEN1H = 1;
+	PWMCON1bits.PEN2H = 1;
+	PWMCON1bits.PEN3H = 1;
+	PWMCON1bits.PEN1L = 1;
+	PWMCON1bits.PEN2L = 1;
+	PWMCON1bits.PEN3L = 1;
 	//allow immediate updates to PWM duty cycle
-	PWM1CON2bits.IUE = 1;
+	PWMCON2bits.IUE = 1;
 	//asynchronous updates to duty cycle
-	PWM1CON2bits.OSYNC = 0;
+	PWMCON2bits.OSYNC = 0;
+	//updates to duty cycle are enabled
+	PWMCON2bits.UDIS = 0;
 	//initialize with all duty cycle registers set to 0
-	P1DC1 = 0;
-	P1DC2 = 0;
-	P1DC3 = 0;
+	PDC1 = 0;
+	PDC2 = 0;
+	PDC3 = 0;
 	//start off with override of all PWM outputs to off state
-	P1OVDCON = 0x003F;
+	OVDCON = 0x003F;
 	//enable PWM
-	P1TCONbits.PTEN = 1;
+	PTCONbits.PTEN = 1;
 }
 
 /*
 Functions:
-Comparator_Init() sets up the comparator module.
+ADC_Init() sets up the ADC module.
+ADC maps sense voltage to AVDD-AVSS=5V in 1024 steps (10 bits)
+10A -> V=10(.047)=.47 = 5/1024*96
+Trigger over-current when ADC result is over 100 for 10 continuous cycles
 */
-void Comparator_Init(void)
+void ADC_Init(void)
 {
-	//CMCONbits.C1OUT = 1 in overcurrent condition, = 0 otherwise
-	CMCONbits.C1INV = 1;
-	CVRCONbits.CVRR = 1;
-	//reference voltage is .63V, thus comparator trips when current is
-	//over .63V/.047 = 13A
-	CVRCONbits.CVR = 3; 
-	CVRCONbits.CVREN = 1;
-	CMCONbits.C1EN = 1;
+	ADCON1bits.ADON = 0; //turn ADC off
+	ADCON2bits.VCFG = 0; //AVDD is Vref+ and AVSS is Vref-
+	//F_CY = 29.48MHz
+	//frequency of ADC = 2*F_CY/(ADCS+1) = 3.685MHz
+	//TAD = 217ns
+	ADCON3bits.ADRC = 0; //system clock used for ADC
+	ADCON3bits.ADCS = 0b001111; 
+	ADCON2bits.CHPS = 0; //Channel 0 sampled only
+	ADCON2bits.CSCNA = 0; //do not scan inputs
+	ADCHSbits.CH0NA = 0; //negative input of Channel 0 is Vref- = AVSS
+	ADCHSbits.CH0SA = 0b0110; //positive input of Channel 0 is AN6
+	ADCON1bits.SSRC = 0b111; //auto-conversion
+	ADCON1bits.ASAM = 1; //auto-sampling
+	ADCON3bits.SAMC = 0b00001; //1 TAD per sample
+	ADCON1bits.FORM = 0; //results represented in integer form
+	ADCON2bits.SMPI = 0; //interrupts every sample (but don't care)
+	ADCON2bits.BUFM = 0; //one 16-word buffer
+	ADCON2bits.ALTS = 0; //always use MUX A multiplexer
+	ADCON1bits.ADON = 1; //turn ADC on
 }
 
 /*
@@ -500,12 +522,10 @@ Encoder_Init() sets up the QEI.
 void Encoder_Init(void)
 {
 	//assign encoder pins
-	QEA1R_I = 20; //set QEA1R to RP20
-	QEB1R_I = 19; //set QEB1R to RP19
-	MAX1CNT = 0xFFFF; //maximum range for encoder counts
-	POS1CNT = 0x8000; //start out encoder at middle value
-	QEI1CONbits.QEIM = 0b111; //x4 mode with position counter reset by match
-	//a digital filter may be included by setting register DFLT1CON
+	MAXCNT = 0xFFFF; //maximum range for encoder counts
+	POSCNT = 0x8000; //start out encoder at middle value
+	QEICONbits.QEIM = 0b111; //x4 mode with position counter reset by match
+	//a digital filter may be included by setting register DFLTCON
 }
 
 void blinkLEDs(void)
@@ -529,22 +549,38 @@ void blinkLEDs(void)
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
-	IFS0bits.T1IF = 0; // clear T1 interrupt flag
+	//clear T1 interrupt flag -- disable interrupts when performing this action
+	__asm__ volatile ("DISI #0x1FFF"); //disable interrupts
+	IFS0bits.T1IF = 0;
+	DISICNT = 0; //enable interrupts
 	handleQEI(&TxPacket); // read/process encoder value
 }
 
-void __attribute__((__interrupt__, auto_psv)) _U1RXInterrupt(void)
+void __attribute__((__interrupt__, auto_psv)) _U2RXInterrupt(void)
 {
 	LED2_O = 0;
-	IFS0bits.U1RXIF = 0; // clear U1RX interrupt flag
+	//clear U2RX interrupt flag -- disable interrupts when performing this action
+	__asm__ volatile ("DISI #0x1FFF"); //disable interrupts
+	IFS1bits.U2RXIF = 0;
+	DISICNT = 0; //enable interrupts
 	handleRx(&RxPacket);
 	LED2_O = 1;
 }
 
-void __attribute__((__interrupt__, auto_psv)) _U1TXInterrupt(void)
+void __attribute__((__interrupt__, auto_psv)) _U2TXInterrupt(void)
 {
-	IFS0bits.U1RXIF = 0; // clear U1TX interrupt flag
+	//clear U2TX interrupt flag -- disable interrupts when performing this action
+	__asm__ volatile ("DISI #0x1FFF"); //disable interrupts
+	IFS1bits.U2TXIF = 0; 
+	DISICNT = 0; //enable interrupts
 	handleTx(&TxPacket);
+}
+
+//this handler is to resolve an issue in the silicon in which the 
+//oscillator fail interrupt is triggered but the oscillator has not failed
+void __attribute__((__interrupt__, auto_psv)) _OscillatorFail(void)
+{
+	INTCON1bits.OSCFAIL = 0;
 }
 
 

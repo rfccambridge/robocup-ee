@@ -1,4 +1,4 @@
-#include <p33FJ32MC304.h>
+#include <p30F4011.h>
 
 #define MAX_PACKET_SIZE 32
 
