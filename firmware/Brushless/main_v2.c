@@ -139,6 +139,8 @@ int main (void)
 		hall = 4*HALL1_I + 2*HALL2_I + HALL3_I; //notice the inversion!
 		if (hall == 0 || hall == 7)
 			LED3_O = 0;
+		else
+			LED3_O = 1;
 
 		//TxPacket.done is not set while the packet is in transmission
 		//transmit if necessary
