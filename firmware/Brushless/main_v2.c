@@ -64,6 +64,8 @@ int encoder_freq = 160; //in Hz, may be changed
 
 int num_overcurrent = 0; //number of consecutive overcurrent trips by the ADC
 unsigned int adc_value; //current ADC value
+//on overcurrent, wait 20 iterations of consecutive current-ok readings
+int off_timer = 20; //counts up to 20
 
 int main (void)
 {
@@ -115,7 +117,9 @@ int main (void)
 	
 	while (1)
 	{
-		//check for overcurrent condition
+		//OVERCURRENT PROTECTION
+		//>10A for 10 consecutive cycles to trip overcurrent
+		//on overcurrent trip, <10A for 20 consecutive cycles to resume operation
 		while(!ADCON1bits.DONE)
 		adc_value = ADCBUF0;
 		if (adc_value > 100)
@@ -125,7 +129,19 @@ int main (void)
 			{
 				LED4_O = 0;
 				OVDCON = 0x003F;
+				off_timer = 0;
 			}
+			else
+			{
+				LED4_O = 1;
+				commutateMotor();
+			}
+		}
+		else if (off_timer < 20) //wait 20 consecutive cycles on overcurrent
+		{
+			off_timer++;
+			LED4_O = 0;
+			OVDCON = 0x003F;
 		}
 		else
 		{
@@ -134,7 +150,7 @@ int main (void)
 			commutateMotor();
 		}
 
-		//check for dead hall
+		//DEAD HALL CHECK
 		//read the hall sensors
 		hall = 4*HALL1_I + 2*HALL2_I + HALL3_I; //notice the inversion!
 		if (hall == 0 || hall == 7)
@@ -142,14 +158,15 @@ int main (void)
 		else
 			LED3_O = 1;
 
+		//TRANSMIT
 		//TxPacket.done is not set while the packet is in transmission
-		//transmit if necessary
 		if ((cfgFlags & CFG_SPEW_ENCODER) && TxPacket.done && subPkt == NUM_TX_SUBPKTS) 
 		{
 			transmit(&TxPacket);
 			subPkt = 0;
 		}
 		
+		//RECEIVE COMMANDS
 		if (RxPacket.done && RxPacket.address == 'w') 
 		{
 			ClrWdt();
