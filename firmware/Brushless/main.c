@@ -188,7 +188,7 @@ void main()
 	// *** Initialize encoder ***
 	QEICON = 0b00011000;
 
-	cfgFlags = CFG_FEEDBACK; // | CFG_SPEW_ENCODER;
+	cfgFlags = CFG_FEEDBACK;// | CFG_SPEW_ENCODER | CFG_SPEW_PKT_STATS;
 
 	blinkLEDs();
 
@@ -203,7 +203,7 @@ void main()
 	// *** Configure serial ***
 	// (this needs to be last)
 	initRx(&RxPacket);
-	initTx(&TxPacket);
+	initTx(&TxPacket, wheel);
 	subPkt = 0;
 
 	// defaults for testing

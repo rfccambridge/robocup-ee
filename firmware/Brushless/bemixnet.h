@@ -8,6 +8,7 @@
 #define ESCAPE_CODE '\\'
 #define HEADER_CODE 'H'
 #define END_CODE    'E'
+#define THIS_BOARD  'w'
 
 typedef struct {
 	unsigned char address;							// source for rx, destination for tx
@@ -28,7 +29,7 @@ void handleTx(PacketBuffer * TxPacket);
 void transmit(PacketBuffer * TxPacket);
 
 void initRx(PacketBuffer * RxPacket);
-void initTx(PacketBuffer * TxPacket);
+void initTx(PacketBuffer * TxPacket, unsigned char wheel);
 
 void delay(void);
 

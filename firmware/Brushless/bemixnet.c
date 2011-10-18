@@ -35,11 +35,12 @@ void initRx(PacketBuffer * RxPacket)
 	RCSTAbits.CREN = 1;						//Receiving enabled (asynchronous mode)
 }
 
-void initTx(PacketBuffer * TxPacket)
+void initTx(PacketBuffer * TxPacket, unsigned char wheel)
 {
 	INTCON = 0b11000000;					//GIE and PEIE set.	
 	
 	PIE1bits.TXIE = 1;						//Serial Receive Interrupt enabled.
+	TxPacket->address = THIS_BOARD + wheel;
 	TxPacket->done=1;						//initializing Packet flag
 	
 	RCSTAbits.SPEN = 1;						//Serial Port Enabled
@@ -208,10 +209,11 @@ void transmit(PacketBuffer * txPkt)
 // transmitts tx packet byte by byte, called by an interrupt when a byte transfer finishes
 void handleTx(PacketBuffer * TxPacket)
 {
-	const int OVERHEAD = 3; // ESCAPE_CODE, HEADER_CODE, CHKSUM
+	const int OVERHEAD = 4; // ESCAPE_CODE, HEADER_CODE, CHKSUM, ADDRESS
 	switch (txByte) {
 	case 1: TXREG = HEADER_CODE; break;      // second byte of pkt, first had to be sent in transmit()
 	case 2: TXREG = TxPacket->chksum; break;
+	case 3: TXREG = TxPacket->address; break;
 	default:
 		if (txByte < TxPacket->length + OVERHEAD) {
 			TXREG = TxPacket->data[txByte - OVERHEAD];

@@ -45,6 +45,9 @@ This code is for the auxillery kicker board
 #pragma	config EBTR2    = OFF		// table protection
 #pragma	config EBTR3    = OFF		// table protection
 
+// initial value of timer0, increase for shorter period
+#define TIMER0INIT      32
+
 void blink();
 void blink2();
 
@@ -52,17 +55,22 @@ void high_ISR();	 //Interrupt Service Routine
 void handleTimer0();
 
 PacketBuffer RxPacket;
-//extern PacketBuffer TxPacket;
+PacketBuffer TxPacket;
 //extern KickerControl kickCon;
 
 unsigned char led;
 unsigned int capV = 0;
+unsigned int capV_buf = 0;
 unsigned int battV = 0;
+unsigned char subPkt = 0;
 int adcTemp;
 int adcVH;
 int adcVL;
 #define LED_LINK	0x02
 #define LED_POWER	0x01
+
+// We support only one subpacket for now
+#define NUM_TX_SUBPKTS 1
 
 void main(){
 
@@ -112,11 +120,6 @@ void main(){
 	//TRISA = 0x20;
 	//LATA = 0xff;
 
-	// === Initialization ===
-	initRx(&RxPacket);
-
-	
-
 	// *** 8 MHz clock ***
 	OSCCON = 0b01110000;
 
@@ -160,6 +163,10 @@ void main(){
 	T0CON = 0b11000101; //enabled, 8bit, internal clock, low->high transition, Use of prescaler, 1:64
 	INTCON = 0b11100000; 
 
+	// === Communication Initialization ===
+	initRx(&RxPacket);
+	initTx(&TxPacket);
+	subPkt = 0;
 
 
 	//Setting up the analog input for the battery voltage
@@ -189,6 +196,7 @@ void main(){
 	//Mother board LEDs on
 	blink();
 
+	INTCONbits.TMR0IE = 1;
 	LED1 = 0;
 
 
@@ -212,6 +220,8 @@ void main(){
 		capV += adcVL;
 		capV = 1100 - (capV >> 6); //300 more than actual capV to prevent rolling over
 
+		capV_buf = capV; // Buffer capV for sending over the network
+		
 		//OVDCOND = 0xff; //only pin not PWMing is one to dribbler controller
 				
 
@@ -272,6 +282,12 @@ void main(){
 		}
 		fakePWM_count++;
 		*/
+
+		if (TxPacket.done && (subPkt == NUM_TX_SUBPKTS)){
+			transmit(&TxPacket);
+			subPkt = 0;
+		}
+
 
 		if (RxPacket.done){
 			// clear done flag so that don't keep looping though
@@ -591,7 +607,22 @@ void blink(){
 	for (i=0; i<0xFF; i++)ClrWdt();
 }*/
 	
+void handleTimer0()
+{
+	TMR0L = TIMER0INIT;
 
+	if (TxPacket.done && subPkt < NUM_TX_SUBPKTS) {
+		TxPacket.data[TxPacket.length++] = (char)(capV_buf >> 8);
+		TxPacket.data[TxPacket.length++] = (char)(capV_buf & 0xFF);
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		TxPacket.data[TxPacket.length++] = 0; //YADA
+		subPkt++;
+	}
+}
 
 
 #pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
@@ -605,18 +636,20 @@ void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
 	//	LED1 = 0;
+		handleTimer0();
 		INTCONbits.TMR0IF = 0;
-		//handleQEI(&TxPacket);
 	//	LED1 = 1;
-	} else if (PIE1bits.RCIE && PIR1bits.RCIF) {
+	}
+	if (PIE1bits.RCIE && PIR1bits.RCIF) {
 		LED2 = !LED2;
 		PIR1bits.RCIF = 0;
 		handleRx(&RxPacket);
 		
-	} else if (PIE1bits.TXIE && PIR1bits.TXIF) {
+	}
+	if (PIE1bits.TXIE && PIR1bits.TXIF) {
 	
 		PIR1bits.TXIF = 0;
-		//handleTx(&TxPacket);
+		handleTx(&TxPacket);
 	}
 }
 #pragma
