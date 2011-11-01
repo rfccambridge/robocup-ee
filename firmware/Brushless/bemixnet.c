@@ -209,11 +209,12 @@ void transmit(PacketBuffer * txPkt)
 // transmitts tx packet byte by byte, called by an interrupt when a byte transfer finishes
 void handleTx(PacketBuffer * TxPacket)
 {
-	const int OVERHEAD = 4; // ESCAPE_CODE, HEADER_CODE, CHKSUM, ADDRESS
+	const int OVERHEAD = 4; // ESCAPE_CODE, HEADER_CODE, CHKSUM, BOTID, ADDRESS
 	switch (txByte) {
 	case 1: TXREG = HEADER_CODE; break;      // second byte of pkt, first had to be sent in transmit()
 	case 2: TXREG = TxPacket->chksum; break;
-	case 3: TXREG = TxPacket->address; break;
+	case 3: TXREG = getAddress(); break; // robotID
+	case 4: TXREG = TxPacket->address; break; // boardID
 	default:
 		if (txByte < TxPacket->length + OVERHEAD) {
 			TXREG = TxPacket->data[txByte - OVERHEAD];
