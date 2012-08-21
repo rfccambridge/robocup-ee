@@ -18,7 +18,7 @@ _FBORPOR(PWRT_OFF & PBOR_OFF & PWMxL_ACT_LO & PWMxH_ACT_HI & RST_IOPIN);
 _FOSC(FRC_PLL16 & CSW_FSCM_OFF); //fast RC clock with 16x PLL, no clock switching and no clock monitor
 _FWDT(WDT_OFF); //no watchdog timer
 _FGS(GWRP_OFF & CODE_PROT_OFF); //no code protection
-_ICD(PGD); //communicate through PGC and PGD pins
+_FICD(PGD); //communicate through PGC and PGD pins
 
 /* Global Variables and Functions */
 int main (void);
