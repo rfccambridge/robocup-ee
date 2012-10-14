@@ -1,8 +1,7 @@
 /* Protocol \H<destination><address>
 This code is for the auxillery kicker board
 */
-#include <p18f4431.h>
-#include <ADC.h>
+#include <p18f4431.h>  
 #include "Bemixnet.h"
 #include "pins.h"
 
