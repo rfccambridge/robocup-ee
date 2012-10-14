@@ -627,7 +627,7 @@ void handleTimer0()
 
 #pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
 void interrupt_high_vector(){
-	_asm GOTO high_ISR _endasm				//branching to the actual ISR
+	asm("GOTO high_ISR");				//branching to the actual ISR
 }
 #pragma code
 //Interrupt Service Routine (the real one)

@@ -1,8 +1,7 @@
 /* Protocol \H<destination><address>
 This code is for the auxillery kicker board
 */
-#include <p18f4431.h>
-#include <ADC.h>
+#include <p18f4431.h>  
 #include "Bemixnet.h"
 #include "pins.h"
 
@@ -596,7 +595,7 @@ void blink(){
 
 #pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
 void interrupt_high_vector(){
-	_asm GOTO high_ISR _endasm				//branching to the actual ISR
+	asm("GOTO high_ISR");				//branching to the actual ISR
 }
 #pragma code
 //Interrupt Service Routine (the real one)
