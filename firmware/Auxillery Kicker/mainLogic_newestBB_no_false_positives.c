@@ -28,21 +28,6 @@ This code is for the auxillery kicker board
 #pragma config DEBUG    = OFF		// backgroud degugger
 #pragma	config CP0      = OFF		// code protection
 #pragma	config CP1      = OFF		// code protection
-#pragma	config CP2      = OFF		// code protection
-#pragma	config CP3	    = OFF		// code protection
-#pragma	config CPB      = OFF		// boot protection
-#pragma	config CPD      = OFF		// eeprom protection
-#pragma	config WRT0     = OFF		// write protection
-#pragma	config WRT1     = OFF		// write protection
-#pragma	config WRT2     = OFF		// write protection
-#pragma	config WRT3     = OFF		// write protection
-#pragma	config WRTB     = OFF		// write protection
-#pragma	config WRTC     = OFF		// write protection
-#pragma	config WRTD     = OFF		// write protection
-#pragma	config EBTR0    = OFF		// table protection
-#pragma	config EBTR1    = OFF		// table protection
-#pragma	config EBTR2    = OFF		// table protection
-#pragma	config EBTR3    = OFF		// table protection
 
 void blink();
 void blink2();
@@ -272,7 +257,7 @@ void main(){
 		fakePWM_count++;
 		*/
 
-		if (RxPacket.done){
+		/*if (RxPacket.done){
 			// clear done flag so that don't keep looping though
 			RxPacket.done = 0;
 
@@ -333,8 +318,10 @@ void main(){
 						default:
 							break;					
 					}
-					PDC2L = dribbler_duty & 0xfc; //Q-clock = 0b00
-					break;
+
+				
+                        
+				//	break;
 
 				case 'k': //Kick
 					K_CHARGE = 0;//stop charging while kicking.	
@@ -475,8 +462,10 @@ void main(){
 					//LED3 = PORTBbits.RB2;
 					break;
 			}
-		}
 
+		}*/
+                dribbler_duty = 255;
+                PDC2L = dribbler_duty & 0xfc; //Q-clock = 0b00
 		//tests to see if cap voltage is above threshold voltage
 		//if so, enables break beam kicking while continuing to charge
 		if (minimumKick == 1 && capV > thresholdV + 20 + 300){
