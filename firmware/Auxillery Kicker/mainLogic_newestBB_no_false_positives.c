@@ -191,16 +191,19 @@ void main(){
 	LED1 = 0;
 
 
-		OVDCOND = 0xff;
-		OVDCONS = 0xff;
-		// set duty cycle (8 bits)
-		PDC0H = 0x00;
-		PDC0L = 0x59;
-		//PDC1H = 0x00;
-		//PDC1L = 0x00;
-		PDC2H = 0x00; //for dribbler
-		PDC2L = 0x00; //for dribbler
-	// === Main Loop ==	
+        OVDCOND = 0xff;
+        OVDCONS = 0xff;
+        // set duty cycle (8 bits)
+        PDC0H = 0x00;
+        PDC0L = 0x59;
+        //PDC1H = 0x00;
+        //PDC1L = 0x00;
+        PDC2H = 0x00; //for dribbler
+        PDC2L = 0x00; //for dribbler
+	// === Main Loop ==
+
+        //high_ISR();
+
 	while(1){
 
 		unsigned short i;
@@ -245,7 +248,6 @@ void main(){
 		*/
 
 		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
-		LED1 = !LED1;
 		//For old breakbeam - PWM only 28% of the time
 		if (breakbeam_count <= 28){
 			OVDCOND = 0xff;
@@ -409,7 +411,7 @@ void main(){
 					//set the flag
 					breakBeam = 1;
                     
-                    k_maintain = 1; //do maintain full charge on capacitors
+                                        k_maintain = 1; //do maintain full charge on capacitors
 					
 					break;
 				
@@ -431,7 +433,7 @@ void main(){
 					//set the flag
 					fullKick = 1;
                     
-                    k_maintain = 1; //do maintain full charge on capacitors
+                                        k_maintain = 1; //do maintain full charge on capacitors
 					
 					break;
 
@@ -524,7 +526,7 @@ void main(){
         //tests to see if voltage has fallen below maintain value to
         //restart charging, if necessary
         if (k_maintain == 1 && K_CHARGE == 0 && capV < maintainV - 20 + 300){
-            K_CHARGE = 0;
+                        K_CHARGE = 0;
 			K_KICK1 = 1;
 			//K_KICK2 = 1; 2nd power of kicking not used currently
 			for (i=0; i<0xFF; i++);
@@ -537,7 +539,8 @@ void main(){
         }	
 
 		//Check if we need to kick only when break beam is PWMing
-		if(OVDCOND == 0xff && BBEAM == 1 && breakBeam){
+                //Grace period of 5 counts for receiver to react after break beam LED turns on
+		if(breakbeam_count > 5 && OVDCOND == 0xff && BBEAM == 1 && breakBeam){
 			//LED3= 0;
 			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
@@ -593,16 +596,18 @@ void blink(){
 
 
 
-#pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
-void interrupt_high_vector(){
-	asm("GOTO high_ISR");				//branching to the actual ISR
+//#pragma [high] high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08.
+void interrupt interrupt_high_vector()
+{
+    high_ISR();
+    //asm("GOTO high_ISR");				//branching to the actual ISR
 }
-#pragma code
+//#pragma code
 //Interrupt Service Routine (the real one)
-#pragma interrupt high_ISR			 
+//#pragma interrupt high_ISR
 void high_ISR()
 {
-	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
+        if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {
 	//	LED1 = 0;
 		INTCONbits.TMR0IF = 0;
 		//handleQEI(&TxPacket);

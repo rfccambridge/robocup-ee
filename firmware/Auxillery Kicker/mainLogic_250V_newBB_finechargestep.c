@@ -2,7 +2,7 @@
 This code is for the auxillery kicker board
 */
 #include <p18f4431.h>
-#include <ADC.h>
+//#include <ADC.h>
 #include "Bemixnet.h"
 #include "pins.h"
 
@@ -625,13 +625,14 @@ void handleTimer0()
 }
 
 
-#pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08. 
-void interrupt_high_vector(){
-	asm("GOTO high_ISR");				//branching to the actual ISR
+//#pragma code high_vector=0x08				//We are not using Priortized Interrupts: so all interrupts go to 0x08.
+void interrupt interrupt_high_vector(){
+	//asm("GOTO high_ISR");				//branching to the actual ISR
+    high_ISR();
 }
-#pragma code
+//#pragma code
 //Interrupt Service Routine (the real one)
-#pragma interrupt high_ISR			 
+//#pragma interrupt high_ISR
 void high_ISR()
 {
 	if (INTCONbits.TMR0IE && INTCONbits.TMR0IF) {

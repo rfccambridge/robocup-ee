@@ -8,20 +8,17 @@
 #define ESCAPE_CODE '\\'
 #define HEADER_CODE 'H'
 #define END_CODE    'E'
-#define THIS_BOARD  'v'
 
 typedef struct {
-	unsigned char address;							// source for rx, my identity for tx
-	unsigned char chksum;	                        // computed checksum (data only, escape char counted once)
-	unsigned char port;								// command: 'w' = wheel speeds, etc.
+	unsigned char destination;
+	unsigned char address;							// source for rx, destination for tx
+	unsigned char port;								//'w' = wheels
 	unsigned char data[MAX_PACKET_SIZE];
 	unsigned length:7;
 	unsigned done:1;
 } PacketBuffer;
 
-enum ReceiveState {ESCAPE, HEADER, SOURCE, PORT, CHKSUM, DATA, DATAESC, IGNORE};
-
-extern unsigned char pktsReceived, pktsAccepted, pktsMismatched;
+enum ReceiveState {ESCAPE, HEADER, SOURCE, PORT, DATA, DATAESC, IGNORE};
 
 void handleRx(PacketBuffer * RxPacket);
 
@@ -31,8 +28,8 @@ void transmit(PacketBuffer * TxPacket);
 void initRx(PacketBuffer * RxPacket);
 void initTx(PacketBuffer * TxPacket);
 
-void delay(void);
+void delay();
 
-unsigned char getAddress(void);
+unsigned char getAddress();
 
 #endif
