@@ -62,6 +62,7 @@ int adcVH;
 int adcVL;
 #define LED_LINK	0x02
 #define LED_POWER	0x01
+#define HYSTERESIS_VALUE 0x0A
 
 void main(){
 
@@ -77,7 +78,7 @@ void main(){
 //	int iii = 0;
 
 	int breakbeam_count = 0;
-
+        unsigned int hysteresis = HYSTERESIS_VALUE;
 
 	//stuff for hardcoded simple PWM
 	//int fakePWM_T = 30;	//pwm PERIOD
@@ -523,24 +524,27 @@ void main(){
 		}
 		*/
 
-        //tests to see if voltage has fallen below maintain value to
-        //restart charging, if necessary
-        if (k_maintain == 1 && K_CHARGE == 0 && capV < maintainV - 20 + 300){
-                        K_CHARGE = 0;
-			K_KICK1 = 1;
-			//K_KICK2 = 1; 2nd power of kicking not used currently
-			for (i=0; i<0xFF; i++);
-			K_CHARGE = 1;
-			K_DISCHARGE = 0;
+                //tests to see if voltage has fallen below maintain value to
+                //restart charging, if necessary
+                if (k_maintain == 1 && K_CHARGE == 0 && capV < maintainV - 20 + 300){
+                                K_CHARGE = 0;
+                                K_KICK1 = 1;
+                                //K_KICK2 = 1; 2nd power of kicking not used currently
+                                for (i=0; i<0xFF; i++);
+                                K_CHARGE = 1;
+                                K_DISCHARGE = 0;
 
-			//used to confirm that charging was actually turned on
-			//lastV = capV;
-			//confirmCharge = 1;
-        }	
+                                //used to confirm that charging was actually turned on
+                                //lastV = capV;
+                                //confirmCharge = 1;
+                }
 
 		//Check if we need to kick only when break beam is PWMing
                 //Grace period of 5 counts for receiver to react after break beam LED turns on
-		if(breakbeam_count > 5 && OVDCOND == 0xff && BBEAM == 1 && breakBeam){
+		if(breakbeam_count > 5 && OVDCOND == 0xff && BBEAM == 1 && breakBeam)
+                {
+                    if (hysteresis == 0)
+                    {
 			//LED3= 0;
 			breakBeam = 0;
 			K_CHARGE = 0;	//stop charging while kicking
@@ -555,17 +559,26 @@ void main(){
 			
 			
 			OVDCOND = 0xfe; //reset breakbeam LED
-			for (k=0; k<125; k++)
+			for (k=0; k<0xFF; k++)
 			{
-				for (i=0; i<0xFF; i++)
-				{
-					LED1 ^= 1;
-				}
+                            for (i=0; i<0xFF; i++)
+                            {
+                                LED1 ^= 1;
+                            }
 			}
 			K_KICK1 = 1;
 			OVDCOND = 0xff;
-			
-		}
+                        hysteresis = HYSTERESIS_VALUE;
+                    }
+                    else
+                    {
+                        hysteresis -= 1;
+                    }
+                }
+                else
+                {
+                    hysteresis = HYSTERESIS_VALUE;
+                }
 
 	}
 }
