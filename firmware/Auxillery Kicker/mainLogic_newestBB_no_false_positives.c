@@ -2,7 +2,7 @@
 This code is for the auxillery kicker board
 */
 #include <p18f4431.h>  
-#include "Bemixnet.h"
+#include "bemixnet.h"
 #include "pins.h"
 
 // *** set configuration word ***
@@ -18,7 +18,7 @@ This code is for the auxillery kicker board
 #pragma	config T1OSCMX  = OFF    	// timer1 osc mux
 #pragma	config HPOL	    = HIGH		// high side transsitor polarity
 #pragma	config LPOL	    = HIGH		// low side transistor polarity
-#pragma	config PWMPIN   = OFF    	// PWM output pins Reset state control
+#pragma	config PWMPIN   = ON    	// PWM output pins Reset state control
 #pragma	config MCLRE    = OFF       // MCLR enable
 #pragma	config EXCLKMX  = RC3    	// External clock MUX bit
 #pragma	config PWM4MX   = RB5		// PWM MUX
@@ -122,11 +122,11 @@ void main(){
 
 	// *** Initialize PWM ***
 	PTCON0 = 0x00;
-	PTCON1 = 0x80;						// PTMR enabled, counts up
-	PWMCON0 = 0b01001111;				// PWM0-5 enabled, independent mode. Only PWM0 (old breakbeam LED), PWM4 (dribbler) are connected
-	PWMCON1 = 0x00;
-	PTPERH = 0x00;						// 8 bit duty cycle, 37.7KHz (PWM freq) @ 8MHz (Fosc)
-	PTPERL = 0x33;
+	PTCON1 = 0x80;			// PTMR enabled, counts up
+	PWMCON0 = 0b01000000;		// PWM0-5 enabled; free running mode; puts PDC2 in complementary mode, so that PWM4 will get a PWM signal; PWM4 (dribbler) are connected
+	PWMCON1 = 0x00;                 // standard features
+	PTPERH = 0x00;			// 8 bit duty cycle, ~25KHz (PWM freq) @ 8MHz (Fosc)
+	PTPERL = 0x4F;
 	
 	// *** Configure IO ***
 
@@ -199,8 +199,9 @@ void main(){
         PDC0L = 0x59;
         //PDC1H = 0x00;
         //PDC1L = 0x00;
+        // recall PTPER is 0x004F
         PDC2H = 0x00; //for dribbler
-        PDC2L = 0x00; //for dribbler
+        PDC2L = 0x3F; //for dribbler
 	// === Main Loop ==
 
         //high_ISR();
