@@ -123,10 +123,10 @@ void main(){
 	// *** Initialize PWM ***
 	PTCON0 = 0x00;
 	PTCON1 = 0x80;			// PTMR enabled, counts up
-	PWMCON0 = 0b01000000;		// PWM0-5 enabled; free running mode; puts PDC2 in complementary mode, so that PWM4 will get a PWM signal; PWM4 (dribbler) are connected
+	PWMCON0 = 0b01000001;		// PWM0-5 enabled; free running mode; puts PDC2 in complementary mode, so that PWM4 will get a PWM signal; PWM4 (dribbler) are connected
 	PWMCON1 = 0x00;                 // standard features
 	PTPERH = 0x00;			// 8 bit duty cycle, ~25KHz (PWM freq) @ 8MHz (Fosc)
-	PTPERL = 0x4F;
+	PTPERL = 0x33;                  // keep at frequency at 0x33 for BB
 	
 	// *** Configure IO ***
 
