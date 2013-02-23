@@ -62,7 +62,7 @@ int adcVH;
 int adcVL;
 #define LED_LINK	0x02
 #define LED_POWER	0x01
-#define HYSTERESIS_VALUE 0x0A
+#define HYSTERESIS_VALUE 0x02
 
 void main(){
 
@@ -78,6 +78,8 @@ void main(){
 //	int iii = 0;
 
 	int breakbeam_count = 0;
+        int breakbeam_count_outer = 0;
+        int breakbeam_notbroken = 0;
         unsigned int hysteresis = HYSTERESIS_VALUE;
 
 	//stuff for hardcoded simple PWM
@@ -249,17 +251,31 @@ void main(){
 		battT += 1;
 		*/
 
-		LED3 = BBEAM;  // Breakbeam Check - If broken, then LED3 turns on - adw
-		//For old breakbeam - PWM only 28% of the time
-		if (breakbeam_count <= 28){
-			OVDCOND = 0xff;
-			breakbeam_count++;
-		}
-		else if (breakbeam_count <= 100){
-			OVDCOND = 0xfe;
-			breakbeam_count++;
-		} else
-			breakbeam_count = 0;
+                // Break beam timing: LED emitter bursts at 38kHz for ~40%
+                // of the time (~0.75ms), and then waits ~1.1ms. Every
+                // ~4 seconds the emitter shuts off for ~56ms to reset
+                // the break beam in the case that the break beam is stuck
+                // (ex. if an object moves too slowly away).
+                // See the receiver datasheet for full specs. We consider
+                // the break beam as broken only if it is broken for the entire
+                // emitter burst time.
+                if (breakbeam_count <= 10 && breakbeam_count_outer > 30){
+                    OVDCOND = 0xff;
+                    if (BBEAM == 0)
+                        breakbeam_notbroken = 1;
+                }
+                else if (breakbeam_count <= 25){
+                    OVDCOND = 0xfe;
+                } else {
+                    OVDCOND = 0xfe;
+                    breakbeam_count = 0;
+                    breakbeam_notbroken = 0;
+                    breakbeam_count_outer++;
+                    if (breakbeam_count_outer > 2000)
+                        breakbeam_count_outer = 0;
+                }
+                breakbeam_count++;
+                LED3 = !breakbeam_notbroken;
 		/*
  		if (fakePWM_count <= fakePWM_High){
 			OVDCONS = 0xff;//DRIBBLER = 1;
@@ -361,6 +377,7 @@ void main(){
 							LED1 ^= 1;
 						}
 					}
+                                        LED1 = 0;
 					K_KICK1 = 1;
 					OVDCOND = 0xff;
 					
@@ -542,7 +559,7 @@ void main(){
 
 		//Check if we need to kick only when break beam is PWMing
                 //Grace period of 5 counts for receiver to react after break beam LED turns on
-		if(breakbeam_count > 5 && OVDCOND == 0xff && BBEAM == 1 && breakBeam)
+		if(breakbeam_count > 5 && OVDCOND == 0xff && breakbeam_notbroken == 0 && breakBeam)
                 {
                     if (hysteresis == 0)
                     {
@@ -567,6 +584,7 @@ void main(){
                                 LED1 ^= 1;
                             }
 			}
+                        LED1 = 0;
 			K_KICK1 = 1;
 			OVDCOND = 0xff;
                         hysteresis = HYSTERESIS_VALUE;
