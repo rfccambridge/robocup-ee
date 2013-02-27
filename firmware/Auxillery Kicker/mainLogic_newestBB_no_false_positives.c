@@ -62,7 +62,7 @@ int adcVH;
 int adcVL;
 #define LED_LINK	0x02
 #define LED_POWER	0x01
-#define HYSTERESIS_VALUE 0x02
+#define HYSTERESIS_VALUE 0
 
 void main(){
 
