@@ -15995,12 +15995,12 @@ Source: http://www.commcon.com/main</description>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0805" value="1M"/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
-<part name="R2" library="rcl" deviceset="R-US_" device="R0805" value="8.45k"/>
+<part name="R2" library="rcl" deviceset="R-US_" device="R0805" value="5.1k"/>
 <part name="R3" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0805" value="20k"/>
 <part name="SUPPLY3" library="supply2" deviceset="PE" device=""/>
 <part name="P+11" library="supply1" deviceset="+5V" device=""/>
-<part name="R5" library="rcl" deviceset="R-US_" device="R0805" value="7.15k"/>
+<part name="R5" library="rcl" deviceset="R-US_" device="R0805" value="15k"/>
 </parts>
 <sheets>
 <sheet>
