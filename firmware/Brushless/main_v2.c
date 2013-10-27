@@ -51,7 +51,7 @@ signed int Iterm = 0;
 */
 signed char command = 0;
 unsigned char direction = 0;
-// Ben's minor loop velocity controller
+
 signed long int integral_last;
 signed long int error_last;
 
@@ -191,7 +191,9 @@ int main (void)
 				case 'c': // set config flags
 					cfgFlags &= ~CFG_SPEW_ENCODER; // special: make spewing flag exclusive to one board
 					if (RxPacket.data[0] == wheel)
+                                        {
 						cfgFlags = RxPacket.data[1];
+                                        }
 					break;
 				/*
 				case 's': // temporary value - make this work
@@ -255,48 +257,6 @@ static void commutateMotor(void)
 	//RC2 high low			h			l
 	//Rc1 high low 		l			h
 
-/*
-	if(hall==0){
-		LED1_O = 1;
-		LED2_O = 1;
-		LED3_O = 1;
-	}
-	else if(hall==1){
-		LED1_O = 0;
-		LED2_O = 1;
-		LED3_O = 1;;
-	}
-	else if(hall==2){
-		LED1_O = 1;
-		LED2_O = 0;
-		LED3_O = 1;
-	}
-	else if(hall==3){
-		LED1_O = 0;
-		LED2_O = 0;
-		LED3_O = 1;
-	}
-	else if(hall==4){
-		LED1_O = 1;
-		LED2_O = 1;
-		LED3_O = 0;;
-	}
-	else if(hall==5){
-		LED1_O = 0;
-		LED2_O = 1;
-		LED3_O = 0;
-	}
-	else if(hall==6){
-		LED1_O = 1;
-		LED2_O = 0;
-		LED3_O = 0;
-	}
-	else if(hall==7){
-		LED1_O = 0;
-		LED2_O = 0;
-		LED3_O = 0;
-	}
-*/
 
 	// read the hall sensors
 	hall = 4*HALL1_I + 2*HALL2_I + HALL3_I; //notice the inversion!
@@ -322,7 +282,7 @@ void handleQEI(PacketBuffer * txPkt)
 	encoderCentered = POSCNT;
 	POSCNT = 0x8000;
 		
-    if (encoderCentered >=0x8000)
+        if (encoderCentered >=0x8000)
 		encoder = (signed int)(encoderCentered - 0x8000);
 	else									
 		encoder = -(signed int)(0x8000-encoderCentered);
@@ -332,6 +292,7 @@ void handleQEI(PacketBuffer * txPkt)
 	//Do the controls math;
 		command2 = ((signed long int)command)*4;
 		error = command2 - (signed long int)encoder;
+
                 int integral = integral_last + error;
                 int derivative = error_last - error;
 
@@ -365,7 +326,7 @@ void handleQEI(PacketBuffer * txPkt)
 	}
 	duty = 1023 - duty;
 	duty = duty * 2;
-
+        
 	// set duty cycle
 	PDC1 = duty;
 	PDC2 = duty;
@@ -386,6 +347,7 @@ void handleQEI(PacketBuffer * txPkt)
 			txPkt->data[txPkt->length++] = pktsAccepted;
 			txPkt->data[txPkt->length++] = pktsMismatched;
 		}
+                
 		subPkt++;
 	}
 }
