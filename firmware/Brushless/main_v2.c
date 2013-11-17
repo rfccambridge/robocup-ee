@@ -304,9 +304,9 @@ void handleQEI(PacketBuffer * txPkt)
                     integral = 0x8000; // max negative
                 }
 
-                float error_coef = 10;
+                float error_coef = 15;
                 float int_coef = 1;
-                float deriv_coef = 0;
+                float deriv_coef = 5;
                 duty = (int)(error_coef * error + int_coef * integral + deriv_coef * derivative);
 
                 integral_last = integral;
