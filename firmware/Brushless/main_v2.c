@@ -65,7 +65,7 @@ unsigned int adc_value; //current ADC value
 //on overcurrent, wait 20 iterations of consecutive current-ok readings
 int off_timer = 20; //counts up to 20
 
-const int MAX_DUTY = 511;
+const int MAX_DUTY = 1022;
 
 int main (void)
 {
@@ -290,27 +290,33 @@ void handleQEI(PacketBuffer * txPkt)
 	encoder = - encoder;
 
 	//Do the controls math;
-		command2 = ((signed long int)command)*4;
-		error = command2 - (signed long int)encoder;
+        command2 = ((signed long int)command)*4;
 
-                int integral = integral_last + error;
-                int derivative = error_last - error;
+        // internally geared motors need to be flipped
+        int i_gear = 1;
+        if (i_gear == 1) {
+            command2 = -command2;
+        }
+        error = command2 - (signed long int)encoder;
 
-                // check for overflow of integral term
-                if(integral_last > 0 && error > 0 && integral < 0) {
-                    integral = 0x7FFF; // max positive
-                }
-                if (integral_last < 0 && error < 0 && integral > 0) {
-                    integral = 0x8000; // max negative
-                }
+        int integral = integral_last + error;
+        int derivative = error_last - error;
 
-                float error_coef = 15;
-                float int_coef = 1;
-                float deriv_coef = 5;
-                duty = (int)(error_coef * error + int_coef * integral + deriv_coef * derivative);
+        // check for overflow of integral term
+        if(integral_last > 0 && error > 0 && integral < 0) {
+            integral = 0x7FFF; // max positive
+        }
+        if (integral_last < 0 && error < 0 && integral > 0) {
+            integral = 0x8000; // max negative
+        }
 
-                integral_last = integral;
-                error_last = integral;
+        float error_coef = 15;//15;
+        float int_coef = 0;//1
+        float deriv_coef = 0;//1;
+        duty = (int)(error_coef * error + int_coef * integral + deriv_coef * derivative);
+
+        integral_last = integral;
+        error_last = error;
 
 	if(duty > MAX_DUTY)
             duty = MAX_DUTY;
