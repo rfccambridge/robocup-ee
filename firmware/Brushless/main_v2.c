@@ -66,6 +66,7 @@ unsigned int adc_value; //current ADC value
 int off_timer = 20; //counts up to 20
 
 const int MAX_DUTY = 1022;
+const int I_GEAR = 0;
 
 int main (void)
 {
@@ -293,8 +294,8 @@ void handleQEI(PacketBuffer * txPkt)
         command2 = ((signed long int)command)*4;
 
         // internally geared motors need to be flipped
-        int i_gear = 1;
-        if (i_gear == 1) {
+        
+        if (I_GEAR == 1) {
             command2 = -command2;
         }
         error = command2 - (signed long int)encoder;
