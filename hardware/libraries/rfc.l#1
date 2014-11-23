@@ -1241,8 +1241,6 @@ Can be totem pole or open collector&lt;br&gt;
 </devices>
 </deviceset>
 <deviceset name="A4915">
-<description>Allegro A4915
-3 phase motor control driver with built in hall effect commutation</description>
 <gates>
 <gate name="G$1" symbol="A4915" x="0" y="-7.62"/>
 </gates>

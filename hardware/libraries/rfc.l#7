@@ -425,35 +425,35 @@
 <wire x1="2.2762" y1="-4.8854" x2="-2.2762" y2="-4.8854" width="0.127" layer="21"/>
 <wire x1="-2.2762" y1="-4.8854" x2="-2.2762" y2="4.8958" width="0.127" layer="21"/>
 <circle x="-1.7" y="4.3958" radius="0.1414" width="0.05" layer="21"/>
-<smd name="VREG" x="-2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
-<smd name="CA" x="-2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
-<smd name="SA" x="-2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GHA" x="-2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GLA" x="-2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
-<smd name="CB" x="-2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
-<smd name="SB" x="-2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GHB" x="-2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GLB" x="-2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
-<smd name="CC" x="-2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
-<smd name="SC" x="-2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GHC" x="-2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GLC" x="-2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
-<smd name="LSS" x="-2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
-<smd name="HC" x="2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
-<smd name="HB" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
-<smd name="HA" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
-<smd name="BRAKEN" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
-<smd name="DIR" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
-<smd name="ENABLE" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
-<smd name="FAULT" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
-<smd name="VDD" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
-<smd name="TDEAD" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
-<smd name="SPEED" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
-<smd name="VBB" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
-<smd name="GND" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
-<smd name="CP1" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
-<smd name="CP2" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
-<smd name="PAD" x="0" y="0.005" dx="6.6" dy="3.2" layer="1" rot="R90" cream="no"/>
+<smd name="14" x="-2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
+<smd name="13" x="-2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
+<smd name="12" x="-2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
+<smd name="11" x="-2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
+<smd name="10" x="-2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
+<smd name="9" x="-2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
+<smd name="8" x="-2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
+<smd name="7" x="-2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
+<smd name="6" x="-2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
+<smd name="5" x="-2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
+<smd name="4" x="-2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
+<smd name="3" x="-2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
+<smd name="2" x="-2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
+<smd name="1" x="-2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
+<smd name="28" x="2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
+<smd name="27" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
+<smd name="26" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
+<smd name="25" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
+<smd name="24" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
+<smd name="23" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
+<smd name="22" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
+<smd name="21" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
+<smd name="20" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
+<smd name="19" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
+<smd name="18" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
+<smd name="17" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
+<smd name="16" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
+<smd name="15" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
+<smd name="29" x="0" y="0.005" dx="6.6" dy="3.2" layer="1" rot="R90" cream="no"/>
 <text x="-2.1" y="5.0958" size="0.254" layer="25">&gt;Name</text>
 <text x="-2.1" y="-5.3346" size="0.254" layer="27">&gt;Value</text>
 <polygon width="0.127" layer="31">
@@ -802,42 +802,6 @@
 <pin name="PGD" x="48.26" y="22.86" length="middle" rot="R180"/>
 </symbol>
 <symbol name="A4915">
-<description>Allegro A4915
-3 Phase motor driver with built in hall effect commutation.
-Data sheet: http://www.allegromicro.com/~/media/Files/Datasheets/A4915-Datasheet.ashx</description>
-<wire x1="-10.16" y1="27.94" x2="10.16" y2="27.94" width="0.254" layer="94"/>
-<wire x1="10.16" y1="27.94" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="27.94" width="0.254" layer="94"/>
-<pin name="LSS" x="-15.24" y="25.4" visible="pin" length="middle"/>
-<pin name="GLC" x="-15.24" y="22.86" visible="pin" length="middle"/>
-<pin name="GHC" x="-15.24" y="20.32" visible="pin" length="middle"/>
-<pin name="SC" x="-15.24" y="17.78" visible="pin" length="middle"/>
-<pin name="CC" x="-15.24" y="15.24" visible="pin" length="middle"/>
-<pin name="GLB" x="-15.24" y="12.7" visible="pin" length="middle"/>
-<pin name="GHB" x="-15.24" y="10.16" visible="pin" length="middle"/>
-<pin name="SB" x="-15.24" y="7.62" visible="pin" length="middle"/>
-<pin name="CB" x="-15.24" y="5.08" visible="pin" length="middle"/>
-<pin name="GLA" x="-15.24" y="2.54" visible="pin" length="middle"/>
-<pin name="GHA" x="-15.24" y="0" visible="pin" length="middle"/>
-<pin name="SA" x="-15.24" y="-2.54" visible="pin" length="middle"/>
-<pin name="CA" x="-15.24" y="-5.08" visible="pin" length="middle"/>
-<pin name="VREG" x="-15.24" y="-7.62" visible="pin" length="middle"/>
-<pin name="HC" x="15.24" y="25.4" visible="pin" length="middle" rot="R180"/>
-<pin name="HB" x="15.24" y="22.86" visible="pin" length="middle" rot="R180"/>
-<pin name="HA" x="15.24" y="20.32" visible="pin" length="middle" rot="R180"/>
-<pin name="BRAKEN" x="15.24" y="17.78" visible="pin" length="middle" rot="R180"/>
-<pin name="DIR" x="15.24" y="15.24" visible="pin" length="middle" rot="R180"/>
-<pin name="ENABLE" x="15.24" y="12.7" visible="pin" length="middle" rot="R180"/>
-<pin name="FAULT" x="15.24" y="10.16" visible="pin" length="middle" rot="R180"/>
-<pin name="VDD" x="15.24" y="7.62" visible="pin" length="middle" rot="R180"/>
-<pin name="TDEAD" x="15.24" y="5.08" visible="pin" length="middle" rot="R180"/>
-<pin name="SPEED" x="15.24" y="2.54" visible="pin" length="middle" rot="R180"/>
-<pin name="VBB" x="15.24" y="0" visible="pin" length="middle" rot="R180"/>
-<pin name="GND" x="15.24" y="-2.54" visible="pin" length="middle" rot="R180"/>
-<pin name="CP1" x="15.24" y="-5.08" visible="pin" length="middle" rot="R180"/>
-<pin name="CP2" x="15.24" y="-7.62" visible="pin" length="middle" rot="R180"/>
-<pin name="PAD" x="0" y="-15.24" visible="pin" length="middle" rot="R90"/>
 </symbol>
 <symbol name="MAX7456">
 <wire x1="-10.16" y1="-12.7" x2="12.7" y2="-12.7" width="0.254" layer="94"/>
@@ -1236,51 +1200,6 @@ Can be totem pole or open collector&lt;br&gt;
 <attribute name="PROD_ID" value="IC-12240"/>
 <attribute name="VALUE" value="PCA9685" constant="no"/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="A4915">
-<description>Allegro A4915
-3 phase motor control driver with built in hall effect commutation</description>
-<gates>
-<gate name="G$1" symbol="A4915" x="0" y="-7.62"/>
-</gates>
-<devices>
-<device name="" package="TSSOP28-GROUNDPAD">
-<connects>
-<connect gate="G$1" pin="BRAKEN" pad="BRAKEN"/>
-<connect gate="G$1" pin="CA" pad="CA"/>
-<connect gate="G$1" pin="CB" pad="CB"/>
-<connect gate="G$1" pin="CC" pad="CC"/>
-<connect gate="G$1" pin="CP1" pad="CP1"/>
-<connect gate="G$1" pin="CP2" pad="CP2"/>
-<connect gate="G$1" pin="DIR" pad="DIR"/>
-<connect gate="G$1" pin="ENABLE" pad="ENABLE"/>
-<connect gate="G$1" pin="FAULT" pad="FAULT"/>
-<connect gate="G$1" pin="GHA" pad="GHA"/>
-<connect gate="G$1" pin="GHB" pad="GHB"/>
-<connect gate="G$1" pin="GHC" pad="GHC"/>
-<connect gate="G$1" pin="GLA" pad="GLA"/>
-<connect gate="G$1" pin="GLB" pad="GLB"/>
-<connect gate="G$1" pin="GLC" pad="GLC"/>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="HA" pad="HA"/>
-<connect gate="G$1" pin="HB" pad="HB"/>
-<connect gate="G$1" pin="HC" pad="HC"/>
-<connect gate="G$1" pin="LSS" pad="LSS"/>
-<connect gate="G$1" pin="PAD" pad="PAD"/>
-<connect gate="G$1" pin="SA" pad="SA"/>
-<connect gate="G$1" pin="SB" pad="SB"/>
-<connect gate="G$1" pin="SC" pad="SC"/>
-<connect gate="G$1" pin="SPEED" pad="SPEED"/>
-<connect gate="G$1" pin="TDEAD" pad="TDEAD"/>
-<connect gate="G$1" pin="VBB" pad="VBB"/>
-<connect gate="G$1" pin="VDD" pad="VDD"/>
-<connect gate="G$1" pin="VREG" pad="VREG"/>
-</connects>
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
