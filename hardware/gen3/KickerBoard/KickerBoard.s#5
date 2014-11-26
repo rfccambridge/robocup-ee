@@ -1048,6 +1048,7 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </deviceset>
 </devicesets>
 </library>
+<<<<<<< HEAD
 <library name="rfc">
 <packages>
 <package name="DPAK">
@@ -1129,6 +1130,8 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </deviceset>
 </devicesets>
 </library>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </libraries>
 <attributes>
 </attributes>
@@ -1145,8 +1148,11 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <part name="JP2" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="JP4" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<<<<<<< HEAD
 <part name="Q1" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q2" library="rfc" deviceset="N-MOSFET" device=""/>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </parts>
 <sheets>
 <sheet>
@@ -1159,8 +1165,11 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 <instance part="JP2" gate="G$1" x="121.92" y="175.26" rot="R270"/>
 <instance part="JP3" gate="G$1" x="-7.62" y="-127" rot="R90"/>
 <instance part="JP4" gate="G$1" x="116.84" y="-127" rot="R90"/>
+<<<<<<< HEAD
 <instance part="Q1" gate="G$1" x="187.96" y="12.7"/>
 <instance part="Q2" gate="G$1" x="187.96" y="-27.94"/>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </instances>
 <busses>
 </busses>

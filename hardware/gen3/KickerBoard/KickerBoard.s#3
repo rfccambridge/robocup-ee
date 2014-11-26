@@ -1684,6 +1684,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<<<<<<< HEAD
 <library name="SparkFun-Capacitors">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find resistors, capacitors, inductors, test points, jumper pads, etc.&lt;br&gt;&lt;br&gt;
@@ -2449,6 +2450,8 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </libraries>
 <attributes>
 </attributes>
@@ -2463,6 +2466,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="Q1" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q2" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
+<<<<<<< HEAD
 <part name="FRAME3" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME4" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="U$2" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
@@ -2478,6 +2482,14 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
 <part name="PROG_CNT" library="SparkFun-Connectors" deviceset="M03X2" device="2X3_SILK_MALE_PTH"/>
+=======
+<part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME3" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
+<part name="FRAME4" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
+<part name="JP5" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<part name="JP6" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<part name="U$2" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </parts>
 <sheets>
 <sheet>
@@ -2485,15 +2497,30 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <text x="111.76" y="96.52" size="1.778" layer="91">!! ACTUALLY ATMEGA165A-AU !!</text>
 </plain>
 <instances>
+<<<<<<< HEAD
 <instance part="U$1" gate="G$1" x="408.94" y="114.3"/>
+=======
+<instance part="IC1" gate="G$1" x="127" y="109.22"/>
+<instance part="U$1" gate="G$1" x="408.94" y="114.3"/>
+<instance part="JP1" gate="G$1" x="93.98" y="365.76" rot="R270"/>
+<instance part="JP2" gate="G$1" x="162.56" y="368.3" rot="R270"/>
+<instance part="JP3" gate="G$1" x="-7.62" y="-127" rot="R90"/>
+<instance part="JP4" gate="G$1" x="116.84" y="-127" rot="R90"/>
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 <instance part="Q1" gate="G$1" x="457.2" y="264.16"/>
 <instance part="Q2" gate="G$1" x="434.34" y="304.8"/>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="FRAME1" gate="G$2" x="147.32" y="0"/>
+<<<<<<< HEAD
+=======
+<instance part="FRAME2" gate="G$1" x="0" y="193.04"/>
+<instance part="FRAME2" gate="G$2" x="147.32" y="193.04"/>
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 <instance part="FRAME3" gate="G$1" x="259.08" y="0"/>
 <instance part="FRAME3" gate="G$2" x="406.4" y="0"/>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
 <instance part="FRAME4" gate="G$2" x="406.4" y="193.04"/>
+<<<<<<< HEAD
 <instance part="U$2" gate="G1" x="396.24" y="317.5"/>
 <instance part="MICROCONTROLLER" gate="G$1" x="121.92" y="104.14"/>
 <instance part="SPI_HEADER" gate="G$1" x="226.06" y="154.94" rot="R180"/>
@@ -2507,6 +2534,11 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R3" gate="G$1" x="208.28" y="170.18"/>
 <instance part="R4" gate="G$1" x="203.2" y="167.64"/>
 <instance part="PROG_CNT" gate="G$1" x="93.98" y="27.94"/>
+=======
+<instance part="JP5" gate="G$1" x="81.28" y="238.76" rot="R90"/>
+<instance part="JP6" gate="G$1" x="147.32" y="238.76" rot="R90"/>
+<instance part="U$2" gate="G1" x="396.24" y="317.5"/>
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </instances>
 <busses>
 </busses>

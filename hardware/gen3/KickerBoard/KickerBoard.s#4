@@ -1129,6 +1129,7 @@ Standard 10-pin 0.1" header. Use with straight break away headers (SKU : PRT-001
 </deviceset>
 </devicesets>
 </library>
+<<<<<<< HEAD
 <library name="SparkFun-Aesthetics">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find non-functional items- supply symbols, logos, notations, frame blocks, etc.&lt;br&gt;&lt;br&gt;
@@ -1299,6 +1300,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </libraries>
 <attributes>
 </attributes>
@@ -1317,6 +1320,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="JP4" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="Q1" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q2" library="rfc" deviceset="N-MOSFET" device=""/>
+<<<<<<< HEAD
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME3" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
@@ -1324,6 +1328,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="JP5" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="JP6" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="U$2" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+=======
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </parts>
 <sheets>
 <sheet>
@@ -1336,6 +1342,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="JP2" gate="G$1" x="162.56" y="368.3" rot="R270"/>
 <instance part="JP3" gate="G$1" x="-7.62" y="-127" rot="R90"/>
 <instance part="JP4" gate="G$1" x="116.84" y="-127" rot="R90"/>
+<<<<<<< HEAD
 <instance part="Q1" gate="G$1" x="457.2" y="264.16"/>
 <instance part="Q2" gate="G$1" x="434.34" y="304.8"/>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -1349,6 +1356,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="JP5" gate="G$1" x="81.28" y="238.76" rot="R90"/>
 <instance part="JP6" gate="G$1" x="147.32" y="238.76" rot="R90"/>
 <instance part="U$2" gate="G1" x="396.24" y="317.5"/>
+=======
+<instance part="Q1" gate="G$1" x="187.96" y="12.7"/>
+<instance part="Q2" gate="G$1" x="187.96" y="-27.94"/>
+>>>>>>> 6dfe74a04f7a8874ae358c28c149e36c5ea1ec46
 </instances>
 <busses>
 </busses>
