@@ -5306,6 +5306,13 @@ B340A  3A 40V SMA &lt;br&gt;</description>
 <pinref part="Q7" gate="G$1" pin="P$1"/>
 <junction x="381" y="248.92"/>
 </segment>
+</net>
+<net name="SENSE2" class="0">
+<segment>
+<pinref part="MICRO_CONTROLLER" gate="G$1" pin="ADC1/PF1"/>
+<wire x1="116.84" y1="132.08" x2="116.84" y2="139.7" width="0.1524" layer="91"/>
+<label x="116.84" y="134.62" size="1.778" layer="95" rot="R90"/>
+</segment>
 <segment>
 <pinref part="Q12" gate="G$1" pin="P$2"/>
 <pinref part="R28" gate="G$1" pin="2"/>
@@ -5337,48 +5344,11 @@ B340A  3A 40V SMA &lt;br&gt;</description>
 <junction x="642.62" y="243.84"/>
 </segment>
 </net>
-<net name="SENSE2" class="0">
-<segment>
-<pinref part="MICRO_CONTROLLER" gate="G$1" pin="ADC1/PF1"/>
-<wire x1="116.84" y1="132.08" x2="116.84" y2="139.7" width="0.1524" layer="91"/>
-<label x="116.84" y="134.62" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
 <net name="SENSE3" class="0">
 <segment>
 <pinref part="MICRO_CONTROLLER" gate="G$1" pin="ADC2/PF2"/>
 <wire x1="119.38" y1="132.08" x2="119.38" y2="139.7" width="0.1524" layer="91"/>
 <label x="119.38" y="134.62" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="Q28" gate="G$1" pin="P$2"/>
-<pinref part="R54" gate="G$1" pin="2"/>
-<wire x1="662.94" y1="88.9" x2="662.94" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="662.94" y1="83.82" x2="662.94" y2="50.8" width="0.1524" layer="91"/>
-<junction x="662.94" y="83.82"/>
-<pinref part="Q29" gate="G$1" pin="P$2"/>
-<pinref part="R55" gate="G$1" pin="2"/>
-<wire x1="685.8" y1="73.66" x2="685.8" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="685.8" y1="68.58" x2="685.8" y2="50.8" width="0.1524" layer="91"/>
-<junction x="685.8" y="68.58"/>
-<wire x1="662.94" y1="50.8" x2="685.8" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="Q30" gate="G$1" pin="P$2"/>
-<pinref part="R56" gate="G$1" pin="2"/>
-<wire x1="708.66" y1="60.96" x2="708.66" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="708.66" y1="55.88" x2="708.66" y2="50.8" width="0.1524" layer="91"/>
-<junction x="708.66" y="55.88"/>
-<wire x1="685.8" y1="50.8" x2="708.66" y2="50.8" width="0.1524" layer="91"/>
-<junction x="685.8" y="50.8"/>
-<pinref part="U$3" gate="G$1" pin="LSS"/>
-<wire x1="607.06" y1="86.36" x2="607.06" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="607.06" y1="50.8" x2="640.08" y2="50.8" width="0.1524" layer="91"/>
-<junction x="662.94" y="50.8"/>
-<wire x1="640.08" y1="50.8" x2="662.94" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="607.06" y1="50.8" x2="599.44" y2="50.8" width="0.1524" layer="91"/>
-<junction x="607.06" y="50.8"/>
-<label x="596.9" y="50.8" size="1.778" layer="95"/>
-<pinref part="Q32" gate="G$1" pin="P$1"/>
-<junction x="640.08" y="50.8"/>
 </segment>
 <segment>
 <pinref part="Q20" gate="G$1" pin="P$2"/>
@@ -5416,6 +5386,36 @@ B340A  3A 40V SMA &lt;br&gt;</description>
 <pinref part="MICRO_CONTROLLER" gate="G$1" pin="ADC3/PF3"/>
 <wire x1="121.92" y1="132.08" x2="121.92" y2="139.7" width="0.1524" layer="91"/>
 <label x="121.92" y="134.62" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="Q28" gate="G$1" pin="P$2"/>
+<pinref part="R54" gate="G$1" pin="2"/>
+<wire x1="662.94" y1="88.9" x2="662.94" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="662.94" y1="83.82" x2="662.94" y2="50.8" width="0.1524" layer="91"/>
+<junction x="662.94" y="83.82"/>
+<pinref part="Q29" gate="G$1" pin="P$2"/>
+<pinref part="R55" gate="G$1" pin="2"/>
+<wire x1="685.8" y1="73.66" x2="685.8" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="685.8" y1="68.58" x2="685.8" y2="50.8" width="0.1524" layer="91"/>
+<junction x="685.8" y="68.58"/>
+<wire x1="662.94" y1="50.8" x2="685.8" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="Q30" gate="G$1" pin="P$2"/>
+<pinref part="R56" gate="G$1" pin="2"/>
+<wire x1="708.66" y1="60.96" x2="708.66" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="708.66" y1="55.88" x2="708.66" y2="50.8" width="0.1524" layer="91"/>
+<junction x="708.66" y="55.88"/>
+<wire x1="685.8" y1="50.8" x2="708.66" y2="50.8" width="0.1524" layer="91"/>
+<junction x="685.8" y="50.8"/>
+<pinref part="U$3" gate="G$1" pin="LSS"/>
+<wire x1="607.06" y1="86.36" x2="607.06" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="607.06" y1="50.8" x2="640.08" y2="50.8" width="0.1524" layer="91"/>
+<junction x="662.94" y="50.8"/>
+<wire x1="640.08" y1="50.8" x2="662.94" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="607.06" y1="50.8" x2="599.44" y2="50.8" width="0.1524" layer="91"/>
+<junction x="607.06" y="50.8"/>
+<label x="596.9" y="50.8" size="1.778" layer="95"/>
+<pinref part="Q32" gate="G$1" pin="P$1"/>
+<junction x="640.08" y="50.8"/>
 </segment>
 </net>
 <net name="PWM1" class="0">
