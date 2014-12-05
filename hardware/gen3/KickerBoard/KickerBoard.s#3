@@ -10631,12 +10631,12 @@ Source: AVX .. aphvc.pdf</description>
 <part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="SPARE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805"/>
-<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805"/>
-<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
-<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
-<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
-<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="PROG_CNT" library="SparkFun-Connectors" deviceset="M03X2" device="2X3_SILK_MALE_PTH"/>
 <part name="U$3" library="kickerchips" deviceset="32052-TRANSFORMER" device=""/>
 <part name="Q5" library="rfc" deviceset="N-MOSFET" device=""/>
