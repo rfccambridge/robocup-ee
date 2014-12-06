@@ -727,14 +727,14 @@ design rules under a new name.</description>
 <element name="LED6" library="SparkFun-LED" package="LED-1206" value="" x="-62.23" y="-137.16"/>
 <element name="LED7" library="SparkFun-LED" package="LED-1206" value="" x="-62.23" y="-140.97"/>
 <element name="LED8" library="SparkFun-LED" package="LED-1206" value="" x="-62.23" y="-144.78"/>
-<element name="R13" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-148.59"/>
-<element name="R14" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-152.4"/>
-<element name="R15" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-156.21"/>
-<element name="R16" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-160.02"/>
-<element name="R17" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-163.83"/>
-<element name="R18" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-167.64"/>
-<element name="R19" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-171.45"/>
-<element name="R20" library="SparkFun-Passives" package="1206" value="220" x="-62.23" y="-175.26"/>
+<element name="R13" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-148.59"/>
+<element name="R14" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-152.4"/>
+<element name="R15" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-156.21"/>
+<element name="R16" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-160.02"/>
+<element name="R17" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-163.83"/>
+<element name="R18" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-167.64"/>
+<element name="R19" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-171.45"/>
+<element name="R20" library="SparkFun-Passives" package="1206" value="130" x="-62.23" y="-175.26"/>
 </elements>
 <signals>
 <signal name="GND">

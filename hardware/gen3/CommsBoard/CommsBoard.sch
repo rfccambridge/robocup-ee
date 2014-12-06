@@ -2629,14 +2629,14 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="LED6" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED7" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED8" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
-<part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="220"/>
+<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R14" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R15" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
 </parts>
 <sheets>
 <sheet>
