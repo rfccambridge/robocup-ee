@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14790,7 +14790,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="Q2" library="transistor-power" deviceset="IRG4BC15UD-" device="S"/>
 <part name="OK1" library="optocoupler" deviceset="ILD2*" device="" technology="05"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10M"/>
-<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="348K"/>
+<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="100K"/>
 <part name="U1" library="Fairchild_By_element14_Batch_1" deviceset="NC7WZ08K8X" device=""/>
 <part name="U$2" library="SparkFun-DiscreteSemi" deviceset="TVS" device=""/>
 <part name="R10" library="resistor" deviceset="R-US_" device="R0805"/>
