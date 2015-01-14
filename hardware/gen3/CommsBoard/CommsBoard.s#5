@@ -3084,13 +3084,11 @@ SMT header is CONN-09042.</description>
 <label x="104.14" y="25.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="30.48" y1="149.86" x2="35.56" y2="149.86" width="0.1524" layer="91"/>
 <label x="38.1" y="149.86" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="149.86" x2="40.64" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="152.4" x2="35.56" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="152.4" x2="35.56" y2="149.86" width="0.1524" layer="91"/>
-<junction x="35.56" y="149.86"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -3375,13 +3373,11 @@ SMT header is CONN-09042.</description>
 </net>
 <net name="12VGND" class="0">
 <segment>
-<wire x1="30.48" y1="33.02" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
 <label x="35.56" y="33.02" size="1.778" layer="95"/>
 <pinref part="POWER_HEADER" gate="G$1" pin="2"/>
 <wire x1="33.02" y1="33.02" x2="38.1" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="35.56" x2="33.02" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="35.56" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
-<junction x="33.02" y="33.02"/>
 <pinref part="POWER_HEADER" gate="G$1" pin="3"/>
 <wire x1="30.48" y1="38.1" x2="33.02" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="38.1" x2="33.02" y2="35.56" width="0.1524" layer="91"/>
@@ -3394,6 +3390,9 @@ SMT header is CONN-09042.</description>
 <wire x1="30.48" y1="43.18" x2="33.02" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="43.18" x2="33.02" y2="40.64" width="0.1524" layer="91"/>
 <junction x="33.02" y="40.64"/>
+<pinref part="POWER_HEADER" gate="G$1" pin="1"/>
+<wire x1="33.02" y1="33.02" x2="30.48" y2="33.02" width="0.1524" layer="91"/>
+<junction x="33.02" y="33.02"/>
 </segment>
 </net>
 <net name="RX" class="0">
