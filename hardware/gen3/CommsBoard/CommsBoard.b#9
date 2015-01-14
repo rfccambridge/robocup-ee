@@ -1114,6 +1114,11 @@ design rules under a new name.</description>
 <signal name="SS3">
 <contactref element="SPI_HEADER" pad="6"/>
 </signal>
+<signal name="XBRST">
+<contactref element="MICROCONTROLLER" pad="4"/>
+<contactref element="U$1" pad="5"/>
+<wire x1="51.37" y1="30.05" x2="44.97" y2="46.7" width="0" layer="19" extent="1-1"/>
+</signal>
 </signals>
 </board>
 </drawing>
