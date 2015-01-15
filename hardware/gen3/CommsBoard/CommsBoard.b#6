@@ -1187,7 +1187,7 @@ design rules under a new name.</description>
 <via x="48.26" y="76.2" extent="1-16" drill="0.6" shape="square"/>
 <via x="52.07" y="76.2" extent="1-16" drill="0.6" shape="square"/>
 <via x="48.26" y="62.23" extent="1-16" drill="0.6" shape="square"/>
-<via x="48.26" y="60.96" extent="1-16" drill="0.6" shape="square"/>
+<via x="48.26" y="60.96" extent="1-16" drill="0.6096"/>
 <via x="52.07" y="62.23" extent="1-16" drill="0.6" shape="square"/>
 <via x="52.07" y="60.96" extent="1-16" drill="0.6" shape="square"/>
 <via x="48.26" y="74.93" extent="1-16" drill="0.6" shape="square"/>
