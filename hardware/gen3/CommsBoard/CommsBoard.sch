@@ -3558,7 +3558,7 @@ at 27/07/2012 14:02:49</description>
 <label x="99.06" y="147.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="FILT" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="149.86" x2="93.98" y2="144.78" width="0.1524" layer="91"/>

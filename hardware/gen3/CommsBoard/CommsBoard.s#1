@@ -3776,9 +3776,9 @@ at 27/07/2012 14:02:49</description>
 <label x="358.14" y="165.1" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA3"/>
-<wire x1="106.68" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
-<label x="99.06" y="124.46" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA0"/>
+<wire x1="106.68" y1="132.08" x2="99.06" y2="132.08" width="0.1524" layer="91"/>
+<label x="99.06" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BID1" class="0">
@@ -3792,9 +3792,9 @@ at 27/07/2012 14:02:49</description>
 <label x="358.14" y="162.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA2"/>
-<wire x1="106.68" y1="127" x2="99.06" y2="127" width="0.1524" layer="91"/>
-<label x="99.06" y="127" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA1"/>
+<wire x1="106.68" y1="129.54" x2="99.06" y2="129.54" width="0.1524" layer="91"/>
+<label x="99.06" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BID2" class="0">
@@ -3808,9 +3808,9 @@ at 27/07/2012 14:02:49</description>
 <label x="358.14" y="160.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA1"/>
-<wire x1="106.68" y1="129.54" x2="99.06" y2="129.54" width="0.1524" layer="91"/>
-<label x="99.06" y="129.54" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA2"/>
+<wire x1="106.68" y1="127" x2="99.06" y2="127" width="0.1524" layer="91"/>
+<label x="99.06" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BID3" class="0">
@@ -3824,9 +3824,9 @@ at 27/07/2012 14:02:49</description>
 <label x="358.14" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA0"/>
-<wire x1="106.68" y1="132.08" x2="99.06" y2="132.08" width="0.1524" layer="91"/>
-<label x="99.06" y="132.08" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA3"/>
+<wire x1="106.68" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
+<label x="99.06" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EX0" class="0">
@@ -3840,9 +3840,9 @@ at 27/07/2012 14:02:49</description>
 <label x="408.94" y="165.1" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA7"/>
-<wire x1="106.68" y1="114.3" x2="99.06" y2="114.3" width="0.1524" layer="91"/>
-<label x="99.06" y="114.3" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA4"/>
+<wire x1="106.68" y1="121.92" x2="99.06" y2="121.92" width="0.1524" layer="91"/>
+<label x="99.06" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EX1" class="0">
@@ -3856,9 +3856,9 @@ at 27/07/2012 14:02:49</description>
 <label x="408.94" y="162.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA6"/>
-<wire x1="106.68" y1="116.84" x2="99.06" y2="116.84" width="0.1524" layer="91"/>
-<label x="99.06" y="116.84" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA5"/>
+<wire x1="106.68" y1="119.38" x2="99.06" y2="119.38" width="0.1524" layer="91"/>
+<label x="99.06" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EX2" class="0">
@@ -3872,9 +3872,9 @@ at 27/07/2012 14:02:49</description>
 <label x="408.94" y="160.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA5"/>
-<wire x1="106.68" y1="119.38" x2="99.06" y2="119.38" width="0.1524" layer="91"/>
-<label x="99.06" y="119.38" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA6"/>
+<wire x1="106.68" y1="116.84" x2="99.06" y2="116.84" width="0.1524" layer="91"/>
+<label x="99.06" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="EX3" class="0">
@@ -3888,9 +3888,9 @@ at 27/07/2012 14:02:49</description>
 <label x="408.94" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PA4"/>
-<wire x1="106.68" y1="121.92" x2="99.06" y2="121.92" width="0.1524" layer="91"/>
-<label x="99.06" y="121.92" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PA7"/>
+<wire x1="106.68" y1="114.3" x2="99.06" y2="114.3" width="0.1524" layer="91"/>
+<label x="99.06" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GLED1" class="0">
