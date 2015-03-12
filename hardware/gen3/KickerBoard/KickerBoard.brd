@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -54,7 +54,7 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
@@ -1569,6 +1569,25 @@ Basic SMA packaged diode. Good for reverse polarization protection. Common part 
 <text x="-0.8255" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
+<package name="TO220V">
+<description>&lt;b&gt;TO 220 Vertical&lt;/b&gt; Package works with various parts including N-Channel MOSFET SparkFun SKU: COM-10213</description>
+<wire x1="-5.08" y1="2.032" x2="-5.08" y2="-0.381" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="2.032" x2="5.08" y2="-0.381" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="2.032" x2="-5.08" y2="2.032" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="2.032" x2="-5.08" y2="3.048" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="3.048" x2="5.08" y2="3.048" width="0.2032" layer="21"/>
+<wire x1="5.08" y1="3.048" x2="5.08" y2="2.032" width="0.2032" layer="21"/>
+<wire x1="-5.08" y1="-0.381" x2="-4.191" y2="-1.27" width="0.2032" layer="21" curve="92.798868"/>
+<wire x1="4.191" y1="-1.27" x2="5.08" y2="-0.381" width="0.2032" layer="21" curve="92.798868"/>
+<wire x1="-4.191" y1="-1.27" x2="-3.81" y2="-1.27" width="0.2032" layer="21"/>
+<wire x1="4.191" y1="-1.27" x2="3.81" y2="-1.27" width="0.2032" layer="21"/>
+<rectangle x1="-5.08" y1="2.032" x2="5.08" y2="3.048" layer="21"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" shape="long" rot="R90"/>
+<text x="-2.794" y="3.429" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.302" y="-3.302" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
 </packages>
 </library>
 <library name="linear">
@@ -2937,34 +2956,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="triac">
-<description>&lt;b&gt;Thyristors, Triacs, Trigger Diodes&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="TO220CS">
-<description>&lt;b&gt;TO 220 C&lt;/b&gt; vertical (Cathode; Anode; Gate)</description>
-<wire x1="5.08" y1="-1.143" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
-<wire x1="4.826" y1="-4.318" x2="5.08" y2="-4.064" width="0.1524" layer="21"/>
-<wire x1="4.826" y1="-4.318" x2="-4.826" y2="-4.318" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-4.064" x2="-4.826" y2="-4.318" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-4.064" x2="-5.08" y2="-1.143" width="0.1524" layer="21"/>
-<circle x="-4.6228" y="-3.7084" radius="0.254" width="0" layer="21"/>
-<pad name="C" x="-2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="A" x="0" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<pad name="G" x="2.54" y="-2.54" drill="1.016" shape="long" rot="R90"/>
-<text x="-5.08" y="-6.0452" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-5.334" y1="-0.635" x2="5.334" y2="0" layer="21"/>
-<rectangle x1="-5.334" y1="-1.27" x2="-3.429" y2="-0.635" layer="21"/>
-<rectangle x1="-1.651" y1="-1.27" x2="-0.889" y2="-0.635" layer="21"/>
-<rectangle x1="0.889" y1="-1.27" x2="1.651" y2="-0.635" layer="21"/>
-<rectangle x1="3.429" y1="-1.27" x2="5.334" y2="-0.635" layer="21"/>
-<rectangle x1="-3.429" y1="-1.27" x2="-1.651" y2="-0.635" layer="51"/>
-<rectangle x1="-0.889" y1="-1.27" x2="0.889" y2="-0.635" layer="51"/>
-<rectangle x1="1.651" y1="-1.27" x2="3.429" y2="-0.635" layer="51"/>
-</package>
-</packages>
-</library>
 <library name="SparkFun-Electromechanical">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find anything that moves- switches, relays, buttons, potentiometers. Also, anything that goes on a board but isn't electrical in nature- screws, standoffs, etc.&lt;br&gt;&lt;br&gt;
@@ -3779,6 +3770,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -3935,7 +3929,6 @@ design rules under a new name.</description>
 <attribute name="STOREFRONT_ID" value="PRT-08432" x="137" y="-50" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R16" library="rcl" package="R0805" value="LARGE" x="29.05" y="73.19"/>
-<element name="T1" library="triac" package="TO220CS" value="BTV58" x="79.93" y="62.39"/>
 <element name="S2" library="SparkFun-Electromechanical" package="TACTILE-PTH-EZ" value="SWITCH-MOMENTARY-2PTH_EZ" x="69.77" y="57.31"/>
 <element name="FRAME2" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="-77.47" y="85.09"/>
 <element name="DRIB" library="SparkFun-Connectors" package="SCREWTERMINAL-5MM-2" value="M025MM" x="82.39" y="65.57">
@@ -4015,6 +4008,9 @@ design rules under a new name.</description>
 <element name="LED6" library="SparkFun-LED" package="LED-1206" value="" x="48.1" y="92.24"/>
 <element name="LED7" library="SparkFun-LED" package="LED-1206" value="" x="43.02" y="92.24"/>
 <element name="LED8" library="SparkFun-LED" package="LED-1206" value="" x="37.94" y="92.24"/>
+<element name="Q3" library="SparkFun-DiscreteSemi" package="TO220V" value="MOSFET-NCHANNELFQP30N06L" x="-93" y="-31">
+<attribute name="PROD_ID" value="TRANS-10060" x="-93" y="-31" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -4027,7 +4023,6 @@ design rules under a new name.</description>
 <contactref element="U1" pad="4"/>
 <contactref element="C6" pad="2"/>
 <contactref element="U$3" pad="P$10"/>
-<contactref element="T1" pad="C"/>
 <contactref element="C9" pad="2"/>
 <contactref element="U$4" pad="P$5"/>
 <contactref element="C8100PF" pad="2"/>
@@ -4056,6 +4051,7 @@ design rules under a new name.</description>
 <contactref element="LED6" pad="C"/>
 <contactref element="LED7" pad="C"/>
 <contactref element="LED8" pad="C"/>
+<contactref element="Q3" pad="3"/>
 <wire x1="117.05" y1="92.24" x2="120.86" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="108.64" y1="87.16" x2="117.05" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="104.11" y1="87.16" x2="108.64" y2="87.16" width="0" layer="19" extent="1-1"/>
@@ -4067,12 +4063,12 @@ design rules under a new name.</description>
 <wire x1="78.45" y1="92.24" x2="84.8" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="75" y1="92.24" x2="78.45" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="69.92" y1="92.24" x2="75" y2="92.24" width="0" layer="19" extent="1-1"/>
-<wire x1="37.84" y1="88.24" x2="69.92" y2="92.24" width="0" layer="19" extent="1-1"/>
-<wire x1="59.76" y1="92.24" x2="37.84" y2="88.24" width="0" layer="19" extent="1-1"/>
+<wire x1="59.76" y1="92.24" x2="69.92" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="54.68" y1="92.24" x2="59.76" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="49.6" y1="92.24" x2="54.68" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="44.52" y1="92.24" x2="49.6" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="39.44" y1="92.24" x2="44.52" y2="92.24" width="0" layer="19" extent="1-1"/>
+<wire x1="37.84" y1="88.24" x2="39.44" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="33.71" y1="92.24" x2="39.44" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="29.9" y1="92.24" x2="33.71" y2="92.24" width="0" layer="19" extent="1-1"/>
 <wire x1="70.54" y1="80.81" x2="69.92" y2="92.24" width="0" layer="19" extent="1-1"/>
@@ -4091,8 +4087,8 @@ design rules under a new name.</description>
 <wire x1="96.694" y1="47.15" x2="100.0976" y2="59.088" width="0" layer="19" extent="1-1"/>
 <wire x1="88.693" y1="47.15" x2="96.694" y2="47.15" width="0" layer="19" extent="1-1"/>
 <wire x1="79.74" y1="45.88" x2="88.693" y2="47.15" width="0" layer="19" extent="1-1"/>
-<wire x1="77.39" y1="59.85" x2="79.74" y2="45.88" width="0" layer="19" extent="1-1"/>
 <wire x1="91.8934" y1="31.91" x2="88.693" y2="47.15" width="0" layer="19" extent="1-1"/>
+<wire x1="-90.46" y1="-31" x2="32.225" y2="53.6066" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="PROG_CNT" pad="2"/>
@@ -4286,8 +4282,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$17">
 <contactref element="R16" pad="1"/>
-<contactref element="T1" pad="A"/>
-<wire x1="28.1" y1="73.19" x2="79.93" y2="59.85" width="0" layer="19" extent="1-1"/>
+<contactref element="Q3" pad="2"/>
+<wire x1="28.1" y1="73.19" x2="-93" y2="-31" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$23">
 <contactref element="IC1" pad="4"/>
@@ -4521,10 +4517,10 @@ design rules under a new name.</description>
 <contactref element="S2" pad="1"/>
 <contactref element="Q6" pad="3"/>
 <contactref element="R9" pad="2"/>
-<contactref element="T1" pad="G"/>
-<wire x1="82.47" y1="59.85" x2="110.01" y2="82.08" width="0" layer="19" extent="1-1"/>
-<wire x1="66.5188" y1="59.5706" x2="82.47" y2="59.85" width="0" layer="19" extent="1-1"/>
+<contactref element="Q3" pad="1"/>
+<wire x1="66.5188" y1="59.5706" x2="110.01" y2="82.08" width="0" layer="19" extent="1-1"/>
 <wire x1="34.13" y1="80.64" x2="66.5188" y2="59.5706" width="0" layer="19" extent="1-1"/>
+<wire x1="-95.54" y1="-31" x2="34.13" y2="80.64" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$11">
 <contactref element="R30" pad="1"/>
