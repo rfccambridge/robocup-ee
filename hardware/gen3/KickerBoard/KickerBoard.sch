@@ -21514,7 +21514,7 @@ at 27/07/2012 14:02:49</description>
 <part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="255nF"/>
 <part name="KICK" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="CHIP" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
-<part name="R16" library="rcl" deviceset="R-US_" device="R0805" value="LARGE"/>
+<part name="R16" library="rcl" deviceset="R-US_" device="R0805" value="2k, 5w"/>
 <part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="PTH_EZ"/>
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="DRIB" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
