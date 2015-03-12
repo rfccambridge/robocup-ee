@@ -21605,6 +21605,10 @@ at 27/07/2012 14:02:49</description>
 <text x="358.14" y="292.1" size="1.778" layer="91">AND GATES</text>
 <text x="160.02" y="241.3" size="1.778" layer="91">TODO: make sure works with 3.3v</text>
 <text x="459.74" y="91.44" size="1.778" layer="91">careful, this is pchannel</text>
+<text x="317.5" y="355.6" size="1.778" layer="91">5v logic here to turn on opto couplers faster</text>
+<text x="454.66" y="248.92" size="1.778" layer="91" rot="R90">scale 250v -&gt; 2.47v</text>
+<text x="276.86" y="304.8" size="1.778" layer="91">250v = 2.47v</text>
+<text x="353.06" y="172.72" size="1.778" layer="91">active low</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -21890,22 +21894,6 @@ at 27/07/2012 14:02:49</description>
 <wire x1="30.48" y1="157.48" x2="33.02" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="157.48" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
 <junction x="33.02" y="154.94"/>
-</segment>
-<segment>
-<pinref part="U1" gate="A" pin="VCC"/>
-<wire x1="347.98" y1="302.26" x2="347.98" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="347.98" y1="353.06" x2="330.2" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="330.2" y1="353.06" x2="312.42" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="353.06" x2="312.42" y2="358.14" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="V+"/>
-<wire x1="330.2" y1="304.8" x2="330.2" y2="309.88" width="0.1524" layer="91"/>
-<junction x="330.2" y="353.06"/>
-<label x="312.42" y="358.14" size="1.778" layer="95"/>
-<pinref part="R29" gate="G$1" pin="1"/>
-<wire x1="330.2" y1="309.88" x2="330.2" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="307.34" x2="340.36" y2="309.88" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="309.88" x2="330.2" y2="309.88" width="0.1524" layer="91"/>
-<junction x="330.2" y="309.88"/>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
@@ -22608,6 +22596,22 @@ at 27/07/2012 14:02:49</description>
 <wire x1="30.48" y1="162.56" x2="33.02" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="162.56" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
 <junction x="33.02" y="160.02"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="VCC"/>
+<wire x1="347.98" y1="302.26" x2="347.98" y2="353.06" width="0.1524" layer="91"/>
+<wire x1="347.98" y1="353.06" x2="330.2" y2="353.06" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="353.06" x2="312.42" y2="353.06" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="353.06" x2="312.42" y2="358.14" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="V+"/>
+<wire x1="330.2" y1="304.8" x2="330.2" y2="309.88" width="0.1524" layer="91"/>
+<junction x="330.2" y="353.06"/>
+<label x="312.42" y="358.14" size="1.778" layer="95"/>
+<pinref part="R29" gate="G$1" pin="1"/>
+<wire x1="330.2" y1="309.88" x2="330.2" y2="353.06" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="307.34" x2="340.36" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="309.88" x2="330.2" y2="309.88" width="0.1524" layer="91"/>
+<junction x="330.2" y="309.88"/>
 </segment>
 </net>
 <net name="N$19" class="0">
