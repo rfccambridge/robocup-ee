@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -968,6 +968,9 @@ design rules under a new name.</description>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="12.5mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="*"/>
 <param name="PrefDir.2" value="0"/>
@@ -1378,14 +1381,20 @@ design rules under a new name.</description>
 <via x="88.9" y="40.9575" extent="1-16" drill="0.6096"/>
 <via x="73.025" y="22.5425" extent="1-16" drill="0.6096"/>
 </signal>
-<signal name="SS1">
+<signal name="SS_M">
 <contactref element="SPI_HEADER" pad="4"/>
+<contactref element="U1" pad="61"/>
+<wire x1="79.38" y1="43.3932" x2="116" y2="72.38" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SS2">
+<signal name="SS_K">
 <contactref element="SPI_HEADER" pad="5"/>
+<contactref element="U1" pad="60"/>
+<wire x1="79.38" y1="44.206" x2="116" y2="69.84" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SS5">
+<signal name="SS_E3">
 <contactref element="SPI_HEADER" pad="8"/>
+<contactref element="U1" pad="57"/>
+<wire x1="79.38" y1="46.5936" x2="116" y2="62.22" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
@@ -1704,11 +1713,15 @@ design rules under a new name.</description>
 <contactref element="R2" pad="2"/>
 <wire x1="116" y1="80" x2="110.9" y2="80" width="0.254" layer="16"/>
 </signal>
-<signal name="SS4">
+<signal name="SS_E2">
 <contactref element="SPI_HEADER" pad="7"/>
+<contactref element="U1" pad="58"/>
+<wire x1="79.38" y1="45.8062" x2="116" y2="64.76" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SS3">
+<signal name="SS_E1">
 <contactref element="SPI_HEADER" pad="6"/>
+<contactref element="U1" pad="59"/>
+<wire x1="79.38" y1="44.9934" x2="116" y2="67.3" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="XBRST">
 <contactref element="U$1" pad="5"/>

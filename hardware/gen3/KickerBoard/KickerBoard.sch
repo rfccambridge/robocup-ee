@@ -21609,6 +21609,7 @@ at 27/07/2012 14:02:49</description>
 <text x="454.66" y="248.92" size="1.778" layer="91" rot="R90">scale 250v -&gt; 2.47v</text>
 <text x="276.86" y="304.8" size="1.778" layer="91">250v = 2.47v</text>
 <text x="353.06" y="172.72" size="1.778" layer="91">active low</text>
+<text x="231.14" y="149.86" size="1.778" layer="91" rot="R90">only ss_k connected here</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -21975,27 +21976,27 @@ at 27/07/2012 14:02:49</description>
 <wire x1="86.36" y1="27.94" x2="81.28" y2="27.94" width="0.1524" layer="91"/>
 <label x="81.28" y="27.94" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="U2" gate="A" pin="PB1"/>
-<wire x1="101.6" y1="114.3" x2="93.98" y2="114.3" width="0.1524" layer="91"/>
-<label x="93.98" y="114.3" size="1.778" layer="95"/>
-</segment>
 </net>
-<net name="SS1" class="0">
+<net name="SS_M" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="4"/>
 <wire x1="215.9" y1="165.1" x2="208.28" y2="165.1" width="0.1524" layer="91"/>
 <label x="208.28" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SS2" class="0">
+<net name="SS_K" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="5"/>
 <wire x1="215.9" y1="162.56" x2="208.28" y2="162.56" width="0.1524" layer="91"/>
 <label x="208.28" y="162.56" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U2" gate="A" pin="PB1"/>
+<wire x1="101.6" y1="114.3" x2="93.98" y2="114.3" width="0.1524" layer="91"/>
+<label x="93.98" y="114.3" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SS3" class="0">
+<net name="SS_E1" class="0">
 <segment>
 <wire x1="218.44" y1="160.02" x2="215.9" y2="160.02" width="0.1524" layer="91"/>
 <label x="208.28" y="160.02" size="1.778" layer="95"/>
@@ -22004,7 +22005,7 @@ at 27/07/2012 14:02:49</description>
 <junction x="215.9" y="160.02"/>
 </segment>
 </net>
-<net name="SS4" class="0">
+<net name="SS_E2" class="0">
 <segment>
 <wire x1="218.44" y1="157.48" x2="215.9" y2="157.48" width="0.1524" layer="91"/>
 <label x="208.28" y="157.48" size="1.778" layer="95"/>
@@ -22013,7 +22014,7 @@ at 27/07/2012 14:02:49</description>
 <junction x="215.9" y="157.48"/>
 </segment>
 </net>
-<net name="SS5" class="0">
+<net name="SS_E3" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="8"/>
 <wire x1="215.9" y1="154.94" x2="208.28" y2="154.94" width="0.1524" layer="91"/>

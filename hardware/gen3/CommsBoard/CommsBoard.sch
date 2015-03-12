@@ -3620,39 +3620,64 @@ at 27/07/2012 14:02:49</description>
 <label x="99.06" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="SS1" class="0">
+<net name="SS_M" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="4"/>
 <wire x1="218.44" y1="165.1" x2="210.82" y2="165.1" width="0.1524" layer="91"/>
 <label x="210.82" y="165.1" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF0"/>
+<wire x1="152.4" y1="127" x2="160.02" y2="127" width="0.1524" layer="91"/>
+<label x="154.94" y="127" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SS2" class="0">
+<net name="SS_K" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="5"/>
 <wire x1="218.44" y1="162.56" x2="210.82" y2="162.56" width="0.1524" layer="91"/>
 <label x="210.82" y="162.56" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF1"/>
+<wire x1="152.4" y1="124.46" x2="160.02" y2="124.46" width="0.1524" layer="91"/>
+<label x="154.94" y="124.46" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SS3" class="0">
+<net name="SS_E1" class="0">
 <segment>
 <wire x1="218.44" y1="160.02" x2="210.82" y2="160.02" width="0.1524" layer="91"/>
 <label x="210.82" y="160.02" size="1.778" layer="95"/>
 <pinref part="SPI_HEADER" gate="G$1" pin="6"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF2"/>
+<wire x1="152.4" y1="121.92" x2="160.02" y2="121.92" width="0.1524" layer="91"/>
+<label x="154.94" y="121.92" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SS4" class="0">
+<net name="SS_E2" class="0">
 <segment>
 <wire x1="218.44" y1="157.48" x2="210.82" y2="157.48" width="0.1524" layer="91"/>
 <label x="210.82" y="157.48" size="1.778" layer="95"/>
 <pinref part="SPI_HEADER" gate="G$1" pin="7"/>
 </segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF3"/>
+<wire x1="152.4" y1="119.38" x2="160.02" y2="119.38" width="0.1524" layer="91"/>
+<label x="154.94" y="119.38" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SS5" class="0">
+<net name="SS_E3" class="0">
 <segment>
 <pinref part="SPI_HEADER" gate="G$1" pin="8"/>
 <wire x1="218.44" y1="154.94" x2="210.82" y2="154.94" width="0.1524" layer="91"/>
 <label x="210.82" y="154.94" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF4"/>
+<wire x1="152.4" y1="116.84" x2="160.02" y2="116.84" width="0.1524" layer="91"/>
+<label x="154.94" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">

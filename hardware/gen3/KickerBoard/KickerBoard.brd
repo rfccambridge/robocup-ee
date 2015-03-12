@@ -4128,23 +4128,23 @@ design rules under a new name.</description>
 <signal name="SCK">
 <contactref element="R4" pad="1"/>
 <contactref element="PROG_CNT" pad="3"/>
-<contactref element="U2" pad="11"/>
 <wire x1="116.68" y1="63.03" x2="105.62" y2="92.24" width="0" layer="19" extent="1-1"/>
-<wire x1="86.28" y1="37.5234" x2="116.68" y2="63.03" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SS1">
+<signal name="SS_M">
 <contactref element="SPI_HEADER" pad="4"/>
 </signal>
-<signal name="SS2">
+<signal name="SS_K">
 <contactref element="SPI_HEADER" pad="5"/>
+<contactref element="U2" pad="11"/>
+<wire x1="86.28" y1="37.5234" x2="55.72" y2="74.46" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SS3">
+<signal name="SS_E1">
 <contactref element="SPI_HEADER" pad="6"/>
 </signal>
-<signal name="SS4">
+<signal name="SS_E2">
 <contactref element="SPI_HEADER" pad="7"/>
 </signal>
-<signal name="SS5">
+<signal name="SS_E3">
 <contactref element="SPI_HEADER" pad="8"/>
 </signal>
 <signal name="N$3">
