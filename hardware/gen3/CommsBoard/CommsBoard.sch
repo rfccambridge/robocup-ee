@@ -4099,6 +4099,21 @@ at 27/07/2012 14:02:49</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,332.74,71.12,U$1,VDD,3.3V,,,"/>
+<approved hash="104,1,106.68,149.86,U1,VCC_2,3.3V,,,"/>
+<approved hash="104,1,106.68,147.32,U1,VCC,3.3V,,,"/>
+<approved hash="104,1,106.68,144.78,U1,AVCC,FILT,,,"/>
+<approved hash="113,1,96.52,28.9772,PROG_CNT,,,,,"/>
+<approved hash="113,1,335.602,100.33,LED9,,,,,"/>
+<approved hash="113,1,340.682,100.33,LED1,,,,,"/>
+<approved hash="113,1,345.762,100.33,LED2,,,,,"/>
+<approved hash="113,1,350.842,100.33,LED3,,,,,"/>
+<approved hash="113,1,355.922,100.33,LED4,,,,,"/>
+<approved hash="113,1,361.002,100.33,LED5,,,,,"/>
+<approved hash="113,1,366.082,100.33,LED6,,,,,"/>
+<approved hash="113,1,371.162,100.33,LED7,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>

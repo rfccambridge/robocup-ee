@@ -4830,20 +4830,20 @@ at 27/07/2012 14:02:49</description>
 <text x="365.76" y="210.82" size="1.778" layer="91">max 10A -&gt; .2V
 .2V x15 gain -&gt; 3V</text>
 <text x="340.36" y="213.36" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
-<text x="373.38" y="243.84" size="1.778" layer="91">power with 5v for rails</text>
+<text x="373.38" y="243.84" size="1.778" layer="91">upside down, sorry</text>
 <text x="627.38" y="210.82" size="1.778" layer="91">max 10A -&gt; .2V
 .2V x15 gain -&gt; 3V</text>
 <text x="601.98" y="213.36" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
-<text x="635" y="243.84" size="1.778" layer="91">power with 5v for rails</text>
 <text x="624.84" y="12.7" size="1.778" layer="91">max 10A -&gt; .2V
 .2V x15 gain -&gt; 3V</text>
 <text x="599.44" y="15.24" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
-<text x="632.46" y="45.72" size="1.778" layer="91">power with 5v for rails</text>
 <text x="365.76" y="15.24" size="1.778" layer="91">max 10A -&gt; .2V
 .2V x15 gain -&gt; 3V</text>
 <text x="340.36" y="17.78" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
-<text x="373.38" y="48.26" size="1.778" layer="91">power with 5v for rails</text>
 <text x="231.14" y="147.32" size="1.778" layer="91" rot="R90">only ss_m connected here</text>
+<text x="640.08" y="243.84" size="1.778" layer="91">upside down, sorry</text>
+<text x="637.54" y="45.72" size="1.778" layer="91">upside down, sorry</text>
+<text x="378.46" y="48.26" size="1.778" layer="91">upside down, sorry</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="401.32" y="345.44"/>
@@ -4861,7 +4861,7 @@ at 27/07/2012 14:02:49</description>
 <instance part="LOGIC_HEADER" gate="G$1" x="20.32" y="167.64"/>
 <instance part="POWER_HEADER" gate="G$1" x="17.78" y="50.8"/>
 <instance part="SPARE_HEADER" gate="G$1" x="223.52" y="48.26" rot="R180"/>
-<instance part="R2" gate="G$1" x="213.36" y="172.72"/>
+<instance part="R2" gate="G$1" x="208.28" y="172.72"/>
 <instance part="R3" gate="G$1" x="208.28" y="170.18"/>
 <instance part="R4" gate="G$1" x="203.2" y="167.64"/>
 <instance part="JP13" gate="G$1" x="93.98" y="27.94"/>
@@ -5209,11 +5209,6 @@ at 27/07/2012 14:02:49</description>
 <wire x1="287.02" y1="96.52" x2="287.02" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="V+"/>
-<wire x1="378.46" y1="220.98" x2="378.46" y2="218.44" width="0.1524" layer="91"/>
-<label x="378.46" y="218.44" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R90" gate="G$1" pin="1"/>
 <wire x1="393.7" y1="205.74" x2="393.7" y2="203.2" width="0.1524" layer="91"/>
 <label x="393.7" y="203.2" size="1.778" layer="95"/>
@@ -5259,24 +5254,9 @@ at 27/07/2012 14:02:49</description>
 <label x="205.74" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="V+"/>
-<wire x1="640.08" y1="220.98" x2="640.08" y2="218.44" width="0.1524" layer="91"/>
-<label x="640.08" y="218.44" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$7" gate="G$1" pin="V+"/>
-<wire x1="637.54" y1="22.86" x2="637.54" y2="20.32" width="0.1524" layer="91"/>
-<label x="637.54" y="20.32" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R60" gate="G$1" pin="1"/>
 <wire x1="652.78" y1="7.62" x2="652.78" y2="5.08" width="0.1524" layer="91"/>
 <label x="652.78" y="5.08" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$8" gate="G$1" pin="V+"/>
-<wire x1="378.46" y1="25.4" x2="378.46" y2="22.86" width="0.1524" layer="91"/>
-<label x="378.46" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R62" gate="G$1" pin="1"/>
@@ -5287,6 +5267,26 @@ at 27/07/2012 14:02:49</description>
 <pinref part="R58" gate="G$1" pin="1"/>
 <wire x1="655.32" y1="205.74" x2="655.32" y2="200.66" width="0.1524" layer="91"/>
 <label x="655.32" y="200.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="V-"/>
+<wire x1="378.46" y1="236.22" x2="378.46" y2="241.3" width="0.1524" layer="91"/>
+<label x="378.46" y="241.3" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="V-"/>
+<wire x1="640.08" y1="236.22" x2="640.08" y2="241.3" width="0.1524" layer="91"/>
+<label x="640.08" y="241.3" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="V-"/>
+<wire x1="637.54" y1="38.1" x2="637.54" y2="43.18" width="0.1524" layer="91"/>
+<label x="637.54" y="43.18" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="V-"/>
+<wire x1="378.46" y1="40.64" x2="378.46" y2="45.72" width="0.1524" layer="91"/>
+<label x="378.46" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -5396,7 +5396,7 @@ at 27/07/2012 14:02:49</description>
 <net name="MOSI" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="208.28" y1="172.72" x2="190.5" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="172.72" x2="190.5" y2="172.72" width="0.1524" layer="91"/>
 <label x="190.5" y="172.72" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -5825,24 +5825,24 @@ at 27/07/2012 14:02:49</description>
 <label x="472.44" y="132.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="V-"/>
-<wire x1="378.46" y1="236.22" x2="378.46" y2="241.3" width="0.1524" layer="91"/>
-<label x="378.46" y="241.3" size="1.778" layer="95"/>
+<pinref part="U$5" gate="G$1" pin="V+"/>
+<wire x1="378.46" y1="220.98" x2="378.46" y2="218.44" width="0.1524" layer="91"/>
+<label x="378.46" y="218.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="V-"/>
-<wire x1="640.08" y1="236.22" x2="640.08" y2="241.3" width="0.1524" layer="91"/>
-<label x="640.08" y="241.3" size="1.778" layer="95"/>
+<pinref part="U$6" gate="G$1" pin="V+"/>
+<wire x1="640.08" y1="220.98" x2="640.08" y2="218.44" width="0.1524" layer="91"/>
+<label x="640.08" y="218.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$7" gate="G$1" pin="V-"/>
-<wire x1="637.54" y1="38.1" x2="637.54" y2="43.18" width="0.1524" layer="91"/>
-<label x="637.54" y="43.18" size="1.778" layer="95"/>
+<pinref part="U$7" gate="G$1" pin="V+"/>
+<wire x1="637.54" y1="22.86" x2="637.54" y2="20.32" width="0.1524" layer="91"/>
+<label x="637.54" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="V-"/>
-<wire x1="378.46" y1="40.64" x2="378.46" y2="45.72" width="0.1524" layer="91"/>
-<label x="378.46" y="45.72" size="1.778" layer="95"/>
+<pinref part="U$8" gate="G$1" pin="V+"/>
+<wire x1="378.46" y1="25.4" x2="378.46" y2="22.86" width="0.1524" layer="91"/>
+<label x="378.46" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB" class="0">
@@ -7663,9 +7663,62 @@ at 27/07/2012 14:02:49</description>
 <label x="208.28" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="N$45" class="0">
+<segment>
+<pinref part="SPI_HEADER" gate="G$1" pin="1"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="213.36" y1="172.72" x2="215.9" y2="172.72" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,378.46,220.98,U$5,V+,5V,,,"/>
+<approved hash="104,1,378.46,236.22,U$5,V-,GND,,,"/>
+<approved hash="104,1,99.06,149.86,U2,VCC_2,3.3V,,,"/>
+<approved hash="104,1,99.06,147.32,U2,VCC,3.3V,,,"/>
+<approved hash="104,1,99.06,144.78,U2,AVCC,N$110,,,"/>
+<approved hash="104,1,640.08,220.98,U$6,V+,5V,,,"/>
+<approved hash="104,1,640.08,236.22,U$6,V-,GND,,,"/>
+<approved hash="104,1,637.54,22.86,U$7,V+,5V,,,"/>
+<approved hash="104,1,637.54,38.1,U$7,V-,GND,,,"/>
+<approved hash="104,1,378.46,25.4,U$8,V+,5V,,,"/>
+<approved hash="104,1,378.46,40.64,U$8,V-,GND,,,"/>
+<approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
+<approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
+<approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
+<approved hash="106,1,215.9,162.56,SS_K,,,,,"/>
+<approved hash="113,1,400.557,345.44,Q6,,,,,"/>
+<approved hash="113,1,93.98,28.9772,JP13,,,,,"/>
+<approved hash="113,1,423.417,332.74,Q1,,,,,"/>
+<approved hash="113,1,446.277,320.04,Q2,,,,,"/>
+<approved hash="113,1,400.557,292.1,Q3,,,,,"/>
+<approved hash="113,1,423.417,276.86,Q4,,,,,"/>
+<approved hash="113,1,446.277,264.16,Q5,,,,,"/>
+<approved hash="113,1,662.177,345.44,Q9,,,,,"/>
+<approved hash="113,1,685.359,332.74,Q10,,,,,"/>
+<approved hash="113,1,708.219,320.04,Q11,,,,,"/>
+<approved hash="113,1,662.499,292.1,Q12,,,,,"/>
+<approved hash="113,1,685.359,276.86,Q13,,,,,"/>
+<approved hash="113,1,708.219,264.16,Q14,,,,,"/>
+<approved hash="113,1,400.879,149.86,Q17,,,,,"/>
+<approved hash="113,1,423.739,137.16,Q18,,,,,"/>
+<approved hash="113,1,446.599,124.46,Q19,,,,,"/>
+<approved hash="113,1,400.879,96.52,Q20,,,,,"/>
+<approved hash="113,1,423.739,81.28,Q21,,,,,"/>
+<approved hash="113,1,446.599,68.58,Q22,,,,,"/>
+<approved hash="113,1,659.959,147.32,Q25,,,,,"/>
+<approved hash="113,1,682.819,134.62,Q26,,,,,"/>
+<approved hash="113,1,705.679,121.92,Q27,,,,,"/>
+<approved hash="113,1,659.959,93.98,Q28,,,,,"/>
+<approved hash="113,1,682.819,78.74,Q29,,,,,"/>
+<approved hash="113,1,705.679,66.04,Q30,,,,,"/>
+<approved hash="113,1,190.822,97.79,LED9,,,,,"/>
+<approved hash="113,1,200.982,97.79,LED11,,,,,"/>
+<approved hash="113,1,211.142,97.79,LED13,,,,,"/>
+<approved hash="113,1,221.302,97.79,LED15,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
