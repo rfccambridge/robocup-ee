@@ -1,0 +1,339 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9729,        330]
+NotebookOptionsPosition[      7839,        256]
+NotebookOutlinePosition[      8180,        271]
+CellTagsIndexPosition[      8137,        268]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Motor Board Calculations", "Title",
+ CellChangeTimes->{{3.6268779857576857`*^9, 3.626877989194076*^9}, {
+  3.6352670419030037`*^9, 3.635267042400515*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["RFC Cambridge: Spring 2015", "Chapter",
+ CellChangeTimes->{{3.6268779944737053`*^9, 3.626878006037744*^9}, {
+  3.635267050425373*^9, 3.6352670541219997`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Units", "Section",
+ CellChangeTimes->{{3.62687968347024*^9, 3.6268796839498672`*^9}}],
+
+Cell["\<\
+All currents in A
+All voltages in V
+All resistances in Ohms
+All frequencies in Hz\
+\>", "Text",
+ CellChangeTimes->{{3.626879856286674*^9, 3.626879885533463*^9}, {
+  3.626880628018265*^9, 3.6268806358216333`*^9}, {3.626881441831375*^9, 
+  3.626881444962721*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"m", " ", "=", " ", 
+   RowBox[{"1", "/", "1000"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", " ", "=", " ", "1000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"M", " ", "=", " ", "1000000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"u", " ", "=", " ", 
+   RowBox[{"1", "/", "1000000"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", " ", "=", " ", 
+   RowBox[{"1", "/", "1000000000"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p", " ", "=", " ", 
+   RowBox[{"1", "/", "1000000000000"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.626881376778865*^9, 3.626881416271038*^9}, {
+  3.6268816005850286`*^9, 3.626881605996148*^9}, {3.6268825257824707`*^9, 
+  3.626882543612389*^9}, {3.6268830110519333`*^9, 3.626883017330235*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Part Specs", "Section",
+ CellChangeTimes->{{3.626878017415678*^9, 3.626878023716991*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Vcc", " ", "=", " ", "3.3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Vpp", " ", "=", " ", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Fpwm", " ", "=", " ", 
+   RowBox[{"30", " ", "k"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Ilimit", " ", "=", " ", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Imax", " ", "=", " ", "10"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.626884109610784*^9, 3.626884130332473*^9}, {
+  3.635159799888637*^9, 3.635159803250185*^9}, {3.635160597937443*^9, 
+  3.6351606370148773`*^9}, {3.6352671084283333`*^9, 3.635267132564815*^9}, {
+  3.635267164105586*^9, 3.635267171015237*^9}, {3.635267328186302*^9, 
+  3.6352673374525747`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calculations", "Section",
+ CellChangeTimes->{{3.635267146978796*^9, 3.635267148445354*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Current Sense Resistor", "Subsection",
+ CellChangeTimes->{{3.635267188896819*^9, 3.635267192253406*^9}, {
+  3.6352673733248377`*^9, 3.6352673751291103`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Rsense", " ", "=", " ", ".02"}], ";"}]], "Input",
+ CellChangeTimes->{{3.6352672158476562`*^9, 3.635267219123754*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Vsense", " ", "=", " ", 
+  RowBox[{"Rsense", " ", "*", " ", "Imax"}]}]], "Input",
+ CellChangeTimes->{{3.635267239742298*^9, 3.6352672456554193`*^9}, {
+  3.635267342415015*^9, 3.63526734473427*^9}}],
+
+Cell[BoxData["0.2`"], "Output",
+ CellChangeTimes->{
+  3.635267246540884*^9, {3.635267346144635*^9, 3.635267350161504*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Wsense", " ", "=", " ", 
+  RowBox[{
+   SuperscriptBox["Imax", "2"], "*", "Rsense"}]}]], "Input",
+ CellChangeTimes->{{3.635267273203598*^9, 3.635267316120346*^9}}],
+
+Cell[BoxData["2.`"], "Output",
+ CellChangeTimes->{3.635267317432784*^9, 3.6352673560563602`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sense Low Pass", "Subsection",
+ CellChangeTimes->{{3.635267381271427*^9, 3.635267385186531*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Fsig", " ", "=", " ", "60"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F3db", " ", "=", " ", 
+   RowBox[{"2", "*", " ", "Fsig"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rfilt", " ", "=", " ", 
+   RowBox[{"13.0", "k"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Cfilt", " ", "=", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{"2", "*", "\[Pi]", " ", "*", " ", "Rfilt", "*", "F3db"}]], "/", 
+   "u"}]}]}], "Input",
+ CellChangeTimes->{{3.6352677296853323`*^9, 3.635267746617629*^9}, {
+  3.635267860496931*^9, 3.63526787023507*^9}}],
+
+Cell[BoxData["0.10202239941788163`"], "Output",
+ CellChangeTimes->{{3.6352678656372423`*^9, 3.6352678715203133`*^9}}]
+}, Open  ]],
+
+Cell["Use R = 13k, C = .1 uF", "Text",
+ CellChangeTimes->{{3.635268115970343*^9, 3.635268125755639*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Op Amp Gain", "Subsection",
+ CellChangeTimes->{{3.635268134882718*^9, 3.6352681536553507`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Vdetect", " ", "=", " ", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Gain", " ", "=", " ", 
+  FractionBox["Vdetect", "Vsense"]}]}], "Input",
+ CellChangeTimes->{{3.635268159715088*^9, 3.635268199184451*^9}}],
+
+Cell[BoxData["15.`"], "Output",
+ CellChangeTimes->{3.635268200783794*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Rlo", " ", "=", " ", 
+   RowBox[{"5", " ", "k"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{"Gain", " ", "==", " ", 
+    FractionBox[
+     RowBox[{"Rhi", " ", "+", " ", "Rlo"}], "Rlo"]}], ",", " ", "Rhi"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.635268213288835*^9, 3.63526827190693*^9}, {
+  3.635269875089142*^9, 3.635269875224572*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"Rhi", "\[Rule]", "70000.`"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.635268273140551*^9, 3.6352698756590433`*^9}]
+}, Open  ]],
+
+Cell[" Use 70k and 5k resistors for gain of  x15", "Text",
+ CellChangeTimes->{{3.63526814707038*^9, 3.635268158637995*^9}, {
+  3.6352698810121927`*^9, 3.635269894044683*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Current limit", "Subsection",
+ CellChangeTimes->{{3.635269916831326*^9, 3.6352699187236433`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Vlimit", " ", "=", " ", 
+  RowBox[{"Ilimit", " ", "*", "Rsense", " ", "*", " ", "Gain"}]}]], "Input",
+ CellChangeTimes->{{3.6352699472824306`*^9, 3.635269960742373*^9}}],
+
+Cell[BoxData["1.7999999999999998`"], "Output",
+ CellChangeTimes->{3.635269963473569*^9}]
+}, Open  ]],
+
+Cell["use comparator against 1.8V reference.", "Text",
+ CellChangeTimes->{{3.6352699743290453`*^9, 3.635269986197307*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Rlo2", " ", "=", " ", 
+   RowBox[{"24", "k"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Rhi2", " ", "=", "   ", 
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{"Rlo2", " "}], "Vlimit"], " ", "*", "Vcc"}], " ", "-", " ", 
+   "Rlo2"}]}]}], "Input",
+ CellChangeTimes->{{3.635270070928906*^9, 3.635270149921709*^9}, {
+  3.6352702588281107`*^9, 3.635270270520849*^9}, {3.635270309109826*^9, 
+  3.635270325683362*^9}, {3.635270379714202*^9, 3.6352704101974087`*^9}}],
+
+Cell[BoxData["20000.`"], "Output",
+ CellChangeTimes->{{3.635270265324532*^9, 3.635270272829348*^9}, {
+  3.6352704023101177`*^9, 3.635270410800859*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{960, 1028},
+WindowMargins->{{-10, Automatic}, {-10, Automatic}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 160, 2, 96, "Title"],
+Cell[CellGroupData[{
+Cell[765, 28, 164, 2, 69, "Chapter"],
+Cell[CellGroupData[{
+Cell[954, 34, 91, 1, 67, "Section"],
+Cell[1048, 37, 271, 8, 99, "Text"],
+Cell[1322, 47, 820, 19, 143, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2179, 71, 95, 1, 67, "Section"],
+Cell[2277, 74, 749, 16, 121, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3063, 95, 97, 1, 67, "Section"],
+Cell[CellGroupData[{
+Cell[3185, 100, 163, 2, 47, "Subsection"],
+Cell[3351, 104, 152, 3, 32, "Input"],
+Cell[CellGroupData[{
+Cell[3528, 111, 221, 4, 32, "Input"],
+Cell[3752, 117, 122, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3911, 124, 186, 4, 34, "Input"],
+Cell[4100, 130, 96, 1, 32, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4245, 137, 102, 1, 47, "Subsection"],
+Cell[CellGroupData[{
+Cell[4372, 142, 590, 15, 123, "Input"],
+Cell[4965, 159, 117, 1, 32, "Output"]
+}, Open  ]],
+Cell[5097, 163, 104, 1, 33, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5238, 169, 101, 1, 47, "Subsection"],
+Cell[CellGroupData[{
+Cell[5364, 174, 246, 5, 79, "Input"],
+Cell[5613, 181, 73, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5723, 187, 414, 11, 79, "Input"],
+Cell[6140, 200, 177, 4, 32, "Output"]
+}, Open  ]],
+Cell[6332, 207, 174, 2, 33, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6543, 214, 103, 1, 47, "Subsection"],
+Cell[CellGroupData[{
+Cell[6671, 219, 193, 3, 32, "Input"],
+Cell[6867, 224, 88, 1, 32, "Output"]
+}, Open  ]],
+Cell[6970, 228, 122, 1, 33, "Text"],
+Cell[CellGroupData[{
+Cell[7117, 233, 504, 12, 79, "Input"],
+Cell[7624, 247, 151, 2, 32, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
