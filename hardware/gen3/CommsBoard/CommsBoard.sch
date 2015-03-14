@@ -3295,8 +3295,8 @@ at 27/07/2012 14:02:49</description>
 <part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="SPARE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
-<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>

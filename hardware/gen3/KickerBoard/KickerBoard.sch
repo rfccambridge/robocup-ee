@@ -21547,8 +21547,8 @@ at 27/07/2012 14:02:49</description>
 <part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="300"/>
 <part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="10k"/>
 <part name="Q6" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device=""/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
-<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R30" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="U2" library="Atmel_By_element14_Batch_1-00" deviceset="ATMEGA165PV-8AU" device=""/>
 <part name="C1" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>

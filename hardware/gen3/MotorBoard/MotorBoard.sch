@@ -4835,10 +4835,10 @@ at 27/07/2012 14:02:49</description>
 <part name="R87" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
 <part name="R88" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
 <part name="U$5" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="70k"/>
-<part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="5k"/>
-<part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
-<part name="C40" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
+<part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C40" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R97" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="U2" library="Atmel_By_element14_Batch_1-00" deviceset="ATMEGA165PV-8AU" device=""/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
@@ -4855,40 +4855,36 @@ at 27/07/2012 14:02:49</description>
 <part name="R92" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
 <part name="RFILT" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="U$9" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
-<part name="R93" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="64k"/>
-<part name="R94" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="36k"/>
+<part name="R93" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R94" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
 <part name="R77" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
 <part name="R57" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
 <part name="R58" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
 <part name="R59" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
 <part name="RSENSE2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
 <part name="U$6" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R60" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="70k"/>
-<part name="R61" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="5k"/>
+<part name="R60" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R61" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
 <part name="RFILT1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="U$7" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
-<part name="R62" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="64k"/>
-<part name="R80" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="36k"/>
+<part name="R62" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R80" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
 <part name="RSENSE4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
 <part name="U$8" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R83" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="70k"/>
-<part name="R86" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="5k"/>
+<part name="R83" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R86" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
 <part name="RFILT4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
 <part name="C41" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="U$10" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
-<part name="R95" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="64k"/>
-<part name="R96" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="36k"/>
+<part name="R95" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R96" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
 <part name="RSENSE3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
 <part name="U$11" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R98" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="70k"/>
-<part name="R100" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="5k"/>
+<part name="R98" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R100" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
 <part name="RFILT3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
 <part name="C42" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="U$12" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
-<part name="R102" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="64k"/>
-<part name="R104" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="36k"/>
+<part name="R102" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
+<part name="R104" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
 <part name="C8" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
 <part name="C17" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
 <part name="C26" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
@@ -4897,6 +4893,10 @@ at 27/07/2012 14:02:49</description>
 <part name="C44" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
 <part name="C45" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
 <part name="C46" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="U$13" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+<part name="U$7" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+<part name="U$9" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+<part name="U$10" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4921,7 +4921,7 @@ at 27/07/2012 14:02:49</description>
 <text x="231.14" y="147.32" size="1.778" layer="91" rot="R90">only ss_m connected here</text>
 <text x="297.18" y="236.22" size="1.778" layer="91">lowpass, f3db =  120 hz</text>
 <text x="365.76" y="203.2" size="1.778" layer="91">1.8 ref voltage</text>
-<text x="396.24" y="231.14" size="1.778" layer="91">gnd / float</text>
+<text x="396.24" y="231.14" size="1.778" layer="91">pulldown</text>
 <text x="276.86" y="269.24" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
 <text x="535.94" y="269.24" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
 <text x="535.94" y="71.12" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
@@ -5156,7 +5156,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R92" gate="G$1" x="548.64" y="96.52" rot="R270"/>
 <instance part="RFILT" gate="G$1" x="307.34" y="231.14"/>
 <instance part="C1" gate="G$1" x="314.96" y="223.52"/>
-<instance part="U$9" gate="G1" x="381" y="226.06" rot="MR180"/>
 <instance part="R93" gate="G$1" x="363.22" y="210.82" rot="R180"/>
 <instance part="R94" gate="G$1" x="378.46" y="210.82" rot="R180"/>
 <instance part="R77" gate="G$1" x="289.56" y="274.32"/>
@@ -5169,7 +5168,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R61" gate="G$1" x="609.6" y="210.82" rot="R90"/>
 <instance part="RFILT1" gate="G$1" x="568.96" y="231.14"/>
 <instance part="C2" gate="G$1" x="576.58" y="223.52"/>
-<instance part="U$7" gate="G1" x="642.62" y="226.06" rot="MR180"/>
 <instance part="R62" gate="G$1" x="624.84" y="210.82" rot="R180"/>
 <instance part="R80" gate="G$1" x="640.08" y="210.82" rot="R180"/>
 <instance part="RSENSE4" gate="G$1" x="558.8" y="22.86" rot="R90"/>
@@ -5178,7 +5176,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R86" gate="G$1" x="612.14" y="12.7" rot="R90"/>
 <instance part="RFILT4" gate="G$1" x="571.5" y="33.02"/>
 <instance part="C41" gate="G$1" x="579.12" y="25.4"/>
-<instance part="U$10" gate="G1" x="645.16" y="27.94" rot="MR180"/>
 <instance part="R95" gate="G$1" x="627.38" y="12.7" rot="R180"/>
 <instance part="R96" gate="G$1" x="642.62" y="12.7" rot="R180"/>
 <instance part="RSENSE3" gate="G$1" x="297.18" y="22.86" rot="R90"/>
@@ -5187,7 +5184,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R100" gate="G$1" x="350.52" y="12.7" rot="R90"/>
 <instance part="RFILT3" gate="G$1" x="309.88" y="33.02"/>
 <instance part="C42" gate="G$1" x="317.5" y="25.4"/>
-<instance part="U$12" gate="G1" x="383.54" y="27.94" rot="MR180"/>
 <instance part="R102" gate="G$1" x="365.76" y="12.7" rot="R180"/>
 <instance part="R104" gate="G$1" x="381" y="12.7" rot="R180"/>
 <instance part="C8" gate="G$1" x="434.34" y="355.6"/>
@@ -5198,6 +5194,10 @@ at 27/07/2012 14:02:49</description>
 <instance part="C44" gate="G$1" x="53.34" y="38.1"/>
 <instance part="C45" gate="G$1" x="45.72" y="152.4"/>
 <instance part="C46" gate="G$1" x="53.34" y="152.4"/>
+<instance part="U$13" gate="G1" x="381" y="226.06"/>
+<instance part="U$7" gate="G1" x="642.62" y="226.06"/>
+<instance part="U$9" gate="G1" x="645.16" y="27.94"/>
+<instance part="U$10" gate="G1" x="383.54" y="27.94"/>
 </instances>
 <busses>
 </busses>
@@ -5398,11 +5398,6 @@ at 27/07/2012 14:02:49</description>
 <label x="314.96" y="215.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$9" gate="G1" pin="V-"/>
-<wire x1="381" y1="233.68" x2="381" y2="236.22" width="0.1524" layer="91"/>
-<label x="381" y="236.22" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R94" gate="G$1" pin="1"/>
 <wire x1="383.54" y1="210.82" x2="386.08" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="386.08" y1="210.82" x2="386.08" y2="208.28" width="0.1524" layer="91"/>
@@ -5422,11 +5417,6 @@ at 27/07/2012 14:02:49</description>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="576.58" y1="220.98" x2="576.58" y2="215.9" width="0.1524" layer="91"/>
 <label x="576.58" y="215.9" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$7" gate="G1" pin="V-"/>
-<wire x1="642.62" y1="233.68" x2="642.62" y2="236.22" width="0.1524" layer="91"/>
-<label x="642.62" y="236.22" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R80" gate="G$1" pin="1"/>
@@ -5450,11 +5440,6 @@ at 27/07/2012 14:02:49</description>
 <label x="579.12" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$10" gate="G1" pin="V-"/>
-<wire x1="645.16" y1="35.56" x2="645.16" y2="38.1" width="0.1524" layer="91"/>
-<label x="645.16" y="38.1" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R96" gate="G$1" pin="1"/>
 <wire x1="647.7" y1="12.7" x2="650.24" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="650.24" y1="12.7" x2="650.24" y2="10.16" width="0.1524" layer="91"/>
@@ -5476,15 +5461,30 @@ at 27/07/2012 14:02:49</description>
 <label x="317.5" y="17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$12" gate="G1" pin="V-"/>
-<wire x1="383.54" y1="35.56" x2="383.54" y2="38.1" width="0.1524" layer="91"/>
-<label x="383.54" y="38.1" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R104" gate="G$1" pin="1"/>
 <wire x1="386.08" y1="12.7" x2="388.62" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="388.62" y1="12.7" x2="388.62" y2="10.16" width="0.1524" layer="91"/>
 <label x="388.62" y="10.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="381" y1="218.44" x2="381" y2="215.9" width="0.1524" layer="91"/>
+<label x="381" y="215.9" size="1.778" layer="95"/>
+<pinref part="U$13" gate="G1" pin="V-"/>
+</segment>
+<segment>
+<wire x1="383.54" y1="20.32" x2="383.54" y2="17.78" width="0.1524" layer="91"/>
+<label x="383.54" y="17.78" size="1.778" layer="95"/>
+<pinref part="U$10" gate="G1" pin="V-"/>
+</segment>
+<segment>
+<wire x1="645.16" y1="20.32" x2="645.16" y2="17.78" width="0.1524" layer="91"/>
+<label x="645.16" y="17.78" size="1.778" layer="95"/>
+<pinref part="U$9" gate="G1" pin="V-"/>
+</segment>
+<segment>
+<wire x1="642.62" y1="218.44" x2="642.62" y2="215.9" width="0.1524" layer="91"/>
+<label x="642.62" y="215.9" size="1.778" layer="95"/>
+<pinref part="U$7" gate="G1" pin="V-"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -6048,11 +6048,6 @@ at 27/07/2012 14:02:49</description>
 <label x="332.74" y="218.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$9" gate="G1" pin="V+"/>
-<wire x1="381" y1="218.44" x2="381" y2="215.9" width="0.1524" layer="91"/>
-<label x="381" y="215.9" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R93" gate="G$1" pin="2"/>
 <wire x1="358.14" y1="210.82" x2="355.6" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="355.6" y1="210.82" x2="355.6" y2="213.36" width="0.1524" layer="91"/>
@@ -6062,11 +6057,6 @@ at 27/07/2012 14:02:49</description>
 <pinref part="U$6" gate="G$1" pin="V+"/>
 <wire x1="594.36" y1="220.98" x2="594.36" y2="218.44" width="0.1524" layer="91"/>
 <label x="594.36" y="218.44" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$7" gate="G1" pin="V+"/>
-<wire x1="642.62" y1="218.44" x2="642.62" y2="215.9" width="0.1524" layer="91"/>
-<label x="642.62" y="215.9" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R62" gate="G$1" pin="2"/>
@@ -6080,11 +6070,6 @@ at 27/07/2012 14:02:49</description>
 <label x="596.9" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$10" gate="G1" pin="V+"/>
-<wire x1="645.16" y1="20.32" x2="645.16" y2="17.78" width="0.1524" layer="91"/>
-<label x="645.16" y="17.78" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R95" gate="G$1" pin="2"/>
 <wire x1="622.3" y1="12.7" x2="619.76" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="619.76" y1="12.7" x2="619.76" y2="15.24" width="0.1524" layer="91"/>
@@ -6096,15 +6081,30 @@ at 27/07/2012 14:02:49</description>
 <label x="335.28" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$12" gate="G1" pin="V+"/>
-<wire x1="383.54" y1="20.32" x2="383.54" y2="17.78" width="0.1524" layer="91"/>
-<label x="383.54" y="17.78" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R102" gate="G$1" pin="2"/>
 <wire x1="360.68" y1="12.7" x2="358.14" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="12.7" x2="358.14" y2="15.24" width="0.1524" layer="91"/>
 <label x="358.14" y="15.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="381" y1="233.68" x2="381" y2="236.22" width="0.1524" layer="91"/>
+<label x="381" y="236.22" size="1.778" layer="95"/>
+<pinref part="U$13" gate="G1" pin="V+"/>
+</segment>
+<segment>
+<wire x1="383.54" y1="35.56" x2="383.54" y2="38.1" width="0.1524" layer="91"/>
+<label x="383.54" y="38.1" size="1.778" layer="95"/>
+<pinref part="U$10" gate="G1" pin="V+"/>
+</segment>
+<segment>
+<wire x1="645.16" y1="35.56" x2="645.16" y2="38.1" width="0.1524" layer="91"/>
+<label x="645.16" y="38.1" size="1.778" layer="95"/>
+<pinref part="U$9" gate="G1" pin="V+"/>
+</segment>
+<segment>
+<wire x1="642.62" y1="233.68" x2="642.62" y2="236.22" width="0.1524" layer="91"/>
+<label x="642.62" y="236.22" size="1.778" layer="95"/>
+<pinref part="U$7" gate="G1" pin="V+"/>
 </segment>
 </net>
 <net name="M1QB" class="0">
@@ -6366,8 +6366,8 @@ at 27/07/2012 14:02:49</description>
 <label x="358.14" y="238.76" size="1.778" layer="95"/>
 <wire x1="358.14" y1="228.6" x2="358.14" y2="238.76" width="0.1524" layer="91"/>
 <junction x="358.14" y="228.6"/>
-<pinref part="U$9" gate="G1" pin="+IN"/>
 <wire x1="358.14" y1="228.6" x2="375.92" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="U$13" gate="G1" pin="-IN"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PF0"/>
@@ -6390,8 +6390,8 @@ at 27/07/2012 14:02:49</description>
 <label x="619.76" y="238.76" size="1.778" layer="95"/>
 <wire x1="619.76" y1="228.6" x2="619.76" y2="238.76" width="0.1524" layer="91"/>
 <junction x="619.76" y="228.6"/>
-<pinref part="U$7" gate="G1" pin="+IN"/>
 <wire x1="619.76" y1="228.6" x2="637.54" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G1" pin="-IN"/>
 </segment>
 </net>
 <net name="SENSE3" class="0">
@@ -6409,8 +6409,8 @@ at 27/07/2012 14:02:49</description>
 <label x="360.68" y="40.64" size="1.778" layer="95"/>
 <wire x1="360.68" y1="30.48" x2="360.68" y2="40.64" width="0.1524" layer="91"/>
 <junction x="360.68" y="30.48"/>
-<pinref part="U$12" gate="G1" pin="+IN"/>
 <wire x1="360.68" y1="30.48" x2="378.46" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G1" pin="-IN"/>
 </segment>
 </net>
 <net name="SENSE4" class="0">
@@ -6428,8 +6428,8 @@ at 27/07/2012 14:02:49</description>
 <label x="622.3" y="40.64" size="1.778" layer="95"/>
 <wire x1="622.3" y1="30.48" x2="622.3" y2="40.64" width="0.1524" layer="91"/>
 <junction x="622.3" y="30.48"/>
-<pinref part="U$10" gate="G1" pin="+IN"/>
 <wire x1="622.3" y1="30.48" x2="640.08" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G1" pin="-IN"/>
 </segment>
 </net>
 <net name="PWM1" class="0">
@@ -7907,8 +7907,8 @@ at 27/07/2012 14:02:49</description>
 <wire x1="370.84" y1="210.82" x2="373.38" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="370.84" y1="210.82" x2="370.84" y2="223.52" width="0.1524" layer="91"/>
 <junction x="370.84" y="210.82"/>
-<pinref part="U$9" gate="G1" pin="-IN"/>
 <wire x1="370.84" y1="223.52" x2="375.92" y2="223.52" width="0.1524" layer="91"/>
+<pinref part="U$13" gate="G1" pin="+IN"/>
 </segment>
 </net>
 <net name="LIM1" class="0">
@@ -7923,9 +7923,9 @@ at 27/07/2012 14:02:49</description>
 <pinref part="R77" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="U$9" gate="G1" pin="OUT"/>
 <wire x1="391.16" y1="226.06" x2="406.4" y2="226.06" width="0.1524" layer="91"/>
 <label x="401.32" y="226.06" size="1.778" layer="95"/>
+<pinref part="U$13" gate="G1" pin="OUT"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -7958,8 +7958,8 @@ at 27/07/2012 14:02:49</description>
 <wire x1="632.46" y1="210.82" x2="635" y2="210.82" width="0.1524" layer="91"/>
 <wire x1="632.46" y1="210.82" x2="632.46" y2="223.52" width="0.1524" layer="91"/>
 <junction x="632.46" y="210.82"/>
-<pinref part="U$7" gate="G1" pin="-IN"/>
 <wire x1="632.46" y1="223.52" x2="637.54" y2="223.52" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G1" pin="+IN"/>
 </segment>
 </net>
 <net name="N$67" class="0">
@@ -7992,8 +7992,8 @@ at 27/07/2012 14:02:49</description>
 <wire x1="635" y1="12.7" x2="637.54" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="635" y1="12.7" x2="635" y2="25.4" width="0.1524" layer="91"/>
 <junction x="635" y="12.7"/>
-<pinref part="U$10" gate="G1" pin="-IN"/>
 <wire x1="635" y1="25.4" x2="640.08" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G1" pin="+IN"/>
 </segment>
 </net>
 <net name="N$89" class="0">
@@ -8026,8 +8026,8 @@ at 27/07/2012 14:02:49</description>
 <wire x1="373.38" y1="12.7" x2="375.92" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="373.38" y1="12.7" x2="373.38" y2="25.4" width="0.1524" layer="91"/>
 <junction x="373.38" y="12.7"/>
-<pinref part="U$12" gate="G1" pin="-IN"/>
 <wire x1="373.38" y1="25.4" x2="378.46" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="U$10" gate="G1" pin="+IN"/>
 </segment>
 </net>
 <net name="LIM2" class="0">
@@ -8042,9 +8042,9 @@ at 27/07/2012 14:02:49</description>
 <wire x1="579.12" y1="297.18" x2="556.26" y2="297.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$7" gate="G1" pin="OUT"/>
 <wire x1="652.78" y1="226.06" x2="668.02" y2="226.06" width="0.1524" layer="91"/>
 <label x="662.94" y="226.06" size="1.778" layer="95"/>
+<pinref part="U$7" gate="G1" pin="OUT"/>
 </segment>
 </net>
 <net name="LIM3" class="0">
@@ -8059,9 +8059,9 @@ at 27/07/2012 14:02:49</description>
 <wire x1="317.5" y1="101.6" x2="297.18" y2="101.6" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$12" gate="G1" pin="OUT"/>
 <wire x1="393.7" y1="27.94" x2="408.94" y2="27.94" width="0.1524" layer="91"/>
 <label x="403.86" y="27.94" size="1.778" layer="95"/>
+<pinref part="U$10" gate="G1" pin="OUT"/>
 </segment>
 </net>
 <net name="LIM4" class="0">
@@ -8076,9 +8076,9 @@ at 27/07/2012 14:02:49</description>
 <wire x1="576.58" y1="99.06" x2="556.26" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$10" gate="G1" pin="OUT"/>
 <wire x1="655.32" y1="27.94" x2="670.56" y2="27.94" width="0.1524" layer="91"/>
 <label x="665.48" y="27.94" size="1.778" layer="95"/>
+<pinref part="U$9" gate="G1" pin="OUT"/>
 </segment>
 </net>
 </nets>
