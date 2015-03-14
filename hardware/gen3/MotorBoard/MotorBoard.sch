@@ -44,7 +44,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="6" fill="9" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -118,6 +118,13 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -1619,353 +1626,6 @@ It has reduced top mask to make it harder to put the component on the wrong side
 <circle x="0" y="0" radius="0.40160625" width="0" layer="29"/>
 <circle x="2.54" y="0" radius="0.40160625" width="0" layer="29"/>
 </package>
-<package name="EIA3216">
-<wire x1="-1" y1="-1.2" x2="-2.5" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="-2.5" y1="-1.2" x2="-2.5" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="-2.5" y1="1.2" x2="-1" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="1" y1="-1.2" x2="2.1" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="2.1" y1="-1.2" x2="2.5" y2="-0.8" width="0.2032" layer="21"/>
-<wire x1="2.5" y1="-0.8" x2="2.5" y2="0.8" width="0.2032" layer="21"/>
-<wire x1="2.5" y1="0.8" x2="2.1" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="2.1" y1="1.2" x2="1" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="0.381" y1="1.016" x2="0.381" y2="-1.016" width="0.127" layer="21"/>
-<smd name="C" x="-1.4" y="0" dx="1.6" dy="1.4" layer="1" rot="R90"/>
-<smd name="A" x="1.4" y="0" dx="1.6" dy="1.4" layer="1" rot="R90"/>
-<text x="-2.54" y="1.381" size="0.4064" layer="25">&gt;NAME</text>
-<text x="0.408" y="1.332" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="EIA3528">
-<wire x1="-0.9" y1="-1.6" x2="-2.6" y2="-1.6" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="-1.6" x2="-2.6" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="1.55" x2="-0.9" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="1" y1="-1.55" x2="2.2" y2="-1.55" width="0.2032" layer="21"/>
-<wire x1="2.2" y1="-1.55" x2="2.6" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="-1.2" x2="2.6" y2="1.25" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="1.25" x2="2.2" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="2.2" y1="1.55" x2="1" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="2.2" y1="1.55" x2="1" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="0.609" y1="1.311" x2="0.609" y2="-1.286" width="0.2032" layer="21" style="longdash"/>
-<smd name="C" x="-1.65" y="0" dx="2.5" dy="1.2" layer="1" rot="R90"/>
-<smd name="A" x="1.65" y="0" dx="2.5" dy="1.2" layer="1" rot="R90"/>
-<text x="-2.27" y="-1.27" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="3.24" y="-1.37" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-</package>
-<package name="CPOL-RADIAL-100UF-25V">
-<wire x1="-0.635" y1="1.27" x2="-1.905" y2="1.27" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="3.25" width="0.2032" layer="21"/>
-<pad name="2" x="-1.27" y="0" drill="0.7" diameter="1.651"/>
-<pad name="1" x="1.27" y="0" drill="0.7" diameter="1.651" shape="square"/>
-<text x="-1.905" y="-4.318" size="0.8128" layer="27">&gt;Value</text>
-<text x="-0.762" y="1.651" size="0.4064" layer="25">&gt;Name</text>
-</package>
-<package name="CPOL-RADIAL-10UF-25V">
-<wire x1="-0.762" y1="1.397" x2="-1.778" y2="1.397" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="2.5" width="0.2032" layer="21"/>
-<pad name="1" x="1.27" y="0" drill="0.7" diameter="1.651" shape="square"/>
-<pad name="2" x="-1.27" y="0" drill="0.7" diameter="1.651"/>
-<text x="-0.889" y="1.524" size="0.4064" layer="25">&gt;Name</text>
-<text x="-1.905" y="-3.683" size="0.8128" layer="27">&gt;Value</text>
-</package>
-<package name="EIA7343">
-<wire x1="-5" y1="2.5" x2="-2" y2="2.5" width="0.2032" layer="21"/>
-<wire x1="-5" y1="2.5" x2="-5" y2="-2.5" width="0.2032" layer="21"/>
-<wire x1="-5" y1="-2.5" x2="-2" y2="-2.5" width="0.2032" layer="21"/>
-<wire x1="2" y1="2.5" x2="4" y2="2.5" width="0.2032" layer="21"/>
-<wire x1="4" y1="2.5" x2="5" y2="1.5" width="0.2032" layer="21"/>
-<wire x1="5" y1="1.5" x2="5" y2="-1.5" width="0.2032" layer="21"/>
-<wire x1="5" y1="-1.5" x2="4" y2="-2.5" width="0.2032" layer="21"/>
-<wire x1="4" y1="-2.5" x2="2" y2="-2.5" width="0.2032" layer="21"/>
-<smd name="C" x="-3.17" y="0" dx="2.55" dy="2.7" layer="1" rot="R180"/>
-<smd name="A" x="3.17" y="0" dx="2.55" dy="2.7" layer="1" rot="R180"/>
-<text x="-1.27" y="1.27" size="0.4064" layer="25">&gt;Name</text>
-<text x="-1.27" y="-1.27" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="PANASONIC_G">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package G&lt;/b&gt;</description>
-<wire x1="-5.1" y1="5.1" x2="2.8" y2="5.1" width="0.1016" layer="51"/>
-<wire x1="2.8" y1="5.1" x2="5.1" y2="2.8" width="0.1016" layer="51"/>
-<wire x1="5.1" y1="2.8" x2="5.1" y2="-2.8" width="0.1016" layer="51"/>
-<wire x1="5.1" y1="-2.8" x2="2.8" y2="-5.1" width="0.1016" layer="51"/>
-<wire x1="2.8" y1="-5.1" x2="-5.1" y2="-5.1" width="0.1016" layer="51"/>
-<wire x1="-5.1" y1="-5.1" x2="-5.1" y2="5.1" width="0.1016" layer="51"/>
-<wire x1="-5.1" y1="1" x2="-5.1" y2="5.1" width="0.2032" layer="21"/>
-<wire x1="-5.1" y1="5.1" x2="2.8" y2="5.1" width="0.2032" layer="21"/>
-<wire x1="2.8" y1="5.1" x2="5.1" y2="2.8" width="0.2032" layer="21"/>
-<wire x1="5.1" y1="2.8" x2="5.1" y2="1" width="0.2032" layer="21"/>
-<wire x1="5.1" y1="-1" x2="5.1" y2="-2.8" width="0.2032" layer="21"/>
-<wire x1="5.1" y1="-2.8" x2="2.8" y2="-5.1" width="0.2032" layer="21"/>
-<wire x1="2.8" y1="-5.1" x2="-5.1" y2="-5.1" width="0.2032" layer="21"/>
-<wire x1="-5.1" y1="-5.1" x2="-5.1" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-4.85" y1="-1" x2="4.85" y2="-1" width="0.2032" layer="21" curve="156.699401" cap="flat"/>
-<wire x1="-4.85" y1="1" x2="4.85" y2="1" width="0.2032" layer="21" curve="-156.699401" cap="flat"/>
-<wire x1="-3.25" y1="3.7" x2="-3.25" y2="-3.65" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="4.95" width="0.1016" layer="51"/>
-<smd name="-" x="-4.25" y="0" dx="3.9" dy="1.6" layer="1"/>
-<smd name="+" x="4.25" y="0" dx="3.9" dy="1.6" layer="1"/>
-<text x="-1.27" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-5.85" y1="-0.45" x2="-4.9" y2="0.45" layer="51"/>
-<rectangle x1="4.9" y1="-0.45" x2="5.85" y2="0.45" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-3.3" y="3.6"/>
-<vertex x="-4.05" y="2.75"/>
-<vertex x="-4.65" y="1.55"/>
-<vertex x="-4.85" y="0.45"/>
-<vertex x="-4.85" y="-0.45"/>
-<vertex x="-4.65" y="-1.55"/>
-<vertex x="-4.05" y="-2.75"/>
-<vertex x="-3.3" y="-3.6"/>
-<vertex x="-3.3" y="3.55"/>
-</polygon>
-</package>
-<package name="PANASONIC_E">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package E&lt;/b&gt;</description>
-<wire x1="-4.1" y1="4.1" x2="1.8" y2="4.1" width="0.1016" layer="51"/>
-<wire x1="1.8" y1="4.1" x2="4.1" y2="1.8" width="0.1016" layer="51"/>
-<wire x1="4.1" y1="1.8" x2="4.1" y2="-1.8" width="0.1016" layer="51"/>
-<wire x1="4.1" y1="-1.8" x2="1.8" y2="-4.1" width="0.1016" layer="51"/>
-<wire x1="1.8" y1="-4.1" x2="-4.1" y2="-4.1" width="0.1016" layer="51"/>
-<wire x1="-4.1" y1="-4.1" x2="-4.1" y2="4.1" width="0.1016" layer="51"/>
-<wire x1="-4.1" y1="0.9" x2="-4.1" y2="4.1" width="0.2032" layer="21"/>
-<wire x1="-4.1" y1="4.1" x2="1.8" y2="4.1" width="0.2032" layer="21"/>
-<wire x1="1.8" y1="4.1" x2="4.1" y2="1.8" width="0.2032" layer="21"/>
-<wire x1="4.1" y1="1.8" x2="4.1" y2="0.9" width="0.2032" layer="21"/>
-<wire x1="4.1" y1="-0.9" x2="4.1" y2="-1.8" width="0.2032" layer="21"/>
-<wire x1="4.1" y1="-1.8" x2="1.8" y2="-4.1" width="0.2032" layer="21"/>
-<wire x1="1.8" y1="-4.1" x2="-4.1" y2="-4.1" width="0.2032" layer="21"/>
-<wire x1="-4.1" y1="-4.1" x2="-4.1" y2="-0.9" width="0.2032" layer="21"/>
-<wire x1="-2.2" y1="3.25" x2="-2.2" y2="-3.25" width="0.1016" layer="51"/>
-<wire x1="-3.85" y1="0.9" x2="3.85" y2="0.9" width="0.2032" layer="21" curve="-153.684915" cap="flat"/>
-<wire x1="-3.85" y1="-0.9" x2="3.85" y2="-0.9" width="0.2032" layer="21" curve="153.684915" cap="flat"/>
-<circle x="0" y="0" radius="3.95" width="0.1016" layer="51"/>
-<smd name="-" x="-3" y="0" dx="3.8" dy="1.4" layer="1"/>
-<smd name="+" x="3" y="0" dx="3.8" dy="1.4" layer="1"/>
-<text x="-1.27" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-4.5" y1="-0.35" x2="-3.8" y2="0.35" layer="51"/>
-<rectangle x1="3.8" y1="-0.35" x2="4.5" y2="0.35" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-2.25" y="3.2"/>
-<vertex x="-3" y="2.5"/>
-<vertex x="-3.6" y="1.5"/>
-<vertex x="-3.85" y="0.65"/>
-<vertex x="-3.85" y="-0.65"/>
-<vertex x="-3.55" y="-1.6"/>
-<vertex x="-2.95" y="-2.55"/>
-<vertex x="-2.25" y="-3.2"/>
-<vertex x="-2.25" y="3.15"/>
-</polygon>
-</package>
-<package name="PANASONIC_C">
-<description>&lt;b&gt;Panasonic Aluminium Electrolytic Capacitor VS-Serie Package E&lt;/b&gt;</description>
-<wire x1="-2.6" y1="2.45" x2="1.6" y2="2.45" width="0.2032" layer="21"/>
-<wire x1="1.6" y1="2.45" x2="2.7" y2="1.35" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="-1.75" x2="1.6" y2="-2.85" width="0.2032" layer="21"/>
-<wire x1="1.6" y1="-2.85" x2="-2.6" y2="-2.85" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="2.45" x2="1.6" y2="2.45" width="0.1016" layer="51"/>
-<wire x1="1.6" y1="2.45" x2="2.7" y2="1.35" width="0.1016" layer="51"/>
-<wire x1="2.7" y1="-1.75" x2="1.6" y2="-2.85" width="0.1016" layer="51"/>
-<wire x1="1.6" y1="-2.85" x2="-2.6" y2="-2.85" width="0.1016" layer="51"/>
-<wire x1="-2.6" y1="2.45" x2="-2.6" y2="0.35" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="-2.85" x2="-2.6" y2="-0.75" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="1.35" x2="2.7" y2="0.35" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="-1.75" x2="2.7" y2="-0.7" width="0.2032" layer="21"/>
-<wire x1="-2.6" y1="2.45" x2="-2.6" y2="-2.85" width="0.1016" layer="51"/>
-<wire x1="2.7" y1="1.35" x2="2.7" y2="-1.75" width="0.1016" layer="51"/>
-<wire x1="-2.4" y1="0.35" x2="2.45" y2="0.3" width="0.2032" layer="21" curve="-156.699401"/>
-<wire x1="2.5" y1="-0.7" x2="-2.4" y2="-0.75" width="0.2032" layer="21" curve="-154.694887"/>
-<circle x="0.05" y="-0.2" radius="2.5004" width="0.1016" layer="51"/>
-<smd name="-" x="-1.8" y="-0.2" dx="2.2" dy="0.65" layer="1"/>
-<smd name="+" x="1.9" y="-0.2" dx="2.2" dy="0.65" layer="1"/>
-<text x="-2.6" y="2.7" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-2.6" y="-3.45" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="NIPPON_F80">
-<wire x1="-3.3" y1="3.3" x2="1.7" y2="3.3" width="0.2032" layer="21"/>
-<wire x1="1.7" y1="3.3" x2="3.3" y2="2" width="0.2032" layer="21"/>
-<wire x1="3.3" y1="-2" x2="1.7" y2="-3.3" width="0.2032" layer="21"/>
-<wire x1="1.7" y1="-3.3" x2="-3.3" y2="-3.3" width="0.2032" layer="21"/>
-<wire x1="-3.3" y1="3.3" x2="1.7" y2="3.3" width="0.1016" layer="51"/>
-<wire x1="1.7" y1="3.3" x2="3.3" y2="2" width="0.1016" layer="51"/>
-<wire x1="3.3" y1="-2" x2="1.7" y2="-3.3" width="0.1016" layer="51"/>
-<wire x1="1.7" y1="-3.3" x2="-3.3" y2="-3.3" width="0.1016" layer="51"/>
-<wire x1="-3.3" y1="3.3" x2="-3.3" y2="0.685" width="0.2032" layer="21"/>
-<wire x1="-3.3" y1="-3.3" x2="-3.3" y2="-0.685" width="0.2032" layer="21"/>
-<wire x1="3.3" y1="2" x2="3.3" y2="0.685" width="0.2032" layer="21"/>
-<wire x1="3.3" y1="-2" x2="3.3" y2="-0.685" width="0.2032" layer="21"/>
-<wire x1="-3.3" y1="3.3" x2="-3.3" y2="-3.3" width="0.1016" layer="51"/>
-<wire x1="3.3" y1="2" x2="3.3" y2="-2" width="0.1016" layer="51"/>
-<wire x1="-3.1" y1="0.685" x2="3.1" y2="0.685" width="0.2032" layer="21" curve="-156.500033"/>
-<wire x1="3.1" y1="-0.685" x2="-3.1" y2="-0.685" width="0.2032" layer="21" curve="-154.748326"/>
-<circle x="0" y="0" radius="3.15" width="0.1016" layer="51"/>
-<smd name="-" x="-2.4" y="0" dx="2.95" dy="1" layer="1"/>
-<smd name="+" x="2.4" y="0" dx="2.95" dy="1" layer="1"/>
-<text x="-3.2" y="3.5" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-3.2" y="-3.85" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="PANASONIC_D">
-<wire x1="-3.25" y1="3.25" x2="1.55" y2="3.25" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="3.25" x2="3.25" y2="1.55" width="0.1016" layer="51"/>
-<wire x1="3.25" y1="1.55" x2="3.25" y2="-1.55" width="0.1016" layer="51"/>
-<wire x1="3.25" y1="-1.55" x2="1.55" y2="-3.25" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="-3.25" x2="-3.25" y2="-3.25" width="0.1016" layer="51"/>
-<wire x1="-3.25" y1="-3.25" x2="-3.25" y2="3.25" width="0.1016" layer="51"/>
-<wire x1="-3.25" y1="0.95" x2="-3.25" y2="3.25" width="0.1016" layer="21"/>
-<wire x1="-3.25" y1="3.25" x2="1.55" y2="3.25" width="0.1016" layer="21"/>
-<wire x1="1.55" y1="3.25" x2="3.25" y2="1.55" width="0.1016" layer="21"/>
-<wire x1="3.25" y1="1.55" x2="3.25" y2="0.95" width="0.1016" layer="21"/>
-<wire x1="3.25" y1="-0.95" x2="3.25" y2="-1.55" width="0.1016" layer="21"/>
-<wire x1="3.25" y1="-1.55" x2="1.55" y2="-3.25" width="0.1016" layer="21"/>
-<wire x1="1.55" y1="-3.25" x2="-3.25" y2="-3.25" width="0.1016" layer="21"/>
-<wire x1="-3.25" y1="-3.25" x2="-3.25" y2="-0.95" width="0.1016" layer="21"/>
-<wire x1="2.95" y1="0.95" x2="-2.95" y2="0.95" width="0.1016" layer="21" curve="144.299363"/>
-<wire x1="-2.95" y1="-0.95" x2="2.95" y2="-0.95" width="0.1016" layer="21" curve="144.299363"/>
-<wire x1="-2.1" y1="2.25" x2="-2.1" y2="-2.2" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="3.1" width="0.1016" layer="51"/>
-<smd name="+" x="2.4" y="0" dx="3" dy="1.4" layer="1"/>
-<smd name="-" x="-2.4" y="0" dx="3" dy="1.4" layer="1"/>
-<text x="-1.75" y="1" size="1.016" layer="25">&gt;NAME</text>
-<text x="-1.75" y="-1.975" size="1.016" layer="27">&gt;VALUE</text>
-<rectangle x1="-3.65" y1="-0.35" x2="-3.05" y2="0.35" layer="51"/>
-<rectangle x1="3.05" y1="-0.35" x2="3.65" y2="0.35" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-2.15" y="2.15"/>
-<vertex x="-2.6" y="1.6"/>
-<vertex x="-2.9" y="0.9"/>
-<vertex x="-3.05" y="0"/>
-<vertex x="-2.9" y="-0.95"/>
-<vertex x="-2.55" y="-1.65"/>
-<vertex x="-2.15" y="-2.15"/>
-<vertex x="-2.15" y="2.1"/>
-</polygon>
-</package>
-<package name="CPOL-RADIAL-1000UF-63V">
-<wire x1="-3.175" y1="1.905" x2="-4.445" y2="1.905" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="8.001" width="0.2032" layer="21"/>
-<pad name="2" x="-3.81" y="0" drill="1.016" diameter="1.6764"/>
-<pad name="1" x="3.81" y="0" drill="1.016" diameter="1.651" shape="square"/>
-<text x="-2.54" y="8.89" size="0.8128" layer="27">&gt;Value</text>
-<text x="-2.54" y="10.16" size="0.8128" layer="25">&gt;Name</text>
-</package>
-<package name="CPOL-RADIAL-1000UF-25V">
-<wire x1="-1.905" y1="1.27" x2="-3.175" y2="1.27" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="5.461" width="0.2032" layer="21"/>
-<pad name="-" x="-2.54" y="0" drill="0.9" diameter="1.9304"/>
-<pad name="+" x="2.54" y="0" drill="0.9" diameter="1.9304" shape="square"/>
-<text x="-1.905" y="-4.318" size="0.8128" layer="27">&gt;Value</text>
-<text x="-0.762" y="2.921" size="0.4064" layer="25">&gt;Name</text>
-</package>
-<package name="VISHAY_C">
-<wire x1="0" y1="1.27" x2="0" y2="1.905" width="0.254" layer="21"/>
-<wire x1="-2.0574" y1="4.2926" x2="-2.0574" y2="-4.2926" width="0.127" layer="21"/>
-<wire x1="-2.0574" y1="-4.2926" x2="2.0574" y2="-4.2926" width="0.127" layer="21"/>
-<wire x1="2.0574" y1="-4.2926" x2="2.0574" y2="4.2926" width="0.127" layer="21"/>
-<wire x1="2.0574" y1="4.2926" x2="-2.0574" y2="4.2926" width="0.127" layer="21"/>
-<smd name="+" x="0" y="3.048" dx="3.556" dy="1.778" layer="1"/>
-<smd name="-" x="0" y="-3.048" dx="3.556" dy="1.778" layer="1"/>
-<text x="-1.905" y="4.445" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.905" y="-5.08" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="PANASONIC_H13">
-<wire x1="-6.75" y1="6.75" x2="4" y2="6.75" width="0.1016" layer="51"/>
-<wire x1="4" y1="6.75" x2="6.75" y2="4" width="0.1016" layer="51"/>
-<wire x1="6.75" y1="4" x2="6.75" y2="-4" width="0.1016" layer="51"/>
-<wire x1="6.75" y1="-4" x2="4" y2="-6.75" width="0.1016" layer="51"/>
-<wire x1="4" y1="-6.75" x2="-6.75" y2="-6.75" width="0.1016" layer="51"/>
-<wire x1="-6.75" y1="-6.75" x2="-6.75" y2="6.75" width="0.1016" layer="51"/>
-<wire x1="-6.75" y1="1" x2="-6.75" y2="6.75" width="0.2032" layer="21"/>
-<wire x1="-6.75" y1="6.75" x2="4" y2="6.75" width="0.2032" layer="21"/>
-<wire x1="4" y1="6.75" x2="6.75" y2="4" width="0.2032" layer="21"/>
-<wire x1="6.75" y1="4" x2="6.75" y2="1" width="0.2032" layer="21"/>
-<wire x1="6.75" y1="-1" x2="6.75" y2="-4" width="0.2032" layer="21"/>
-<wire x1="6.75" y1="-4" x2="4" y2="-6.75" width="0.2032" layer="21"/>
-<wire x1="4" y1="-6.75" x2="-6.75" y2="-6.75" width="0.2032" layer="21"/>
-<wire x1="-6.75" y1="-6.75" x2="-6.75" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-6.55" y1="-1.2" x2="6.45" y2="-1.2" width="0.2032" layer="21" curve="156.692742" cap="flat"/>
-<wire x1="-6.55" y1="1.2" x2="6.55" y2="1.2" width="0.2032" layer="21" curve="-156.697982" cap="flat"/>
-<wire x1="-5" y1="4.25" x2="-4.95" y2="-4.35" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="6.6" width="0.1016" layer="51"/>
-<smd name="-" x="-4.7" y="0" dx="5" dy="1.6" layer="1"/>
-<smd name="+" x="4.7" y="0" dx="5" dy="1.6" layer="1"/>
-<text x="-1.27" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.27" y="-2.54" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-7.55" y1="-0.45" x2="-6.6" y2="0.45" layer="51"/>
-<rectangle x1="6.6" y1="-0.45" x2="7.55" y2="0.45" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-5" y="4.2"/>
-<vertex x="-5.75" y="3.15"/>
-<vertex x="-6.25" y="2.05"/>
-<vertex x="-6.55" y="0.45"/>
-<vertex x="-6.55" y="-0.45"/>
-<vertex x="-6.35" y="-1.65"/>
-<vertex x="-5.75" y="-3.25"/>
-<vertex x="-5" y="-4.2"/>
-</polygon>
-</package>
-<package name="EIA6032">
-<wire x1="3.2" y1="-1.6" x2="3.2" y2="1.6" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="-1.6" x2="3.2" y2="-1.6" width="0.127" layer="21"/>
-<wire x1="3.2" y1="1.6" x2="-2.8" y2="1.6" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="1.6" x2="-3.4" y2="1" width="0.127" layer="21"/>
-<wire x1="-3.4" y1="1" x2="-3.4" y2="-1" width="0.127" layer="21"/>
-<wire x1="-2.8" y1="-1.6" x2="-3.4" y2="-1" width="0.127" layer="21"/>
-<smd name="P$1" x="-2.3" y="0" dx="1.5" dy="2.4" layer="1"/>
-<smd name="P$2" x="2.3" y="0" dx="1.5" dy="2.4" layer="1"/>
-</package>
-<package name="EN_J2">
-<description>Type J2 package for SMD supercap PRT-10317 (p# EEC-EN0F204J2)</description>
-<wire x1="-2.5" y1="-3.5" x2="2.5" y2="-3.5" width="0.127" layer="51"/>
-<wire x1="-2.1" y1="3.5" x2="2.1" y2="3.5" width="0.127" layer="51"/>
-<wire x1="-2.1" y1="3.5" x2="-2.5" y2="3.1" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="3.1" x2="-2.5" y2="2.3" width="0.127" layer="51"/>
-<wire x1="2.1" y1="3.5" x2="2.5" y2="3.1" width="0.127" layer="51"/>
-<wire x1="2.5" y1="3.1" x2="2.5" y2="2.3" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="-3.5" x2="-2.5" y2="-2.3" width="0.127" layer="51"/>
-<wire x1="2.5" y1="-3.5" x2="2.5" y2="-2.3" width="0.127" layer="51"/>
-<wire x1="-2.5908" y1="-2.413" x2="-2.5654" y2="2.4384" width="0.127" layer="21" curve="-91.212564"/>
-<wire x1="2.5908" y1="-2.413" x2="2.5654" y2="2.4384" width="0.127" layer="21" curve="86.79344"/>
-<wire x1="1.7272" y1="-1.27" x2="1.7272" y2="-2.0828" width="0.127" layer="21"/>
-<wire x1="1.3462" y1="-1.6764" x2="2.159" y2="-1.6764" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="3.4" width="0.127" layer="51"/>
-<smd name="-" x="0" y="2.8" dx="5" dy="2.4" layer="1"/>
-<smd name="+" x="0" y="-3.2" dx="5" dy="1.6" layer="1"/>
-<text x="-2.28" y="0.66" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-2.31" y="-1.21" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="EIA3528-KIT">
-<description>&lt;h3&gt;EIA3528-KIT&lt;/h3&gt;
-&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has longer pads to make hand soldering easier.&lt;br&gt;</description>
-<wire x1="-0.9" y1="-1.6" x2="-3.1" y2="-1.6" width="0.2032" layer="21"/>
-<wire x1="-3.1" y1="-1.6" x2="-3.1" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="-3.1" y1="1.55" x2="-0.9" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="1" y1="-1.55" x2="2.7" y2="-1.55" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="-1.55" x2="3.1" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="3.1" y1="-1.2" x2="3.1" y2="1.25" width="0.2032" layer="21"/>
-<wire x1="3.1" y1="1.25" x2="2.7" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="1.55" x2="1" y2="1.55" width="0.2032" layer="21"/>
-<wire x1="0.609" y1="1.311" x2="0.609" y2="-1.286" width="0.4" layer="21" style="longdash"/>
-<smd name="C" x="-1.9" y="0" dx="1.7" dy="2.5" layer="1"/>
-<smd name="A" x="1.9" y="0" dx="1.7" dy="2.5" layer="1"/>
-<text x="-2.27" y="-1.27" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="3.24" y="-1.37" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-</package>
-<package name="EIA3216-KIT">
-<description>&lt;h3&gt;EIA3216-KIT&lt;/h3&gt;
-&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has longer pads to make hand soldering easier.&lt;br&gt;</description>
-<wire x1="-1" y1="-1.2" x2="-3" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="-3" y1="-1.2" x2="-3" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="-3" y1="1.2" x2="-1" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="1" y1="-1.2" x2="2.6" y2="-1.2" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="-1.2" x2="3" y2="-0.8" width="0.2032" layer="21"/>
-<wire x1="3" y1="-0.8" x2="3" y2="0.8" width="0.2032" layer="21"/>
-<wire x1="3" y1="0.8" x2="2.6" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="2.6" y1="1.2" x2="1" y2="1.2" width="0.2032" layer="21"/>
-<wire x1="0.381" y1="1.016" x2="0.381" y2="-1.016" width="0.127" layer="21"/>
-<smd name="C" x="-1.65" y="0" dx="1.9" dy="1.6" layer="1"/>
-<smd name="A" x="1.65" y="0" dx="1.9" dy="1.6" layer="1"/>
-<text x="-2.54" y="1.381" size="0.4064" layer="25">&gt;NAME</text>
-<text x="0.408" y="1.332" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -1977,18 +1637,6 @@ It has reduced top mask to make it harder to put the component on the wrong side
 <rectangle x1="-2.032" y1="1.524" x2="2.032" y2="2.032" layer="94"/>
 <pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="2" x="0" y="-2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-</symbol>
-<symbol name="CAP_POL">
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.016" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1" x2="2.4892" y2="-1.8542" width="0.254" layer="94" curve="-37.878202" cap="flat"/>
-<wire x1="-2.4669" y1="-1.8504" x2="0" y2="-1.0161" width="0.254" layer="94" curve="-37.376341" cap="flat"/>
-<text x="1.016" y="0.635" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.253" y1="0.668" x2="-1.364" y2="0.795" layer="94"/>
-<rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
-<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2120,177 +1768,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="CAP_POL" prefix="C" uservalue="yes">
-<description>&lt;b&gt;Capacitor Polarized&lt;/b&gt;
-These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in electrolytic and tantalum varieties. Always verify the external diameter of the through hole cap, it varies with capacity, voltage, and manufacturer. The EIA devices should be standard.</description>
-<gates>
-<gate name="G$1" symbol="CAP_POL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="1206" package="EIA3216">
-<connects>
-<connect gate="G$1" pin="+" pad="A"/>
-<connect gate="G$1" pin="-" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="3528" package="EIA3528">
-<connects>
-<connect gate="G$1" pin="+" pad="A"/>
-<connect gate="G$1" pin="-" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH1" package="CPOL-RADIAL-100UF-25V">
-<connects>
-<connect gate="G$1" pin="+" pad="1"/>
-<connect gate="G$1" pin="-" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH2" package="CPOL-RADIAL-10UF-25V">
-<connects>
-<connect gate="G$1" pin="+" pad="1"/>
-<connect gate="G$1" pin="-" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="7343" package="EIA7343">
-<connects>
-<connect gate="G$1" pin="+" pad="A"/>
-<connect gate="G$1" pin="-" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="G" package="PANASONIC_G">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="E" package="PANASONIC_E">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="C" package="PANASONIC_C">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="F80" package="NIPPON_F80">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="D" package="PANASONIC_D">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH3" package="CPOL-RADIAL-1000UF-63V">
-<connects>
-<connect gate="G$1" pin="+" pad="1"/>
-<connect gate="G$1" pin="-" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH4" package="CPOL-RADIAL-1000UF-25V">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SMD" package="VISHAY_C">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="H13" package="PANASONIC_H13">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="6032" package="EIA6032">
-<connects>
-<connect gate="G$1" pin="+" pad="P$1"/>
-<connect gate="G$1" pin="-" pad="P$2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="EN_J2" package="EN_J2">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="3528-KIT" package="EIA3528-KIT">
-<connects>
-<connect gate="G$1" pin="+" pad="A"/>
-<connect gate="G$1" pin="-" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1206-KIT" package="EIA3216-KIT">
-<connects>
-<connect gate="G$1" pin="+" pad="A"/>
-<connect gate="G$1" pin="-" pad="C"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3443,166 +2920,6 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-DiscreteSemi">
-<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
-In this library you'll find discrete semiconductors- transistors, diodes, TRIACs, optoisolators, etc.&lt;br&gt;&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
-&lt;br&gt;&lt;br&gt;
-You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="SOD-323">
-<wire x1="-0.9" y1="0.65" x2="-0.5" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="0.9" y2="0.65" width="0.2032" layer="21"/>
-<wire x1="-0.9" y1="-0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="-0.65" x2="0.9" y2="-0.65" width="0.2032" layer="21"/>
-<wire x1="-0.5" y1="0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
-<smd name="C" x="-1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
-<smd name="A" x="1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
-<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="SOD-523">
-<smd name="C" x="0.7" y="0" dx="0.4" dy="0.4" layer="1"/>
-<smd name="A" x="-0.7" y="0" dx="0.4" dy="0.4" layer="1"/>
-<wire x1="-0.6" y1="-0.4" x2="0.4" y2="-0.4" width="0.127" layer="21"/>
-<wire x1="0.4" y1="-0.4" x2="0.6" y2="-0.4" width="0.127" layer="21"/>
-<wire x1="0.6" y1="0.4" x2="0.4" y2="0.4" width="0.127" layer="21"/>
-<wire x1="0.4" y1="0.4" x2="-0.6" y2="0.4" width="0.127" layer="21"/>
-<wire x1="0.6" y1="0.4" x2="0.4" y2="0.6" width="0.127" layer="21"/>
-<wire x1="0.6" y1="-0.4" x2="0.4" y2="-0.6" width="0.127" layer="21"/>
-<wire x1="0.4" y1="-0.6" x2="0.4" y2="-0.4" width="0.127" layer="21"/>
-<wire x1="0.4" y1="0.6" x2="0.4" y2="0.4" width="0.127" layer="21"/>
-<wire x1="-0.6" y1="-0.4" x2="0.3" y2="-0.4" width="0.127" layer="51"/>
-<wire x1="0.3" y1="-0.4" x2="0.6" y2="-0.4" width="0.127" layer="51"/>
-<wire x1="0.6" y1="-0.4" x2="0.6" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="0.6" y1="-0.1" x2="0.6" y2="0.1" width="0.127" layer="51"/>
-<wire x1="0.6" y1="0.1" x2="0.6" y2="0.4" width="0.127" layer="51"/>
-<wire x1="0.6" y1="0.4" x2="0.3" y2="0.4" width="0.127" layer="51"/>
-<wire x1="0.3" y1="0.4" x2="-0.6" y2="0.4" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="0.4" x2="-0.6" y2="0.1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="0.1" x2="-0.6" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-0.1" x2="-0.6" y2="-0.4" width="0.127" layer="51"/>
-<wire x1="0.6" y1="0.1" x2="0.8" y2="0.1" width="0.127" layer="51"/>
-<wire x1="0.8" y1="0.1" x2="0.8" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="0.8" y1="-0.1" x2="0.6" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="-0.1" x2="-0.8" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="-0.6" y1="0.1" x2="-0.8" y2="0.1" width="0.127" layer="51"/>
-<wire x1="-0.8" y1="0.1" x2="-0.8" y2="-0.1" width="0.127" layer="51"/>
-<wire x1="0.3" y1="0.4" x2="0.3" y2="-0.4" width="0.127" layer="51"/>
-</package>
-<package name="SMA-DIODE">
-<description>&lt;B&gt;Diode&lt;/B&gt;&lt;p&gt;
-Basic SMA packaged diode. Good for reverse polarization protection. Common part #: MBRA140</description>
-<wire x1="-2.3" y1="1" x2="-2.3" y2="1.45" width="0.2032" layer="21"/>
-<wire x1="-2.3" y1="1.45" x2="2.3" y2="1.45" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="1.45" x2="2.3" y2="1" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="-1" x2="2.3" y2="-1.45" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="-1.45" x2="-2.3" y2="-1.45" width="0.2032" layer="21"/>
-<wire x1="-2.3" y1="-1.45" x2="-2.3" y2="-1" width="0.2032" layer="21"/>
-<wire x1="1" y1="1" x2="1" y2="-1" width="0.2032" layer="21"/>
-<smd name="A" x="-2.15" y="0" dx="1.27" dy="1.47" layer="1" rot="R180"/>
-<smd name="C" x="2.15" y="0" dx="1.27" dy="1.47" layer="1"/>
-<text x="-2.286" y="1.651" size="0.4064" layer="25">&gt;NAME</text>
-<text x="0.254" y="1.651" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="DIODE-SCHOTTKY">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.778" y2="1.524" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.524" width="0.254" layer="94"/>
-<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
-<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="DIODE-SCHOTTKY" prefix="D">
-<description>Schottky diodes in SFE's production catalog&lt;p&gt;
-
-BAT20J 1A 23V 0.62Vf&lt;br&gt;
-RB751 120mA 40V 0.37Vf&lt;br&gt;
-PMEG4005EJ 0.5A 40V 0.42Vf&lt;br&gt;
-MBRA140 1A 40V 0.5Vf&lt;br&gt;
-B340A  3A 40V SMA &lt;br&gt;</description>
-<gates>
-<gate name="G$1" symbol="DIODE-SCHOTTKY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="-BAT20J" package="SOD-323">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-11623" constant="no"/>
-<attribute name="VALUE" value="BAT20J" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="-RB751" package="SOD-523">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-11018" constant="no"/>
-<attribute name="VALUE" value="RB751" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="-MBRA140" package="SMA-DIODE">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-08053" constant="no"/>
-<attribute name="VALUE" value="MBRA140" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="-PMEG4005EJ" package="SOD-323">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-10955" constant="no"/>
-<attribute name="VALUE" value="PMEG4005EJ" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="-B340A" package="SMA-DIODE">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-09886"/>
-<attribute name="VALUE" value="B340A" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-LED">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find discrete LEDs for illumination or indication, but no displays.&lt;br&gt;&lt;br&gt;
@@ -4646,6 +3963,214 @@ at 27/07/2012 14:02:49</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="gen3">
+<packages>
+<package name="PANASONIC_D">
+<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="51"/>
+<wire x1="3.35" y1="1.55" x2="3.35" y2="-1.55" width="0.1016" layer="51"/>
+<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="51"/>
+<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="3.35" width="0.1016" layer="51"/>
+<wire x1="-3.35" y1="0.95" x2="-3.35" y2="3.35" width="0.1016" layer="21"/>
+<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="21"/>
+<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="1.55" x2="3.35" y2="0.95" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="-0.95" x2="3.35" y2="-1.55" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="21"/>
+<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="21"/>
+<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="-0.95" width="0.1016" layer="21"/>
+<wire x1="2.95" y1="0.95" x2="-2.95" y2="0.95" width="0.1016" layer="21" curve="144.299363"/>
+<wire x1="-2.95" y1="-0.95" x2="2.95" y2="-0.95" width="0.1016" layer="21" curve="144.299363"/>
+<wire x1="-2.1" y1="2.25" x2="-2.1" y2="-2.2" width="0.1016" layer="51"/>
+<circle x="0" y="0" radius="3.1" width="0.1016" layer="51"/>
+<smd name="+" x="2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
+<smd name="-" x="-2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
+<text x="-2.75" y="1" size="1.016" layer="21">&gt;NAME</text>
+<text x="-2.75" y="-1.975" size="1.016" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.65" y1="-0.35" x2="-3.05" y2="0.35" layer="51"/>
+<rectangle x1="3.05" y1="-0.35" x2="3.65" y2="0.35" layer="51"/>
+<polygon width="0.1016" layer="51">
+<vertex x="-2.15" y="2.15"/>
+<vertex x="-2.6" y="1.6"/>
+<vertex x="-2.9" y="0.9"/>
+<vertex x="-3.05" y="0"/>
+<vertex x="-2.9" y="-0.95"/>
+<vertex x="-2.55" y="-1.65"/>
+<vertex x="-2.15" y="-2.15"/>
+<vertex x="-2.15" y="2.1"/>
+</polygon>
+</package>
+<package name="SMB-DIODE">
+<description>&lt;b&gt;Diode&lt;/b&gt;&lt;p&gt;
+Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</description>
+<wire x1="-3.973" y1="1.983" x2="3.973" y2="1.983" width="0.0508" layer="39"/>
+<wire x1="3.973" y1="-1.983" x2="-3.973" y2="-1.983" width="0.0508" layer="39"/>
+<wire x1="-3.973" y1="-1.983" x2="-3.973" y2="1.983" width="0.0508" layer="39"/>
+<wire x1="3.973" y1="1.983" x2="3.973" y2="-1.983" width="0.0508" layer="39"/>
+<wire x1="-2.2606" y1="1.905" x2="2.2606" y2="1.905" width="0.1016" layer="21"/>
+<wire x1="-2.2606" y1="-1.905" x2="2.2606" y2="-1.905" width="0.1016" layer="21"/>
+<wire x1="-2.261" y1="-1.905" x2="-2.261" y2="1.905" width="0.1016" layer="51"/>
+<wire x1="2.261" y1="-1.905" x2="2.261" y2="1.905" width="0.1016" layer="51"/>
+<wire x1="0.643" y1="1" x2="-0.73" y2="0" width="0.2032" layer="21"/>
+<wire x1="-0.73" y1="0" x2="0.643" y2="-1" width="0.2032" layer="21"/>
+<wire x1="0.643" y1="-1" x2="0.643" y2="1" width="0.2032" layer="21"/>
+<wire x1="-0.73" y1="1" x2="-0.73" y2="-1" width="0.2032" layer="21"/>
+<smd name="C" x="-2.2" y="0" dx="2.4" dy="2.4" layer="1"/>
+<smd name="A" x="2.2" y="0" dx="2.4" dy="2.4" layer="1"/>
+<text x="-2.159" y="2.159" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.905" y="-3.429" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-2.794" y1="-1.0922" x2="-2.2606" y2="1.0922" layer="51"/>
+<rectangle x1="2.2606" y1="-1.0922" x2="2.794" y2="1.0922" layer="51"/>
+</package>
+<package name="SOD-323">
+<wire x1="-0.9" y1="0.65" x2="-0.5" y2="0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.65" x2="0.9" y2="0.65" width="0.2032" layer="21"/>
+<wire x1="-0.9" y1="-0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="-0.65" x2="0.9" y2="-0.65" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.65" x2="-0.5" y2="-0.65" width="0.2032" layer="21"/>
+<smd name="C" x="-1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
+<smd name="A" x="1.15" y="0" dx="0.63" dy="0.83" layer="1"/>
+<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
+<package name="SOD-123">
+<description>100V/150mA 1N4148 - Super Cheap</description>
+<wire x1="-1.3" y1="0.775" x2="-0.5" y2="0.775" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.775" x2="1.3" y2="0.775" width="0.2032" layer="21"/>
+<wire x1="-1.3" y1="-0.775" x2="-0.5" y2="-0.775" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="-0.775" x2="1.3" y2="-0.775" width="0.2032" layer="21"/>
+<wire x1="-0.5" y1="0.775" x2="-0.5" y2="-0.775" width="0.2032" layer="21"/>
+<smd name="C" x="-1.575" y="0" dx="0.9" dy="0.95" layer="1"/>
+<smd name="A" x="1.575" y="0" dx="0.9" dy="0.95" layer="1"/>
+<text x="-0.889" y="1.016" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
+<wire x1="-1.35" y1="0.775" x2="1.35" y2="0.775" width="0.127" layer="51"/>
+<wire x1="1.35" y1="0.775" x2="1.35" y2="-0.775" width="0.127" layer="51"/>
+<wire x1="1.35" y1="-0.775" x2="-1.35" y2="-0.775" width="0.127" layer="51"/>
+<wire x1="-1.35" y1="-0.775" x2="-1.35" y2="0.775" width="0.127" layer="51"/>
+</package>
+<package name="DO214AC">
+<description>&lt;b&gt;DIODE&lt;/b&gt;</description>
+<wire x1="-2.3" y1="1" x2="2.3" y2="1" width="0.254" layer="51"/>
+<wire x1="2.3" y1="1" x2="2.3" y2="-0.95" width="0.254" layer="51"/>
+<wire x1="2.3" y1="-0.95" x2="-2.3" y2="-0.95" width="0.254" layer="51"/>
+<wire x1="-2.3" y1="-0.95" x2="-2.3" y2="1" width="0.254" layer="51"/>
+<wire x1="-0.8" y1="0" x2="0.25" y2="0.75" width="0.254" layer="21"/>
+<wire x1="0.25" y1="0.75" x2="0.25" y2="-0.7" width="0.254" layer="21"/>
+<wire x1="0.25" y1="-0.7" x2="-0.8" y2="0" width="0.254" layer="21"/>
+<smd name="C" x="-2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<smd name="A" x="2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<text x="-2.64" y="1.286" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.64" y="-2.556" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.65" y1="-0.7" x2="-2.4" y2="0.65" layer="51"/>
+<rectangle x1="2.4" y1="-0.7" x2="2.65" y2="0.65" layer="51"/>
+<rectangle x1="-1" y1="-1.05" x2="-0.7" y2="1.05" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CAP_POL">
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.016" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1" x2="2.4892" y2="-1.8542" width="0.254" layer="94" curve="-37.878202" cap="flat"/>
+<wire x1="-2.4669" y1="-1.8504" x2="0" y2="-1.0161" width="0.254" layer="94" curve="-37.376341" cap="flat"/>
+<text x="1.016" y="0.635" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-2.253" y1="0.668" x2="-1.364" y2="0.795" layer="94"/>
+<rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
+<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="DIODE-ZENER">
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.778" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.27" width="0.254" layer="94"/>
+<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
+<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="CAP-POLAR" prefix="C" uservalue="yes">
+<description>Cap Alum Polarized &lt;p&gt;
+Digikey: 493-3953-1-ND &lt;p&gt;
+low impedence, low ceiling cap</description>
+<gates>
+<gate name="G$1" symbol="CAP_POL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="PANASONIC_D">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-10547" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DIODE-ZENER" prefix="D">
+<description>Zener Diode
+Production Part - 8199
+3.4V Zener Voltage</description>
+<gates>
+<gate name="G$1" symbol="DIODE-ZENER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="SMB" package="SMB-DIODE">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3.3V" package="SOD-323">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="DIO-11284"/>
+<attribute name="VALUE" value="3.3V" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="SOD-123" package="SOD-123">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="DO214AC">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4662,21 +4187,21 @@ at 27/07/2012 14:02:49</description>
 <part name="FRAME5" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME6" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="FRAME7" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
-<part name="SPI_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="SPARE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<part name="SPI_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
+<part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
+<part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
+<part name="SPARE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="JP13" library="SparkFun-Connectors" deviceset="M03X2" device="2X3_SILK_MALE_PTH"/>
 <part name="U$4" library="rfc" deviceset="A4915" device=""/>
 <part name="TO_M1" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".47uF"/>
-<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="40.2k"/>
-<part name="C5" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".68uF"/>
-<part name="C6" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
+<part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
+<part name="C5" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
+<part name="C6" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -4688,31 +4213,29 @@ at 27/07/2012 14:02:49</description>
 <part name="Q3" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q4" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q5" library="rfc" deviceset="N-MOSFET" device=""/>
-<part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R10" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R11" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R16" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R17" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206" value="100uF"/>
-<part name="D1" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="BAT20J"/>
-<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="RSENSE1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
+<part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R10" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R11" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R16" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R17" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="RSENSE1" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="Q9" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$1" library="rfc" deviceset="A4915" device=""/>
 <part name="TO_M2" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C12" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".47uF"/>
-<part name="C13" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R18" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="40.2k"/>
-<part name="C14" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".68uF"/>
+<part name="C12" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
+<part name="C13" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R18" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
+<part name="C14" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -4723,30 +4246,28 @@ at 27/07/2012 14:02:49</description>
 <part name="Q12" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q13" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q14" library="rfc" deviceset="N-MOSFET" device=""/>
-<part name="R19" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R20" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R21" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R22" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R23" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R24" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R25" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R26" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R27" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R28" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R29" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R30" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="C16" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206" value="100uF"/>
-<part name="D2" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="BAT20J"/>
-<part name="C18" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C19" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C20" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
+<part name="R19" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R20" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R21" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R22" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R23" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R24" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R25" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R26" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R27" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R28" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R29" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R30" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="C18" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C19" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C20" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
 <part name="Q17" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$2" library="rfc" deviceset="A4915" device=""/>
 <part name="TO_M3" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C21" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".47uF"/>
-<part name="C22" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R31" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="40.2k"/>
-<part name="C23" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".68uF"/>
+<part name="C21" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
+<part name="C22" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R31" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
+<part name="C23" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND15" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -4757,30 +4278,28 @@ at 27/07/2012 14:02:49</description>
 <part name="Q20" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q21" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q22" library="rfc" deviceset="N-MOSFET" device=""/>
-<part name="R32" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R33" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R34" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R35" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R36" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R37" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R38" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R39" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R40" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R41" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R42" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R43" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="C25" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206" value="100uF"/>
-<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="BAT20J"/>
-<part name="C27" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C28" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C29" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
+<part name="R32" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R33" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R34" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R35" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R36" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R37" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R38" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R39" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R40" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R41" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R42" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R43" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="C27" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C28" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C29" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
 <part name="Q25" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$3" library="rfc" deviceset="A4915" device=""/>
 <part name="TO_M4" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="C30" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".47uF"/>
-<part name="C31" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R44" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="40.2k"/>
-<part name="C32" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".68uF"/>
+<part name="C30" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
+<part name="C31" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R44" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
+<part name="C32" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
 <part name="GND19" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND20" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND21" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -4791,112 +4310,118 @@ at 27/07/2012 14:02:49</description>
 <part name="Q28" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q29" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="Q30" library="rfc" deviceset="N-MOSFET" device=""/>
-<part name="R45" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R46" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R47" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R48" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R49" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R50" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R51" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R52" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R53" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="47.5"/>
-<part name="R54" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R55" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="R56" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="470k"/>
-<part name="C34" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206" value="100uF"/>
-<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="BAT20J"/>
-<part name="C36" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C37" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="C38" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".033uF"/>
-<part name="R65" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R66" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R67" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R68" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R69" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R70" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R71" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R72" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R73" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R74" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R75" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R76" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="10k"/>
-<part name="R78" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R79" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="C39" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="R45" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R46" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R47" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R48" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R49" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R50" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R51" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R52" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R53" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="47.5"/>
+<part name="R54" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R55" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="R56" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
+<part name="C36" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C37" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C38" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="R65" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R66" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R67" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R68" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R69" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R70" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R71" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R72" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R73" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R74" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R75" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R76" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R78" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R79" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="C39" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="GND25" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R81" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R82" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="C15" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="R81" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R82" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="C15" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R84" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R85" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="C24" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="R84" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R85" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="C24" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="GND17" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R87" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R88" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
+<part name="R87" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R88" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="U$5" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
+<part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C40" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R97" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="U2" library="Atmel_By_element14_Batch_1-00" deviceset="ATMEGA165PV-8AU" device=""/>
-<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
-<part name="R99" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
-<part name="R101" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
-<part name="R103" library="SparkFun-Passives" deviceset="RESISTOR" device="1206" value="130"/>
+<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
+<part name="R99" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
+<part name="R101" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
+<part name="R103" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="LED9" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED11" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED13" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED15" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="R63" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R64" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R91" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="R92" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="1k"/>
-<part name="RFILT" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R93" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R94" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
-<part name="R77" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
-<part name="R57" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
-<part name="R58" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
-<part name="R59" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="3k"/>
-<part name="RSENSE2" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
+<part name="R63" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R64" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R91" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R92" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="RFILT" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R93" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R94" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
+<part name="R77" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
+<part name="R57" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
+<part name="R58" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
+<part name="R59" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
+<part name="RSENSE2" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="U$6" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R60" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R61" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
-<part name="RFILT1" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R62" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R80" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
-<part name="RSENSE4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
+<part name="R60" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R61" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
+<part name="RFILT1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R62" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R80" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
+<part name="RSENSE4" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="U$8" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R83" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R86" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
-<part name="RFILT4" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
-<part name="C41" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R95" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R96" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
-<part name="RSENSE3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value=".02"/>
+<part name="R83" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R86" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
+<part name="RFILT4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
+<part name="C41" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R95" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R96" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
+<part name="RSENSE3" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="U$11" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R98" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R100" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="4.75k"/>
-<part name="RFILT3" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="15k"/>
-<part name="C42" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="R102" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="66.5k"/>
-<part name="R104" library="SparkFun-Resistors" deviceset="RESISTOR" device="1206" value="37.5k"/>
-<part name="C8" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="R98" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R100" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
+<part name="RFILT3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
+<part name="C42" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="R102" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
+<part name="R104" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
+<part name="C8" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C17" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="C26" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="C26" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C35" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="C43" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206" value="100uF"/>
-<part name="C44" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="C45" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
-<part name="C46" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="C44" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C45" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C46" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="U$13" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
 <part name="U$7" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
 <part name="U$9" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
 <part name="U$10" library="SparkFun-AnalogIC" deviceset="LM393" device=""/>
+<part name="C43" library="gen3" deviceset="CAP-POLAR" device=""/>
+<part name="C7" library="gen3" deviceset="CAP-POLAR" device=""/>
+<part name="C16" library="gen3" deviceset="CAP-POLAR" device=""/>
+<part name="C25" library="gen3" deviceset="CAP-POLAR" device=""/>
+<part name="C34" library="gen3" deviceset="CAP-POLAR" device=""/>
+<part name="D5" library="gen3" deviceset="DIODE-ZENER" device=""/>
+<part name="D1" library="gen3" deviceset="DIODE-ZENER" device=""/>
+<part name="D2" library="gen3" deviceset="DIODE-ZENER" device=""/>
+<part name="D3" library="gen3" deviceset="DIODE-ZENER" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5001,8 +4526,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R15" gate="G$1" x="398.78" y="281.94"/>
 <instance part="R16" gate="G$1" x="421.64" y="266.7"/>
 <instance part="R17" gate="G$1" x="444.5" y="254"/>
-<instance part="C7" gate="G$1" x="411.48" y="358.14"/>
-<instance part="D1" gate="G$1" x="457.2" y="358.14" rot="R90"/>
 <instance part="C9" gate="G$1" x="375.92" y="314.96" rot="R90"/>
 <instance part="C10" gate="G$1" x="370.84" y="304.8" rot="R90"/>
 <instance part="C11" gate="G$1" x="375.92" y="294.64" rot="R90"/>
@@ -5036,8 +4559,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R28" gate="G$1" x="660.4" y="281.94"/>
 <instance part="R29" gate="G$1" x="683.26" y="266.7"/>
 <instance part="R30" gate="G$1" x="706.12" y="254"/>
-<instance part="C16" gate="G$1" x="673.1" y="358.14"/>
-<instance part="D2" gate="G$1" x="718.82" y="358.14" rot="R90"/>
 <instance part="C18" gate="G$1" x="637.54" y="314.96" rot="R90"/>
 <instance part="C19" gate="G$1" x="632.46" y="304.8" rot="R90"/>
 <instance part="C20" gate="G$1" x="637.54" y="294.64" rot="R90"/>
@@ -5070,8 +4591,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R41" gate="G$1" x="398.78" y="86.36"/>
 <instance part="R42" gate="G$1" x="421.64" y="71.12"/>
 <instance part="R43" gate="G$1" x="444.5" y="58.42"/>
-<instance part="C25" gate="G$1" x="411.48" y="162.56"/>
-<instance part="D3" gate="G$1" x="457.2" y="162.56" rot="R90"/>
 <instance part="C27" gate="G$1" x="375.92" y="119.38" rot="R90"/>
 <instance part="C28" gate="G$1" x="370.84" y="109.22" rot="R90"/>
 <instance part="C29" gate="G$1" x="375.92" y="99.06" rot="R90"/>
@@ -5104,8 +4623,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="R54" gate="G$1" x="657.86" y="83.82"/>
 <instance part="R55" gate="G$1" x="680.72" y="68.58"/>
 <instance part="R56" gate="G$1" x="703.58" y="55.88"/>
-<instance part="C34" gate="G$1" x="670.56" y="160.02"/>
-<instance part="D4" gate="G$1" x="716.28" y="160.02" rot="R90"/>
 <instance part="C36" gate="G$1" x="635" y="116.84" rot="R90"/>
 <instance part="C37" gate="G$1" x="629.92" y="106.68" rot="R90"/>
 <instance part="C38" gate="G$1" x="635" y="96.52" rot="R90"/>
@@ -5190,7 +4707,6 @@ at 27/07/2012 14:02:49</description>
 <instance part="C17" gate="G$1" x="695.96" y="355.6"/>
 <instance part="C26" gate="G$1" x="693.42" y="157.48"/>
 <instance part="C35" gate="G$1" x="434.34" y="160.02"/>
-<instance part="C43" gate="G$1" x="43.18" y="40.64"/>
 <instance part="C44" gate="G$1" x="53.34" y="38.1"/>
 <instance part="C45" gate="G$1" x="45.72" y="152.4"/>
 <instance part="C46" gate="G$1" x="53.34" y="152.4"/>
@@ -5198,6 +4714,15 @@ at 27/07/2012 14:02:49</description>
 <instance part="U$7" gate="G1" x="642.62" y="226.06"/>
 <instance part="U$9" gate="G1" x="645.16" y="27.94"/>
 <instance part="U$10" gate="G1" x="383.54" y="27.94"/>
+<instance part="C43" gate="G$1" x="43.18" y="40.64"/>
+<instance part="C7" gate="G$1" x="411.48" y="358.14"/>
+<instance part="C16" gate="G$1" x="673.1" y="358.14"/>
+<instance part="C25" gate="G$1" x="670.56" y="160.02"/>
+<instance part="C34" gate="G$1" x="411.48" y="162.56"/>
+<instance part="D5" gate="G$1" x="457.2" y="358.14" rot="R90"/>
+<instance part="D1" gate="G$1" x="718.82" y="358.14" rot="R90"/>
+<instance part="D2" gate="G$1" x="716.28" y="160.02" rot="R90"/>
+<instance part="D3" gate="G$1" x="457.2" y="162.56" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -5726,15 +5251,15 @@ at 27/07/2012 14:02:49</description>
 <pinref part="C44" gate="G$1" pin="1"/>
 <wire x1="43.18" y1="45.72" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="45.72" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="C43" gate="G$1" pin="+"/>
 <wire x1="43.18" y1="43.18" x2="43.18" y2="45.72" width="0.1524" layer="91"/>
 <junction x="43.18" y="45.72"/>
+<pinref part="C43" gate="G$1" pin="+"/>
 </segment>
 <segment>
 <pinref part="Q6" gate="G$1" pin="P$1"/>
 <wire x1="403.86" y1="350.52" x2="403.86" y2="360.68" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="360.68" x2="411.48" y2="360.68" width="0.1524" layer="91"/>
 <pinref part="Q2" gate="G$1" pin="P$1"/>
+<wire x1="403.86" y1="360.68" x2="411.48" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="411.48" y1="360.68" x2="426.72" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="360.68" x2="434.34" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="434.34" y1="360.68" x2="449.58" y2="360.68" width="0.1524" layer="91"/>
@@ -5744,13 +5269,13 @@ at 27/07/2012 14:02:49</description>
 <junction x="426.72" y="360.68"/>
 <wire x1="426.72" y1="360.68" x2="426.72" y2="363.22" width="0.1524" layer="91"/>
 <label x="426.72" y="363.22" size="1.778" layer="95"/>
-<pinref part="C7" gate="G$1" pin="+"/>
-<junction x="411.48" y="360.68"/>
 <wire x1="449.58" y1="360.68" x2="457.2" y2="360.68" width="0.1524" layer="91"/>
 <junction x="449.58" y="360.68"/>
-<pinref part="D1" gate="G$1" pin="C"/>
 <pinref part="C8" gate="G$1" pin="1"/>
 <junction x="434.34" y="360.68"/>
+<pinref part="C7" gate="G$1" pin="+"/>
+<junction x="411.48" y="360.68"/>
+<pinref part="D5" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="VBB"/>
@@ -5764,8 +5289,8 @@ at 27/07/2012 14:02:49</description>
 <segment>
 <pinref part="Q9" gate="G$1" pin="P$1"/>
 <wire x1="665.48" y1="350.52" x2="665.48" y2="360.68" width="0.1524" layer="91"/>
-<wire x1="665.48" y1="360.68" x2="673.1" y2="360.68" width="0.1524" layer="91"/>
 <pinref part="Q11" gate="G$1" pin="P$1"/>
+<wire x1="665.48" y1="360.68" x2="673.1" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="673.1" y1="360.68" x2="688.34" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="688.34" y1="360.68" x2="695.96" y2="360.68" width="0.1524" layer="91"/>
 <wire x1="695.96" y1="360.68" x2="711.2" y2="360.68" width="0.1524" layer="91"/>
@@ -5775,13 +5300,13 @@ at 27/07/2012 14:02:49</description>
 <junction x="688.34" y="360.68"/>
 <wire x1="688.34" y1="360.68" x2="688.34" y2="363.22" width="0.1524" layer="91"/>
 <label x="688.34" y="363.22" size="1.778" layer="95"/>
-<pinref part="C16" gate="G$1" pin="+"/>
-<junction x="673.1" y="360.68"/>
 <wire x1="711.2" y1="360.68" x2="718.82" y2="360.68" width="0.1524" layer="91"/>
 <junction x="711.2" y="360.68"/>
-<pinref part="D2" gate="G$1" pin="C"/>
 <pinref part="C17" gate="G$1" pin="1"/>
 <junction x="695.96" y="360.68"/>
+<pinref part="C16" gate="G$1" pin="+"/>
+<junction x="673.1" y="360.68"/>
+<pinref part="D1" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VBB"/>
@@ -5795,8 +5320,8 @@ at 27/07/2012 14:02:49</description>
 <segment>
 <pinref part="Q17" gate="G$1" pin="P$1"/>
 <wire x1="403.86" y1="154.94" x2="403.86" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="165.1" x2="411.48" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="Q19" gate="G$1" pin="P$1"/>
+<wire x1="403.86" y1="165.1" x2="411.48" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="411.48" y1="165.1" x2="426.72" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="165.1" x2="434.34" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="434.34" y1="165.1" x2="449.58" y2="165.1" width="0.1524" layer="91"/>
@@ -5806,13 +5331,13 @@ at 27/07/2012 14:02:49</description>
 <junction x="426.72" y="165.1"/>
 <wire x1="426.72" y1="165.1" x2="426.72" y2="167.64" width="0.1524" layer="91"/>
 <label x="426.72" y="167.64" size="1.778" layer="95"/>
-<pinref part="C25" gate="G$1" pin="+"/>
-<junction x="411.48" y="165.1"/>
 <wire x1="449.58" y1="165.1" x2="457.2" y2="165.1" width="0.1524" layer="91"/>
 <junction x="449.58" y="165.1"/>
-<pinref part="D3" gate="G$1" pin="C"/>
 <pinref part="C35" gate="G$1" pin="1"/>
 <junction x="434.34" y="165.1"/>
+<pinref part="C34" gate="G$1" pin="+"/>
+<junction x="411.48" y="165.1"/>
+<pinref part="D3" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VBB"/>
@@ -5826,8 +5351,8 @@ at 27/07/2012 14:02:49</description>
 <segment>
 <pinref part="Q25" gate="G$1" pin="P$1"/>
 <wire x1="662.94" y1="152.4" x2="662.94" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="662.94" y1="162.56" x2="670.56" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="Q27" gate="G$1" pin="P$1"/>
+<wire x1="662.94" y1="162.56" x2="670.56" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="670.56" y1="162.56" x2="685.8" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="685.8" y1="162.56" x2="693.42" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="693.42" y1="162.56" x2="708.66" y2="162.56" width="0.1524" layer="91"/>
@@ -5837,13 +5362,13 @@ at 27/07/2012 14:02:49</description>
 <junction x="685.8" y="162.56"/>
 <wire x1="685.8" y1="162.56" x2="685.8" y2="165.1" width="0.1524" layer="91"/>
 <label x="685.8" y="165.1" size="1.778" layer="95"/>
-<pinref part="C34" gate="G$1" pin="+"/>
-<junction x="670.56" y="162.56"/>
 <wire x1="708.66" y1="162.56" x2="716.28" y2="162.56" width="0.1524" layer="91"/>
 <junction x="708.66" y="162.56"/>
-<pinref part="D4" gate="G$1" pin="C"/>
 <pinref part="C26" gate="G$1" pin="1"/>
 <junction x="693.42" y="162.56"/>
+<pinref part="C25" gate="G$1" pin="+"/>
+<junction x="670.56" y="162.56"/>
+<pinref part="D2" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="VBB"/>
@@ -5878,13 +5403,13 @@ at 27/07/2012 14:02:49</description>
 <wire x1="27.94" y1="43.18" x2="30.48" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="43.18" x2="30.48" y2="40.64" width="0.1524" layer="91"/>
 <junction x="30.48" y="40.64"/>
-<pinref part="C43" gate="G$1" pin="-"/>
 <wire x1="30.48" y1="33.02" x2="43.18" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="33.02" x2="43.18" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="C44" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="33.02" x2="53.34" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="33.02" x2="53.34" y2="35.56" width="0.1524" layer="91"/>
 <junction x="43.18" y="33.02"/>
+<pinref part="C43" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="294.64" y1="215.9" x2="294.64" y2="208.28" width="0.1524" layer="91"/>
@@ -5892,9 +5417,9 @@ at 27/07/2012 14:02:49</description>
 <pinref part="RSENSE1" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="C7" gate="G$1" pin="-"/>
 <wire x1="411.48" y1="353.06" x2="411.48" y2="350.52" width="0.1524" layer="91"/>
 <label x="411.48" y="350.52" size="1.778" layer="95"/>
+<pinref part="C7" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="434.34" y1="353.06" x2="434.34" y2="350.52" width="0.1524" layer="91"/>
@@ -5903,13 +5428,13 @@ at 27/07/2012 14:02:49</description>
 </segment>
 <segment>
 <label x="457.2" y="353.06" size="1.778" layer="95"/>
-<pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="457.2" y1="355.6" x2="457.2" y2="350.52" width="0.1524" layer="91"/>
+<pinref part="D5" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<pinref part="C16" gate="G$1" pin="-"/>
 <wire x1="673.1" y1="353.06" x2="673.1" y2="350.52" width="0.1524" layer="91"/>
 <label x="673.1" y="350.52" size="1.778" layer="95"/>
+<pinref part="C16" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="695.96" y1="353.06" x2="695.96" y2="350.52" width="0.1524" layer="91"/>
@@ -5919,12 +5444,12 @@ at 27/07/2012 14:02:49</description>
 <segment>
 <wire x1="718.82" y1="355.6" x2="718.82" y2="353.06" width="0.1524" layer="91"/>
 <label x="718.82" y="353.06" size="1.778" layer="95"/>
-<pinref part="D2" gate="G$1" pin="A"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<pinref part="C25" gate="G$1" pin="-"/>
 <wire x1="411.48" y1="157.48" x2="411.48" y2="154.94" width="0.1524" layer="91"/>
 <label x="411.48" y="154.94" size="1.778" layer="95"/>
+<pinref part="C34" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="434.34" y1="157.48" x2="434.34" y2="154.94" width="0.1524" layer="91"/>
@@ -5937,9 +5462,9 @@ at 27/07/2012 14:02:49</description>
 <pinref part="D3" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<pinref part="C34" gate="G$1" pin="-"/>
 <wire x1="670.56" y1="154.94" x2="670.56" y2="152.4" width="0.1524" layer="91"/>
 <label x="670.56" y="152.4" size="1.778" layer="95"/>
+<pinref part="C25" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="693.42" y1="154.94" x2="693.42" y2="152.4" width="0.1524" layer="91"/>
@@ -5949,7 +5474,7 @@ at 27/07/2012 14:02:49</description>
 <segment>
 <wire x1="716.28" y1="157.48" x2="716.28" y2="154.94" width="0.1524" layer="91"/>
 <label x="716.28" y="154.94" size="1.778" layer="95"/>
-<pinref part="D4" gate="G$1" pin="A"/>
+<pinref part="D2" gate="G$1" pin="A"/>
 </segment>
 <segment>
 <wire x1="556.26" y1="215.9" x2="556.26" y2="208.28" width="0.1524" layer="91"/>
