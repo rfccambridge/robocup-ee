@@ -4241,6 +4241,30 @@ SMT header is CONN-09042.</description>
 <wire x1="370.84" y1="106.68" x2="370.84" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="RTS" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="RTS"/>
+<wire x1="373.38" y1="60.96" x2="378.46" y2="60.96" width="0.1524" layer="91"/>
+<label x="375.92" y="60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PE3"/>
+<wire x1="152.4" y1="96.52" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
+<label x="154.94" y="96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="CTS" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="CTS"/>
+<wire x1="373.38" y1="50.8" x2="378.46" y2="50.8" width="0.1524" layer="91"/>
+<label x="375.92" y="50.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PE4"/>
+<wire x1="152.4" y1="93.98" x2="157.48" y2="93.98" width="0.1524" layer="91"/>
+<label x="154.94" y="93.98" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
