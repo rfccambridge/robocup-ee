@@ -5931,11 +5931,6 @@ bottom side connector for ribbon cable</description>
 <label x="482.6" y="294.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="QUAD1" gate="G$1" pin="3"/>
-<wire x1="490.22" y1="327.66" x2="485.14" y2="327.66" width="0.1524" layer="91"/>
-<label x="485.14" y="327.66" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="MOTOR2" gate="G$1" pin="P$7"/>
 <wire x1="746.76" y1="294.64" x2="741.68" y2="294.64" width="0.1524" layer="91"/>
 <label x="739.14" y="294.64" size="1.778" layer="95"/>
@@ -5964,6 +5959,11 @@ bottom side connector for ribbon cable</description>
 <pinref part="QUAD3" gate="G$1" pin="3"/>
 <wire x1="485.14" y1="132.08" x2="480.06" y2="132.08" width="0.1524" layer="91"/>
 <label x="480.06" y="132.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="QUAD1" gate="G$1" pin="3"/>
+<wire x1="490.22" y1="327.66" x2="485.14" y2="327.66" width="0.1524" layer="91"/>
+<label x="485.14" y="327.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -6610,12 +6610,22 @@ bottom side connector for ribbon cable</description>
 <wire x1="144.78" y1="78.74" x2="152.4" y2="78.74" width="0.1524" layer="91"/>
 <label x="147.32" y="78.74" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="QUAD1" gate="G$1" pin="4"/>
+<wire x1="490.22" y1="325.12" x2="485.14" y2="325.12" width="0.1524" layer="91"/>
+<label x="485.14" y="325.12" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M1QA" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="PD0"/>
-<wire x1="144.78" y1="81.28" x2="152.4" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="81.28" x2="154.94" y2="81.28" width="0.1524" layer="91"/>
 <label x="147.32" y="81.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="QUAD1" gate="G$1" pin="2"/>
+<wire x1="490.22" y1="330.2" x2="485.14" y2="330.2" width="0.1524" layer="91"/>
+<label x="485.14" y="330.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1O1" class="0">
@@ -6750,12 +6760,22 @@ bottom side connector for ribbon cable</description>
 <wire x1="144.78" y1="76.2" x2="152.4" y2="76.2" width="0.1524" layer="91"/>
 <label x="147.32" y="76.2" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="QUAD2" gate="G$1" pin="2"/>
+<wire x1="746.76" y1="330.2" x2="741.68" y2="330.2" width="0.1524" layer="91"/>
+<label x="741.68" y="330.2" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M2QB" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="PD3"/>
 <wire x1="144.78" y1="73.66" x2="152.4" y2="73.66" width="0.1524" layer="91"/>
 <label x="147.32" y="73.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="QUAD2" gate="G$1" pin="4"/>
+<wire x1="746.76" y1="325.12" x2="741.68" y2="325.12" width="0.1524" layer="91"/>
+<label x="741.68" y="325.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M3QA" class="0">
@@ -6764,12 +6784,22 @@ bottom side connector for ribbon cable</description>
 <wire x1="144.78" y1="71.12" x2="152.4" y2="71.12" width="0.1524" layer="91"/>
 <label x="147.32" y="71.12" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="QUAD3" gate="G$1" pin="2"/>
+<wire x1="485.14" y1="134.62" x2="480.06" y2="134.62" width="0.1524" layer="91"/>
+<label x="480.06" y="134.62" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M3QB" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="PD5"/>
 <wire x1="144.78" y1="68.58" x2="152.4" y2="68.58" width="0.1524" layer="91"/>
 <label x="147.32" y="68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="QUAD3" gate="G$1" pin="4"/>
+<wire x1="485.14" y1="129.54" x2="480.06" y2="129.54" width="0.1524" layer="91"/>
+<label x="480.06" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M4QA" class="0">
@@ -6778,12 +6808,22 @@ bottom side connector for ribbon cable</description>
 <wire x1="144.78" y1="66.04" x2="152.4" y2="66.04" width="0.1524" layer="91"/>
 <label x="147.32" y="66.04" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="QUAD4" gate="G$1" pin="2"/>
+<wire x1="746.76" y1="132.08" x2="741.68" y2="132.08" width="0.1524" layer="91"/>
+<label x="741.68" y="132.08" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M4QB" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="PD7"/>
 <wire x1="144.78" y1="63.5" x2="152.4" y2="63.5" width="0.1524" layer="91"/>
 <label x="147.32" y="63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="QUAD4" gate="G$1" pin="4"/>
+<wire x1="746.76" y1="127" x2="741.68" y2="127" width="0.1524" layer="91"/>
+<label x="741.68" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -8602,118 +8642,66 @@ bottom side connector for ribbon cable</description>
 <pinref part="COMP4" gate="G$1" pin="OUT"/>
 </segment>
 </net>
-<net name="QEA1" class="0">
-<segment>
-<pinref part="QUAD1" gate="G$1" pin="2"/>
-<wire x1="490.22" y1="330.2" x2="485.14" y2="330.2" width="0.1524" layer="91"/>
-<label x="485.14" y="330.2" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEB1" class="0">
-<segment>
-<pinref part="QUAD1" gate="G$1" pin="4"/>
-<wire x1="490.22" y1="325.12" x2="485.14" y2="325.12" width="0.1524" layer="91"/>
-<label x="485.14" y="325.12" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEA2" class="0">
-<segment>
-<pinref part="QUAD2" gate="G$1" pin="2"/>
-<wire x1="746.76" y1="330.2" x2="741.68" y2="330.2" width="0.1524" layer="91"/>
-<label x="741.68" y="330.2" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEB2" class="0">
-<segment>
-<pinref part="QUAD2" gate="G$1" pin="4"/>
-<wire x1="746.76" y1="325.12" x2="741.68" y2="325.12" width="0.1524" layer="91"/>
-<label x="741.68" y="325.12" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEA4" class="0">
-<segment>
-<pinref part="QUAD4" gate="G$1" pin="2"/>
-<wire x1="746.76" y1="132.08" x2="741.68" y2="132.08" width="0.1524" layer="91"/>
-<label x="741.68" y="132.08" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEB4" class="0">
-<segment>
-<pinref part="QUAD4" gate="G$1" pin="4"/>
-<wire x1="746.76" y1="127" x2="741.68" y2="127" width="0.1524" layer="91"/>
-<label x="741.68" y="127" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEA3" class="0">
-<segment>
-<pinref part="QUAD3" gate="G$1" pin="2"/>
-<wire x1="485.14" y1="134.62" x2="480.06" y2="134.62" width="0.1524" layer="91"/>
-<label x="480.06" y="134.62" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="QEB3" class="0">
-<segment>
-<pinref part="QUAD3" gate="G$1" pin="4"/>
-<wire x1="485.14" y1="129.54" x2="480.06" y2="129.54" width="0.1524" layer="91"/>
-<label x="480.06" y="129.54" size="1.778" layer="95"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,332.74,220.98,U$5,V+,5V,,,"/>
-<approved hash="104,1,332.74,236.22,U$5,V-,GND,,,"/>
+<approved hash="104,1,332.74,220.98,OP1,V+,5V,,,"/>
+<approved hash="104,1,332.74,236.22,OP1,V-,GND,,,"/>
 <approved hash="104,1,99.06,149.86,U2,VCC_2,3.3V,,,"/>
 <approved hash="104,1,99.06,147.32,U2,VCC,3.3V,,,"/>
 <approved hash="104,1,99.06,144.78,U2,AVCC,N$110,,,"/>
 <approved hash="202,1,99.06,137.16,U2,(TOSC1)_XTAL1,,,,"/>
-<approved hash="104,1,594.36,220.98,U$6,V+,5V,,,"/>
-<approved hash="104,1,594.36,236.22,U$6,V-,GND,,,"/>
-<approved hash="104,1,596.9,22.86,U$8,V+,5V,,,"/>
-<approved hash="104,1,596.9,38.1,U$8,V-,GND,,,"/>
-<approved hash="104,1,335.28,22.86,U$11,V+,5V,,,"/>
-<approved hash="104,1,335.28,38.1,U$11,V-,GND,,,"/>
-<approved hash="104,1,381,233.68,U$12,V-,GND,,,"/>
-<approved hash="104,1,381,218.44,U$12,V+,5V,,,"/>
-<approved hash="104,1,642.62,233.68,U$7,V-,GND,,,"/>
-<approved hash="104,1,642.62,218.44,U$7,V+,5V,,,"/>
-<approved hash="104,1,645.16,35.56,U$9,V-,GND,,,"/>
-<approved hash="104,1,645.16,20.32,U$9,V+,5V,,,"/>
-<approved hash="104,1,383.54,35.56,U$10,V-,GND,,,"/>
-<approved hash="104,1,383.54,20.32,U$10,V+,5V,,,"/>
+<approved hash="104,1,594.36,220.98,OP2,V+,5V,,,"/>
+<approved hash="104,1,594.36,236.22,OP2,V-,GND,,,"/>
+<approved hash="104,1,596.9,22.86,OP4,V+,5V,,,"/>
+<approved hash="104,1,596.9,38.1,OP4,V-,GND,,,"/>
+<approved hash="104,1,335.28,22.86,OP3,V+,5V,,,"/>
+<approved hash="104,1,335.28,38.1,OP3,V-,GND,,,"/>
+<approved hash="104,1,381,233.68,COMP1,V-,GND,,,"/>
+<approved hash="104,1,381,218.44,COMP1,V+,5V,,,"/>
+<approved hash="104,1,642.62,233.68,COMP2,V-,GND,,,"/>
+<approved hash="104,1,642.62,218.44,COMP2,V+,5V,,,"/>
+<approved hash="104,1,645.16,35.56,COMP4,V-,GND,,,"/>
+<approved hash="104,1,645.16,20.32,COMP4,V+,5V,,,"/>
+<approved hash="104,1,383.54,35.56,COMP3,V-,GND,,,"/>
+<approved hash="104,1,383.54,20.32,COMP3,V+,5V,,,"/>
 <approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
 <approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
 <approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
 <approved hash="106,1,215.9,162.56,SS_K,,,,,"/>
-<approved hash="113,1,400.557,345.44,Q6,,,,,"/>
-<approved hash="113,1,423.417,332.74,Q1,,,,,"/>
-<approved hash="113,1,446.277,320.04,Q2,,,,,"/>
-<approved hash="113,1,400.557,292.1,Q3,,,,,"/>
-<approved hash="113,1,423.417,276.86,Q4,,,,,"/>
-<approved hash="113,1,446.277,264.16,Q5,,,,,"/>
-<approved hash="113,1,662.177,345.44,Q9,,,,,"/>
-<approved hash="113,1,685.359,332.74,Q10,,,,,"/>
-<approved hash="113,1,708.219,320.04,Q11,,,,,"/>
-<approved hash="113,1,662.499,292.1,Q12,,,,,"/>
-<approved hash="113,1,685.359,276.86,Q13,,,,,"/>
-<approved hash="113,1,708.219,264.16,Q14,,,,,"/>
-<approved hash="113,1,400.879,149.86,Q17,,,,,"/>
-<approved hash="113,1,423.739,137.16,Q18,,,,,"/>
-<approved hash="113,1,446.599,124.46,Q19,,,,,"/>
-<approved hash="113,1,400.879,96.52,Q20,,,,,"/>
-<approved hash="113,1,423.739,81.28,Q21,,,,,"/>
-<approved hash="113,1,446.599,68.58,Q22,,,,,"/>
-<approved hash="113,1,659.959,147.32,Q25,,,,,"/>
-<approved hash="113,1,682.819,134.62,Q26,,,,,"/>
-<approved hash="113,1,705.679,121.92,Q27,,,,,"/>
-<approved hash="113,1,659.959,93.98,Q28,,,,,"/>
-<approved hash="113,1,682.819,78.74,Q29,,,,,"/>
-<approved hash="113,1,705.679,66.04,Q30,,,,,"/>
-<approved hash="113,1,190.822,97.79,LED9,,,,,"/>
-<approved hash="113,1,200.982,97.79,LED11,,,,,"/>
-<approved hash="113,1,211.142,97.79,LED13,,,,,"/>
-<approved hash="113,1,221.302,97.79,LED15,,,,,"/>
+<approved hash="115,1,400.557,345.44,Q6,,,,,"/>
+<approved hash="115,1,423.417,332.74,Q1,,,,,"/>
+<approved hash="115,1,446.277,320.04,Q2,,,,,"/>
+<approved hash="115,1,400.557,292.1,Q3,,,,,"/>
+<approved hash="115,1,423.417,276.86,Q4,,,,,"/>
+<approved hash="115,1,446.277,264.16,Q5,,,,,"/>
+<approved hash="115,1,662.177,345.44,Q9,,,,,"/>
+<approved hash="115,1,685.359,332.74,Q10,,,,,"/>
+<approved hash="115,1,708.219,320.04,Q11,,,,,"/>
+<approved hash="115,1,662.499,292.1,Q12,,,,,"/>
+<approved hash="115,1,685.359,276.86,Q13,,,,,"/>
+<approved hash="115,1,708.219,264.16,Q14,,,,,"/>
+<approved hash="115,1,400.879,149.86,Q17,,,,,"/>
+<approved hash="115,1,423.739,137.16,Q18,,,,,"/>
+<approved hash="115,1,446.599,124.46,Q19,,,,,"/>
+<approved hash="115,1,400.879,96.52,Q20,,,,,"/>
+<approved hash="115,1,423.739,81.28,Q21,,,,,"/>
+<approved hash="115,1,446.599,68.58,Q22,,,,,"/>
+<approved hash="115,1,659.959,147.32,Q25,,,,,"/>
+<approved hash="115,1,682.819,134.62,Q26,,,,,"/>
+<approved hash="115,1,705.679,121.92,Q27,,,,,"/>
+<approved hash="115,1,659.959,93.98,Q28,,,,,"/>
+<approved hash="115,1,682.819,78.74,Q29,,,,,"/>
+<approved hash="115,1,705.679,66.04,Q30,,,,,"/>
+<approved hash="115,1,190.822,97.79,LED9,,,,,"/>
+<approved hash="115,1,200.982,97.79,LED11,,,,,"/>
+<approved hash="115,1,211.142,97.79,LED13,,,,,"/>
+<approved hash="115,1,221.302,97.79,LED15,,,,,"/>
+<approved hash="115,1,493.437,327.465,QUAD1,,,,,"/>
+<approved hash="115,1,749.977,327.465,QUAD2,,,,,"/>
+<approved hash="115,1,749.977,129.345,QUAD4,,,,,"/>
+<approved hash="115,1,488.357,131.885,QUAD3,,,,,"/>
 </errors>
 </schematic>
 </drawing>
