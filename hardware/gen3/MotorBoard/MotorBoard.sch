@@ -5251,7 +5251,7 @@ bottom side connector for ribbon cable</description>
 <part name="GND17" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R87" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R88" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
-<part name="U$5" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP1" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
@@ -5279,7 +5279,7 @@ bottom side connector for ribbon cable</description>
 <part name="R58" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
 <part name="R59" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
 <part name="RSENSE2" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
-<part name="U$6" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP2" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R60" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R61" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="RFILT1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
@@ -5287,7 +5287,7 @@ bottom side connector for ribbon cable</description>
 <part name="R62" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R80" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
 <part name="RSENSE4" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
-<part name="U$8" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP4" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R83" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R86" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="RFILT4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
@@ -5295,7 +5295,7 @@ bottom side connector for ribbon cable</description>
 <part name="R95" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R96" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
 <part name="RSENSE3" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
-<part name="U$11" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP3" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R98" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R100" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="RFILT3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
@@ -5319,10 +5319,10 @@ bottom side connector for ribbon cable</description>
 <part name="D2" library="gen3" deviceset="DIODE-ZENER" device=""/>
 <part name="D3" library="gen3" deviceset="DIODE-ZENER" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M05X2" device="PTH"/>
-<part name="U$12" library="gen3" deviceset="LM331" device=""/>
-<part name="U$7" library="gen3" deviceset="LM331" device=""/>
-<part name="U$9" library="gen3" deviceset="LM331" device=""/>
-<part name="U$10" library="gen3" deviceset="LM331" device=""/>
+<part name="COMP1" library="gen3" deviceset="LM331" device=""/>
+<part name="COMP2" library="gen3" deviceset="LM331" device=""/>
+<part name="COMP4" library="gen3" deviceset="LM331" device=""/>
+<part name="COMP3" library="gen3" deviceset="LM331" device=""/>
 <part name="QUAD1" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
 <part name="MOTOR1" library="gen3" deviceset="MOTORCON" device=""/>
 <part name="R105" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
@@ -5333,13 +5333,13 @@ bottom side connector for ribbon cable</description>
 <part name="R65" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R66" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R67" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="QUAD3" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
-<part name="MOTOR3" library="gen3" deviceset="MOTORCON" device=""/>
+<part name="QUAD4" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
+<part name="MOTOR4" library="gen3" deviceset="MOTORCON" device=""/>
 <part name="R68" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R69" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R70" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="QUAD4" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
-<part name="MOTOR4" library="gen3" deviceset="MOTORCON" device=""/>
+<part name="QUAD3" library="SparkFun-Connectors" deviceset="M04" device="LOCK"/>
+<part name="MOTOR3" library="gen3" deviceset="MOTORCON" device=""/>
 <part name="R71" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R72" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R73" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
@@ -5552,7 +5552,7 @@ bottom side connector for ribbon cable</description>
 <instance part="GND17" gate="1" x="281.94" y="93.98"/>
 <instance part="R87" gate="G$1" x="309.88" y="99.06" rot="R180"/>
 <instance part="R88" gate="G$1" x="309.88" y="96.52" rot="R180"/>
-<instance part="U$5" gate="G$1" x="332.74" y="228.6" rot="MR180"/>
+<instance part="OP1" gate="G$1" x="332.74" y="228.6" rot="MR180"/>
 <instance part="R89" gate="G$1" x="347.98" y="223.52" rot="R90"/>
 <instance part="R90" gate="G$1" x="347.98" y="210.82" rot="R90"/>
 <instance part="C33" gate="G$1" x="78.74" y="137.16" rot="R180"/>
@@ -5580,7 +5580,7 @@ bottom side connector for ribbon cable</description>
 <instance part="R58" gate="G$1" x="548.64" y="76.2"/>
 <instance part="R59" gate="G$1" x="289.56" y="78.74"/>
 <instance part="RSENSE2" gate="G$1" x="556.26" y="220.98" rot="R90"/>
-<instance part="U$6" gate="G$1" x="594.36" y="228.6" rot="MR180"/>
+<instance part="OP2" gate="G$1" x="594.36" y="228.6" rot="MR180"/>
 <instance part="R60" gate="G$1" x="609.6" y="223.52" rot="R90"/>
 <instance part="R61" gate="G$1" x="609.6" y="210.82" rot="R90"/>
 <instance part="RFILT1" gate="G$1" x="568.96" y="231.14"/>
@@ -5588,7 +5588,7 @@ bottom side connector for ribbon cable</description>
 <instance part="R62" gate="G$1" x="624.84" y="210.82" rot="R180"/>
 <instance part="R80" gate="G$1" x="640.08" y="210.82" rot="R180"/>
 <instance part="RSENSE4" gate="G$1" x="558.8" y="22.86" rot="R90"/>
-<instance part="U$8" gate="G$1" x="596.9" y="30.48" rot="MR180"/>
+<instance part="OP4" gate="G$1" x="596.9" y="30.48" rot="MR180"/>
 <instance part="R83" gate="G$1" x="612.14" y="25.4" rot="R90"/>
 <instance part="R86" gate="G$1" x="612.14" y="12.7" rot="R90"/>
 <instance part="RFILT4" gate="G$1" x="571.5" y="33.02"/>
@@ -5596,7 +5596,7 @@ bottom side connector for ribbon cable</description>
 <instance part="R95" gate="G$1" x="627.38" y="12.7" rot="R180"/>
 <instance part="R96" gate="G$1" x="642.62" y="12.7" rot="R180"/>
 <instance part="RSENSE3" gate="G$1" x="297.18" y="22.86" rot="R90"/>
-<instance part="U$11" gate="G$1" x="335.28" y="30.48" rot="MR180"/>
+<instance part="OP3" gate="G$1" x="335.28" y="30.48" rot="MR180"/>
 <instance part="R98" gate="G$1" x="350.52" y="25.4" rot="R90"/>
 <instance part="R100" gate="G$1" x="350.52" y="12.7" rot="R90"/>
 <instance part="RFILT3" gate="G$1" x="309.88" y="33.02"/>
@@ -5620,10 +5620,10 @@ bottom side connector for ribbon cable</description>
 <instance part="D2" gate="G$1" x="716.28" y="160.02" rot="R90"/>
 <instance part="D3" gate="G$1" x="457.2" y="162.56" rot="R90"/>
 <instance part="JP1" gate="G$1" x="78.74" y="38.1"/>
-<instance part="U$12" gate="G$1" x="381" y="226.06" rot="MR180"/>
-<instance part="U$7" gate="G$1" x="642.62" y="226.06" rot="MR180"/>
-<instance part="U$9" gate="G$1" x="645.16" y="27.94" rot="MR180"/>
-<instance part="U$10" gate="G$1" x="383.54" y="27.94" rot="MR180"/>
+<instance part="COMP1" gate="G$1" x="381" y="226.06" rot="MR180"/>
+<instance part="COMP2" gate="G$1" x="642.62" y="226.06" rot="MR180"/>
+<instance part="COMP4" gate="G$1" x="645.16" y="27.94" rot="MR180"/>
+<instance part="COMP3" gate="G$1" x="383.54" y="27.94" rot="MR180"/>
 <instance part="QUAD1" gate="G$1" x="495.3" y="330.2" rot="R180"/>
 <instance part="MOTOR1" gate="G$1" x="497.84" y="297.18"/>
 <instance part="R105" gate="G$1" x="474.98" y="279.4" rot="R270"/>
@@ -5634,13 +5634,13 @@ bottom side connector for ribbon cable</description>
 <instance part="R65" gate="G$1" x="731.52" y="279.4" rot="R270"/>
 <instance part="R66" gate="G$1" x="736.6" y="279.4" rot="R270"/>
 <instance part="R67" gate="G$1" x="741.68" y="279.4" rot="R270"/>
-<instance part="QUAD3" gate="G$1" x="751.84" y="132.08" rot="R180"/>
-<instance part="MOTOR3" gate="G$1" x="754.38" y="99.06"/>
+<instance part="QUAD4" gate="G$1" x="751.84" y="132.08" rot="R180"/>
+<instance part="MOTOR4" gate="G$1" x="754.38" y="99.06"/>
 <instance part="R68" gate="G$1" x="731.52" y="81.28" rot="R270"/>
 <instance part="R69" gate="G$1" x="736.6" y="81.28" rot="R270"/>
 <instance part="R70" gate="G$1" x="741.68" y="81.28" rot="R270"/>
-<instance part="QUAD4" gate="G$1" x="490.22" y="134.62" rot="R180"/>
-<instance part="MOTOR4" gate="G$1" x="492.76" y="101.6"/>
+<instance part="QUAD3" gate="G$1" x="490.22" y="134.62" rot="R180"/>
+<instance part="MOTOR3" gate="G$1" x="492.76" y="101.6"/>
 <instance part="R71" gate="G$1" x="469.9" y="83.82" rot="R270"/>
 <instance part="R72" gate="G$1" x="474.98" y="83.82" rot="R270"/>
 <instance part="R73" gate="G$1" x="480.06" y="83.82" rot="R270"/>
@@ -5809,7 +5809,7 @@ bottom side connector for ribbon cable</description>
 <label x="205.74" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="V-"/>
+<pinref part="OP1" gate="G$1" pin="V-"/>
 <wire x1="332.74" y1="236.22" x2="332.74" y2="238.76" width="0.1524" layer="91"/>
 <label x="332.74" y="238.76" size="1.778" layer="95"/>
 </segment>
@@ -5830,7 +5830,7 @@ bottom side connector for ribbon cable</description>
 <label x="609.6" y="203.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="V-"/>
+<pinref part="OP2" gate="G$1" pin="V-"/>
 <wire x1="594.36" y1="236.22" x2="594.36" y2="238.76" width="0.1524" layer="91"/>
 <label x="594.36" y="238.76" size="1.778" layer="95"/>
 </segment>
@@ -5851,7 +5851,7 @@ bottom side connector for ribbon cable</description>
 <label x="612.14" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="V-"/>
+<pinref part="OP4" gate="G$1" pin="V-"/>
 <wire x1="596.9" y1="38.1" x2="596.9" y2="40.64" width="0.1524" layer="91"/>
 <label x="596.9" y="40.64" size="1.778" layer="95"/>
 </segment>
@@ -5872,7 +5872,7 @@ bottom side connector for ribbon cable</description>
 <label x="350.52" y="5.08" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$11" gate="G$1" pin="V-"/>
+<pinref part="OP3" gate="G$1" pin="V-"/>
 <wire x1="335.28" y1="38.1" x2="335.28" y2="40.64" width="0.1524" layer="91"/>
 <label x="335.28" y="40.64" size="1.778" layer="95"/>
 </segment>
@@ -5908,22 +5908,22 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="381" y1="233.68" x2="381" y2="236.22" width="0.1524" layer="91"/>
 <label x="381" y="236.22" size="1.778" layer="95"/>
-<pinref part="U$12" gate="G$1" pin="V-"/>
+<pinref part="COMP1" gate="G$1" pin="V-"/>
 </segment>
 <segment>
 <wire x1="383.54" y1="35.56" x2="383.54" y2="38.1" width="0.1524" layer="91"/>
 <label x="383.54" y="38.1" size="1.778" layer="95"/>
-<pinref part="U$10" gate="G$1" pin="V-"/>
+<pinref part="COMP3" gate="G$1" pin="V-"/>
 </segment>
 <segment>
 <wire x1="645.16" y1="35.56" x2="645.16" y2="38.1" width="0.1524" layer="91"/>
 <label x="645.16" y="38.1" size="1.778" layer="95"/>
-<pinref part="U$9" gate="G$1" pin="V-"/>
+<pinref part="COMP4" gate="G$1" pin="V-"/>
 </segment>
 <segment>
 <wire x1="642.62" y1="233.68" x2="642.62" y2="236.22" width="0.1524" layer="91"/>
 <label x="642.62" y="236.22" size="1.778" layer="95"/>
-<pinref part="U$7" gate="G$1" pin="V-"/>
+<pinref part="COMP2" gate="G$1" pin="V-"/>
 </segment>
 <segment>
 <pinref part="MOTOR1" gate="G$1" pin="P$7"/>
@@ -5946,22 +5946,22 @@ bottom side connector for ribbon cable</description>
 <label x="741.68" y="327.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="P$7"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$7"/>
 <wire x1="746.76" y1="96.52" x2="741.68" y2="96.52" width="0.1524" layer="91"/>
 <label x="739.14" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="QUAD3" gate="G$1" pin="3"/>
+<pinref part="QUAD4" gate="G$1" pin="3"/>
 <wire x1="746.76" y1="129.54" x2="741.68" y2="129.54" width="0.1524" layer="91"/>
 <label x="741.68" y="129.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="P$7"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$7"/>
 <wire x1="485.14" y1="99.06" x2="480.06" y2="99.06" width="0.1524" layer="91"/>
 <label x="477.52" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="QUAD4" gate="G$1" pin="3"/>
+<pinref part="QUAD3" gate="G$1" pin="3"/>
 <wire x1="485.14" y1="132.08" x2="480.06" y2="132.08" width="0.1524" layer="91"/>
 <label x="480.06" y="132.08" size="1.778" layer="95"/>
 </segment>
@@ -6460,7 +6460,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="53.34" y1="165.1" x2="53.34" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$5" gate="G$1" pin="V+"/>
+<pinref part="OP1" gate="G$1" pin="V+"/>
 <wire x1="332.74" y1="220.98" x2="332.74" y2="218.44" width="0.1524" layer="91"/>
 <label x="332.74" y="218.44" size="1.778" layer="95"/>
 </segment>
@@ -6471,7 +6471,7 @@ bottom side connector for ribbon cable</description>
 <label x="355.6" y="213.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="V+"/>
+<pinref part="OP2" gate="G$1" pin="V+"/>
 <wire x1="594.36" y1="220.98" x2="594.36" y2="218.44" width="0.1524" layer="91"/>
 <label x="594.36" y="218.44" size="1.778" layer="95"/>
 </segment>
@@ -6482,7 +6482,7 @@ bottom side connector for ribbon cable</description>
 <label x="617.22" y="213.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="V+"/>
+<pinref part="OP4" gate="G$1" pin="V+"/>
 <wire x1="596.9" y1="22.86" x2="596.9" y2="20.32" width="0.1524" layer="91"/>
 <label x="596.9" y="20.32" size="1.778" layer="95"/>
 </segment>
@@ -6493,7 +6493,7 @@ bottom side connector for ribbon cable</description>
 <label x="619.76" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$11" gate="G$1" pin="V+"/>
+<pinref part="OP3" gate="G$1" pin="V+"/>
 <wire x1="335.28" y1="22.86" x2="335.28" y2="20.32" width="0.1524" layer="91"/>
 <label x="335.28" y="20.32" size="1.778" layer="95"/>
 </segment>
@@ -6506,22 +6506,22 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="381" y1="218.44" x2="381" y2="215.9" width="0.1524" layer="91"/>
 <label x="381" y="215.9" size="1.778" layer="95"/>
-<pinref part="U$12" gate="G$1" pin="V+"/>
+<pinref part="COMP1" gate="G$1" pin="V+"/>
 </segment>
 <segment>
 <wire x1="383.54" y1="20.32" x2="383.54" y2="17.78" width="0.1524" layer="91"/>
 <label x="383.54" y="17.78" size="1.778" layer="95"/>
-<pinref part="U$10" gate="G$1" pin="V+"/>
+<pinref part="COMP3" gate="G$1" pin="V+"/>
 </segment>
 <segment>
 <wire x1="645.16" y1="20.32" x2="645.16" y2="17.78" width="0.1524" layer="91"/>
 <label x="645.16" y="17.78" size="1.778" layer="95"/>
-<pinref part="U$9" gate="G$1" pin="V+"/>
+<pinref part="COMP4" gate="G$1" pin="V+"/>
 </segment>
 <segment>
 <wire x1="642.62" y1="218.44" x2="642.62" y2="215.9" width="0.1524" layer="91"/>
 <label x="642.62" y="215.9" size="1.778" layer="95"/>
-<pinref part="U$7" gate="G$1" pin="V+"/>
+<pinref part="COMP2" gate="G$1" pin="V+"/>
 </segment>
 <segment>
 <pinref part="MOTOR1" gate="G$1" pin="P$11"/>
@@ -6564,12 +6564,12 @@ bottom side connector for ribbon cable</description>
 <label x="736.6" y="271.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="P$11"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$11"/>
 <wire x1="746.76" y1="86.36" x2="744.22" y2="86.36" width="0.1524" layer="91"/>
 <label x="744.22" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="QUAD3" gate="G$1" pin="1"/>
+<pinref part="QUAD4" gate="G$1" pin="1"/>
 <wire x1="746.76" y1="134.62" x2="741.68" y2="134.62" width="0.1524" layer="91"/>
 <label x="741.68" y="134.62" size="1.778" layer="95"/>
 </segment>
@@ -6584,12 +6584,12 @@ bottom side connector for ribbon cable</description>
 <label x="736.6" y="73.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="P$11"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$11"/>
 <wire x1="485.14" y1="88.9" x2="482.6" y2="88.9" width="0.1524" layer="91"/>
 <label x="482.6" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="QUAD4" gate="G$1" pin="1"/>
+<pinref part="QUAD3" gate="G$1" pin="1"/>
 <wire x1="485.14" y1="137.16" x2="480.06" y2="137.16" width="0.1524" layer="91"/>
 <label x="480.06" y="137.16" size="1.778" layer="95"/>
 </segment>
@@ -6831,7 +6831,7 @@ bottom side connector for ribbon cable</description>
 </net>
 <net name="SENSE1" class="0">
 <segment>
-<pinref part="U$5" gate="G$1" pin="OUT"/>
+<pinref part="OP1" gate="G$1" pin="OUT"/>
 <pinref part="R89" gate="G$1" pin="2"/>
 <wire x1="342.9" y1="228.6" x2="347.98" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="228.6" x2="358.14" y2="228.6" width="0.1524" layer="91"/>
@@ -6840,7 +6840,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="358.14" y1="228.6" x2="358.14" y2="238.76" width="0.1524" layer="91"/>
 <junction x="358.14" y="228.6"/>
 <wire x1="358.14" y1="228.6" x2="375.92" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="U$12" gate="G$1" pin="IN-"/>
+<pinref part="COMP1" gate="G$1" pin="IN-"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PF0"/>
@@ -6855,7 +6855,7 @@ bottom side connector for ribbon cable</description>
 <label x="147.32" y="124.46" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="OUT"/>
+<pinref part="OP2" gate="G$1" pin="OUT"/>
 <pinref part="R60" gate="G$1" pin="2"/>
 <wire x1="604.52" y1="228.6" x2="609.6" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="609.6" y1="228.6" x2="619.76" y2="228.6" width="0.1524" layer="91"/>
@@ -6864,7 +6864,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="619.76" y1="228.6" x2="619.76" y2="238.76" width="0.1524" layer="91"/>
 <junction x="619.76" y="228.6"/>
 <wire x1="619.76" y1="228.6" x2="637.54" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="IN-"/>
+<pinref part="COMP2" gate="G$1" pin="IN-"/>
 </segment>
 </net>
 <net name="SENSE3" class="0">
@@ -6874,7 +6874,7 @@ bottom side connector for ribbon cable</description>
 <label x="147.32" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$11" gate="G$1" pin="OUT"/>
+<pinref part="OP3" gate="G$1" pin="OUT"/>
 <pinref part="R98" gate="G$1" pin="2"/>
 <wire x1="345.44" y1="30.48" x2="350.52" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="350.52" y1="30.48" x2="360.68" y2="30.48" width="0.1524" layer="91"/>
@@ -6883,7 +6883,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="360.68" y1="30.48" x2="360.68" y2="40.64" width="0.1524" layer="91"/>
 <junction x="360.68" y="30.48"/>
 <wire x1="360.68" y1="30.48" x2="378.46" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="IN-"/>
+<pinref part="COMP3" gate="G$1" pin="IN-"/>
 </segment>
 </net>
 <net name="SENSE4" class="0">
@@ -6893,7 +6893,7 @@ bottom side connector for ribbon cable</description>
 <label x="147.32" y="119.38" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="OUT"/>
+<pinref part="OP4" gate="G$1" pin="OUT"/>
 <pinref part="R83" gate="G$1" pin="2"/>
 <wire x1="607.06" y1="30.48" x2="612.14" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="612.14" y1="30.48" x2="622.3" y2="30.48" width="0.1524" layer="91"/>
@@ -6902,7 +6902,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="622.3" y1="30.48" x2="622.3" y2="40.64" width="0.1524" layer="91"/>
 <junction x="622.3" y="30.48"/>
 <wire x1="622.3" y1="30.48" x2="640.08" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="IN-"/>
+<pinref part="COMP4" gate="G$1" pin="IN-"/>
 </segment>
 </net>
 <net name="PWM1" class="0">
@@ -7782,7 +7782,7 @@ bottom side connector for ribbon cable</description>
 <label x="314.96" y="93.98" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="P$9"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$9"/>
 <wire x1="485.14" y1="93.98" x2="474.98" y2="93.98" width="0.1524" layer="91"/>
 <label x="462.28" y="93.98" size="1.778" layer="95"/>
 <pinref part="R72" gate="G$1" pin="1"/>
@@ -7798,7 +7798,7 @@ bottom side connector for ribbon cable</description>
 <label x="314.96" y="91.44" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="P$8"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$8"/>
 <wire x1="485.14" y1="96.52" x2="480.06" y2="96.52" width="0.1524" layer="91"/>
 <label x="462.28" y="96.52" size="1.778" layer="95"/>
 <pinref part="R73" gate="G$1" pin="1"/>
@@ -7814,7 +7814,7 @@ bottom side connector for ribbon cable</description>
 <label x="314.96" y="88.9" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="P$10"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$10"/>
 <wire x1="485.14" y1="91.44" x2="469.9" y2="91.44" width="0.1524" layer="91"/>
 <label x="462.28" y="91.44" size="1.778" layer="95"/>
 <pinref part="R71" gate="G$1" pin="1"/>
@@ -7841,8 +7841,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="449.58" y1="104.14" x2="485.14" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="C29" gate="G$1" pin="2"/>
 <junction x="378.46" y="99.06"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$5"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$6"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$5"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$6"/>
 <wire x1="485.14" y1="104.14" x2="485.14" y2="101.6" width="0.1524" layer="91"/>
 <label x="477.52" y="104.14" size="1.778" layer="95"/>
 <junction x="485.14" y="104.14"/>
@@ -7866,8 +7866,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="373.38" y1="109.22" x2="373.38" y2="106.68" width="0.1524" layer="91"/>
 <junction x="373.38" y="106.68"/>
 <wire x1="474.98" y1="106.68" x2="474.98" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$3"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$4"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$3"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$4"/>
 <wire x1="485.14" y1="109.22" x2="485.14" y2="106.68" width="0.1524" layer="91"/>
 <label x="477.52" y="109.22" size="1.778" layer="95"/>
 <junction x="485.14" y="109.22"/>
@@ -7893,8 +7893,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="378.46" y1="119.38" x2="378.46" y2="116.84" width="0.1524" layer="91"/>
 <junction x="378.46" y="116.84"/>
 <wire x1="467.36" y1="109.22" x2="467.36" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$1"/>
-<pinref part="MOTOR4" gate="G$1" pin="P$2"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$1"/>
+<pinref part="MOTOR3" gate="G$1" pin="P$2"/>
 <wire x1="485.14" y1="114.3" x2="485.14" y2="111.76" width="0.1524" layer="91"/>
 <label x="477.52" y="114.3" size="1.778" layer="95"/>
 <junction x="485.14" y="114.3"/>
@@ -7908,7 +7908,7 @@ bottom side connector for ribbon cable</description>
 <label x="574.04" y="91.44" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="P$9"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$9"/>
 <wire x1="746.76" y1="91.44" x2="736.6" y2="91.44" width="0.1524" layer="91"/>
 <label x="723.9" y="91.44" size="1.778" layer="95"/>
 <pinref part="R69" gate="G$1" pin="1"/>
@@ -7924,7 +7924,7 @@ bottom side connector for ribbon cable</description>
 <label x="574.04" y="88.9" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="P$8"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$8"/>
 <wire x1="746.76" y1="93.98" x2="741.68" y2="93.98" width="0.1524" layer="91"/>
 <label x="723.9" y="93.98" size="1.778" layer="95"/>
 <pinref part="R70" gate="G$1" pin="1"/>
@@ -7940,7 +7940,7 @@ bottom side connector for ribbon cable</description>
 <label x="574.04" y="86.36" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="P$10"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$10"/>
 <wire x1="746.76" y1="88.9" x2="731.52" y2="88.9" width="0.1524" layer="91"/>
 <label x="723.9" y="88.9" size="1.778" layer="95"/>
 <pinref part="R68" gate="G$1" pin="1"/>
@@ -7967,8 +7967,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="708.66" y1="101.6" x2="746.76" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="C38" gate="G$1" pin="2"/>
 <junction x="637.54" y="96.52"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$5"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$6"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$5"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$6"/>
 <wire x1="746.76" y1="101.6" x2="746.76" y2="99.06" width="0.1524" layer="91"/>
 <label x="739.14" y="101.6" size="1.778" layer="95"/>
 <junction x="746.76" y="101.6"/>
@@ -7992,8 +7992,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="632.46" y1="106.68" x2="632.46" y2="104.14" width="0.1524" layer="91"/>
 <junction x="632.46" y="104.14"/>
 <wire x1="734.06" y1="104.14" x2="734.06" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$3"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$4"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$3"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$4"/>
 <wire x1="746.76" y1="106.68" x2="746.76" y2="104.14" width="0.1524" layer="91"/>
 <label x="739.14" y="106.68" size="1.778" layer="95"/>
 <junction x="746.76" y="106.68"/>
@@ -8019,8 +8019,8 @@ bottom side connector for ribbon cable</description>
 <wire x1="637.54" y1="116.84" x2="637.54" y2="114.3" width="0.1524" layer="91"/>
 <junction x="637.54" y="114.3"/>
 <wire x1="726.44" y1="106.68" x2="726.44" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$1"/>
-<pinref part="MOTOR3" gate="G$1" pin="P$2"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$1"/>
+<pinref part="MOTOR4" gate="G$1" pin="P$2"/>
 <wire x1="746.76" y1="111.76" x2="746.76" y2="109.22" width="0.1524" layer="91"/>
 <label x="739.14" y="111.76" size="1.778" layer="95"/>
 <junction x="746.76" y="111.76"/>
@@ -8170,7 +8170,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="R89" gate="G$1" pin="1"/>
 <pinref part="R90" gate="G$1" pin="2"/>
 <wire x1="347.98" y1="215.9" x2="347.98" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="-IN"/>
+<pinref part="OP1" gate="G$1" pin="-IN"/>
 <wire x1="347.98" y1="215.9" x2="327.66" y2="215.9" width="0.1524" layer="91"/>
 <wire x1="327.66" y1="215.9" x2="327.66" y2="226.06" width="0.1524" layer="91"/>
 <junction x="347.98" y="215.9"/>
@@ -8415,7 +8415,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="312.42" y1="231.14" x2="314.96" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="231.14" x2="314.96" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="+IN"/>
+<pinref part="OP1" gate="G$1" pin="+IN"/>
 <wire x1="314.96" y1="231.14" x2="327.66" y2="231.14" width="0.1524" layer="91"/>
 <junction x="314.96" y="231.14"/>
 </segment>
@@ -8429,7 +8429,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="370.84" y1="210.82" x2="370.84" y2="223.52" width="0.1524" layer="91"/>
 <junction x="370.84" y="210.82"/>
 <wire x1="370.84" y1="223.52" x2="375.92" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="U$12" gate="G$1" pin="IN+"/>
+<pinref part="COMP1" gate="G$1" pin="IN+"/>
 </segment>
 </net>
 <net name="LIM1" class="0">
@@ -8446,7 +8446,7 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="391.16" y1="226.06" x2="406.4" y2="226.06" width="0.1524" layer="91"/>
 <label x="401.32" y="226.06" size="1.778" layer="95"/>
-<pinref part="U$12" gate="G$1" pin="OUT"/>
+<pinref part="COMP1" gate="G$1" pin="OUT"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -8454,7 +8454,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="R60" gate="G$1" pin="1"/>
 <pinref part="R61" gate="G$1" pin="2"/>
 <wire x1="609.6" y1="215.9" x2="609.6" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="-IN"/>
+<pinref part="OP2" gate="G$1" pin="-IN"/>
 <wire x1="609.6" y1="215.9" x2="589.28" y2="215.9" width="0.1524" layer="91"/>
 <wire x1="589.28" y1="215.9" x2="589.28" y2="226.06" width="0.1524" layer="91"/>
 <junction x="609.6" y="215.9"/>
@@ -8466,7 +8466,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="574.04" y1="231.14" x2="576.58" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="576.58" y1="231.14" x2="576.58" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="+IN"/>
+<pinref part="OP2" gate="G$1" pin="+IN"/>
 <wire x1="576.58" y1="231.14" x2="589.28" y2="231.14" width="0.1524" layer="91"/>
 <junction x="576.58" y="231.14"/>
 </segment>
@@ -8480,7 +8480,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="632.46" y1="210.82" x2="632.46" y2="223.52" width="0.1524" layer="91"/>
 <junction x="632.46" y="210.82"/>
 <wire x1="632.46" y1="223.52" x2="637.54" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="IN+"/>
+<pinref part="COMP2" gate="G$1" pin="IN+"/>
 </segment>
 </net>
 <net name="N$67" class="0">
@@ -8488,7 +8488,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="R83" gate="G$1" pin="1"/>
 <pinref part="R86" gate="G$1" pin="2"/>
 <wire x1="612.14" y1="17.78" x2="612.14" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="-IN"/>
+<pinref part="OP4" gate="G$1" pin="-IN"/>
 <wire x1="612.14" y1="17.78" x2="591.82" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="591.82" y1="17.78" x2="591.82" y2="27.94" width="0.1524" layer="91"/>
 <junction x="612.14" y="17.78"/>
@@ -8500,7 +8500,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="C41" gate="G$1" pin="1"/>
 <wire x1="576.58" y1="33.02" x2="579.12" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="579.12" y1="33.02" x2="579.12" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$8" gate="G$1" pin="+IN"/>
+<pinref part="OP4" gate="G$1" pin="+IN"/>
 <wire x1="579.12" y1="33.02" x2="591.82" y2="33.02" width="0.1524" layer="91"/>
 <junction x="579.12" y="33.02"/>
 </segment>
@@ -8514,7 +8514,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="635" y1="12.7" x2="635" y2="25.4" width="0.1524" layer="91"/>
 <junction x="635" y="12.7"/>
 <wire x1="635" y1="25.4" x2="640.08" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="U$9" gate="G$1" pin="IN+"/>
+<pinref part="COMP4" gate="G$1" pin="IN+"/>
 </segment>
 </net>
 <net name="N$89" class="0">
@@ -8522,7 +8522,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="R98" gate="G$1" pin="1"/>
 <pinref part="R100" gate="G$1" pin="2"/>
 <wire x1="350.52" y1="17.78" x2="350.52" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="U$11" gate="G$1" pin="-IN"/>
+<pinref part="OP3" gate="G$1" pin="-IN"/>
 <wire x1="350.52" y1="17.78" x2="330.2" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="330.2" y1="17.78" x2="330.2" y2="27.94" width="0.1524" layer="91"/>
 <junction x="350.52" y="17.78"/>
@@ -8534,7 +8534,7 @@ bottom side connector for ribbon cable</description>
 <pinref part="C42" gate="G$1" pin="1"/>
 <wire x1="314.96" y1="33.02" x2="317.5" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="33.02" x2="317.5" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="U$11" gate="G$1" pin="+IN"/>
+<pinref part="OP3" gate="G$1" pin="+IN"/>
 <wire x1="317.5" y1="33.02" x2="330.2" y2="33.02" width="0.1524" layer="91"/>
 <junction x="317.5" y="33.02"/>
 </segment>
@@ -8548,7 +8548,7 @@ bottom side connector for ribbon cable</description>
 <wire x1="373.38" y1="12.7" x2="373.38" y2="25.4" width="0.1524" layer="91"/>
 <junction x="373.38" y="12.7"/>
 <wire x1="373.38" y1="25.4" x2="378.46" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="U$10" gate="G$1" pin="IN+"/>
+<pinref part="COMP3" gate="G$1" pin="IN+"/>
 </segment>
 </net>
 <net name="LIM2" class="0">
@@ -8565,7 +8565,7 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="652.78" y1="226.06" x2="668.02" y2="226.06" width="0.1524" layer="91"/>
 <label x="662.94" y="226.06" size="1.778" layer="95"/>
-<pinref part="U$7" gate="G$1" pin="OUT"/>
+<pinref part="COMP2" gate="G$1" pin="OUT"/>
 </segment>
 </net>
 <net name="LIM3" class="0">
@@ -8582,7 +8582,7 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="393.7" y1="27.94" x2="408.94" y2="27.94" width="0.1524" layer="91"/>
 <label x="403.86" y="27.94" size="1.778" layer="95"/>
-<pinref part="U$10" gate="G$1" pin="OUT"/>
+<pinref part="COMP3" gate="G$1" pin="OUT"/>
 </segment>
 </net>
 <net name="LIM4" class="0">
@@ -8599,7 +8599,7 @@ bottom side connector for ribbon cable</description>
 <segment>
 <wire x1="655.32" y1="27.94" x2="670.56" y2="27.94" width="0.1524" layer="91"/>
 <label x="665.48" y="27.94" size="1.778" layer="95"/>
-<pinref part="U$9" gate="G$1" pin="OUT"/>
+<pinref part="COMP4" gate="G$1" pin="OUT"/>
 </segment>
 </net>
 <net name="QEA1" class="0">
@@ -8632,28 +8632,28 @@ bottom side connector for ribbon cable</description>
 </net>
 <net name="QEA4" class="0">
 <segment>
-<pinref part="QUAD3" gate="G$1" pin="2"/>
+<pinref part="QUAD4" gate="G$1" pin="2"/>
 <wire x1="746.76" y1="132.08" x2="741.68" y2="132.08" width="0.1524" layer="91"/>
 <label x="741.68" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="QEB4" class="0">
 <segment>
-<pinref part="QUAD3" gate="G$1" pin="4"/>
+<pinref part="QUAD4" gate="G$1" pin="4"/>
 <wire x1="746.76" y1="127" x2="741.68" y2="127" width="0.1524" layer="91"/>
 <label x="741.68" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="QEA3" class="0">
 <segment>
-<pinref part="QUAD4" gate="G$1" pin="2"/>
+<pinref part="QUAD3" gate="G$1" pin="2"/>
 <wire x1="485.14" y1="134.62" x2="480.06" y2="134.62" width="0.1524" layer="91"/>
 <label x="480.06" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="QEB3" class="0">
 <segment>
-<pinref part="QUAD4" gate="G$1" pin="4"/>
+<pinref part="QUAD3" gate="G$1" pin="4"/>
 <wire x1="485.14" y1="129.54" x2="480.06" y2="129.54" width="0.1524" layer="91"/>
 <label x="480.06" y="129.54" size="1.778" layer="95"/>
 </segment>
