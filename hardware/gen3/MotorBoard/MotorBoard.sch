@@ -5335,9 +5335,9 @@ Use to probe a signal</description>
 <part name="R102" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R104" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
 <part name="C8" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="C17" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="C17" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C26" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="C35" library="SparkFun-Passives" deviceset="CAP" device="1206" value=".1uF"/>
+<part name="C35" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C44" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C45" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C46" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
