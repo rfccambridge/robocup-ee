@@ -15807,7 +15807,7 @@ low impedence, low ceiling cap</description>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="60.4k"/>
 <part name="R32" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="80.6k"/>
 <part name="R33" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2.5k"/>
-<part name="RSENSE" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20m"/>
+<part name="RSENSE" library="SparkFun-Passives" deviceset="RESISTOR" device="2512" value="20m"/>
 <part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="C18" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="10uF"/>
 <part name="C19" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100pF"/>
@@ -16118,6 +16118,13 @@ to measure battery voltage</text>
 <pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
 <label x="172.72" y="116.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="3.3REG" gate="G$1" pin="GND"/>
+<wire x1="55.88" y1="353.06" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
+<pinref part="5REG" gate="G$1" pin="GND"/>
+<wire x1="55.88" y1="322.58" x2="53.34" y2="322.58" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="322.58" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -16463,13 +16470,7 @@ to measure battery voltage</text>
 </segment>
 <segment>
 <label x="60.96" y="302.26" size="1.778" layer="95"/>
-<pinref part="3.3REG" gate="G$1" pin="GND"/>
-<wire x1="43.18" y1="353.06" x2="43.18" y2="322.58" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="322.58" x2="43.18" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="353.06" x2="43.18" y2="353.06" width="0.1524" layer="91"/>
-<pinref part="5REG" gate="G$1" pin="GND"/>
-<wire x1="55.88" y1="322.58" x2="43.18" y2="322.58" width="0.1524" layer="91"/>
-<junction x="43.18" y="322.58"/>
+<wire x1="43.18" y1="353.06" x2="43.18" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="302.26" x2="60.96" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="302.26" x2="43.18" y2="294.64" width="0.1524" layer="91"/>
 <junction x="43.18" y="302.26"/>
@@ -16477,7 +16478,6 @@ to measure battery voltage</text>
 <wire x1="43.18" y1="294.64" x2="48.26" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="BATT" gate="-2" pin="KL"/>
 <wire x1="17.78" y1="353.06" x2="43.18" y2="353.06" width="0.1524" layer="91"/>
-<junction x="43.18" y="353.06"/>
 </segment>
 <segment>
 <pinref part="NEON" gate="G$1" pin="2"/>
