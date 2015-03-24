@@ -5283,9 +5283,6 @@ Use to probe a signal</description>
 <part name="GND17" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R87" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R88" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
-<part name="OP1" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
-<part name="R89" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
-<part name="R90" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.75k"/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C40" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R97" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
@@ -5302,8 +5299,6 @@ Use to probe a signal</description>
 <part name="R64" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R91" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R92" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
-<part name="RFILT" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="15k"/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R93" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="66.5k"/>
 <part name="R94" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="37.5k"/>
 <part name="R77" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="3k"/>
@@ -5399,6 +5394,12 @@ Use to probe a signal</description>
 <part name="SENSE2" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="SENSE4" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="SENSE3" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="R74" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="5k"/>
+<part name="R75" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="5k"/>
+<part name="R76" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="75k"/>
+<part name="R89" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="75k"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".3uF"/>
+<part name="OP1" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 </parts>
 <sheets>
 <sheet>
@@ -5412,14 +5413,14 @@ Use to probe a signal</description>
 <text x="579.12" y="81.28" size="1.778" layer="91">careful, 180 degrees</text>
 <text x="320.04" y="83.82" size="1.778" layer="91">careful, 180 degrees</text>
 <text x="383.54" y="246.38" size="1.778" layer="91">0-.2v</text>
-<text x="320.04" y="208.28" size="1.778" layer="91">max 10A -&gt; .2V
+<text x="309.88" y="205.74" size="1.778" layer="91">max 10A -&gt; .2V
 .2V x15 gain -&gt; 3V</text>
-<text x="289.56" y="213.36" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
+<text x="276.86" y="213.36" size="1.778" layer="91" rot="R90">3 watts, can survive 10A</text>
 <text x="327.66" y="243.84" size="1.778" layer="91">upside down, sorry</text>
 <text x="231.14" y="147.32" size="1.778" layer="91" rot="R90">only ss_m connected here</text>
-<text x="297.18" y="236.22" size="1.778" layer="91">lowpass, f3db =  120 hz</text>
-<text x="365.76" y="203.2" size="1.778" layer="91">1.8 ref voltage</text>
-<text x="396.24" y="231.14" size="1.778" layer="91">pulldown</text>
+<text x="292.1" y="246.38" size="1.778" layer="91">lowpass, f3db =  106 hz</text>
+<text x="365.76" y="200.66" size="1.778" layer="91">1.8 ref voltage</text>
+<text x="396.24" y="228.6" size="1.778" layer="91">pulldown</text>
 <text x="276.86" y="269.24" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
 <text x="535.94" y="269.24" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
 <text x="535.94" y="71.12" size="1.778" layer="91">lim will pull down pwm in case of overcurrent at 6A</text>
@@ -5500,7 +5501,7 @@ Use to probe a signal</description>
 <instance part="C9" gate="G$1" x="375.92" y="314.96" rot="R90"/>
 <instance part="C10" gate="G$1" x="370.84" y="304.8" rot="R90"/>
 <instance part="C11" gate="G$1" x="375.92" y="294.64" rot="R90"/>
-<instance part="RSENSE1" gate="G$1" x="294.64" y="220.98" rot="R90"/>
+<instance part="RSENSE1" gate="G$1" x="281.94" y="226.06" rot="R90"/>
 <instance part="Q9" gate="G$1" x="662.94" y="345.44"/>
 <instance part="U$1" gate="G$1" x="594.36" y="309.88" rot="R180"/>
 <instance part="C12" gate="G$1" x="576.58" y="325.12" rot="R90"/>
@@ -5608,9 +5609,6 @@ Use to probe a signal</description>
 <instance part="GND17" gate="1" x="281.94" y="93.98"/>
 <instance part="R87" gate="G$1" x="309.88" y="99.06" rot="R180"/>
 <instance part="R88" gate="G$1" x="309.88" y="96.52" rot="R180"/>
-<instance part="OP1" gate="G$1" x="332.74" y="228.6" rot="MR180"/>
-<instance part="R89" gate="G$1" x="347.98" y="223.52" rot="R90"/>
-<instance part="R90" gate="G$1" x="347.98" y="210.82" rot="R90"/>
 <instance part="C33" gate="G$1" x="78.74" y="137.16" rot="R180"/>
 <instance part="C40" gate="G$1" x="78.74" y="144.78" rot="R90"/>
 <instance part="R97" gate="G$1" x="86.36" y="154.94" rot="R90"/>
@@ -5627,10 +5625,8 @@ Use to probe a signal</description>
 <instance part="R64" gate="G$1" x="551.18" y="294.64" rot="R270"/>
 <instance part="R91" gate="G$1" x="289.56" y="99.06" rot="R270"/>
 <instance part="R92" gate="G$1" x="548.64" y="96.52" rot="R270"/>
-<instance part="RFILT" gate="G$1" x="307.34" y="231.14"/>
-<instance part="C1" gate="G$1" x="314.96" y="223.52"/>
-<instance part="R93" gate="G$1" x="363.22" y="210.82" rot="R180"/>
-<instance part="R94" gate="G$1" x="378.46" y="210.82" rot="R180"/>
+<instance part="R93" gate="G$1" x="363.22" y="208.28" rot="R180"/>
+<instance part="R94" gate="G$1" x="378.46" y="208.28" rot="R180"/>
 <instance part="R77" gate="G$1" x="289.56" y="274.32"/>
 <instance part="R57" gate="G$1" x="548.64" y="274.32"/>
 <instance part="R58" gate="G$1" x="548.64" y="76.2"/>
@@ -5676,7 +5672,7 @@ Use to probe a signal</description>
 <instance part="D2" gate="G$1" x="716.28" y="160.02" rot="R90"/>
 <instance part="D3" gate="G$1" x="457.2" y="162.56" rot="R90"/>
 <instance part="JP1" gate="G$1" x="78.74" y="38.1"/>
-<instance part="COMP1" gate="G$1" x="381" y="226.06" rot="MR180"/>
+<instance part="COMP1" gate="G$1" x="381" y="223.52" rot="MR180"/>
 <instance part="COMP2" gate="G$1" x="642.62" y="226.06" rot="MR180"/>
 <instance part="COMP4" gate="G$1" x="645.16" y="27.94" rot="MR180"/>
 <instance part="COMP3" gate="G$1" x="383.54" y="27.94" rot="MR180"/>
@@ -5700,7 +5696,7 @@ Use to probe a signal</description>
 <instance part="R71" gate="G$1" x="469.9" y="83.82" rot="R270"/>
 <instance part="R72" gate="G$1" x="474.98" y="83.82" rot="R270"/>
 <instance part="R73" gate="G$1" x="480.06" y="83.82" rot="R270"/>
-<instance part="LSS1" gate="G$1" x="294.64" y="251.46"/>
+<instance part="LSS1" gate="G$1" x="281.94" y="251.46"/>
 <instance part="LSS2" gate="G$1" x="556.26" y="251.46"/>
 <instance part="LSS4" gate="G$1" x="558.8" y="53.34"/>
 <instance part="LSS3" gate="G$1" x="297.18" y="55.88"/>
@@ -5720,10 +5716,16 @@ Use to probe a signal</description>
 <instance part="LIM2" gate="G$1" x="561.34" y="276.86"/>
 <instance part="LIM4" gate="G$1" x="561.34" y="78.74"/>
 <instance part="LIM3" gate="G$1" x="302.26" y="81.28"/>
-<instance part="SENSE1" gate="G$1" x="368.3" y="231.14"/>
+<instance part="SENSE1" gate="G$1" x="368.3" y="228.6"/>
 <instance part="SENSE2" gate="G$1" x="627.38" y="231.14"/>
 <instance part="SENSE4" gate="G$1" x="632.46" y="33.02"/>
 <instance part="SENSE3" gate="G$1" x="370.84" y="33.02"/>
+<instance part="R74" gate="G$1" x="297.18" y="238.76"/>
+<instance part="R75" gate="G$1" x="297.18" y="213.36"/>
+<instance part="R76" gate="G$1" x="312.42" y="238.76"/>
+<instance part="R89" gate="G$1" x="312.42" y="213.36"/>
+<instance part="C1" gate="G$1" x="304.8" y="228.6" rot="R180"/>
+<instance part="OP1" gate="G$1" x="314.96" y="226.06" rot="MR180"/>
 </instances>
 <busses>
 </busses>
@@ -5844,11 +5846,6 @@ Use to probe a signal</description>
 <wire x1="281.94" y1="96.52" x2="281.94" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R90" gate="G$1" pin="1"/>
-<wire x1="347.98" y1="205.74" x2="347.98" y2="203.2" width="0.1524" layer="91"/>
-<label x="347.98" y="203.2" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="C33" gate="G$1" pin="1"/>
 <wire x1="78.74" y1="132.08" x2="78.74" y2="129.54" width="0.1524" layer="91"/>
 <label x="73.66" y="129.54" size="1.778" layer="95"/>
@@ -5889,20 +5886,10 @@ Use to probe a signal</description>
 <label x="205.74" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="OP1" gate="G$1" pin="V-"/>
-<wire x1="332.74" y1="236.22" x2="332.74" y2="238.76" width="0.1524" layer="91"/>
-<label x="332.74" y="238.76" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="314.96" y1="220.98" x2="314.96" y2="215.9" width="0.1524" layer="91"/>
-<label x="314.96" y="215.9" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R94" gate="G$1" pin="1"/>
-<wire x1="383.54" y1="210.82" x2="386.08" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="386.08" y1="210.82" x2="386.08" y2="208.28" width="0.1524" layer="91"/>
-<label x="386.08" y="208.28" size="1.778" layer="95"/>
+<wire x1="383.54" y1="208.28" x2="386.08" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="208.28" x2="386.08" y2="205.74" width="0.1524" layer="91"/>
+<label x="386.08" y="205.74" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R61" gate="G$1" pin="1"/>
@@ -5986,8 +5973,8 @@ Use to probe a signal</description>
 <label x="91.44" y="33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="381" y1="233.68" x2="381" y2="236.22" width="0.1524" layer="91"/>
-<label x="381" y="236.22" size="1.778" layer="95"/>
+<wire x1="381" y1="231.14" x2="381" y2="233.68" width="0.1524" layer="91"/>
+<label x="381" y="233.68" size="1.778" layer="95"/>
 <pinref part="COMP1" gate="G$1" pin="V-"/>
 </segment>
 <segment>
@@ -6044,6 +6031,17 @@ Use to probe a signal</description>
 <pinref part="QUAD1" gate="G$1" pin="3"/>
 <wire x1="490.22" y1="327.66" x2="485.14" y2="327.66" width="0.1524" layer="91"/>
 <label x="485.14" y="327.66" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R76" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="238.76" x2="322.58" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="238.76" x2="322.58" y2="241.3" width="0.1524" layer="91"/>
+<label x="322.58" y="241.3" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="317.5" y="233.68" size="1.778" layer="95"/>
+<pinref part="OP1" gate="G$1" pin="V-"/>
+<wire x1="320.04" y1="233.68" x2="314.96" y2="233.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -6444,9 +6442,13 @@ Use to probe a signal</description>
 <pinref part="C43" gate="G$1" pin="-"/>
 </segment>
 <segment>
-<wire x1="294.64" y1="215.9" x2="294.64" y2="208.28" width="0.1524" layer="91"/>
-<label x="294.64" y="208.28" size="1.778" layer="95"/>
+<wire x1="281.94" y1="220.98" x2="281.94" y2="213.36" width="0.1524" layer="91"/>
+<label x="281.94" y="205.74" size="1.778" layer="95"/>
 <pinref part="RSENSE1" gate="G$1" pin="1"/>
+<wire x1="281.94" y1="213.36" x2="281.94" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="213.36" x2="292.1" y2="213.36" width="0.1524" layer="91"/>
+<junction x="281.94" y="213.36"/>
+<pinref part="R75" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <wire x1="411.48" y1="353.06" x2="411.48" y2="350.52" width="0.1524" layer="91"/>
@@ -6540,15 +6542,10 @@ Use to probe a signal</description>
 <wire x1="53.34" y1="165.1" x2="53.34" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="OP1" gate="G$1" pin="V+"/>
-<wire x1="332.74" y1="220.98" x2="332.74" y2="218.44" width="0.1524" layer="91"/>
-<label x="332.74" y="218.44" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R93" gate="G$1" pin="2"/>
-<wire x1="358.14" y1="210.82" x2="355.6" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="355.6" y1="210.82" x2="355.6" y2="213.36" width="0.1524" layer="91"/>
-<label x="355.6" y="213.36" size="1.778" layer="95"/>
+<wire x1="358.14" y1="208.28" x2="355.6" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="208.28" x2="355.6" y2="210.82" width="0.1524" layer="91"/>
+<label x="355.6" y="210.82" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="OP2" gate="G$1" pin="V+"/>
@@ -6584,8 +6581,8 @@ Use to probe a signal</description>
 <label x="358.14" y="15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="381" y1="218.44" x2="381" y2="215.9" width="0.1524" layer="91"/>
-<label x="381" y="215.9" size="1.778" layer="95"/>
+<wire x1="381" y1="215.9" x2="381" y2="213.36" width="0.1524" layer="91"/>
+<label x="381" y="213.36" size="1.778" layer="95"/>
 <pinref part="COMP1" gate="G$1" pin="V+"/>
 </segment>
 <segment>
@@ -6682,6 +6679,11 @@ Use to probe a signal</description>
 <junction x="474.98" y="78.74"/>
 <wire x1="474.98" y1="78.74" x2="474.98" y2="76.2" width="0.1524" layer="91"/>
 <label x="474.98" y="76.2" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="317.5" y="215.9" size="1.778" layer="95"/>
+<pinref part="OP1" gate="G$1" pin="V+"/>
+<wire x1="314.96" y1="218.44" x2="320.04" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="M1QB" class="0">
@@ -6960,19 +6962,21 @@ Use to probe a signal</description>
 </net>
 <net name="SENSE1" class="0">
 <segment>
-<pinref part="OP1" gate="G$1" pin="OUT"/>
-<pinref part="R89" gate="G$1" pin="2"/>
-<wire x1="342.9" y1="228.6" x2="347.98" y2="228.6" width="0.1524" layer="91"/>
-<wire x1="347.98" y1="228.6" x2="358.14" y2="228.6" width="0.1524" layer="91"/>
-<junction x="347.98" y="228.6"/>
-<label x="358.14" y="238.76" size="1.778" layer="95"/>
-<wire x1="358.14" y1="228.6" x2="358.14" y2="238.76" width="0.1524" layer="91"/>
-<junction x="358.14" y="228.6"/>
-<wire x1="358.14" y1="228.6" x2="368.3" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="226.06" x2="358.14" y2="226.06" width="0.1524" layer="91"/>
+<label x="358.14" y="236.22" size="1.778" layer="95"/>
+<wire x1="358.14" y1="226.06" x2="358.14" y2="236.22" width="0.1524" layer="91"/>
+<junction x="358.14" y="226.06"/>
+<wire x1="358.14" y1="226.06" x2="368.3" y2="226.06" width="0.1524" layer="91"/>
 <pinref part="COMP1" gate="G$1" pin="IN-"/>
 <pinref part="SENSE1" gate="G$1" pin="P$1"/>
-<wire x1="368.3" y1="228.6" x2="375.92" y2="228.6" width="0.1524" layer="91"/>
-<junction x="368.3" y="228.6"/>
+<wire x1="368.3" y1="226.06" x2="375.92" y2="226.06" width="0.1524" layer="91"/>
+<junction x="368.3" y="226.06"/>
+<pinref part="OP1" gate="G$1" pin="OUT"/>
+<wire x1="325.12" y1="226.06" x2="330.2" y2="226.06" width="0.1524" layer="91"/>
+<pinref part="R89" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="213.36" x2="330.2" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="330.2" y1="213.36" x2="330.2" y2="226.06" width="0.1524" layer="91"/>
+<junction x="330.2" y="226.06"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PF0"/>
@@ -8324,26 +8328,15 @@ Use to probe a signal</description>
 <junction x="403.86" y="248.92"/>
 <wire x1="347.98" y1="248.92" x2="403.86" y2="248.92" width="0.1524" layer="91"/>
 <pinref part="RSENSE1" gate="G$1" pin="2"/>
-<wire x1="347.98" y1="248.92" x2="294.64" y2="248.92" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="248.92" x2="294.64" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="347.98" y1="248.92" x2="281.94" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="248.92" x2="281.94" y2="238.76" width="0.1524" layer="91"/>
 <junction x="347.98" y="248.92"/>
-<pinref part="RFILT" gate="G$1" pin="1"/>
-<wire x1="294.64" y1="231.14" x2="294.64" y2="226.06" width="0.1524" layer="91"/>
-<wire x1="302.26" y1="231.14" x2="294.64" y2="231.14" width="0.1524" layer="91"/>
-<junction x="294.64" y="231.14"/>
 <pinref part="LSS1" gate="G$1" pin="P$1"/>
-<junction x="294.64" y="248.92"/>
-</segment>
-</net>
-<net name="N$109" class="0">
-<segment>
-<pinref part="R89" gate="G$1" pin="1"/>
-<pinref part="R90" gate="G$1" pin="2"/>
-<wire x1="347.98" y1="215.9" x2="347.98" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="OP1" gate="G$1" pin="-IN"/>
-<wire x1="347.98" y1="215.9" x2="327.66" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="215.9" x2="327.66" y2="226.06" width="0.1524" layer="91"/>
-<junction x="347.98" y="215.9"/>
+<junction x="281.94" y="248.92"/>
+<wire x1="281.94" y1="238.76" x2="281.94" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="238.76" x2="292.1" y2="238.76" width="0.1524" layer="91"/>
+<junction x="281.94" y="238.76"/>
+<pinref part="R74" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$110" class="0">
@@ -8585,26 +8578,15 @@ Use to probe a signal</description>
 <wire x1="213.36" y1="172.72" x2="215.9" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$46" class="0">
-<segment>
-<pinref part="RFILT" gate="G$1" pin="2"/>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="312.42" y1="231.14" x2="314.96" y2="231.14" width="0.1524" layer="91"/>
-<wire x1="314.96" y1="231.14" x2="314.96" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="OP1" gate="G$1" pin="+IN"/>
-<wire x1="314.96" y1="231.14" x2="327.66" y2="231.14" width="0.1524" layer="91"/>
-<junction x="314.96" y="231.14"/>
-</segment>
-</net>
 <net name="N$66" class="0">
 <segment>
 <pinref part="R93" gate="G$1" pin="1"/>
 <pinref part="R94" gate="G$1" pin="2"/>
-<wire x1="368.3" y1="210.82" x2="370.84" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="210.82" x2="373.38" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="210.82" x2="370.84" y2="223.52" width="0.1524" layer="91"/>
-<junction x="370.84" y="210.82"/>
-<wire x1="370.84" y1="223.52" x2="375.92" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="208.28" x2="370.84" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="208.28" x2="373.38" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="208.28" x2="370.84" y2="220.98" width="0.1524" layer="91"/>
+<junction x="370.84" y="208.28"/>
+<wire x1="370.84" y1="220.98" x2="375.92" y2="220.98" width="0.1524" layer="91"/>
 <pinref part="COMP1" gate="G$1" pin="IN+"/>
 </segment>
 </net>
@@ -8623,8 +8605,8 @@ Use to probe a signal</description>
 <junction x="302.26" y="274.32"/>
 </segment>
 <segment>
-<wire x1="391.16" y1="226.06" x2="406.4" y2="226.06" width="0.1524" layer="91"/>
-<label x="401.32" y="226.06" size="1.778" layer="95"/>
+<wire x1="391.16" y1="223.52" x2="401.32" y2="223.52" width="0.1524" layer="91"/>
+<label x="401.32" y="223.52" size="1.778" layer="95"/>
 <pinref part="COMP1" gate="G$1" pin="OUT"/>
 </segment>
 </net>
@@ -8790,12 +8772,39 @@ Use to probe a signal</description>
 <pinref part="COMP4" gate="G$1" pin="OUT"/>
 </segment>
 </net>
+<net name="N$46" class="0">
+<segment>
+<pinref part="R74" gate="G$1" pin="2"/>
+<pinref part="R76" gate="G$1" pin="1"/>
+<wire x1="302.26" y1="238.76" x2="304.8" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="238.76" x2="307.34" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="238.76" x2="304.8" y2="231.14" width="0.1524" layer="91"/>
+<junction x="304.8" y="238.76"/>
+<pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="OP1" gate="G$1" pin="+IN"/>
+<wire x1="309.88" y1="228.6" x2="309.88" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="309.88" y1="231.14" x2="304.8" y2="231.14" width="0.1524" layer="91"/>
+<junction x="304.8" y="231.14"/>
+</segment>
+</net>
+<net name="N$92" class="0">
+<segment>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="304.8" y1="223.52" x2="304.8" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="R75" gate="G$1" pin="2"/>
+<wire x1="304.8" y1="213.36" x2="302.26" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="R89" gate="G$1" pin="1"/>
+<wire x1="304.8" y1="213.36" x2="307.34" y2="213.36" width="0.1524" layer="91"/>
+<junction x="304.8" y="213.36"/>
+<pinref part="OP1" gate="G$1" pin="-IN"/>
+<wire x1="309.88" y1="223.52" x2="304.8" y2="223.52" width="0.1524" layer="91"/>
+<junction x="304.8" y="223.52"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,332.74,220.98,OP1,V+,5V,,,"/>
-<approved hash="104,1,332.74,236.22,OP1,V-,GND,,,"/>
 <approved hash="104,1,99.06,149.86,U2,VCC_2,3.3V,,,"/>
 <approved hash="104,1,99.06,147.32,U2,VCC,3.3V,,,"/>
 <approved hash="104,1,99.06,144.78,U2,AVCC,N$110,,,"/>
@@ -8806,18 +8815,28 @@ Use to probe a signal</description>
 <approved hash="104,1,596.9,38.1,OP4,V-,GND,,,"/>
 <approved hash="104,1,335.28,22.86,OP3,V+,5V,,,"/>
 <approved hash="104,1,335.28,38.1,OP3,V-,GND,,,"/>
-<approved hash="104,1,381,233.68,COMP1,V-,GND,,,"/>
-<approved hash="104,1,381,218.44,COMP1,V+,5V,,,"/>
+<approved hash="104,1,381,231.14,COMP1,V-,GND,,,"/>
+<approved hash="104,1,381,215.9,COMP1,V+,5V,,,"/>
 <approved hash="104,1,642.62,233.68,COMP2,V-,GND,,,"/>
 <approved hash="104,1,642.62,218.44,COMP2,V+,5V,,,"/>
 <approved hash="104,1,645.16,35.56,COMP4,V-,GND,,,"/>
 <approved hash="104,1,645.16,20.32,COMP4,V+,5V,,,"/>
 <approved hash="104,1,383.54,35.56,COMP3,V-,GND,,,"/>
 <approved hash="104,1,383.54,20.32,COMP3,V+,5V,,,"/>
+<approved hash="104,1,314.96,218.44,OP1,V+,5V,,,"/>
+<approved hash="104,1,314.96,233.68,OP1,V-,GND,,,"/>
 <approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
 <approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
 <approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
 <approved hash="106,1,215.9,162.56,SS_K,,,,,"/>
+<approved hash="111,1,388.62,106.68,M3O2,,,,,"/>
+<approved hash="111,1,393.7,109.22,M3O1,,,,,"/>
+<approved hash="111,1,655.32,106.68,M4O1,,,,,"/>
+<approved hash="111,1,650.24,104.14,M4O2,,,,,"/>
+<approved hash="111,1,657.86,304.8,M2O1,,,,,"/>
+<approved hash="111,1,652.78,302.26,M2O2,,,,,"/>
+<approved hash="111,1,396.24,304.8,M1O1,,,,,"/>
+<approved hash="111,1,391.16,302.26,M1O2,,,,,"/>
 <approved hash="115,1,400.557,345.44,Q6,,,,,"/>
 <approved hash="115,1,423.417,332.74,Q1,,,,,"/>
 <approved hash="115,1,446.277,320.04,Q2,,,,,"/>
