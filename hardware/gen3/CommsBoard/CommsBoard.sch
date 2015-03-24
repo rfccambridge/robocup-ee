@@ -4265,6 +4265,56 @@ SMT header is CONN-09042.</description>
 <label x="154.94" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="SPARE1" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PD0"/>
+<wire x1="152.4" y1="81.28" x2="200.66" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="81.28" x2="200.66" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="SPARE_HEADER" gate="G$1" pin="1"/>
+<wire x1="200.66" y1="66.04" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
+<label x="154.94" y="81.28" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SPARE2" class="0">
+<segment>
+<pinref part="SPARE_HEADER" gate="G$1" pin="2"/>
+<wire x1="215.9" y1="63.5" x2="198.12" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="63.5" x2="198.12" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="PD1"/>
+<wire x1="198.12" y1="78.74" x2="152.4" y2="78.74" width="0.1524" layer="91"/>
+<label x="154.94" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SPARE3" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PD2"/>
+<wire x1="152.4" y1="76.2" x2="195.58" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="76.2" x2="195.58" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="SPARE_HEADER" gate="G$1" pin="3"/>
+<wire x1="195.58" y1="60.96" x2="215.9" y2="60.96" width="0.1524" layer="91"/>
+<label x="154.94" y="76.2" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SPARE4" class="0">
+<segment>
+<pinref part="SPARE_HEADER" gate="G$1" pin="4"/>
+<wire x1="215.9" y1="58.42" x2="193.04" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="58.42" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="PD3"/>
+<wire x1="193.04" y1="73.66" x2="152.4" y2="73.66" width="0.1524" layer="91"/>
+<label x="154.94" y="73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SPARE5" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PD4"/>
+<wire x1="152.4" y1="71.12" x2="190.5" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="71.12" x2="190.5" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="SPARE_HEADER" gate="G$1" pin="5"/>
+<wire x1="190.5" y1="55.88" x2="215.9" y2="55.88" width="0.1524" layer="91"/>
+<label x="154.94" y="71.12" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
