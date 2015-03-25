@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPILib", "SPILib\SPILib.cppproj", "{481E2791-245D-41C0-8FFB-F86E017215B0}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\CommsBoard.cppproj", "{001A89DC-3EA5-488C-A40B-12077F704783}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MotorBoard", "MotorBoard\MotorBoard.cppproj", "{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{481E2791-245D-41C0-8FFB-F86E017215B0}.Debug|AVR.ActiveCfg = Debug|AVR
+		{481E2791-245D-41C0-8FFB-F86E017215B0}.Debug|AVR.Build.0 = Debug|AVR
+		{481E2791-245D-41C0-8FFB-F86E017215B0}.Release|AVR.ActiveCfg = Release|AVR
+		{481E2791-245D-41C0-8FFB-F86E017215B0}.Release|AVR.Build.0 = Release|AVR
+		{001A89DC-3EA5-488C-A40B-12077F704783}.Debug|AVR.ActiveCfg = Debug|AVR
+		{001A89DC-3EA5-488C-A40B-12077F704783}.Debug|AVR.Build.0 = Debug|AVR
+		{001A89DC-3EA5-488C-A40B-12077F704783}.Release|AVR.ActiveCfg = Release|AVR
+		{001A89DC-3EA5-488C-A40B-12077F704783}.Release|AVR.Build.0 = Release|AVR
+		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.ActiveCfg = Debug|AVR
+		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.Build.0 = Debug|AVR
+		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.ActiveCfg = Release|AVR
+		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
