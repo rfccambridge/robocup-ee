@@ -2695,8 +2695,8 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="1613998" x="139.35" y="98.48" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="U$2" library="SparkFun-DiscreteSemi" package="SMA-DIODE" value="TVSSMA" x="93" y="90" rot="R180"/>
-<element name="R12" library="SparkFun-Passives" package="0805" value="1k" x="58.5" y="68" rot="R180"/>
-<element name="C6" library="SparkFun-Capacitors" package="0805" value="255nF" x="61.5" y="66" rot="R270"/>
+<element name="R12" library="SparkFun-Passives" package="0805" value="10k" x="58.5" y="68" rot="R180"/>
+<element name="C6" library="SparkFun-Capacitors" package="0805" value=".1uF" x="61.5" y="66" rot="R270"/>
 <element name="KICK" library="SparkFun-Connectors" package="SCREWTERMINAL-5MM-2" value="M025MM" x="91" y="96">
 <attribute name="STOREFRONT_ID" value="PRT-08432" x="158.31" y="-19.57" size="1.778" layer="27" display="off"/>
 </element>

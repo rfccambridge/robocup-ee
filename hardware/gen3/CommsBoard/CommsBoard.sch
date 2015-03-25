@@ -3468,6 +3468,19 @@ SMT header is CONN-09042.</description>
 <sheet>
 <plain>
 <text x="378.46" y="170.18" size="1.778" layer="91">extra dip switches</text>
+<text x="332.74" y="33.02" size="1.778" layer="91">Series 1 Xbee
+Responsible for communicating forwards
+and backwards to the main computer</text>
+<text x="330.2" y="137.16" size="1.778" layer="91">robot ID dipswitches</text>
+<text x="375.92" y="137.16" size="1.778" layer="91">extra dipswitches for future use</text>
+<text x="200.66" y="137.16" size="1.778" layer="91">Resistors give priority to programmer
+ over other SPI signals.</text>
+<text x="200.66" y="129.54" size="1.778" layer="91">There are 3 extra slave select lines
+in case we add other boards</text>
+<text x="127" y="43.18" size="1.778" layer="91">Runs C++</text>
+<text x="63.5" y="22.86" size="1.778" layer="91">Programming connector</text>
+<text x="88.9" y="175.26" size="1.778" layer="91">Boards are stacked vertically and connect through 4 header pins.
+Comms board / Motor board / Kicker board</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -4315,6 +4328,30 @@ SMT header is CONN-09042.</description>
 <label x="154.94" y="71.12" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="SS_E4" class="0">
+<segment>
+<pinref part="SPI_HEADER" gate="G$1" pin="9"/>
+<wire x1="218.44" y1="152.4" x2="210.82" y2="152.4" width="0.1524" layer="91"/>
+<label x="210.82" y="152.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF5"/>
+<wire x1="152.4" y1="114.3" x2="160.02" y2="114.3" width="0.1524" layer="91"/>
+<label x="154.94" y="114.3" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SS_E5" class="0">
+<segment>
+<pinref part="SPI_HEADER" gate="G$1" pin="10"/>
+<wire x1="218.44" y1="149.86" x2="210.82" y2="149.86" width="0.1524" layer="91"/>
+<label x="210.82" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF6"/>
+<wire x1="152.4" y1="111.76" x2="160.02" y2="111.76" width="0.1524" layer="91"/>
+<label x="154.94" y="111.76" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -4335,4 +4372,10 @@ SMT header is CONN-09042.</description>
 </errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
