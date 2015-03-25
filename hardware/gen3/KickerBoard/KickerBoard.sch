@@ -16158,14 +16158,12 @@ low impedence, low ceiling cap</description>
 <part name="5REG" library="SparkFun-PowerIC" deviceset="MIC5205" device="5V"/>
 <part name="BATT" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="TMP" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="0"/>
-<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
-<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
 <part name="NEON" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="R24" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="536k"/>
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="200"/>
@@ -16180,14 +16178,12 @@ low impedence, low ceiling cap</description>
 <part name="U2" library="Atmel_By_element14_Batch_1-00" deviceset="ATMEGA165PV-8AU" device=""/>
 <part name="C1" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
 <part name="C2" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
-<part name="LED1" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED2" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED3" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED4" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED5" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED6" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED7" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED8" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C14" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
@@ -16306,14 +16302,12 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="BATT" gate="-1" x="12.7" y="363.22"/>
 <instance part="BATT" gate="-2" x="12.7" y="353.06"/>
 <instance part="TMP" gate="G$1" x="53.34" y="294.64"/>
-<instance part="R13" gate="G$1" x="38.1" y="248.92" rot="R90"/>
 <instance part="R17" gate="G$1" x="43.18" y="248.92" rot="R90"/>
 <instance part="R18" gate="G$1" x="48.26" y="248.92" rot="R90"/>
 <instance part="R19" gate="G$1" x="53.34" y="248.92" rot="R90"/>
 <instance part="R20" gate="G$1" x="58.42" y="248.92" rot="R90"/>
 <instance part="R21" gate="G$1" x="63.5" y="248.92" rot="R90"/>
 <instance part="R22" gate="G$1" x="68.58" y="248.92" rot="R90"/>
-<instance part="R23" gate="G$1" x="73.66" y="248.92" rot="R90"/>
 <instance part="NEON" gate="G$1" x="215.9" y="350.52"/>
 <instance part="R24" gate="G$1" x="223.52" y="360.68" rot="R90"/>
 <instance part="R25" gate="G$1" x="398.78" y="302.26" rot="R180"/>
@@ -16328,14 +16322,12 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="U2" gate="A" x="124.46" y="114.3"/>
 <instance part="C1" gate="G$1" x="373.38" y="365.76"/>
 <instance part="C2" gate="G$1" x="388.62" y="365.76"/>
-<instance part="LED1" gate="G$1" x="38.1" y="238.76"/>
 <instance part="LED2" gate="G$1" x="43.18" y="238.76"/>
 <instance part="LED3" gate="G$1" x="48.26" y="238.76"/>
 <instance part="LED4" gate="G$1" x="53.34" y="238.76"/>
 <instance part="LED5" gate="G$1" x="58.42" y="238.76"/>
 <instance part="LED6" gate="G$1" x="63.5" y="238.76"/>
 <instance part="LED7" gate="G$1" x="68.58" y="238.76"/>
-<instance part="LED8" gate="G$1" x="73.66" y="238.76"/>
 <instance part="C13" gate="G$1" x="99.06" y="350.52"/>
 <instance part="C14" gate="G$1" x="99.06" y="320.04"/>
 <instance part="C15" gate="G$1" x="312.42" y="347.98"/>
@@ -16511,12 +16503,9 @@ kick_enable -&gt; opto isolators -&gt;
 <label x="93.98" y="63.5" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
 <pinref part="LED2" gate="G$1" pin="C"/>
-<wire x1="38.1" y1="233.68" x2="43.18" y2="233.68" width="0.1524" layer="91"/>
 <pinref part="LED3" gate="G$1" pin="C"/>
 <wire x1="43.18" y1="233.68" x2="48.26" y2="233.68" width="0.1524" layer="91"/>
-<junction x="43.18" y="233.68"/>
 <pinref part="LED4" gate="G$1" pin="C"/>
 <wire x1="48.26" y1="233.68" x2="53.34" y2="233.68" width="0.1524" layer="91"/>
 <junction x="48.26" y="233.68"/>
@@ -16529,9 +16518,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="LED7" gate="G$1" pin="C"/>
 <wire x1="63.5" y1="233.68" x2="68.58" y2="233.68" width="0.1524" layer="91"/>
 <junction x="63.5" y="233.68"/>
-<pinref part="LED8" gate="G$1" pin="C"/>
-<wire x1="68.58" y1="233.68" x2="73.66" y2="233.68" width="0.1524" layer="91"/>
-<junction x="68.58" y="233.68"/>
 <wire x1="53.34" y1="233.68" x2="53.34" y2="226.06" width="0.1524" layer="91"/>
 <label x="53.34" y="226.06" size="1.778" layer="95"/>
 </segment>
@@ -16557,11 +16543,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="81.28" y1="40.64" x2="81.28" y2="38.1" width="0.1524" layer="91"/>
 <junction x="81.28" y="38.1"/>
 <label x="83.82" y="33.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
-<label x="172.72" y="116.84" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="3.3REG" gate="G$1" pin="GND"/>
@@ -16982,6 +16963,11 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="436.88" y1="342.9" x2="436.88" y2="337.82" width="0.1524" layer="91"/>
 <label x="431.8" y="337.82" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
+<label x="172.72" y="116.84" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$5" class="0">
 <segment>
@@ -17385,11 +17371,6 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="GLED1" class="0">
 <segment>
-<label x="38.1" y="254" size="1.778" layer="95" rot="R90"/>
-<pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="254" x2="38.1" y2="261.62" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U2" gate="A" pin="PC0"/>
 <wire x1="101.6" y1="93.98" x2="93.98" y2="93.98" width="0.1524" layer="91"/>
 <label x="93.98" y="93.98" size="1.778" layer="95"/>
@@ -17469,11 +17450,6 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="RLED4" class="0">
 <segment>
-<label x="73.66" y="254" size="1.778" layer="95" rot="R90"/>
-<pinref part="R23" gate="G$1" pin="2"/>
-<wire x1="73.66" y1="261.62" x2="73.66" y2="254" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U2" gate="A" pin="PC7"/>
 <wire x1="101.6" y1="76.2" x2="93.98" y2="76.2" width="0.1524" layer="91"/>
 <label x="93.98" y="76.2" size="1.778" layer="95"/>
@@ -17544,13 +17520,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="101.6" y1="147.32" x2="81.28" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="R13" gate="G$1" pin="1"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="38.1" y1="243.84" x2="38.1" y2="241.3" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -17591,13 +17560,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="R22" gate="G$1" pin="1"/>
 <pinref part="LED7" gate="G$1" pin="A"/>
 <wire x1="68.58" y1="243.84" x2="68.58" y2="241.3" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$35" class="0">
-<segment>
-<pinref part="R23" gate="G$1" pin="1"/>
-<pinref part="LED8" gate="G$1" pin="A"/>
-<wire x1="73.66" y1="243.84" x2="73.66" y2="241.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
