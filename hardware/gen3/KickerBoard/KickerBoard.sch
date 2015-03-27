@@ -15161,7 +15161,6 @@ chip</description>
 <wire x1="1.27" y1="1.27" x2="1.778" y2="1.27" width="0.254" layer="94"/>
 <wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.27" width="0.254" layer="94"/>
 <text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
@@ -16118,6 +16117,84 @@ low impedence, low ceiling cap</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-AnalogIC">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find all manner of analog ICs- DACs, ADCs, video chips, op-amps, and others.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt;Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="SOT23-5">
+<description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
+<wire x1="1.4224" y1="0.4294" x2="1.4224" y2="-0.4294" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="-0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.4294" x2="-1.4224" y2="0.4294" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.8" x2="1.4" y2="0.8" width="0.1524" layer="51"/>
+<wire x1="-0.2684" y1="0.8104" x2="0.2684" y2="0.8104" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.8" x2="1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.4" y1="0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<smd name="1" x="-0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="2" x="0" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="3" x="0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="4" x="0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="5" x="-0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<text x="-0.889" y="2.159" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.9525" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.85" layer="51"/>
+<rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="0.85" x2="1.2" y2="1.5" layer="51"/>
+<rectangle x1="-1.2" y1="0.85" x2="-0.7" y2="1.5" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="OP-AMP+-">
+<wire x1="-1.27" y1="-3.175" x2="-1.27" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="-2.54" x2="-0.635" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-1.905" y1="2.54" x2="-0.635" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="-5.08" x2="0" y2="-3.8862" width="0.1524" layer="94"/>
+<wire x1="0" y1="3.9116" x2="0" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="0" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="7.62" y2="0" width="0.4064" layer="94"/>
+<text x="5.08" y="-5.715" size="1.778" layer="95" rot="MR180">&gt;NAME</text>
+<text x="5.08" y="5.08" size="1.778" layer="96" rot="MR180">&gt;VALUE</text>
+<text x="1.27" y="5.715" size="0.8128" layer="93" rot="MR270">V+</text>
+<text x="1.27" y="-4.445" size="0.8128" layer="93" rot="MR270">V-</text>
+<pin name="+IN" x="-5.08" y="-2.54" visible="pad" length="short" direction="in"/>
+<pin name="-IN" x="-5.08" y="2.54" visible="pad" length="short" direction="in"/>
+<pin name="OUT" x="10.16" y="0" visible="pad" length="short" direction="out" rot="R180"/>
+<pin name="V+" x="0" y="7.62" visible="pad" length="short" direction="pwr" rot="R270"/>
+<pin name="V-" x="0" y="-7.62" visible="pad" length="short" direction="pwr" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MCP6291">
+<description>Rail to rail OpAmp with 10MHz GBP</description>
+<gates>
+<gate name="G$1" symbol="OP-AMP+-" x="0" y="0"/>
+</gates>
+<devices>
+<device name="T-E/OT" package="SOT23-5">
+<connects>
+<connect gate="G$1" pin="+IN" pad="3"/>
+<connect gate="G$1" pin="-IN" pad="4"/>
+<connect gate="G$1" pin="OUT" pad="1"/>
+<connect gate="G$1" pin="V+" pad="5"/>
+<connect gate="G$1" pin="V-" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="IC-11991"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -16147,8 +16224,8 @@ low impedence, low ceiling cap</description>
 <part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10K"/>
 <part name="U1" library="Fairchild_By_element14_Batch_1" deviceset="NC7WZ08K8X" device=""/>
 <part name="U$2" library="SparkFun-DiscreteSemi" deviceset="TVS" device="SMA"/>
-<part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
-<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
+<part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="KICK" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="CHIP" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="MAN-DIS" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4" value="SWITCH-MOMENTARY-2SMD-4"/>
@@ -16226,8 +16303,9 @@ low impedence, low ceiling cap</description>
 <part name="BB_CON" library="SparkFun-Connectors" deviceset="M05" device="LOCK"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
-<part name="R7" library="gen3" deviceset="RESISTOR" device="0805-RES" value="1M"/>
-<part name="R8" library="gen3" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="U$8" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
+<part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="3k"/>
 </parts>
 <sheets>
 <sheet>
@@ -16241,7 +16319,7 @@ should turn on fine with 3.3!</text>
 <text x="274.32" y="299.72" size="1.778" layer="91">250v = 2.47v</text>
 <text x="353.06" y="172.72" size="1.778" layer="91">active low</text>
 <text x="231.14" y="149.86" size="1.778" layer="91" rot="R90">only ss_k connected here</text>
-<text x="378.46" y="233.68" size="1.778" layer="91">to microcontroller to measrue voltage</text>
+<text x="363.22" y="233.68" size="1.778" layer="91">to microcontroller to measrue voltage</text>
 <text x="182.88" y="121.92" size="1.778" layer="91" rot="R90">15v -&gt; 3v division
 to measure battery voltage</text>
 <text x="58.42" y="368.3" size="1.778" layer="91">Linear regulators to provide all boards with 3.3 and 5v</text>
@@ -16265,8 +16343,9 @@ kick_enable -&gt; opto isolators -&gt;
 1.3v drop, 100mA.
 2V / 20 ohm = 100mA</text>
 <text x="261.62" y="287.02" size="1.778" layer="91">1% wobble at 20kHz pwm</text>
-<text x="304.8" y="297.18" size="1.778" layer="91">hysteresis</text>
 <text x="347.98" y="297.18" size="1.778" layer="91">Need not gate here</text>
+<text x="398.78" y="264.16" size="1.778" layer="91">buffer</text>
+<text x="307.34" y="274.32" size="1.778" layer="91">3% hystereses</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -16337,8 +16416,8 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="C16" gate="G$1" x="434.34" y="342.9" rot="R90"/>
 <instance part="JP1" gate="G$1" x="71.12" y="38.1"/>
 <instance part="ON/OFF" gate="G$1" x="33.02" y="363.22"/>
-<instance part="CLAMP1" gate="G$1" x="419.1" y="259.08"/>
-<instance part="CLAMP2" gate="G$1" x="414.02" y="246.38"/>
+<instance part="CLAMP1" gate="G$1" x="429.26" y="259.08" rot="R90"/>
+<instance part="CLAMP2" gate="G$1" x="429.26" y="246.38" rot="R90"/>
 <instance part="ES2D" gate="G$1" x="487.68" y="132.08" rot="R270"/>
 <instance part="U$5" gate="G$1" x="327.66" y="297.18"/>
 <instance part="R1" gate="G$1" x="487.68" y="111.76" rot="R90"/>
@@ -16352,7 +16431,7 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="3.3V" gate="G$1" x="91.44" y="360.68"/>
 <instance part="5V" gate="G$1" x="91.44" y="330.2"/>
 <instance part="12V" gate="G$1" x="55.88" y="309.88"/>
-<instance part="CAP/100" gate="G$1" x="403.86" y="256.54"/>
+<instance part="CAP/100" gate="G$1" x="381" y="256.54"/>
 <instance part="PWM_FILT" gate="G$1" x="294.64" y="297.18"/>
 <instance part="DIS" gate="G$1" x="469.9" y="78.74"/>
 <instance part="C7" gate="G$1" x="76.2" y="312.42"/>
@@ -16373,8 +16452,9 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="BB_CON" gate="G$1" x="236.22" y="312.42" rot="R180"/>
 <instance part="C3" gate="G$1" x="208.28" y="314.96"/>
 <instance part="R6" gate="G$1" x="218.44" y="320.04"/>
-<instance part="R7" gate="G$1" x="307.34" y="287.02" rot="R90"/>
-<instance part="R8" gate="G$1" x="302.26" y="294.64"/>
+<instance part="U$8" gate="G$1" x="406.4" y="254" rot="R180"/>
+<instance part="R7" gate="G$1" x="337.82" y="284.48" rot="R270"/>
+<instance part="R8" gate="G$1" x="337.82" y="269.24" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -16478,8 +16558,8 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="C11" gate="G$1" pin="-"/>
 </segment>
 <segment>
-<wire x1="411.48" y1="246.38" x2="411.48" y2="241.3" width="0.1524" layer="91"/>
-<label x="411.48" y="241.3" size="1.778" layer="95"/>
+<wire x1="429.26" y1="243.84" x2="429.26" y2="241.3" width="0.1524" layer="91"/>
+<label x="429.26" y="241.3" size="1.778" layer="95"/>
 <pinref part="CLAMP2" gate="G$1" pin="A"/>
 </segment>
 <segment>
@@ -16569,6 +16649,11 @@ kick_enable -&gt; opto isolators -&gt;
 <junction x="208.28" y="312.42"/>
 <label x="200.66" y="312.42" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="V+"/>
+<wire x1="406.4" y1="246.38" x2="406.4" y2="241.3" width="0.1524" layer="91"/>
+<label x="406.4" y="241.3" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -16603,8 +16688,8 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="C10" gate="G$1" pin="+"/>
 </segment>
 <segment>
-<wire x1="421.64" y1="259.08" x2="421.64" y2="266.7" width="0.1524" layer="91"/>
-<label x="421.64" y="266.7" size="1.778" layer="95"/>
+<wire x1="429.26" y1="261.62" x2="429.26" y2="266.7" width="0.1524" layer="91"/>
+<label x="429.26" y="266.7" size="1.778" layer="95"/>
 <pinref part="CLAMP1" gate="G$1" pin="C"/>
 </segment>
 <segment>
@@ -16634,6 +16719,11 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="208.28" y1="320.04" x2="200.66" y2="320.04" width="0.1524" layer="91"/>
 <junction x="208.28" y="320.04"/>
 <label x="200.66" y="320.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="V-"/>
+<wire x1="406.4" y1="261.62" x2="406.4" y2="264.16" width="0.1524" layer="91"/>
+<label x="406.4" y="264.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -17061,10 +17151,9 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="340.36" y1="289.56" x2="347.98" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="R29" gate="G$1" pin="2"/>
 <pinref part="U$5" gate="G$1" pin="OUT"/>
-<wire x1="337.82" y1="297.18" x2="337.82" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="297.18" x2="337.82" y2="289.56" width="0.1524" layer="91"/>
 <junction x="337.82" y="297.18"/>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="307.34" y1="281.94" x2="337.82" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -17078,28 +17167,23 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="DIVCAP" class="0">
 <segment>
-<pinref part="R14" gate="G$1" pin="1"/>
-<pinref part="R15" gate="G$1" pin="2"/>
-<wire x1="447.04" y1="248.92" x2="447.04" y2="254" width="0.1524" layer="91"/>
-<wire x1="447.04" y1="254" x2="447.04" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="254" x2="396.24" y2="254" width="0.1524" layer="91"/>
-<junction x="447.04" y="254"/>
-<wire x1="396.24" y1="254" x2="403.86" y2="254" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="254" x2="416.56" y2="254" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="254" x2="447.04" y2="254" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="246.38" x2="416.56" y2="254" width="0.1524" layer="91"/>
-<junction x="416.56" y="254"/>
-<wire x1="416.56" y1="259.08" x2="416.56" y2="254" width="0.1524" layer="91"/>
-<pinref part="CLAMP1" gate="G$1" pin="A"/>
-<pinref part="CLAMP2" gate="G$1" pin="C"/>
-<wire x1="396.24" y1="254" x2="396.24" y2="236.22" width="0.1524" layer="91"/>
-<junction x="396.24" y="254"/>
-<label x="396.24" y="236.22" size="1.778" layer="95"/>
+<wire x1="337.82" y1="254" x2="373.38" y2="254" width="0.1524" layer="91"/>
+<wire x1="373.38" y1="254" x2="381" y2="254" width="0.1524" layer="91"/>
+<wire x1="381" y1="254" x2="396.24" y2="254" width="0.1524" layer="91"/>
+<wire x1="373.38" y1="254" x2="373.38" y2="236.22" width="0.1524" layer="91"/>
+<junction x="373.38" y="254"/>
+<label x="368.3" y="256.54" size="1.778" layer="95"/>
 <pinref part="CAP/100" gate="G$1" pin="P$1"/>
-<junction x="403.86" y="254"/>
-<wire x1="317.5" y1="254" x2="317.5" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="IN-"/>
-<wire x1="317.5" y1="294.64" x2="322.58" y2="294.64" width="0.1524" layer="91"/>
+<junction x="381" y="254"/>
+<pinref part="U$8" gate="G$1" pin="OUT"/>
+<wire x1="396.24" y1="254" x2="396.24" y2="243.84" width="0.1524" layer="91"/>
+<junction x="396.24" y="254"/>
+<wire x1="396.24" y1="243.84" x2="414.02" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="243.84" x2="414.02" y2="251.46" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="-IN"/>
+<wire x1="414.02" y1="251.46" x2="411.48" y2="251.46" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="337.82" y1="254" x2="337.82" y2="264.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PF0"/>
@@ -17211,9 +17295,9 @@ kick_enable -&gt; opto isolators -&gt;
 <segment>
 <pinref part="U1" gate="A" pin="B2"/>
 <wire x1="347.98" y1="287.02" x2="345.44" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="345.44" y1="287.02" x2="345.44" y2="269.24" width="0.1524" layer="91"/>
-<wire x1="345.44" y1="269.24" x2="307.34" y2="269.24" width="0.1524" layer="91"/>
-<label x="307.34" y="269.24" size="1.778" layer="95"/>
+<wire x1="345.44" y1="287.02" x2="345.44" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="345.44" y1="259.08" x2="266.7" y2="259.08" width="0.1524" layer="91"/>
+<label x="266.7" y="259.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PA4"/>
@@ -17225,9 +17309,9 @@ kick_enable -&gt; opto isolators -&gt;
 <segment>
 <pinref part="U1" gate="A" pin="A2"/>
 <wire x1="347.98" y1="294.64" x2="342.9" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="342.9" y1="294.64" x2="342.9" y2="274.32" width="0.1524" layer="91"/>
-<wire x1="342.9" y1="274.32" x2="307.34" y2="274.32" width="0.1524" layer="91"/>
-<label x="307.34" y="274.32" size="1.778" layer="95"/>
+<wire x1="342.9" y1="294.64" x2="342.9" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="342.9" y1="261.62" x2="266.7" y2="261.62" width="0.1524" layer="91"/>
+<label x="266.7" y="261.62" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PA3"/>
@@ -17270,18 +17354,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="358.14" y1="76.2" x2="358.14" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <pinref part="C19" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<wire x1="312.42" y1="294.64" x2="312.42" y2="299.72" width="0.1524" layer="91"/>
-<pinref part="U$5" gate="G$1" pin="IN+"/>
-<wire x1="312.42" y1="299.72" x2="322.58" y2="299.72" width="0.1524" layer="91"/>
-<pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="307.34" y1="294.64" x2="307.34" y2="292.1" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="294.64" x2="307.34" y2="294.64" width="0.1524" layer="91"/>
-<junction x="307.34" y="294.64"/>
 </segment>
 </net>
 <net name="PWM" class="0">
@@ -17660,15 +17732,46 @@ kick_enable -&gt; opto isolators -&gt;
 <net name="N$1" class="0">
 <segment>
 <pinref part="C6" gate="G$1" pin="1"/>
-<pinref part="R8" gate="G$1" pin="1"/>
 <pinref part="R12" gate="G$1" pin="1"/>
 <wire x1="287.02" y1="294.64" x2="292.1" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="292.1" y1="294.64" x2="294.64" y2="294.64" width="0.1524" layer="91"/>
 <junction x="292.1" y="294.64"/>
-<wire x1="294.64" y1="294.64" x2="297.18" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="292.1" y1="294.64" x2="292.1" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="PWM_FILT" gate="G$1" pin="P$1"/>
 <junction x="294.64" y="294.64"/>
+<pinref part="U$5" gate="G$1" pin="IN-"/>
+<wire x1="322.58" y1="294.64" x2="294.64" y2="294.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+<wire x1="447.04" y1="248.92" x2="447.04" y2="254" width="0.1524" layer="91"/>
+<wire x1="447.04" y1="254" x2="447.04" y2="261.62" width="0.1524" layer="91"/>
+<junction x="447.04" y="254"/>
+<wire x1="429.26" y1="254" x2="447.04" y2="254" width="0.1524" layer="91"/>
+<junction x="429.26" y="254"/>
+<pinref part="CLAMP1" gate="G$1" pin="A"/>
+<wire x1="429.26" y1="256.54" x2="429.26" y2="254" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="248.92" x2="429.26" y2="254" width="0.1524" layer="91"/>
+<pinref part="CLAMP2" gate="G$1" pin="C"/>
+<pinref part="U$8" gate="G$1" pin="+IN"/>
+<wire x1="429.26" y1="254" x2="411.48" y2="254" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="254" x2="411.48" y2="256.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+<wire x1="337.82" y1="274.32" x2="337.82" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="276.86" x2="337.82" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="276.86" x2="317.5" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="276.86" x2="317.5" y2="299.72" width="0.1524" layer="91"/>
+<junction x="337.82" y="276.86"/>
+<pinref part="U$5" gate="G$1" pin="IN+"/>
+<wire x1="317.5" y1="299.72" x2="322.58" y2="299.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
