@@ -4757,6 +4757,34 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <wire x1="1.35" y1="-0.775" x2="-1.35" y2="-0.775" width="0.127" layer="51"/>
 <wire x1="-1.35" y1="-0.775" x2="-1.35" y2="0.775" width="0.127" layer="51"/>
 </package>
+<package name="DO214AB">
+<smd name="ANODE" x="0" y="3.1115" dx="2.54" dy="3.556" layer="1"/>
+<smd name="CATHODE" x="7.112" y="3.1115" dx="2.54" dy="3.556" layer="1"/>
+<wire x1="0" y1="0.508" x2="0" y2="5.715" width="0.127" layer="21"/>
+<wire x1="0" y1="5.715" x2="0.508" y2="6.223" width="0.127" layer="21" curve="-90"/>
+<wire x1="0.508" y1="6.223" x2="6.604" y2="6.223" width="0.127" layer="25"/>
+<wire x1="6.604" y1="6.223" x2="7.112" y2="5.715" width="0.127" layer="21" curve="-90"/>
+<wire x1="7.112" y1="5.715" x2="7.112" y2="0.508" width="0.127" layer="21"/>
+<wire x1="7.112" y1="0.508" x2="6.604" y2="0" width="0.127" layer="21" curve="-90"/>
+<wire x1="6.604" y1="0" x2="0.508" y2="0" width="0.127" layer="21"/>
+<wire x1="0.508" y1="0" x2="0" y2="0.508" width="0.127" layer="21" curve="-90"/>
+<text x="0" y="6.35" size="1.27" layer="21">&gt;NAME</text>
+<rectangle x1="-0.508" y1="1.5113" x2="1.016" y2="4.7117" layer="21"/>
+<rectangle x1="6.096" y1="1.5113" x2="7.62" y2="4.7117" layer="21"/>
+<wire x1="1.27" y1="3.175" x2="2.54" y2="3.175" width="0.127" layer="21"/>
+<wire x1="2.54" y1="3.175" x2="2.54" y2="4.445" width="0.127" layer="21"/>
+<wire x1="2.54" y1="3.175" x2="2.54" y2="1.905" width="0.127" layer="21"/>
+<wire x1="2.54" y1="1.905" x2="3.81" y2="3.175" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.175" x2="2.54" y2="4.445" width="0.127" layer="21"/>
+<wire x1="3.81" y1="5.08" x2="3.81" y2="3.175" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.175" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="5.08" x2="3.175" y2="5.08" width="0.127" layer="21"/>
+<wire x1="3.175" y1="5.08" x2="3.175" y2="4.445" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="4.445" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.175" x2="5.715" y2="3.175" width="0.127" layer="21"/>
+<wire x1="4.445" y1="1.27" x2="4.445" y2="1.905" width="0.127" layer="21"/>
+<text x="0" y="-1.905" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 <package name="DO214AC">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <wire x1="-2.3" y1="1" x2="2.3" y2="1" width="0.254" layer="51"/>
@@ -4893,12 +4921,46 @@ digikey: A101390CT-ND</description>
 <wire x1="5.25" y1="-0.75" x2="5.25" y2="-1.25" width="0.0508" layer="21"/>
 </package>
 <package name="TESTING_PT">
-<pad name="P$1" x="0" y="0" drill="0.8"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
-<text x="0" y="1.905" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<pad name="P$1" x="0" y="0" drill="0.5"/>
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="-0.635" x2="0.635" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-0.635" x2="0.635" y2="0.635" width="0.127" layer="21"/>
+<wire x1="0.635" y1="0.635" x2="-0.635" y2="0.635" width="0.127" layer="21"/>
+<text x="0" y="0.635" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+</package>
+<package name="DO214AA">
+<description>&lt;b&gt;DIODE&lt;/b&gt;</description>
+<wire x1="-2.4" y1="1.1" x2="2.4" y2="1.1" width="0.254" layer="51"/>
+<wire x1="2.4" y1="1.1" x2="2.4" y2="-1.1" width="0.254" layer="51"/>
+<wire x1="2.4" y1="-1.1" x2="-2.4" y2="-1.1" width="0.254" layer="51"/>
+<wire x1="-2.4" y1="-1.1" x2="-2.4" y2="1.1" width="0.254" layer="51"/>
+<wire x1="-1.2" y1="0" x2="0.05" y2="0.7" width="0.254" layer="21"/>
+<wire x1="0.05" y1="0.7" x2="0.05" y2="-0.7" width="0.254" layer="21"/>
+<wire x1="0.05" y1="-0.7" x2="-1.2" y2="0" width="0.254" layer="21"/>
+<smd name="C" x="-2.55" y="0" dx="1.8" dy="2.2" layer="1"/>
+<smd name="A" x="2.55" y="0" dx="1.8" dy="2.2" layer="1"/>
+<text x="-2.64" y="1.436" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.64" y="-2.706" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.75" y1="-0.7" x2="-2.5" y2="0.65" layer="51"/>
+<rectangle x1="2.5" y1="-0.7" x2="2.75" y2="0.65" layer="51"/>
+<rectangle x1="-1.4" y1="-1.05" x2="-1.1" y2="1.05" layer="21"/>
+</package>
+<package name="DO214BA">
+<description>&lt;b&gt;DIODE&lt;/b&gt;</description>
+<wire x1="-2.5" y1="1.35" x2="2.5" y2="1.35" width="0.254" layer="51"/>
+<wire x1="2.5" y1="1.35" x2="2.5" y2="-1.35" width="0.254" layer="51"/>
+<wire x1="2.5" y1="-1.35" x2="-2.5" y2="-1.35" width="0.254" layer="51"/>
+<wire x1="-2.5" y1="-1.35" x2="-2.5" y2="1.35" width="0.254" layer="51"/>
+<wire x1="-0.8" y1="0" x2="0.65" y2="0.95" width="0.254" layer="21"/>
+<wire x1="0.65" y1="0.95" x2="0.65" y2="-0.95" width="0.254" layer="21"/>
+<wire x1="0.65" y1="-0.95" x2="-0.8" y2="0" width="0.254" layer="21"/>
+<smd name="C" x="-2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<smd name="A" x="2.05" y="0" dx="1.8" dy="1.7" layer="1"/>
+<text x="-2.64" y="1.736" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.64" y="-3.056" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-2.85" y1="-0.7" x2="-2.6" y2="0.65" layer="51"/>
+<rectangle x1="2.6" y1="-0.7" x2="2.85" y2="0.65" layer="51"/>
+<rectangle x1="-1" y1="-1.05" x2="-0.7" y2="1.05" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -4924,7 +4986,6 @@ digikey: A101390CT-ND</description>
 <wire x1="1.27" y1="1.27" x2="1.778" y2="1.27" width="0.254" layer="94"/>
 <wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.27" width="0.254" layer="94"/>
 <text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
 <pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
@@ -5042,7 +5103,34 @@ Production Part - 8199
 <technology name=""/>
 </technologies>
 </device>
-<device name="" package="DO214AC">
+<device name="DO214AC" package="DO214AC">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="DO214AA" package="DO214AA">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="DO214AB" package="DO214AB">
+<connects>
+<connect gate="G$1" pin="A" pad="ANODE"/>
+<connect gate="G$1" pin="C" pad="CATHODE"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="DO214BA" package="DO214BA">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -5323,10 +5411,10 @@ Use to probe a signal</description>
 <part name="C16" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="C25" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="C34" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
-<part name="D5" library="gen3" deviceset="DIODE-ZENER" device=""/>
-<part name="D1" library="gen3" deviceset="DIODE-ZENER" device=""/>
-<part name="D2" library="gen3" deviceset="DIODE-ZENER" device=""/>
-<part name="D3" library="gen3" deviceset="DIODE-ZENER" device=""/>
+<part name="D5" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
+<part name="D1" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
+<part name="D2" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
+<part name="D3" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M05X2" device="PTH"/>
 <part name="COMP1" library="gen3" deviceset="LM331" device=""/>
 <part name="COMP2" library="gen3" deviceset="LM331" device=""/>
