@@ -3010,7 +3010,6 @@ design rules under a new name.</description>
 <wire x1="108" y1="89" x2="108" y2="86.95" width="0.254" layer="1"/>
 <wire x1="108" y1="93" x2="108" y2="89" width="0.254" layer="16"/>
 <wire x1="102.5" y1="98.5" x2="108" y2="93" width="0.254" layer="16"/>
-<wire x1="39.5" y1="98.5" x2="102.5" y2="98.5" width="0.254" layer="16"/>
 <wire x1="37.5" y1="96.5" x2="38.5" y2="97.5" width="0.254" layer="16"/>
 <wire x1="38.5" y1="97.5" x2="39.5" y2="98.5" width="0.254" layer="16"/>
 <wire x1="37.5" y1="96.5" x2="37.16" y2="96.127" width="0.254" layer="16"/>
@@ -3048,6 +3047,7 @@ design rules under a new name.</description>
 <wire x1="-100.95" y1="3.1001" x2="-108.1" y2="-18.4" width="0" layer="19" extent="1-1"/>
 <wire x1="3.3" y1="6.7" x2="-100.95" y2="3.1001" width="0" layer="19" extent="1-1"/>
 <wire x1="36.815" y1="34.845" x2="36.5" y2="34.8" width="0" layer="19" extent="1-1"/>
+<wire x1="39.5" y1="98.5" x2="102.5" y2="98.5" width="0.254" layer="16"/>
 </signal>
 <signal name="3.3V">
 <contactref element="LOGIC_HEADER" pad="3"/>

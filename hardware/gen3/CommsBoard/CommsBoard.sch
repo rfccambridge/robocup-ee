@@ -3423,6 +3423,68 @@ SMT header is CONN-09042.</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-Sensors">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find sensors- accelerometers, gyros, compasses, magnetometers, light sensors, imagers, temp sensors, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="SOT23-3">
+<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
+<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
+<smd name="3" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="2" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="1" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<text x="-0.8255" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="MCP9700">
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<text x="-2.286" y="-1.524" size="1.778" layer="95">GND</text>
+<text x="-7.62" y="5.588" size="1.778" layer="95">&gt;Name</text>
+<text x="2.54" y="5.588" size="1.778" layer="96">&gt;Value</text>
+<pin name="GND" x="0" y="-5.08" visible="off" length="short" rot="R90"/>
+<pin name="VCC" x="-10.16" y="2.54" visible="pin" length="short"/>
+<pin name="VO" x="10.16" y="2.54" visible="pin" length="short" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MCP9700">
+<description>Analog-output temperature sensor</description>
+<gates>
+<gate name="G$1" symbol="MCP9700" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="SMD" package="SOT23-3">
+<connects>
+<connect gate="G$1" pin="GND" pad="3"/>
+<connect gate="G$1" pin="VCC" pad="1"/>
+<connect gate="G$1" pin="VO" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="IC-08917" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3476,6 +3538,7 @@ SMT header is CONN-09042.</description>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M05X2" device="PTH"/>
 <part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="U$2" library="SparkFun-Sensors" deviceset="MCP9700" device="SMD"/>
 </parts>
 <sheets>
 <sheet>
@@ -3541,6 +3604,7 @@ Comms board / Motor board / Kicker board</text>
 <instance part="JP1" gate="G$1" x="76.2" y="38.1"/>
 <instance part="C5" gate="G$1" x="63.5" y="152.4"/>
 <instance part="C6" gate="G$1" x="50.8" y="152.4"/>
+<instance part="U$2" gate="G$1" x="414.02" y="114.3"/>
 </instances>
 <busses>
 </busses>
@@ -3659,6 +3723,11 @@ Comms board / Motor board / Kicker board</text>
 <junction x="86.36" y="38.1"/>
 <label x="86.36" y="33.02" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="GND"/>
+<wire x1="414.02" y1="109.22" x2="414.02" y2="104.14" width="0.1524" layer="91"/>
+<label x="414.02" y="104.14" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -3734,6 +3803,11 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="83.82" y1="43.18" x2="88.9" y2="43.18" width="0.1524" layer="91"/>
 <label x="86.36" y="43.18" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="VCC"/>
+<wire x1="403.86" y1="116.84" x2="398.78" y2="116.84" width="0.1524" layer="91"/>
+<label x="398.78" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FILT" class="0">
@@ -4372,6 +4446,18 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="U1" gate="A" pin="PF6"/>
 <wire x1="152.4" y1="111.76" x2="160.02" y2="111.76" width="0.1524" layer="91"/>
 <label x="154.94" y="111.76" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TSENSE" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="VO"/>
+<wire x1="424.18" y1="116.84" x2="429.26" y2="116.84" width="0.1524" layer="91"/>
+<label x="429.26" y="116.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="PF7"/>
+<wire x1="152.4" y1="109.22" x2="160.02" y2="109.22" width="0.1524" layer="91"/>
+<label x="154.94" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
