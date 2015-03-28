@@ -1,6 +1,7 @@
 #include <avr/io.h>
 
 #include "SPISlave.h"
+void handleQEI(Wheel wheel);
 
 int main(void)
 {
@@ -24,4 +25,9 @@ int main(void)
 			spi.SetReply(reply);
 		}
     }
+}
+
+void handleQEI(Wheel wheel)
+{
+    
 }
