@@ -5140,9 +5140,9 @@ Use to probe a signal</description>
 <part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
 <part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
 <part name="SPARE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="LOCK" value="M10LOCK"/>
-<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="U$4" library="rfc" deviceset="A4915" device=""/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>

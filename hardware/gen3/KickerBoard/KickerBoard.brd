@@ -2698,9 +2698,9 @@ design rules under a new name.</description>
 <element name="SPARE_HEADER" library="SparkFun-Connectors" package="1X10" value="M10SILK_FEMALE_PTH" x="102" y="74" rot="R90">
 <attribute name="PROD_ID" value="CONN-11563" x="226.46" y="138.77" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R2" library="SparkFun-Passives" package="0805" value="10k" x="11.5" y="74" rot="R180"/>
-<element name="R3" library="SparkFun-Passives" package="0805" value="10k" x="12" y="77" rot="R180"/>
-<element name="R4" library="SparkFun-Passives" package="0805" value="10k" x="11.8" y="81.3" rot="R180"/>
+<element name="R2" library="SparkFun-Passives" package="0805" value="4.7k" x="11.5" y="74" rot="R180"/>
+<element name="R3" library="SparkFun-Passives" package="0805" value="4.7k" x="12" y="77" rot="R180"/>
+<element name="R4" library="SparkFun-Passives" package="0805" value="4.7k" x="11.8" y="81.3" rot="R180"/>
 <element name="U$3" library="kickerchips" package="10-TRANSFORMER" value="32052-TRANSFORMER" x="75.88" y="47.93" rot="R270"/>
 <element name="U$1" library="SparkFun-DiscreteSemi" package="SMA-DIODE" value="TVSSMA" x="80" y="90" rot="R180"/>
 <element name="OK1" library="optocoupler" package="SOIC08" value="ILD205" x="78" y="70">
@@ -2834,6 +2834,9 @@ design rules under a new name.</description>
 <element name="R8" library="SparkFun-Passives" package="0805" value="3k" x="-106" y="1.8"/>
 <element name="U$4" library="kickerchips" package="10-MSOP" value="LT3750" x="37.3" y="37"/>
 <element name="D1" library="gen3" package="DO214AA" value="3A, 1kV" x="-103.9" y="-3.4"/>
+<element name="C17" library="SparkFun-Capacitors" package="0805" value=".1uF" x="-109" y="-18.4"/>
+<element name="C22" library="SparkFun-Capacitors" package="0805" value=".1uF" x="-112" y="-18.4"/>
+<element name="C5" library="SparkFun-Capacitors" package="0805" value=".1uF" x="-115" y="-18.4"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -3037,6 +3040,12 @@ design rules under a new name.</description>
 <via x="39.4" y="33.9" extent="1-16" drill="0.6096"/>
 <contactref element="U$8" pad="5"/>
 <contactref element="U$4" pad="P$5"/>
+<contactref element="C22" pad="2"/>
+<contactref element="C17" pad="2"/>
+<contactref element="C5" pad="2"/>
+<wire x1="-111.1" y1="-18.4" x2="-114.1" y2="-18.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-108.1" y1="-18.4" x2="-111.1" y2="-18.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-100.95" y1="3.1001" x2="-108.1" y2="-18.4" width="0" layer="19" extent="1-1"/>
 <wire x1="3.3" y1="6.7" x2="-100.95" y2="3.1001" width="0" layer="19" extent="1-1"/>
 <wire x1="36.815" y1="34.845" x2="36.5" y2="34.8" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -3108,6 +3117,10 @@ design rules under a new name.</description>
 <wire x1="49" y1="76.5" x2="41" y2="84.5" width="0.254" layer="1"/>
 <wire x1="49" y1="76.5" x2="48.99" y2="76.24" width="0.254" layer="1"/>
 <contactref element="U$8" pad="2"/>
+<contactref element="C22" pad="1"/>
+<contactref element="C5" pad="1"/>
+<wire x1="-112.9" y1="-18.4" x2="-115.9" y2="-18.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-100" y1="0.4999" x2="-112.9" y2="-18.4" width="0" layer="19" extent="1-1"/>
 <wire x1="6" y1="13" x2="-100" y2="0.4999" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI">
@@ -3829,6 +3842,8 @@ design rules under a new name.</description>
 <wire x1="58" y1="73" x2="39" y2="54" width="0.254" layer="1"/>
 <wire x1="67" y1="73" x2="58" y2="73" width="0.254" layer="1"/>
 <wire x1="27" y1="25.5" x2="25.8" y2="25.4" width="0.254" layer="1"/>
+<contactref element="C17" pad="1"/>
+<wire x1="8" y1="13.16" x2="-109.9" y2="-18.4" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$19">
 <contactref element="BATT" pad="1"/>

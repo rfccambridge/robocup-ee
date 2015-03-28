@@ -9,6 +9,10 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -118,6 +122,13 @@
 <layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -3430,9 +3441,9 @@ SMT header is CONN-09042.</description>
 <part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="ROBID" library="SparkFun-Electromechanical" deviceset="4-POS-DIP" device=""/>
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
@@ -3463,6 +3474,8 @@ SMT header is CONN-09042.</description>
 <part name="LED7" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="U1" library="gen3" deviceset="ATMEGA165PV-8AU" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M05X2" device="PTH"/>
+<part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -3526,6 +3539,8 @@ Comms board / Motor board / Kicker board</text>
 <instance part="LED7" gate="G$1" x="370.84" y="101.6"/>
 <instance part="U1" gate="A" x="129.54" y="106.68"/>
 <instance part="JP1" gate="G$1" x="76.2" y="38.1"/>
+<instance part="C5" gate="G$1" x="63.5" y="152.4"/>
+<instance part="C6" gate="G$1" x="50.8" y="152.4"/>
 </instances>
 <busses>
 </busses>
@@ -3544,12 +3559,16 @@ Comms board / Motor board / Kicker board</text>
 <segment>
 <label x="38.1" y="149.86" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="149.86" x2="40.64" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="152.4" x2="35.56" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="152.4" x2="35.56" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="1"/>
 <wire x1="35.56" y1="149.86" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
 <junction x="35.56" y="149.86"/>
+<pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="35.56" y1="149.86" x2="50.8" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="50.8" y1="149.86" x2="63.5" y2="149.86" width="0.1524" layer="91"/>
+<junction x="50.8" y="149.86"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -3652,10 +3671,11 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="33.02" y1="154.94" x2="35.56" y2="154.94" width="0.1524" layer="91"/>
 <label x="38.1" y="154.94" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="4"/>
-<wire x1="35.56" y1="154.94" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="157.48" x2="35.56" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="157.48" x2="35.56" y2="154.94" width="0.1524" layer="91"/>
-<junction x="35.56" y="154.94"/>
+<pinref part="C6" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="157.48" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
+<junction x="35.56" y="157.48"/>
 </segment>
 <segment>
 <wire x1="307.34" y1="175.26" x2="322.58" y2="175.26" width="0.1524" layer="91"/>
@@ -3942,10 +3962,12 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="33.02" y1="160.02" x2="35.56" y2="160.02" width="0.1524" layer="91"/>
 <label x="38.1" y="160.02" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="6"/>
-<wire x1="35.56" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="162.56" x2="35.56" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="162.56" x2="35.56" y2="160.02" width="0.1524" layer="91"/>
 <junction x="35.56" y="160.02"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="160.02" x2="63.5" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="160.02" x2="63.5" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BID0" class="0">
