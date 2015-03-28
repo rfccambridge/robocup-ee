@@ -8,24 +8,24 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -34,8 +34,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -43,19 +43,19 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -172,13 +172,6 @@
 <smd name="P$6" x="3.785" y="-2.155" dx="0.97" dy="0.31" layer="1"/>
 <rectangle x1="0" y1="-2.655" x2="3.3" y2="0.345" layer="21"/>
 </package>
-<package name="SMA">
-<description>SMA pacakge for US1M diode</description>
-<smd name="P$1" x="-1.79" y="0" dx="1.7" dy="1.7" layer="1"/>
-<smd name="P$2" x="1.79" y="0" dx="1.7" dy="1.7" layer="1"/>
-<rectangle x1="0.37" y1="-0.85" x2="0.7" y2="0.84" layer="25"/>
-<rectangle x1="-0.92" y1="-1.4" x2="0.91" y2="1.39" layer="21"/>
-</package>
 </packages>
 <symbols>
 <symbol name="32052-TRANSFORMER">
@@ -225,27 +218,22 @@
 <pin name="P$1" x="15.24" y="12.7" visible="off" length="short" rot="R180"/>
 </symbol>
 <symbol name="LT3750">
-<circle x="2.54" y="-2.54" radius="1.0472" width="0.254" layer="95"/>
-<rectangle x1="0" y1="-25.4" x2="15.24" y2="0" layer="94"/>
-<pin name="P$1" x="-5.08" y="-2.54" visible="off" length="middle"/>
-<pin name="P$2" x="-5.08" y="-7.62" visible="off" length="middle"/>
-<pin name="P$3" x="-5.08" y="-12.7" visible="off" length="middle"/>
-<pin name="P$4" x="-5.08" y="-17.78" visible="off" length="middle"/>
-<pin name="P$5" x="-5.08" y="-22.86" visible="off" length="middle"/>
-<pin name="P$6" x="20.32" y="-22.86" visible="off" length="middle" rot="R180"/>
-<pin name="P$7" x="20.32" y="-17.78" visible="off" length="middle" rot="R180"/>
-<pin name="P$8" x="20.32" y="-12.7" visible="off" length="middle" rot="R180"/>
-<pin name="P$9" x="20.32" y="-7.62" visible="off" length="middle" rot="R180"/>
-<pin name="P$10" x="20.32" y="-2.54" visible="off" length="middle" rot="R180"/>
-</symbol>
-<symbol name="US1M-DIODE">
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<pin name="P$1" x="-2.54" y="0" visible="off" length="point"/>
-<pin name="P$2" x="2.54" y="0" visible="off" length="point"/>
+<circle x="0" y="0" radius="1.0472" width="0.254" layer="95"/>
+<pin name="VT" x="-5.08" y="-2.54" visible="pin" length="middle"/>
+<pin name="~DN" x="-5.08" y="-7.62" visible="pin" length="middle"/>
+<pin name="CHRG" x="-5.08" y="-12.7" visible="pin" length="middle"/>
+<pin name="VCC" x="-5.08" y="-17.78" visible="pin" length="middle"/>
+<pin name="GND" x="-5.08" y="-22.86" visible="pin" length="middle"/>
+<pin name="SRC" x="25.4" y="-22.86" visible="pin" length="middle" rot="R180"/>
+<pin name="GATE" x="25.4" y="-17.78" visible="pin" length="middle" rot="R180"/>
+<pin name="RDCM" x="25.4" y="-12.7" visible="pin" length="middle" rot="R180"/>
+<pin name="RV" x="25.4" y="-7.62" visible="pin" length="middle" rot="R180"/>
+<pin name="RBG" x="25.4" y="-2.54" visible="pin" length="middle" rot="R180"/>
+<wire x1="0" y1="0" x2="0" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="0" y1="-25.4" x2="20.32" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-25.4" x2="20.32" y2="0" width="0.254" layer="94"/>
+<wire x1="20.32" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<text x="10.16" y="1.27" size="1.778" layer="94" align="bottom-center">LT3750</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -278,34 +266,16 @@ digikey #: 732-2129-1-ND</description>
 <devices>
 <device name="" package="10-MSOP">
 <connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-<connect gate="G$1" pin="P$10" pad="P$10"/>
-<connect gate="G$1" pin="P$2" pad="P$2"/>
-<connect gate="G$1" pin="P$3" pad="P$3"/>
-<connect gate="G$1" pin="P$4" pad="P$4"/>
-<connect gate="G$1" pin="P$5" pad="P$5"/>
-<connect gate="G$1" pin="P$6" pad="P$6"/>
-<connect gate="G$1" pin="P$7" pad="P$7"/>
-<connect gate="G$1" pin="P$8" pad="P$8"/>
-<connect gate="G$1" pin="P$9" pad="P$9"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="US1M">
-<description>US1M diode
-Digikey part #: US1M-E3/61TGICT-ND</description>
-<gates>
-<gate name="G$1" symbol="US1M-DIODE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SMA">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-<connect gate="G$1" pin="P$2" pad="P$2"/>
+<connect gate="G$1" pin="CHRG" pad="P$3"/>
+<connect gate="G$1" pin="GATE" pad="P$7"/>
+<connect gate="G$1" pin="GND" pad="P$5"/>
+<connect gate="G$1" pin="RBG" pad="P$10"/>
+<connect gate="G$1" pin="RDCM" pad="P$8"/>
+<connect gate="G$1" pin="RV" pad="P$9"/>
+<connect gate="G$1" pin="SRC" pad="P$6"/>
+<connect gate="G$1" pin="VCC" pad="P$4"/>
+<connect gate="G$1" pin="VT" pad="P$1"/>
+<connect gate="G$1" pin="~DN" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -16216,8 +16186,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="U$3" library="kickerchips" deviceset="32052-TRANSFORMER" device=""/>
-<part name="U$4" library="kickerchips" deviceset="LT3750" device=""/>
-<part name="U$6" library="kickerchips" deviceset="US1M" device=""/>
 <part name="U$1" library="SparkFun-DiscreteSemi" deviceset="TVS" device="SMA"/>
 <part name="OK1" library="optocoupler" deviceset="ILD2*" device="" technology="05"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1M"/>
@@ -16306,6 +16274,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$8" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="3k"/>
+<part name="U$4" library="kickerchips" deviceset="LT3750" device=""/>
+<part name="D1" library="gen3" deviceset="DIODE-" device="DO214AA" value="3A, 1kV"/>
 </parts>
 <sheets>
 <sheet>
@@ -16337,7 +16307,6 @@ amount. delta Voltage ~ Velocity.</text>
 <text x="274.32" y="307.34" size="1.778" layer="91">pwm -&gt; reference voltage -&gt; comparator AND 
 kick_enable -&gt; opto isolators -&gt;
  transistor -&gt; KICK!</text>
-<text x="330.2" y="121.92" size="1.778" layer="91">LT3750 Charge Controller</text>
 <text x="462.28" y="99.06" size="1.778" layer="91" rot="R90">cap discharge</text>
 <text x="203.2" y="289.56" size="1.778" layer="91">Breakbeam output:
 1.3v drop, 100mA.
@@ -16362,8 +16331,6 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="R3" gate="G$1" x="208.28" y="170.18"/>
 <instance part="R4" gate="G$1" x="203.2" y="167.64"/>
 <instance part="U$3" gate="G$1" x="421.64" y="124.46"/>
-<instance part="U$4" gate="G$1" x="335.28" y="116.84"/>
-<instance part="U$6" gate="G$1" x="439.42" y="142.24" rot="R90"/>
 <instance part="U$1" gate="G$1" x="474.98" y="309.88" rot="R90"/>
 <instance part="OK1" gate="A" x="416.56" y="281.94"/>
 <instance part="OK1" gate="B" x="416.56" y="299.72"/>
@@ -16455,6 +16422,8 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="U$8" gate="G$1" x="406.4" y="254" rot="R180"/>
 <instance part="R7" gate="G$1" x="337.82" y="284.48" rot="R270"/>
 <instance part="R8" gate="G$1" x="337.82" y="269.24" rot="R270"/>
+<instance part="U$4" gate="G$1" x="330.2" y="116.84"/>
+<instance part="D1" gate="G$1" x="439.42" y="142.24" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -16504,8 +16473,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="358.14" y1="53.34" x2="325.12" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="325.12" y1="53.34" x2="314.96" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="66.04" x2="314.96" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="P$5"/>
-<wire x1="330.2" y1="93.98" x2="325.12" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="325.12" y1="93.98" x2="325.12" y2="53.34" width="0.1524" layer="91"/>
 <junction x="325.12" y="53.34"/>
 <wire x1="358.14" y1="60.96" x2="358.14" y2="53.34" width="0.1524" layer="91"/>
@@ -16525,6 +16492,7 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="C19" gate="G$1" pin="2"/>
 <pinref part="C20" gate="G$1" pin="2"/>
 <pinref part="C21" gate="G$1" pin="2"/>
+<pinref part="U$4" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <wire x1="76.2" y1="340.36" x2="76.2" y2="337.82" width="0.1524" layer="91"/>
@@ -16879,11 +16847,9 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="424.18" y1="284.48" x2="429.26" y2="284.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$4"/>
-<wire x1="330.2" y1="99.06" x2="314.96" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="99.06" x2="314.96" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="99.06" x2="314.96" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="P$1"/>
-<wire x1="330.2" y1="114.3" x2="314.96" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="114.3" x2="314.96" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="114.3" x2="314.96" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="139.7" x2="403.86" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="403.86" y1="139.7" x2="408.94" y2="139.7" width="0.1524" layer="91"/>
@@ -16908,6 +16874,8 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="C18" gate="G$1" pin="1"/>
 <pinref part="C20" gate="G$1" pin="1"/>
 <pinref part="C21" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="VT"/>
+<pinref part="U$4" gate="G$1" pin="VCC"/>
 </segment>
 <segment>
 <wire x1="200.66" y1="266.7" x2="200.66" y2="261.62" width="0.1524" layer="91"/>
@@ -17090,34 +17058,34 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$9"/>
 <wire x1="355.6" y1="109.22" x2="358.14" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="R32" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="RV"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$7"/>
 <wire x1="355.6" y1="99.06" x2="375.92" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="G"/>
+<pinref part="U$4" gate="G$1" pin="GATE"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$8"/>
 <wire x1="355.6" y1="104.14" x2="358.14" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="R31" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="RDCM"/>
 </segment>
 </net>
 <net name="DONE" class="0">
 <segment>
-<wire x1="330.2" y1="109.22" x2="294.64" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="109.22" x2="294.64" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="294.64" y1="109.22" x2="294.64" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="P$2"/>
 <wire x1="294.64" y1="109.22" x2="281.94" y2="109.22" width="0.1524" layer="91"/>
 <junction x="294.64" y="109.22"/>
 <label x="281.94" y="109.22" size="1.778" layer="95"/>
 <pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="~DN"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PA5"/>
@@ -17130,7 +17098,7 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="U$3" gate="G$1" pin="P$1"/>
 <wire x1="436.88" y1="137.16" x2="439.42" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="439.42" y1="137.16" x2="439.42" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="U$6" gate="G$1" pin="P$1"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -17238,7 +17206,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="492.76" y1="330.2" x2="492.76" y2="335.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$6" gate="G$1" pin="P$2"/>
 <wire x1="439.42" y1="144.78" x2="439.42" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="439.42" y1="149.86" x2="487.68" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="439.42" y1="149.86" x2="325.12" y2="149.86" width="0.1524" layer="91"/>
@@ -17247,6 +17214,7 @@ kick_enable -&gt; opto isolators -&gt;
 <label x="325.12" y="167.64" size="1.778" layer="95" rot="R90" xref="yes"/>
 <wire x1="487.68" y1="134.62" x2="487.68" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="ES2D" gate="G$1" pin="A"/>
+<pinref part="D1" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="R24" gate="G$1" pin="2"/>
@@ -17321,10 +17289,10 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="CHARGE" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$3"/>
-<wire x1="330.2" y1="104.14" x2="304.8" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="104.14" x2="304.8" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="104.14" x2="304.8" y2="165.1" width="0.1524" layer="91"/>
 <label x="304.8" y="165.1" size="1.778" layer="95" rot="R90" xref="yes"/>
+<pinref part="U$4" gate="G$1" pin="CHRG"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="PA0"/>
@@ -17335,17 +17303,16 @@ kick_enable -&gt; opto isolators -&gt;
 <net name="N$24" class="0">
 <segment>
 <wire x1="383.54" y1="96.52" x2="383.54" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="P$6"/>
 <wire x1="383.54" y1="93.98" x2="383.54" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="355.6" y1="93.98" x2="383.54" y2="93.98" width="0.1524" layer="91"/>
 <junction x="383.54" y="93.98"/>
 <pinref part="U$7" gate="G$1" pin="S"/>
 <pinref part="RSENSE" gate="G$1" pin="2"/>
+<pinref part="U$4" gate="G$1" pin="SRC"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="P$10"/>
 <wire x1="355.6" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="373.38" y1="114.3" x2="373.38" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="373.38" y1="76.2" x2="373.38" y2="71.12" width="0.1524" layer="91"/>
@@ -17354,6 +17321,7 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="358.14" y1="76.2" x2="358.14" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <pinref part="C19" gate="G$1" pin="1"/>
+<pinref part="U$4" gate="G$1" pin="RBG"/>
 </segment>
 </net>
 <net name="PWM" class="0">
