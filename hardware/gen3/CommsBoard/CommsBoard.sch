@@ -3765,6 +3765,19 @@ SMT header is CONN-09042.</description>
 <text x="-4.826" y="-11.2014" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-3.4544" y="11.176" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
 </package>
+<package name="MPU-6050IMU">
+<description>MPU-6050 IMU</description>
+<pad name="SDA" x="0" y="0" drill="0.8" shape="square"/>
+<pad name="GND" x="0" y="2.54" drill="0.8" shape="square"/>
+<pad name="VCC" x="0" y="5.08" drill="0.8" shape="square"/>
+<pad name="SCL" x="0" y="-2.54" drill="0.8" shape="square"/>
+<pad name="INT" x="0" y="-5.08" drill="0.8" shape="square"/>
+<text x="-2.54" y="12.7" size="1.27" layer="104">&gt;Name</text>
+<wire x1="-2.54" y1="-10.16" x2="-2.54" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="10.16" x2="12.7" y2="10.16" width="0.127" layer="21"/>
+<wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-10.16" x2="-2.54" y2="-10.16" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ATMEGA165PV-8AU">
@@ -3838,6 +3851,20 @@ SMT header is CONN-09042.</description>
 <wire x1="17.78" y1="48.26" x2="-17.78" y2="48.26" width="0.4064" layer="94"/>
 <text x="-5.5626" y="49.6824" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-3.7846" y="-59.0804" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+</symbol>
+<symbol name="IMU">
+<description>MPU-6050 IMU</description>
+<pin name="VCC" x="-7.62" y="5.08" visible="pad" length="middle"/>
+<pin name="GND" x="-7.62" y="2.54" visible="pad" length="middle"/>
+<pin name="SDA" x="-7.62" y="0" visible="pad" length="middle"/>
+<pin name="SCL" x="-7.62" y="-2.54" visible="pad" length="middle"/>
+<pin name="INT" x="-7.62" y="-5.08" visible="pad" length="middle"/>
+<wire x1="-2.54" y1="7.62" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="95"/>
+<wire x1="5.08" y1="7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
+<text x="0" y="0" size="1.778" layer="94">IMU</text>
+<text x="-2.54" y="10.16" size="1.778" layer="94">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -3922,6 +3949,26 @@ SMT header is CONN-09042.</description>
 <attribute name="PACKAGE" value="TQFP-64" constant="no"/>
 <attribute name="SUPPLIER" value="Atmel" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MPU6050IMU">
+<description>MPU6050 IMU</description>
+<gates>
+<gate name="G$1" symbol="IMU" x="0" y="0"/>
+</gates>
+<devices>
+<device name="MPU" package="MPU-6050IMU">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="INT" pad="INT"/>
+<connect gate="G$1" pin="SCL" pad="SCL"/>
+<connect gate="G$1" pin="SDA" pad="SDA"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -4046,6 +4093,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U$2" library="SparkFun-Sensors" deviceset="MCP9700" device="SMD"/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="IMU" library="gen3" deviceset="MPU6050IMU" device="MPU"/>
 </parts>
 <sheets>
 <sheet>
@@ -4114,6 +4162,7 @@ Comms board / Motor board / Kicker board</text>
 <instance part="U$2" gate="G$1" x="414.02" y="114.3"/>
 <instance part="S1" gate="G$1" x="170.18" y="144.78"/>
 <instance part="R21" gate="G$1" x="172.72" y="132.08"/>
+<instance part="IMU" gate="G$1" x="215.9" y="96.52"/>
 </instances>
 <busses>
 </busses>
@@ -4242,6 +4291,11 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="175.26" y1="144.78" x2="180.34" y2="144.78" width="0.1524" layer="91"/>
 <label x="177.8" y="144.78" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="GND"/>
+<wire x1="208.28" y1="99.06" x2="200.66" y2="99.06" width="0.1524" layer="91"/>
+<label x="198.12" y="99.06" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -4327,6 +4381,11 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="177.8" y1="132.08" x2="180.34" y2="132.08" width="0.1524" layer="91"/>
 <label x="180.34" y="132.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="VCC"/>
+<wire x1="208.28" y1="101.6" x2="200.66" y2="101.6" width="0.1524" layer="91"/>
+<label x="198.12" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FILT" class="0">
@@ -4881,9 +4940,9 @@ Comms board / Motor board / Kicker board</text>
 <label x="375.92" y="60.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PE3"/>
-<wire x1="152.4" y1="96.52" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
-<label x="154.94" y="96.52" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE6"/>
+<wire x1="152.4" y1="88.9" x2="157.48" y2="88.9" width="0.1524" layer="91"/>
+<label x="154.94" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CTS" class="0">
@@ -4893,9 +4952,9 @@ Comms board / Motor board / Kicker board</text>
 <label x="375.92" y="50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U1" gate="A" pin="PE4"/>
-<wire x1="152.4" y1="93.98" x2="157.48" y2="93.98" width="0.1524" layer="91"/>
-<label x="154.94" y="93.98" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="PE7"/>
+<wire x1="152.4" y1="86.36" x2="157.48" y2="86.36" width="0.1524" layer="91"/>
+<label x="154.94" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SPARE1" class="0">
@@ -4982,6 +5041,42 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="U1" gate="A" pin="PF7"/>
 <wire x1="152.4" y1="109.22" x2="160.02" y2="109.22" width="0.1524" layer="91"/>
 <label x="154.94" y="109.22" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="INT" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PE3"/>
+<wire x1="152.4" y1="96.52" x2="157.48" y2="96.52" width="0.1524" layer="91"/>
+<label x="154.94" y="96.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="INT"/>
+<wire x1="208.28" y1="91.44" x2="200.66" y2="91.44" width="0.1524" layer="91"/>
+<label x="198.12" y="91.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCL" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PE4"/>
+<wire x1="152.4" y1="93.98" x2="157.48" y2="93.98" width="0.1524" layer="91"/>
+<label x="154.94" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="SCL"/>
+<wire x1="208.28" y1="93.98" x2="200.66" y2="93.98" width="0.1524" layer="91"/>
+<label x="198.12" y="93.98" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDA" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PE5"/>
+<wire x1="152.4" y1="91.44" x2="157.48" y2="91.44" width="0.1524" layer="91"/>
+<label x="154.94" y="91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IMU" gate="G$1" pin="SDA"/>
+<wire x1="208.28" y1="96.52" x2="200.66" y2="96.52" width="0.1524" layer="91"/>
+<label x="198.12" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
