@@ -894,6 +894,19 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-4.826" y="-11.2014" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-3.4544" y="11.176" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
 </package>
+<package name="MPU-6050IMU">
+<description>MPU-6050 IMU</description>
+<pad name="SDA" x="0" y="0" drill="0.8" shape="square"/>
+<pad name="GND" x="0" y="2.54" drill="0.8" shape="square"/>
+<pad name="VCC" x="0" y="5.08" drill="0.8" shape="square"/>
+<pad name="SCL" x="0" y="-2.54" drill="0.8" shape="square"/>
+<pad name="INT" x="0" y="-5.08" drill="0.8" shape="square"/>
+<text x="-2.54" y="12.7" size="1.27" layer="104">&gt;Name</text>
+<wire x1="-2.54" y1="-10.16" x2="-2.54" y2="10.16" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="10.16" x2="12.7" y2="10.16" width="0.127" layer="21"/>
+<wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.127" layer="21"/>
+<wire x1="12.7" y1="-10.16" x2="-2.54" y2="-10.16" width="0.127" layer="21"/>
+</package>
 </packages>
 </library>
 <library name="SparkFun-Sensors">
@@ -1168,6 +1181,7 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value="SWCH-11966" x="-5" y="-33" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R21" library="SparkFun-Passives" package="0805" value="10k" x="-12" y="-34"/>
+<element name="IMU" library="gen3" package="MPU-6050IMU" value="MPU6050IMUMPU" x="-27" y="-33"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1309,10 +1323,12 @@ design rules under a new name.</description>
 <contactref element="C5" pad="2"/>
 <contactref element="U$2" pad="3"/>
 <contactref element="S1" pad="B2"/>
+<contactref element="IMU" pad="GND"/>
 <wire x1="-1.1" y1="-27" x2="59.055" y2="15.5575" width="0" layer="19" extent="1-16"/>
 <wire x1="-4.1" y1="-27" x2="-1.1" y2="-27" width="0" layer="19" extent="1-1"/>
 <wire x1="-1.025" y1="-30.75" x2="-1.1" y2="-27" width="0" layer="19" extent="1-1"/>
 <wire x1="-9" y1="-25.9" x2="-4.1" y2="-27" width="0" layer="19" extent="1-1"/>
+<wire x1="-27" y1="-30.46" x2="-9" y2="-25.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="R1" pad="2"/>
@@ -1387,9 +1403,11 @@ design rules under a new name.</description>
 <contactref element="C6" pad="1"/>
 <contactref element="U$2" pad="1"/>
 <contactref element="R21" pad="2"/>
-<wire x1="-5.9" y1="-27" x2="5.715" y2="39.0525" width="0" layer="19" extent="1-1"/>
-<wire x1="-9.95" y1="-28" x2="-5.9" y2="-27" width="0" layer="19" extent="1-1"/>
-<wire x1="-11.1" y1="-34" x2="-9.95" y2="-28" width="0" layer="19" extent="1-1"/>
+<contactref element="IMU" pad="VCC"/>
+<wire x1="-11.1" y1="-34" x2="-27" y2="-27.92" width="0" layer="19" extent="1-1"/>
+<wire x1="-9.95" y1="-28" x2="-11.1" y2="-34" width="0" layer="19" extent="1-1"/>
+<wire x1="-5.9" y1="-27" x2="-9.95" y2="-28" width="0" layer="19" extent="1-1"/>
+<wire x1="5.715" y1="39.0525" x2="-5.9" y2="-27" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FILT">
 <contactref element="R1" pad="1"/>
@@ -1907,23 +1925,23 @@ design rules under a new name.</description>
 </signal>
 <signal name="RTS">
 <contactref element="U$1" pad="16"/>
-<contactref element="U1" pad="5"/>
 <wire x1="67.31" y1="52.705" x2="67.31" y2="60.325" width="0.254" layer="1"/>
 <wire x1="80.9625" y1="39.0525" x2="67.31" y2="52.705" width="0.254" layer="1"/>
-<wire x1="67.31" y1="60.325" x2="67.206" y2="60.38" width="0.254" layer="1"/>
 <wire x1="80.9625" y1="39.0525" x2="81" y2="39" width="0.254" layer="1"/>
+<contactref element="U1" pad="8"/>
+<wire x1="67.31" y1="60.325" x2="69.5936" y2="60.38" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CTS">
 <contactref element="U$1" pad="12"/>
-<contactref element="U1" pad="6"/>
 <wire x1="67.945" y1="59.69" x2="67.945" y2="60.325" width="0.254" layer="1"/>
 <wire x1="79.375" y1="48.26" x2="67.945" y2="59.69" width="0.254" layer="1"/>
 <wire x1="81.5975" y1="48.26" x2="79.375" y2="48.26" width="0.254" layer="1"/>
 <wire x1="82.2325" y1="47.625" x2="81.5975" y2="48.26" width="0.254" layer="1"/>
 <wire x1="82.2325" y1="32.0675" x2="82.2325" y2="47.625" width="0.254" layer="1"/>
 <wire x1="81.28" y1="31.115" x2="82.2325" y2="32.0675" width="0.254" layer="1"/>
-<wire x1="67.945" y1="60.325" x2="67.9934" y2="60.38" width="0.254" layer="1"/>
 <wire x1="81.28" y1="31.115" x2="81" y2="31" width="0.254" layer="1"/>
+<contactref element="U1" pad="9"/>
+<wire x1="67.945" y1="60.325" x2="70.4064" y2="60.38" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SPARE1">
 <contactref element="U1" pad="25"/>
@@ -1964,6 +1982,21 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="2"/>
 <contactref element="U1" pad="54"/>
 <wire x1="-8.05" y1="-28" x2="62.38" y2="70.0066" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="INT">
+<contactref element="U1" pad="5"/>
+<contactref element="IMU" pad="INT"/>
+<wire x1="-27" y1="-38.08" x2="67.206" y2="60.38" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SCL">
+<contactref element="U1" pad="6"/>
+<contactref element="IMU" pad="SCL"/>
+<wire x1="-27" y1="-35.54" x2="67.9934" y2="60.38" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="SDA">
+<contactref element="U1" pad="7"/>
+<contactref element="IMU" pad="SDA"/>
+<wire x1="-27" y1="-33" x2="68.8062" y2="60.38" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
