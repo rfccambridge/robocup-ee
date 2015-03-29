@@ -16636,6 +16636,11 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="167.64" y1="165.1" x2="172.72" y2="165.1" width="0.1524" layer="91"/>
 <label x="170.18" y="165.1" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
+<label x="172.72" y="116.84" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -17054,11 +17059,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="C16" gate="G$1" pin="2"/>
 <wire x1="436.88" y1="342.9" x2="436.88" y2="337.82" width="0.1524" layer="91"/>
 <label x="431.8" y="337.82" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
-<label x="172.72" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
