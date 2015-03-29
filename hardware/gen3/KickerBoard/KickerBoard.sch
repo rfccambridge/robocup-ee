@@ -15055,10 +15055,10 @@ chip</description>
 <smd name="D" x="0" y="-2.9" dx="0.95" dy="2.15" layer="1"/>
 <smd name="S" x="2.3" y="-2.9" dx="0.95" dy="2.15" layer="1"/>
 <smd name="DTAB" x="0" y="2.9" dx="3.25" dy="2.15" layer="1"/>
-<wire x1="-3" y1="2" x2="3" y2="2" width="0.127" layer="20"/>
-<wire x1="3" y1="2" x2="3" y2="-2" width="0.127" layer="20"/>
-<wire x1="3" y1="-2" x2="-3" y2="-2" width="0.127" layer="20"/>
-<wire x1="-3" y1="-2" x2="-3" y2="2" width="0.127" layer="20"/>
+<wire x1="-3" y1="2" x2="3" y2="2" width="0.127" layer="21"/>
+<wire x1="3" y1="2" x2="3" y2="-2" width="0.127" layer="21"/>
+<wire x1="3" y1="-2" x2="-3" y2="-2" width="0.127" layer="21"/>
+<wire x1="-3" y1="-2" x2="-3" y2="2" width="0.127" layer="21"/>
 <text x="-3" y="5" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3" y="-6" size="1.27" layer="27">&gt;VALUE</text>
 </package>
