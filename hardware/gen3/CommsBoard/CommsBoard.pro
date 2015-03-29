@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /Users/ezra/Dropbox/2014-2015/RoboCup/EE/robocup-ee/hardware/gen3/CommsBoard/CommsBoard.brd
+Job           : /home/erik/dev/windows/robocup-ee/hardware/gen3/CommsBoard/CommsBoard.brd
 
-Start at      : 21:24:27 (3/28/15)
-End at        : 21:24:32 (3/28/15)
-Elapsed time  : 00:00:05
+Start at      : 11:15:33 (3/29/15)
+End at        : 11:15:34 (3/29/15)
+Elapsed time  : 00:00:01
 
-Signals       :    59   RoutingGrid: 12.5 mil  Layers: 2
-Connections   :   128   predefined:  110 ( 17 Vias )
+Signals       :    59   RoutingGrid: 5.90551 mil  Layers: 2
+Connections   :   132   predefined:  131 ( 56 Vias )
 
-Router memory :   736032
+Router memory :   3227092
 
 Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:01  00:00:01  00:00:01  00:00:01  00:00:01
-Number of Ripups  :         3         0         0         0         0
-max. Level        :         1         0         0         0         0
-max. Total        :         2         0         0         0         0
+Time per pass     :  00:00:00  00:00:00  00:00:00  00:00:01  00:00:00
+Number of Ripups  :         0         0         0         0         0
+max. Level        :         0         0         0         0         0
+max. Total        :         0         0         0         0         0
 
-Routed            :        16        16        16        16        16
-Vias              :        36        22        21        21        23
-Resolution        :    98.4 %    98.4 %    98.4 %    98.4 %    98.4 %
+Routed            :         1         1         1         1         1
+Vias              :         2         0         0         0         0
+Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
-Final             : 97.7% finished. Polygons may have fallen apart.
+Final             : 100.0% finished
