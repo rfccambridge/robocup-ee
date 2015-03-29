@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /Users/jeffreyyan/robocup-ee/hardware/gen3/KickerBoard/KickerBoard.brd
+Job           : /home/erik/dev/windows/robocup-ee/hardware/gen3/KickerBoard/KickerBoard.brd
 
-Start at      : 21:45:45 (3/26/15)
-End at        : 21:45:51 (3/26/15)
-Elapsed time  : 00:00:06
+Start at      : 23:23:34 (3/28/15)
+End at        : 23:24:08 (3/28/15)
+Elapsed time  : 00:00:34
 
-Signals       :    73   RoutingGrid: 3.93701 mil  Layers: 2
-Connections   :   207   predefined:  200 ( 50 Vias )
+Signals       :    74   RoutingGrid: 3.93701 mil  Layers: 2
+Connections   :   217   predefined:  197 ( 24 Vias )
 
 Router memory :   9916416
 
 Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:01  00:00:01  00:00:02  00:00:01  00:00:01
-Number of Ripups  :         0         0         0         0         0
+Time per pass     :  00:00:09  00:00:06  00:00:06  00:00:06  00:00:07
+Number of Ripups  :        10         0         0         0         0
 max. Level        :         1         0         0         0         0
-max. Total        :         0         0         0         0         0
+max. Total        :         2         0         0         0         0
 
-Routed            :         6         6         6         6         6
-Vias              :         2         2         2         2         2
-Resolution        :    99.5 %    99.5 %    99.5 %    99.5 %    99.5 %
+Routed            :        20        20        20        20        20
+Vias              :        48        34        34        34        34
+Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
-Final             : 99.5% finished
+Final             : 100.0% finished

@@ -16604,6 +16604,7 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="5REG" gate="G$1" pin="GND"/>
 <wire x1="55.88" y1="322.58" x2="53.34" y2="322.58" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="322.58" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
+<label x="53.34" y="337.82" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BB_CON" gate="G$1" pin="5"/>
@@ -16619,17 +16620,12 @@ kick_enable -&gt; opto isolators -&gt;
 <label x="200.66" y="312.42" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="V+"/>
-<wire x1="406.4" y1="246.38" x2="406.4" y2="241.3" width="0.1524" layer="91"/>
-<label x="406.4" y="241.3" size="1.778" layer="95"/>
 <pinref part="C5" gate="G$1" pin="2"/>
 <wire x1="419.1" y1="256.54" x2="419.1" y2="241.3" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="241.3" x2="419.1" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="429.26" y1="243.84" x2="429.26" y2="241.3" width="0.1524" layer="91"/>
 <label x="429.26" y="241.3" size="1.778" layer="95"/>
 <pinref part="CLAMP2" gate="G$1" pin="A"/>
 <wire x1="419.1" y1="241.3" x2="429.26" y2="241.3" width="0.1524" layer="91"/>
-<junction x="419.1" y="241.3"/>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="2"/>
@@ -16640,6 +16636,11 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="R16" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="119.38" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
 <label x="172.72" y="116.84" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="V-"/>
+<wire x1="406.4" y1="261.62" x2="406.4" y2="264.16" width="0.1524" layer="91"/>
+<label x="406.4" y="264.16" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -16703,23 +16704,23 @@ kick_enable -&gt; opto isolators -&gt;
 <label x="200.66" y="320.04" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$8" gate="G$1" pin="V-"/>
-<wire x1="406.4" y1="261.62" x2="406.4" y2="264.16" width="0.1524" layer="91"/>
-<label x="406.4" y="264.16" size="1.778" layer="95"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="406.4" y1="264.16" x2="419.1" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="429.26" y1="261.62" x2="429.26" y2="264.16" width="0.1524" layer="91"/>
 <label x="429.26" y="266.7" size="1.778" layer="95"/>
 <pinref part="CLAMP1" gate="G$1" pin="C"/>
 <wire x1="429.26" y1="264.16" x2="429.26" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="419.1" y1="264.16" x2="429.26" y2="264.16" width="0.1524" layer="91"/>
-<junction x="419.1" y="264.16"/>
 <junction x="429.26" y="264.16"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="170.18" y1="152.4" x2="172.72" y2="152.4" width="0.1524" layer="91"/>
 <label x="172.72" y="152.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="V+"/>
+<wire x1="406.4" y1="246.38" x2="406.4" y2="241.3" width="0.1524" layer="91"/>
+<label x="406.4" y="241.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -17445,13 +17446,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="ON/OFF" gate="G$1" pin="COM"/>
 </segment>
 </net>
-<net name="GLED1" class="0">
-<segment>
-<pinref part="U2" gate="A" pin="PC0"/>
-<wire x1="101.6" y1="93.98" x2="93.98" y2="93.98" width="0.1524" layer="91"/>
-<label x="93.98" y="93.98" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="RLED1" class="0">
 <segment>
 <label x="43.18" y="254" size="1.778" layer="95" rot="R90"/>
@@ -17522,13 +17516,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="U2" gate="A" pin="PC6"/>
 <wire x1="101.6" y1="78.74" x2="93.98" y2="78.74" width="0.1524" layer="91"/>
 <label x="93.98" y="78.74" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="RLED4" class="0">
-<segment>
-<pinref part="U2" gate="A" pin="PC7"/>
-<wire x1="101.6" y1="76.2" x2="93.98" y2="76.2" width="0.1524" layer="91"/>
-<label x="93.98" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$39" class="0">
@@ -17779,10 +17766,31 @@ kick_enable -&gt; opto isolators -&gt;
 <approved hash="104,1,101.6,157.48,U2,VCC_2,3.3V,,,"/>
 <approved hash="104,1,101.6,154.94,U2,VCC,3.3V,,,"/>
 <approved hash="104,1,101.6,152.4,U2,AVCC,N$11,,,"/>
+<approved hash="202,1,101.6,144.78,U2,(TOSC1)_XTAL1,,,,"/>
+<approved hash="104,1,327.66,289.56,U$5,V-,GND,,,"/>
+<approved hash="104,1,327.66,304.8,U$5,V+,5V,,,"/>
+<approved hash="104,1,406.4,246.38,U$8,V+,3.3V,,,"/>
+<approved hash="104,1,406.4,261.62,U$8,V-,GND,,,"/>
 <approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
 <approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
 <approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
 <approved hash="106,1,215.9,165.1,SS_M,,,,,"/>
+<approved hash="115,1,64.77,354.906,3.3REG,,,,,"/>
+<approved hash="115,1,64.77,324.426,5REG,,,,,"/>
+<approved hash="115,1,12.7201,363.22,BATT,,,,,"/>
+<approved hash="115,1,213.597,353.191,NEON,,,,,"/>
+<approved hash="115,1,43.5017,237.49,LED2,,,,,"/>
+<approved hash="115,1,48.5817,237.49,LED3,,,,,"/>
+<approved hash="115,1,53.6617,237.49,LED4,,,,,"/>
+<approved hash="115,1,58.7417,237.49,LED5,,,,,"/>
+<approved hash="115,1,63.8217,237.49,LED6,,,,,"/>
+<approved hash="115,1,68.9017,237.49,LED7,,,,,"/>
+<approved hash="115,1,488.167,130.622,ES2D,,,,,"/>
+<approved hash="115,1,458.977,299.72,Q1,,,,,"/>
+<approved hash="115,1,471.677,281.94,Q2,,,,,"/>
+<approved hash="115,1,197.357,248.92,Q4,,,,,"/>
+<approved hash="115,1,484.377,78.74,Q3,,,,,"/>
+<approved hash="115,1,231.817,310.955,BB_CON,,,,,"/>
 </errors>
 </schematic>
 </drawing>
