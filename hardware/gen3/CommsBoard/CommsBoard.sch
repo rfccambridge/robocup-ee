@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3778,6 +3778,42 @@ SMT header is CONN-09042.</description>
 <wire x1="12.7" y1="10.16" x2="12.7" y2="-10.16" width="0.127" layer="21"/>
 <wire x1="12.7" y1="-10.16" x2="-2.54" y2="-10.16" width="0.127" layer="21"/>
 </package>
+<package name="PANASONIC_D">
+<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="51"/>
+<wire x1="3.35" y1="1.55" x2="3.35" y2="-1.55" width="0.1016" layer="51"/>
+<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="51"/>
+<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="51"/>
+<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="3.35" width="0.1016" layer="51"/>
+<wire x1="-3.35" y1="0.95" x2="-3.35" y2="3.35" width="0.1016" layer="21"/>
+<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="21"/>
+<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="1.55" x2="3.35" y2="0.95" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="-0.95" x2="3.35" y2="-1.55" width="0.1016" layer="21"/>
+<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="21"/>
+<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="21"/>
+<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="-0.95" width="0.1016" layer="21"/>
+<wire x1="2.95" y1="0.95" x2="-2.95" y2="0.95" width="0.1016" layer="21" curve="144.299363"/>
+<wire x1="-2.95" y1="-0.95" x2="2.95" y2="-0.95" width="0.1016" layer="21" curve="144.299363"/>
+<wire x1="-2.1" y1="2.25" x2="-2.1" y2="-2.2" width="0.1016" layer="51"/>
+<circle x="0" y="0" radius="3.1" width="0.1016" layer="51"/>
+<smd name="+" x="2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
+<smd name="-" x="-2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
+<text x="-2.75" y="1" size="1.016" layer="21">&gt;NAME</text>
+<text x="-2.75" y="-1.975" size="1.016" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.65" y1="-0.35" x2="-3.05" y2="0.35" layer="51"/>
+<rectangle x1="3.05" y1="-0.35" x2="3.65" y2="0.35" layer="51"/>
+<polygon width="0.1016" layer="51">
+<vertex x="-2.15" y="2.15"/>
+<vertex x="-2.6" y="1.6"/>
+<vertex x="-2.9" y="0.9"/>
+<vertex x="-3.05" y="0"/>
+<vertex x="-2.9" y="-0.95"/>
+<vertex x="-2.55" y="-1.65"/>
+<vertex x="-2.15" y="-2.15"/>
+<vertex x="-2.15" y="2.1"/>
+</polygon>
+</package>
 </packages>
 <symbols>
 <symbol name="ATMEGA165PV-8AU">
@@ -3865,6 +3901,18 @@ SMT header is CONN-09042.</description>
 <wire x1="5.08" y1="7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
 <text x="0" y="0" size="1.778" layer="94">IMU</text>
 <text x="-2.54" y="10.16" size="1.778" layer="94">&gt;NAME</text>
+</symbol>
+<symbol name="CAP_POL">
+<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.016" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1" x2="2.4892" y2="-1.8542" width="0.254" layer="94" curve="-37.878202" cap="flat"/>
+<wire x1="-2.4669" y1="-1.8504" x2="0" y2="-1.0161" width="0.254" layer="94" curve="-37.376341" cap="flat"/>
+<text x="1.016" y="0.635" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-2.253" y1="0.668" x2="-1.364" y2="0.795" layer="94"/>
+<rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
+<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3969,6 +4017,27 @@ SMT header is CONN-09042.</description>
 </connects>
 <technologies>
 <technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CAP-POLAR" prefix="C" uservalue="yes">
+<description>Cap Alum Polarized &lt;p&gt;
+Digikey: 493-3953-1-ND &lt;p&gt;
+low impedence, low ceiling cap</description>
+<gates>
+<gate name="G$1" symbol="CAP_POL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="PANASONIC_D">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-10547" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4094,6 +4163,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="IMU" library="gen3" deviceset="MPU6050IMU" device="MPU"/>
+<part name="C3" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
+<part name="C4" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -4157,12 +4228,14 @@ Comms board / Motor board / Kicker board</text>
 <instance part="LED7" gate="G$1" x="370.84" y="101.6"/>
 <instance part="U1" gate="A" x="129.54" y="106.68"/>
 <instance part="JP1" gate="G$1" x="76.2" y="38.1"/>
-<instance part="C5" gate="G$1" x="63.5" y="152.4"/>
-<instance part="C6" gate="G$1" x="50.8" y="152.4"/>
+<instance part="C5" gate="G$1" x="66.04" y="154.94"/>
+<instance part="C6" gate="G$1" x="48.26" y="152.4"/>
 <instance part="U$2" gate="G$1" x="414.02" y="114.3"/>
 <instance part="S1" gate="G$1" x="170.18" y="144.78"/>
 <instance part="R21" gate="G$1" x="172.72" y="132.08"/>
 <instance part="IMU" gate="G$1" x="215.9" y="96.52"/>
+<instance part="C3" gate="G$1" x="55.88" y="154.94"/>
+<instance part="C4" gate="G$1" x="76.2" y="157.48"/>
 </instances>
 <busses>
 </busses>
@@ -4187,10 +4260,17 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="35.56" y1="149.86" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
 <junction x="35.56" y="149.86"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="149.86" x2="50.8" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="149.86" x2="48.26" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="149.86" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
+<junction x="48.26" y="149.86"/>
+<pinref part="C3" gate="G$1" pin="-"/>
+<pinref part="C4" gate="G$1" pin="-"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="149.86" x2="63.5" y2="149.86" width="0.1524" layer="91"/>
-<junction x="50.8" y="149.86"/>
+<wire x1="76.2" y1="152.4" x2="66.04" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="152.4" x2="66.04" y2="149.86" width="0.1524" layer="91"/>
+<junction x="66.04" y="152.4"/>
+<wire x1="66.04" y1="149.86" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
+<junction x="55.88" y="149.86"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -4311,8 +4391,11 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="33.02" y1="157.48" x2="35.56" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="157.48" x2="35.56" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="157.48" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
 <junction x="35.56" y="157.48"/>
+<pinref part="C3" gate="G$1" pin="+"/>
+<wire x1="55.88" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
+<junction x="48.26" y="157.48"/>
 </segment>
 <segment>
 <wire x1="307.34" y1="175.26" x2="322.58" y2="175.26" width="0.1524" layer="91"/>
@@ -4622,9 +4705,11 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="33.02" y1="162.56" x2="35.56" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="162.56" x2="35.56" y2="160.02" width="0.1524" layer="91"/>
 <junction x="35.56" y="160.02"/>
+<wire x1="35.56" y1="160.02" x2="66.04" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="160.02" x2="63.5" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="160.02" x2="63.5" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="+"/>
+<wire x1="66.04" y1="160.02" x2="76.2" y2="160.02" width="0.1524" layer="91"/>
+<junction x="66.04" y="160.02"/>
 </segment>
 </net>
 <net name="BID0" class="0">
