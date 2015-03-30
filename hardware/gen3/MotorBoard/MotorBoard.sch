@@ -6062,13 +6062,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R98" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2k"/>
 <part name="R100" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="30k"/>
 <part name="R108" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="30k"/>
-<part name="OP3" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP4" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="RSENSE3" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="R109" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2k"/>
 <part name="R110" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2k"/>
 <part name="R111" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="30k"/>
 <part name="R112" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="30k"/>
-<part name="OP4" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
+<part name="OP3" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="C47" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".047uF"/>
 <part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".047uF"/>
 <part name="C48" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".047uF"/>
@@ -6448,13 +6448,13 @@ careful, 180 degrees</text>
 <instance part="R98" gate="G$1" x="551.18" y="15.24"/>
 <instance part="R100" gate="G$1" x="566.42" y="40.64"/>
 <instance part="R108" gate="G$1" x="566.42" y="15.24"/>
-<instance part="OP3" gate="G$1" x="568.96" y="27.94" rot="MR180"/>
+<instance part="OP4" gate="G$1" x="568.96" y="27.94" rot="MR180"/>
 <instance part="RSENSE3" gate="G$1" x="281.94" y="30.48" rot="R90"/>
 <instance part="R109" gate="G$1" x="297.18" y="43.18"/>
 <instance part="R110" gate="G$1" x="297.18" y="17.78"/>
 <instance part="R111" gate="G$1" x="312.42" y="43.18"/>
 <instance part="R112" gate="G$1" x="312.42" y="17.78"/>
-<instance part="OP4" gate="G$1" x="314.96" y="30.48" rot="MR180"/>
+<instance part="OP3" gate="G$1" x="314.96" y="30.48" rot="MR180"/>
 <instance part="C47" gate="G$1" x="312.42" y="208.28" rot="R270"/>
 <instance part="C1" gate="G$1" x="566.42" y="208.28" rot="R270"/>
 <instance part="C48" gate="G$1" x="566.42" y="10.16" rot="R270"/>
@@ -6788,7 +6788,7 @@ careful, 180 degrees</text>
 </segment>
 <segment>
 <label x="571.5" y="35.56" size="1.778" layer="95"/>
-<pinref part="OP3" gate="G$1" pin="V-"/>
+<pinref part="OP4" gate="G$1" pin="V-"/>
 <pinref part="C53" gate="G$1" pin="1"/>
 <wire x1="568.96" y1="35.56" x2="579.12" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="579.12" y1="35.56" x2="579.12" y2="33.02" width="0.1524" layer="91"/>
@@ -6801,7 +6801,7 @@ careful, 180 degrees</text>
 </segment>
 <segment>
 <label x="317.5" y="38.1" size="1.778" layer="95"/>
-<pinref part="OP4" gate="G$1" pin="V-"/>
+<pinref part="OP3" gate="G$1" pin="V-"/>
 <pinref part="C51" gate="G$1" pin="1"/>
 <wire x1="314.96" y1="38.1" x2="327.66" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="327.66" y1="38.1" x2="327.66" y2="35.56" width="0.1524" layer="91"/>
@@ -7546,14 +7546,14 @@ careful, 180 degrees</text>
 </segment>
 <segment>
 <label x="571.5" y="17.78" size="1.778" layer="95"/>
-<pinref part="OP3" gate="G$1" pin="V+"/>
+<pinref part="OP4" gate="G$1" pin="V+"/>
 <pinref part="C53" gate="G$1" pin="2"/>
 <wire x1="568.96" y1="20.32" x2="579.12" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="579.12" y1="20.32" x2="579.12" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <label x="317.5" y="20.32" size="1.778" layer="95"/>
-<pinref part="OP4" gate="G$1" pin="V+"/>
+<pinref part="OP3" gate="G$1" pin="V+"/>
 <pinref part="C51" gate="G$1" pin="2"/>
 <wire x1="327.66" y1="27.94" x2="327.66" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="22.86" x2="327.66" y2="22.86" width="0.1524" layer="91"/>
@@ -7906,7 +7906,7 @@ careful, 180 degrees</text>
 <wire x1="370.84" y1="30.48" x2="378.46" y2="30.48" width="0.1524" layer="91"/>
 <junction x="370.84" y="30.48"/>
 <wire x1="330.2" y1="30.48" x2="360.68" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="OP4" gate="G$1" pin="OUT"/>
+<pinref part="OP3" gate="G$1" pin="OUT"/>
 <wire x1="325.12" y1="30.48" x2="330.2" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="R112" gate="G$1" pin="2"/>
 <wire x1="317.5" y1="17.78" x2="320.04" y2="17.78" width="0.1524" layer="91"/>
@@ -7928,7 +7928,7 @@ careful, 180 degrees</text>
 </segment>
 <segment>
 <wire x1="584.2" y1="27.94" x2="612.14" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="OP3" gate="G$1" pin="OUT"/>
+<pinref part="OP4" gate="G$1" pin="OUT"/>
 <wire x1="579.12" y1="27.94" x2="584.2" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R108" gate="G$1" pin="2"/>
 <wire x1="571.5" y1="15.24" x2="574.04" y2="15.24" width="0.1524" layer="91"/>
@@ -9591,7 +9591,7 @@ careful, 180 degrees</text>
 <wire x1="558.8" y1="40.64" x2="561.34" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="558.8" y1="40.64" x2="558.8" y2="30.48" width="0.1524" layer="91"/>
 <junction x="558.8" y="40.64"/>
-<pinref part="OP3" gate="G$1" pin="+IN"/>
+<pinref part="OP4" gate="G$1" pin="+IN"/>
 <wire x1="563.88" y1="30.48" x2="558.8" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -9603,7 +9603,7 @@ careful, 180 degrees</text>
 <pinref part="R108" gate="G$1" pin="1"/>
 <wire x1="558.8" y1="15.24" x2="561.34" y2="15.24" width="0.1524" layer="91"/>
 <junction x="558.8" y="15.24"/>
-<pinref part="OP3" gate="G$1" pin="-IN"/>
+<pinref part="OP4" gate="G$1" pin="-IN"/>
 <wire x1="563.88" y1="25.4" x2="558.8" y2="25.4" width="0.1524" layer="91"/>
 <pinref part="C48" gate="G$1" pin="2"/>
 <wire x1="563.88" y1="10.16" x2="558.8" y2="10.16" width="0.1524" layer="91"/>
@@ -9618,7 +9618,7 @@ careful, 180 degrees</text>
 <wire x1="304.8" y1="43.18" x2="307.34" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="304.8" y1="43.18" x2="304.8" y2="33.02" width="0.1524" layer="91"/>
 <junction x="304.8" y="43.18"/>
-<pinref part="OP4" gate="G$1" pin="+IN"/>
+<pinref part="OP3" gate="G$1" pin="+IN"/>
 <wire x1="309.88" y1="33.02" x2="304.8" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -9630,7 +9630,7 @@ careful, 180 degrees</text>
 <pinref part="R112" gate="G$1" pin="1"/>
 <wire x1="304.8" y1="17.78" x2="307.34" y2="17.78" width="0.1524" layer="91"/>
 <junction x="304.8" y="17.78"/>
-<pinref part="OP4" gate="G$1" pin="-IN"/>
+<pinref part="OP3" gate="G$1" pin="-IN"/>
 <wire x1="309.88" y1="27.94" x2="304.8" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="C49" gate="G$1" pin="2"/>
 <wire x1="309.88" y1="12.7" x2="304.8" y2="12.7" width="0.1524" layer="91"/>
