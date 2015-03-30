@@ -16263,7 +16263,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="DRIB" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
 <part name="3.3REG" library="SparkFun-PowerIC" deviceset="MIC5205" device="3.3V"/>
-<part name="5REG" library="SparkFun-PowerIC" deviceset="MIC5205" device="5V"/>
 <part name="BATT" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="TMP" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="0"/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
@@ -16413,7 +16412,6 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="FRAME2" gate="G$2" x="147.32" y="193.04"/>
 <instance part="DRIB" gate="G$1" x="220.98" y="261.62" rot="R180"/>
 <instance part="3.3REG" gate="G$1" x="66.04" y="353.06"/>
-<instance part="5REG" gate="G$1" x="30.48" y="322.58"/>
 <instance part="BATT" gate="-1" x="12.7" y="363.22"/>
 <instance part="BATT" gate="-2" x="12.7" y="353.06"/>
 <instance part="TMP" gate="G$1" x="53.34" y="294.64"/>
@@ -16655,10 +16653,6 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="81.28" y1="40.64" x2="81.28" y2="38.1" width="0.1524" layer="91"/>
 <junction x="81.28" y="38.1"/>
 <label x="83.82" y="33.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="3.3REG" gate="G$1" pin="GND"/>
-<wire x1="55.88" y1="353.06" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="BB_CON" gate="G$1" pin="5"/>
@@ -16985,13 +16979,14 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="55.88" y1="307.34" x2="60.96" y2="307.34" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="358.14" x2="48.26" y2="358.14" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="358.14" x2="43.18" y2="358.14" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="347.98" x2="48.26" y2="358.14" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="347.98" x2="48.26" y2="353.06" width="0.1524" layer="91"/>
 <junction x="48.26" y="347.98"/>
 <junction x="48.26" y="358.14"/>
 <pinref part="ON/OFF" gate="G$1" pin="P2"/>
 <pinref part="12V" gate="G$1" pin="P$1"/>
 <junction x="55.88" y="307.34"/>
 <pinref part="U$6" gate="G$1" pin="IN"/>
+<wire x1="48.26" y1="353.06" x2="48.26" y2="358.14" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="317.5" x2="76.2" y2="317.5" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="317.5" x2="76.2" y2="312.42" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="312.42" x2="48.26" y2="312.42" width="0.1524" layer="91"/>
@@ -17004,6 +16999,9 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="78.74" y1="322.58" x2="78.74" y2="335.28" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="335.28" x2="48.26" y2="335.28" width="0.1524" layer="91"/>
 <junction x="48.26" y="335.28"/>
+<pinref part="3.3REG" gate="G$1" pin="GND"/>
+<wire x1="55.88" y1="353.06" x2="48.26" y2="353.06" width="0.1524" layer="91"/>
+<junction x="48.26" y="353.06"/>
 </segment>
 <segment>
 <wire x1="454.66" y1="160.02" x2="335.28" y2="160.02" width="0.1524" layer="91"/>
