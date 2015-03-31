@@ -3875,9 +3875,8 @@ provides an easy access for an oscilloscope probe</description>
 <text x="-5.08" y="9.144" size="1.778" layer="95">&gt;NAME</text>
 <text x="-5.08" y="-11.43" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
-<pin name="OUT" x="-7.62" y="-5.08" length="short"/>
-<pin name="NC" x="-7.62" y="0" length="short"/>
-<pin name="GND" x="10.16" y="0" length="short" rot="R180"/>
+<pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
+<pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5054,12 +5053,11 @@ Use to probe a signal</description>
 <gate name="G$1" symbol="3.3REG1A" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="3.3REG1A">
+<device name="REG" package="DPAK">
 <connects>
-<connect gate="G$1" pin="GND" pad="FIN"/>
-<connect gate="G$1" pin="IN" pad="IN"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
-<connect gate="G$1" pin="OUT" pad="OUT"/>
+<connect gate="G$1" pin="GND" pad="DRAIN"/>
+<connect gate="G$1" pin="IN" pad="GATE"/>
+<connect gate="G$1" pin="OUT" pad="SOURCE"/>
 </connects>
 <technologies>
 <technology name=""/>

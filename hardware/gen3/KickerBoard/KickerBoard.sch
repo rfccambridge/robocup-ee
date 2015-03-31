@@ -15106,39 +15106,6 @@ chip</description>
 <vertex x="-2.15" y="2.1"/>
 </polygon>
 </package>
-<package name="3.3REG1A">
-<wire x1="3.2766" y1="3.8354" x2="3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="3.277" y1="-2.159" x2="-3.277" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="-2.159" x2="-3.2766" y2="3.8354" width="0.2032" layer="21"/>
-<wire x1="-3.277" y1="3.835" x2="3.2774" y2="3.8346" width="0.2032" layer="51"/>
-<wire x1="-3.973" y1="5.983" x2="3.973" y2="5.983" width="0.0508" layer="39"/>
-<wire x1="3.973" y1="-5.983" x2="-3.973" y2="-5.983" width="0.0508" layer="39"/>
-<wire x1="-3.973" y1="-5.983" x2="-3.973" y2="5.983" width="0.0508" layer="39"/>
-<wire x1="3.973" y1="5.983" x2="3.973" y2="-5.983" width="0.0508" layer="39"/>
-<wire x1="-2.5654" y1="3.937" x2="-2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="4.6482" x2="-2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="-2.1082" y1="5.1054" x2="2.1082" y2="5.1054" width="0.2032" layer="51"/>
-<wire x1="2.1082" y1="5.1054" x2="2.5654" y2="4.6482" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="4.6482" x2="2.5654" y2="3.937" width="0.2032" layer="51"/>
-<wire x1="2.5654" y1="3.937" x2="-2.5654" y2="3.937" width="0.2032" layer="51"/>
-<smd name="FIN" x="0" y="2.5" dx="5.4" dy="6.2" layer="1"/>
-<smd name="IN" x="-2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<smd name="OUT" x="2.28" y="-4.8" dx="1" dy="1.6" layer="1"/>
-<text x="-3.81" y="-2.54" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="5.08" y="-2.54" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-2.7178" y1="-5.1562" x2="-1.8542" y2="-2.2606" layer="51"/>
-<rectangle x1="1.8542" y1="-5.1562" x2="2.7178" y2="-2.2606" layer="51"/>
-<rectangle x1="-0.4318" y1="-3.0226" x2="0.4318" y2="-2.2606" layer="21"/>
-<polygon width="0.1998" layer="51">
-<vertex x="-2.5654" y="3.937"/>
-<vertex x="-2.5654" y="4.6482"/>
-<vertex x="-2.1082" y="5.1054"/>
-<vertex x="2.1082" y="5.1054"/>
-<vertex x="2.5654" y="4.6482"/>
-<vertex x="2.5654" y="3.937"/>
-</polygon>
-<smd name="NC" x="0" y="-3.31" dx="1.27" dy="0.635" layer="1"/>
-</package>
 </packages>
 <symbols>
 <symbol name="SPDT-SWITCH">
@@ -15316,9 +15283,8 @@ provides an easy access for an oscilloscope probe</description>
 <text x="-5.08" y="9.144" size="1.778" layer="95">&gt;NAME</text>
 <text x="-5.08" y="-11.43" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
-<pin name="OUT" x="-7.62" y="-5.08" length="short"/>
-<pin name="NC" x="-7.62" y="0" length="short"/>
-<pin name="GND" x="10.16" y="0" length="short" rot="R180"/>
+<pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
+<pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -16135,12 +16101,11 @@ low impedence, low ceiling cap</description>
 <gate name="G$1" symbol="3.3REG1A" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="3.3REG1A">
+<device name="REG" package="DPAK">
 <connects>
-<connect gate="G$1" pin="GND" pad="FIN"/>
-<connect gate="G$1" pin="IN" pad="IN"/>
-<connect gate="G$1" pin="NC" pad="NC"/>
-<connect gate="G$1" pin="OUT" pad="OUT"/>
+<connect gate="G$1" pin="GND" pad="DRAIN"/>
+<connect gate="G$1" pin="IN" pad="GATE"/>
+<connect gate="G$1" pin="OUT" pad="SOURCE"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -16340,7 +16305,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="U$6" library="gen3" deviceset="3.3REG1A" device=""/>
+<part name="U$6" library="gen3" deviceset="3.3REG1A" device="REG"/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C17" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
@@ -16661,8 +16626,9 @@ kick_enable -&gt; opto isolators -&gt;
 <segment>
 <pinref part="3.3REG" gate="G$1" pin="GND"/>
 <wire x1="55.88" y1="353.06" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="314.96" x2="53.34" y2="337.82" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="314.96" x2="53.34" y2="327.66" width="0.1524" layer="91"/>
 <label x="35.56" y="337.82" size="1.778" layer="95"/>
+<wire x1="53.34" y1="327.66" x2="53.34" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="337.82" x2="53.34" y2="353.06" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="317.5" x2="86.36" y2="314.96" width="0.1524" layer="91"/>
 <label x="99.06" y="309.88" size="1.778" layer="95"/>
@@ -16670,13 +16636,8 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="99.06" y1="317.5" x2="99.06" y2="314.96" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="314.96" x2="86.36" y2="314.96" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="-"/>
-<pinref part="U$6" gate="G$1" pin="NC"/>
-<wire x1="73.66" y1="327.66" x2="81.28" y2="327.66" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="327.66" x2="81.28" y2="314.96" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="314.96" x2="86.36" y2="314.96" width="0.1524" layer="91"/>
 <junction x="86.36" y="314.96"/>
-<wire x1="53.34" y1="314.96" x2="81.28" y2="314.96" width="0.1524" layer="91"/>
-<junction x="81.28" y="314.96"/>
+<wire x1="53.34" y1="314.96" x2="86.36" y2="314.96" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="314.96" x2="111.76" y2="314.96" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="314.96" x2="111.76" y2="317.5" width="0.1524" layer="91"/>
@@ -16684,6 +16645,9 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="99.06" y1="314.96" x2="99.06" y2="312.42" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="337.82" x2="38.1" y2="337.82" width="0.1524" layer="91"/>
 <junction x="53.34" y="337.82"/>
+<pinref part="U$6" gate="G$1" pin="GND"/>
+<wire x1="55.88" y1="327.66" x2="53.34" y2="327.66" width="0.1524" layer="91"/>
+<junction x="53.34" y="327.66"/>
 </segment>
 <segment>
 <pinref part="BB_CON" gate="G$1" pin="5"/>
@@ -17047,13 +17011,10 @@ kick_enable -&gt; opto isolators -&gt;
 </segment>
 <segment>
 <label x="60.96" y="307.34" size="1.778" layer="95"/>
-<wire x1="48.26" y1="347.98" x2="48.26" y2="327.66" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="327.66" x2="48.26" y2="317.5" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="347.98" x2="48.26" y2="317.5" width="0.1524" layer="91"/>
 <pinref part="3.3REG" gate="G$1" pin="EN"/>
 <wire x1="48.26" y1="317.5" x2="48.26" y2="307.34" width="0.1524" layer="91"/>
 <wire x1="55.88" y1="347.98" x2="48.26" y2="347.98" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="327.66" x2="48.26" y2="327.66" width="0.1524" layer="91"/>
-<junction x="48.26" y="327.66"/>
 <wire x1="48.26" y1="307.34" x2="55.88" y2="307.34" width="0.1524" layer="91"/>
 <pinref part="3.3REG" gate="G$1" pin="IN"/>
 <wire x1="55.88" y1="307.34" x2="60.96" y2="307.34" width="0.1524" layer="91"/>
@@ -17065,7 +17026,6 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="ON/OFF" gate="G$1" pin="P2"/>
 <pinref part="12V" gate="G$1" pin="P$1"/>
 <junction x="55.88" y="307.34"/>
-<pinref part="U$6" gate="G$1" pin="GND"/>
 <wire x1="48.26" y1="317.5" x2="76.2" y2="317.5" width="0.1524" layer="91"/>
 <junction x="48.26" y="317.5"/>
 <wire x1="76.2" y1="317.5" x2="76.2" y2="322.58" width="0.1524" layer="91"/>
