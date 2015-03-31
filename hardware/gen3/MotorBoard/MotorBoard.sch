@@ -5817,7 +5817,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
 <part name="C4" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
-<part name="C5" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
+<part name="C5" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF"/>
 <part name="C6" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -5842,16 +5842,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R16" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R17" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
-<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C9" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C10" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C11" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
 <part name="RSENSE1" library="SparkFun-Resistors" deviceset="RESISTOR" device="2512" value=".02"/>
 <part name="Q9" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$1" library="rfc" deviceset="A4915" device=""/>
 <part name="C12" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
 <part name="C13" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R18" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
-<part name="C14" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
+<part name="C14" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -5874,15 +5874,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R28" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R29" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R30" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
-<part name="C18" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C19" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C20" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C18" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C19" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C20" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
 <part name="Q17" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$2" library="rfc" deviceset="A4915" device=""/>
 <part name="C21" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
 <part name="C22" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R31" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
-<part name="C23" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
+<part name="C23" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GND13" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND15" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -5905,15 +5905,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R41" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R42" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R43" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
-<part name="C27" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C28" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C29" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C27" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C28" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C29" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
 <part name="Q25" library="rfc" deviceset="N-MOSFET" device=""/>
 <part name="U$3" library="rfc" deviceset="A4915" device=""/>
 <part name="C30" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".47uF"/>
 <part name="C31" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R44" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="40.2k"/>
-<part name="C32" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".68uF"/>
+<part name="C32" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GND19" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND20" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND21" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -5936,9 +5936,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R54" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R55" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
 <part name="R56" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="470k"/>
-<part name="C36" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C37" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
-<part name="C38" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".033uF"/>
+<part name="C36" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C37" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
+<part name="C38" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".056uF"/>
 <part name="R78" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R79" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="C39" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>

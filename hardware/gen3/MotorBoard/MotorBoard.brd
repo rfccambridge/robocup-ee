@@ -1429,7 +1429,7 @@ design rules under a new name.</description>
 <element name="C3" library="SparkFun-Passives" package="0805" value=".47uF" x="48.625" y="57" rot="R180"/>
 <element name="C4" library="SparkFun-Passives" package="0805" value=".1uF" x="51.75" y="57.625" rot="R270"/>
 <element name="R5" library="SparkFun-Resistors" package="0805" value="40.2k" x="56.375" y="57.625" rot="R270"/>
-<element name="C5" library="SparkFun-Passives" package="0805" value=".68uF" x="41.75" y="57.25" rot="R90"/>
+<element name="C5" library="SparkFun-Passives" package="0805" value="1uF" x="41.75" y="57.25" rot="R90"/>
 <element name="C6" library="SparkFun-Passives" package="0805" value=".1uF" x="54.125" y="57.625" rot="R90"/>
 <element name="Q1" library="rfc" package="DPAK" value="" x="28" y="77" rot="MR270"/>
 <element name="Q2" library="rfc" package="DPAK" value="" x="36" y="77" rot="MR270"/>
@@ -1448,16 +1448,16 @@ design rules under a new name.</description>
 <element name="R15" library="SparkFun-Resistors" package="0805" value="470k" x="18" y="59" rot="MR0"/>
 <element name="R16" library="SparkFun-Resistors" package="0805" value="470k" x="26" y="59" rot="MR0"/>
 <element name="R17" library="SparkFun-Resistors" package="0805" value="470k" x="34" y="59" rot="MR0"/>
-<element name="C9" library="SparkFun-Passives" package="0805" value=".033uF" x="40" y="59.75" rot="R180"/>
-<element name="C10" library="SparkFun-Passives" package="0805" value=".033uF" x="39.5" y="63" rot="R180"/>
-<element name="C11" library="SparkFun-Passives" package="0805" value=".033uF" x="39.5" y="66" rot="R180"/>
+<element name="C9" library="SparkFun-Passives" package="0805" value=".056uF" x="40" y="59.75" rot="R180"/>
+<element name="C10" library="SparkFun-Passives" package="0805" value=".056uF" x="39.5" y="63" rot="R180"/>
+<element name="C11" library="SparkFun-Passives" package="0805" value=".056uF" x="39.5" y="66" rot="R180"/>
 <element name="RSENSE1" library="SparkFun-Resistors" package="R2512" value=".02" x="14.5" y="55.375" rot="MR180"/>
 <element name="Q9" library="rfc" package="DPAK" value="" x="120" y="59" rot="MR90"/>
 <element name="U$1" library="rfc" package="TSSOP28-GROUNDPAD" value="A4915" x="94" y="72.5" rot="R180"/>
 <element name="C12" library="SparkFun-Passives" package="0805" value=".47uF" x="91.875" y="78.75" rot="R180"/>
 <element name="C13" library="SparkFun-Passives" package="0805" value=".1uF" x="88.625" y="78.125" rot="R90"/>
 <element name="R18" library="SparkFun-Resistors" package="0805" value="40.2k" x="83.625" y="78.125" rot="R90"/>
-<element name="C14" library="SparkFun-Passives" package="0805" value=".68uF" x="98" y="78.5" rot="R270"/>
+<element name="C14" library="SparkFun-Passives" package="0805" value="1uF" x="98" y="78.5" rot="R270"/>
 <element name="Q10" library="rfc" package="DPAK" value="" x="112" y="59" rot="MR90"/>
 <element name="Q11" library="rfc" package="DPAK" value="" x="104" y="59" rot="MR90"/>
 <element name="Q12" library="rfc" package="DPAK" value="" x="122" y="71" rot="MR90"/>
@@ -1475,15 +1475,15 @@ design rules under a new name.</description>
 <element name="R28" library="SparkFun-Resistors" package="0805" value="470k" x="122" y="77" rot="MR180"/>
 <element name="R29" library="SparkFun-Resistors" package="0805" value="470k" x="114" y="77" rot="MR180"/>
 <element name="R30" library="SparkFun-Resistors" package="0805" value="470k" x="106" y="77" rot="MR180"/>
-<element name="C18" library="SparkFun-Passives" package="0805" value=".033uF" x="100" y="76.25"/>
-<element name="C19" library="SparkFun-Passives" package="0805" value=".033uF" x="100.5" y="73"/>
-<element name="C20" library="SparkFun-Passives" package="0805" value=".033uF" x="100.5" y="70"/>
+<element name="C18" library="SparkFun-Passives" package="0805" value=".056uF" x="100" y="76.25"/>
+<element name="C19" library="SparkFun-Passives" package="0805" value=".056uF" x="100.5" y="73"/>
+<element name="C20" library="SparkFun-Passives" package="0805" value=".056uF" x="100.5" y="70"/>
 <element name="Q17" library="rfc" package="DPAK" value="" x="23.25" y="35.7" rot="MR270"/>
 <element name="U$2" library="rfc" package="TSSOP28-GROUNDPAD" value="A4915" x="49.25" y="23.45"/>
 <element name="C21" library="SparkFun-Passives" package="0805" value=".47uF" x="51.75" y="16.95"/>
 <element name="C22" library="SparkFun-Passives" package="0805" value=".1uF" x="54.75" y="17.95" rot="R270"/>
 <element name="R31" library="SparkFun-Resistors" package="0805" value="40.2k" x="59.25" y="17.95" rot="R270"/>
-<element name="C23" library="SparkFun-Passives" package="0805" value=".68uF" x="44.5" y="16.95" rot="R90"/>
+<element name="C23" library="SparkFun-Passives" package="0805" value="1uF" x="44.5" y="16.95" rot="R90"/>
 <element name="Q18" library="rfc" package="DPAK" value="" x="31.25" y="35.7" rot="MR270"/>
 <element name="Q19" library="rfc" package="DPAK" value="" x="39.25" y="35.7" rot="MR270"/>
 <element name="Q20" library="rfc" package="DPAK" value="" x="21.25" y="23.7" rot="MR270"/>
@@ -1501,15 +1501,15 @@ design rules under a new name.</description>
 <element name="R41" library="SparkFun-Resistors" package="0805" value="470k" x="21.25" y="17.7" rot="MR0"/>
 <element name="R42" library="SparkFun-Resistors" package="0805" value="470k" x="29.25" y="17.7" rot="MR0"/>
 <element name="R43" library="SparkFun-Resistors" package="0805" value="470k" x="37.25" y="17.7" rot="MR0"/>
-<element name="C27" library="SparkFun-Passives" package="0805" value=".033uF" x="43.25" y="19.95" rot="R180"/>
-<element name="C28" library="SparkFun-Passives" package="0805" value=".033uF" x="42.85" y="22.4" rot="R180"/>
-<element name="C29" library="SparkFun-Passives" package="0805" value=".033uF" x="42.75" y="25.95" rot="R180"/>
+<element name="C27" library="SparkFun-Passives" package="0805" value=".056uF" x="43.25" y="19.95" rot="R180"/>
+<element name="C28" library="SparkFun-Passives" package="0805" value=".056uF" x="42.85" y="22.4" rot="R180"/>
+<element name="C29" library="SparkFun-Passives" package="0805" value=".056uF" x="42.75" y="25.95" rot="R180"/>
 <element name="Q25" library="rfc" package="DPAK" value="" x="116.25" y="11.25" rot="MR90"/>
 <element name="U$3" library="rfc" package="TSSOP28-GROUNDPAD" value="A4915" x="89.5" y="24.75" rot="R180"/>
 <element name="C30" library="SparkFun-Passives" package="0805" value=".47uF" x="87.5" y="31.25" rot="R180"/>
 <element name="C31" library="SparkFun-Passives" package="0805" value=".1uF" x="84" y="30.75" rot="R90"/>
 <element name="R44" library="SparkFun-Resistors" package="0805" value="40.2k" x="79" y="30.75" rot="R90"/>
-<element name="C32" library="SparkFun-Passives" package="0805" value=".68uF" x="94" y="30.75" rot="R270"/>
+<element name="C32" library="SparkFun-Passives" package="0805" value="1uF" x="94" y="30.75" rot="R270"/>
 <element name="Q26" library="rfc" package="DPAK" value="" x="108.25" y="11.25" rot="MR90"/>
 <element name="Q27" library="rfc" package="DPAK" value="" x="100.25" y="11.25" rot="MR90"/>
 <element name="Q28" library="rfc" package="DPAK" value="" x="118.25" y="23.25" rot="MR90"/>
@@ -1527,9 +1527,9 @@ design rules under a new name.</description>
 <element name="R54" library="SparkFun-Resistors" package="0805" value="470k" x="118.25" y="29.25" rot="MR180"/>
 <element name="R55" library="SparkFun-Resistors" package="0805" value="470k" x="110.25" y="29.25" rot="MR180"/>
 <element name="R56" library="SparkFun-Resistors" package="0805" value="470k" x="102.25" y="29.25" rot="MR180"/>
-<element name="C36" library="SparkFun-Passives" package="0805" value=".033uF" x="96" y="27.75"/>
-<element name="C37" library="SparkFun-Passives" package="0805" value=".033uF" x="96" y="25.5"/>
-<element name="C38" library="SparkFun-Passives" package="0805" value=".033uF" x="96.25" y="22.25"/>
+<element name="C36" library="SparkFun-Passives" package="0805" value=".056uF" x="96" y="27.75"/>
+<element name="C37" library="SparkFun-Passives" package="0805" value=".056uF" x="96" y="25.5"/>
+<element name="C38" library="SparkFun-Passives" package="0805" value=".056uF" x="96.25" y="22.25"/>
 <element name="R78" library="SparkFun-Resistors" package="0805" value="1k" x="57.75" y="68.75"/>
 <element name="R79" library="SparkFun-Resistors" package="0805" value="1k" x="57.75" y="71.75"/>
 <element name="C39" library="SparkFun-Passives" package="0805" value=".1uF" x="86.125" y="78.125" rot="R270"/>

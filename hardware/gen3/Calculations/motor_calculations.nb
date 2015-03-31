@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9931,        332]
-NotebookOptionsPosition[      8039,        258]
-NotebookOutlinePosition[      8380,        273]
-CellTagsIndexPosition[      8337,        270]
+NotebookDataLength[     11775,        392]
+NotebookOptionsPosition[      9479,        304]
+NotebookOutlinePosition[      9820,        319]
+CellTagsIndexPosition[      9777,        316]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -252,12 +252,58 @@ Cell[BoxData["20000.`"], "Output",
   3.6352704023101177`*^9, 3.635270410800859*^9}}]
 }, Open  ]]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Motor Parts", "Section",
+ CellChangeTimes->{{3.6367583306207733`*^9, 3.6367583337829847`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Qgate", " ", "=", " ", 
+   RowBox[{"33", "n"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Vboot", " ", "=", " ", "12.0"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.636758343269063*^9, 3.636758388927554*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Cboot", " ", "=", " ", 
+  RowBox[{"Qgate", " ", "*", " ", 
+   RowBox[{"20", " ", "/", " ", "Vboot"}]}]}]], "Input",
+ CellChangeTimes->{{3.636758373905986*^9, 3.636758381792759*^9}, {
+  3.6367584386761913`*^9, 3.636758439480483*^9}, {3.6367586018024893`*^9, 
+  3.636758602158189*^9}}],
+
+Cell[BoxData["5.499999999999999`*^-8"], "Output",
+ CellChangeTimes->{{3.636758382541666*^9, 3.636758391344799*^9}, 
+   3.636758440635891*^9, 3.636758602608745*^9}]
+}, Open  ]],
+
+Cell["Our bootstrap capacitors (CA, CB, CC) should be .055 uF", "Text",
+ CellChangeTimes->{{3.636758445251122*^9, 3.636758458175462*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Cvreg", " ", "=", " ", 
+  RowBox[{"20", "*", "Cboot"}]}]], "Input",
+ CellChangeTimes->{{3.63675858949865*^9, 3.6367585965330887`*^9}}],
+
+Cell[BoxData["1.0999999999999998`*^-6"], "Output",
+ CellChangeTimes->{3.636758604843416*^9}]
+}, Open  ]],
+
+Cell["Use a 1uF cap for Vreg", "Text",
+ CellChangeTimes->{{3.636758620388386*^9, 3.63675862464963*^9}}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{960, 1028},
-WindowMargins->{{-10, Automatic}, {-10, Automatic}},
+WindowMargins->{{Automatic, -10}, {Automatic, -10}},
 FrontEndVersion->"10.0 for Linux x86 (64-bit) (September 9, 2014)",
 StyleDefinitions->"Default.nb"
 ]
@@ -331,6 +377,20 @@ Cell[7317, 235, 504, 12, 79, "Input"],
 Cell[7824, 249, 151, 2, 32, "Output"]
 }, Open  ]]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8036, 258, 100, 1, 67, "Section"],
+Cell[8139, 261, 254, 6, 55, "Input"],
+Cell[CellGroupData[{
+Cell[8418, 271, 307, 6, 32, "Input"],
+Cell[8728, 279, 163, 2, 34, "Output"]
+}, Open  ]],
+Cell[8906, 284, 137, 1, 33, "Text"],
+Cell[CellGroupData[{
+Cell[9068, 289, 158, 3, 32, "Input"],
+Cell[9229, 294, 92, 1, 34, "Output"]
+}, Open  ]],
+Cell[9336, 298, 103, 1, 33, "Text"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
