@@ -4157,14 +4157,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="LED7" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="U1" library="gen3" deviceset="ATMEGA165PV-8AU" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M05X2" device="PTH"/>
-<part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
+<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="U$2" library="SparkFun-Sensors" deviceset="MCP9700" device="SMD"/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="R21" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="IMU" library="gen3" deviceset="MPU6050IMU" device="MPU"/>
 <part name="C3" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="C4" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
+<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
+<part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -4228,14 +4232,18 @@ Comms board / Motor board / Kicker board</text>
 <instance part="LED7" gate="G$1" x="370.84" y="101.6"/>
 <instance part="U1" gate="A" x="129.54" y="106.68"/>
 <instance part="JP1" gate="G$1" x="76.2" y="38.1"/>
-<instance part="C5" gate="G$1" x="66.04" y="154.94"/>
-<instance part="C6" gate="G$1" x="48.26" y="152.4"/>
+<instance part="C5" gate="G$1" x="66.04" y="162.56"/>
+<instance part="C6" gate="G$1" x="43.18" y="152.4"/>
 <instance part="U$2" gate="G$1" x="414.02" y="114.3"/>
 <instance part="S1" gate="G$1" x="170.18" y="144.78"/>
 <instance part="R21" gate="G$1" x="172.72" y="132.08"/>
 <instance part="IMU" gate="G$1" x="215.9" y="96.52"/>
-<instance part="C3" gate="G$1" x="55.88" y="154.94"/>
-<instance part="C4" gate="G$1" x="76.2" y="157.48"/>
+<instance part="C3" gate="G$1" x="60.96" y="154.94"/>
+<instance part="C4" gate="G$1" x="76.2" y="165.1"/>
+<instance part="C7" gate="G$1" x="53.34" y="152.4"/>
+<instance part="C8" gate="G$1" x="55.88" y="162.56"/>
+<instance part="C9" gate="G$1" x="109.22" y="157.48" rot="R90"/>
+<instance part="C10" gate="G$1" x="109.22" y="167.64" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -4252,7 +4260,7 @@ Comms board / Motor board / Kicker board</text>
 <label x="76.2" y="144.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="38.1" y="149.86" size="1.778" layer="95"/>
+<label x="35.56" y="149.86" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="2"/>
 <wire x1="33.02" y1="152.4" x2="35.56" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="152.4" x2="35.56" y2="149.86" width="0.1524" layer="91"/>
@@ -4260,17 +4268,22 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="35.56" y1="149.86" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
 <junction x="35.56" y="149.86"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="149.86" x2="48.26" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="149.86" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
-<junction x="48.26" y="149.86"/>
+<wire x1="35.56" y1="149.86" x2="43.18" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="149.86" x2="53.34" y2="149.86" width="0.1524" layer="91"/>
+<junction x="43.18" y="149.86"/>
 <pinref part="C3" gate="G$1" pin="-"/>
 <pinref part="C4" gate="G$1" pin="-"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="76.2" y1="152.4" x2="66.04" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="152.4" x2="66.04" y2="149.86" width="0.1524" layer="91"/>
-<junction x="66.04" y="152.4"/>
-<wire x1="66.04" y1="149.86" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
-<junction x="55.88" y="149.86"/>
+<wire x1="53.34" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="160.02" x2="66.04" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="160.02" x2="66.04" y2="149.86" width="0.1524" layer="91"/>
+<junction x="66.04" y="160.02"/>
+<wire x1="66.04" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
+<junction x="60.96" y="149.86"/>
+<pinref part="C7" gate="G$1" pin="2"/>
+<junction x="53.34" y="149.86"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="66.04" y1="160.02" x2="55.88" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -4376,6 +4389,15 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="208.28" y1="99.06" x2="200.66" y2="99.06" width="0.1524" layer="91"/>
 <label x="198.12" y="99.06" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="2"/>
+<pinref part="C10" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="157.48" x2="111.76" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="167.64" x2="111.76" y2="170.18" width="0.1524" layer="91"/>
+<junction x="111.76" y="167.64"/>
+<wire x1="111.76" y1="170.18" x2="114.3" y2="170.18" width="0.1524" layer="91"/>
+<label x="111.76" y="170.18" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -4386,16 +4408,19 @@ Comms board / Motor board / Kicker board</text>
 <segment>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="3"/>
 <wire x1="33.02" y1="154.94" x2="35.56" y2="154.94" width="0.1524" layer="91"/>
-<label x="38.1" y="154.94" size="1.778" layer="95"/>
+<label x="35.56" y="154.94" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="4"/>
 <wire x1="33.02" y1="157.48" x2="35.56" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="157.48" x2="35.56" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
 <junction x="35.56" y="157.48"/>
 <pinref part="C3" gate="G$1" pin="+"/>
-<wire x1="55.88" y1="157.48" x2="48.26" y2="157.48" width="0.1524" layer="91"/>
-<junction x="48.26" y="157.48"/>
+<wire x1="60.96" y1="157.48" x2="53.34" y2="157.48" width="0.1524" layer="91"/>
+<junction x="43.18" y="157.48"/>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="53.34" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
+<junction x="53.34" y="157.48"/>
 </segment>
 <segment>
 <wire x1="307.34" y1="175.26" x2="322.58" y2="175.26" width="0.1524" layer="91"/>
@@ -4441,14 +4466,21 @@ Comms board / Motor board / Kicker board</text>
 <label x="327.66" y="71.12" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="106.68" y1="149.86" x2="99.06" y2="149.86" width="0.1524" layer="91"/>
-<label x="99.06" y="149.86" size="1.778" layer="95"/>
-<pinref part="U1" gate="A" pin="VCC_2"/>
-</segment>
-<segment>
-<wire x1="106.68" y1="147.32" x2="99.06" y2="147.32" width="0.1524" layer="91"/>
-<label x="99.06" y="147.32" size="1.778" layer="95"/>
+<wire x1="106.68" y1="147.32" x2="104.14" y2="147.32" width="0.1524" layer="91"/>
+<label x="99.06" y="170.18" size="1.778" layer="95"/>
 <pinref part="U1" gate="A" pin="VCC"/>
+<wire x1="106.68" y1="149.86" x2="104.14" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VCC_2"/>
+<wire x1="104.14" y1="147.32" x2="104.14" y2="149.86" width="0.1524" layer="91"/>
+<junction x="104.14" y="149.86"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="149.86" x2="104.14" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="157.48" x2="104.14" y2="167.64" width="0.1524" layer="91"/>
+<junction x="104.14" y="157.48"/>
+<wire x1="104.14" y1="167.64" x2="104.14" y2="170.18" width="0.1524" layer="91"/>
+<junction x="104.14" y="167.64"/>
+<wire x1="104.14" y1="170.18" x2="99.06" y2="170.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
@@ -4704,12 +4736,16 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="6"/>
 <wire x1="33.02" y1="162.56" x2="35.56" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="162.56" x2="35.56" y2="160.02" width="0.1524" layer="91"/>
-<junction x="35.56" y="160.02"/>
-<wire x1="35.56" y1="160.02" x2="66.04" y2="160.02" width="0.1524" layer="91"/>
-<pinref part="C5" gate="G$1" pin="1"/>
 <pinref part="C4" gate="G$1" pin="+"/>
-<wire x1="66.04" y1="160.02" x2="76.2" y2="160.02" width="0.1524" layer="91"/>
-<junction x="66.04" y="160.02"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="167.64" x2="66.04" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="167.64" x2="55.88" y2="167.64" width="0.1524" layer="91"/>
+<junction x="66.04" y="167.64"/>
+<wire x1="55.88" y1="167.64" x2="35.56" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="167.64" x2="35.56" y2="162.56" width="0.1524" layer="91"/>
+<junction x="55.88" y="167.64"/>
+<junction x="35.56" y="162.56"/>
 </segment>
 </net>
 <net name="BID0" class="0">
