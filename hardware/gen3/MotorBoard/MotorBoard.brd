@@ -54,6 +54,8 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
@@ -87,6 +89,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
@@ -134,6 +137,7 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -1176,6 +1180,15 @@ digikey: A101390CT-ND</description>
 <wire x1="0.635" y1="0.635" x2="-0.635" y2="0.635" width="0.127" layer="21"/>
 <text x="0" y="0.635" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
 </package>
+<package name="LOGO">
+<text x="0" y="0" size="1.778" layer="21">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="7.62" x2="19.05" y2="7.62" width="0.127" layer="21"/>
+<wire x1="19.05" y1="7.62" x2="19.05" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="19.05" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 </library>
 <library name="SparkFun-Sensors">
@@ -1731,6 +1744,7 @@ design rules under a new name.</description>
 <element name="C64" library="SparkFun-Capacitors" package="0805" value=".01uF" x="41.75" y="88.25" rot="R180"/>
 <element name="C45" library="SparkFun-Capacitors" package="0805" value="1uF" x="68.25" y="44.5" rot="MR0"/>
 <element name="C46" library="SparkFun-Capacitors" package="0805" value=".01uF" x="68.25" y="46.5" rot="MR0"/>
+<element name="U$9" library="gen3" package="LOGO" value="LOGO" x="86" y="44.7"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -6047,4 +6061,10 @@ design rules under a new name.</description>
 </signals>
 </board>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>

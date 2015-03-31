@@ -54,6 +54,8 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -87,6 +89,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
@@ -134,6 +137,7 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -3814,6 +3818,15 @@ SMT header is CONN-09042.</description>
 <vertex x="-2.15" y="2.1"/>
 </polygon>
 </package>
+<package name="LOGO">
+<text x="0" y="0" size="1.778" layer="21">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="7.62" x2="19.05" y2="7.62" width="0.127" layer="21"/>
+<wire x1="19.05" y1="7.62" x2="19.05" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="19.05" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ATMEGA165PV-8AU">
@@ -3913,6 +3926,11 @@ SMT header is CONN-09042.</description>
 <rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
 <pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="LOGO">
+<text x="0" y="0" size="1.778" layer="94">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -4038,6 +4056,18 @@ low impedence, low ceiling cap</description>
 <technology name="">
 <attribute name="PROD_ID" value="CAP-10547" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LOGO">
+<gates>
+<gate name="G$1" symbol="LOGO" x="-5.08" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="LOGO">
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -4169,6 +4199,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
+<part name="U$3" library="gen3" deviceset="LOGO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4244,6 +4275,7 @@ Comms board / Motor board / Kicker board</text>
 <instance part="C8" gate="G$1" x="55.88" y="162.56"/>
 <instance part="C9" gate="G$1" x="109.22" y="157.48" rot="R90"/>
 <instance part="C10" gate="G$1" x="109.22" y="167.64" rot="R90"/>
+<instance part="U$3" gate="G$1" x="25.4" y="127"/>
 </instances>
 <busses>
 </busses>

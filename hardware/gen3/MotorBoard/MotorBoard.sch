@@ -54,6 +54,8 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -87,6 +89,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
@@ -134,6 +137,7 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -4962,6 +4966,15 @@ digikey: A101390CT-ND</description>
 <rectangle x1="2.6" y1="-0.7" x2="2.85" y2="0.65" layer="51"/>
 <rectangle x1="-1" y1="-1.05" x2="-0.7" y2="1.05" layer="21"/>
 </package>
+<package name="LOGO">
+<text x="0" y="0" size="1.778" layer="21">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="7.62" x2="19.05" y2="7.62" width="0.127" layer="21"/>
+<wire x1="19.05" y1="7.62" x2="19.05" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="19.05" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP_POL">
@@ -5041,6 +5054,11 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="P$1" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
 <text x="-3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 <circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
+</symbol>
+<symbol name="LOGO">
+<text x="0" y="0" size="1.778" layer="94">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -5200,6 +5218,18 @@ Use to probe a signal</description>
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LOGO">
+<gates>
+<gate name="G$1" symbol="LOGO" x="-5.08" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="LOGO">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -6097,6 +6127,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C64" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C45" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="C46" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="U$9" library="gen3" deviceset="LOGO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6489,6 +6520,7 @@ careful, 180 degrees</text>
 <instance part="C64" gate="G$1" x="53.34" y="162.56"/>
 <instance part="C45" gate="G$1" x="101.6" y="167.64" rot="R90"/>
 <instance part="C46" gate="G$1" x="101.6" y="157.48" rot="R90"/>
+<instance part="U$9" gate="G$1" x="35.56" y="91.44"/>
 </instances>
 <busses>
 </busses>

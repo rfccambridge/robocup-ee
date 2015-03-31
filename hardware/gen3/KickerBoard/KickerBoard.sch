@@ -15110,6 +15110,15 @@ chip</description>
 <vertex x="-2.15" y="2.1"/>
 </polygon>
 </package>
+<package name="LOGO">
+<text x="0" y="0" size="1.778" layer="21">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="7.62" x2="19.05" y2="7.62" width="0.127" layer="21"/>
+<wire x1="19.05" y1="7.62" x2="19.05" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="19.05" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SPDT-SWITCH">
@@ -15289,6 +15298,11 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
 <pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
 <pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
+</symbol>
+<symbol name="LOGO">
+<text x="0" y="0" size="1.778" layer="94">RFC Cambridge
+Gen 3 Rev A
+Spring 2015</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -16117,6 +16131,18 @@ low impedence, low ceiling cap</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="LOGO">
+<gates>
+<gate name="G$1" symbol="LOGO" x="-5.08" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="LOGO">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="SparkFun-AnalogIC">
@@ -16314,6 +16340,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C17" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="C22" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="5.0REG" library="SparkFun-PowerIC" deviceset="V_REG_MIC5219" device="5V" value="MIC5219 5V"/>
+<part name="U$9" library="gen3" deviceset="LOGO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16467,6 +16494,7 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="C17" gate="G$1" x="104.14" y="175.26" rot="R90"/>
 <instance part="C22" gate="G$1" x="104.14" y="165.1" rot="R90"/>
 <instance part="5.0REG" gate="G$1" x="68.58" y="322.58"/>
+<instance part="U$9" gate="G$1" x="30.48" y="99.06"/>
 </instances>
 <busses>
 </busses>
@@ -17508,9 +17536,14 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="N$19" class="0">
 <segment>
-<wire x1="17.78" y1="363.22" x2="22.86" y2="363.22" width="0.1524" layer="91"/>
 <pinref part="BATT" gate="-1" pin="KL"/>
 <pinref part="ON/OFF" gate="G$1" pin="COM"/>
+<wire x1="17.78" y1="363.22" x2="22.86" y2="363.22" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="363.22" x2="22.86" y2="373.38" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="373.38" x2="45.72" y2="373.38" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="373.38" x2="45.72" y2="368.3" width="0.1524" layer="91"/>
+<pinref part="ON/OFF" gate="G$1" pin="P1"/>
+<wire x1="45.72" y1="368.3" x2="43.18" y2="368.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RLED1" class="0">
