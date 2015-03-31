@@ -6472,8 +6472,8 @@ careful, 180 degrees</text>
 <instance part="C42" gate="G$1" x="678.18" y="160.02"/>
 <instance part="C50" gate="G$1" x="419.1" y="162.56"/>
 <instance part="C51" gate="G$1" x="327.66" y="30.48"/>
-<instance part="C52" gate="G$1" x="393.7" y="27.94"/>
-<instance part="C53" gate="G$1" x="579.12" y="27.94"/>
+<instance part="C52" gate="G$1" x="396.24" y="27.94"/>
+<instance part="C53" gate="G$1" x="581.66" y="27.94"/>
 <instance part="C54" gate="G$1" x="647.7" y="25.4"/>
 <instance part="C55" gate="G$1" x="650.24" y="220.98"/>
 <instance part="C56" gate="G$1" x="581.66" y="223.52"/>
@@ -6690,8 +6690,8 @@ careful, 180 degrees</text>
 <label x="383.54" y="38.1" size="1.778" layer="95"/>
 <pinref part="COMP3" gate="G$1" pin="V-"/>
 <pinref part="C52" gate="G$1" pin="1"/>
-<wire x1="383.54" y1="35.56" x2="393.7" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="393.7" y1="35.56" x2="393.7" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="383.54" y1="35.56" x2="396.24" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="35.56" x2="396.24" y2="33.02" width="0.1524" layer="91"/>
 <junction x="383.54" y="35.56"/>
 </segment>
 <segment>
@@ -6788,8 +6788,8 @@ careful, 180 degrees</text>
 <label x="571.5" y="35.56" size="1.778" layer="95"/>
 <pinref part="OP4" gate="G$1" pin="V-"/>
 <pinref part="C53" gate="G$1" pin="1"/>
-<wire x1="568.96" y1="35.56" x2="579.12" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="579.12" y1="35.56" x2="579.12" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="35.56" x2="581.66" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="581.66" y1="35.56" x2="581.66" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R111" gate="G$1" pin="2"/>
@@ -7100,14 +7100,19 @@ careful, 180 degrees</text>
 </net>
 <net name="RESET" class="0">
 <segment>
-<pinref part="U2" gate="A" pin="~RESET/PG5"/>
-<wire x1="144.78" y1="132.08" x2="152.4" y2="132.08" width="0.1524" layer="91"/>
-<label x="147.32" y="132.08" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="JP1" gate="G$1" pin="5"/>
 <wire x1="71.12" y1="38.1" x2="66.04" y2="38.1" width="0.1524" layer="91"/>
 <label x="63.5" y="38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="S1" gate="G$1" pin="1"/>
+<wire x1="162.56" y1="132.08" x2="162.56" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="R113" gate="G$1" pin="1"/>
+<wire x1="162.56" y1="132.08" x2="165.1" y2="132.08" width="0.1524" layer="91"/>
+<junction x="162.56" y="132.08"/>
+<pinref part="U2" gate="A" pin="~RESET/PG5"/>
+<wire x1="144.78" y1="132.08" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
+<label x="147.32" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -7455,8 +7460,8 @@ careful, 180 degrees</text>
 <label x="383.54" y="17.78" size="1.778" layer="95"/>
 <pinref part="COMP3" gate="G$1" pin="V+"/>
 <pinref part="C52" gate="G$1" pin="2"/>
-<wire x1="383.54" y1="20.32" x2="393.7" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="393.7" y1="20.32" x2="393.7" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="383.54" y1="20.32" x2="396.24" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="20.32" x2="396.24" y2="25.4" width="0.1524" layer="91"/>
 <junction x="383.54" y="20.32"/>
 </segment>
 <segment>
@@ -7575,8 +7580,8 @@ careful, 180 degrees</text>
 <label x="571.5" y="17.78" size="1.778" layer="95"/>
 <pinref part="OP4" gate="G$1" pin="V+"/>
 <pinref part="C53" gate="G$1" pin="2"/>
-<wire x1="568.96" y1="20.32" x2="579.12" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="579.12" y1="20.32" x2="579.12" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="20.32" x2="581.66" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="581.66" y1="20.32" x2="581.66" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <label x="317.5" y="20.32" size="1.778" layer="95"/>
@@ -9807,16 +9812,6 @@ careful, 180 degrees</text>
 <label x="147.32" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="RESET1" class="0">
-<segment>
-<wire x1="149.86" y1="132.08" x2="162.56" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="S1" gate="G$1" pin="1"/>
-<wire x1="162.56" y1="132.08" x2="162.56" y2="144.78" width="0.1524" layer="91"/>
-<pinref part="R113" gate="G$1" pin="1"/>
-<wire x1="162.56" y1="132.08" x2="165.1" y2="132.08" width="0.1524" layer="91"/>
-<junction x="162.56" y="132.08"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>
@@ -9837,10 +9832,10 @@ careful, 180 degrees</text>
 <approved hash="104,1,314.96,233.68,OP1,V-,GND,,,"/>
 <approved hash="104,1,568.96,218.44,OP2,V+,5V,,,"/>
 <approved hash="104,1,568.96,233.68,OP2,V-,GND,,,"/>
-<approved hash="104,1,568.96,20.32,OP3,V+,5V,,,"/>
-<approved hash="104,1,568.96,35.56,OP3,V-,GND,,,"/>
-<approved hash="104,1,314.96,22.86,OP4,V+,5V,,,"/>
-<approved hash="104,1,314.96,38.1,OP4,V-,GND,,,"/>
+<approved hash="104,1,568.96,20.32,OP4,V+,5V,,,"/>
+<approved hash="104,1,568.96,35.56,OP4,V-,GND,,,"/>
+<approved hash="104,1,314.96,22.86,OP3,V+,5V,,,"/>
+<approved hash="104,1,314.96,38.1,OP3,V-,GND,,,"/>
 <approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
 <approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
 <approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
@@ -9853,6 +9848,14 @@ careful, 180 degrees</text>
 <approved hash="111,1,652.78,302.26,M2O2,,,,,"/>
 <approved hash="111,1,396.24,304.8,M1O1,,,,,"/>
 <approved hash="111,1,391.16,302.26,M1O2,,,,,"/>
+<approved hash="111,1,327.66,30.48,SENSE3,,,,,"/>
+<approved hash="111,1,396.24,27.94,LIM3,,,,,"/>
+<approved hash="111,1,581.66,27.94,SENSE4,,,,,"/>
+<approved hash="111,1,647.7,25.4,LIM4,,,,,"/>
+<approved hash="111,1,650.24,223.52,LIM2,,,,,"/>
+<approved hash="111,1,581.66,226.06,SENSE2,,,,,"/>
+<approved hash="111,1,327.66,226.06,SENSE1,,,,,"/>
+<approved hash="111,1,393.7,223.52,LIM1,,,,,"/>
 <approved hash="115,1,400.557,345.44,Q6,,,,,"/>
 <approved hash="115,1,423.417,332.74,Q1,,,,,"/>
 <approved hash="115,1,446.277,320.04,Q2,,,,,"/>
