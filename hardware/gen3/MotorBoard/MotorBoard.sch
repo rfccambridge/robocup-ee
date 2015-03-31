@@ -6033,7 +6033,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="M2O1" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="M2O2" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="M2O3" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="M10O1" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="M1O1" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="M1O2" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="M1O3" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="LIM1" library="gen3" deviceset="TEST_PT" device=""/>
@@ -6425,7 +6425,7 @@ careful, 180 degrees</text>
 <instance part="M2O1" gate="G$1" x="662.94" y="307.34"/>
 <instance part="M2O2" gate="G$1" x="657.86" y="304.8"/>
 <instance part="M2O3" gate="G$1" x="652.78" y="302.26"/>
-<instance part="M10O1" gate="G$1" x="401.32" y="307.34"/>
+<instance part="M1O1" gate="G$1" x="401.32" y="307.34"/>
 <instance part="M1O2" gate="G$1" x="396.24" y="304.8"/>
 <instance part="M1O3" gate="G$1" x="391.16" y="302.26"/>
 <instance part="LIM1" gate="G$1" x="302.26" y="276.86"/>
@@ -7660,7 +7660,7 @@ careful, 180 degrees</text>
 <label x="482.6" y="309.88" size="1.778" layer="95"/>
 <junction x="490.22" y="309.88"/>
 <wire x1="464.82" y1="309.88" x2="490.22" y2="309.88" width="0.1524" layer="91"/>
-<pinref part="M10O1" gate="G$1" pin="P$1"/>
+<pinref part="M1O1" gate="G$1" pin="P$1"/>
 <junction x="401.32" y="304.8"/>
 </segment>
 </net>
