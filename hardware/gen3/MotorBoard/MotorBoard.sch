@@ -5987,10 +5987,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C40" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R97" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="U2" library="Atmel_By_element14_Batch_1-00" deviceset="ATMEGA165PV-8AU" device=""/>
-<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
-<part name="R99" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
-<part name="R101" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
-<part name="R103" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="130"/>
+<part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R99" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R101" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="R103" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="LED9" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED11" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED13" library="SparkFun-LED" deviceset="LED" device="1206"/>
