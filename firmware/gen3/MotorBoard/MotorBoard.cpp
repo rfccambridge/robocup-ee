@@ -13,7 +13,6 @@ int main(void)
 		bool hasCommand = spi.GetCommand(&command);
 		if(hasCommand) {
 			char reply = 0;
-			
 			switch(command.GetType()) {
 			case Command::WHEEL_SPEED_COMMAND:
 				SetWheelSpeedCommand* c = (SetWheelSpeedCommand*)&command;
