@@ -10,6 +10,7 @@
 #define XBEE_RTS_BIT 1
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
+#define SEND_QUEUE_SIZE SERIAL_MSG_CHARS
 
 typedef struct serialQueue {
 	unsigned int size;
@@ -22,6 +23,9 @@ serialQueue outbox;
 
 unsigned int charsRead = 0;
 message readBuf;
+
+unsigned int charsSent = SEND_QUEUE_SIZE;
+char sendQueue[SEND_QUEUE_SIZE];
 
 bool pushMessage(const message* msg, serialQueue* box){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
@@ -61,6 +65,11 @@ int getInboxSize(){
 
 bool pushOutbox(const message* msg){
 	return pushMessage(msg, &outbox);
+	// Since we have a message in the outbox,
+	// Enable the interrupt handler that sends data
+	// Worst case, the data is already sent and the interrupt
+	// Will just disable itself.
+	UCSR0B |= (1 << UDRIE0);
 }
 
 bool popOutbox(message* msg){
@@ -117,4 +126,28 @@ ISR(USART0_RX_vect){
 		pushInbox(&readBuf);
 		charsRead = 0;
 	}
+};
+
+ISR(USART0_TX_vect){
+	// Do nothing, this just clears the tx complete flag for us
+};
+
+ISR(USART0_UDRE_vect){
+	if(charsSent >= SEND_QUEUE_SIZE){
+		// We have nothing to send, check the outbox.
+		message msg;
+		if(popOutbox(&msg)){
+			// There *is* a message waiting to send
+			// We'll queue it up for sending
+			memcpy(&sendQueue, &(msg.message), sizeof(char) * SERIAL_MSG_CHARS);
+			charsSent = 0;
+		}
+		else{
+			// No message waiting, we have nothing to do.
+			// Disable the send empty interrupt to avoid looping.
+			UCSR0B &= ~(1 << UDRIE0);
+			return;
+		}
+	}
+	UDR0 = sendQueue[charsSent++];
 };
