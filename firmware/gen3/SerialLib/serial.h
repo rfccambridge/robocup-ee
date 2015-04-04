@@ -11,11 +11,11 @@
 #ifndef SERIAL_H_
 #define SERIAL_H_
 
-bool pushInbox(const message* msg);
-bool popInbox(message* msg);
-int getInboxSize();
-bool pushOutbox(const message* msg);
-bool popOutbox(message* msg);
-int getOutboxSize();
+bool serialPushInbox(const message* msg);
+bool serialPopInbox(message* msg);
+int serialGetInboxSize();
+bool serialPushOutbox(const message* msg);
+bool serialPopOutbox(message* msg);
+int serialGetOutboxSize();
 
 #endif /* SERIAL_H_ */

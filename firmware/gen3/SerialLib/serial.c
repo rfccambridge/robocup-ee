@@ -51,19 +51,19 @@ bool popMessage(message* dest, serialQueue* box){
 	return true;
 }
 
-bool pushInbox(const message* msg){
+bool serialPushInbox(const message* msg){
 	return pushMessage(msg, &inbox);
 }
 
-bool popInbox(message* dest){
+bool serialPopInbox(message* dest){
 	return popMessage(dest, &inbox);
 }
 
-int getInboxSize(){
+int serialGetInboxSize(){
 	return inbox.size;
 }
 
-bool pushOutbox(const message* msg){
+bool serialPushOutbox(const message* msg){
 	return pushMessage(msg, &outbox);
 	// Since we have a message in the outbox,
 	// Enable the interrupt handler that sends data
@@ -72,11 +72,11 @@ bool pushOutbox(const message* msg){
 	UCSR0B |= (1 << UDRIE0);
 }
 
-bool popOutbox(message* msg){
+bool serialPopOutbox(message* msg){
 	return popMessage(msg, &outbox);
 }
 
-int getOutboxSize(){
+int serialGetOutboxSize(){
 	return outbox.size;
 }
 
@@ -123,7 +123,7 @@ ISR(USART0_RX_vect){
 	}
 	if(++charsRead > 1 + SERIAL_MSG_CHARS){
 		// Have read a full message
-		pushInbox(&readBuf);
+		serialPushInbox(&readBuf);
 		charsRead = 0;
 	}
 };
@@ -136,7 +136,7 @@ ISR(USART0_UDRE_vect){
 	if(charsSent >= SEND_QUEUE_SIZE){
 		// We have nothing to send, check the outbox.
 		message msg;
-		if(popOutbox(&msg)){
+		if(serialPopOutbox(&msg)){
 			// There *is* a message waiting to send
 			// We'll queue it up for sending
 			memcpy(&sendQueue, &(msg.message), sizeof(char) * SERIAL_MSG_CHARS);

@@ -20,10 +20,10 @@ int main(void)
 		// Figure out how many message we might want to fetch
 		// This way, even if new message come as we're looping
 		// The loop will still end
-		int inboxSize = getInboxSize();
+		int inboxSize = serialGetInboxSize();
 		for(int i = 0; i < inboxSize; i++){
 			// Empty out the inbox.
-			if(!popInbox(&recvMsg)){
+			if(!serialPopInbox(&recvMsg)){
 				// Failed to get a message for some reason
 				// Break out.
 				break;
