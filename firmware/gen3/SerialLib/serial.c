@@ -11,19 +11,19 @@
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
 
-typedef struct serial_queue {
+typedef struct serialQueue {
 	unsigned int size;
 	unsigned int first;
 	message box[BOX_SIZE];
-}serial_queue;
+}serialQueue;
 
-serial_queue inbox;
-serial_queue outbox;
+serialQueue inbox;
+serialQueue outbox;
 
 unsigned int charsRead = 0;
 message readBuf;
 
-bool pushMessage(const message* msg, serial_queue* box){
+bool pushMessage(const message* msg, serialQueue* box){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
 		if(box->size >= BOX_SIZE){
 			return false;
@@ -35,7 +35,7 @@ bool pushMessage(const message* msg, serial_queue* box){
 	return true;
 }
 
-bool popMessage(message* dest, serial_queue* box){
+bool popMessage(message* dest, serialQueue* box){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
 		if(box->size <= 0){
 			return false;
