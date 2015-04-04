@@ -17,8 +17,18 @@ int main(void)
 	message recvMsg;
     while(true)
     {
-		if(popInbox(&recvMsg)){
-			// Got a new message. Forward it over SPI.
+		// Figure out how many message we might want to fetch
+		// This way, even if new message come as we're looping
+		// The loop will still end
+		int inboxSize = getInboxSize();
+		for(int i = 0; i < inboxSize; i++){
+			// Empty out the inbox.
+			if(!popInbox(&recvMsg)){
+				// Failed to get a message for some reason
+				// Break out.
+				break;
+			}
+			// Have a message ready. Forward it over SPI.
 		}
 		// Get client data from SPI and queue it up for serial.
     }
