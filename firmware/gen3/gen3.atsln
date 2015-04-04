@@ -7,6 +7,10 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\Co
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MotorBoard", "MotorBoard\MotorBoard.cppproj", "{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "SerialLib", "SerialLib\SerialLib.cproj", "{F350AB5D-6F81-4925-BE89-D3B7F8E4B8FB}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "CommsBoardC", "CommsBoardC\CommsBoardC.cproj", "{43FBB023-A315-43C9-882F-77BDA6AAB901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -25,6 +29,14 @@ Global
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.Build.0 = Debug|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.ActiveCfg = Release|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.Build.0 = Release|AVR
+		{F350AB5D-6F81-4925-BE89-D3B7F8E4B8FB}.Debug|AVR.ActiveCfg = Debug|AVR
+		{F350AB5D-6F81-4925-BE89-D3B7F8E4B8FB}.Debug|AVR.Build.0 = Debug|AVR
+		{F350AB5D-6F81-4925-BE89-D3B7F8E4B8FB}.Release|AVR.ActiveCfg = Release|AVR
+		{F350AB5D-6F81-4925-BE89-D3B7F8E4B8FB}.Release|AVR.Build.0 = Release|AVR
+		{43FBB023-A315-43C9-882F-77BDA6AAB901}.Debug|AVR.ActiveCfg = Debug|AVR
+		{43FBB023-A315-43C9-882F-77BDA6AAB901}.Debug|AVR.Build.0 = Debug|AVR
+		{43FBB023-A315-43C9-882F-77BDA6AAB901}.Release|AVR.ActiveCfg = Release|AVR
+		{43FBB023-A315-43C9-882F-77BDA6AAB901}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
