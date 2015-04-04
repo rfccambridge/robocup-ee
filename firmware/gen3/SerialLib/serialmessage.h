@@ -13,9 +13,6 @@
 
 typedef struct message
 {
-	/* The ID of the destination XBee. 
-	 * Only used for outbound messages. */
-	short rfID;
 	/* The ID of the destination slave. */
 	char slaveID;
 	/* The actual bytes of this message.
