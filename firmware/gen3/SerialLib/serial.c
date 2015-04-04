@@ -12,42 +12,46 @@
 #define XBEE_CTS_BIT 2
 
 unsigned int inboxSize = 0;
+unsigned int inboxFirst = 0;
 message inbox[BOX_SIZE];
 
 unsigned int outboxSize = 0;
+unsigned int outboxFirst = 0;
 message outbox[BOX_SIZE];
 
 unsigned int charsRead = 0;
 message readBuf;
 
-bool pushMessage(const message* msg, message* box, unsigned int* size){
+bool pushMessage(const message* msg, message* box, unsigned int* size, unsigned int* first){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
 		if(*size >= BOX_SIZE){
 			return false;
 		}
-		memcpy(&box[*size], msg, sizeof(message));
+		unsigned int idx = (*first + *size) % BOX_SIZE;
+		memcpy(&box[idx], msg, sizeof(message));
 		(*size)++;
 	}
 	return true;
 }
 
-bool popMessage(message* dest, message* box, unsigned int* size){
+bool popMessage(message* dest, message* box, unsigned int* size, unsigned int* first){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
 		if(*size <= 0){
 			return false;
 		}
-		memcpy(dest, &box[*size - 1], sizeof(message));
+		memcpy(dest, &box[*first], sizeof(message));
+		*first = (*first + 1) % BOX_SIZE;
 		(*size)--;
 	}
 	return true;
 }
 
 bool pushInbox(const message* msg){
-	return pushMessage(msg, &inbox[0], &inboxSize);
+	return pushMessage(msg, &inbox[0], &inboxSize, &inboxFirst);
 }
 
 bool popInbox(message* dest){
-	return popMessage(dest, &inbox[0], &inboxSize);
+	return popMessage(dest, &inbox[0], &inboxSize, &inboxFirst);
 }
 
 int getInboxSize(){
@@ -55,11 +59,11 @@ int getInboxSize(){
 }
 
 bool pushOutbox(const message* msg){
-	return pushMessage(msg, &outbox[0], &outboxSize);
+	return pushMessage(msg, &outbox[0], &outboxSize, &outboxFirst);
 }
 
 bool popOutbox(message* msg){
-	return popMessage(msg, &outbox[0], &outboxSize);
+	return popMessage(msg, &outbox[0], &outboxSize, &outboxFirst);
 }
 
 int getOutboxSize(){
