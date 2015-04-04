@@ -11,63 +11,64 @@
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
 
-unsigned int inboxSize = 0;
-unsigned int inboxFirst = 0;
-message inbox[BOX_SIZE];
+typedef struct serial_queue {
+	unsigned int size;
+	unsigned int first;
+	message box[BOX_SIZE];
+}serial_queue;
 
-unsigned int outboxSize = 0;
-unsigned int outboxFirst = 0;
-message outbox[BOX_SIZE];
+serial_queue inbox;
+serial_queue outbox;
 
 unsigned int charsRead = 0;
 message readBuf;
 
-bool pushMessage(const message* msg, message* box, unsigned int* size, unsigned int* first){
+bool pushMessage(const message* msg, serial_queue* box){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
-		if(*size >= BOX_SIZE){
+		if(box->size >= BOX_SIZE){
 			return false;
 		}
-		unsigned int idx = (*first + *size) % BOX_SIZE;
-		memcpy(&box[idx], msg, sizeof(message));
-		(*size)++;
+		unsigned int idx = (box->first + box->size) % BOX_SIZE;
+		memcpy(&(box->box[idx]), msg, sizeof(message));
+		(box->size)++;
 	}
 	return true;
 }
 
-bool popMessage(message* dest, message* box, unsigned int* size, unsigned int* first){
+bool popMessage(message* dest, serial_queue* box){
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
-		if(*size <= 0){
+		if(box->size <= 0){
 			return false;
 		}
-		memcpy(dest, &box[*first], sizeof(message));
-		*first = (*first + 1) % BOX_SIZE;
-		(*size)--;
+		memcpy(dest, &box[box->first], sizeof(message));
+		box->first = (box->first + 1) % BOX_SIZE;
+		(box->size)--;
 	}
 	return true;
 }
 
 bool pushInbox(const message* msg){
-	return pushMessage(msg, &inbox[0], &inboxSize, &inboxFirst);
+	return pushMessage(msg, &inbox);
 }
 
 bool popInbox(message* dest){
-	return popMessage(dest, &inbox[0], &inboxSize, &inboxFirst);
+	return popMessage(dest, &inbox);
 }
 
 int getInboxSize(){
-	return inboxSize;
+	return inbox.size;
 }
 
 bool pushOutbox(const message* msg){
-	return pushMessage(msg, &outbox[0], &outboxSize, &outboxFirst);
+	return pushMessage(msg, &outbox);
 }
 
 bool popOutbox(message* msg){
-	return popMessage(msg, &outbox[0], &outboxSize, &outboxFirst);
+	return popMessage(msg, &outbox);
 }
 
 int getOutboxSize(){
-	return outboxSize;
+	return outbox.size;
 }
 
 void setReceiveBlock(bool block){
