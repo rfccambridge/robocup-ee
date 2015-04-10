@@ -1,0 +1,7 @@
+Mistakes from Gen 3 Rev A:
+> bunch of packges were incompatible with the parts we ordered. especially diodes.
+	> kicker/ U$1 flyback
+	> kicker/ C5
+	> motor/ zener
+> should have done copper pours on both sides, especially for heat dissipation. vias only help if they're actually connected to something on the other side.
+> make everything 90 or 45 degrees. these look so ugly...
