@@ -10,7 +10,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "serial.h"
-
+#include "spi.h"
 
 int main(void)
 {
@@ -29,7 +29,21 @@ int main(void)
 				break;
 			}
 			// Have a message ready. Forward it over SPI.
+			if(!spiPushOutbox(&recvMsg)){
+				// Failed to send message.
+				// Break to not cause more damage
+				// Nothing to be done to recover the other message
+				break;
+			}
 		}
-		// Get client data from SPI and queue it up for serial.
+		inboxSize = spiGetInboxSize();
+		for(int i = 0; i < inboxSize; i++){
+			if(!spiPopInbox(&recvMsg)){
+				break;
+			}
+			if(!serialPushOutbox(&recvMsg)){
+				break;
+			}
+		}
     }
 }
