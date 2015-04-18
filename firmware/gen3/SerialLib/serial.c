@@ -5,21 +5,14 @@
 #include <string.h>
 #include <avr/interrupt.h>
 
-#define BOX_SIZE 10
 #define XBEE_RTS PORTD
 #define XBEE_RTS_BIT 1
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
 #define SEND_QUEUE_SIZE SERIAL_MSG_CHARS
 
-typedef struct serialQueue {
-	unsigned int size;
-	unsigned int first;
-	message box[BOX_SIZE];
-}serialQueue;
-
-serialQueue inbox;
-serialQueue outbox;
+messageQueue inbox;
+messageQueue outbox;
 
 unsigned int charsRead = 0;
 message readBuf;
@@ -27,44 +20,20 @@ message readBuf;
 unsigned int charsSent = SEND_QUEUE_SIZE;
 char sendQueue[SEND_QUEUE_SIZE];
 
-bool pushMessage(const message* msg, serialQueue* box){
-	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
-		if(box->size >= BOX_SIZE){
-			return false;
-		}
-		unsigned int idx = (box->first + box->size) % BOX_SIZE;
-		memcpy(&(box->box[idx]), msg, sizeof(message));
-		(box->size)++;
-	}
-	return true;
-}
-
-bool popMessage(message* dest, serialQueue* box){
-	ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
-		if(box->size <= 0){
-			return false;
-		}
-		memcpy(dest, &box[box->first], sizeof(message));
-		box->first = (box->first + 1) % BOX_SIZE;
-		(box->size)--;
-	}
-	return true;
-}
-
 bool serialPushInbox(const message* msg){
-	return pushMessage(msg, &inbox);
+	return mqPushMessage(msg, &inbox);
 }
 
 bool serialPopInbox(message* dest){
-	return popMessage(dest, &inbox);
+	return mqPopMessage(dest, &inbox);
 }
 
 int serialGetInboxSize(){
-	return inbox.size;
+	return mqGetSize(&inbox);
 }
 
 bool serialPushOutbox(const message* msg){
-	return pushMessage(msg, &outbox);
+	return mqPushMessage(msg, &outbox);
 	// Since we have a message in the outbox,
 	// Enable the interrupt handler that sends data
 	// Worst case, the data is already sent and the interrupt
@@ -73,11 +42,11 @@ bool serialPushOutbox(const message* msg){
 }
 
 bool serialPopOutbox(message* msg){
-	return popMessage(msg, &outbox);
+	return mqPopMessage(msg, &outbox);
 }
 
 int serialGetOutboxSize(){
-	return outbox.size;
+	return mqGetSize(&outbox);
 }
 
 void setReceiveBlock(bool block){

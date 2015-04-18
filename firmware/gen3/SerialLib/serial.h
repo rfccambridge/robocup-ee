@@ -5,7 +5,7 @@
  *  Author: Karl
  */ 
 
-#include "serialmessage.h"
+#include "commcore.h"
 #include <stdbool.h>
 
 #ifndef SERIAL_H_
