@@ -4,9 +4,19 @@
 
 int main(void)
 {
+	// Set timer to fast PWM mode, with no prescaling, set on compare match,
+	TCCR0A |= (1 << WGM00) | (1 << WGM01) | (1 << CS00) | (1 << COM0A0) | (1 << COM0A1);
+	
+	// Set OC0A as output
+	DDRB |= (1 << PINB4);
+	
+	// Set duty cycle to ~25% (64/255)
+	OCR0A = 64;
+	
 	SPISlave spi;
     while(1)
     {
+		/*
 		spi.ReceiveSPI();
 		
 		Command command;
@@ -22,5 +32,7 @@ int main(void)
 			
 			spi.SetReply(reply);
 		}
+		*/
+		
     }
 }
