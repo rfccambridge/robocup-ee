@@ -1,7 +1,7 @@
 [Eagle]
-Version="07 01 00"
+Version="06 04 00"
 Platform="Windows"
-Serial="62191E841E-LSR-WLM-1EL"
+Serial="710BCE5E15-LSR-WLM-1ES"
 Globals="Globals"
 Desktop="Desktop"
 
@@ -13,8 +13,8 @@ Type="Schematic Editor"
 Loc="652 321 1251 720"
 State=0
 Number=2
-File="CommsBoard.sch"
-View="-10.6822 -4.23062 518.377 189.346"
+File="D:/robocup-ee/hardware/gen3/MotorBoard/MotorBoard.sch"
+View="-16.0162 -16.0674 790.411 392.377"
 WireWidths=" 0 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -53,11 +53,11 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=91
-Sheet="1"
+Sheet=1
 
 [Win_2]
 Type="Control Panel"
-Loc="347 336 1062 785"
+Loc="960 1080 1903 2121"
 State=2
 Number=0
 
