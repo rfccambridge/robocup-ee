@@ -16501,18 +16501,6 @@ kick_enable -&gt; opto isolators -&gt;
 <nets>
 <net name="GND" class="0">
 <segment>
-<wire x1="27.94" y1="149.86" x2="30.48" y2="149.86" width="0.1524" layer="91"/>
-<label x="35.56" y="149.86" size="1.778" layer="95"/>
-<pinref part="LOGIC_HEADER" gate="G$1" pin="1"/>
-<wire x1="30.48" y1="149.86" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
-<junction x="30.48" y="149.86"/>
-<pinref part="LOGIC_HEADER" gate="G$1" pin="2"/>
-<wire x1="30.48" y1="152.4" x2="33.02" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="152.4" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
-<junction x="33.02" y="149.86"/>
-<wire x1="33.02" y1="149.86" x2="40.64" y2="149.86" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <wire x1="391.16" y1="297.18" x2="391.16" y2="279.4" width="0.1524" layer="91"/>
 <wire x1="391.16" y1="279.4" x2="391.16" y2="248.92" width="0.1524" layer="91"/>
 <wire x1="391.16" y1="248.92" x2="347.98" y2="248.92" width="0.1524" layer="91"/>
@@ -16725,18 +16713,26 @@ kick_enable -&gt; opto isolators -&gt;
 <junction x="106.68" y="175.26"/>
 <label x="109.22" y="175.26" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="3.3V" class="0">
 <segment>
-<pinref part="LOGIC_HEADER" gate="G$1" pin="3"/>
-<wire x1="30.48" y1="154.94" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
-<label x="35.56" y="154.94" size="1.778" layer="95"/>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="4"/>
 <wire x1="30.48" y1="157.48" x2="33.02" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="157.48" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="154.94" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="3"/>
+<wire x1="33.02" y1="157.48" x2="43.18" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="154.94" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="154.94" x2="33.02" y2="157.48" width="0.1524" layer="91"/>
+<junction x="33.02" y="157.48"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="152.4" x2="33.02" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="152.4" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
 <junction x="33.02" y="154.94"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="1"/>
+<wire x1="30.48" y1="149.86" x2="33.02" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="149.86" x2="33.02" y2="152.4" width="0.1524" layer="91"/>
+<junction x="33.02" y="152.4"/>
+<label x="38.1" y="157.48" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="3.3V" class="0">
 <segment>
 <wire x1="294.64" y1="129.54" x2="294.64" y2="167.64" width="0.1524" layer="91"/>
 <label x="294.64" y="167.64" size="1.778" layer="95" rot="R90" xref="yes"/>
@@ -16844,6 +16840,20 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="U$6" gate="G$1" pin="OUT"/>
 <wire x1="73.66" y1="358.14" x2="86.36" y2="358.14" width="0.1524" layer="91"/>
 <junction x="86.36" y="358.14"/>
+</segment>
+<segment>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="7"/>
+<wire x1="30.48" y1="165.1" x2="33.02" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="6"/>
+<wire x1="33.02" y1="165.1" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="162.56" x2="33.02" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="162.56" x2="33.02" y2="165.1" width="0.1524" layer="91"/>
+<junction x="33.02" y="165.1"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="5"/>
+<wire x1="30.48" y1="160.02" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="160.02" x2="33.02" y2="162.56" width="0.1524" layer="91"/>
+<junction x="33.02" y="162.56"/>
+<label x="38.1" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -17503,14 +17513,18 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="5V" class="0">
 <segment>
-<pinref part="LOGIC_HEADER" gate="G$1" pin="5"/>
-<wire x1="30.48" y1="160.02" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
-<label x="35.56" y="160.02" size="1.778" layer="95"/>
-<pinref part="LOGIC_HEADER" gate="G$1" pin="6"/>
-<wire x1="30.48" y1="162.56" x2="33.02" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="162.56" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
-<junction x="33.02" y="160.02"/>
-<wire x1="33.02" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
+<label x="40.64" y="172.72" size="1.778" layer="95"/>
+<wire x1="30.48" y1="172.72" x2="33.02" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="10"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="9"/>
+<wire x1="33.02" y1="172.72" x2="43.18" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="170.18" x2="33.02" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="170.18" x2="33.02" y2="172.72" width="0.1524" layer="91"/>
+<junction x="33.02" y="172.72"/>
+<pinref part="LOGIC_HEADER" gate="G$1" pin="8"/>
+<wire x1="30.48" y1="167.64" x2="33.02" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="167.64" x2="33.02" y2="170.18" width="0.1524" layer="91"/>
+<junction x="33.02" y="170.18"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="+"/>

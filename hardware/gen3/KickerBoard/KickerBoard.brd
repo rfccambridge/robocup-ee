@@ -2856,8 +2856,6 @@ design rules under a new name.</description>
 </elements>
 <signals>
 <signal name="GND">
-<contactref element="LOGIC_HEADER" pad="1"/>
-<contactref element="LOGIC_HEADER" pad="2"/>
 <contactref element="U1" pad="4"/>
 <contactref element="C6" pad="2"/>
 <contactref element="TMP" pad="2"/>
@@ -2903,9 +2901,6 @@ design rules under a new name.</description>
 <wire x1="39.0230875" y1="14.248475" x2="39.3962" y2="17.0472125" width="6.4516" layer="1"/>
 <wire x1="39.3962" y1="17.0472125" x2="38.29" y2="17.15" width="6.4516" layer="1"/>
 <wire x1="38.29" y1="17.15" x2="34.481465625" y2="17.24328125" width="6.4516" layer="1"/>
-<wire x1="8" y1="6.54" x2="8" y2="4" width="1.778" layer="1"/>
-<wire x1="8" y1="3.6" x2="8" y2="4" width="1.778" layer="1"/>
-<wire x1="8" y1="6.54" x2="8" y2="4.2" width="1.778" layer="1"/>
 <wire x1="8" y1="4.2" x2="8.6" y2="4.6" width="1.778" layer="1"/>
 <wire x1="8.6" y1="4.6" x2="17" y2="4.6" width="3.81" layer="1"/>
 <wire x1="17" y1="4.6" x2="27.9" y2="4.6" width="3.81" layer="1"/>
@@ -3115,17 +3110,22 @@ design rules under a new name.</description>
 <wire x1="41.8" y1="67.3" x2="41.8" y2="66.4" width="0.4064" layer="1"/>
 <wire x1="41.8" y1="66.4" x2="41.706" y2="66.306" width="0.4064" layer="1"/>
 <wire x1="41.706" y1="66.306" x2="40.15" y2="66.306" width="0.4064" layer="1"/>
+<contactref element="LOGIC_HEADER" pad="4"/>
+<contactref element="LOGIC_HEADER" pad="3"/>
+<contactref element="LOGIC_HEADER" pad="2"/>
+<contactref element="LOGIC_HEADER" pad="1"/>
+<wire x1="8" y1="9.08" x2="8" y2="11.62" width="0" layer="19" extent="1-1"/>
+<wire x1="8" y1="6.54" x2="8" y2="9.08" width="0" layer="19" extent="1-1"/>
+<wire x1="8.6" y1="4.6" x2="8" y2="6.54" width="0" layer="19" extent="1-1"/>
+<wire x1="8" y1="4" x2="8" y2="4.2" width="0" layer="19" extent="1-1"/>
+<wire x1="7.8" y1="3.8" x2="8" y2="4" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="3.3V">
-<contactref element="LOGIC_HEADER" pad="3"/>
-<contactref element="LOGIC_HEADER" pad="4"/>
 <contactref element="R30" pad="2"/>
 <contactref element="U2" pad="52"/>
 <contactref element="JP1" pad="2"/>
 <contactref element="CLAMP1" pad="C"/>
 <contactref element="R11" pad="2"/>
-<wire x1="8" y1="11.62" x2="8" y2="9.4" width="2.54" layer="1"/>
-<wire x1="8" y1="9.08" x2="8" y2="9.4" width="2.54" layer="1"/>
 <wire x1="8" y1="9.4" x2="13.47921875" y2="9.592253125" width="2.54" layer="1"/>
 <wire x1="13.47921875" y1="9.592253125" x2="13.7" y2="9.6" width="2.54" layer="1"/>
 <wire x1="13.7" y1="9.6" x2="17.9" y2="9.6" width="2.54" layer="1"/>
@@ -3135,7 +3135,6 @@ design rules under a new name.</description>
 <contactref element="R6" pad="1"/>
 <wire x1="19" y1="8.8" x2="22" y2="8.8" width="2.54" layer="1"/>
 <wire x1="22" y1="8.8" x2="25" y2="8.8" width="2.54" layer="1"/>
-<wire x1="7.5" y1="11.5" x2="8" y2="11.62" width="0.254" layer="1"/>
 <contactref element="C5" pad="1"/>
 <contactref element="R9" pad="2"/>
 <wire x1="23.294" y1="71.894" x2="22.3" y2="70.9" width="0.4064" layer="1"/>
@@ -3150,7 +3149,6 @@ design rules under a new name.</description>
 <wire x1="22.95" y1="13.95" x2="22.95" y2="10" width="2.54" layer="16"/>
 <wire x1="22.95" y1="10" x2="22.75" y2="9.8" width="2.54" layer="16"/>
 <wire x1="22.75" y1="9.8" x2="8.72" y2="9.8" width="2.54" layer="16"/>
-<wire x1="8.72" y1="9.8" x2="8" y2="9.08" width="2.54" layer="16"/>
 <wire x1="41.5" y1="60.5" x2="41.104725" y2="60.090084375" width="1.6764" layer="1"/>
 <wire x1="41.104725" y1="60.090084375" x2="40.76209375" y2="59.734765625" width="1.6764" layer="1"/>
 <wire x1="40.76209375" y1="59.734765625" x2="28" y2="46.5" width="1.6764" layer="1"/>
@@ -3258,6 +3256,13 @@ design rules under a new name.</description>
 <wire x1="24" y1="9.3" x2="31.1" y2="2.2" width="0.254" layer="16"/>
 <wire x1="24" y1="9.3" x2="22.95" y2="10" width="0.254" layer="16"/>
 <via x="109.1" y="2.2" extent="1-16" drill="0.6096"/>
+<contactref element="LOGIC_HEADER" pad="7"/>
+<contactref element="LOGIC_HEADER" pad="6"/>
+<contactref element="LOGIC_HEADER" pad="5"/>
+<wire x1="8" y1="16.7" x2="8" y2="19.24" width="0" layer="19" extent="1-1"/>
+<wire x1="8" y1="14.16" x2="8" y2="16.7" width="0" layer="19" extent="1-1"/>
+<wire x1="8.72" y1="9.8" x2="8" y2="14.16" width="0" layer="19" extent="16-16"/>
+<wire x1="22.5" y1="9.8" x2="22.75" y2="9.8" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
@@ -3996,15 +4001,11 @@ design rules under a new name.</description>
 <wire x1="56.5" y1="87" x2="56.75" y2="86.75" width="0.4064" layer="1"/>
 </signal>
 <signal name="5V">
-<contactref element="LOGIC_HEADER" pad="5"/>
-<contactref element="LOGIC_HEADER" pad="6"/>
-<wire x1="8" y1="14.16" x2="8" y2="16.7" width="1.9304" layer="1"/>
 <contactref element="C11" pad="+"/>
 <contactref element="C14" pad="1"/>
 <contactref element="C9" pad="1"/>
 <contactref element="5V" pad="P$1"/>
 <contactref element="5.0REG" pad="5"/>
-<wire x1="8" y1="14.16" x2="8" y2="14.5" width="1.016" layer="1"/>
 <wire x1="8" y1="14.5" x2="9" y2="15.5" width="1.016" layer="1"/>
 <wire x1="9" y1="15.5" x2="11.5" y2="15.5" width="2.54" layer="1"/>
 <wire x1="11.5" y1="15.5" x2="12.5" y2="14.5" width="2.54" layer="1"/>
@@ -4016,6 +4017,12 @@ design rules under a new name.</description>
 <wire x1="20" y1="21.3" x2="14.8" y2="21.3" width="2.54" layer="1"/>
 <wire x1="14.8" y1="21.3" x2="14.5" y2="21" width="2.54" layer="1"/>
 <wire x1="11.5" y1="21" x2="11.5" y2="15.5" width="2.54" layer="1"/>
+<contactref element="LOGIC_HEADER" pad="10"/>
+<contactref element="LOGIC_HEADER" pad="9"/>
+<contactref element="LOGIC_HEADER" pad="8"/>
+<wire x1="8" y1="24.32" x2="8" y2="26.86" width="0" layer="19" extent="1-1"/>
+<wire x1="8" y1="21.78" x2="8" y2="24.32" width="0" layer="19" extent="1-1"/>
+<wire x1="11.5" y1="22.6" x2="8" y2="21.78" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$19">
 <contactref element="BATT" pad="1"/>
