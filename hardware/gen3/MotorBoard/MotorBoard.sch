@@ -7886,7 +7886,7 @@ careful, 180 degrees</text>
 <label x="147.32" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="CP1" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="CP1"/>
 <pinref part="C3" gate="G$1" pin="1"/>
@@ -7894,14 +7894,14 @@ careful, 180 degrees</text>
 <wire x1="309.88" y1="314.96" x2="309.88" y2="325.12" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="CP2" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="CP2"/>
 <wire x1="317.5" y1="317.5" x2="317.5" y2="325.12" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="TDEAD" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="TDEAD"/>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -9334,7 +9334,7 @@ careful, 180 degrees</text>
 <pinref part="R74" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$110" class="0">
+<net name="AVCC" class="0">
 <segment>
 <pinref part="R97" gate="G$1" pin="1"/>
 <wire x1="86.36" y1="149.86" x2="86.36" y2="144.78" width="0.1524" layer="91"/>
@@ -9345,7 +9345,7 @@ careful, 180 degrees</text>
 <pinref part="U2" gate="A" pin="AVCC"/>
 </segment>
 </net>
-<net name="N$112" class="0">
+<net name="AREF" class="0">
 <segment>
 <pinref part="U2" gate="A" pin="AREF"/>
 <pinref part="C33" gate="G$1" pin="2"/>

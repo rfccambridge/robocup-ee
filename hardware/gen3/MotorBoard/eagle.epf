@@ -1,41 +1,19 @@
 [Eagle]
-Version="07 01 00"
-Platform="Windows"
+Version="07 02 00"
+Platform="Linux"
 Serial="62191E841E-LSR-WLM-1EL"
 Globals="Globals"
 Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="D:/SparkFun-Eagle-Libraries/LilyPad-Wearables.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Aesthetics.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-AnalogIC.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Boards.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Capacitors.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Connectors.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-DigitalIC.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-DiscreteSemi.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Displays.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Electromechanical.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-FreqCtrl.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-LED.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Passives.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-PowerIC.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-RF.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Resistors.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Retired.lbr"
-UsedLibrary="D:/SparkFun-Eagle-Libraries/SparkFun-Sensors.lbr"
-UsedLibrary="D:/robocup-ee/hardware/libraries/Kicker.lbr"
-UsedLibrary="D:/robocup-ee/hardware/libraries/kickerchips.lbr"
-UsedLibrary="D:/robocup-ee/hardware/libraries/rfc.lbr"
-UsedLibrary="D:/Allegro_Library/Allegro_By_element14_Batch_1.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="204 -599 803 -197"
+Loc="204 24 803 426"
 State=2
 Number=0
 
 [Desktop]
-Screen="1920 2160"
+Screen="1920 1080"
 Window="Win_1"
