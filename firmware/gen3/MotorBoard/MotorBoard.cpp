@@ -4,8 +4,10 @@
 
 int main(void)
 {
-	// Enable system clock setting
+	// Enable system clock setting changes
 	CLKPR = (1 << CLKPCE);
+	
+	// Disable prescaling on system clock to increase PWM frequency
 	CLKPR = (1 << CLKPS0);
 	
 	// Set timer to fast PWM mode, with no prescaling, clear on compare match,
