@@ -29,6 +29,7 @@ bool mqPushMessage(const message* msg, messageQueue* mq){
 int mqGetSize(const messageQueue* mq){
 	return mq->size;
 }
+
 int mqGetCapacity(const messageQueue* mq){
 	return BOX_SIZE - mq->size;
 }
