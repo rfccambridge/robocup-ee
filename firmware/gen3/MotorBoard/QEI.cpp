@@ -2,7 +2,9 @@
 private:
 	int directions[] = {0,0,0,0};
 	int counts[] = {0,0,0,0};
-		
+	int enc_val [] {0,0,0,0};
+	const int lookuptable[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};	
+
 public:
 	enum Wheel {
 		WHEEL_LB,
@@ -12,10 +14,7 @@ public:
 	};
 	
 	void handleQEI(Wheel wheel)
-	{
-		static int lookuptable[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
-		static int enc_val[] = {0,0,0,0};
-		
+	{	
 		enc_val[wheel] = enc_val[wheel] << 2;
 		enc_val[wheel] = enc_val[wheel] | ((PIND & (0b11 << wheel)) >> wheel);
 		
