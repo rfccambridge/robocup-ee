@@ -15,11 +15,12 @@
 messageQueue inbox;
 messageQueue outbox;
 
-unsigned int charsRead = 0;
-message readBuf;
+unsigned int icount = 0;
 
 unsigned int charsSent = SEND_QUEUE_SIZE;
 char sendQueue[SEND_QUEUE_SIZE];
+unsigned int charsRead = 0;
+message readBuf;
 
 bool serialPushInbox(const message* msg){
 	return mqPushMessage(msg, &inbox);
@@ -34,12 +35,12 @@ int serialGetInboxSize(){
 }
 
 bool serialPushOutbox(const message* msg){
-	return mqPushMessage(msg, &outbox);
 	// Since we have a message in the outbox,
 	// Enable the interrupt handler that sends data
 	// Worst case, the data is already sent and the interrupt
 	// Will just disable itself.
 	UCSR0B |= (1 << UDRIE0);
+	return mqPushMessage(msg, &outbox);
 }
 
 bool serialPopOutbox(message* msg){
@@ -80,9 +81,7 @@ bool clearToSend(){
  * RX Complete - Fired when data is ready to be read from the
  *     receive register. The data MUST be read to clear the flag.
  */
-
 ISR(USART0_RX_vect){
-	PORTC ^= 0x02;
 	char data = UDR0;
 	if (charsRead > 0){
 		// Data is part of the message body
@@ -104,15 +103,18 @@ ISR(USART0_TX_vect){
 };
 
 ISR(USART0_UDRE_vect){
-	PORTC ^= 0x03;
-	if(charsSent >= SEND_QUEUE_SIZE){
+	UDR0 = 0xFF;
+	/*if(charsSent >= SEND_QUEUE_SIZE){
 		// We have nothing to send, check the outbox.
 		message msg;
 		if(serialPopOutbox(&msg)){
 			// There *is* a message waiting to send
 			// We'll queue it up for sending
-			memcpy(&sendQueue, &(msg.message), sizeof(char) * SERIAL_MSG_CHARS);
+			memcpy(&sendQueue, &(msg.message), SEND_QUEUE_SIZE);
 			charsSent = 0;
+			if(!(icount++ % 10)){
+				PORTC ^= 0b00000010;
+			}
 		}
 		else{
 			// No message waiting, we have nothing to do.
@@ -121,5 +123,5 @@ ISR(USART0_UDRE_vect){
 			return;
 		}
 	}
-	UDR0 = sendQueue[charsSent++];
+	UDR0 = sendQueue[charsSent++];*/
 };
