@@ -7,6 +7,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\Co
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MotorBoard", "MotorBoard\MotorBoard.cppproj", "{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}"
 EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "EELib", "EELib\EELib.cppproj", "{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -25,6 +27,10 @@ Global
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.Build.0 = Debug|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.ActiveCfg = Release|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.Build.0 = Release|AVR
+		{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}.Debug|AVR.ActiveCfg = Debug|AVR
+		{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}.Debug|AVR.Build.0 = Debug|AVR
+		{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}.Release|AVR.ActiveCfg = Release|AVR
+		{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
