@@ -4200,6 +4200,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="U$3" library="gen3" deviceset="LOGO" device=""/>
+<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="TBD"/>
+<part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 </parts>
 <sheets>
 <sheet>
@@ -4276,6 +4278,8 @@ Comms board / Motor board / Kicker board</text>
 <instance part="C9" gate="G$1" x="109.22" y="157.48" rot="R90"/>
 <instance part="C10" gate="G$1" x="109.22" y="167.64" rot="R90"/>
 <instance part="U$3" gate="G$1" x="25.4" y="127"/>
+<instance part="R22" gate="G$1" x="165.1" y="99.06"/>
+<instance part="S2" gate="G$1" x="172.72" y="90.932" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -4437,6 +4441,10 @@ Comms board / Motor board / Kicker board</text>
 <junction x="111.76" y="167.64"/>
 <wire x1="111.76" y1="170.18" x2="114.3" y2="170.18" width="0.1524" layer="91"/>
 <label x="111.76" y="170.18" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="172.72" y1="86.36" x2="172.72" y2="83.82" width="0.1524" layer="91"/>
+<label x="172.72" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -5025,18 +5033,6 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="215.9" y1="172.72" x2="218.44" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="XBRST" class="0">
-<segment>
-<pinref part="XBEE" gate="G$1" pin="RESET"/>
-<wire x1="332.74" y1="60.96" x2="325.12" y2="60.96" width="0.1524" layer="91"/>
-<label x="325.12" y="60.96" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="152.4" y1="99.06" x2="157.48" y2="99.06" width="0.1524" layer="91"/>
-<label x="154.94" y="99.06" size="1.778" layer="95"/>
-<pinref part="U1" gate="A" pin="PE2"/>
-</segment>
-</net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
@@ -5244,6 +5240,28 @@ Comms board / Motor board / Kicker board</text>
 <pinref part="IMU" gate="G$1" pin="SDA"/>
 <wire x1="208.28" y1="96.52" x2="200.66" y2="96.52" width="0.1524" layer="91"/>
 <label x="198.12" y="96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="PE2"/>
+<pinref part="R22" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="99.06" x2="160.02" y2="99.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="XBRST" class="0">
+<segment>
+<pinref part="R22" gate="G$1" pin="2"/>
+<wire x1="170.18" y1="99.06" x2="172.72" y2="99.06" width="0.1524" layer="91"/>
+<label x="175.26" y="99.06" size="1.778" layer="95"/>
+<wire x1="172.72" y1="99.06" x2="182.88" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="93.98" x2="172.72" y2="99.06" width="0.1524" layer="91"/>
+<junction x="172.72" y="99.06"/>
+</segment>
+<segment>
+<pinref part="XBEE" gate="G$1" pin="RESET"/>
+<wire x1="332.74" y1="60.96" x2="327.66" y2="60.96" width="0.1524" layer="91"/>
+<label x="325.12" y="60.96" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
