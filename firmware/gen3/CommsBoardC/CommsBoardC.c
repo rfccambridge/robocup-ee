@@ -5,7 +5,6 @@
  *  Author: Karl
  */ 
 
-
 #include <avr/io.h>
 #include <string.h>
 #include <stdbool.h>
@@ -18,18 +17,26 @@
 
 int main(void)
 {
-	/* Initialize serial, move this to serial lib */
+	int counter = 0;
+	// Initialize serial, move this to serial lib
 	unsigned int ubrr = MYUBRR;
 	UBRR0H = (unsigned char)(ubrr>>8);
 	UBRR0L = (unsigned char)ubrr;
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);
 	UCSR0C = (1 << USBS0) | (3<< UCSZ00);
+	UCSR0B |= (1 << UDRIE0);
+	UCSR0B |= (1 << TXCIE0);
+	UCSR0B |= (1 << UDRIE0) | (1 << TXCIE0);
 	
-	DDRA = 0xFF;
+	DDRC = 0xFF;
 	message recvMsg;
 	unsigned char last = 0;
-    while(true)
+	PORTC = 0x00;
+    while(1)
     {
+		if(!(counter++ % 1000)){
+			PORTC ^= 0x01;
+		}
 		// Figure out how many message we might want to fetch
 		// This way, even if new message come as we're looping
 		// The loop will still end
@@ -45,15 +52,16 @@ int main(void)
 			if(recvMsg.message[0])
 			{
 				// Turn on the LED
-				PORTA = 0xFF;
+				PORTC |= 0x01;
 			}
 			else
 			{
 				// Turn off the LED
-				PORTA = 0x00;
+				PORTC &= ~(0x01);
 			}
 		}
 		recvMsg.slaveID = 0;
 		recvMsg.message[0] = last++;
+		serialPushOutbox(&recvMsg);
     }
 }

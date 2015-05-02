@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <avr/interrupt.h>
+#include <avr/io.h>
 
 #define XBEE_RTS PORTD
 #define XBEE_RTS_BIT 1
@@ -81,6 +82,7 @@ bool clearToSend(){
  */
 
 ISR(USART0_RX_vect){
+	PORTC ^= 0x02;
 	char data = UDR0;
 	if (charsRead > 0){
 		// Data is part of the message body
@@ -102,6 +104,7 @@ ISR(USART0_TX_vect){
 };
 
 ISR(USART0_UDRE_vect){
+	PORTC ^= 0x03;
 	if(charsSent >= SEND_QUEUE_SIZE){
 		// We have nothing to send, check the outbox.
 		message msg;
