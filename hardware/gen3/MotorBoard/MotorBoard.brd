@@ -147,6 +147,7 @@
 <wire x1="120" y1="100" x2="140" y2="80" width="0.4064" layer="20"/>
 <wire x1="140" y1="80" x2="140" y2="0" width="0.4064" layer="20"/>
 <wire x1="140" y1="0" x2="0" y2="0" width="0.4064" layer="20"/>
+<text x="61.2" y="51.9" size="0.8128" layer="25">Pin1</text>
 </plain>
 <libraries>
 <library name="rfc">
