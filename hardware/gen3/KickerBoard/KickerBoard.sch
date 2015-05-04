@@ -13777,13 +13777,13 @@ chip</description>
 </polygon>
 </package>
 <package name="LOGO">
-<text x="0" y="0" size="1.778" layer="21">RFC Cambridge
-Gen 3 Rev A
-Spring 2015</text>
+<text x="0" y="5.08" size="1.778" layer="21">RFC Cambridge</text>
 <wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="7.62" x2="19.05" y2="7.62" width="0.127" layer="21"/>
-<wire x1="19.05" y1="7.62" x2="19.05" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="19.05" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="7.62" x2="25.4" y2="7.62" width="0.127" layer="21"/>
+<wire x1="25.4" y1="7.62" x2="25.4" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="25.4" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<text x="0" y="2.54" size="1.778" layer="25">&gt;NAME</text>
+<text x="0" y="0" size="1.778" layer="27">&gt;VALUE</text>
 </package>
 <package name="TSSOP8">
 <smd name="P$1" x="-2.4" y="0.975" dx="1.5" dy="0.45" layer="1"/>
@@ -14009,9 +14009,13 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
 </symbol>
 <symbol name="LOGO">
-<text x="0" y="0" size="1.778" layer="94">RFC Cambridge
-Gen 3 Rev A
-Spring 2015</text>
+<text x="0" y="5.08" size="1.778" layer="94">RFC Cambridge</text>
+<text x="0" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="0" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="-1.27" y1="7.62" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="25.4" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-1.27" x2="25.4" y2="7.62" width="0.254" layer="94"/>
+<wire x1="25.4" y1="7.62" x2="-1.27" y2="7.62" width="0.254" layer="94"/>
 </symbol>
 <symbol name="AND">
 <description>&lt;b&gt; Dual AND &lt;/b&gt; &lt;p&gt;
@@ -14906,7 +14910,7 @@ low impedence, low ceiling cap</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LOGO">
+<deviceset name="LOGO" uservalue="yes">
 <gates>
 <gate name="G$1" symbol="LOGO" x="-5.08" y="-2.54"/>
 </gates>
@@ -15185,7 +15189,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C17" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="C22" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="5.0REG" library="SparkFun-PowerIC" deviceset="V_REG_MIC5219" device="5V" value="MIC5219 5V"/>
-<part name="U$9" library="gen3" deviceset="LOGO" device=""/>
+<part name="GEN_3_REV_B" library="gen3" deviceset="LOGO" device="" value="Spring 2015"/>
 <part name="C23" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="SWITCH_Q" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="CHIP_FLYBACK" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
@@ -15342,7 +15346,7 @@ when caps are charged</text>
 <instance part="C17" gate="G$1" x="104.14" y="175.26" rot="R90"/>
 <instance part="C22" gate="G$1" x="104.14" y="165.1" rot="R90"/>
 <instance part="5.0REG" gate="G$1" x="68.58" y="322.58"/>
-<instance part="U$9" gate="G$1" x="30.48" y="99.06"/>
+<instance part="GEN_3_REV_B" gate="G$1" x="30.48" y="99.06"/>
 <instance part="C23" gate="G$1" x="421.64" y="63.5"/>
 <instance part="SWITCH_Q" gate="G$1" x="381" y="101.6"/>
 <instance part="CHIP_FLYBACK" gate="G$1" x="474.98" y="312.42" rot="R90"/>

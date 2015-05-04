@@ -4137,6 +4137,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
+<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -4215,6 +4217,8 @@ Comms board / Motor board / Kicker board</text>
 <instance part="S2" gate="G$1" x="172.72" y="91.44" rot="R270"/>
 <instance part="C3" gate="G$1" x="60.96" y="157.48"/>
 <instance part="C4" gate="G$1" x="76.2" y="167.64"/>
+<instance part="C11" gate="G$1" x="325.12" y="76.2"/>
+<instance part="C12" gate="G$1" x="317.5" y="76.2"/>
 </instances>
 <busses>
 </busses>
@@ -4382,6 +4386,16 @@ Comms board / Motor board / Kicker board</text>
 <wire x1="172.72" y1="86.36" x2="172.72" y2="84.074" width="0.1524" layer="91"/>
 <label x="172.72" y="84.074" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="C12" gate="G$1" pin="1"/>
+<wire x1="317.5" y1="81.28" x2="317.5" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="83.82" x2="325.12" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="1"/>
+<wire x1="325.12" y1="83.82" x2="325.12" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="83.82" x2="309.88" y2="83.82" width="0.1524" layer="91"/>
+<junction x="317.5" y="83.82"/>
+<label x="309.88" y="83.82" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -4449,8 +4463,16 @@ Comms board / Motor board / Kicker board</text>
 </segment>
 <segment>
 <pinref part="XBEE" gate="G$1" pin="VDD"/>
-<wire x1="332.74" y1="71.12" x2="327.66" y2="71.12" width="0.1524" layer="91"/>
-<label x="327.66" y="71.12" size="1.778" layer="95"/>
+<wire x1="332.74" y1="71.12" x2="325.12" y2="71.12" width="0.1524" layer="91"/>
+<label x="309.88" y="71.12" size="1.778" layer="95"/>
+<pinref part="C12" gate="G$1" pin="2"/>
+<wire x1="325.12" y1="71.12" x2="317.5" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="71.12" x2="309.88" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="73.66" x2="317.5" y2="71.12" width="0.1524" layer="91"/>
+<junction x="317.5" y="71.12"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="325.12" y1="73.66" x2="325.12" y2="71.12" width="0.1524" layer="91"/>
+<junction x="325.12" y="71.12"/>
 </segment>
 <segment>
 <wire x1="106.68" y1="147.32" x2="104.14" y2="147.32" width="0.1524" layer="91"/>
