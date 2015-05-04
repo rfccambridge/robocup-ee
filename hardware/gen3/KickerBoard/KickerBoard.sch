@@ -15128,7 +15128,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="KICK" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="CHIP" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="BB_CON" library="gen3" deviceset="JST-5" device=""/>
-<part name="DRIB_CON" library="gen3" deviceset="JST-2" device="2MM"/>
+<part name="DRIB" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="U$1" library="gen3" deviceset="32052-TRANSFORMER" device=""/>
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
@@ -15285,7 +15285,7 @@ when caps are charged</text>
 <instance part="KICK" gate="G$1" x="497.84" y="330.2"/>
 <instance part="CHIP" gate="G$1" x="497.84" y="312.42"/>
 <instance part="BB_CON" gate="G$1" x="238.76" y="312.42"/>
-<instance part="DRIB_CON" gate="G$1" x="220.98" y="261.62"/>
+<instance part="DRIB" gate="G$1" x="220.98" y="261.62"/>
 <instance part="U$1" gate="G$1" x="421.64" y="124.46"/>
 <instance part="C10" gate="G$1" x="86.36" y="350.52"/>
 <instance part="C11" gate="G$1" x="86.36" y="309.88"/>
@@ -15859,7 +15859,7 @@ when caps are charged</text>
 <wire x1="200.66" y1="269.24" x2="200.66" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="264.16" x2="215.9" y2="264.16" width="0.1524" layer="91"/>
 <label x="200.66" y="269.24" size="1.778" layer="95"/>
-<pinref part="DRIB_CON" gate="G$1" pin="P$1"/>
+<pinref part="DRIB" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <label x="60.96" y="297.18" size="1.778" layer="95"/>
@@ -16300,7 +16300,7 @@ when caps are charged</text>
 <wire x1="215.9" y1="259.08" x2="200.66" y2="259.08" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="259.08" x2="200.66" y2="254" width="0.1524" layer="91"/>
 <pinref part="DRIB_TRAN" gate="G$1" pin="D"/>
-<pinref part="DRIB_CON" gate="G$1" pin="P$2"/>
+<pinref part="DRIB" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="5V" class="0">
