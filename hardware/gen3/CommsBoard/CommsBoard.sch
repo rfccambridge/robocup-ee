@@ -3791,6 +3791,15 @@ SMT header is CONN-09042.</description>
 <text x="0" y="2.54" size="1.778" layer="25">&gt;NAME</text>
 <text x="0" y="0" size="1.778" layer="27">&gt;VALUE</text>
 </package>
+<package name="TESTING_PT">
+<pad name="P$1" x="0" y="0" drill="0.8"/>
+<wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
+<wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
+<wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
+<text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="1.5" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="ATMEGA165PV-8AU">
@@ -3887,6 +3896,13 @@ SMT header is CONN-09042.</description>
 <wire x1="-1.27" y1="-1.27" x2="25.4" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="25.4" y1="-1.27" x2="25.4" y2="7.62" width="0.254" layer="94"/>
 <wire x1="25.4" y1="7.62" x2="-1.27" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="TEST_PT">
+<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
+provides an easy access for an oscilloscope probe</description>
+<pin name="P$1" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
+<text x="-3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4001,6 +4017,23 @@ SMT header is CONN-09042.</description>
 </gates>
 <devices>
 <device name="" package="LOGO">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TEST_PT">
+<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
+Use to probe a signal</description>
+<gates>
+<gate name="G$1" symbol="TEST_PT" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="TESTING_PT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -4139,6 +4172,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
+<part name="RX" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="TX" library="gen3" deviceset="TEST_PT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4219,6 +4254,8 @@ Comms board / Motor board / Kicker board</text>
 <instance part="C4" gate="G$1" x="76.2" y="167.64"/>
 <instance part="C11" gate="G$1" x="325.12" y="76.2"/>
 <instance part="C12" gate="G$1" x="317.5" y="76.2"/>
+<instance part="RX" gate="G$1" x="302.26" y="68.58"/>
+<instance part="TX" gate="G$1" x="299.72" y="66.04"/>
 </instances>
 <busses>
 </busses>
@@ -4716,8 +4753,11 @@ Comms board / Motor board / Kicker board</text>
 <net name="RX" class="0">
 <segment>
 <pinref part="XBEE" gate="G$1" pin="DOUT"/>
-<wire x1="332.74" y1="68.58" x2="327.66" y2="68.58" width="0.1524" layer="91"/>
 <label x="327.66" y="68.58" size="1.778" layer="95"/>
+<wire x1="332.74" y1="68.58" x2="317.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="68.58" x2="317.5" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="RX" gate="G$1" pin="P$1"/>
+<wire x1="317.5" y1="66.04" x2="302.26" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="104.14" x2="157.48" y2="104.14" width="0.1524" layer="91"/>
@@ -4728,8 +4768,11 @@ Comms board / Motor board / Kicker board</text>
 <net name="TX" class="0">
 <segment>
 <pinref part="XBEE" gate="G$1" pin="DIN"/>
-<wire x1="332.74" y1="66.04" x2="327.66" y2="66.04" width="0.1524" layer="91"/>
 <label x="327.66" y="66.04" size="1.778" layer="95"/>
+<pinref part="TX" gate="G$1" pin="P$1"/>
+<wire x1="299.72" y1="63.5" x2="320.04" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="320.04" y1="63.5" x2="320.04" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="320.04" y1="66.04" x2="332.74" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="101.6" x2="157.48" y2="101.6" width="0.1524" layer="91"/>

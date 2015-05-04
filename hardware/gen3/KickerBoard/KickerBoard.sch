@@ -13733,12 +13733,13 @@ chip</description>
 <rectangle x1="4.2" y1="1.5" x2="7.3" y2="3.1" layer="39"/>
 </package>
 <package name="TESTING_PT">
-<pad name="P$1" x="0" y="0" drill="0.5"/>
-<wire x1="-0.635" y1="0.635" x2="-0.635" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="-0.635" x2="0.635" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-0.635" x2="0.635" y2="0.635" width="0.127" layer="21"/>
-<wire x1="0.635" y1="0.635" x2="-0.635" y2="0.635" width="0.127" layer="21"/>
-<text x="0" y="0.635" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<pad name="P$1" x="0" y="0" drill="0.8"/>
+<wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
+<wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
+<wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
+<text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-2.31" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
 </package>
 <package name="PANASONIC_D">
 <wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="51"/>
@@ -15927,6 +15928,7 @@ when caps are charged</text>
 <wire x1="200.66" y1="269.24" x2="200.66" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="264.16" x2="215.9" y2="264.16" width="0.1524" layer="91"/>
 <label x="200.66" y="269.24" size="1.778" layer="95"/>
+<pinref part="DRIB_CON" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <label x="60.96" y="297.18" size="1.778" layer="95"/>
@@ -16367,6 +16369,7 @@ when caps are charged</text>
 <wire x1="215.9" y1="259.08" x2="200.66" y2="259.08" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="259.08" x2="200.66" y2="254" width="0.1524" layer="91"/>
 <pinref part="DRIB_TRAN" gate="G$1" pin="D"/>
+<pinref part="DRIB_CON" gate="G$1" pin="P$2"/>
 </segment>
 </net>
 <net name="5V" class="0">

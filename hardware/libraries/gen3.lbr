@@ -3358,12 +3358,13 @@ Just connects two different nets at a single point</description>
 <smd name="P$2" x="2.54" y="0" dx="1.27" dy="0.635" layer="1" rot="R90"/>
 </package>
 <package name="TESTING_PT">
-<pad name="P$1" x="0" y="0" drill="0.5"/>
-<wire x1="-0.635" y1="0.635" x2="-0.635" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="-0.635" x2="0.635" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-0.635" x2="0.635" y2="0.635" width="0.127" layer="21"/>
-<wire x1="0.635" y1="0.635" x2="-0.635" y2="0.635" width="0.127" layer="21"/>
-<text x="0" y="0.635" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<pad name="P$1" x="0" y="0" drill="0.8"/>
+<wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
+<wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
+<wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
+<text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-2.31" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
 </package>
 <package name="MPU-6050IMU">
 <description>MPU-6050 IMU</description>
