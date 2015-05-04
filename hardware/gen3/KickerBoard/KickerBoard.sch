@@ -13741,42 +13741,6 @@ chip</description>
 <text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-2.31" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
 </package>
-<package name="PANASONIC_D">
-<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="51"/>
-<wire x1="3.35" y1="1.55" x2="3.35" y2="-1.55" width="0.1016" layer="51"/>
-<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="51"/>
-<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="51"/>
-<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="3.35" width="0.1016" layer="51"/>
-<wire x1="-3.35" y1="0.95" x2="-3.35" y2="3.35" width="0.1016" layer="21"/>
-<wire x1="-3.35" y1="3.35" x2="1.55" y2="3.35" width="0.1016" layer="21"/>
-<wire x1="1.55" y1="3.35" x2="3.35" y2="1.55" width="0.1016" layer="21"/>
-<wire x1="3.35" y1="1.55" x2="3.35" y2="0.95" width="0.1016" layer="21"/>
-<wire x1="3.35" y1="-0.95" x2="3.35" y2="-1.55" width="0.1016" layer="21"/>
-<wire x1="3.35" y1="-1.55" x2="1.55" y2="-3.35" width="0.1016" layer="21"/>
-<wire x1="1.55" y1="-3.35" x2="-3.35" y2="-3.35" width="0.1016" layer="21"/>
-<wire x1="-3.35" y1="-3.35" x2="-3.35" y2="-0.95" width="0.1016" layer="21"/>
-<wire x1="2.95" y1="0.95" x2="-2.95" y2="0.95" width="0.1016" layer="21" curve="144.299363"/>
-<wire x1="-2.95" y1="-0.95" x2="2.95" y2="-0.95" width="0.1016" layer="21" curve="144.299363"/>
-<wire x1="-2.1" y1="2.25" x2="-2.1" y2="-2.2" width="0.1016" layer="51"/>
-<circle x="0" y="0" radius="3.1" width="0.1016" layer="51"/>
-<smd name="+" x="2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
-<smd name="-" x="-2.7" y="0" dx="3.5" dy="1.6" layer="1"/>
-<text x="-2.75" y="1" size="1.016" layer="21">&gt;NAME</text>
-<text x="-2.75" y="-1.975" size="1.016" layer="27">&gt;VALUE</text>
-<rectangle x1="-3.65" y1="-0.35" x2="-3.05" y2="0.35" layer="51"/>
-<rectangle x1="3.05" y1="-0.35" x2="3.65" y2="0.35" layer="51"/>
-<polygon width="0.1016" layer="51">
-<vertex x="-2.15" y="2.15"/>
-<vertex x="-2.6" y="1.6"/>
-<vertex x="-2.9" y="0.9"/>
-<vertex x="-3.05" y="0"/>
-<vertex x="-2.9" y="-0.95"/>
-<vertex x="-2.55" y="-1.65"/>
-<vertex x="-2.15" y="-2.15"/>
-<vertex x="-2.15" y="2.1"/>
-</polygon>
-</package>
 <package name="LOGO">
 <text x="0" y="5.08" size="1.778" layer="21">RFC Cambridge</text>
 <wire x1="-1.27" y1="-1.27" x2="-1.27" y2="7.62" width="0.127" layer="21"/>
@@ -13985,18 +13949,6 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="P$1" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
 <text x="-3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 <circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
-</symbol>
-<symbol name="CAP_POL">
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.016" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1" x2="2.4892" y2="-1.8542" width="0.254" layer="94" curve="-37.878202" cap="flat"/>
-<wire x1="-2.4669" y1="-1.8504" x2="0" y2="-1.0161" width="0.254" layer="94" curve="-37.376341" cap="flat"/>
-<text x="1.016" y="0.635" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.253" y1="0.668" x2="-1.364" y2="0.795" layer="94"/>
-<rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
-<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
 <symbol name="3.3REG1A">
 <wire x1="-5.08" y1="-7.62" x2="7.62" y2="-7.62" width="0.4064" layer="94"/>
@@ -14873,27 +14825,6 @@ Use to probe a signal</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CAP-POLAR" prefix="C" uservalue="yes">
-<description>Cap Alum Polarized &lt;p&gt;
-Digikey: 493-3953-1-ND &lt;p&gt;
-low impedence, low ceiling cap</description>
-<gates>
-<gate name="G$1" symbol="CAP_POL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="PANASONIC_D">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="CAP-10547" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="3.3REG1A">
 <gates>
 <gate name="G$1" symbol="3.3REG1A" x="0" y="0"/>
@@ -15161,8 +15092,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="PWM_FILT" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="DIS" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="470pF"/>
-<part name="C10" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
-<part name="C11" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="R11" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="43k"/>
 <part name="RVOUT" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="50.4k"/>
@@ -15201,6 +15130,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="BB_CON" library="gen3" deviceset="JST-5" device=""/>
 <part name="DRIB_CON" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="U$1" library="gen3" deviceset="32052-TRANSFORMER" device=""/>
+<part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
+<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -15318,8 +15249,6 @@ when caps are charged</text>
 <instance part="PWM_FILT" gate="G$1" x="294.64" y="297.18"/>
 <instance part="DIS" gate="G$1" x="469.9" y="78.74"/>
 <instance part="C8" gate="G$1" x="78.74" y="312.42"/>
-<instance part="C10" gate="G$1" x="86.36" y="353.06"/>
-<instance part="C11" gate="G$1" x="86.36" y="312.42"/>
 <instance part="R11" gate="G$1" x="294.64" y="124.46" rot="R90"/>
 <instance part="R31" gate="G$1" x="363.22" y="104.14"/>
 <instance part="RVOUT" gate="G$1" x="363.22" y="119.38"/>
@@ -15358,6 +15287,8 @@ when caps are charged</text>
 <instance part="BB_CON" gate="G$1" x="238.76" y="312.42"/>
 <instance part="DRIB_CON" gate="G$1" x="220.98" y="261.62"/>
 <instance part="U$1" gate="G$1" x="421.64" y="124.46"/>
+<instance part="C10" gate="G$1" x="86.36" y="350.52"/>
+<instance part="C11" gate="G$1" x="86.36" y="309.88"/>
 </instances>
 <busses>
 </busses>
@@ -15418,12 +15349,12 @@ when caps are charged</text>
 <pinref part="C13" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="347.98" x2="99.06" y2="345.44" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="345.44" x2="86.36" y2="345.44" width="0.1524" layer="91"/>
-<pinref part="C10" gate="G$1" pin="-"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="111.76" y1="347.98" x2="111.76" y2="345.44" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="345.44" x2="111.76" y2="345.44" width="0.1524" layer="91"/>
 <junction x="99.06" y="345.44"/>
 <wire x1="99.06" y1="345.44" x2="99.06" y2="342.9" width="0.1524" layer="91"/>
+<pinref part="C10" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="1"/>
@@ -15502,7 +15433,6 @@ when caps are charged</text>
 <pinref part="C14" gate="G$1" pin="2"/>
 <wire x1="99.06" y1="307.34" x2="99.06" y2="304.8" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="304.8" x2="86.36" y2="304.8" width="0.1524" layer="91"/>
-<pinref part="C11" gate="G$1" pin="-"/>
 <junction x="86.36" y="304.8"/>
 <wire x1="53.34" y1="304.8" x2="78.74" y2="304.8" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="2"/>
@@ -15522,6 +15452,7 @@ when caps are charged</text>
 <pinref part="5.0REG" gate="G$1" pin="GND"/>
 <wire x1="58.42" y1="322.58" x2="53.34" y2="322.58" width="0.1524" layer="91"/>
 <junction x="53.34" y="322.58"/>
+<pinref part="C11" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <wire x1="231.14" y1="302.26" x2="223.52" y2="302.26" width="0.1524" layer="91"/>
@@ -15694,13 +15625,13 @@ when caps are charged</text>
 <pinref part="3.3V" gate="G$1" pin="P$1"/>
 <wire x1="99.06" y1="358.14" x2="91.44" y2="358.14" width="0.1524" layer="91"/>
 <junction x="99.06" y="358.14"/>
-<pinref part="C10" gate="G$1" pin="+"/>
 <wire x1="86.36" y1="355.6" x2="86.36" y2="358.14" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="358.14" x2="86.36" y2="358.14" width="0.1524" layer="91"/>
 <junction x="91.44" y="358.14"/>
 <pinref part="3.3REG" gate="G$1" pin="OUT"/>
 <wire x1="73.66" y1="358.14" x2="86.36" y2="358.14" width="0.1524" layer="91"/>
 <junction x="86.36" y="358.14"/>
+<pinref part="C10" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="LOGIC_HEADER" gate="G$1" pin="7"/>
@@ -16388,7 +16319,6 @@ when caps are charged</text>
 <junction x="33.02" y="170.18"/>
 </segment>
 <segment>
-<pinref part="C11" gate="G$1" pin="+"/>
 <wire x1="86.36" y1="317.5" x2="86.36" y2="314.96" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="317.5" x2="116.84" y2="317.5" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="1"/>
@@ -16407,6 +16337,7 @@ when caps are charged</text>
 <pinref part="5.0REG" gate="G$1" pin="OUT"/>
 <wire x1="76.2" y1="327.66" x2="86.36" y2="327.66" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="327.66" x2="86.36" y2="317.5" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="BAT+" class="0">
