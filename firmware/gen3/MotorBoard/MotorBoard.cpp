@@ -43,7 +43,7 @@ void init(void)
 // Set the break on if true (D4 low), otherwise turn break off (D4 high)
 void setBrake(bool enable)
 {
-	PIND = (!enable << PIND4); 
+	PIND |= (!enable << PIND4); 
 }
 
 // Given a PWM line number and a direction as bool, sets the direction of that motor
