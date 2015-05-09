@@ -22,7 +22,7 @@ void enablePWM(PWM PWMnum)
 			// Enable B5 as an output
 			DDRB |= (1 << PINB5);
 			// Set duty cycle to 0
-			OCR1A = 0 ;
+			OCR1A = 0;
 			break;
 		case PWM3 :
 			TCCR1A |= (1 << WGM10) | (1 << COM1B1);
@@ -37,7 +37,7 @@ void enablePWM(PWM PWMnum)
 			TCCR2A |= (1 << WGM20) | (1 << WGM21) | (1 << CS20) | (1 << COM2A1);
 			// Enable B7 as an output
 			DDRB |= (1 << PINB7);
-			// Set dty cycle to 0
+			// Set duty cycle to 0
 			OCR2A = 0;
 			break;
 	}
@@ -52,11 +52,15 @@ void setDutyCycle(PWM PWMnum, float dutyCycle)
 	{
 		case PWM1:
 			OCR0A = scaledDuty;
+			break;
 		case PWM2:
 			OCR1A = scaledDuty;
+			break;
 		case PWM3:
 			OCR1B = scaledDuty;
+			break;
 		case PWM4:
 			OCR2A = scaledDuty;
+			break;
 	}
 }
