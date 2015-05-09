@@ -20,9 +20,15 @@
 
 int main(void)
 {
+	cli();
+	
+	// Set the overall clock scaling
 	CLKPR = (1 << CLKPCE);
-	CLKPR |= (1 << CLKPS0);
+	CLKPR = (0 << CLKPCE) | (1 << CLKPS0);
+	
+	// Set up a few variables
 	int counter = 0;
+	
 	// Initialize serial, move this to serial lib
 	unsigned int ubrr = MYUBRR;
 	UBRR0H = (unsigned char)(ubrr>>8);
