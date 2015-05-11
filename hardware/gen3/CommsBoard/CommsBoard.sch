@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4166,7 +4166,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GEN_3_REV_B" library="gen3" deviceset="LOGO" device="" value="Spring 2015"/>
-<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="TBD"/>
+<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SMD-4"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
