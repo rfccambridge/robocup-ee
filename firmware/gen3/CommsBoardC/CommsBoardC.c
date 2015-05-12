@@ -35,11 +35,7 @@ int main(void)
 	UBRR0H = UBRRH_VALUE;//(unsigned char)(ubrr>>8);
 	UBRR0L = UBRRL_VALUE; //(unsigned char)ubrr;
 	UCSR0C = (0 << UMSEL0) | (0 << UPM00) | (0 << UPM01) | (1 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00);
-	UCSR0B = 0x00;
-	UCSR0B |= (1 << UDRIE0);
-	UCSR0B |= (1 << TXCIE0);
-	UCSR0B |= (1 << UDRIE0) | (1 << TXCIE0);
-	UCSR0B |= (1 << RXEN0) | (1 << TXEN0);
+	UCSR0B = (1 << TXCIE0) | (1 << RXCIE0) | (1 << UDRIE0) | (1 << RXEN0) | (1 << TXEN0);
 	
 	DDRC = 0xFF;
 	message recvMsg;
@@ -54,33 +50,36 @@ int main(void)
 		// Figure out how many message we might want to fetch
 		// This way, even if new message come as we're looping
 		// The loop will still end
-		int inboxSize = serialGetInboxSize();
-		for(int i = 0; i < inboxSize; i++){
+		//int inboxSize = serialGetInboxSize();
+		if(serialPopInbox(&recvMsg)){
+			PORTC = 0xFF;
+		}
+		/*for(int i = 0; i < inboxSize; i++){
+			PORTC ^= 0xFF;
 			// Empty out the inbox.
 			if(!serialPopInbox(&recvMsg)){
 				// Failed to get a message for some reason
 				// Break out.
 				break;
 			}
-			PORTC ^= 0b00000100;
 			// Process the message
 			if(recvMsg.message[0])
 			{
 				// Turn on the LED
-				PORTC |= 0x01;
+				PORTC = 0xFF;
 			}
 			else
 			{
 				// Turn off the LED
-				PORTC &= ~(0x01);
+				PORTC = 0x00;
 			}
+		}*/
+		if(!(counter++ % 10000)){
+			recvMsg.slaveID = 'd';
+			recvMsg.message[0] = 'a';
+			recvMsg.message[1] = 'b';
+			recvMsg.message[2] = 'c';
+			serialPushOutbox(&recvMsg);
 		}
-			PORTC ^= 0b00001000;
-			message sendMsg;
-			sendMsg.slaveID = 'd';
-			sendMsg.message[0] = 'a';
-			sendMsg.message[1] = 'b';
-			sendMsg.message[2] = 'c';
-			serialPushOutbox(&sendMsg);
     }
 }
