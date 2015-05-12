@@ -7,7 +7,7 @@ bool mqPopMessage(message* dest, messageQueue* mq){
 		if(mq->size <= 0){
 			return false;
 		}
-		memcpy(dest, &mq[mq->first], sizeof(message));
+		memcpy(dest, &(mq->box[mq->first]), sizeof(message));
 		mq->first = (mq->first + 1) % BOX_SIZE;
 		(mq->size)--;
 	}
