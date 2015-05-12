@@ -13,10 +13,10 @@
 #include "serial.h"
 #include "spi.h"
 
-#define FOSC 1843200
-#define F_CPU FOSC
-#define BAUD 9600
-#define MYUBRR F_CPU/16/BAUD-1
+//#define FOSC 1843200
+#define F_CPU 16000000
+#define BAUD 19200
+//#define MYUBRR F_CPU/16/BAUD-1
 
 int main(void)
 {
@@ -24,15 +24,16 @@ int main(void)
 	
 	// Set the overall clock scaling
 	CLKPR = (1 << CLKPCE);
-	CLKPR = (0 << CLKPCE) | (1 << CLKPS0);
+	CLKPR = (0 << CLKPCE) | (0 << CLKPS0);
 	
 	// Set up a few variables
 	int counter = 0;
 	
 	// Initialize serial, move this to serial lib
-	unsigned int ubrr = MYUBRR;
-	UBRR0H = (unsigned char)(ubrr>>8);
-	UBRR0L = (unsigned char)ubrr;
+	//unsigned int ubrr = MYUBRR;
+	#include <util/setbaud.h>
+	UBRR0H = UBRRH_VALUE;//(unsigned char)(ubrr>>8);
+	UBRR0L = UBRRL_VALUE; //(unsigned char)ubrr;
 	UCSR0C = (0 << UMSEL0) | (0 << UPM00) | (0 << UPM01) | (1 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00);
 	UCSR0B = 0x00;
 	UCSR0B |= (1 << UDRIE0);
@@ -75,10 +76,11 @@ int main(void)
 			}
 		}
 			PORTC ^= 0b00001000;
-			recvMsg.slaveID = 0xFF;
-			recvMsg.message[0] =  0xFF;
-			recvMsg.message[1] = 0xFF;
-			recvMsg.message[2] = 0xFF;
-			serialPushOutbox(&recvMsg);
+			message sendMsg;
+			sendMsg.slaveID = 'd';
+			sendMsg.message[0] = 'a';
+			sendMsg.message[1] = 'b';
+			sendMsg.message[2] = 'c';
+			serialPushOutbox(&sendMsg);
     }
 }

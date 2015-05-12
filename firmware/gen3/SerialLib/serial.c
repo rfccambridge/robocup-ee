@@ -103,14 +103,13 @@ ISR(USART0_TX_vect){
 };
 
 ISR(USART0_UDRE_vect){
-	UDR0 = 0xFF;
-	/*if(charsSent >= SEND_QUEUE_SIZE){
+	if(charsSent >= SEND_QUEUE_SIZE){
 		// We have nothing to send, check the outbox.
 		message msg;
 		if(serialPopOutbox(&msg)){
 			// There *is* a message waiting to send
 			// We'll queue it up for sending
-			memcpy(&sendQueue, &(msg.message), SEND_QUEUE_SIZE);
+			memcpy(&sendQueue[0], &(msg.message), SEND_QUEUE_SIZE);
 			charsSent = 0;
 			if(!(icount++ % 10)){
 				PORTC ^= 0b00000010;
@@ -123,5 +122,5 @@ ISR(USART0_UDRE_vect){
 			return;
 		}
 	}
-	UDR0 = sendQueue[charsSent++];*/
+	UDR0 = sendQueue[charsSent++];
 };
