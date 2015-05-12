@@ -82,16 +82,17 @@ bool clearToSend(){
  *     receive register. The data MUST be read to clear the flag.
  */
 ISR(USART0_RX_vect){
+	PORTC = 0xFF;
 	char data = UDR0;
 	if (charsRead > 0){
 		// Data is part of the message body
-		readBuf.message[charsRead % SERIAL_MSG_CHARS] = data;
+		readBuf.message[(charsRead - 1) % SERIAL_MSG_CHARS] = data;
 	}
 	else{
 		// Data is the slave ID
 		readBuf.slaveID = data;
 	}
-	if(++charsRead > 1 + SERIAL_MSG_CHARS){
+	if(++charsRead > (1 + SERIAL_MSG_CHARS)){
 		// Have read a full message
 		serialPushInbox(&readBuf);
 		charsRead = 0;
@@ -109,11 +110,8 @@ ISR(USART0_UDRE_vect){
 		if(serialPopOutbox(&msg)){
 			// There *is* a message waiting to send
 			// We'll queue it up for sending
-			memcpy(&sendQueue[0], &(msg.message), SEND_QUEUE_SIZE);
+			memcpy(&sendQueue, &(msg.message), SEND_QUEUE_SIZE);
 			charsSent = 0;
-			if(!(icount++ % 10)){
-				PORTC ^= 0b00000010;
-			}
 		}
 		else{
 			// No message waiting, we have nothing to do.
