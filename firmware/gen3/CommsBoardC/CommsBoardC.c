@@ -11,7 +11,8 @@
 #include <avr/interrupt.h>
 #include <avr/common.h>
 #include "serial.h"
-#include "spi.h"
+//#include "spi.h" //Unfinished interrupt SPI library
+#include "SPIMaster.h"
 
 //#define FOSC 1843200
 #define F_CPU 16000000
@@ -74,12 +75,12 @@ int main(void)
 				PORTC = 0x00;
 			}
 		}*/
-		if(!(counter++ % 10000)){
+		/*if(!(counter++ % 10000)){
 			recvMsg.slaveID = 'd';
 			recvMsg.message[0] = 'a';
 			recvMsg.message[1] = 'b';
 			recvMsg.message[2] = 'c';
 			serialPushOutbox(&recvMsg);
-		}
+		}*/
     }
 }
