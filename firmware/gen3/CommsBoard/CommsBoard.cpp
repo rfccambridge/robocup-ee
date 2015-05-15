@@ -26,7 +26,7 @@ int main(void)
 	UBRR0H = UBRRH_VALUE;//(unsigned char)(ubrr>>8);
 	UBRR0L = UBRRL_VALUE; //(unsigned char)ubrr;
 	UCSR0C = (0 << UMSEL0) | (0 << UPM00) | (0 << UPM01) | (1 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00);
-	UCSR0B = (1 << TXCIE0) | (1 << RXCIE0) | (1 << UDRIE0) | (1 << RXEN0) | (1 << TXEN0);
+	UCSR0B = (1 << TXCIE0) | (1 << UDRIE0) | (1 << RXEN0) | (1 << TXEN0);
 	
 	DDRC = 0xFF;
 	message recvMsg;
