@@ -11,9 +11,9 @@
 #ifndef SERIAL_H_
 #define SERIAL_H_
 
-bool serialPushInbox(const message* msg);
+//bool serialPushInbox(const message* msg);
 bool serialPopInbox(message* msg);
-int serialGetInboxSize();
+//int serialGetInboxSize();
 bool serialPushOutbox(const message* msg);
 bool serialPopOutbox(message* msg);
 int serialGetOutboxSize();

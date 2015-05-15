@@ -12,7 +12,7 @@
 #define XBEE_CTS_BIT 2
 #define SEND_QUEUE_SIZE SERIAL_MSG_CHARS
 
-messageQueue inbox;
+//messageQueue inbox;
 messageQueue outbox;
 
 unsigned int icount = 0;
@@ -22,17 +22,36 @@ char sendQueue[SEND_QUEUE_SIZE];
 unsigned int charsRead = 0;
 message readBuf;
 
-bool serialPushInbox(const message* msg){
+/*bool serialPushInbox(const message* msg){
 	return mqPushMessage(msg, &inbox);
-}
+}*/
 
 bool serialPopInbox(message* dest){
-	return mqPopMessage(dest, &inbox);
+	while(charsRead < (1 + SERIAL_MSG_CHARS)){
+		while (!(UCSR0A & (1 << RXC0))){
+			// Busy wait for message.
+		}
+		if(charsRead == 0){
+			readBuf.slaveID = UDR0;
+			charsRead++;
+		}
+		else if((charsRead - 1) < SERIAL_MSG_CHARS){
+			readBuf.message[(charsRead - 1) % SERIAL_MSG_CHARS] = UDR0;
+			charsRead++;
+		}
+		else{
+			break;
+		}
+	}
+	memcpy(dest, &readBuf, sizeof(message));
+	charsRead = 0;
+	return true;
+	//return mqPopMessage(dest, &inbox);
 }
 
-int serialGetInboxSize(){
+/*int serialGetInboxSize(){
 	return mqGetSize(&inbox);
-}
+}*/
 
 bool serialPushOutbox(const message* msg){
 	// Since we have a message in the outbox,
@@ -81,8 +100,8 @@ bool clearToSend(){
  * RX Complete - Fired when data is ready to be read from the
  *     receive register. The data MUST be read to clear the flag.
  */
-ISR(USART0_RX_vect){
-	PORTC = 0xFF;
+/*ISR(USART0_RX_vect){
+	PORTC = 0xFF; // Debug, turn all LEDs on
 	char data = UDR0;
 	if (charsRead > 0){
 		// Data is part of the message body
@@ -97,7 +116,7 @@ ISR(USART0_RX_vect){
 		serialPushInbox(&readBuf);
 		charsRead = 0;
 	}
-};
+};*/
 
 ISR(USART0_TX_vect){
 	// Do nothing, this just clears the tx complete flag for us
