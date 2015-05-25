@@ -2,6 +2,11 @@
 #include <avr/io.h>
 #include <math.h>
 
+void setBit(volatile uint8_t* port, uint8_t pin, bool val)
+{
+	*port ^= (-val ^ *port) & (1 << pin);
+}
+
 void enablePWM(PWM PWMnum)
 {
 	switch(PWMnum)

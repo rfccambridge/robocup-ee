@@ -3,6 +3,12 @@
 
 #endif //__EELIB_H_
 
+#include <inttypes.h>
+
+// Given  a port, a pin in the port, and a boolean value (0 or 1),
+// sets the pin in the given port
+void setBit(volatile uint8_t* port, uint8_t pin, bool val);
+
 // Defines a type that enumerates the four possible PWM pins
 typedef enum pwm {
 	PWM1,
