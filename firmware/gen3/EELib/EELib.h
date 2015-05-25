@@ -11,10 +11,10 @@ void setBit(volatile uint8_t* port, uint8_t pin, bool val);
 
 // Defines a type that enumerates the four possible PWM pins
 typedef enum pwm {
-	PWM1,
-	PWM2,
-	PWM3,
-	PWM4
+	OUTPUT1,
+	OUTPUT2,
+	OUTPUT3,
+	OUTPUT4
 } PWM;
 
 // Given a PWM pin, enables fast PWM mode on that pin with initial duty cycle of 0%
