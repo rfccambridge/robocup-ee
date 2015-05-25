@@ -9,6 +9,7 @@
 #include <avr/io.h>
 #include "SPISlave.h"
 #include "EELib.h"
+#include "KickerBoard.h"
 
 int main(void)
 {
