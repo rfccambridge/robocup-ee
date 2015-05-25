@@ -43,7 +43,7 @@ void init(void)
 // Set the break on if true (D4 low), otherwise turn break off (D4 high)
 void setBrake(bool enable)
 {
-	setBit(PIND, PIND4, !enable); 
+	setBit(&PIND, PIND4, !enable); 
 }
 
 // Given a PWM line number and a direction as bool, sets the direction of that motor
@@ -52,16 +52,16 @@ void setDirection(PWM pwmNum, bool dir)
 	switch (pwmNum)
 	{
 		case PWM1:
-			setBit(PIND, PIND0, dir);
+			setBit(&PIND, PIND0, dir);
 			break;
 		case PWM2:
-			setBit(PIND, PIND1, dir);
+			setBit(&PIND, PIND1, dir);
 			break;
 		case PWM3:
-			setBit(PIND, PIND2, dir);
+			setBit(&PIND, PIND2, dir);
 			break;
 		case PWM4:
-			setBit(PIND, PIND3, dir);
+			setBit(&PIND, PIND3, dir);
 			break;
 	}
 }
