@@ -69,3 +69,39 @@ void setDutyCycle(PWM PWMnum, float dutyCycle)
 			break;
 	}
 }
+
+void setUpADC(void)
+{
+	// Set ADC prescale 128. If the system clock is @ 16 MHz,
+	// This will results in the ADC sampling rate to 125KHz,
+	// Which is within the recommended 50-200 KHz range
+	// See page 206 of the data sheet for prescaler settings
+	ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+	
+	// Use AVCC as the reference voltage
+	// See page 201 of the data sheet for Voltage Reference settings table
+	ADMUX |= (1 << REFS0);
+	
+	// Enable ADC
+	ADCSRA |= (1 << ADEN);
+}
+
+double readADC(int pin)
+{
+	// Set the ADC multiplexer to read in the correct pin
+	// See page 202 of the data sheet for input channel selection table
+	ADMUX |= pin;
+	
+	// Start conversion
+	ADCSRA |= (1 << ADSC);
+	
+	// In single conversion mode, the ADSC bit of the ADCSRA automatically
+	// clears when the conversion is complete, so we can just wait
+	// until the bit is zero
+	while (ADCSRA & (1 << ADSC)) {}
+		
+	// The ADC register will contain an int between 0 and 1023
+	// (Reference on ADCL and ADCH registers is on page 204)
+	// which we want to scale to a voltage between 0 and the reference voltage
+	return ((ADC / 1024.0) * REF_VOLTAGE);
+}

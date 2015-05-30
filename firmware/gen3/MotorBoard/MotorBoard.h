@@ -28,6 +28,15 @@
 #define M4QA PINE6
 #define M4QB PINE7
 
+#define SENSE1 PINF0
+#define SENSE2 PINF1
+#define SENSE3 PINF2
+#define SENSE4 PINF3
+#define TSENSE1 PINF4
+#define TSENSE2 PINF5
+#define TSENSE3 PINF6
+#define TSENSE4 PINF7
+
 #define FAULT1 PING0
 #define FAULT2 PING1
 #define FAULT3 PING2
