@@ -89,7 +89,12 @@ void setUpADC(void)
 double readADC(int pin)
 {
 	// Set the ADC multiplexer to read in the correct pin
+	// (without disrupting the other bits on the register)
 	// See page 202 of the data sheet for input channel selection table
+	// TODO: Find a cleaner way to do this sort of thing (maybe write a library function)
+	// First, clear the first 5 bits (the nMUX bits)
+	ADMUX &= 0xE0;
+	// Then set them
 	ADMUX |= pin;
 	
 	// Start conversion
