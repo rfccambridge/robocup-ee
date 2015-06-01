@@ -13,6 +13,7 @@ char Command::GetType() {
 	return m_commandType;
 }
 
+// Wheel speed commands
 SetWheelSpeedCommand::SetWheelSpeedCommand(Wheel wheel, char speed) : Command(WHEEL_SPEED_COMMAND, wheel, speed) {
 }
 
@@ -21,5 +22,17 @@ char SetWheelSpeedCommand::GetWheel() {
 }
 
 char SetWheelSpeedCommand::GetSpeed() {
+	return m_arg2;
+}
+
+// LED blinking commands
+LEDCommand::LEDCommand(int pin, bool status) : Command(LED_COMMAND, pin, status) {
+}
+
+int LEDCommand::getPin() {
+	return m_arg1;
+}
+
+bool LEDCommand::getStatus() {
 	return m_arg2;
 }

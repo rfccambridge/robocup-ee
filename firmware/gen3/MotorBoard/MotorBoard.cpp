@@ -2,27 +2,63 @@
 #include "SPISlave.h"
 #include "EELib.h"
 #include "MotorBoard.h"
+#include <util/delay.h>
 
 int main(void)
 {	
-	init();
+	//init();
 	SPISlave spi;
-	spi.ReceiveSPI();
+	//spi.ReceiveSPI();
 	Command command;
-	bool hasCommand = spi.GetCommand(&command);
 	
-	if(hasCommand)
-	{
-		char reply = 0;
-		switch(command.GetType())
+	
+	// setup LEDs
+	DDRC = 0xFF;
+	PORTC = 0x00;
+	
+	while (1) {
+		char c = spi.getChar();
+		PORTC = c;
+	}
+	
+	while(1) {
+		PORTC ^= 0x02; // flip 2nd LED
+		
+		bool hasCommand = spi.GetCommand(&command);
+		if(hasCommand)
 		{
-			case Command::WHEEL_SPEED_COMMAND:
-			SetWheelSpeedCommand* c = (SetWheelSpeedCommand*)&command;
-			// TODO: execute command
-			break;
-		}
+			PORTC |= 0x04; // turn on 3rd LED
+			char reply = 0;
+			switch(command.GetType())
+			{
+				case Command::WHEEL_SPEED_COMMAND:
+					//SetWheelSpeedCommand* c = (SetWheelSpeedCommand*)&command;
+					// TODO: execute command
+				break;
 			
-		spi.SetReply(reply);
+				case Command::LED_COMMAND:
+					PORTC |= 0x08; // turn on 4th LED
+					LEDCommand* c2 = (LEDCommand*)&command;
+					int pin = c2->getPin();
+					bool on = c2->getStatus();
+				
+					// turn on / off LED
+					
+					if (on) {
+						PORTC |= 1 << pin;
+					}
+					else {
+						PORTC &= ~(1 << pin);
+					}
+			}
+			
+			spi.SetReply(reply);
+		}
+		else {
+			// no command
+			PORTC &= ~(0x04); // turn off 3rd LED
+		}
+		_delay_ms(100);
 	}
 }
 

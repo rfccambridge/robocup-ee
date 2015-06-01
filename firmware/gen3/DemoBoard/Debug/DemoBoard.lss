@@ -1,0 +1,117 @@
+
+DemoBoard.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000007c  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  000000d0  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000028  00000000  00000000  00000100  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000189  00000000  00000000  00000128  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000ee  00000000  00000000  000002b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000002a6  00000000  00000000  0000039f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000034  00000000  00000000  00000648  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00006491  00000000  00000000  0000067c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    0000012c  00000000  00000000  00006b0d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000018  00000000  00000000  00006c39  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_macro  00000226  00000000  00000000  00006c51  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	2b c0       	rjmp	.+86     	; 0x58 <__ctors_end>
+   2:	00 00       	nop
+   4:	31 c0       	rjmp	.+98     	; 0x68 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	2f c0       	rjmp	.+94     	; 0x68 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	2d c0       	rjmp	.+90     	; 0x68 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	2b c0       	rjmp	.+86     	; 0x68 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	29 c0       	rjmp	.+82     	; 0x68 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	27 c0       	rjmp	.+78     	; 0x68 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	25 c0       	rjmp	.+74     	; 0x68 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	23 c0       	rjmp	.+70     	; 0x68 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	21 c0       	rjmp	.+66     	; 0x68 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	1f c0       	rjmp	.+62     	; 0x68 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	1d c0       	rjmp	.+58     	; 0x68 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	1b c0       	rjmp	.+54     	; 0x68 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	19 c0       	rjmp	.+50     	; 0x68 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	17 c0       	rjmp	.+46     	; 0x68 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	15 c0       	rjmp	.+42     	; 0x68 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	13 c0       	rjmp	.+38     	; 0x68 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	11 c0       	rjmp	.+34     	; 0x68 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	0f c0       	rjmp	.+30     	; 0x68 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	0d c0       	rjmp	.+26     	; 0x68 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	0b c0       	rjmp	.+22     	; 0x68 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	09 c0       	rjmp	.+18     	; 0x68 <__bad_interrupt>
+	...
+
+00000058 <__ctors_end>:
+  58:	11 24       	eor	r1, r1
+  5a:	1f be       	out	0x3f, r1	; 63
+  5c:	cf ef       	ldi	r28, 0xFF	; 255
+  5e:	d4 e0       	ldi	r29, 0x04	; 4
+  60:	de bf       	out	0x3e, r29	; 62
+  62:	cd bf       	out	0x3d, r28	; 61
+  64:	02 d0       	rcall	.+4      	; 0x6a <main>
+  66:	08 c0       	rjmp	.+16     	; 0x78 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	cb cf       	rjmp	.-106    	; 0x0 <__vectors>
+
+0000006a <main>:
+
+int main (void)
+{
+	
+	// input direction
+	DDRA = 0x00;
+  6a:	11 b8       	out	0x01, r1	; 1
+	// tristate
+	PORTA = 0x00;
+  6c:	12 b8       	out	0x02, r1	; 2
+	
+	// output LEDs on port C
+	DDRC = 0xFF;
+  6e:	8f ef       	ldi	r24, 0xFF	; 255
+  70:	87 b9       	out	0x07, r24	; 7
+	
+	while(1) {
+		PORTC = PINA;
+  72:	80 b1       	in	r24, 0x00	; 0
+  74:	88 b9       	out	0x08, r24	; 8
+  76:	fd cf       	rjmp	.-6      	; 0x72 <main+0x8>
+
+00000078 <_exit>:
+  78:	f8 94       	cli
+
+0000007a <__stop_program>:
+  7a:	ff cf       	rjmp	.-2      	; 0x7a <__stop_program>

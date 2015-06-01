@@ -2,12 +2,18 @@
 #include <avr/io.h>
 #include "Constants.h"
 
+
+
 SPISlave::SPISlave() {
 	// set MISO to output
 	DDRB |= (1<<3);
 	
 	// enable SPI
 	SPCR = (1<<SPE);
+}
+
+void waitForTransmit() {
+	while(!(SPSR & (1<<SPIF))) ;
 }
 
 void SPISlave::ReceiveSPI() {
@@ -82,6 +88,11 @@ bool SPISlave::GetCommand(Command* command) {
 	else {
 		return false;
 	}
+}
+
+char SPISlave::getChar() {
+	waitForTransmit();
+	return SPDR;
 }
 
 void SPISlave::SetReply(char reply) {

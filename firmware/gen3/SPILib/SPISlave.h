@@ -30,6 +30,9 @@ public:
 	// returns false if no command
 	bool GetCommand(Command* command);
 	
+	// gets a simple byte for debugging
+	char getChar();
+	
 	// after getting a command, this function should be called so that a response is sent acknowledging the command
 	// the reply argument can be used to send back info (could be errors, or could be used to make commands that ask for data)
 	void SetReply(char reply);

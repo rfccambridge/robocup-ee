@@ -19,6 +19,13 @@ void waitForTransmit() {
 	while(!(SPSR & (1<<SPIF))) ;
 }
 
+void SPIMaster::sendChar(char c) {
+	PORTF = 0x00; // select all slaves
+	SPDR = c; // set data register
+	waitForTransmit();
+	
+}
+
 bool SPIMaster::SendCommand(char slave, Command c, char* reply) {
 	bool success = true;
 	if(slave < 0 || slave > 4)

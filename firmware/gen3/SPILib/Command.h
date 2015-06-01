@@ -11,7 +11,8 @@ protected:
 	char m_arg2;
 public:
 	enum CommandType {
-		WHEEL_SPEED_COMMAND
+		WHEEL_SPEED_COMMAND,
+		LED_COMMAND
 	};
 
 	Command();
@@ -32,5 +33,12 @@ public:
 	char GetWheel();
 	char GetSpeed();
 };
+
+class LEDCommand : public Command {
+public:
+	LEDCommand(int pin, bool status);
+	int getPin();
+	bool getStatus();
+	};
 
 #endif //__COMMAND_H__
