@@ -6,21 +6,48 @@
 
 int main(void)
 {	
-	//init();
 	SPISlave spi;
-	//spi.ReceiveSPI();
-	Command command;
+	Command* command;
 	
 	
 	// setup LEDs
 	DDRC = 0xFF;
 	PORTC = 0x00;
 	
-	while (1) {
-		char c = spi.getChar();
-		PORTC = c;
+	while(1) {
+		PORTC ^= (1 << 0); // flip LED 0 every tick
+		
+		spi.ReceiveSPI(); // handle SPI state machine
+		
+		if (spi.GetCommand(command))
+		{
+			// a command has been transmitted
+			PORTC |= (1 << 1); // turn on LED 1
+			
+			// do something with command
+			if (command->GetType() == Command::LED_COMMAND) {
+				LEDCommand& led_cmd = * (LEDCommand*)command;
+				
+				// turn on last LED based on message
+				if (led_cmd.getStatus()) {
+					PORTC |= (1 << 3); // turn on LED 3
+				}
+				else {
+					PORTC &= ~(1 << 3); // turn off LED 2
+				}
+			}
+			
+			// send a reply
+			spi.SetReply(0x42);
+			
+		}
+		else {
+			// no command yet
+			PORTC &= ~(1 << 1); // turn off LED 1
+		}
+		
 	}
-	
+	/*
 	while(1) {
 		PORTC ^= 0x02; // flip 2nd LED
 		
@@ -60,6 +87,7 @@ int main(void)
 		}
 		_delay_ms(100);
 	}
+	*/
 }
 
 void init(void)

@@ -3,6 +3,7 @@
 Command::Command() {
 }
 
+
 Command::Command(char commandType, char arg1, char arg2) {
 	m_commandType = commandType;
 	m_arg1 = arg1;

@@ -7,9 +7,9 @@ class Command {
 	friend class SPISlave;
 protected:
 	char m_commandType;
+public:
 	char m_arg1;
 	char m_arg2;
-public:
 	enum CommandType {
 		WHEEL_SPEED_COMMAND,
 		LED_COMMAND
