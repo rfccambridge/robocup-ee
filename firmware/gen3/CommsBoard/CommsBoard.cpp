@@ -1,5 +1,7 @@
 #include <avr/io.h>
 #include "SPIMaster.h"
+#include "EELib.h"
+#include "CommsBoard.h"
 #include <util/delay.h>
 
 int main(void)
@@ -15,11 +17,14 @@ int main(void)
 	
 	// read in dip switches
 	DDRA = 0x00;
-	bool blink = false;
+	bool blink = true;
 	
     while(1)
     {
-		blink = ~blink;
+		blink = !blink;
+		setBit(&PORTC, 2, blink);
+		
+		setBit(GLED1, blink);
 		
 		// create an LED command based on bot ID
 		bool led = ((PINA & 0x01) == 0x01);

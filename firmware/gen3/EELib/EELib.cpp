@@ -2,9 +2,18 @@
 #include <avr/io.h>
 #include <math.h>
 
+pin_def::pin_def(volatile uint8_t* port_, uint8_t pin_) : port(port_), pin(pin_) {
+}
+
 void setBit(volatile uint8_t* port, uint8_t pin, bool val)
 {
+	// Ezra, what witch magic is this?
 	*port ^= (-val ^ *port) & (1 << pin);
+}
+
+void setBit(pin_def pin, bool val)
+{
+	setBit(pin.port, pin.pin, val);
 }
 
 void enablePWM(PWM PWMnum)

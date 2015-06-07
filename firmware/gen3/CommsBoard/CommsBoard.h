@@ -1,3 +1,5 @@
+#include "EELib.h"
+
 // Pin names
 #define BID3 PINA0
 #define BID2 PINA1
@@ -12,7 +14,7 @@
 #define MOSI PINB2
 #define MISO PINB3
 
-#define GLED1 PINC0
+pin_def GLED1 = pin_def(&PORTC, 1);
 #define RLED1 PINC1 
 #define GLED2 PINC2
 #define RLED2 PINC3

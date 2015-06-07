@@ -1,22 +1,21 @@
 #ifndef __EELIB_H_
 #define __EELIB_H_
 
-#endif //__EELIB_H_
-
 #include <inttypes.h>
 
 // The voltage on the AVCC pin used by the ADC
 #define REF_VOLTAGE 3.33
 
-// Given  a port, a pin in the port, and a boolean value (0 or 1),
-// sets the pin in the given port
-void setBit(volatile uint8_t* port, uint8_t pin, bool val);
-
 struct pin_def {
 	volatile uint8_t* port;
 	uint8_t pin;
 	pin_def(volatile uint8_t* port_, uint8_t pin_);
-};
+} ;
+
+// Given  a port, a pin in the port, and a boolean value (0 or 1),
+// sets the pin in the given port
+void setBit(volatile uint8_t* port, uint8_t pin, bool val);
+void setBit(pin_def pin, bool val);
 
 // Defines a type that enumerates the four possible PWM pins
 typedef enum pwm {
@@ -39,3 +38,5 @@ void setUpADC(void);
 // Given a pin number on PORTF,
 // returns the measured voltage on that pin between 0 and 3.3V
 double readADC(int pin);
+
+#endif //__EELIB_H_
