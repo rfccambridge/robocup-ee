@@ -22,12 +22,12 @@ int main(void)
     while(1)
     {
 		blink = !blink;
-		setBit(&PORTC, 2, blink);
+		bool led = getBit(BID3);
+		setBit(GLED1, led);
+		setBit(GLED2, blink);
 		
-		setBit(GLED1, blink);
 		
 		// create an LED command based on bot ID
-		bool led = ((PINA & 0x01) == 0x01);
 		LEDCommand led_cmd = LEDCommand(0, led);
 		
 		// send message

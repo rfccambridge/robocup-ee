@@ -6,6 +6,7 @@
 // The voltage on the AVCC pin used by the ADC
 #define REF_VOLTAGE 3.33
 
+// convenience struct to represent a pin (both port and #) 
 struct pin_def {
 	volatile uint8_t* port;
 	uint8_t pin;
@@ -16,6 +17,10 @@ struct pin_def {
 // sets the pin in the given port
 void setBit(volatile uint8_t* port, uint8_t pin, bool val);
 void setBit(pin_def pin, bool val);
+
+bool getBit(volatile uint8_t* port, uint8_t pin);
+bool getBit(pin_def pin);
+
 
 // Defines a type that enumerates the four possible PWM pins
 typedef enum pwm {
