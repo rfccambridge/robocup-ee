@@ -47,13 +47,13 @@ bool SPIMaster::SendCommand(char slave, Command c, char* reply) {
 	// set outgoing data
 	SPDR = START_BYTE;
 	waitForTransmit();
-	SPDR = c.m_commandType;
+	SPDR = c.GetType();
 	waitForTransmit();
 	SPDR = c.m_arg1;
 	waitForTransmit();
 	SPDR = c.m_arg2;
 	waitForTransmit();
-	char checksum = c.m_commandType + c.m_arg1 + c.m_arg2;
+	char checksum = c.GetType() + c.m_arg1 + c.m_arg2;
 	SPDR = checksum;
 	waitForTransmit();
 	

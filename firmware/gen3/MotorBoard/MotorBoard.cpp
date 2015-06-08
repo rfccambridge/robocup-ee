@@ -29,7 +29,7 @@ int main(void)
 				LEDCommand& led_cmd = * (LEDCommand*)command;
 				
 				// turn on last LED based on message
-				if (led_cmd.getStatus()) {
+				if (led_cmd.status) {
 					PORTC |= (1 << 3); // turn on LED 3
 				}
 				else {

@@ -1,44 +1,83 @@
 #ifndef __COMMAND_H__
 #define __COMMAND_H__
-
-class Command {
-	// allow SPIMaster and SPISlave to access these protected variables
+#include <inttypes.h>
+struct Command {
 	friend class SPIMaster;
 	friend class SPISlave;
 protected:
-	char m_commandType;
+	uint8_t m_commandType;
+	uint8_t m_arg1;
+	uint8_t m_arg2;
 public:
-	char m_arg1;
-	char m_arg2;
 	enum CommandType {
+		SAFE_MODE_COMMAND,
+		LED_COMMAND,
 		WHEEL_SPEED_COMMAND,
-		LED_COMMAND
+		CHARGE_COMMAND,
+		KICK_COMMAND,
+		DRIBBLE_COMMAND
 	};
 
 	Command();
-	Command(char commandType, char arg1, char arg2);
-	char GetType();
+	Command(uint8_t commandType, uint8_t arg1, uint8_t arg2);
+	uint8_t GetType();
 };
 
-class SetWheelSpeedCommand : public Command {
-public:
+// puts board into a safe mode when an error occurs
+// for instance, turning off motors, discharging
+struct SafeModeCommand : public Command {
+	SafeModeCommand();
+};
+
+// blinks an LED on another board
+struct LEDCommand : public Command {
+	uint8_t& pin;
+	bool& status;
+	LEDCommand(uint8_t pin_, bool status_);
+};
+
+// sets the desired wheelspeed for one wheel
+struct SetWheelSpeedCommand : public Command {
 	enum Wheel {
 		WHEEL_LB,
 		WHEEL_RB,
 		WHEEL_LF,
 		WHEEL_RF
 	};
-
-	SetWheelSpeedCommand(Wheel wheel, char speed);
-	char GetWheel();
-	char GetSpeed();
+	Wheel& wheel;
+	uint8_t& speed;
+	SetWheelSpeedCommand(Wheel wheel_, uint8_t speed_);
 };
 
-class LEDCommand : public Command {
-public:
-	LEDCommand(int pin, bool status);
-	int getPin();
-	bool getStatus();
-	};
+// charges the capacitors
+// voltage: target voltage (volts)
+// discharge: whether to discharge the caps when higher
+struct ChargeCommand : public Command {
+	uint8_t& voltage;
+	bool& discharge;
+	ChargeCommand(uint8_t voltage_, bool discharge_);
+};
+
+// kick the ball
+// power: 0 -> 256 scale
+// breakbeam: true to wait for the breakbeam
+struct KickCommand : public Command {
+	uint8_t& power;
+	bool& breakbeam;
+	KickCommand(uint8_t power_, bool breakbeam_);
+};
+
+// set the dribbler speed
+struct DribbleCommand : public Command {
+	uint8_t& speed;
+	DribbleCommand(uint8_t speed_);
+};
+	
+// [] set wheelspeed
+// [] safe shutdown
+// [] charge
+// [] kick
+// [] dribbler speed
+
 
 #endif //__COMMAND_H__

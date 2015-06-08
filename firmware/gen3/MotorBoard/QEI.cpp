@@ -1,4 +1,5 @@
 ﻿class QEI_Handler {
+	/*
 private:
 	int directions[4] = {0,0,0,0};
 	int counts[4] = {0,0,0,0};
@@ -19,6 +20,6 @@ public:
 		//enc_val[wheel] = enc_val[wheel] | ((PIND & (0b11 << wheel)) >> wheel);
 		
 		counts[wheel] = counts[wheel] + lookuptable[enc_val[wheel] & 0b1111];
-	}
+	}*/
 	
 	};
