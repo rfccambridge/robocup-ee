@@ -61,7 +61,8 @@ struct ChargeCommand : public Command {
 // kick the ball
 // power: 0 -> 256 scale
 // breakbeam: true to wait for the breakbeam
-struct KickCommand : public Command {
+class KickCommand : public Command {
+public:
 	uint8_t& power;
 	bool& breakbeam;
 	KickCommand(uint8_t power_, bool breakbeam_);

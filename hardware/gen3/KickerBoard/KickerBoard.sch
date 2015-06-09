@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -16270,11 +16270,6 @@ when caps are charged</text>
 <wire x1="276.86" y1="294.64" x2="264.16" y2="294.64" width="0.1524" layer="91"/>
 <label x="264.16" y="294.64" size="1.778" layer="95"/>
 </segment>
-<segment>
-<pinref part="U2" gate="A" pin="PB5"/>
-<wire x1="101.6" y1="104.14" x2="93.98" y2="104.14" width="0.1524" layer="91"/>
-<label x="93.98" y="104.14" size="1.778" layer="95"/>
-</segment>
 </net>
 <net name="N$13" class="0">
 <segment>
@@ -16666,6 +16661,13 @@ when caps are charged</text>
 <pinref part="RVOUT" gate="G$1" pin="1"/>
 <wire x1="355.6" y1="109.22" x2="358.14" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="109.22" x2="358.14" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="KICK_PWM" class="0">
+<segment>
+<pinref part="U2" gate="A" pin="PB5"/>
+<wire x1="101.6" y1="104.14" x2="86.36" y2="104.14" width="0.1524" layer="91"/>
+<label x="86.36" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

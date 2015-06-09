@@ -13,11 +13,14 @@ int main(void)
 	
 	// setup indicator LED
 	DDRC = 0xFF;
-	PORTC = 0x00;
+	PORTC = 0xFF;
 	
 	// read in dip switches
 	DDRA = 0x00;
 	bool blink = true;
+	
+	while(1) {
+	}
 	
     while(1)
     {

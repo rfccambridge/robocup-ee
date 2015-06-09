@@ -2,49 +2,50 @@
 
 // Pin names
 pin_def BID3 = pin_def(&PINA, 0);
-#define BID2 PINA1
-#define BID1 PINA2
-#define BID0 PINA3
-#define EX3 PINA4
-#define EX2 PINA5
-#define EX1 PINA6
-#define EX0 PINA7
+pin_def BID2 = pin_def(&PINA, 1);
+pin_def BID1 = pin_def(&PINA, 2);
+pin_def BID0 = pin_def(&PINA, 3);
 
-#define SCK PINB1
-#define MOSI PINB2
-#define MISO PINB3
+pin_def EX3 = pin_def(&PINA, 4);
+pin_def EX2 = pin_def(&PINA, 5);
+pin_def EX1 = pin_def(&PINA, 6);
+pin_def EX0 = pin_def(&PINA, 7);
 
-pin_def GLED1 = pin_def(&PORTC, 1);
-#define RLED1 PINC1 
-pin_def GLED2 = pin_def(&PORTC, 2);
-#define RLED2 PINC3
-#define GLED3 PINC4
-#define RLED3 PINC5
-#define GLED4 PINC6
-#define RLED4 PINC7
+pin_def SCK = pin_def(&PINB, 1);
+pin_def MOSI = pin_def(&PINB, 2);
+pin_def MISO = pin_def(&PINB, 3);
 
-#define SPARE1 PIND0
-#define SPARE2 PIND1
-#define SPARE3 PIND2
-#define SPARE4 PIND3
-#define SPARE5 PIND4
+pin_def RLED1 = pin_def(&PORTC, 0);
+pin_def RLED2 = pin_def(&PORTC, 1);
+pin_def BLED1 = pin_def(&PORTC, 2);
+pin_def BLED2 = pin_def(&PORTC, 3);
+pin_def GLED1 = pin_def(&PORTC, 4);
+pin_def GLED2 = pin_def(&PORTC, 5);
+pin_def YLED1 = pin_def(&PORTC, 6);
+pin_def YLED2 = pin_def(&PORTC, 7);
 
-#define RX PINE0
-#define TX PINE1
-#define XBRST PINE2
-#define INT PINE3
-#define SCL PINE4
-#define SDA PINE5
-#define RTS PINE6
-#define CTS PINE7
+pin_def SPARE1 = pin_def(&PORTD, 0);
+pin_def SPARE2 = pin_def(&PORTD, 1);
+pin_def SPARE3 = pin_def(&PORTD, 2);
+pin_def SPARE4 = pin_def(&PORTD, 3);
+pin_def SPARE5 = pin_def(&PORTD, 4);
 
-#define SS_M PINF0
-#define SS_K PINF1
-#define SS_E1 PINF2
-#define SS_E2 PINF3
-#define SS_E3 PINF4
-#define SS_E4 PINF5
-#define SS_E5 PINF6
-#define TSENSE PINF7
+pin_def RX = pin_def(&PORTE, 0);
+pin_def TX = pin_def(&PORTE, 1);
+pin_def XBRST = pin_def(&PORTE, 2);
+pin_def INT = pin_def(&PORTE, 3);
+pin_def SCL = pin_def(&PORTE, 4);
+pin_def SDA = pin_def(&PORTE, 5);
+pin_def RTS = pin_def(&PORTE, 6);
+pin_def CTS = pin_def(&PORTE, 7);
 
-#define RESET PING5
+pin_def SS_M = pin_def(&PORTF, 0);
+pin_def SS_K = pin_def(&PORTF, 1);
+pin_def SS_E1 = pin_def(&PORTF, 2);
+pin_def SS_E2 = pin_def(&PORTF, 3);
+pin_def SS_E3 = pin_def(&PORTF, 4);
+pin_def SS_E4 = pin_def(&PORTF, 5);
+pin_def SS_E5 = pin_def(&PORTF, 6);
+pin_def TSENSE = pin_def(&PORTF, 7);
+
+pin_def RESET = pin_def(&PORTG, 5);

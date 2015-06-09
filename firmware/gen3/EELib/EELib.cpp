@@ -2,8 +2,8 @@
 #include <avr/io.h>
 #include <math.h>
 
-pin_def::pin_def(volatile uint8_t* port_, uint8_t pin_) : port(port_), pin(pin_) {
-}
+//pin_def::pin_def(volatile uint8_t* port_, uint8_t pin_) : port(port_), pin(pin_) {
+//}
 
 // convenience function to set a single bit cleanly
 void setBit(volatile uint8_t* port, uint8_t pin, bool val) {

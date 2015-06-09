@@ -2,8 +2,6 @@
 #include <avr/io.h>
 #include "Constants.h"
 
-
-
 SPISlave::SPISlave() {
 	// set MISO to output
 	DDRB |= (1<<3);
