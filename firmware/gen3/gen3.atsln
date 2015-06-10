@@ -3,16 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Atmel Studio Solution File, Format Version 11.00
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPILib", "SPILib\SPILib.cppproj", "{481E2791-245D-41C0-8FFB-F86E017215B0}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\CommsBoard.cppproj", "{001A89DC-3EA5-488C-A40B-12077F704783}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41} = {2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}
-	EndProjectSection
-EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MotorBoard", "MotorBoard\MotorBoard.cppproj", "{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}"
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "EELib", "EELib\EELib.cppproj", "{2BB3E0C5-89BC-48BC-B3A4-DCCDA7D86B41}"
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "KickerBoard", "KickerBoard\KickerBoard.cppproj", "{113B85C4-6A27-4459-8982-6E6AD1526D3A}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\CommsBoard.cppproj", "{1E81E551-8741-41CB-9E5C-DD8A09B10B8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +21,6 @@ Global
 		{481E2791-245D-41C0-8FFB-F86E017215B0}.Debug|AVR.Build.0 = Debug|AVR
 		{481E2791-245D-41C0-8FFB-F86E017215B0}.Release|AVR.ActiveCfg = Release|AVR
 		{481E2791-245D-41C0-8FFB-F86E017215B0}.Release|AVR.Build.0 = Release|AVR
-		{001A89DC-3EA5-488C-A40B-12077F704783}.Debug|AVR.ActiveCfg = Debug|AVR
-		{001A89DC-3EA5-488C-A40B-12077F704783}.Debug|AVR.Build.0 = Debug|AVR
-		{001A89DC-3EA5-488C-A40B-12077F704783}.Release|AVR.ActiveCfg = Release|AVR
-		{001A89DC-3EA5-488C-A40B-12077F704783}.Release|AVR.Build.0 = Release|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.ActiveCfg = Debug|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Debug|AVR.Build.0 = Debug|AVR
 		{0BF46C2D-AB4E-47A4-B019-F8634ABCFBD2}.Release|AVR.ActiveCfg = Release|AVR
@@ -40,6 +33,10 @@ Global
 		{113B85C4-6A27-4459-8982-6E6AD1526D3A}.Debug|AVR.Build.0 = Debug|AVR
 		{113B85C4-6A27-4459-8982-6E6AD1526D3A}.Release|AVR.ActiveCfg = Release|AVR
 		{113B85C4-6A27-4459-8982-6E6AD1526D3A}.Release|AVR.Build.0 = Release|AVR
+		{1E81E551-8741-41CB-9E5C-DD8A09B10B8F}.Debug|AVR.ActiveCfg = Debug|AVR
+		{1E81E551-8741-41CB-9E5C-DD8A09B10B8F}.Debug|AVR.Build.0 = Debug|AVR
+		{1E81E551-8741-41CB-9E5C-DD8A09B10B8F}.Release|AVR.ActiveCfg = Release|AVR
+		{1E81E551-8741-41CB-9E5C-DD8A09B10B8F}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

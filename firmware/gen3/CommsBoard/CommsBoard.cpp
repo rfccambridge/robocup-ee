@@ -22,8 +22,8 @@ int main(void)
 	while(1) {
 	}
 	
-    while(1)
-    {
+	while(1)
+	{
 		blink = !blink;
 		bool led = getBit(BID3);
 		setBit(GLED1, led);
@@ -44,5 +44,5 @@ int main(void)
 		//PORTC = reply;
 		//(blink << 0) | (led << 1) | (result << 2) | (good << 3);
 		_delay_ms(500);
-    }
+	}
 }
