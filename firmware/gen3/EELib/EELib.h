@@ -22,10 +22,10 @@ bool getBit(pin_def pin);
 
 // Defines a type that enumerates the four possible PWM pins
 typedef enum pwm {
-	OUTPUT1,
-	OUTPUT2,
-	OUTPUT3,
-	OUTPUT4
+	OUTPUT1, // PINB4
+	OUTPUT2, // PINB5
+	OUTPUT3, // PINB6
+	OUTPUT4 // PINB7
 } PWM;
 
 // Given a PWM pin, enables fast PWM mode on that pin with initial duty cycle of 0%
