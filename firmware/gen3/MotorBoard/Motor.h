@@ -10,6 +10,8 @@
 #define __MOTOR_H__
 
 #include "HealthMonitor.h"
+#include "PID.h"
+#include "QEI.h"
 
 class Motor
 {
@@ -22,7 +24,7 @@ private:
 public:
 	Motor();
 	void setSpeed(double);
-	double getSpeed(double);
+	double getSpeed();
 	HealthStatus getStatus();
 }; //Motor
 

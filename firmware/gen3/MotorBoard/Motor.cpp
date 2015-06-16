@@ -17,9 +17,9 @@ void Motor::setSpeed(double) {
 }
 
 double Motor::getSpeed() {
-	
+	return 9001.0;
 }
 
-void Motor::getStatus() {
+HealthStatus Motor::getStatus() {
 	return monitor->getStatus();
 }
