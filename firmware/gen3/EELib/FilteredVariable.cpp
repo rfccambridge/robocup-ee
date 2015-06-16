@@ -7,11 +7,10 @@
 
 
 #include "FilteredVariable.h"
-#include "EELib.h"
 
 FilteredVariable::FilteredVariable(pin_def pin)
 {
-	inputPin = pin;
+	inputPin = pin_def(pin.port, pin.pin);
 }
 
 // This will actually handle running the ADC and other filtering

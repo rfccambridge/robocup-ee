@@ -9,6 +9,8 @@
 #ifndef __FILTEREDVARIABLE_H__
 #define __FILTEREDVARIABLE_H__
 
+#include "EELib.h"
+
 class FilteredVariable
 {
 private:

@@ -125,6 +125,18 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HealthMonitor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HealthMonitor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Motor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Motor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MotorBoard.cpp">
       <SubType>compile</SubType>
     </Compile>
