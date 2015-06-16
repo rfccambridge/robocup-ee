@@ -8,7 +8,6 @@
 
 #include "HealthMonitor.h"
 #include "EELib.h"
-#include <avr/io.h>
 
 HealthMonitor::HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin) {
 	temp = new FilteredVariable(tempPin);

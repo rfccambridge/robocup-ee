@@ -131,6 +131,12 @@
     <Compile Include="HealthMonitor.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="PID.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="QEI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Motor.cpp">
       <SubType>compile</SubType>
     </Compile>

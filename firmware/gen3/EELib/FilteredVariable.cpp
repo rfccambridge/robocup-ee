@@ -10,11 +10,11 @@
 
 FilteredVariable::FilteredVariable(pin_def pin)
 {
-	inputPin = pin_def(pin.port, pin.pin);
+	*inputPin = pin_def(pin.port, pin.pin);
 }
 
 // This will actually handle running the ADC and other filtering
 double FilteredVariable::getValue()
 {
-	return getBit(inputPin);
+	return getBit(*inputPin);
 }

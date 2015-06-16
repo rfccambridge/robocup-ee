@@ -14,7 +14,7 @@
 class FilteredVariable
 {
 private:
-	pin_def inputPin;
+	pin_def* inputPin;
 
 //functions
 public:
