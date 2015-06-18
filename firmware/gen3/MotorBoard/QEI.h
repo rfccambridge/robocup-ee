@@ -9,24 +9,24 @@
 #ifndef QEI_H_
 #define QEI_H_
 
+#include "EELib.h"
+
 const int lookuptable[16] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
 
 class QEI_Handler 
 {
 private:
-	int directions[4];
-	int counts[4];
-	int enc_val[4];	
+	PWM wheel;
+	int direction;
+	int count;
+	int enc_val;
+	double speed;
+	
+	void interruptHandler(void); 	
 	
 public:
-	enum Wheel {
-		WHEEL_LB,
-		WHEEL_RB,
-		WHEEL_LF,
-		WHEEL_RF
-	};
-	QEI_Handler();
-	void handleQEI(Wheel wheel);
+	QEI_Handler(PWM output);
+	double getSpeed();
 };
 
 

@@ -1,4 +1,5 @@
 #include "EELib.h"
+#include "Motor.h"
 
 // Pin names
 pin_def SS_M = pin_def(&PORTB, 0);

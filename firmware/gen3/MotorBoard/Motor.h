@@ -16,13 +16,14 @@
 class Motor
 {
 private:
+	PWM wheel;
 	HealthMonitor* monitor;
 	QEI_Handler* qei;
 	PID_Handler* pid;
 
 //functions
 public:
-	Motor();
+	Motor(PWM output, pin_def tempPin, pin_def currentPin);
 	void setSpeed(double);
 	double getSpeed();
 	HealthStatus getStatus();

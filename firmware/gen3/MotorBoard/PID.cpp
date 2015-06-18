@@ -1,7 +1,10 @@
 ﻿
-#include "PID.h"	
+#include "PID.h"
+	
 // constructor, called once when first created
-PID_Handler::PID_Handler() {
+PID_Handler::PID_Handler(PWM output) {
+	wheel = output;
+	
 	k_d = 1;
 	k_i = 1;
 	k_p = 1;
@@ -11,8 +14,12 @@ PID_Handler::PID_Handler() {
 	// TODO (what is actual frequency?)
 	dt = .1;
 }
-		
-double PID_Handler::get_duty_cycle(double speed) {
+	
+void PID_Handler::setSpeed(double speed) {
+	setDutyCycle(wheel, getDutyCycle(speed));
+}
+
+double PID_Handler::getDutyCycle(double speed) {
 	// calculate difference between desired and actual speeds
 	double error = set_point - speed;
 	// calculate rate of change of error

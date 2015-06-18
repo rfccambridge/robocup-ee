@@ -9,9 +9,12 @@
 #ifndef PID_H_
 #define PID_H_
 
+#include "EELib.h"
 
 class PID_Handler {
 	private:
+	// which output we're working with
+	PWM wheel;
 	double k_p;
 	double k_i;
 	double k_d;
@@ -22,10 +25,14 @@ class PID_Handler {
 	// frequency at which PID will be called
 	double dt;
 	
-	public:
-	PID_Handler();
 	double set_point;
-	double get_duty_cycle(double);
+	
+	public:
+	PID_Handler(PWM output);
+	void setSpeed(double speed);
+	
+	private:
+	double getDutyCycle(double speed);
 };
 
 #endif /* PID_H_ */

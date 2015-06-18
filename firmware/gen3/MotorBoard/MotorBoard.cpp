@@ -1,6 +1,5 @@
 #include <avr/io.h>
 #include "SPISlave.h"
-#include "EELib.h"
 #include "MotorBoard.h"
 #include <util/delay.h>
 
@@ -9,6 +8,7 @@ int main(void)
 	SPISlave spi;
 	Command* command;
 	
+	// TODO: initialize PWM and set pin defaults
 	
 	// setup LEDs
 	DDRC = 0xFF;
