@@ -12,7 +12,6 @@
 #include <avr/common.h>
 #include "serial.h"
 //#include "spi.h" //Unfinished interrupt SPI library
-#include "SPIMaster.h"
 
 //#define FOSC 1843200
 #define F_CPU 16000000

@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <avr/interrupt.h>
 #include <avr/common.h>
+#include <util/delay.h>
 #include "SPIMaster.h"
 
 extern "C"{
@@ -30,8 +31,8 @@ int main(void)
 	
 	DDRC = 0xFF;
 	message recvMsg;
-	SPIMaster spi = SPIMaster();
-	Command c = Command();
+	//SPIMaster spi = SPIMaster();
+	//Command c = Command();
 	char replyArr[5];
 	char* reply = &(replyArr[0]);
 	memset(&recvMsg, 0, sizeof(message));
@@ -41,8 +42,13 @@ int main(void)
 	while(true){
 		if(serialPopInbox(&recvMsg)){
 			// Use the received message.
-			c = Command(recvMsg.message[0], recvMsg.message[1], recvMsg.message[2]);
-			spi.SendCommand(recvMsg.slaveID, c, reply);
+			PORTC = recvMsg.message[0];
+			//c = Command(recvMsg.message[0], recvMsg.message[1], recvMsg.message[2]);
+			//spi.SendCommand(recvMsg.slaveID, c, reply);
+			_delay_ms(250);
+		}
+		else {
+			PORTC = 0x00;
 		}
 	}
 }
