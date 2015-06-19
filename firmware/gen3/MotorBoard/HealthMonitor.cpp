@@ -9,11 +9,11 @@
 #include "HealthMonitor.h"
 #include "EELib.h"
 
-HealthMonitor::HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin) {
-	temp = new FilteredVariable(tempPin);
-	current = new FilteredVariable(currentPin);
-	*fault = pin_def(faultPin.port, faultPin.pin);
-}
+HealthMonitor::HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin) :
+	temp(FilteredVariable(tempPin)),
+	current(FilteredVariable(currentPin)),
+	fault(pin_def(faultPin.port, faultPin.pin))	
+{}
 
 HealthStatus HealthMonitor::getStatus() {
 	if (getTemp() > MAXTEMP) {
@@ -27,11 +27,11 @@ HealthStatus HealthMonitor::getStatus() {
 	}
 }
 double HealthMonitor::getTemp() {
-	return temp->getValue();
+	return temp.getValue();
 }
 double HealthMonitor::getCurrent() {
-	return current->getValue();
+	return current.getValue();
 }
 bool HealthMonitor::getFault() {
-	return getBit(*fault);
+	return getBit(fault);
 }
