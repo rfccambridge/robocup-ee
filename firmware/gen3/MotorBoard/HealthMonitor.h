@@ -31,11 +31,20 @@ class HealthMonitor
 private:
 	FilteredVariable temp;
 	FilteredVariable current; 
-	pin_def fault;
+	pin_def faultPin;
+	int tempPin;
+	int currentPin;
+	HealthStatus status;
+	
 
 //functions
+private:
+	double updateTemp();
+	double updateCurrent();
+	
 public:
 	HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin);
+	void update();
 	HealthStatus getStatus();
 	double getTemp();
 	double getCurrent();
