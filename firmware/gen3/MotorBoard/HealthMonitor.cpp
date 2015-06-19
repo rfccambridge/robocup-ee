@@ -10,8 +10,8 @@
 #include "EELib.h"
 
 HealthMonitor::HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin) :
-	temp(FilteredVariable(tempPin)),
-	current(FilteredVariable(currentPin)),
+	temp(FilteredVariable(0.0)),
+	current(FilteredVariable(0.0)),
 	fault(pin_def(faultPin.port, faultPin.pin))	
 {}
 
