@@ -27,6 +27,7 @@ public:
 	bool setSpeed(double);
 	double getSpeed();
 	HealthStatus getStatus();
+	double update();
 }; //Motor
 
 #endif //__MOTOR_H__
