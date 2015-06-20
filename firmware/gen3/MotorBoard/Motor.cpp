@@ -14,12 +14,12 @@ Motor::Motor(PWM output, pin_def tempPin, pin_def currentPin) :
 	wheel(output),
 	monitor(HealthMonitor(tempPin, currentPin, pin_def(&PORTG, (int)wheel))),
 	qei(QEI_Handler(wheel)),
-	pid(PID_Handler(wheel))
+	pid(PID_Handler())
 {}
 
 // primary interface
 bool Motor::setSpeed(double speed) {
-	pid.setSpeed(speed);
+	pid.setSetPoint(speed);
 	return monitor.getStatus() == STATUS_OK;
 }
 

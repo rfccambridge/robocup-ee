@@ -11,27 +11,30 @@
 
 #include "EELib.h"
 
+// duty cycle is a percentage between 0 and 1
+// (the EELib takes care of turning this percentage into an 8bit integer) 
+const double MAX_DUTY = 1.0;
+const double MIN_DUTY = 0.0;
+
 class PID_Handler {
 	private:
-	// which output we're working with
-	PWM wheel;
 	double k_p;
 	double k_i;
 	double k_d;
 	
-	double last_e;
-	double last_i;
+	// keep these as integers because handling overflow is much nicer than with floats
+	long last_e;
+	long last_i;
 	
 	// frequency at which PID will be called
 	double dt;
 	
-	double set_point;
+	double set_point; // m/s
 	
 	public:
-	PID_Handler(PWM output);
-	void setSpeed(double speed);
-	
-	private:
+	PID_Handler();
+	void setSetPoint(double set);
+	void setConstants(double error, double integral, double derivative);
 	double getDutyCycle(double speed);
 };
 
