@@ -1,5 +1,8 @@
+#ifndef __MOTORBOARD_H__
+#define __MOTORBOARD_H__
+
 #include "EELib.h"
-#include "Motor.h"
+#include <avr/io.h>
 
 // Pin names
 pin_def SS_M = pin_def(&PORTB, 0);
@@ -53,3 +56,8 @@ void setBrake(bool enable);
 
 // Given a PWM line number and a direction as bool, sets the direction of that motor
 void setDirection(PWM pwmNum, bool dir);
+
+// Turns off all motors, enables brake
+void safeMode(void);
+
+#endif //__MOTORBOARD_H__

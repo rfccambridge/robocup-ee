@@ -1,18 +1,14 @@
-#include <avr/io.h>
-#include "SPISlave.h"
 #include "MotorBoard.h"
-#include <util/delay.h>
+#include "SPISlave.h"
+#include "Motor.h"
 
 int main(void)
 {	
 	SPISlave spi;
 	Command* command;
-	
-	// TODO: initialize PWM and set pin defaults
-	
-	// setup LEDs
-	DDRC = 0xFF;
-	PORTC = 0x00;
+
+	// setup defaults
+	init();
 	
 	while(1) {
 		PORTC ^= (1 << 0); // flip LED 0 every tick
@@ -90,19 +86,47 @@ int main(void)
 	*/
 }
 
-void init(void)
-{
+void init(void) {
 	// Disable system clock prescaling (max clock frequency)
 	CLKPR = (1 << CLKPCE);
 	CLKPR = (1 << CLKPS0);
 	
+	
+	DDRB = (0 << SS_M.pin) | (0 << SCK.pin) | (0 << MOSI.pin) | (1 << MISO.pin);
+	DDRB |= (1 << PWM1.pin) | (1 << PWM2.pin) | (1 << PWM3.pin) | (1 << PWM4.pin);
+	
+	// enable LED's as output, make sure they're all off
+	DDRC = 0xFF;
+	PORTC = 0x00;
+	
 	// Enable break and dir pins as output
-	DDRD |= (1 << PIND0) | (1 << PIND1) | (1 << PIND2) | (1 << PIND3) | (1 << PIND4);
+	DDRD = 0xFF;
+	
+	// enable quad encoder pins as input
+	DDRE = 0x00;
+	
+	// enable sense pins as input
+	DDRF = 0x00;
+	
+	// enable fault and reset pins as input
+	DDRG = 0x00;
+	
+	// turn on ADC
+	setUpADC();
+	
+	// enable pwm with 0% duty cycle
+	enablePWM(OUTPUT1);
+	enablePWM(OUTPUT2);
+	enablePWM(OUTPUT3);
+	enablePWM(OUTPUT4);
+	
+	// disable brake
+	setBrake(false);
 }
 
 void setBrake(bool enable)
 {
-	setBit(&PIND, PIND4, !enable); 
+	setBit(BREN, !enable); 
 }
 
 void setDirection(PWM pwmNum, bool dir)
@@ -110,16 +134,24 @@ void setDirection(PWM pwmNum, bool dir)
 	switch (pwmNum)
 	{
 		case OUTPUT1:
-			setBit(&PIND, PIND0, dir);
+			setBit(PWM1, dir);
 			break;
 		case OUTPUT2:
-			setBit(&PIND, PIND1, dir);
+			setBit(PWM2, dir);
 			break;
 		case OUTPUT3:
-			setBit(&PIND, PIND2, dir);
+			setBit(PWM3, dir);
 			break;
 		case OUTPUT4:
-			setBit(&PIND, PIND3, dir);
+			setBit(PWM4, dir);
 			break;
 	}
+}
+
+void safeMode() {
+	setDutyCycle(OUTPUT1, 0);
+	setDutyCycle(OUTPUT2, 0);
+	setDutyCycle(OUTPUT3, 0);
+	setDutyCycle(OUTPUT4, 0);
+	setBrake(true);
 }
