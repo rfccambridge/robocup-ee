@@ -9,7 +9,7 @@
 #ifndef __HEALTHMONITOR_H__
 #define __HEALTHMONITOR_H__
 
-#include "FilteredVariable.h"
+#include "FilteredPin.h"
 #include "EELib.h"
 
 const double RSENSE = .020; // ohms
@@ -29,19 +29,13 @@ class HealthMonitor
 {
 //variables
 private:
-	FilteredVariable temp;
-	FilteredVariable current; 
+	FilteredPin temp;
+	FilteredPin current; 
 	pin_def faultPin;
-	int tempPin;
-	int currentPin;
 	HealthStatus status;
 	
 
 //functions
-private:
-	double updateTemp();
-	double updateCurrent();
-	
 public:
 	HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin);
 	void update();
