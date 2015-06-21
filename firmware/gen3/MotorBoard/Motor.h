@@ -28,6 +28,7 @@ public:
 	double getSpeed();
 	HealthStatus getStatus();
 	double update();
+	void handleQEI();
 }; //Motor
 
 #endif //__MOTOR_H__

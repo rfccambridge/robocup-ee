@@ -20,13 +20,12 @@ private:
 	int direction;
 	int count;
 	int enc_val;
-	double speed;
-	
-	void interruptHandler(void); 	
+	double speed; 	
 	
 public:
 	QEI_Handler(PWM output);
 	double getSpeed();
+	void update();
 };
 
 

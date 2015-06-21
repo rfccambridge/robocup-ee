@@ -34,3 +34,7 @@ double Motor::getSpeed() {
 HealthStatus Motor::getStatus() {
 	return monitor.getStatus();
 }
+
+void Motor::handleQEI() {
+	qei.update();
+}

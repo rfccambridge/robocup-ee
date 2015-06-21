@@ -12,7 +12,7 @@ QEI_Handler::QEI_Handler(PWM output){
 }
 
 // this will actually go inside of a special function, just putting it here for now
-void QEI_Handler::interruptHandler(void)
+void QEI_Handler::update(void)
 {
 	// TODO: figure out what I was thinking here...
 	enc_val = enc_val << 2;
