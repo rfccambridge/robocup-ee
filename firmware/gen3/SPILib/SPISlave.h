@@ -17,6 +17,8 @@ private:
 	char m_command;
 	char m_arg1;
 	char m_arg2;
+	char m_arg3;
+	char m_arg4;
 	char m_checksum;
 	char m_reply;
 public:

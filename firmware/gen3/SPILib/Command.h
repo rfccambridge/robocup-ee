@@ -8,6 +8,8 @@ protected:
 	uint8_t m_commandType;
 	uint8_t m_arg1;
 	uint8_t m_arg2;
+	uint8_t m_arg3;
+	uint8_t m_arg4;
 public:
 	enum CommandType {
 		SAFE_MODE_COMMAND,
@@ -20,6 +22,7 @@ public:
 
 	Command();
 	Command(uint8_t commandType, uint8_t arg1, uint8_t arg2);
+	Command(uint8_t commandType, uint8_t arg1, uint8_t arg2, uint8_t arg3, uint8_t arg4);
 	uint8_t GetType();
 };
 
@@ -44,9 +47,11 @@ struct SetWheelSpeedCommand : public Command {
 		WHEEL_LF,
 		WHEEL_RF
 	};
-	Wheel& wheel;
-	uint8_t& speed;
-	SetWheelSpeedCommand(Wheel wheel_, uint8_t speed_);
+	uint8_t& speed_lb;
+	uint8_t& speed_rb;
+	uint8_t& speed_lf;
+	uint8_t& speed_rf;
+	SetWheelSpeedCommand(uint8_t lb, uint8_t rb, uint8_t lf, uint8_t rf);
 };
 
 // charges the capacitors

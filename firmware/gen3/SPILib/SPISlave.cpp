@@ -50,10 +50,20 @@ void SPISlave::ReceiveSPI() {
 			m_state = 4;
 			SPDR = 0x00;
 			break;
-		case 4: // getting checksum
-			if(data == m_command + m_arg1 + m_arg2) {
+		case 4: // getting arg 3
+			m_arg3 = data;
+			m_state = 5;
+			SPDR = 0x00;
+			break;
+		case 5: // getting arg 4
+			m_arg4 = data;
+			m_state = 6;
+			SPDR = 0x00;
+			break;
+		case 6: // getting checksum
+			if(data == m_command + m_arg1 + m_arg2 + m_arg3 + m_arg4) {
 				m_checksum = data;
-				m_state = 5;
+				m_state = 7;
 				PORTC |= (1 << 2); // turn on LED 2
 			}
 			else {
@@ -63,30 +73,30 @@ void SPISlave::ReceiveSPI() {
 		}
 		SPDR = 0x00;
 			break;
-		case 5: // waiting for data to be used
+		case 7: // waiting for data to be used
 			/* nothing to do here. have saved the message internally
 			and am waiting for GetCommand to be called to pull the data out.
 			*/
 			SPDR = 0x00;
 			break;
-		case 6: // waiting to send reply
+		case 8: // waiting to send reply
 			/* nothing to do here. message has been read, we need to send 
 			a reply */
 			SPDR = 0x00;
 			break;
-		case 7: // reply data has been set, tell master to listen
+		case 9: // reply data has been set, tell master to listen
 			SPDR = START_BYTE;
-			m_state = 8;
-			break;
-		case 8: // echo the checksum
-			SPDR = 0xff;//m_checksum;
-			m_state = 9;
-			break;
-		case 9: // send our reply
-			SPDR = m_reply;
 			m_state = 10;
 			break;
-		case 10: // send reply checksum
+		case 10: // echo the checksum
+			SPDR = 0xff;//m_checksum;
+			m_state = 11;
+			break;
+		case 11: // send our reply
+			SPDR = m_reply;
+			m_state = 12;
+			break;
+		case 12: // send reply checksum
 			SPDR = (m_checksum + m_reply);
 			m_state = 0;
 			break;
@@ -99,11 +109,13 @@ void SPISlave::ReceiveSPI() {
 }
 
 bool SPISlave::GetCommand(Command* command) {
-	if(m_state == 5) {
+	if(m_state == 7) {
 		command->m_commandType = m_command;
 		command->m_arg1 = m_arg1;
 		command->m_arg2 = m_arg2;
-		m_state = 6;
+		command->m_arg3 = m_arg3;
+		command->m_arg4 = m_arg4;
+		m_state = 8;
 		return true;
 	}
 	else {
@@ -112,9 +124,9 @@ bool SPISlave::GetCommand(Command* command) {
 }
 
 void SPISlave::SetReply(char reply) {
-	if(m_state == 6) {
+	if(m_state == 8) {
 		m_reply = reply;
-		m_state = 7;
+		m_state = 9;
 	}
 }
 

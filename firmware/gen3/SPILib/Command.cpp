@@ -3,10 +3,17 @@
 Command::Command() {
 }
 
-Command::Command(uint8_t commandType, uint8_t arg1, uint8_t arg2) {
+Command::Command(uint8_t commandType, uint8_t arg1, uint8_t arg2, uint8_t arg3, uint8_t arg4) {
 	m_commandType = commandType;
 	m_arg1 = arg1;
 	m_arg2 = arg2;
+	m_arg3 = arg3;
+	m_arg4 = arg4;
+}
+
+// delegating constructor
+Command::Command(uint8_t commandType, uint8_t arg1, uint8_t arg2) :
+	Command(commandType, arg1, arg2, 0, 0) {
 }
 
 uint8_t Command::GetType() {
@@ -26,10 +33,12 @@ LEDCommand::LEDCommand(uint8_t pin_, bool status_) :
 }
 
 // Wheel speed commands
-SetWheelSpeedCommand::SetWheelSpeedCommand(Wheel wheel_, uint8_t speed_) : 
-	Command(WHEEL_SPEED_COMMAND, wheel_, speed_),
-	wheel((Wheel&)m_arg1),
-	speed(m_arg2) {
+SetWheelSpeedCommand::SetWheelSpeedCommand(uint8_t lb, uint8_t rb, uint8_t lf, uint8_t rf) : 
+	Command(WHEEL_SPEED_COMMAND, lb, rb, lf, rf),
+	speed_lb(m_arg1),
+	speed_rb(m_arg2),
+	speed_lf(m_arg3),
+	speed_rf(m_arg4) {
 }
 
 // Charging command

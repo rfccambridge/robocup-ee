@@ -42,7 +42,11 @@ int main(void)
 				SetWheelSpeedCommand& wheel_cmd = * (SetWheelSpeedCommand*)command;
 				
 				// set the speed of the appropriate wheel
-				bool success = motors[(int)wheel_cmd.wheel].setSpeed(wheel_cmd.speed);
+				bool s_lb = motors[0].setSpeed(wheel_cmd.speed_lb);
+				bool s_rb = motors[1].setSpeed(wheel_cmd.speed_rb);
+				bool s_lf = motors[2].setSpeed(wheel_cmd.speed_lf);
+				bool s_rf = motors[3].setSpeed(wheel_cmd.speed_rf);
+				bool success = s_lb && s_rb && s_lf && s_rf;
 				if (!success) {
 					// something went wrong with setting the speed, send a bad reply
 				}
