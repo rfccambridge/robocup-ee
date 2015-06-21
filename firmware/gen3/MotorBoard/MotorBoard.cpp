@@ -1,18 +1,18 @@
-#include <avr/io.h>
-#include "SPISlave.h"
 #include "MotorBoard.h"
-#include <util/delay.h>
+#include "SPISlave.h"
+#include "Motor.h"
 
 int main(void)
 {	
 	SPISlave spi;
 	Command* command;
-	
-	// TODO: initialize PWM and set pin defaults
-	
-	// setup LEDs
-	DDRC = 0xFF;
-	PORTC = 0x00;
+	Motor motors[4] = {Motor(OUTPUT1, TSENSE1, SENSE1),
+					   Motor(OUTPUT2, TSENSE2, SENSE2),
+					   Motor(OUTPUT3, TSENSE3, SENSE3),
+					   Motor(OUTPUT4, TSENSE4, SENSE4)};
+
+	// setup defaults
+	init();
 	
 	while(1) {
 		PORTC ^= (1 << 0); // flip LED 0 every tick
@@ -28,13 +28,23 @@ int main(void)
 			if (command->GetType() == Command::LED_COMMAND) {
 				LEDCommand& led_cmd = * (LEDCommand*)command;
 				
-				// turn on last LED based on message
-				if (led_cmd.status) {
-					PORTC |= (1 << 3); // turn on LED 3
+				// set the appropriate LED
+				setBit(&PORTC, led_cmd.pin, led_cmd.status);
+			} 
+			else if (command->GetType() == Command::WHEEL_SPEED_COMMAND) {
+				SetWheelSpeedCommand& wheel_cmd = * (SetWheelSpeedCommand*)command;
+				
+				// set the speed of the appropriate wheel
+				bool success = motors[(int)wheel_cmd.wheel].setSpeed(wheel_cmd.speed);
+				if (!success) {
+					// something went wrong with setting the speed
 				}
-				else {
-					PORTC &= ~(1 << 3); // turn off LED 2
-				}
+			} else if (command->GetType() == Command::SAFE_MODE_COMMAND) {
+				safeMode();
+			}
+			// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
+			else {
+				// send some sort of bad reply
 			}
 			
 			// send a reply
@@ -42,10 +52,20 @@ int main(void)
 			
 		}
 		else {
-			// no command yet
-			PORTC &= ~(1 << 1); // turn off LED 1
+			// no command 
 		}
 		
+		// update the motors and the duty cycles
+		for (int i = 0; i < 4; i++) {
+			double duty = motors[i].update();
+			
+			// enter safemode if the status is anything other than OK
+			if (motors[i].getStatus() != STATUS_OK){
+				safeMode();
+			}
+			
+			setDutyCycle((PWM) i, duty);
+		}
 	}
 	/*
 	while(1) {
@@ -90,19 +110,47 @@ int main(void)
 	*/
 }
 
-void init(void)
-{
+void init(void) {
 	// Disable system clock prescaling (max clock frequency)
 	CLKPR = (1 << CLKPCE);
 	CLKPR = (1 << CLKPS0);
 	
+	
+	DDRB = (0 << SS_M.pin) | (0 << SCK.pin) | (0 << MOSI.pin) | (1 << MISO.pin);
+	DDRB |= (1 << PWM1.pin) | (1 << PWM2.pin) | (1 << PWM3.pin) | (1 << PWM4.pin);
+	
+	// enable LED's as output, make sure they're all off
+	DDRC = 0xFF;
+	PORTC = 0x00;
+	
 	// Enable break and dir pins as output
-	DDRD |= (1 << PIND0) | (1 << PIND1) | (1 << PIND2) | (1 << PIND3) | (1 << PIND4);
+	DDRD = 0xFF;
+	
+	// enable quad encoder pins as input
+	DDRE = 0x00;
+	
+	// enable sense pins as input
+	DDRF = 0x00;
+	
+	// enable fault and reset pins as input
+	DDRG = 0x00;
+	
+	// turn on ADC
+	setUpADC();
+	
+	// enable pwm with 0% duty cycle
+	enablePWM(OUTPUT1);
+	enablePWM(OUTPUT2);
+	enablePWM(OUTPUT3);
+	enablePWM(OUTPUT4);
+	
+	// disable brake
+	setBrake(false);
 }
 
 void setBrake(bool enable)
 {
-	setBit(&PIND, PIND4, !enable); 
+	setBit(BREN, !enable); 
 }
 
 void setDirection(PWM pwmNum, bool dir)
@@ -110,16 +158,25 @@ void setDirection(PWM pwmNum, bool dir)
 	switch (pwmNum)
 	{
 		case OUTPUT1:
-			setBit(&PIND, PIND0, dir);
+			setBit(PWM1, dir);
 			break;
 		case OUTPUT2:
-			setBit(&PIND, PIND1, dir);
+			setBit(PWM2, dir);
 			break;
 		case OUTPUT3:
-			setBit(&PIND, PIND2, dir);
+			setBit(PWM3, dir);
 			break;
 		case OUTPUT4:
-			setBit(&PIND, PIND3, dir);
+			setBit(PWM4, dir);
 			break;
 	}
+}
+
+// TODO: how to make sure that we stay in safemode
+void safeMode() {
+	setDutyCycle(OUTPUT1, 0);
+	setDutyCycle(OUTPUT2, 0);
+	setDutyCycle(OUTPUT3, 0);
+	setDutyCycle(OUTPUT4, 0);
+	setBrake(true);
 }

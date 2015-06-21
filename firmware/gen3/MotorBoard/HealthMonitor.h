@@ -9,32 +9,36 @@
 #ifndef __HEALTHMONITOR_H__
 #define __HEALTHMONITOR_H__
 
-#include "FilteredVariable.h"
+#include "FilteredPin.h"
 #include "EELib.h"
 
-// TODO: Set these to real values
-const double MAXTEMP = 1085.0; // melting point of copper
-const double MAXCURRENT = 20.0; 
+const double RSENSE = .020; // ohms
+const double MAXTEMP = 85.0; // C
+const double MAXCURRENT = 20.0; // Amps
 
 typedef enum status {
 	STATUS_OK,
 	STATUS_OVERHEAT,
 	STATUS_OVERCURRENT,
 	STATUS_FAULT,
-	STATUS_UNKNOWNERROR	
+	STATUS_UNKNOWNERROR,
+	STATUS_BURNED,	
 } HealthStatus;
 
 class HealthMonitor
 {
 //variables
 private:
-	FilteredVariable* temp;
-	FilteredVariable* current; 
-	pin_def* fault;
+	FilteredPin temp;
+	FilteredPin current; 
+	pin_def faultPin;
+	HealthStatus status;
+	
 
 //functions
 public:
 	HealthMonitor(pin_def tempPin, pin_def currentPin, pin_def faultPin);
+	void update();
 	HealthStatus getStatus();
 	double getTemp();
 	double getCurrent();

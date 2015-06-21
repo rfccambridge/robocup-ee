@@ -14,11 +14,16 @@
 class FilteredVariable
 {
 private:
-	pin_def* inputPin;
+	double gamma_x[3];
+	double gamma_y[3];
+	double x[3];
+	double y[3];
+	
 
 //functions
 public:
-	FilteredVariable(pin_def inputPin);
+	FilteredVariable(double init_val);
+	double update(double input);
 	double getValue();
 }; //FilteredVariable
 

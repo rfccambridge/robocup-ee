@@ -127,6 +127,12 @@
     <Compile Include="EELib.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="FilteredPin.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FilteredPin.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="FilteredVariable.cpp">
       <SubType>compile</SubType>
     </Compile>
