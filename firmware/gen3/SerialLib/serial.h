@@ -12,7 +12,7 @@
 #define SERIAL_H_
 
 //bool serialPushInbox(const message* msg);
-bool serialPopInbox(message* msg);
+int serialPopInbox(message* msg);
 //int serialGetInboxSize();
 bool serialPushOutbox(const message* msg);
 bool serialPopOutbox(message* msg);

@@ -3,16 +3,14 @@
 
 #include <stdbool.h>
 
-#define SERIAL_MSG_CHARS 3
+#define SERIAL_MSG_MAX_CHARS 7
 #define BOX_SIZE 10
 
 typedef struct message
 {
-	/* The ID of the destination slave. */
-	char slaveID;
 	/* The actual bytes of this message.
 	 * Command, and arguments. */
-	char message[SERIAL_MSG_CHARS];
+	char message[SERIAL_MSG_MAX_CHARS];
 }message;
 
 typedef struct messageQueue {

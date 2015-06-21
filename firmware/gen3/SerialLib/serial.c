@@ -10,7 +10,7 @@
 #define XBEE_RTS_BIT 1
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
-#define SEND_QUEUE_SIZE SERIAL_MSG_CHARS
+#define SEND_QUEUE_SIZE SERIAL_MSG_MAX_CHARS
 
 //messageQueue inbox;
 messageQueue outbox;
@@ -26,26 +26,59 @@ message readBuf;
 	return mqPushMessage(msg, &inbox);
 }*/
 
-bool serialPopInbox(message* dest){
-	while(charsRead < (1 + SERIAL_MSG_CHARS)){
-		while (!(UCSR0A & (1 << RXC0))){
+int serialPopInbox(message* dest){
+	int state = 0;
+	int data_byte = 0;
+	bool done = false;
+	while(!done) {
+		while (!(UCSR0A & (1 << RXC0))) {
 			// Busy wait for message.
-		}
-		if(charsRead == 0){
-			readBuf.slaveID = UDR0;
-			charsRead++;
-		}
-		else if((charsRead - 1) < SERIAL_MSG_CHARS){
-			readBuf.message[(charsRead - 1) % SERIAL_MSG_CHARS] = UDR0;
-			charsRead++;
-		}
-		else{
+			}
+		switch(state) {
+		case 0:
+			if (UDR0 == '\\')
+				state = 1;
+			else
+				return 0;
 			break;
+		case 1:
+			if (UDR0 == 'H')
+				state = 2;
+			else
+				return 0;
+			break;
+		case 2:
+			// getting data
+			if (UDR0 == '\\') {
+				// end of message
+				state = 3;
+			} 
+			else {
+				// more data
+				readBuf.message[data_byte] = UDR0;
+				data_byte++;
+			}
+			break;
+		case 3:
+			if (UDR0 == 'E') {
+				state = 4;
+				done = true;
+			}
+			else
+				return 0;
+			break;
+		default:
+			return 0;
 		}
 	}
+	// if a full ID, SOUCRE, PORT was not sent
+	if (data_byte < 3)
+		return 0;
+	
+	// all good
 	memcpy(dest, &readBuf, sizeof(message));
 	charsRead = 0;
-	return true;
+	return data_byte;
 	//return mqPopMessage(dest, &inbox);
 }
 
