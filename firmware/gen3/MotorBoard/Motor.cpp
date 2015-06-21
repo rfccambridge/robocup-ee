@@ -5,7 +5,6 @@
 * Author: Ezra
 */
 
-
 #include "Motor.h"
 #include <avr/io.h>
 

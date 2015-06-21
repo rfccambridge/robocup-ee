@@ -39,7 +39,7 @@ int main(void)
 				// set the speed of the appropriate wheel
 				bool success = motors[(int)wheel_cmd.wheel].setSpeed(wheel_cmd.speed);
 				if (!success) {
-					// something went wrong with setting the speed
+					// something went wrong with setting the speed, send a bad reply
 				}
 			} else if (command->GetType() == Command::SAFE_MODE_COMMAND) {
 				inSafeMode = true;
@@ -47,10 +47,10 @@ int main(void)
 			}
 			// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
 			else {
-				// send some sort of bad reply
+				// TODO: send some sort of bad reply
 			}
 			
-			// send a reply
+			// send an "OK" reply
 			spi.SetReply(0x42);
 			
 		}
