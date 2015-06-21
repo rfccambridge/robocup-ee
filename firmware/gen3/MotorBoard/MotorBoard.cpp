@@ -4,6 +4,7 @@
 
 int main(void)
 {	
+	bool inSafeMode = false;
 	SPISlave spi;
 	Command* command;
 	Motor motors[4] = {Motor(OUTPUT1, TSENSE1, SENSE1),
@@ -31,7 +32,8 @@ int main(void)
 				// set the appropriate LED
 				setBit(&PORTC, led_cmd.pin, led_cmd.status);
 			} 
-			else if (command->GetType() == Command::WHEEL_SPEED_COMMAND) {
+			// ignore speed commands if in safe mode
+			else if (command->GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
 				SetWheelSpeedCommand& wheel_cmd = * (SetWheelSpeedCommand*)command;
 				
 				// set the speed of the appropriate wheel
@@ -40,6 +42,7 @@ int main(void)
 					// something went wrong with setting the speed
 				}
 			} else if (command->GetType() == Command::SAFE_MODE_COMMAND) {
+				inSafeMode = true;
 				safeMode();
 			}
 			// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
@@ -67,47 +70,6 @@ int main(void)
 			setDutyCycle((PWM) i, duty);
 		}
 	}
-	/*
-	while(1) {
-		PORTC ^= 0x02; // flip 2nd LED
-		
-		bool hasCommand = spi.GetCommand(&command);
-		if(hasCommand)
-		{
-			PORTC |= 0x04; // turn on 3rd LED
-			char reply = 0;
-			switch(command.GetType())
-			{
-				case Command::WHEEL_SPEED_COMMAND:
-					//SetWheelSpeedCommand* c = (SetWheelSpeedCommand*)&command;
-					// TODO: execute command
-				break;
-			
-				case Command::LED_COMMAND:
-					PORTC |= 0x08; // turn on 4th LED
-					LEDCommand* c2 = (LEDCommand*)&command;
-					int pin = c2->getPin();
-					bool on = c2->getStatus();
-				
-					// turn on / off LED
-					
-					if (on) {
-						PORTC |= 1 << pin;
-					}
-					else {
-						PORTC &= ~(1 << pin);
-					}
-			}
-			
-			spi.SetReply(reply);
-		}
-		else {
-			// no command
-			PORTC &= ~(0x04); // turn off 3rd LED
-		}
-		_delay_ms(100);
-	}
-	*/
 }
 
 void init(void) {
@@ -172,8 +134,8 @@ void setDirection(PWM pwmNum, bool dir)
 	}
 }
 
-// TODO: how to make sure that we stay in safemode
 void safeMode() {
+	inSafeMode = true;
 	setDutyCycle(OUTPUT1, 0);
 	setDutyCycle(OUTPUT2, 0);
 	setDutyCycle(OUTPUT3, 0);
