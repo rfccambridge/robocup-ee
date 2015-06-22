@@ -11,7 +11,7 @@
 
 #include "EELib.h"
 
-const int lookuptable[16] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
+const int LOOKUP_TABLE[16] = {0,-1,1,2,1,0,2,-1,-1,0,2,1,2,1,-1,0};
 
 class QEI_Handler 
 {
@@ -19,7 +19,9 @@ private:
 	PWM wheel;
 	int direction;
 	int count;
-	int enc_val;
+	int out;
+	int prev_val;
+	int new_val;
 	double speed; 	
 	
 public:

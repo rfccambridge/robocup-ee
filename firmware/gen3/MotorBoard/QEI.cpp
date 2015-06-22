@@ -4,20 +4,33 @@
 QEI_Handler::QEI_Handler(PWM output){
 		wheel = output;
 		count = 0;
-		enc_val = 0;
+		prev_val = 0;
+		new_val = 0;
 		direction = 0;
 		speed = 0;
-		
-		// TODO: set up interrupts 
+		out = 0;
 }
 
-// this will actually go inside of a special function, just putting it here for now
 double QEI_Handler::update(double dt)
 {
-	// TODO: figure out what I was thinking here...
-	enc_val = enc_val << 2;
-	enc_val = enc_val | ((PIND & (0b11 << wheel)) >> wheel);
-	count = count + lookuptable[enc_val & 0b1111];
+	// read in the two bits corresponding to the quad encoder for the wheel
+	new_val = ((PIND & (0b11 << (2 * wheel))) >> (2 * wheel));
+	
+	// if you think of the lookup table as a 4x4 matrix,
+	// then the row is the previous value and the column is the new value
+	// (this math is equivalent to that)
+	out = LOOKUP_TABLE[4 * prev_val + new_val];
+	
+	if (out != 2) {
+		direction = out;
+		count += out;
+		prev_val = new_val;
+		
+		// TODO: how to update the speed...
+	} else {
+		// ignore the illegal case for now (probably just noise)
+	}
+	
 	return speed;
 }
 
