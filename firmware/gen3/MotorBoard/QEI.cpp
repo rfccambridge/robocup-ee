@@ -12,12 +12,13 @@ QEI_Handler::QEI_Handler(PWM output){
 }
 
 // this will actually go inside of a special function, just putting it here for now
-void QEI_Handler::update(void)
+double QEI_Handler::update(double dt)
 {
 	// TODO: figure out what I was thinking here...
 	enc_val = enc_val << 2;
 	enc_val = enc_val | ((PIND & (0b11 << wheel)) >> wheel);
 	count = count + lookuptable[enc_val & 0b1111];
+	return speed;
 }
 
 double QEI_Handler::getSpeed() {

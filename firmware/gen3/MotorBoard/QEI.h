@@ -25,7 +25,7 @@ private:
 public:
 	QEI_Handler(PWM output);
 	double getSpeed();
-	void update();
+	double update(double);
 };
 
 

@@ -25,17 +25,14 @@ class PID_Handler {
 	// keep these as integers because handling overflow is much nicer than with floats
 	long last_e;
 	long last_i;
-	
-	// frequency at which PID will be called
-	double dt;
-	
+
 	double set_point; // m/s
 	
 	public:
 	PID_Handler();
 	void setSetPoint(double set);
 	void setConstants(double error, double integral, double derivative);
-	double getDutyCycle(double speed);
+	double getDutyCycle(double speed, double dt);
 };
 
 #endif /* PID_H_ */

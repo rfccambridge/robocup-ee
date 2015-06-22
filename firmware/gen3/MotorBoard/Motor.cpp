@@ -17,9 +17,8 @@ Motor::Motor(PWM output, pin_def tempPin, pin_def currentPin) :
 {}
 
 // returns the duty cycle from the pid controller based on the speed
-double Motor::update() {
+void Motor::update() {
 	monitor.update();
-	return pid.getDutyCycle(qei.getSpeed());
 }
 
 bool Motor::setSpeed(double speed) {
@@ -35,6 +34,6 @@ HealthStatus Motor::getStatus() {
 	return monitor.getStatus();
 }
 
-void Motor::handleQEI() {
-	qei.update();
+double Motor::handleQEI(double dt) {
+	return pid.getDutyCycle(qei.update(dt), dt);
 }

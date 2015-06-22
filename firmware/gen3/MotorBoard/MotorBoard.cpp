@@ -6,6 +6,9 @@
 
 // used for controlling frequency at which we update quad encoders
 int counter = 0;
+const int COUNTER_MAX = 250;
+const double dt = 31250.0 / COUNTER_MAX;
+
 bool inSafeMode = false;
 Motor motors[4] = {Motor(OUTPUT1, TSENSE1, SENSE1),
 				   Motor(OUTPUT2, TSENSE2, SENSE2),
@@ -69,14 +72,12 @@ int main(void)
 		
 		// update the motors and the duty cycles
 		for (int i = 0; i < 4; i++) {
-			double duty = motors[i].update();
+			motors[i].update();
 			
 			// enter safemode if the status is anything other than OK
 			if (motors[i].getStatus() != STATUS_OK){
 				safeMode();
 			}
-			
-			setDutyCycle((PWM) i, duty);
 		}
 	}
 }
@@ -84,10 +85,11 @@ int main(void)
 // Interrupt handler for timer1 overflow, should fire at 31.25 kHz
 ISR(TIMER1_OVF_vect) {
 	// only do anything every 250 cycles so that we go from 31.25kHz -> 125Hz
-	if (++counter > 250) {
+	if (++counter > COUNTER_MAX) {
 		counter = 0;
 		for (int i = 0; i < 4; i++) {
-			motors[i].handleQEI();
+			double duty = motors[i].handleQEI(dt);
+			setDutyCycle((PWM) i, duty);
 		}
 	}
 }

@@ -9,15 +9,13 @@ PID_Handler::PID_Handler() {
 	set_point = 0;
 	last_e = 0;
 	last_i = 0;
-	// TODO (what is actual frequency?)
-	dt = .1;
 }
 	
 void PID_Handler::setSetPoint(double set) {
 	set_point = set;
 }
 
-double PID_Handler::getDutyCycle(double speed) {
+double PID_Handler::getDutyCycle(double speed, double dt) {
 	// calculate difference between desired and actual speeds
 	double error = set_point - speed;
 	// calculate rate of change of error
