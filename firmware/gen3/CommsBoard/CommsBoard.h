@@ -13,7 +13,7 @@ pin_def EX0 = pin_def(&PINA, 7);
 
 pin_def SCK = pin_def(&PINB, 1);
 pin_def MOSI = pin_def(&PINB, 2);
-pin_def MISO = pin_def(&PINB, 3);
+pin_def MISO = pin_def(&PORTB, 3);
 
 pin_def RLED1 = pin_def(&PORTC, 0);
 pin_def RLED2 = pin_def(&PORTC, 1);
@@ -46,6 +46,6 @@ pin_def SS_E2 = pin_def(&PORTF, 3);
 pin_def SS_E3 = pin_def(&PORTF, 4);
 pin_def SS_E4 = pin_def(&PORTF, 5);
 pin_def SS_E5 = pin_def(&PORTF, 6);
-pin_def TSENSE = pin_def(&PORTF, 7);
+pin_def TSENSE = pin_def(&PINF, 7);
 
-pin_def RESET = pin_def(&PORTG, 5);
+pin_def RESET = pin_def(&PING, 5);
