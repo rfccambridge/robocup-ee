@@ -30,10 +30,16 @@ double Motor::getSpeed() {
 	return qei.getSpeed();
 }
 
+double Motor::getDutyCycle(double dt) {
+	double duty = pid.getDutyCycle(qei.getSpeed(), dt);
+	qei.clearCount();
+	return duty;
+}
+
 HealthStatus Motor::getStatus() {
 	return monitor.getStatus();
 }
 
-double Motor::handleQEI(double dt) {
-	return pid.getDutyCycle(qei.update(dt), dt);
+void Motor::handleQEI() {
+	qei.update();
 }

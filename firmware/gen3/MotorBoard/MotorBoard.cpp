@@ -15,6 +15,10 @@ Motor motors[4] = {Motor(OUTPUT1, TSENSE1, SENSE1),
 				   Motor(OUTPUT3, TSENSE3, SENSE3),
 				   Motor(OUTPUT4, TSENSE4, SENSE4)};
 				   
+// used to save the value of portE so that we can
+// figure out which pin change(s) triggered the external interrupt
+volatile uint8_t portEPrev = 0xFF;
+				   
 int main(void)
 {	
 	SPISlave spi;
@@ -88,9 +92,45 @@ ISR(TIMER1_OVF_vect) {
 	if (++counter > COUNTER_MAX) {
 		counter = 0;
 		for (int i = 0; i < 4; i++) {
-			double duty = motors[i].handleQEI(dt);
-			setDutyCycle((PWM) i, duty);
+			setDutyCycle((PWM) i, motors[i].getDutyCycle(dt));
 		}
+	}
+}
+
+ISR (PCINT0_vect) {
+	uint8_t changedbits = PINE ^ portEPrev;
+	portEPrev = PINE;
+
+	if (changedbits & (1 << PE0)) {
+		motors[0].handleQEI();
+	}
+
+	if (changedbits & (1 << PE1)) {
+		motors[0].handleQEI();
+	}
+
+	if (changedbits & (1 << PE2)) {
+		motors[1].handleQEI();
+	}
+	
+	if (changedbits & (1 << PE3)) {
+		motors[1].handleQEI();
+	}
+	
+	if (changedbits & (1 << PE4)) {
+		motors[2].handleQEI();
+	}
+
+	if (changedbits & (1 << PE5)) {
+		motors[2].handleQEI();
+	}
+	
+	if (changedbits & (1 << PE6)) {
+		motors[3].handleQEI();
+	}
+	
+	if (changedbits & (1 << PE7)) {
+		motors[3].handleQEI();
 	}
 }
 
@@ -146,6 +186,8 @@ void init(void) {
 	
 	// enable quad encoder pins as input
 	DDRE = 0x00;
+	// turn on pull-up to avoid noise triggering interrupts
+	PORTE = 0xFF;
 	
 	// enable sense pins as input
 	DDRF = 0x00;
@@ -167,6 +209,10 @@ void init(void) {
 	
 	// disable input capture and output match interrupt, enable overflow interrupt
 	TIMSK1 = (0 << ICIE1) | (0 << OCIE1B) | (0 << OCIE1A) | (1 << TOIE1);
+	
+	// Enable external interrupts on PORTE
+	EIMSK |= (1 << PCIE0);
+	PCMSK0 = 0xFF;
 	
 	// enable interrupts
 	sei();

@@ -7,14 +7,13 @@ QEI_Handler::QEI_Handler(PWM output){
 		prev_val = 0;
 		new_val = 0;
 		direction = 0;
-		speed = 0;
 		out = 0;
 }
 
-double QEI_Handler::update(double dt)
+void QEI_Handler::update()
 {
 	// read in the two bits corresponding to the quad encoder for the wheel
-	new_val = ((PIND & (0b11 << (2 * wheel))) >> (2 * wheel));
+	new_val = ((PINE & (0b11 << (2 * wheel))) >> (2 * wheel));
 	
 	// if you think of the lookup table as a 4x4 matrix,
 	// then the row is the previous value and the column is the new value
@@ -26,14 +25,19 @@ double QEI_Handler::update(double dt)
 		count += out;
 		prev_val = new_val;
 		
-		// TODO: how to update the speed...
 	} else {
 		// ignore the illegal case for now (probably just noise)
 	}
-	
-	return speed;
 }
 
-double QEI_Handler::getSpeed() {
-	return speed;
+int QEI_Handler::getSpeed() {
+	return count;
+}
+
+void QEI_Handler::clearCount() {
+	count = 0;
+}
+
+int QEI_Handler::getDirection() {
+	return direction;
 }

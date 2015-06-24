@@ -27,8 +27,9 @@ public:
 	bool setSpeed(double);
 	double getSpeed();
 	HealthStatus getStatus();
+	double getDutyCycle(double dt);
 	void update();
-	double handleQEI(double dt);
+	void handleQEI();
 }; //Motor
 
 #endif //__MOTOR_H__

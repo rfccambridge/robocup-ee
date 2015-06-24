@@ -21,13 +21,14 @@ private:
 	int count;
 	int out;
 	int prev_val;
-	int new_val;
-	double speed; 	
+	int new_val; 	
 	
 public:
 	QEI_Handler(PWM output);
-	double getSpeed();
-	double update(double);
+	int getSpeed();
+	void clearCount();
+	int getDirection();
+	void update();
 };
 
 
