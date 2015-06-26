@@ -11,19 +11,14 @@
 
 int main(void)
 {
-	
+	// initialize display
 	DDRC = 0xFF;
-	message recvMsg;
-	//SPIMaster spi = SPIMaster();
-	//Command c = Command();
-	char replyArr[5];
-	char* reply = &(replyArr[0]);
-	memset(&recvMsg, 0, sizeof(message));
 	PORTC = 0x00;
 	
+	//initializing serial comms
 	initSerial();
+	message recvMsg;
 	
-	//sei();
 	while(true){
 		int bytes = serialPopInbox(&recvMsg);
 		if(bytes != 0){
@@ -31,7 +26,7 @@ int main(void)
 			char id = recvMsg.message[0];
 			
 			// todo filter on bot ID
-			if (true) {
+			if (id == getBotID()) {
 				char source = recvMsg.message[1];
 				char port = recvMsg.message[2];
 				// get other data
@@ -40,10 +35,6 @@ int main(void)
 					_delay_ms(2000);
 				}
 			}
-
-		}
-		else {
-			PORTC = 0x00;
 		}
 	}
 }

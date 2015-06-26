@@ -6,6 +6,12 @@ pin_def BID2 = pin_def(&PINA, 1);
 pin_def BID1 = pin_def(&PINA, 2);
 pin_def BID0 = pin_def(&PINA, 3);
 
+// returns robot ID from first half of pin A
+// damn it have to reverse order
+char getBotID() {
+	return (0x0F & (reverse(PINA) >> 4));
+}
+
 pin_def EX3 = pin_def(&PINA, 4);
 pin_def EX2 = pin_def(&PINA, 5);
 pin_def EX1 = pin_def(&PINA, 6);

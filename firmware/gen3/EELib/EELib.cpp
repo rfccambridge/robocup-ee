@@ -5,6 +5,14 @@
 //pin_def::pin_def(volatile uint8_t* port_, uint8_t pin_) : port(port_), pin(pin_) {
 //}
 
+// from stack overflow
+unsigned char reverse(unsigned char b) {
+	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
+	b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
+	b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
+	return b;
+}
+
 // convenience function to set a single bit cleanly
 void setBit(volatile uint8_t* port, uint8_t pin, bool val) {
 	// Ezra, what witch magic is this?

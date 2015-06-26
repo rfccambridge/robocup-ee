@@ -6,6 +6,8 @@
 // The voltage on the AVCC pin used by the ADC
 #define REF_VOLTAGE 3.33
 
+unsigned char reverse(unsigned char b);
+
 struct pin_def {
 	volatile uint8_t* port;
 	uint8_t pin;
