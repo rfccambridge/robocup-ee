@@ -44,20 +44,21 @@ int main(void)
 		if(bytes != 0){
 			// Use the received message.
 			char id = recvMsg.message[0];
-			char source = recvMsg.message[1];
-			char port = recvMsg.message[2];
 			
-			for (int i = 0; i < SERIAL_MSG_MAX_CHARS; i++) {
-				PORTC = recvMsg.message[i];
-				_delay_ms(2000);
+			// todo filter on bot ID
+			if (id == get_robot_id()) {
+				char source = recvMsg.message[1];
+				char port = recvMsg.message[2];
+				// get other data
+				for (int i = 0; i < SERIAL_MSG_MAX_CHARS; i++) {
+					PORTC = recvMsg.message[i];
+					_delay_ms(2000);
+				}
 			}
-			
-			//c = Command(recvMsg.message[0], recvMsg.message[1], recvMsg.message[2]);
-			//spi.SendCommand(recvMsg.slaveID, c, reply);
+
 		}
 		else {
 			PORTC = 0x00;
-			_delay_ms(500);
 		}
 	}
 }
