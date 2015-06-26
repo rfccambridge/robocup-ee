@@ -2,9 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-commcore.c
+CommCore.cpp
 
-serial.c
-
-spi.c
+SerialLib.cpp
 

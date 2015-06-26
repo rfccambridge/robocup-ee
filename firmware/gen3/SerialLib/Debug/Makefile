@@ -37,9 +37,8 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../commcore.c \
-../serial.c \
-../spi.c
+../CommCore.cpp \
+../SerialLib.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -49,24 +48,20 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-commcore.o \
-serial.o \
-spi.o
+CommCore.o \
+SerialLib.o
 
 OBJS_AS_ARGS +=  \
-commcore.o \
-serial.o \
-spi.o
+CommCore.o \
+SerialLib.o
 
 C_DEPS +=  \
-commcore.d \
-serial.d \
-spi.d
+CommCore.d \
+SerialLib.d
 
 C_DEPS_AS_ARGS +=  \
-commcore.d \
-serial.d \
-spi.d
+CommCore.d \
+SerialLib.d
 
 OUTPUT_FILE_PATH +=libSerialLib.a
 
@@ -87,12 +82,10 @@ LINKER_SCRIPT_DEP+=
 
 
 
-
-
-./%.o: .././%.c
+./%.o: .././%.cpp
 	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega165p -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
+	$(QUOTE)E:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega165p -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -121,8 +114,8 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
 	@echo Building target: $@
-	@echo Invoking: AVR/GNU Archiver : 4.8.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
+	@echo Invoking: AVR8/GNU Archiver : 4.8.1
+	$(QUOTE)E:\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-ar.exe$(QUOTE) -r  -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) 
 	@echo Finished building target: $@
 	
 	

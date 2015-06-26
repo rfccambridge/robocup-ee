@@ -1,48 +1,49 @@
+#include <string.h>
+#include <stdbool.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/common.h>
+#include <util/delay.h>
 #include "SPIMaster.h"
 #include "EELib.h"
 #include "CommsBoard.h"
-#include <util/delay.h>
+#include "SerialLib.h"
 
 int main(void)
 {
-	SPIMaster spi;
 	
-	int pin = 0;
-	bool status = true;
-	
-	// setup indicator LED
 	DDRC = 0xFF;
-	PORTC = 0xFF;
+	message recvMsg;
+	//SPIMaster spi = SPIMaster();
+	//Command c = Command();
+	char replyArr[5];
+	char* reply = &(replyArr[0]);
+	memset(&recvMsg, 0, sizeof(message));
+	PORTC = 0x00;
 	
-	// read in dip switches
-	DDRA = 0x00;
-	bool blink = true;
+	initSerial();
 	
-	while(1) {
-	}
-	
-	while(1)
-	{
-		blink = !blink;
-		bool led = getBit(BID3);
-		setBit(GLED1, led);
-		setBit(GLED2, blink);
-		
-		
-		// create an LED command based on bot ID
-		LEDCommand led_cmd = LEDCommand(0, led);
-		
-		// send message
-		char reply;
-		bool result;
-		result = spi.SendCommand(0, led_cmd, &reply);
-		
-		// indicate status
-		bool good = (reply == 0x42);
-		
-		//PORTC = reply;
-		//(blink << 0) | (led << 1) | (result << 2) | (good << 3);
-		_delay_ms(500);
+	//sei();
+	while(true){
+		int bytes = serialPopInbox(&recvMsg);
+		if(bytes != 0){
+			// Use the received message.
+			char id = recvMsg.message[0];
+			
+			// todo filter on bot ID
+			if (true) {
+				char source = recvMsg.message[1];
+				char port = recvMsg.message[2];
+				// get other data
+				for (int i = 0; i < SERIAL_MSG_MAX_CHARS; i++) {
+					PORTC = recvMsg.message[i];
+					_delay_ms(2000);
+				}
+			}
+
+		}
+		else {
+			PORTC = 0x00;
+		}
 	}
 }
