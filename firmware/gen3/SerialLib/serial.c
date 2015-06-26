@@ -33,34 +33,35 @@ int serialPopInbox(message* dest){
 	while(!done) {
 		while (!(UCSR0A & (1 << RXC0))) {
 			// Busy wait for message.
-			}
+		}
+		char datum = UDR0;
 		switch(state) {
 		case 0:
-			if (UDR0 == '\\')
+			if (datum == '\\')
 				state = 1;
 			else
 				return 0;
 			break;
 		case 1:
-			if (UDR0 == 'H')
+			if (datum == 'H')
 				state = 2;
 			else
 				return 0;
 			break;
 		case 2:
 			// getting data
-			if (UDR0 == '\\') {
+			if (datum == '\\') {
 				// end of message
 				state = 3;
 			} 
 			else {
 				// more data
-				readBuf.message[data_byte] = UDR0;
+				readBuf.message[data_byte] = datum;
 				data_byte++;
 			}
 			break;
 		case 3:
-			if (UDR0 == 'E') {
+			if (datum == 'E') {
 				state = 4;
 				done = true;
 			}
