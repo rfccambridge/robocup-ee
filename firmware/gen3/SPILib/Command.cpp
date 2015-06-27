@@ -33,12 +33,19 @@ LEDCommand::LEDCommand(uint8_t pin_, bool status_) :
 }
 
 // Wheel speed commands
-SetWheelSpeedCommand::SetWheelSpeedCommand(uint8_t lb, uint8_t rb, uint8_t lf, uint8_t rf) : 
-	Command(WHEEL_SPEED_COMMAND, lb, rb, lf, rf),
-	speed_lb(m_arg1),
-	speed_rb(m_arg2),
-	speed_lf(m_arg3),
-	speed_rf(m_arg4) {
+WheelSpeedCommand::WheelSpeedCommand(uint8_t rf, uint8_t lf, uint8_t lb, uint8_t rb) : 
+	Command(WHEEL_SPEED_COMMAND, rf, lf, lb, rb),
+	speed_rf(m_arg1),
+	speed_lf(m_arg2),
+	speed_lb(m_arg3),
+	speed_rb(m_arg4) {
+}
+
+SetPIDCommand::SetPIDCommand(uint8_t p, uint8_t i, uint8_t d) :
+	Command(SET_PID_COMMAND, p, i, d, 0),
+	k_p(m_arg1),
+	k_i(m_arg2),
+	k_d(m_arg3) {
 }
 
 // Charging command

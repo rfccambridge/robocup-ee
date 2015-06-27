@@ -15,6 +15,7 @@ public:
 		SAFE_MODE_COMMAND,
 		LED_COMMAND,
 		WHEEL_SPEED_COMMAND,
+		SET_PID_COMMAND,
 		CHARGE_COMMAND,
 		KICK_COMMAND,
 		DRIBBLE_COMMAND
@@ -42,13 +43,13 @@ struct LEDCommand : public Command {
 };
 
 // sets the desired wheelspeed for one wheel
-struct SetWheelSpeedCommand : public Command {
+struct WheelSpeedCommand : public Command {
 	static const char key = 'w';
+	uint8_t& speed_rf;
+	uint8_t& speed_lf;
 	uint8_t& speed_lb;
 	uint8_t& speed_rb;
-	uint8_t& speed_lf;
-	uint8_t& speed_rf;
-	SetWheelSpeedCommand(uint8_t lb, uint8_t rb, uint8_t lf, uint8_t rf);
+	WheelSpeedCommand(uint8_t rf, uint8_t lf, uint8_t lb, uint8_t rb);
 };
 
 // override PID values for debugging
@@ -57,7 +58,7 @@ struct SetPIDCommand : public Command {
 	uint8_t& k_p;
 	uint8_t& k_i;
 	uint8_t& k_d;
-	SetWheelSpeedCommand(uint8_t p, uint8_t i, uint8_t d)
+	SetPIDCommand(uint8_t p, uint8_t i, uint8_t d);
 };
 
 // charges the capacitors

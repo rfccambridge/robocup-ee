@@ -46,7 +46,7 @@ int main(void)
 			} 
 			// ignore speed commands if in safe mode
 			else if (command->GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
-				SetWheelSpeedCommand& wheel_cmd = * (SetWheelSpeedCommand*)command;
+				WheelSpeedCommand& wheel_cmd = * (WheelSpeedCommand*)command;
 				
 				// set the speed of the appropriate wheel
 				bool s_lb = motors[0].setSpeed(wheel_cmd.speed_lb);
