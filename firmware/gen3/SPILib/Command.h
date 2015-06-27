@@ -29,11 +29,13 @@ public:
 // puts board into a safe mode when an error occurs
 // for instance, turning off motors, discharging
 struct SafeModeCommand : public Command {
+	static const char key = 's';
 	SafeModeCommand();
 };
 
 // blinks an LED on another board
 struct LEDCommand : public Command {
+	static const char key = 'l';
 	uint8_t& pin;
 	bool& status;
 	LEDCommand(uint8_t pin_, bool status_);
@@ -41,12 +43,7 @@ struct LEDCommand : public Command {
 
 // sets the desired wheelspeed for one wheel
 struct SetWheelSpeedCommand : public Command {
-	enum Wheel {
-		WHEEL_LB,
-		WHEEL_RB,
-		WHEEL_LF,
-		WHEEL_RF
-	};
+	static const char key = 'w';
 	uint8_t& speed_lb;
 	uint8_t& speed_rb;
 	uint8_t& speed_lf;
@@ -54,10 +51,20 @@ struct SetWheelSpeedCommand : public Command {
 	SetWheelSpeedCommand(uint8_t lb, uint8_t rb, uint8_t lf, uint8_t rf);
 };
 
+// override PID values for debugging
+struct SetPIDCommand : public Command {
+	static const char key = 'f';
+	uint8_t& k_p;
+	uint8_t& k_i;
+	uint8_t& k_d;
+	SetWheelSpeedCommand(uint8_t p, uint8_t i, uint8_t d)
+};
+
 // charges the capacitors
 // voltage: target voltage (volts)
 // discharge: whether to discharge the caps when higher
 struct ChargeCommand : public Command {
+	static const char key = 'c';
 	uint8_t& voltage;
 	bool& discharge;
 	ChargeCommand(uint8_t voltage_, bool discharge_);
@@ -66,8 +73,8 @@ struct ChargeCommand : public Command {
 // kick the ball
 // power: 0 -> 256 scale
 // breakbeam: true to wait for the breakbeam
-class KickCommand : public Command {
-public:
+struct KickCommand : public Command {
+	static const char key = 'k';
 	uint8_t& power;
 	bool& breakbeam;
 	KickCommand(uint8_t power_, bool breakbeam_);
@@ -75,6 +82,7 @@ public:
 
 // set the dribbler speed
 struct DribbleCommand : public Command {
+	static const char key = 'd';
 	uint8_t& speed;
 	DribbleCommand(uint8_t speed_);
 };

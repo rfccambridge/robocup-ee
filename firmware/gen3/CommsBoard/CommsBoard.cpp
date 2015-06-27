@@ -8,6 +8,7 @@
 #include "EELib.h"
 #include "CommsBoard.h"
 #include "SerialLib.h"
+#include "Command.h"
 
 int main(void)
 {
@@ -29,6 +30,16 @@ int main(void)
 			if (id == getBotID()) {
 				char source = recvMsg.message[1];
 				char port = recvMsg.message[2];
+				
+				// switch on message type
+				switch(port) {
+					case LEDCommand::key:
+						// stuff
+						break;
+					default:
+						// stuff
+						break;
+				}
 				// get other data
 				for (int i = 0; i < SERIAL_MSG_MAX_CHARS; i++) {
 					PORTC = recvMsg.message[i];
