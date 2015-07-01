@@ -43,6 +43,7 @@ void initSerial() {
 	UCSR0B = (1 << TXCIE0) | (1 << UDRIE0) | (1 << RXEN0) | (1 << TXEN0);
 }
 
+// pulls a message off the serial lines. returns # of bytes
 int serialPopInbox(message* dest){
 	int state = 0;
 	int data_byte = 0;

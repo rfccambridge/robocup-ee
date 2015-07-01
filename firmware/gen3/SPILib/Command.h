@@ -32,6 +32,7 @@ public:
 struct SafeModeCommand : public Command {
 	static const char key = 's';
 	SafeModeCommand();
+	SafeModeCommand(const Command &c);
 };
 
 // blinks an LED on another board
@@ -40,6 +41,7 @@ struct LEDCommand : public Command {
 	uint8_t& pin;
 	bool& status;
 	LEDCommand(uint8_t pin_, bool status_);
+	LEDCommand(const Command &c);
 };
 
 // sets the desired wheelspeed for one wheel
@@ -50,6 +52,7 @@ struct WheelSpeedCommand : public Command {
 	uint8_t& speed_lb;
 	uint8_t& speed_rb;
 	WheelSpeedCommand(uint8_t rf, uint8_t lf, uint8_t lb, uint8_t rb);
+	WheelSpeedCommand(const Command &c);
 };
 
 // override PID values for debugging
@@ -59,6 +62,7 @@ struct SetPIDCommand : public Command {
 	uint8_t& k_i;
 	uint8_t& k_d;
 	SetPIDCommand(uint8_t p, uint8_t i, uint8_t d);
+	SetPIDCommand(const Command &c);
 };
 
 // charges the capacitors
@@ -69,6 +73,7 @@ struct ChargeCommand : public Command {
 	uint8_t& voltage;
 	bool& discharge;
 	ChargeCommand(uint8_t voltage_, bool discharge_);
+	ChargeCommand(const Command &c);
 };
 
 // kick the ball
@@ -79,6 +84,7 @@ struct KickCommand : public Command {
 	uint8_t& power;
 	bool& breakbeam;
 	KickCommand(uint8_t power_, bool breakbeam_);
+	KickCommand(const Command &c);
 };
 
 // set the dribbler speed
@@ -86,6 +92,7 @@ struct DribbleCommand : public Command {
 	static const char key = 'd';
 	uint8_t& speed;
 	DribbleCommand(uint8_t speed_);
+	DribbleCommand(const Command &c);
 };
 	
 // [] set wheelspeed
