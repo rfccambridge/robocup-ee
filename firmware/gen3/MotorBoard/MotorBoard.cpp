@@ -18,7 +18,10 @@ Motor motors[4] = {Motor(OUTPUT1, TSENSE1, SENSE1),
 // used to save the value of portE so that we can
 // figure out which pin change(s) triggered the external interrupt
 volatile uint8_t portEPrev = 0xFF;
-				   
+
+// returns the reply to send
+int handle_command(Command &command);
+   
 int main(void)
 {	
 	SPISlave spi;
@@ -33,7 +36,7 @@ int main(void)
 		spi.ReceiveSPI(); // handle SPI state machine
 		
 		if (spi.GetCommand(command)) {
-			handle_command(command);			
+			spi.SetReply(handle_command(command));			
 		}
 		
 		// update the motors and the duty cycles
@@ -48,7 +51,8 @@ int main(void)
 	}
 }
 
-bool handle_command(Command &command) {
+// returns the reply to send
+int handle_command(Command &command) {
 	// a command has been transmitted
 	PORTC |= (1 << 1); // turn on LED 1
 	
@@ -70,7 +74,7 @@ bool handle_command(Command &command) {
 		bool s_rf = motors[3].setSpeed(wheel_cmd.speed_rf);
 		bool success = s_lb && s_rb && s_lf && s_rf;
 		if (!success) {
-			// something went wrong with setting the speed, send a bad reply
+			// something went wrong with setting the speed, return a bad reply
 		}
 	} 
 	else if (command.GetType() == Command::SAFE_MODE_COMMAND) {
@@ -79,11 +83,11 @@ bool handle_command(Command &command) {
 	}
 	// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
 	else {
-		// TODO: send some sort of bad reply
+		// TODO: return some sort of bad reply
 	}
 	
-	// send an "OK" reply
-	spi.SetReply(0x42);
+	// return an "OK" reply
+	return 0x42;
 }
 
 // Interrupt handler for timer1 overflow, should fire at 31.25 kHz
@@ -134,28 +138,8 @@ ISR (PCINT0_vect) {
 	}
 }
 
-void setBrake(bool enable)
-{
+void setBrake(bool enable) {
 	setBit(BREN, !enable); 
-}
-
-void setDirection(PWM pwmNum, bool dir)
-{
-	switch (pwmNum)
-	{
-		case OUTPUT1:
-			setBit(PWM1, dir);
-			break;
-		case OUTPUT2:
-			setBit(PWM2, dir);
-			break;
-		case OUTPUT3:
-			setBit(PWM3, dir);
-			break;
-		case OUTPUT4:
-			setBit(PWM4, dir);
-			break;
-	}
 }
 
 void safeMode() {

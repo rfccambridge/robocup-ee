@@ -7,6 +7,7 @@
 
 #include "Motor.h"
 #include <avr/io.h>
+#include "EELib.h"
 
 // default constructor
 Motor::Motor(PWM output, pin_def tempPin, pin_def currentPin) :
@@ -24,6 +25,11 @@ void Motor::update() {
 bool Motor::setSpeed(double speed) {
 	pid.setSetPoint(speed);
 	return monitor.getStatus() == STATUS_OK;
+}
+
+void Motor::setDirection(bool dir) {
+	// the dir pins are PINS D0, D1, D2, D3
+	setBit(&PORTD, (int)wheel, dir);
 }
 
 double Motor::getSpeed() {

@@ -24,7 +24,8 @@ private:
 //functions
 public:
 	Motor(PWM output, pin_def tempPin, pin_def currentPin);
-	bool setSpeed(double);
+	bool setSpeed(double speed);
+	void setDirection(bool dir);
 	double getSpeed();
 	HealthStatus getStatus();
 	double getDutyCycle(double dt);
