@@ -108,13 +108,13 @@ void SPISlave::ReceiveSPI() {
 	}
 }
 
-bool SPISlave::GetCommand(Command* command) {
+bool SPISlave::GetCommand(Command &command) {
 	if(m_state == 7) {
-		command->m_commandType = m_command;
-		command->m_arg1 = m_arg1;
-		command->m_arg2 = m_arg2;
-		command->m_arg3 = m_arg3;
-		command->m_arg4 = m_arg4;
+		command.m_commandType = m_command;
+		command.m_arg1 = m_arg1;
+		command.m_arg2 = m_arg2;
+		command.m_arg3 = m_arg3;
+		command.m_arg4 = m_arg4;
 		m_state = 8;
 		return true;
 	}

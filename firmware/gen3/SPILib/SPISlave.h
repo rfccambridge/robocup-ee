@@ -30,7 +30,7 @@ public:
 	// get a command if one was sent
 	// does not wait for one
 	// returns false if no command
-	bool GetCommand(Command* command);
+	bool GetCommand(Command &command);
 	
 	// gets a simple byte for debugging
 	char getChar();

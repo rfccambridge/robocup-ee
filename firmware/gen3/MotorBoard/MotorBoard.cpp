@@ -22,7 +22,7 @@ volatile uint8_t portEPrev = 0xFF;
 int main(void)
 {	
 	SPISlave spi;
-	Command* command;
+	Command command;
 
 	// setup defaults
 	init();
@@ -32,46 +32,8 @@ int main(void)
 		
 		spi.ReceiveSPI(); // handle SPI state machine
 		
-		if (spi.GetCommand(command))
-		{
-			// a command has been transmitted
-			PORTC |= (1 << 1); // turn on LED 1
-			
-			// do something with command
-			if (command->GetType() == Command::LED_COMMAND) {
-				LEDCommand& led_cmd = * (LEDCommand*)command;
-				
-				// set the appropriate LED
-				setBit(&PORTC, led_cmd.pin, led_cmd.status);
-			} 
-			// ignore speed commands if in safe mode
-			else if (command->GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
-				WheelSpeedCommand& wheel_cmd = * (WheelSpeedCommand*)command;
-				
-				// set the speed of the appropriate wheel
-				bool s_lb = motors[0].setSpeed(wheel_cmd.speed_lb);
-				bool s_rb = motors[1].setSpeed(wheel_cmd.speed_rb);
-				bool s_lf = motors[2].setSpeed(wheel_cmd.speed_lf);
-				bool s_rf = motors[3].setSpeed(wheel_cmd.speed_rf);
-				bool success = s_lb && s_rb && s_lf && s_rf;
-				if (!success) {
-					// something went wrong with setting the speed, send a bad reply
-				}
-			} else if (command->GetType() == Command::SAFE_MODE_COMMAND) {
-				inSafeMode = true;
-				safeMode();
-			}
-			// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
-			else {
-				// TODO: send some sort of bad reply
-			}
-			
-			// send an "OK" reply
-			spi.SetReply(0x42);
-			
-		}
-		else {
-			// no command 
+		if (spi.GetCommand(command)) {
+			handle_command(command);			
 		}
 		
 		// update the motors and the duty cycles
@@ -84,6 +46,44 @@ int main(void)
 			}
 		}
 	}
+}
+
+bool handle_command(Command &command) {
+	// a command has been transmitted
+	PORTC |= (1 << 1); // turn on LED 1
+	
+	// do something with command
+	if (command.GetType() == Command::LED_COMMAND) {
+		LEDCommand led_cmd = (LEDCommand)command;
+		
+		// set the appropriate LED
+		setBit(&PORTC, led_cmd.pin, led_cmd.status);
+	}
+	// ignore speed commands if in safe mode
+	else if (command.GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
+		WheelSpeedCommand wheel_cmd = (WheelSpeedCommand)command;
+		
+		// set the speed of the appropriate wheel
+		bool s_lb = motors[0].setSpeed(wheel_cmd.speed_lb);
+		bool s_rb = motors[1].setSpeed(wheel_cmd.speed_rb);
+		bool s_lf = motors[2].setSpeed(wheel_cmd.speed_lf);
+		bool s_rf = motors[3].setSpeed(wheel_cmd.speed_rf);
+		bool success = s_lb && s_rb && s_lf && s_rf;
+		if (!success) {
+			// something went wrong with setting the speed, send a bad reply
+		}
+	} 
+	else if (command.GetType() == Command::SAFE_MODE_COMMAND) {
+		inSafeMode = true;
+		safeMode();
+	}
+	// we shouldn't be receiving other types of commands (i.e. charge, kick dribble)
+	else {
+		// TODO: send some sort of bad reply
+	}
+	
+	// send an "OK" reply
+	spi.SetReply(0x42);
 }
 
 // Interrupt handler for timer1 overflow, should fire at 31.25 kHz
