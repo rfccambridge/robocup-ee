@@ -14,14 +14,20 @@
 bool handle_command(const Command &c);
 bool message_to_command(const message &recvMsg, Command &c);
 void handle_led_command(const LEDCommand &c);
-void handle_safe_mode_command();
+void handle_safe_mode_command(const SafeModeCommand &c);
 void handle_unknown_command(const Command &c);
+
+// eww, globals. make this a class at least
+SPIMaster spi;
 
 int main(void)
 {
 	// initialize display
 	DDRC = 0xFF;
 	PORTC = 0x00;
+	
+	// initalizing SPI
+	
 	//initializing serial comms
 	initSerial();
 	message recvMsg;
@@ -50,6 +56,8 @@ int main(void)
 			continue;
 				
 		// send message to correct place
+		char reply;
+		bool result;
 		switch (source) {
 			case 'c':
 				// comms board
@@ -57,9 +65,12 @@ int main(void)
 				break;
 			case 'w':
 				// motor board
+				result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
+				// TODO report on the reply, and result
 				break;
 			case 'v':
 				// kicker board
+				result = spi.SendCommand(spi.KICKER_BOARD_SLAVE, c, &reply);
 				break;
 			default:
 				// unknown destination
@@ -73,7 +84,7 @@ int main(void)
 bool handle_command(Command &c) {
 	switch(c.GetType()) {
 		case Command::SAFE_MODE_COMMAND:
-			handle_safe_mode_command();
+			handle_safe_mode_command((SafeModeCommand)c);
 			break;
 		case Command::LED_COMMAND:
 			handle_led_command((LEDCommand)c);
@@ -89,9 +100,12 @@ void handle_led_command(const LEDCommand &c) {
 	setBit(&PORTC, c.pin, c.status);
 }
 
-void handle_safe_mode_command() {
-	// pass along message to other two boards
-	// TODO
+// pass along message to other two boards
+void handle_safe_mode_command(const SafeModeCommand &c) {
+	char reply_m;
+	char reply_k;
+	spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply_m);
+	spi.SendCommand(spi.KICKER_BOARD_SLAVE, c, &reply_k);
 }
 
 void handle_unknown_command(const Command &c) {
