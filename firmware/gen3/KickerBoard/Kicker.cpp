@@ -1,9 +1,9 @@
 #include <util/delay.h>
 #include "Kicker.h"
 
-Kicker::Kicker(pin_def enablePin) : kickPin(enablePin)
+Kicker::Kicker(pin_def kickEnablePin, pin_def chipEnablePin) : kickPin(kickEnablePin), chipEnable(chipEnablePin)
 {
-	
+	setBit(chipEnable, true);
 }
 
 void Kicker::kick()

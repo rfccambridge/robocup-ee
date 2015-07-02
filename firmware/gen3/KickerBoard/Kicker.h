@@ -6,9 +6,10 @@
 class Kicker {
 	private:
 		pin_def kickPin;
+		pin_def chipEnable;
 		
 	public:
-		Kicker(pin_def enablePin);
+		Kicker(pin_def kickEnablePin, pin_def chipEnablePin);
 		void kick();
 };
 
