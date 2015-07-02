@@ -4,7 +4,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-// used for controlling frequency at which we update quad encoders
+// used for controlling frequency at which we update pid
 int counter = 0;
 const int COUNTER_MAX = 250;
 const double dt = 31250.0 / COUNTER_MAX;

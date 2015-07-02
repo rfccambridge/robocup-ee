@@ -6,6 +6,8 @@
 // The voltage on the AVCC pin used by the ADC
 #define REF_VOLTAGE 3.33
 
+int abs(int num);
+
 unsigned char reverse(unsigned char b);
 
 struct pin_def {

@@ -5,6 +5,10 @@
 //pin_def::pin_def(volatile uint8_t* port_, uint8_t pin_) : port(port_), pin(pin_) {
 //}
 
+int abs(int num) {
+	return (num > 0) ? (num) : (-num);
+}
+
 // from stack overflow
 unsigned char reverse(unsigned char b) {
 	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;

@@ -26,11 +26,11 @@ class PID_Handler {
 	long last_e;
 	long last_i;
 
-	double set_point; // m/s
+	int set_point;
 	
 	public:
 	PID_Handler();
-	void setSetPoint(double set);
+	void setSetPoint(int set);
 	void setConstants(double error, double integral, double derivative);
 	double getDutyCycle(double speed, double dt);
 };

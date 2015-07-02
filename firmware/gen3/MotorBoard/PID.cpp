@@ -11,7 +11,7 @@ PID_Handler::PID_Handler() {
 	last_i = 0;
 }
 	
-void PID_Handler::setSetPoint(double set) {
+void PID_Handler::setSetPoint(int set) {
 	set_point = set;
 }
 
