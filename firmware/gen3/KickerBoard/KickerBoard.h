@@ -1,5 +1,7 @@
 #include "EELib.h"
 
+#define CHARGE_LIMIT 0.0
+
 // Pin names
 pin_def CHARGE = pin_def(&PORTA, 0);
 pin_def DISCHARGE = pin_def(&PORTA, 1);
@@ -28,3 +30,8 @@ pin_def BATSENSE = pin_def(&PINF, 1);
 pin_def BB_IN = pin_def(&PINF, 2);
 
 pin_def RESET = pin_def(&PING, 5);
+
+int main();
+int processCommand(Command &command);
+void handleKickCommand(KickCommand &command);
+void handleChargeCommand(ChargeCommand &command);
