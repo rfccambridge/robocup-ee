@@ -26,11 +26,7 @@ void Motor::update() {
 // 0 is full speed backwards
 // 255 is full speed forwards
 bool Motor::setSpeed(int speed) {
-	if (speed < 127) {
-		setDirection(false);
-	} else {
-		setDirection(true);
-	}
+	setDirection(speed < 127);
 	
 	int magnitude = abs(127 - speed);
 	pid.setSetPoint(magnitude);
