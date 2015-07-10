@@ -6,7 +6,7 @@ void follow_switches(void);
 
 int main (void)
 {
-	
+	sweep();
 }
 
 // LEDs = dip switches

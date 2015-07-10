@@ -3,6 +3,7 @@
 #include "Motor.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/delay.h>
 
 // used for controlling frequency at which we update pid
 int counter = 0;
@@ -29,6 +30,33 @@ int main(void)
 
 	// setup defaults
 	init();
+	
+	DDRC = 0x0F;
+	PORTC = 0x00;
+	setBit(LED1, true);
+	setBit(DIR1, false);
+	setBit(DIR2, false);
+	setBit(DIR3, false);
+	setBit(DIR4, false);
+	
+	while(1) {
+		setBit(LED2, true);
+		for (double i = 0; i < .8; i += .05) {
+			setDutyCycle(OUTPUT1, i);
+			setDutyCycle(OUTPUT2, i);
+			setDutyCycle(OUTPUT3, i);
+			setDutyCycle(OUTPUT4, i);
+			_delay_ms(200);
+		}
+		setBit(LED2,false);
+		for (double i = .8; i > 0; i -= .05) {
+			setDutyCycle(OUTPUT1, i);
+			setDutyCycle(OUTPUT2, i);
+			setDutyCycle(OUTPUT3, i);
+			setDutyCycle(OUTPUT4, i);
+			_delay_ms(200);
+		}
+	}
 	
 	while(1) {
 		PORTC ^= (1 << 0); // flip LED 0 every tick

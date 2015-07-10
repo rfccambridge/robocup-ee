@@ -16,6 +16,8 @@ Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "CommsBoard", "CommsBoard\Co
 EndProject
 Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialLib", "SerialLib\SerialLib.cppproj", "{2643A3B6-61FA-4FF6-8176-3D0060439B51}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "DemoBoard", "DemoBoard\DemoBoard.cproj", "{857FE789-FF3A-44CB-8FFA-C7A539F65390}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -46,6 +48,10 @@ Global
 		{2643A3B6-61FA-4FF6-8176-3D0060439B51}.Debug|AVR.Build.0 = Debug|AVR
 		{2643A3B6-61FA-4FF6-8176-3D0060439B51}.Release|AVR.ActiveCfg = Release|AVR
 		{2643A3B6-61FA-4FF6-8176-3D0060439B51}.Release|AVR.Build.0 = Release|AVR
+		{857FE789-FF3A-44CB-8FFA-C7A539F65390}.Debug|AVR.ActiveCfg = Debug|AVR
+		{857FE789-FF3A-44CB-8FFA-C7A539F65390}.Debug|AVR.Build.0 = Debug|AVR
+		{857FE789-FF3A-44CB-8FFA-C7A539F65390}.Release|AVR.ActiveCfg = Release|AVR
+		{857FE789-FF3A-44CB-8FFA-C7A539F65390}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

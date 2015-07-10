@@ -14,9 +14,9 @@ pin_def PWM2 = pin_def(&PORTB, 5);
 pin_def PWM3 = pin_def(&PORTB, 6);
 pin_def PWM4 = pin_def(&PORTB, 7);
 
-pin_def LED3 = pin_def(&PORTC, 0);
-pin_def LED1 = pin_def(&PORTC, 1);
-pin_def LED2 = pin_def(&PORTC, 2);
+pin_def LED3 = pin_def(&PORTC, 1);
+pin_def LED1 = pin_def(&PORTC, 2);
+pin_def LED2 = pin_def(&PORTC, 0);
 pin_def LED4 = pin_def(&PORTC, 3);
 
 pin_def DIR1 = pin_def(&PORTD, 0);

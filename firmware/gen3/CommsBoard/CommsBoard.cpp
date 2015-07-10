@@ -32,7 +32,7 @@ int main(void)
 	initSerial();
 	message recvMsg;
 	while(true) {
-		setBit(&PORTC, 7, true);
+		setBit(&PORTC, 6, true);
 		int bytes = serialPopInbox(&recvMsg);
 		
 		// valid message?

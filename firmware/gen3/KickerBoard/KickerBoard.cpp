@@ -20,12 +20,15 @@ int main(void)
 	
 	// At startup, stop charging
 	capCharger.stopCharge();
-	
+	DDRC = 0xFF;
+	PORTC = 0x00;
     while(1)
     {
+		setBit(BLED1,true);
         spi.ReceiveSPI();
 		if(spi.GetCommand(command))
 		{
+			setBit(BLED2, true);
 			processCommand(command);
 		}
 		capCharger.update();
