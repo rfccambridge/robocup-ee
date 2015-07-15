@@ -11,11 +11,11 @@
 #include "Command.h"
 
 // actual functions
-bool handle_command(const Command &c);
 bool message_to_command(const message &recvMsg, Command &c);
-void handle_led_command(const LEDCommand &c);
-void handle_safe_mode_command(const SafeModeCommand &c);
-void handle_unknown_command(const Command &c);
+void handle_command(Command &c);
+void handle_led_command(LEDCommand &c);
+void handle_safe_mode_command(SafeModeCommand &c);
+void handle_unknown_command(Command &c);
 
 // eww, globals. make this a class at least
 SPIMaster spi;
@@ -36,13 +36,19 @@ int main(void)
 		int bytes = serialPopInbox(&recvMsg);
 		
 		// valid message?
-		if (bytes == 0) 
+		if (bytes == 0)
+		{
+			setBit(&PORTC, 3, true);
 			continue;
+		}
 	
 		// for us?
 		char id = recvMsg.message[0];
-		if (id != getBotID()) 
+		if (id != getBotID())
+		{
+			setBit(&PORTC, 2, true);
 			continue;
+		}
 			
 		// we're all good!
 		setBit(&PORTC, 0, true);
@@ -52,9 +58,9 @@ int main(void)
 		// cast into command
 		Command c;
 		bool valid = message_to_command(recvMsg, c);
-		if (~valid)
+		if (!valid)
 			continue;
-				
+
 		// send message to correct place
 		char reply;
 		bool result;
@@ -81,14 +87,18 @@ int main(void)
 }
 
 // handles a command meant for the comms board
-bool handle_command(Command &c) {
+void handle_command(Command &c) {
 	switch(c.GetType()) {
-		case Command::SAFE_MODE_COMMAND:
-			handle_safe_mode_command((SafeModeCommand)c);
+		case Command::SAFE_MODE_COMMAND: {
+			SafeModeCommand sc = c;
+			handle_safe_mode_command(sc);
 			break;
-		case Command::LED_COMMAND:
-			handle_led_command((LEDCommand)c);
+		}
+		case Command::LED_COMMAND: {
+			LEDCommand lc = c;
+			handle_led_command(lc);
 			break;
+		}
 		default:
 			handle_unknown_command(c);
 			break;
@@ -96,19 +106,19 @@ bool handle_command(Command &c) {
 }
 
 // processing individual commands
-void handle_led_command(const LEDCommand &c) {
+void handle_led_command(LEDCommand &c) {
 	setBit(&PORTC, c.pin, c.status);
 }
 
 // pass along message to other two boards
-void handle_safe_mode_command(const SafeModeCommand &c) {
+void handle_safe_mode_command(SafeModeCommand &c) {
 	char reply_m;
 	char reply_k;
 	spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply_m);
 	spi.SendCommand(spi.KICKER_BOARD_SLAVE, c, &reply_k);
 }
 
-void handle_unknown_command(const Command &c) {
+void handle_unknown_command(Command &c) {
 	// return some error message
 	// TODO
 }

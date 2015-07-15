@@ -24,6 +24,9 @@ uint8_t Command::GetType() {
 SafeModeCommand::SafeModeCommand() :
 	Command(SAFE_MODE_COMMAND, 0, 0) {
 }
+SafeModeCommand::SafeModeCommand(const Command &c) :
+Command(c) {
+}
 
 // LED blinking commands
 LEDCommand::LEDCommand(uint8_t pin_, bool status_) : 
