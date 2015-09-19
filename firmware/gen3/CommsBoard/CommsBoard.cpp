@@ -30,6 +30,27 @@ int main(void)
 	
 	//initializing serial comms
 	initSerial();
+	
+	// TESTING MOTORBOARD
+	bool result;
+	char reply;
+	while(true) {
+		setBit(RLED1, true);
+		for (uint8_t i = 0; i < 127; ++i) {
+			WheelSpeedCommand c = WheelSpeedCommand(i, i, i, i);
+			result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
+			setBit(GLED1, result);
+			_delay_ms(250);
+		}
+		setBit(RLED1, false);
+		for (uint8_t i = 127; i > 0; --i) {
+			WheelSpeedCommand c = WheelSpeedCommand(i, i, i, i);
+			result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
+			setBit(GLED1, result);
+			_delay_ms(250);
+		}
+	}
+	
 	message recvMsg;
 	while(true) {
 		setBit(&PORTC, 6, true);

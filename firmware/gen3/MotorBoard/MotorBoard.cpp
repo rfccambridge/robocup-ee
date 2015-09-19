@@ -31,42 +31,18 @@ int main(void)
 	// setup defaults
 	init();
 	
-	DDRC = 0x0F;
-	PORTC = 0x00;
-	setBit(LED1, true);
-	setBit(DIR1, false);
-	setBit(DIR2, false);
-	setBit(DIR3, false);
-	setBit(DIR4, false);
-	
+	bool blink = true;
 	while(1) {
-		setBit(LED2, true);
-		for (double i = 0; i < .8; i += .05) {
-			setDutyCycle(OUTPUT1, i);
-			setDutyCycle(OUTPUT2, i);
-			setDutyCycle(OUTPUT3, i);
-			setDutyCycle(OUTPUT4, i);
-			_delay_ms(200);
-		}
-		setBit(LED2,false);
-		for (double i = .8; i > 0; i -= .05) {
-			setDutyCycle(OUTPUT1, i);
-			setDutyCycle(OUTPUT2, i);
-			setDutyCycle(OUTPUT3, i);
-			setDutyCycle(OUTPUT4, i);
-			_delay_ms(200);
-		}
-	}
-	
-	while(1) {
-		PORTC ^= (1 << 0); // flip LED 0 every tick
+		setBit(LED1, blink); // flip LED 0 every tick
+		blink = !blink;
 		
 		spi.ReceiveSPI(); // handle SPI state machine
 		
+		// handle received message
 		if (spi.GetCommand(command)) {
 			spi.SetReply(handle_command(command));			
 		}
-		
+		/*
 		// update the motors and the duty cycles
 		for (int i = 0; i < 4; i++) {
 			motors[i].update();
@@ -75,15 +51,15 @@ int main(void)
 			if (motors[i].getStatus() != STATUS_OK){
 				safeMode();
 			}
-		}
+		}*/
 	}
 }
 
 // returns the reply to send
 int handle_command(Command &command) {
 	// a command has been transmitted
-	PORTC |= (1 << 1); // turn on LED 1
-	
+	setBit(LED2, true); // turn on LED 1
+		
 	// do something with command
 	if (command.GetType() == Command::LED_COMMAND) {
 		LEDCommand led_cmd = (LEDCommand)command;
@@ -94,7 +70,13 @@ int handle_command(Command &command) {
 	// ignore speed commands if in safe mode
 	else if (command.GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
 		WheelSpeedCommand wheel_cmd = (WheelSpeedCommand)command;
+		setBit(LED3, true);
 		
+		setDutyCycle(OUTPUT1, wheel_cmd.speed_lb / 127.0);
+		setDutyCycle(OUTPUT2, wheel_cmd.speed_rb / 127.0);
+		setDutyCycle(OUTPUT3, wheel_cmd.speed_lf / 127.0);
+		setDutyCycle(OUTPUT4, wheel_cmd.speed_rf / 127.0);
+		/*
 		// set the speed of the appropriate wheel
 		bool s_lb = motors[0].setSpeed(wheel_cmd.speed_lb);
 		bool s_rb = motors[1].setSpeed(wheel_cmd.speed_rb);
@@ -104,6 +86,7 @@ int handle_command(Command &command) {
 		if (!success) {
 			// something went wrong with setting the speed, return a bad reply
 		}
+		*/
 	} 
 	else if (command.GetType() == Command::SAFE_MODE_COMMAND) {
 		inSafeMode = true;
@@ -124,7 +107,7 @@ ISR(TIMER1_OVF_vect) {
 	if (++counter > COUNTER_MAX) {
 		counter = 0;
 		for (int i = 0; i < 4; i++) {
-			setDutyCycle((PWM) i, motors[i].getDutyCycle(dt));
+			//setDutyCycle((PWM) i, motors[i].getDutyCycle(dt));
 		}
 	}
 }

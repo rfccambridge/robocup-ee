@@ -3,8 +3,8 @@
 	
 // constructor, called once when first created
 PID_Handler::PID_Handler() {
-	k_d = 1;
-	k_i = 1;
+	k_d = 0;
+	k_i = 0;
 	k_p = 1;
 	set_point = 0;
 	last_e = 0;
