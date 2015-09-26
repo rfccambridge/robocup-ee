@@ -26,12 +26,30 @@ int main(void)
 	DDRC = 0xFF;
 	PORTC = 0x00;
 	
+	// testing LEDs
+	/*
+	setBit(RLED1, true);
+	_delay_ms(200);
+	setBit(RLED2, true);
+	_delay_ms(200);
+	setBit(BLED1, true);
+	_delay_ms(200);
+	setBit(BLED2, true);
+	_delay_ms(200);
+	setBit(GLED1, true);
+	_delay_ms(200);
+	setBit(YLED1, true);
+	_delay_ms(200);
+	PORTC = 0x00;
+	*/
+	
 	// initalizing SPI
 	
 	//initializing serial comms
 	initSerial();
 	
 	// TESTING MOTORBOARD
+	/*
 	bool result;
 	char reply;
 	while(true) {
@@ -40,39 +58,38 @@ int main(void)
 			WheelSpeedCommand c = WheelSpeedCommand(i, i, i, i);
 			result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
 			setBit(GLED1, result);
-			_delay_ms(250);
+			_delay_ms(100);
 		}
 		setBit(RLED1, false);
 		for (uint8_t i = 127; i > 0; --i) {
 			WheelSpeedCommand c = WheelSpeedCommand(i, i, i, i);
 			result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
 			setBit(GLED1, result);
-			_delay_ms(250);
+			_delay_ms(100);
 		}
-	}
+	}*/
 	
 	message recvMsg;
 	while(true) {
-		setBit(&PORTC, 6, true);
+		setBit(RLED1, true);
 		int bytes = serialPopInbox(&recvMsg);
 		
 		// valid message?
 		if (bytes == 0)
 		{
-			setBit(&PORTC, 3, true);
 			continue;
 		}
+		setBit(RLED2,true);
 	
 		// for us?
-		char id = recvMsg.message[0];
+		char id = recvMsg.message[0] - '0'; // id0 is encoded as '0'
 		if (id != getBotID())
 		{
-			setBit(&PORTC, 2, true);
 			continue;
 		}
+		setBit(BLED1, true);
 			
 		// we're all good!
-		setBit(&PORTC, 0, true);
 		char source = recvMsg.message[1];
 		char port = recvMsg.message[2];
 		
@@ -81,6 +98,7 @@ int main(void)
 		bool valid = message_to_command(recvMsg, c);
 		if (!valid)
 			continue;
+		setBit(BLED2,true);
 
 		// send message to correct place
 		char reply;
@@ -88,10 +106,12 @@ int main(void)
 		switch (source) {
 			case 'c':
 				// comms board
+				setBit(GLED1, true);
 				handle_command(c);
 				break;
 			case 'w':
 				// motor board
+				setBit(YLED1, true);
 				result = spi.SendCommand(spi.MOTOR_BOARD_SLAVE, c, &reply);
 				// TODO report on the reply, and result
 				break;

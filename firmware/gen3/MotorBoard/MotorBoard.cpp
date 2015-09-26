@@ -31,10 +31,7 @@ int main(void)
 	// setup defaults
 	init();
 	
-	bool blink = true;
 	while(1) {
-		setBit(LED1, blink); // flip LED 0 every tick
-		blink = !blink;
 		
 		spi.ReceiveSPI(); // handle SPI state machine
 		
@@ -58,7 +55,6 @@ int main(void)
 // returns the reply to send
 int handle_command(Command &command) {
 	// a command has been transmitted
-	setBit(LED2, true); // turn on LED 1
 		
 	// do something with command
 	if (command.GetType() == Command::LED_COMMAND) {
@@ -70,7 +66,15 @@ int handle_command(Command &command) {
 	// ignore speed commands if in safe mode
 	else if (command.GetType() == Command::WHEEL_SPEED_COMMAND && !inSafeMode) {
 		WheelSpeedCommand wheel_cmd = (WheelSpeedCommand)command;
-		setBit(LED3, true);
+		
+		if (wheel_cmd.speed_lb > 65) {
+			PORTC = 0xFF;
+		}
+		else {
+			PORTC = 0x00;
+		}
+		
+		
 		
 		setDutyCycle(OUTPUT1, wheel_cmd.speed_lb / 127.0);
 		setDutyCycle(OUTPUT2, wheel_cmd.speed_rb / 127.0);
