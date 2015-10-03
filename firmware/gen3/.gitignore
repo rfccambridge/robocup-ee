@@ -1,7 +1,10 @@
-SPILib/Debug
-CommsBoard/Debug
-MotorBoard/Debug
-EELib/Debug
-SPILib/Debug
-SerialLib/Debug
-KickerBoard/Debug
+**/Debug
+*.atsuo
+*.o
+*.a
+*.hex
+*.elf
+*.d
+*.map
+*.lss
+*.srec
