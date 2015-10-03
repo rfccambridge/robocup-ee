@@ -106,12 +106,19 @@ int serialPopInbox(message* dest){
 }*/
 
 bool serialPushOutbox(const message* msg){
+	
 	// Since we have a message in the outbox,
 	// Enable the interrupt handler that sends data
 	// Worst case, the data is already sent and the interrupt
 	// Will just disable itself.
-	UCSR0B |= (1 << UDRIE0);
-	return mqPushMessage(msg, &outbox);
+	// Busy wait for messages
+	for(int i = 0; i < SERIAL_MSG_MAX_CHARS; i++){
+		while( !((UCSR0A) & (1 << UDRE0))){
+			// Wait
+		}
+		UDR0 = msg->message[i];
+	}
+	return true;
 }
 
 bool serialPopOutbox(message* msg){
@@ -138,6 +145,9 @@ bool clearToSend(){
 	return XBEE_CTS & (1 << XBEE_CTS_BIT);
 }
 
+// Below are unused ISRs
+// They were supposed to handle serial.
+// Kept commented because they will live again!
 /*
  * There are several different interrupts that we have to manage
  * to control data transmission using interrupts.
@@ -168,7 +178,7 @@ bool clearToSend(){
 		serialPushInbox(&readBuf);
 		charsRead = 0;
 	}
-};*/
+};
 
 ISR(USART0_TX_vect){
 	// Do nothing, this just clears the tx complete flag for us
@@ -192,4 +202,4 @@ ISR(USART0_UDRE_vect){
 		}
 	}
 	UDR0 = sendQueue[charsSent++];
-};
+};*/
