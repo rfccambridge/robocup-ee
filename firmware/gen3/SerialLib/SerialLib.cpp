@@ -69,19 +69,25 @@ int serialPopInbox(message* dest){
 		case 2:
 			// getting data
 			if (datum == '\\') {
-				// end of message
+				// escape sequence
 				state = 3;
 			} 
 			else {
 				// more data
-				readBuf.message[data_byte] = datum;
-				data_byte++;
+				readBuf.message[data_byte++] = datum;
 			}
 			break;
 		case 3:
 			if (datum == 'E') {
+				// end of message
 				state = 4;
 				done = true;
+			}
+			else if (datum == '\\')
+			{
+				// escaped backslash
+				state = 2;
+				readBuf.message[data_byte++] = datum;
 			}
 			else
 				return 0;
@@ -90,7 +96,7 @@ int serialPopInbox(message* dest){
 			return 0;
 		}
 	}
-	// if a full ID, SOUCRE, PORT was not sent
+	// if a full ID, SOURCE, PORT was not sent
 	if (data_byte < 3)
 		return 0;
 	
