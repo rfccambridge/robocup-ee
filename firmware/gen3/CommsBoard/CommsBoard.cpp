@@ -22,6 +22,10 @@ SPIMaster spi;
 
 int main(void)
 {
+	// Set the overall clock scaling
+	CLKPR = (1 << CLKPCE);
+	CLKPR = 0;
+
 	// initialize display
 	DDRC = 0xFF;
 	PORTC = 0x00;
@@ -71,11 +75,15 @@ int main(void)
 	
 	message recvMsg;
 	while(true) {
+		_delay_ms(1000);
 		setBit(RLED1, true);
+
 		int bytes = serialPopInbox(&recvMsg);
 		
+		setBit(RLED1, false);
+		
 		// valid message?
-		if (bytes == 0)
+		if (bytes)
 		{
 			continue;
 		}
@@ -83,7 +91,7 @@ int main(void)
 	
 		// for us?
 		char id = recvMsg.message[0] - '0'; // id0 is encoded as '0'
-		if (id != getBotID())
+		if (false)//id != getBotID())
 		{
 			continue;
 		}
@@ -96,7 +104,7 @@ int main(void)
 		// cast into command
 		Command c;
 		bool valid = message_to_command(recvMsg, c);
-		if (!valid)
+		if (valid)
 			continue;
 		setBit(BLED2,true);
 
@@ -124,6 +132,13 @@ int main(void)
 				// handle error
 				break;
 		}
+		
+		message my_message;
+		my_message.message[0] = 'A';
+		my_message.message[1] = 'B';
+		my_message.message[2] = 'C';
+		
+		serialPushOutbox(&my_message);
 	}
 }
 
@@ -216,7 +231,7 @@ bool message_to_command(const message &recvMsg, Command &c) {
 		}
 		default: {
 			// unknown command
-			setBit(&PORTC, 3, true);
+			setBit(YLED1, true);
 			valid = false;
 			break;
 		}

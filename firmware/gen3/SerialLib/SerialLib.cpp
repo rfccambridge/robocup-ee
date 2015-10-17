@@ -11,9 +11,8 @@
 #define XBEE_CTS PORTD
 #define XBEE_CTS_BIT 2
 #define SEND_QUEUE_SIZE SERIAL_MSG_MAX_CHARS
-
-#define F_CPU 16000000
-#define BAUD 19200
+#define F_CPU 8000000
+#define BAUD 9600
 
 //messageQueue inbox;
 messageQueue outbox;
@@ -30,13 +29,18 @@ message readBuf;
 }*/
 
 void initSerial() {
-	// Set the overall clock scaling
-	CLKPR = (1 << CLKPCE);
-	CLKPR = (0 << CLKPCE) | (0 << CLKPS0);
+	
 	
 	// Initialize serial, move this to serial lib
 	//unsigned int ubrr = MYUBRR;
 	#include <util/setbaud.h>
+	
+	#if USE_2X
+	UCSR0A |= (1 << U2X0);
+	#else
+	UCSR0A &= ~(1 << U2X0);
+	#endif
+	
 	UBRR0H = UBRRH_VALUE;//(unsigned char)(ubrr>>8);
 	UBRR0L = UBRRL_VALUE; //(unsigned char)ubrr;
 	UCSR0C = (0 << UMSEL0) | (0 << UPM00) | (0 << UPM01) | (1 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00);
