@@ -9709,11 +9709,11 @@ when caps are charged</text>
 <instance part="R7" gate="G$1" x="337.82" y="294.64" rot="R270"/>
 <instance part="R8" gate="G$1" x="337.82" y="279.4" rot="R270"/>
 <instance part="C5" gate="G$1" x="419.1" y="259.08"/>
-<instance part="CHIP_FLYBACK" gate="G$1" x="474.98" y="312.42" rot="R90"/>
+<instance part="CHIP_FLYBACK" gate="G$1" x="419.1" y="314.96" rot="R90"/>
 <instance part="KICK_FLYBACK" gate="G$1" x="462.28" y="330.2" rot="R90"/>
 <instance part="ANDS" gate="G$1" x="365.76" y="302.26"/>
 <instance part="KICK" gate="G$1" x="497.84" y="330.2"/>
-<instance part="CHIP" gate="G$1" x="497.84" y="312.42"/>
+<instance part="CHIP" gate="G$1" x="434.34" y="314.96"/>
 </instances>
 <busses>
 </busses>
@@ -9914,16 +9914,6 @@ when caps are charged</text>
 <pinref part="KICK" gate="G$1" pin="P$2"/>
 </segment>
 </net>
-<net name="N$34" class="0">
-<segment>
-<wire x1="474.98" y1="284.48" x2="474.98" y2="309.88" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="309.88" x2="492.76" y2="309.88" width="0.1524" layer="91"/>
-<junction x="474.98" y="309.88"/>
-<pinref part="CHIP_Q" gate="G$1" pin="D"/>
-<pinref part="CHIP_FLYBACK" gate="G$1" pin="A"/>
-<pinref part="CHIP" gate="G$1" pin="P$2"/>
-</segment>
-</net>
 <net name="CHIP_ENABLE" class="0">
 <segment>
 <wire x1="345.44" y1="276.86" x2="345.44" y2="259.08" width="0.1524" layer="91"/>
@@ -10012,13 +10002,8 @@ when caps are charged</text>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="CHIP" gate="G$1" pin="P$1"/>
 <wire x1="485.14" y1="368.3" x2="485.14" y2="353.06" width="0.1524" layer="91"/>
 <wire x1="485.14" y1="353.06" x2="474.98" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="314.96" x2="474.98" y2="353.06" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="314.96" x2="492.76" y2="314.96" width="0.1524" layer="91"/>
-<junction x="474.98" y="314.96"/>
-<pinref part="CHIP_FLYBACK" gate="G$1" pin="C"/>
 <label x="485.14" y="368.3" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -10028,6 +10013,15 @@ when caps are charged</text>
 <wire x1="426.72" y1="335.28" x2="426.72" y2="327.66" width="0.1524" layer="91"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="419.1" y1="327.66" x2="426.72" y2="327.66" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="327.66" x2="426.72" y2="322.58" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="322.58" x2="429.26" y2="322.58" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="322.58" x2="429.26" y2="307.34" width="0.1524" layer="91"/>
+<wire x1="429.26" y1="307.34" x2="419.1" y2="307.34" width="0.1524" layer="91"/>
+<pinref part="CHIP_FLYBACK" gate="G$1" pin="A"/>
+<wire x1="419.1" y1="307.34" x2="419.1" y2="312.42" width="0.1524" layer="91"/>
+<pinref part="CHIP_FLYBACK" gate="G$1" pin="C"/>
+<wire x1="419.1" y1="317.5" x2="419.1" y2="322.58" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="322.58" x2="426.72" y2="322.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
