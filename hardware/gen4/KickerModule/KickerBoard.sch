@@ -9211,6 +9211,17 @@ Dual AND gate</description>
 <wire x1="7.62" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
 <text x="-2.54" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
+<symbol name="3.3REG1A">
+<wire x1="-5.08" y1="-7.62" x2="7.62" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-5.08" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-7.62" width="0.4064" layer="94"/>
+<text x="-5.08" y="9.144" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-11.43" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
+<pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
+<pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DIODE-ZENER" prefix="D">
@@ -9376,6 +9387,23 @@ Use to probe a signal</description>
 <connects>
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="3.3REG1A">
+<gates>
+<gate name="G$1" symbol="3.3REG1A" x="0" y="0"/>
+</gates>
+<devices>
+<device name="REG" package="DPAK">
+<connects>
+<connect gate="G$1" pin="GND" pad="DRAIN"/>
+<connect gate="G$1" pin="IN" pad="GATE"/>
+<connect gate="G$1" pin="OUT" pad="SOURCE"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -9692,6 +9720,7 @@ Si, 200 V, 3 A</description>
 <part name=".1MICRO1" library="docu-dummy" deviceset="C" device="" value=".1micro"/>
 <part name="C7" library="docu-dummy" deviceset="C" device="" value=".1micro"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
+<part name="3.3REG" library="gen3" deviceset="3.3REG1A" device="REG"/>
 </parts>
 <sheets>
 <sheet>
@@ -9754,6 +9783,7 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part=".1MICRO1" gate="G$1" x="421.64" y="297.18"/>
 <instance part="C7" gate="G$1" x="419.1" y="287.02"/>
 <instance part="R2" gate="G$1" x="388.62" y="302.26" rot="R180"/>
+<instance part="3.3REG" gate="G$1" x="284.48" y="365.76" rot="MR270"/>
 </instances>
 <busses>
 </busses>
@@ -9820,21 +9850,12 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="469.9" y1="340.36" x2="469.9" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="469.9" y1="337.82" x2="472.44" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="472.44" y1="337.82" x2="472.44" y2="335.28" width="0.1524" layer="91"/>
-<wire x1="472.44" y1="335.28" x2="472.44" y2="330.2" width="0.1524" layer="91"/>
-<wire x1="472.44" y1="330.2" x2="472.44" y2="325.12" width="0.1524" layer="91"/>
-<pinref part="CHIP_FLYBACK" gate="G$1" pin="A"/>
-<wire x1="472.44" y1="325.12" x2="467.36" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="467.36" y1="325.12" x2="467.36" y2="330.2" width="0.1524" layer="91"/>
 <pinref part="CHIP_FLYBACK" gate="G$1" pin="C"/>
 <wire x1="467.36" y1="335.28" x2="467.36" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="467.36" y1="337.82" x2="469.9" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="452.12" y1="340.36" x2="469.9" y2="340.36" width="0.1524" layer="91"/>
 <junction x="469.9" y="340.36"/>
-<label x="472.44" y="322.58" size="1.778" layer="95"/>
 <pinref part="KICK" gate="G$1" pin="P$1"/>
-<junction x="472.44" y="335.28"/>
-<pinref part="KICK" gate="G$1" pin="P$2"/>
-<junction x="472.44" y="330.2"/>
 </segment>
 <segment>
 <wire x1="421.64" y1="292.1" x2="416.56" y2="292.1" width="0.1524" layer="91"/>
@@ -9862,21 +9883,17 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="469.9" y1="292.1" x2="469.9" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="469.9" y1="289.56" x2="472.44" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="472.44" y1="289.56" x2="472.44" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="472.44" y1="287.02" x2="472.44" y2="281.94" width="0.1524" layer="91"/>
-<wire x1="472.44" y1="281.94" x2="472.44" y2="276.86" width="0.1524" layer="91"/>
-<pinref part="CHIP_FLYBACK1" gate="G$1" pin="A"/>
-<wire x1="472.44" y1="276.86" x2="467.36" y2="276.86" width="0.1524" layer="91"/>
-<wire x1="467.36" y1="276.86" x2="467.36" y2="281.94" width="0.1524" layer="91"/>
 <pinref part="CHIP_FLYBACK1" gate="G$1" pin="C"/>
 <wire x1="467.36" y1="287.02" x2="467.36" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="467.36" y1="289.56" x2="469.9" y2="289.56" width="0.1524" layer="91"/>
 <wire x1="452.12" y1="292.1" x2="469.9" y2="292.1" width="0.1524" layer="91"/>
 <junction x="469.9" y="292.1"/>
-<label x="472.44" y="274.32" size="1.778" layer="95"/>
 <pinref part="CHIP" gate="G$1" pin="P$1"/>
-<junction x="472.44" y="287.02"/>
-<pinref part="CHIP" gate="G$1" pin="P$2"/>
-<junction x="472.44" y="281.94"/>
+</segment>
+<segment>
+<pinref part="3.3REG" gate="G$1" pin="GND"/>
+<wire x1="284.48" y1="353.06" x2="284.48" y2="355.6" width="0.1524" layer="91"/>
+<label x="284.48" y="353.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -9942,11 +9959,17 @@ kick_enable -&gt; opto isolators -&gt;
 <junction x="421.64" y="302.26"/>
 <label x="419.1" y="317.5" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="3.3REG" gate="G$1" pin="OUT"/>
+<wire x1="289.56" y1="373.38" x2="294.64" y2="373.38" width="0.1524" layer="91"/>
+<label x="294.64" y="373.38" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="12VGND" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="447.04" y1="236.22" x2="447.04" y2="238.76" width="0.1524" layer="91"/>
+<label x="447.04" y="236.22" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C1" gate="G$1" pin="-"/>
@@ -9958,6 +9981,28 @@ kick_enable -&gt; opto isolators -&gt;
 <junction x="381" y="358.14"/>
 <wire x1="381" y1="358.14" x2="381" y2="353.06" width="0.1524" layer="91"/>
 <label x="381" y="353.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="CHIP" gate="G$1" pin="P$2"/>
+<wire x1="472.44" y1="276.86" x2="472.44" y2="281.94" width="0.1524" layer="91"/>
+<pinref part="CHIP_FLYBACK1" gate="G$1" pin="A"/>
+<wire x1="467.36" y1="281.94" x2="467.36" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="276.86" x2="469.9" y2="276.86" width="0.1524" layer="91"/>
+<label x="469.9" y="271.78" size="1.778" layer="95"/>
+<wire x1="469.9" y1="276.86" x2="472.44" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="276.86" x2="469.9" y2="271.78" width="0.1524" layer="91"/>
+<junction x="469.9" y="276.86"/>
+</segment>
+<segment>
+<pinref part="KICK" gate="G$1" pin="P$2"/>
+<wire x1="472.44" y1="325.12" x2="472.44" y2="330.2" width="0.1524" layer="91"/>
+<pinref part="CHIP_FLYBACK" gate="G$1" pin="A"/>
+<wire x1="467.36" y1="330.2" x2="467.36" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="325.12" x2="469.9" y2="325.12" width="0.1524" layer="91"/>
+<label x="469.9" y="322.58" size="1.778" layer="95"/>
+<wire x1="469.9" y1="325.12" x2="472.44" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="325.12" x2="469.9" y2="322.58" width="0.1524" layer="91"/>
+<junction x="469.9" y="325.12"/>
 </segment>
 </net>
 <net name="COMP_OUT" class="0">
@@ -10035,6 +10080,11 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="KICK_Q1" gate="G$1" pin="D"/>
 <wire x1="469.9" y1="314.96" x2="469.9" y2="320.04" width="0.1524" layer="91"/>
 <label x="469.9" y="317.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R14" gate="G$1" pin="2"/>
+<wire x1="447.04" y1="271.78" x2="447.04" y2="274.32" width="0.1524" layer="91"/>
+<label x="447.04" y="274.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CHIP_ENABLE" class="0">
@@ -10174,6 +10224,13 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="403.86" y1="302.26" x2="403.86" y2="345.44" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="P$3"/>
 <wire x1="403.86" y1="345.44" x2="426.72" y2="345.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="12V" class="0">
+<segment>
+<pinref part="3.3REG" gate="G$1" pin="IN"/>
+<wire x1="274.32" y1="373.38" x2="279.4" y2="373.38" width="0.1524" layer="91"/>
+<label x="274.32" y="373.38" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
