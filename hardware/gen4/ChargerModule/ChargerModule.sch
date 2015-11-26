@@ -3157,6 +3157,15 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="24.5" y1="-16.5" x2="20.5" y2="-16.5" width="0.127" layer="21"/>
 <wire x1="20.5" y1="-16.5" x2="20.5" y2="-10" width="0.127" layer="21"/>
 </package>
+<package name="TESTING_PT">
+<pad name="P$1" x="0" y="0" drill="0.8"/>
+<wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
+<wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
+<wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
+<text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-2.31" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="D">
@@ -3248,6 +3257,13 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pin name="P$7" x="-12.7" y="-15.24" visible="off" length="short"/>
 <pin name="P$10" x="15.24" y="-12.7" visible="off" length="short" rot="R180"/>
 <pin name="P$1" x="15.24" y="12.7" visible="off" length="short" rot="R180"/>
+</symbol>
+<symbol name="TEST_PT">
+<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
+provides an easy access for an oscilloscope probe</description>
+<pin name="P$1" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
+<text x="-3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3857,6 +3873,23 @@ digikey #: 732-2129-1-ND</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="TEST_PT">
+<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
+Use to probe a signal</description>
+<gates>
+<gate name="G$1" symbol="TEST_PT" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="TESTING_PT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -3884,11 +3917,17 @@ digikey #: 732-2129-1-ND</description>
 <part name="C23" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="SWITCH_Q" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="U$1" library="gen3" deviceset="32052-TRANSFORMER" device=""/>
+<part name="DRAIN_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="CHARGE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="DONE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="GATE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="GND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="12VGND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="71.12" y="129.54" size="1.778" layer="91">add 100k pullup to 3.3v on 
+<text x="15.24" y="124.46" size="1.778" layer="91">add 100k pullup to 3.3v on 
 micro board, or use internal 
 pullup for done</text>
 </plain>
@@ -3899,7 +3938,7 @@ pullup for done</text>
 <instance part="R31" gate="G$1" x="139.7" y="114.3"/>
 <instance part="RVOUT" gate="G$1" x="139.7" y="129.54"/>
 <instance part="RBG" gate="G$1" x="149.86" y="76.2" rot="R90"/>
-<instance part="RSENSE" gate="G$1" x="160.02" y="76.2" rot="R90"/>
+<instance part="RSENSE" gate="G$1" x="162.56" y="76.2" rot="R90"/>
 <instance part="C18" gate="G$1" x="91.44" y="78.74"/>
 <instance part="C19" gate="G$1" x="134.62" y="73.66"/>
 <instance part="C20" gate="G$1" x="172.72" y="73.66"/>
@@ -3907,8 +3946,14 @@ pullup for done</text>
 <instance part="CHARGE_U" gate="G$1" x="106.68" y="127"/>
 <instance part="CHARGE_D" gate="G$1" x="215.9" y="152.4" rot="R90"/>
 <instance part="C23" gate="G$1" x="198.12" y="73.66"/>
-<instance part="SWITCH_Q" gate="G$1" x="157.48" y="111.76"/>
+<instance part="SWITCH_Q" gate="G$1" x="160.02" y="111.76"/>
 <instance part="U$1" gate="G$1" x="198.12" y="134.62"/>
+<instance part="DRAIN_TEST" gate="G$1" x="162.56" y="124.46"/>
+<instance part="CHARGE_TEST" gate="G$1" x="86.36" y="129.54"/>
+<instance part="DONE_TEST" gate="G$1" x="81.28" y="134.62"/>
+<instance part="GATE_TEST" gate="G$1" x="152.4" y="132.08"/>
+<instance part="GND_TEST" gate="G$1" x="119.38" y="68.58"/>
+<instance part="12VGND_TEST" gate="G$1" x="218.44" y="63.5" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -3916,7 +3961,8 @@ pullup for done</text>
 <net name="GND" class="0">
 <segment>
 <wire x1="149.86" y1="63.5" x2="134.62" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="63.5" x2="119.38" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="63.5" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="63.5" x2="91.44" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="76.2" x2="91.44" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="104.14" x2="101.6" y2="63.5" width="0.1524" layer="91"/>
@@ -3930,6 +3976,9 @@ pullup for done</text>
 <pinref part="C18" gate="G$1" pin="2"/>
 <pinref part="C19" gate="G$1" pin="2"/>
 <pinref part="CHARGE_U" gate="G$1" pin="GND"/>
+<pinref part="GND_TEST" gate="G$1" pin="P$1"/>
+<wire x1="119.38" y1="66.04" x2="119.38" y2="63.5" width="0.1524" layer="91"/>
+<junction x="119.38" y="63.5"/>
 </segment>
 <segment>
 <pinref part="CONNECTOR" gate="G$1" pin="3"/>
@@ -4001,13 +4050,15 @@ pullup for done</text>
 <wire x1="180.34" y1="63.5" x2="172.72" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="71.12" x2="172.72" y2="63.5" width="0.1524" layer="91"/>
 <junction x="172.72" y="63.5"/>
-<wire x1="172.72" y1="63.5" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="63.5" x2="162.56" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="RSENSE" gate="G$1" pin="1"/>
-<wire x1="160.02" y1="71.12" x2="160.02" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="71.12" x2="162.56" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="63.5" x2="198.12" y2="63.5" width="0.1524" layer="91"/>
 <junction x="198.12" y="63.5"/>
 <wire x1="180.34" y1="63.5" x2="180.34" y2="55.88" width="0.1524" layer="91"/>
 <junction x="180.34" y="63.5"/>
+<pinref part="12VGND_TEST" gate="G$1" pin="P$1"/>
+<junction x="215.9" y="63.5"/>
 </segment>
 <segment>
 <pinref part="CONNECTOR" gate="G$1" pin="7"/>
@@ -4022,11 +4073,11 @@ pullup for done</text>
 </net>
 <net name="N$5" class="0">
 <segment>
-<wire x1="147.32" y1="119.38" x2="160.02" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="119.38" x2="182.88" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="119.38" x2="162.56" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="119.38" x2="182.88" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="119.38" x2="185.42" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="116.84" x2="160.02" y2="119.38" width="0.1524" layer="91"/>
-<junction x="160.02" y="119.38"/>
+<wire x1="162.56" y1="116.84" x2="162.56" y2="119.38" width="0.1524" layer="91"/>
+<junction x="162.56" y="119.38"/>
 <wire x1="144.78" y1="114.3" x2="147.32" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="114.3" x2="147.32" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="121.92" x2="182.88" y2="121.92" width="0.1524" layer="91"/>
@@ -4040,6 +4091,8 @@ pullup for done</text>
 <pinref part="SWITCH_Q" gate="G$1" pin="D"/>
 <pinref part="U$1" gate="G$1" pin="P$6"/>
 <pinref part="U$1" gate="G$1" pin="P$7"/>
+<pinref part="DRAIN_TEST" gate="G$1" pin="P$1"/>
+<wire x1="162.56" y1="121.92" x2="162.56" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -4047,6 +4100,10 @@ pullup for done</text>
 <wire x1="132.08" y1="109.22" x2="152.4" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="CHARGE_U" gate="G$1" pin="GATE"/>
 <pinref part="SWITCH_Q" gate="G$1" pin="G"/>
+<pinref part="GATE_TEST" gate="G$1" pin="P$1"/>
+<wire x1="152.4" y1="109.22" x2="154.94" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="129.54" x2="152.4" y2="109.22" width="0.1524" layer="91"/>
+<junction x="152.4" y="109.22"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -4058,9 +4115,13 @@ pullup for done</text>
 </net>
 <net name="DONE" class="0">
 <segment>
-<wire x1="101.6" y1="119.38" x2="78.74" y2="119.38" width="0.1524" layer="91"/>
-<label x="78.74" y="119.38" size="1.778" layer="95"/>
+<wire x1="101.6" y1="119.38" x2="81.28" y2="119.38" width="0.1524" layer="91"/>
+<label x="71.12" y="119.38" size="1.778" layer="95"/>
 <pinref part="CHARGE_U" gate="G$1" pin="~DN"/>
+<pinref part="DONE_TEST" gate="G$1" pin="P$1"/>
+<wire x1="81.28" y1="119.38" x2="71.12" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="132.08" x2="81.28" y2="119.38" width="0.1524" layer="91"/>
+<junction x="81.28" y="119.38"/>
 </segment>
 <segment>
 <pinref part="CONNECTOR" gate="G$1" pin="1"/>
@@ -4078,9 +4139,13 @@ pullup for done</text>
 </net>
 <net name="CHARGE" class="0">
 <segment>
-<wire x1="101.6" y1="114.3" x2="78.74" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="114.3" x2="86.36" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="CHARGE_U" gate="G$1" pin="CHRG"/>
-<label x="78.74" y="114.3" size="1.778" layer="95"/>
+<label x="71.12" y="114.3" size="1.778" layer="95"/>
+<pinref part="CHARGE_TEST" gate="G$1" pin="P$1"/>
+<wire x1="86.36" y1="114.3" x2="71.12" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="127" x2="86.36" y2="114.3" width="0.1524" layer="91"/>
+<junction x="86.36" y="114.3"/>
 </segment>
 <segment>
 <pinref part="CONNECTOR" gate="G$1" pin="2"/>
@@ -4090,10 +4155,10 @@ pullup for done</text>
 </net>
 <net name="N$24" class="0">
 <segment>
-<wire x1="160.02" y1="106.68" x2="160.02" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="104.14" x2="160.02" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="104.14" x2="160.02" y2="104.14" width="0.1524" layer="91"/>
-<junction x="160.02" y="104.14"/>
+<wire x1="162.56" y1="106.68" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="104.14" x2="162.56" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="104.14" x2="162.56" y2="104.14" width="0.1524" layer="91"/>
+<junction x="162.56" y="104.14"/>
 <pinref part="RSENSE" gate="G$1" pin="2"/>
 <pinref part="CHARGE_U" gate="G$1" pin="SRC"/>
 <pinref part="SWITCH_Q" gate="G$1" pin="S"/>
