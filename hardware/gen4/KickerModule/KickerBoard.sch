@@ -3300,14 +3300,16 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="U$1" library="Kicker" deviceset="IR2125" device=""/>
 <part name="U$2" library="Kicker" deviceset="IR2125" device=""/>
-<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
-<part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
-<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
+<part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
 </parts>
 <sheets>
 <sheet>
@@ -3382,6 +3384,8 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="C9" gate="G$1" x="421.64" y="294.64"/>
 <instance part="C11" gate="G$1" x="452.12" y="297.18"/>
 <instance part="C12" gate="G$1" x="419.1" y="284.48"/>
+<instance part="R6" gate="G$1" x="454.66" y="307.34" rot="R180"/>
+<instance part="R9" gate="G$1" x="454.66" y="355.6" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -4100,6 +4104,35 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="SPI_HEADER" gate="G$1" pin="1"/>
 <wire x1="381" y1="226.06" x2="383.54" y2="226.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="HO"/>
+<wire x1="447.04" y1="345.44" x2="449.58" y2="345.44" width="0.1524" layer="91"/>
+<wire x1="449.58" y1="345.44" x2="449.58" y2="353.06" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="449.58" y1="355.6" x2="449.58" y2="353.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="459.74" y1="355.6" x2="464.82" y2="355.6" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="HO"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="447.04" y1="297.18" x2="449.58" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="449.58" y1="297.18" x2="449.58" y2="307.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="459.74" y1="307.34" x2="464.82" y2="307.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
