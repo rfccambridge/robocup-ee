@@ -774,6 +774,32 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <wire x1="0" y1="-5" x2="0" y2="-2" width="0.127" layer="21"/>
 <text x="0" y="3" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
 </package>
+<package name="JST-5-2MM">
+<description>&lt;b&gt;JST 2mm x5&lt;/b&gt; &lt;p&gt;
+connector</description>
+<pad name="1" x="4" y="0" drill="0.8" shape="square"/>
+<pad name="2" x="2" y="0" drill="0.8"/>
+<pad name="3" x="0" y="0" drill="0.8"/>
+<pad name="4" x="-2" y="0" drill="0.8"/>
+<pad name="5" x="-4" y="0" drill="0.8"/>
+<wire x1="6" y1="1" x2="-6" y2="1" width="0.127" layer="21"/>
+<wire x1="-6" y1="1" x2="-6" y2="-4" width="0.127" layer="21"/>
+<wire x1="-6" y1="-4" x2="-5" y2="-4" width="0.127" layer="21"/>
+<wire x1="-5" y1="-4" x2="-3" y2="-4" width="0.127" layer="21"/>
+<wire x1="-3" y1="-4" x2="-1" y2="-4" width="0.127" layer="21"/>
+<wire x1="-1" y1="-4" x2="1" y2="-4" width="0.127" layer="21"/>
+<wire x1="1" y1="-4" x2="3" y2="-4" width="0.127" layer="21"/>
+<wire x1="3" y1="-4" x2="5" y2="-4" width="0.127" layer="21"/>
+<wire x1="5" y1="-4" x2="6" y2="-4" width="0.127" layer="21"/>
+<wire x1="6" y1="-4" x2="6" y2="1" width="0.127" layer="21"/>
+<wire x1="-3" y1="-4" x2="-3" y2="-3" width="0.127" layer="21"/>
+<wire x1="-1" y1="-4" x2="-1" y2="-3" width="0.127" layer="21"/>
+<wire x1="1" y1="-4" x2="1" y2="-3" width="0.127" layer="21"/>
+<wire x1="3" y1="-4" x2="3" y2="-3" width="0.127" layer="21"/>
+<wire x1="5" y1="-4" x2="5" y2="-3" width="0.127" layer="21"/>
+<wire x1="-5" y1="-4" x2="-5" y2="-3" width="0.127" layer="21"/>
+<text x="0" y="2" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="SPDT-SWITCH">
@@ -864,6 +890,18 @@ provides an easy access for an oscilloscope probe</description>
 <wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
 <wire x1="7.62" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
 <text x="-2.54" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="JST-5">
+<pin name="P$1" x="-7.62" y="10.16" visible="pad" length="middle"/>
+<pin name="P$2" x="-7.62" y="5.08" visible="pad" length="middle"/>
+<pin name="P$3" x="-7.62" y="0" visible="pad" length="middle"/>
+<pin name="P$4" x="-7.62" y="-5.08" visible="pad" length="middle"/>
+<pin name="P$5" x="-7.62" y="-10.16" visible="pad" length="middle"/>
+<wire x1="-2.54" y1="12.7" x2="-2.54" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-12.7" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-12.7" x2="5.08" y2="12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="12.7" x2="-2.54" y2="12.7" width="0.254" layer="94"/>
+<text x="2.54" y="0" size="1.778" layer="95" rot="R90" align="bottom-center">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1021,6 +1059,25 @@ Production Part - 8199
 <connects>
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="JST-5">
+<gates>
+<gate name="G$1" symbol="JST-5" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="JST-5-2MM">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+<connect gate="G$1" pin="P$3" pad="3"/>
+<connect gate="G$1" pin="P$4" pad="4"/>
+<connect gate="G$1" pin="P$5" pad="5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -9771,6 +9828,10 @@ Wickmann</description>
 <part name="FUSE_MOTOR_2" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR3" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR_4" library="fuse" deviceset="TR5" device=""/>
+<part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20"/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
+<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
+<part name="BB_CON" library="gen3" deviceset="JST-5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9781,6 +9842,9 @@ to measure battery voltage</text>
 should turn on fine with 3.3!</text>
 <text x="-22.86" y="15.24" size="1.778" layer="91">Neon Indicator light to show when
 the Caps are charged and dangerous</text>
+<text x="127" y="-7.62" size="1.778" layer="91">Breakbeam output:
+1.3v drop, 100mA.
+2V / 20 ohm = 100mA</text>
 </plain>
 <instances>
 <instance part="BATT" gate="-1" x="-20.32" y="83.82"/>
@@ -9836,6 +9900,10 @@ the Caps are charged and dangerous</text>
 <attribute name="NAME" x="90.17" y="3.937" size="1.778" layer="95"/>
 <attribute name="VALUE" x="92.71" y="-0.381" size="1.778" layer="96"/>
 </instance>
+<instance part="R5" gate="G$1" x="142.24" y="10.16" rot="R90"/>
+<instance part="C3" gate="G$1" x="132.08" y="22.86"/>
+<instance part="R6" gate="G$1" x="142.24" y="30.48"/>
+<instance part="BB_CON" gate="G$1" x="162.56" y="20.32"/>
 </instances>
 <busses>
 </busses>
@@ -9860,6 +9928,15 @@ the Caps are charged and dangerous</text>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="88.9" y1="78.74" x2="93.98" y2="78.74" width="0.1524" layer="91"/>
 <junction x="88.9" y="78.74"/>
+</segment>
+<segment>
+<pinref part="R6" gate="G$1" pin="1"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="30.48" x2="132.08" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="30.48" x2="132.08" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="30.48" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
+<junction x="132.08" y="30.48"/>
+<label x="124.46" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12VGND" class="0">
@@ -10005,6 +10082,19 @@ the Caps are charged and dangerous</text>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="6"/>
 <wire x1="104.14" y1="-10.16" x2="109.22" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="104.14" y="-10.16"/>
+</segment>
+<segment>
+<wire x1="154.94" y1="10.16" x2="147.32" y2="10.16" width="0.1524" layer="91"/>
+<label x="147.32" y="10.16" size="1.778" layer="95"/>
+<pinref part="BB_CON" gate="G$1" pin="P$5"/>
+</segment>
+<segment>
+<wire x1="154.94" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="132.08" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<junction x="132.08" y="20.32"/>
+<label x="124.46" y="20.32" size="1.778" layer="95"/>
+<pinref part="BB_CON" gate="G$1" pin="P$3"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -10267,6 +10357,36 @@ the Caps are charged and dangerous</text>
 <segment>
 <pinref part="FUSE_MOTOR_4" gate="1" pin="2"/>
 <wire x1="109.22" y1="2.54" x2="101.6" y2="2.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="BB_OUT" class="0">
+<segment>
+<wire x1="127" y1="5.08" x2="142.24" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<label x="127" y="5.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="BB_IN" class="0">
+<segment>
+<wire x1="154.94" y1="25.4" x2="149.86" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="25.4" x2="149.86" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="38.1" x2="127" y2="38.1" width="0.1524" layer="91"/>
+<label x="127" y="38.1" size="1.778" layer="95"/>
+<pinref part="BB_CON" gate="G$1" pin="P$2"/>
+</segment>
+</net>
+<net name="N$32" class="0">
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="15.24" x2="142.24" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="BB_CON" gate="G$1" pin="P$4"/>
+</segment>
+</net>
+<net name="N$40" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="147.32" y1="30.48" x2="154.94" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="BB_CON" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 </nets>
