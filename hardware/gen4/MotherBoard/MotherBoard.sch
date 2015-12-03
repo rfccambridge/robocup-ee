@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9824,14 +9824,14 @@ Wickmann</description>
 <part name="MOTORBOARD_HEADER2" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="MOTORBOARD_HEADER3" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="MOTORBOARD_HEADER4" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="FUSE_MOTOR_1" library="fuse" deviceset="TR5" device=""/>
-<part name="FUSE_MOTOR_2" library="fuse" deviceset="TR5" device=""/>
-<part name="FUSE_MOTOR3" library="fuse" deviceset="TR5" device=""/>
-<part name="FUSE_MOTOR_4" library="fuse" deviceset="TR5" device=""/>
 <part name="R5" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
 <part name="BB_CON" library="gen3" deviceset="JST-5" device=""/>
+<part name="FUSE_MOTOR_3" library="fuse" deviceset="TR5" device=""/>
+<part name="FUSE_MOTOR_5" library="fuse" deviceset="TR5" device=""/>
+<part name="FUSE_MOTOR_6" library="fuse" deviceset="TR5" device=""/>
+<part name="FUSE_MOTOR_7" library="fuse" deviceset="TR5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9884,26 +9884,26 @@ the Caps are charged and dangerous</text>
 <instance part="MOTORBOARD_HEADER2" gate="G$1" x="43.18" y="-15.24" rot="R180"/>
 <instance part="MOTORBOARD_HEADER3" gate="G$1" x="78.74" y="-15.24" rot="R180"/>
 <instance part="MOTORBOARD_HEADER4" gate="G$1" x="114.3" y="-15.24" rot="R180"/>
-<instance part="FUSE_MOTOR_1" gate="1" x="-10.16" y="2.54" smashed="yes">
-<attribute name="NAME" x="-16.51" y="3.937" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-13.97" y="-0.381" size="1.778" layer="96"/>
-</instance>
-<instance part="FUSE_MOTOR_2" gate="1" x="25.4" y="2.54" smashed="yes">
-<attribute name="NAME" x="19.05" y="3.937" size="1.778" layer="95"/>
-<attribute name="VALUE" x="21.59" y="-0.381" size="1.778" layer="96"/>
-</instance>
-<instance part="FUSE_MOTOR3" gate="1" x="60.96" y="2.54" smashed="yes">
-<attribute name="NAME" x="54.61" y="3.937" size="1.778" layer="95"/>
-<attribute name="VALUE" x="57.15" y="-0.381" size="1.778" layer="96"/>
-</instance>
-<instance part="FUSE_MOTOR_4" gate="1" x="96.52" y="2.54" smashed="yes">
-<attribute name="NAME" x="90.17" y="3.937" size="1.778" layer="95"/>
-<attribute name="VALUE" x="92.71" y="-0.381" size="1.778" layer="96"/>
-</instance>
 <instance part="R5" gate="G$1" x="142.24" y="10.16" rot="R90"/>
 <instance part="C3" gate="G$1" x="132.08" y="22.86"/>
 <instance part="R6" gate="G$1" x="142.24" y="30.48"/>
 <instance part="BB_CON" gate="G$1" x="162.56" y="20.32"/>
+<instance part="FUSE_MOTOR_3" gate="1" x="-12.7" y="-20.32" smashed="yes">
+<attribute name="NAME" x="-19.05" y="-18.923" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-16.51" y="-23.241" size="1.778" layer="96"/>
+</instance>
+<instance part="FUSE_MOTOR_5" gate="1" x="22.86" y="-20.32" smashed="yes">
+<attribute name="NAME" x="16.51" y="-18.923" size="1.778" layer="95"/>
+<attribute name="VALUE" x="19.05" y="-23.241" size="1.778" layer="96"/>
+</instance>
+<instance part="FUSE_MOTOR_6" gate="1" x="58.42" y="-20.32" smashed="yes">
+<attribute name="NAME" x="52.07" y="-18.923" size="1.778" layer="95"/>
+<attribute name="VALUE" x="54.61" y="-23.241" size="1.778" layer="96"/>
+</instance>
+<instance part="FUSE_MOTOR_7" gate="1" x="93.98" y="-20.32" smashed="yes">
+<attribute name="NAME" x="87.63" y="-18.923" size="1.778" layer="95"/>
+<attribute name="VALUE" x="90.17" y="-23.241" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9988,32 +9988,48 @@ the Caps are charged and dangerous</text>
 <label x="-2.54" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="2.54" y1="-12.7" x2="-2.54" y2="-12.7" width="0.1524" layer="91"/>
 <label x="-22.86" y="-12.7" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="7"/>
-<wire x1="-2.54" y1="-12.7" x2="-17.78" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-12.7" x2="-5.08" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-12.7"/>
+<pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="8"/>
+<wire x1="-5.08" y1="-12.7" x2="-17.78" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-15.24" x2="-5.08" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="-15.24" x2="-5.08" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="-5.08" y="-12.7"/>
 </segment>
 <segment>
-<wire x1="38.1" y1="-12.7" x2="33.02" y2="-12.7" width="0.1524" layer="91"/>
 <label x="12.7" y="-12.7" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="7"/>
-<wire x1="33.02" y1="-12.7" x2="17.78" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-12.7" x2="30.48" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="33.02" y="-12.7"/>
+<pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="8"/>
+<wire x1="30.48" y1="-12.7" x2="17.78" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-15.24" x2="30.48" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-15.24" x2="30.48" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="30.48" y="-12.7"/>
 </segment>
 <segment>
-<wire x1="73.66" y1="-12.7" x2="68.58" y2="-12.7" width="0.1524" layer="91"/>
 <label x="48.26" y="-12.7" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="7"/>
-<wire x1="68.58" y1="-12.7" x2="53.34" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-12.7" x2="66.04" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="68.58" y="-12.7"/>
+<pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="8"/>
+<wire x1="66.04" y1="-12.7" x2="53.34" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-15.24" x2="66.04" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-15.24" x2="66.04" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="66.04" y="-12.7"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="-12.7" x2="104.14" y2="-12.7" width="0.1524" layer="91"/>
 <label x="83.82" y="-12.7" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="7"/>
-<wire x1="104.14" y1="-12.7" x2="88.9" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-12.7" x2="101.6" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="104.14" y="-12.7"/>
+<pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="8"/>
+<wire x1="101.6" y1="-12.7" x2="88.9" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-15.24" x2="101.6" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-15.24" x2="101.6" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="101.6" y="-12.7"/>
 </segment>
 </net>
 <net name="BAT+" class="0">
@@ -10059,28 +10075,25 @@ the Caps are charged and dangerous</text>
 <wire x1="-17.78" y1="-10.16" x2="-2.54" y2="-10.16" width="0.1524" layer="91"/>
 <label x="-22.86" y="-10.16" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="6"/>
-<wire x1="-2.54" y1="-10.16" x2="2.54" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-10.16"/>
 </segment>
 <segment>
-<wire x1="17.78" y1="-10.16" x2="33.02" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="-10.16" x2="30.48" y2="-10.16" width="0.1524" layer="91"/>
 <label x="12.7" y="-10.16" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="6"/>
-<wire x1="33.02" y1="-10.16" x2="38.1" y2="-10.16" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-10.16" x2="30.48" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="33.02" y="-10.16"/>
 </segment>
 <segment>
 <wire x1="53.34" y1="-10.16" x2="68.58" y2="-10.16" width="0.1524" layer="91"/>
 <label x="48.26" y="-10.16" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="6"/>
-<wire x1="68.58" y1="-10.16" x2="73.66" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="68.58" y="-10.16"/>
 </segment>
 <segment>
 <wire x1="88.9" y1="-10.16" x2="104.14" y2="-10.16" width="0.1524" layer="91"/>
 <label x="83.82" y="-10.16" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="6"/>
-<wire x1="104.14" y1="-10.16" x2="109.22" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="104.14" y="-10.16"/>
 </segment>
 <segment>
@@ -10110,24 +10123,24 @@ the Caps are charged and dangerous</text>
 <pinref part="DRIB" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
-<pinref part="FUSE_MOTOR_1" gate="1" pin="1"/>
-<wire x1="-15.24" y1="2.54" x2="-17.78" y2="2.54" width="0.1524" layer="91"/>
-<label x="-22.86" y="2.54" size="1.778" layer="95"/>
+<pinref part="FUSE_MOTOR_3" gate="1" pin="1"/>
+<wire x1="-17.78" y1="-20.32" x2="-22.86" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-25.4" y="-20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="FUSE_MOTOR_2" gate="1" pin="1"/>
-<wire x1="20.32" y1="2.54" x2="17.78" y2="2.54" width="0.1524" layer="91"/>
-<label x="12.7" y="2.54" size="1.778" layer="95"/>
+<pinref part="FUSE_MOTOR_5" gate="1" pin="1"/>
+<wire x1="17.78" y1="-20.32" x2="12.7" y2="-20.32" width="0.1524" layer="91"/>
+<label x="10.16" y="-20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="FUSE_MOTOR3" gate="1" pin="1"/>
-<wire x1="55.88" y1="2.54" x2="53.34" y2="2.54" width="0.1524" layer="91"/>
-<label x="48.26" y="2.54" size="1.778" layer="95"/>
+<pinref part="FUSE_MOTOR_6" gate="1" pin="1"/>
+<wire x1="53.34" y1="-20.32" x2="48.26" y2="-20.32" width="0.1524" layer="91"/>
+<label x="45.72" y="-20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="FUSE_MOTOR_4" gate="1" pin="1"/>
-<wire x1="91.44" y1="2.54" x2="88.9" y2="2.54" width="0.1524" layer="91"/>
-<label x="83.82" y="2.54" size="1.778" layer="95"/>
+<pinref part="FUSE_MOTOR_7" gate="1" pin="1"/>
+<wire x1="88.9" y1="-20.32" x2="83.82" y2="-20.32" width="0.1524" layer="91"/>
+<label x="81.28" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BATSENSE" class="0">
@@ -10211,58 +10224,53 @@ the Caps are charged and dangerous</text>
 </net>
 <net name="MISO" class="0">
 <segment>
-<wire x1="2.54" y1="0" x2="-2.54" y2="0" width="0.1524" layer="91"/>
 <label x="-22.86" y="0" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="2"/>
 <wire x1="-2.54" y1="0" x2="-17.78" y2="0" width="0.1524" layer="91"/>
 <junction x="-2.54" y="0"/>
 </segment>
 <segment>
-<wire x1="38.1" y1="0" x2="33.02" y2="0" width="0.1524" layer="91"/>
 <label x="12.7" y="0" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="2"/>
 <wire x1="33.02" y1="0" x2="17.78" y2="0" width="0.1524" layer="91"/>
 <junction x="33.02" y="0"/>
 </segment>
 <segment>
-<wire x1="73.66" y1="0" x2="68.58" y2="0" width="0.1524" layer="91"/>
 <label x="48.26" y="0" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="2"/>
-<wire x1="68.58" y1="0" x2="53.34" y2="0" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="0" x2="66.04" y2="0" width="0.1524" layer="91"/>
 <junction x="68.58" y="0"/>
+<wire x1="66.04" y1="0" x2="53.34" y2="0" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="0" x2="104.14" y2="0" width="0.1524" layer="91"/>
 <label x="83.82" y="0" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="2"/>
-<wire x1="104.14" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="0" x2="101.6" y2="0" width="0.1524" layer="91"/>
 <junction x="104.14" y="0"/>
+<wire x1="101.6" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
 <segment>
-<wire x1="2.54" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="91"/>
 <label x="-22.86" y="-2.54" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="3"/>
 <wire x1="-2.54" y1="-2.54" x2="-17.78" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-2.54"/>
 </segment>
 <segment>
-<wire x1="38.1" y1="-2.54" x2="33.02" y2="-2.54" width="0.1524" layer="91"/>
 <label x="12.7" y="-2.54" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="3"/>
 <wire x1="33.02" y1="-2.54" x2="17.78" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="33.02" y="-2.54"/>
 </segment>
 <segment>
-<wire x1="73.66" y1="-2.54" x2="68.58" y2="-2.54" width="0.1524" layer="91"/>
 <label x="48.26" y="-2.54" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="3"/>
-<wire x1="68.58" y1="-2.54" x2="53.34" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-2.54" x2="66.04" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="68.58" y="-2.54"/>
+<wire x1="66.04" y1="-2.54" x2="53.34" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="-2.54" x2="104.14" y2="-2.54" width="0.1524" layer="91"/>
 <label x="83.82" y="-2.54" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="3"/>
 <wire x1="104.14" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
@@ -10271,46 +10279,42 @@ the Caps are charged and dangerous</text>
 </net>
 <net name="SCLK" class="0">
 <segment>
-<wire x1="2.54" y1="-5.08" x2="-2.54" y2="-5.08" width="0.1524" layer="91"/>
 <label x="-22.86" y="-5.08" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="4"/>
 <wire x1="-2.54" y1="-5.08" x2="-17.78" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="-2.54" y="-5.08"/>
 </segment>
 <segment>
-<wire x1="38.1" y1="-5.08" x2="33.02" y2="-5.08" width="0.1524" layer="91"/>
 <label x="12.7" y="-5.08" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="4"/>
-<wire x1="33.02" y1="-5.08" x2="17.78" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-5.08" x2="30.48" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="33.02" y="-5.08"/>
+<wire x1="30.48" y1="-5.08" x2="17.78" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="73.66" y1="-5.08" x2="68.58" y2="-5.08" width="0.1524" layer="91"/>
 <label x="48.26" y="-5.08" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="4"/>
 <wire x1="68.58" y1="-5.08" x2="53.34" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="68.58" y="-5.08"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="-5.08" x2="104.14" y2="-5.08" width="0.1524" layer="91"/>
 <label x="83.82" y="-5.08" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="4"/>
-<wire x1="104.14" y1="-5.08" x2="88.9" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="104.14" y="-5.08"/>
+<wire x1="104.14" y1="-5.08" x2="88.9" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SS4" class="0">
 <segment>
-<wire x1="109.22" y1="-7.62" x2="104.14" y2="-7.62" width="0.1524" layer="91"/>
 <label x="83.82" y="-7.62" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="5"/>
-<wire x1="104.14" y1="-7.62" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-7.62" x2="101.6" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="104.14" y="-7.62"/>
+<wire x1="101.6" y1="-7.62" x2="88.9" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SS1" class="0">
 <segment>
-<wire x1="2.54" y1="-7.62" x2="-2.54" y2="-7.62" width="0.1524" layer="91"/>
 <label x="-22.86" y="-7.62" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="5"/>
 <wire x1="-2.54" y1="-7.62" x2="-17.78" y2="-7.62" width="0.1524" layer="91"/>
@@ -10319,7 +10323,6 @@ the Caps are charged and dangerous</text>
 </net>
 <net name="SS2" class="0">
 <segment>
-<wire x1="38.1" y1="-7.62" x2="33.02" y2="-7.62" width="0.1524" layer="91"/>
 <label x="12.7" y="-7.62" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="5"/>
 <wire x1="33.02" y1="-7.62" x2="17.78" y2="-7.62" width="0.1524" layer="91"/>
@@ -10328,35 +10331,11 @@ the Caps are charged and dangerous</text>
 </net>
 <net name="SS3" class="0">
 <segment>
-<wire x1="73.66" y1="-7.62" x2="68.58" y2="-7.62" width="0.1524" layer="91"/>
 <label x="48.26" y="-7.62" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="5"/>
-<wire x1="68.58" y1="-7.62" x2="53.34" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-7.62" x2="66.04" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="68.58" y="-7.62"/>
-</segment>
-</net>
-<net name="12V_MOTOR_1" class="0">
-<segment>
-<pinref part="FUSE_MOTOR_1" gate="1" pin="2"/>
-<wire x1="2.54" y1="2.54" x2="-5.08" y2="2.54" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="12V_MOTOR_2" class="0">
-<segment>
-<pinref part="FUSE_MOTOR_2" gate="1" pin="2"/>
-<wire x1="38.1" y1="2.54" x2="30.48" y2="2.54" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="12V_MOTOR_3" class="0">
-<segment>
-<pinref part="FUSE_MOTOR3" gate="1" pin="2"/>
-<wire x1="73.66" y1="2.54" x2="66.04" y2="2.54" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="12V_MOTOR_4" class="0">
-<segment>
-<pinref part="FUSE_MOTOR_4" gate="1" pin="2"/>
-<wire x1="109.22" y1="2.54" x2="101.6" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-7.62" x2="53.34" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BB_OUT" class="0">
@@ -10387,6 +10366,54 @@ the Caps are charged and dangerous</text>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="147.32" y1="30.48" x2="154.94" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="BB_CON" gate="G$1" pin="P$1"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="10"/>
+<pinref part="FUSE_MOTOR_6" gate="1" pin="2"/>
+<wire x1="68.58" y1="-20.32" x2="66.04" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="MOTORBOARD_HEADER3" gate="G$1" pin="9"/>
+<wire x1="66.04" y1="-20.32" x2="63.5" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-17.78" x2="66.04" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-17.78" x2="66.04" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="66.04" y="-20.32"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="10"/>
+<pinref part="FUSE_MOTOR_7" gate="1" pin="2"/>
+<wire x1="104.14" y1="-20.32" x2="101.6" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="9"/>
+<wire x1="101.6" y1="-20.32" x2="99.06" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-17.78" x2="101.6" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-17.78" x2="101.6" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="101.6" y="-20.32"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="10"/>
+<pinref part="FUSE_MOTOR_5" gate="1" pin="2"/>
+<wire x1="33.02" y1="-20.32" x2="30.48" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="MOTORBOARD_HEADER2" gate="G$1" pin="9"/>
+<wire x1="30.48" y1="-20.32" x2="27.94" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-17.78" x2="30.48" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="-17.78" x2="30.48" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="30.48" y="-20.32"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="10"/>
+<pinref part="FUSE_MOTOR_3" gate="1" pin="2"/>
+<wire x1="-2.54" y1="-20.32" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="9"/>
+<wire x1="-5.08" y1="-20.32" x2="-7.62" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="-17.78" x2="-5.08" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="-17.78" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="-5.08" y="-20.32"/>
 </segment>
 </net>
 </nets>
