@@ -3259,9 +3259,6 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="FRAME4" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1M"/>
 <part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10K"/>
-<part name="R12" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
-<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
-<part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
 <part name="R27" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
@@ -3270,7 +3267,6 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="CAP_COMP" library="gen3" deviceset="LM331" device=""/>
 <part name="KICK_Q" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="CAP/100" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="PWM_FILT" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="CAP_SENSE_BUF" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="3k"/>
@@ -3284,7 +3280,6 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="CHIP_FLYBACK1" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
 <part name="CHIP" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="1" library="diode" deviceset="BY251" device=""/>
-<part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
 <part name="3.3REG" library="gen3" deviceset="3.3REG1A" device="REG"/>
 <part name="LOGIC_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="POWER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
@@ -3300,14 +3295,14 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="U$1" library="Kicker" deviceset="IR2125" device=""/>
 <part name="U$2" library="Kicker" deviceset="IR2125" device=""/>
-<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
-<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="?"/>
+<part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="10uF"/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="10uF"/>
+<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
 <part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="??"/>
 </parts>
@@ -3315,7 +3310,6 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <sheet>
 <plain>
 <text x="454.66" y="248.92" size="1.778" layer="91" rot="R90">scale 250v -&gt; 2.47v</text>
-<text x="274.32" y="299.72" size="1.778" layer="91">250v = 2.47v</text>
 <text x="363.22" y="233.68" size="1.778" layer="91">to microcontroller to measrue voltage</text>
 <text x="264.16" y="320.04" size="1.778" layer="91">To kick at different speeds without
  planning it in advance, we always start 
@@ -3325,19 +3319,26 @@ amount. delta Voltage ~ Velocity.</text>
 <text x="264.16" y="307.34" size="1.778" layer="91">pwm -&gt; reference voltage -&gt; comparator AND 
 kick_enable -&gt; opto isolators -&gt;
  transistor -&gt; KICK!</text>
-<text x="261.62" y="287.02" size="1.778" layer="91">1% wobble at 20kHz pwm</text>
 <text x="398.78" y="264.16" size="1.778" layer="91">buffer</text>
-<text x="307.34" y="274.32" size="1.778" layer="91">3% hystereses</text>
 <text x="398.78" y="203.2" size="1.778" layer="91" rot="R90">only ss_k connected here</text>
+<text x="401.32" y="304.8" size="1.778" layer="91" rot="R90">I'm totally guessing at the values of c7 and c12.
+I think they are just for bypassing but theres
+ nothing in the datasheet about why they're there.</text>
+<text x="429.26" y="363.22" size="1.778" layer="91">R9 and R6 need values. The datasheet says:
+"Rg is the gate resistor, and the value is chosen to
+ optimize switching speed and switching losses." </text>
+<text x="429.26" y="363.22" size="1.778" layer="91">R9 and R6 need values. The datasheet says:
+"Rg is the gate resistor, and the value is chosen to
+ optimize switching speed and switching losses." </text>
+<text x="353.06" y="368.3" size="1.778" layer="91">Not sure if we still are using this???</text>
+<text x="261.62" y="292.1" size="1.778" layer="91">Connected to DAC, not sure what the line is named yet</text>
+<text x="274.32" y="236.22" size="1.778" layer="91">need headers for 12V, GND, 12VGND, and the two ena lines</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
 <instance part="FRAME4" gate="G$2" x="406.4" y="193.04"/>
 <instance part="R14" gate="G$1" x="447.04" y="266.7" rot="R90"/>
 <instance part="R15" gate="G$1" x="447.04" y="243.84" rot="R90"/>
-<instance part="R12" gate="G$1" x="281.94" y="294.64" rot="R180"/>
-<instance part="C6" gate="G$1" x="292.1" y="281.94"/>
-<instance part="R26" gate="G$1" x="398.78" y="281.94" rot="R180"/>
 <instance part="R27" gate="G$1" x="462.28" y="350.52" rot="R270"/>
 <instance part="R29" gate="G$1" x="340.36" y="312.42" rot="R270"/>
 <instance part="C15" gate="G$1" x="312.42" y="320.04"/>
@@ -3346,7 +3347,6 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="CAP_COMP" gate="G$1" x="327.66" y="307.34"/>
 <instance part="KICK_Q" gate="G$1" x="467.36" y="358.14"/>
 <instance part="CAP/100" gate="G$1" x="381" y="256.54"/>
-<instance part="PWM_FILT" gate="G$1" x="294.64" y="297.18"/>
 <instance part="CAP_SENSE_BUF" gate="G$1" x="406.4" y="254" rot="R180"/>
 <instance part="R7" gate="G$1" x="337.82" y="294.64" rot="R270"/>
 <instance part="R8" gate="G$1" x="337.82" y="279.4" rot="R270"/>
@@ -3360,7 +3360,6 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="CHIP_FLYBACK1" gate="G$1" x="467.36" y="284.48" rot="R90"/>
 <instance part="CHIP" gate="G$1" x="477.52" y="284.48"/>
 <instance part="1" gate="1" x="431.8" y="309.88"/>
-<instance part="R2" gate="G$1" x="388.62" y="302.26" rot="R180"/>
 <instance part="3.3REG" gate="G$1" x="276.86" y="358.14" rot="MR270"/>
 <instance part="LOGIC_HEADER" gate="G$1" x="264.16" y="220.98"/>
 <instance part="POWER_HEADER" gate="G$1" x="292.1" y="220.98"/>
@@ -3376,12 +3375,12 @@ kick_enable -&gt; opto isolators -&gt;
 <instance part="C10" gate="G$1" x="297.18" y="358.14"/>
 <instance part="U$1" gate="G$1" x="429.26" y="330.2"/>
 <instance part="U$2" gate="G$1" x="429.26" y="281.94"/>
-<instance part="C2" gate="G$1" x="416.56" y="342.9"/>
-<instance part="C3" gate="G$1" x="421.64" y="342.9"/>
+<instance part="C2" gate="G$1" x="411.48" y="342.9"/>
+<instance part="C3" gate="G$1" x="416.56" y="342.9"/>
 <instance part="C4" gate="G$1" x="452.12" y="345.44"/>
 <instance part="C7" gate="G$1" x="419.1" y="332.74"/>
-<instance part="C8" gate="G$1" x="416.56" y="294.64"/>
-<instance part="C9" gate="G$1" x="421.64" y="294.64"/>
+<instance part="C8" gate="G$1" x="411.48" y="294.64"/>
+<instance part="C9" gate="G$1" x="416.56" y="294.64"/>
 <instance part="C11" gate="G$1" x="452.12" y="297.18"/>
 <instance part="C12" gate="G$1" x="419.1" y="284.48"/>
 <instance part="R6" gate="G$1" x="454.66" y="307.34" rot="R180"/>
@@ -3391,18 +3390,6 @@ kick_enable -&gt; opto isolators -&gt;
 </busses>
 <nets>
 <net name="GND" class="0">
-<segment>
-<wire x1="327.66" y1="248.92" x2="309.88" y2="248.92" width="0.1524" layer="91"/>
-<wire x1="309.88" y1="248.92" x2="309.88" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="299.72" x2="327.66" y2="248.92" width="0.1524" layer="91"/>
-<label x="309.88" y="236.22" size="1.778" layer="95"/>
-<pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="292.1" y1="279.4" x2="292.1" y2="248.92" width="0.1524" layer="91"/>
-<wire x1="292.1" y1="248.92" x2="309.88" y2="248.92" width="0.1524" layer="91"/>
-<junction x="309.88" y="248.92"/>
-<pinref part="CAP_COMP" gate="G$1" pin="V-"/>
-<label x="322.58" y="269.24" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="312.42" y1="317.5" x2="312.42" y2="320.04" width="0.1524" layer="91"/>
@@ -3427,10 +3414,13 @@ kick_enable -&gt; opto isolators -&gt;
 <pinref part="ANDS" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<wire x1="421.64" y1="340.36" x2="416.56" y2="340.36" width="0.1524" layer="91"/>
-<label x="416.56" y="340.36" size="1.778" layer="95"/>
+<wire x1="416.56" y1="340.36" x2="414.02" y2="340.36" width="0.1524" layer="91"/>
+<label x="414.02" y="337.82" size="1.778" layer="95"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="414.02" y1="340.36" x2="411.48" y2="340.36" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="340.36" x2="414.02" y2="337.82" width="0.1524" layer="91"/>
+<junction x="414.02" y="340.36"/>
 </segment>
 <segment>
 <wire x1="419.1" y1="330.2" x2="419.1" y2="325.12" width="0.1524" layer="91"/>
@@ -3556,9 +3546,28 @@ kick_enable -&gt; opto isolators -&gt;
 </segment>
 <segment>
 <pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="416.56" y1="292.1" x2="421.64" y2="292.1" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="292.1" x2="414.02" y2="292.1" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="2"/>
-<label x="416.56" y="292.1" size="1.778" layer="95"/>
+<label x="414.02" y="289.56" size="1.778" layer="95"/>
+<wire x1="414.02" y1="292.1" x2="416.56" y2="292.1" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="292.1" x2="414.02" y2="289.56" width="0.1524" layer="91"/>
+<junction x="414.02" y="292.1"/>
+</segment>
+<segment>
+<wire x1="327.66" y1="302.26" x2="327.66" y2="294.64" width="0.1524" layer="91"/>
+<label x="327.66" y="294.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="COM"/>
+<wire x1="424.18" y1="340.36" x2="421.64" y2="340.36" width="0.1524" layer="91"/>
+<wire x1="421.64" y1="340.36" x2="421.64" y2="337.82" width="0.1524" layer="91"/>
+<label x="421.64" y="337.82" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="COM"/>
+<wire x1="424.18" y1="292.1" x2="421.64" y2="292.1" width="0.1524" layer="91"/>
+<wire x1="421.64" y1="292.1" x2="421.64" y2="289.56" width="0.1524" layer="91"/>
+<label x="421.64" y="289.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -3600,13 +3609,13 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="419.1" y1="358.14" x2="419.1" y2="365.76" width="0.1524" layer="91"/>
 <wire x1="419.1" y1="358.14" x2="419.1" y2="350.52" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="350.52" x2="424.18" y2="350.52" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="350.52" x2="421.64" y2="350.52" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="347.98" x2="416.56" y2="350.52" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="350.52" x2="419.1" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="424.18" y1="350.52" x2="416.56" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="347.98" x2="411.48" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="350.52" x2="416.56" y2="350.52" width="0.1524" layer="91"/>
 <junction x="419.1" y="350.52"/>
-<wire x1="419.1" y1="350.52" x2="421.64" y2="350.52" width="0.1524" layer="91"/>
-<wire x1="421.64" y1="347.98" x2="421.64" y2="350.52" width="0.1524" layer="91"/>
-<junction x="421.64" y="350.52"/>
+<wire x1="419.1" y1="350.52" x2="416.56" y2="350.52" width="0.1524" layer="91"/>
+<wire x1="416.56" y1="347.98" x2="416.56" y2="350.52" width="0.1524" layer="91"/>
+<junction x="416.56" y="350.52"/>
 <label x="419.1" y="365.76" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
 <junction x="424.18" y="350.52"/>
@@ -3619,16 +3628,16 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="419.1" y1="309.88" x2="419.1" y2="317.5" width="0.1524" layer="91"/>
 <wire x1="419.1" y1="309.88" x2="419.1" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="426.72" y1="302.26" x2="424.18" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="302.26" x2="419.1" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="302.26" x2="416.56" y2="302.26" width="0.1524" layer="91"/>
 <junction x="419.1" y="302.26"/>
-<wire x1="419.1" y1="302.26" x2="421.64" y2="302.26" width="0.1524" layer="91"/>
 <label x="419.1" y="317.5" size="1.778" layer="95"/>
 <pinref part="U$2" gate="G$1" pin="VCC"/>
 <junction x="424.18" y="302.26"/>
-<wire x1="421.64" y1="302.26" x2="424.18" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="416.56" y1="302.26" x2="419.1" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="302.26" x2="424.18" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="411.48" y1="299.72" x2="411.48" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="416.56" y1="299.72" x2="416.56" y2="302.26" width="0.1524" layer="91"/>
-<wire x1="421.64" y1="299.72" x2="421.64" y2="302.26" width="0.1524" layer="91"/>
-<junction x="421.64" y="302.26"/>
+<junction x="416.56" y="302.26"/>
 <pinref part="C8" gate="G$1" pin="1"/>
 <pinref part="C9" gate="G$1" pin="1"/>
 </segment>
@@ -3748,9 +3757,13 @@ kick_enable -&gt; opto isolators -&gt;
 </net>
 <net name="AND_CHIP" class="0">
 <segment>
-<pinref part="R26" gate="G$1" pin="2"/>
 <pinref part="ANDS" gate="G$1" pin="Y2"/>
-<wire x1="378.46" y1="281.94" x2="393.7" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="281.94" x2="406.4" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="406.4" y1="281.94" x2="406.4" y2="297.18" width="0.1524" layer="91"/>
+<wire x1="406.4" y1="297.18" x2="424.18" y2="297.18" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="IN"/>
+<wire x1="424.18" y1="297.18" x2="426.72" y2="297.18" width="0.1524" layer="91"/>
+<junction x="424.18" y="297.18"/>
 </segment>
 </net>
 <net name="DIVCAP" class="0">
@@ -3815,38 +3828,13 @@ kick_enable -&gt; opto isolators -&gt;
 <wire x1="342.9" y1="297.18" x2="355.6" y2="297.18" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="PWM" class="0">
+<net name="NOTSUREWHATTHISCONNECTSTO" class="0">
 <segment>
-<pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="276.86" y1="294.64" x2="264.16" y2="294.64" width="0.1524" layer="91"/>
-<label x="264.16" y="294.64" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="R26" gate="G$1" pin="1"/>
-<wire x1="406.4" y1="281.94" x2="403.86" y2="281.94" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="281.94" x2="406.4" y2="297.18" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="297.18" x2="424.18" y2="297.18" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="IN"/>
-<wire x1="424.18" y1="297.18" x2="426.72" y2="297.18" width="0.1524" layer="91"/>
-<junction x="424.18" y="297.18"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="C6" gate="G$1" pin="1"/>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="287.02" y1="294.64" x2="292.1" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="292.1" y1="294.64" x2="294.64" y2="294.64" width="0.1524" layer="91"/>
-<junction x="292.1" y="294.64"/>
-<wire x1="292.1" y1="294.64" x2="292.1" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="PWM_FILT" gate="G$1" pin="P$1"/>
-<wire x1="294.64" y1="294.64" x2="312.42" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="294.64" x2="312.42" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="312.42" y1="294.64" x2="312.42" y2="304.8" width="0.1524" layer="91"/>
-<junction x="294.64" y="294.64"/>
 <pinref part="CAP_COMP" gate="G$1" pin="IN-"/>
 <wire x1="312.42" y1="304.8" x2="322.58" y2="304.8" width="0.1524" layer="91"/>
+<label x="271.78" y="297.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="UNBUF_DIVCAP" class="0">
@@ -3895,16 +3883,11 @@ kick_enable -&gt; opto isolators -&gt;
 <net name="N$8" class="0">
 <segment>
 <wire x1="426.72" y1="342.9" x2="424.18" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="342.9" x2="424.18" y2="340.36" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="340.36" x2="424.18" y2="337.82" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="337.82" x2="419.1" y2="337.82" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="ERR"/>
 <junction x="424.18" y="342.9"/>
-<pinref part="U$1" gate="G$1" pin="COM"/>
-<junction x="424.18" y="340.36"/>
-<pinref part="U$1" gate="G$1" pin="P$6"/>
-<junction x="424.18" y="337.82"/>
+<wire x1="424.18" y1="342.9" x2="419.1" y2="342.9" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="419.1" y1="342.9" x2="419.1" y2="337.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GATE_KICK1" class="0">
@@ -3928,34 +3911,22 @@ kick_enable -&gt; opto isolators -&gt;
 <net name="N$3" class="0">
 <segment>
 <wire x1="426.72" y1="294.64" x2="424.18" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="294.64" x2="424.18" y2="292.1" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="292.1" x2="424.18" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="ERR"/>
+<wire x1="424.18" y1="294.64" x2="419.1" y2="294.64" width="0.1524" layer="91"/>
 <junction x="424.18" y="294.64"/>
-<pinref part="U$2" gate="G$1" pin="COM"/>
-<junction x="424.18" y="292.1"/>
-<pinref part="U$2" gate="G$1" pin="P$6"/>
-<junction x="424.18" y="289.56"/>
-<wire x1="419.1" y1="289.56" x2="424.18" y2="289.56" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="1"/>
+<wire x1="419.1" y1="294.64" x2="419.1" y2="289.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="ANDS" gate="G$1" pin="Y1"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="378.46" y1="302.26" x2="383.54" y2="302.26" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="393.7" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="403.86" y1="302.26" x2="403.86" y2="345.44" width="0.1524" layer="91"/>
 <wire x1="403.86" y1="345.44" x2="424.18" y2="345.44" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="IN"/>
 <wire x1="424.18" y1="345.44" x2="426.72" y2="345.44" width="0.1524" layer="91"/>
 <junction x="424.18" y="345.44"/>
+<wire x1="378.46" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12V" class="0">
