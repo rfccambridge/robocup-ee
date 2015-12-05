@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Microboard", "Microboard\Microboard.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603} = {0B8BEE34-27EB-45D0-AEB3-2FF46903D603}
+		{8587A052-F690-40E8-979B-16DCD54D131E} = {8587A052-F690-40E8-979B-16DCD54D131E}
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B} = {CD1464F0-3582-4513-98F1-3A89754C8A1B}
+	EndProjectSection
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Motorboard", "Motorboard\Motorboard.cppproj", "{DA014D2D-85F9-456B-812A-7A8F6A3E4DE8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603} = {0B8BEE34-27EB-45D0-AEB3-2FF46903D603}
+		{8587A052-F690-40E8-979B-16DCD54D131E} = {8587A052-F690-40E8-979B-16DCD54D131E}
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B} = {CD1464F0-3582-4513-98F1-3A89754C8A1B}
+	EndProjectSection
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "EELib", "EELib\EELib.cppproj", "{CD1464F0-3582-4513-98F1-3A89754C8A1B}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SPILib", "SPILib\SPILib.cppproj", "{8587A052-F690-40E8-979B-16DCD54D131E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B} = {CD1464F0-3582-4513-98F1-3A89754C8A1B}
+	EndProjectSection
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "SerialLib", "SerialLib\SerialLib.cppproj", "{0B8BEE34-27EB-45D0-AEB3-2FF46903D603}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B} = {CD1464F0-3582-4513-98F1-3A89754C8A1B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
+		{DA014D2D-85F9-456B-812A-7A8F6A3E4DE8}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DA014D2D-85F9-456B-812A-7A8F6A3E4DE8}.Debug|AVR.Build.0 = Debug|AVR
+		{DA014D2D-85F9-456B-812A-7A8F6A3E4DE8}.Release|AVR.ActiveCfg = Release|AVR
+		{DA014D2D-85F9-456B-812A-7A8F6A3E4DE8}.Release|AVR.Build.0 = Release|AVR
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B}.Debug|AVR.ActiveCfg = Debug|AVR
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B}.Debug|AVR.Build.0 = Debug|AVR
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B}.Release|AVR.ActiveCfg = Release|AVR
+		{CD1464F0-3582-4513-98F1-3A89754C8A1B}.Release|AVR.Build.0 = Release|AVR
+		{8587A052-F690-40E8-979B-16DCD54D131E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{8587A052-F690-40E8-979B-16DCD54D131E}.Debug|AVR.Build.0 = Debug|AVR
+		{8587A052-F690-40E8-979B-16DCD54D131E}.Release|AVR.ActiveCfg = Release|AVR
+		{8587A052-F690-40E8-979B-16DCD54D131E}.Release|AVR.Build.0 = Release|AVR
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603}.Debug|AVR.ActiveCfg = Debug|AVR
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603}.Debug|AVR.Build.0 = Debug|AVR
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603}.Release|AVR.ActiveCfg = Release|AVR
+		{0B8BEE34-27EB-45D0-AEB3-2FF46903D603}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
