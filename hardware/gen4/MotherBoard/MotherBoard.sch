@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9832,6 +9832,10 @@ Wickmann</description>
 <part name="FUSE_MOTOR_5" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR_6" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR_7" library="fuse" deviceset="TR5" device=""/>
+<part name="KICKER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<part name="FUSE_KICKER" library="fuse" deviceset="TR5" device=""/>
+<part name="CHARGE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
+<part name="FUSE_CHARGER" library="fuse" deviceset="TR5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9903,6 +9907,16 @@ the Caps are charged and dangerous</text>
 <instance part="FUSE_MOTOR_7" gate="1" x="93.98" y="-20.32" smashed="yes">
 <attribute name="NAME" x="87.63" y="-18.923" size="1.778" layer="95"/>
 <attribute name="VALUE" x="90.17" y="-23.241" size="1.778" layer="96"/>
+</instance>
+<instance part="KICKER_HEADER" gate="G$1" x="78.74" y="-50.8" rot="R180"/>
+<instance part="FUSE_KICKER" gate="1" x="58.42" y="-55.88" smashed="yes">
+<attribute name="NAME" x="52.07" y="-54.483" size="1.778" layer="95"/>
+<attribute name="VALUE" x="54.61" y="-58.801" size="1.778" layer="96"/>
+</instance>
+<instance part="CHARGE_HEADER" gate="G$1" x="114.3" y="-50.8" rot="R180"/>
+<instance part="FUSE_CHARGER" gate="1" x="93.98" y="-55.88" smashed="yes">
+<attribute name="NAME" x="87.63" y="-54.483" size="1.778" layer="95"/>
+<attribute name="VALUE" x="90.17" y="-58.801" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -10031,6 +10045,28 @@ the Caps are charged and dangerous</text>
 <wire x1="101.6" y1="-15.24" x2="101.6" y2="-12.7" width="0.1524" layer="91"/>
 <junction x="101.6" y="-12.7"/>
 </segment>
+<segment>
+<label x="48.26" y="-48.26" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="7"/>
+<wire x1="68.58" y1="-48.26" x2="66.04" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="68.58" y="-48.26"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="8"/>
+<wire x1="66.04" y1="-48.26" x2="53.34" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-50.8" x2="66.04" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-50.8" x2="66.04" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="66.04" y="-48.26"/>
+</segment>
+<segment>
+<label x="83.82" y="-48.26" size="1.778" layer="95"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="7"/>
+<wire x1="104.14" y1="-48.26" x2="101.6" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="104.14" y="-48.26"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="8"/>
+<wire x1="101.6" y1="-48.26" x2="88.9" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-50.8" x2="101.6" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-50.8" x2="101.6" y2="-48.26" width="0.1524" layer="91"/>
+<junction x="101.6" y="-48.26"/>
+</segment>
 </net>
 <net name="BAT+" class="0">
 <segment>
@@ -10108,6 +10144,18 @@ the Caps are charged and dangerous</text>
 <junction x="132.08" y="20.32"/>
 <label x="124.46" y="20.32" size="1.778" layer="95"/>
 <pinref part="BB_CON" gate="G$1" pin="P$3"/>
+</segment>
+<segment>
+<wire x1="53.34" y1="-45.72" x2="68.58" y2="-45.72" width="0.1524" layer="91"/>
+<label x="48.26" y="-45.72" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="6"/>
+<junction x="68.58" y="-45.72"/>
+</segment>
+<segment>
+<wire x1="88.9" y1="-45.72" x2="104.14" y2="-45.72" width="0.1524" layer="91"/>
+<label x="83.82" y="-45.72" size="1.778" layer="95"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="6"/>
+<junction x="104.14" y="-45.72"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -10206,6 +10254,20 @@ the Caps are charged and dangerous</text>
 <wire x1="-2.54" y1="43.18" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
 <label x="-2.54" y="48.26" size="1.778" layer="95"/>
 </segment>
+<segment>
+<label x="48.26" y="-43.18" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="5"/>
+<wire x1="68.58" y1="-43.18" x2="66.04" y2="-43.18" width="0.1524" layer="91"/>
+<junction x="68.58" y="-43.18"/>
+<wire x1="66.04" y1="-43.18" x2="53.34" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<label x="83.82" y="-43.18" size="1.778" layer="95"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="5"/>
+<wire x1="104.14" y1="-43.18" x2="101.6" y2="-43.18" width="0.1524" layer="91"/>
+<junction x="104.14" y="-43.18"/>
+<wire x1="101.6" y1="-43.18" x2="88.9" y2="-43.18" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="TO_NEON" class="0">
 <segment>
@@ -10222,7 +10284,7 @@ the Caps are charged and dangerous</text>
 <wire x1="-10.16" y1="83.82" x2="-15.24" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="MISO" class="0">
+<net name="KICK_REF" class="0">
 <segment>
 <label x="-22.86" y="0" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="2"/>
@@ -10249,8 +10311,20 @@ the Caps are charged and dangerous</text>
 <junction x="104.14" y="0"/>
 <wire x1="101.6" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<label x="48.26" y="-35.56" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="-35.56" x2="66.04" y2="-35.56" width="0.1524" layer="91"/>
+<junction x="68.58" y="-35.56"/>
+<wire x1="66.04" y1="-35.56" x2="53.34" y2="-35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="2"/>
+<wire x1="104.14" y1="-35.56" x2="101.6" y2="-35.56" width="0.1524" layer="91"/>
+<junction x="104.14" y="-35.56"/>
+</segment>
 </net>
-<net name="MOSI" class="0">
+<net name="CHARGE_DONE" class="0">
 <segment>
 <label x="-22.86" y="-2.54" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="3"/>
@@ -10276,8 +10350,22 @@ the Caps are charged and dangerous</text>
 <wire x1="104.14" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="104.14" y="-2.54"/>
 </segment>
+<segment>
+<label x="48.26" y="-38.1" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="3"/>
+<wire x1="68.58" y1="-38.1" x2="53.34" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="68.58" y="-38.1"/>
+<label x="48.26" y="-38.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<label x="83.82" y="-38.1" size="1.778" layer="95"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="3"/>
+<wire x1="104.14" y1="-38.1" x2="88.9" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="104.14" y="-38.1"/>
+<label x="83.82" y="-38.1" size="1.778" layer="95"/>
+</segment>
 </net>
-<net name="SCLK" class="0">
+<net name="CHARGE" class="0">
 <segment>
 <label x="-22.86" y="-5.08" size="1.778" layer="95"/>
 <pinref part="MOTORBOARD_HEADER1" gate="G$1" pin="4"/>
@@ -10302,6 +10390,18 @@ the Caps are charged and dangerous</text>
 <pinref part="MOTORBOARD_HEADER4" gate="G$1" pin="4"/>
 <junction x="104.14" y="-5.08"/>
 <wire x1="104.14" y1="-5.08" x2="88.9" y2="-5.08" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<label x="48.26" y="-40.64" size="1.778" layer="95"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="4"/>
+<junction x="68.58" y="-40.64"/>
+<wire x1="68.58" y1="-40.64" x2="53.34" y2="-40.64" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<label x="83.82" y="-40.64" size="1.778" layer="95"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="4"/>
+<junction x="104.14" y="-40.64"/>
+<wire x1="104.14" y1="-40.64" x2="88.9" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SS4" class="0">
@@ -10414,6 +10514,42 @@ the Caps are charged and dangerous</text>
 <wire x1="-2.54" y1="-17.78" x2="-5.08" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="-17.78" x2="-5.08" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="-5.08" y="-20.32"/>
+</segment>
+</net>
+<net name="12V1" class="0">
+<segment>
+<pinref part="FUSE_KICKER" gate="1" pin="1"/>
+<wire x1="53.34" y1="-55.88" x2="48.26" y2="-55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="KICKER_HEADER" gate="G$1" pin="10"/>
+<pinref part="FUSE_KICKER" gate="1" pin="2"/>
+<wire x1="68.58" y1="-55.88" x2="66.04" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="KICKER_HEADER" gate="G$1" pin="9"/>
+<wire x1="66.04" y1="-55.88" x2="63.5" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-53.34" x2="66.04" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-53.34" x2="66.04" y2="-55.88" width="0.1524" layer="91"/>
+<junction x="66.04" y="-55.88"/>
+</segment>
+</net>
+<net name="12V2" class="0">
+<segment>
+<pinref part="FUSE_CHARGER" gate="1" pin="1"/>
+<wire x1="88.9" y1="-55.88" x2="83.82" y2="-55.88" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="10"/>
+<pinref part="FUSE_CHARGER" gate="1" pin="2"/>
+<wire x1="104.14" y1="-55.88" x2="101.6" y2="-55.88" width="0.1524" layer="91"/>
+<pinref part="CHARGE_HEADER" gate="G$1" pin="9"/>
+<wire x1="101.6" y1="-55.88" x2="99.06" y2="-55.88" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="-53.34" x2="101.6" y2="-53.34" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="-53.34" x2="101.6" y2="-55.88" width="0.1524" layer="91"/>
+<junction x="101.6" y="-55.88"/>
 </segment>
 </net>
 </nets>
