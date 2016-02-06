@@ -4900,13 +4900,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <junction x="35.56" y="170.18"/>
 <wire x1="35.56" y1="170.18" x2="35.56" y2="165.1" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<wire x1="38.1" y1="172.72" x2="38.1" y2="170.18" width="0.1524" layer="91"/>
-<label x="38.1" y="165.1" size="1.778" layer="95" rot="R90"/>
-<pinref part="SPI_HEADER" gate="G$1" pin="6"/>
-<junction x="38.1" y="170.18"/>
-<wire x1="38.1" y1="170.18" x2="38.1" y2="165.1" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="SS_3" class="0">
 <segment>
@@ -4917,11 +4910,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="101.6" y1="86.36" x2="109.22" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="40.64" y1="172.72" x2="40.64" y2="170.18" width="0.1524" layer="91"/>
-<label x="40.64" y="165.1" size="1.778" layer="95" rot="R90"/>
-<pinref part="SPI_HEADER" gate="G$1" pin="7"/>
-<junction x="40.64" y="170.18"/>
-<wire x1="40.64" y1="170.18" x2="40.64" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="SPI_HEADER" gate="G$1" pin="6"/>
+<wire x1="38.1" y1="170.18" x2="38.1" y2="165.1" width="0.1524" layer="91"/>
+<junction x="38.1" y="170.18"/>
+<label x="38.1" y="165.1" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="12VGND" class="0">
@@ -5223,10 +5215,10 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <label x="109.22" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="SPI_HEADER" gate="G$1" pin="8"/>
-<wire x1="43.18" y1="170.18" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
-<junction x="43.18" y="170.18"/>
-<label x="43.18" y="165.1" size="1.778" layer="95" rot="R90"/>
+<pinref part="SPI_HEADER" gate="G$1" pin="7"/>
+<wire x1="40.64" y1="170.18" x2="40.64" y2="165.1" width="0.1524" layer="91"/>
+<junction x="40.64" y="170.18"/>
+<label x="40.64" y="165.1" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 </nets>
