@@ -5453,11 +5453,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <circle x="2.7" y="-1.25" radius="0.125" width="0" layer="31"/>
 <circle x="2.7" y="-0.75" radius="0.2" width="0" layer="29"/>
 <circle x="2.7" y="-0.75" radius="0.125" width="0" layer="31"/>
-<circle x="2.7" y="-0.25" radius="0.2" width="0" layer="29"/>
 <circle x="2.7" y="-0.25" radius="0.125" width="0" layer="31"/>
 <circle x="2.7" y="0.25" radius="0.2" width="0" layer="29"/>
 <circle x="2.7" y="0.25" radius="0.125" width="0" layer="31"/>
-<circle x="2.7" y="0.75" radius="0.2" width="0" layer="29"/>
 <circle x="2.7" y="0.75" radius="0.125" width="0" layer="31"/>
 <circle x="2.7" y="1.25" radius="0.2" width="0" layer="29"/>
 <circle x="2.7" y="1.25" radius="0.125" width="0" layer="31"/>
@@ -5607,9 +5605,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <rectangle x1="-2.6" y1="2.85" x2="-1.9" y2="3.25" layer="29" rot="R270"/>
 <rectangle x1="-2.5875" y1="2.9125" x2="-1.9125" y2="3.1625" layer="31" rot="R270"/>
 <rectangle x1="-3" y1="2.5" x2="-2.5" y2="3" layer="21"/>
-<rectangle x1="-3" y1="2.75" x2="-2.75" y2="3" layer="1"/>
 <rectangle x1="-2.54" y1="-2.54" x2="2.54" y2="2.54" layer="29"/>
-<pad name="P$1" x="0" y="0" drill="0.8" diameter="3.81" shape="square"/>
+<smd name="P$3" x="0" y="0" dx="3.81" dy="3.81" layer="1"/>
 </package>
 </packages>
 <symbols>
@@ -5694,7 +5691,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <connect gate="G$1" pin="NC6" pad="14"/>
 <connect gate="G$1" pin="NC7" pad="15"/>
 <connect gate="G$1" pin="NC8" pad="23"/>
-<connect gate="G$1" pin="PAD" pad="P$1"/>
+<connect gate="G$1" pin="PAD" pad="P$3"/>
 <connect gate="G$1" pin="PWM" pad="19"/>
 <connect gate="G$1" pin="U" pad="33"/>
 <connect gate="G$1" pin="UHSG" pad="32"/>
