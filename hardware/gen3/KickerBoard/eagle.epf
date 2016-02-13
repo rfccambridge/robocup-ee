@@ -1,5 +1,5 @@
 [Eagle]
-Version="07 04 00"
+Version="07 02 00"
 Platform="Windows"
 Serial="62191E841E-LSR-WLM-1EL"
 Globals="Globals"
@@ -12,7 +12,7 @@ UsedLibrary="C:/Users/Janey/Documents/GitHub/robocup-ee/hardware/libraries/Kicke
 [Win_1]
 Type="Control Panel"
 Loc="364 77 1318 476"
-State=2
+State=1
 Number=0
 
 [Desktop]
