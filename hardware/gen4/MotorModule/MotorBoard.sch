@@ -6257,7 +6257,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="U$1" gate="G$1" pin="W"/>
 </segment>
 </net>
-<net name="M1O2" class="0">
+<net name="M101" class="0">
 <segment>
 <label x="200.66" y="60.96" size="1.778" layer="95"/>
 <pinref part="Q1" gate="G$1" pin="P$2"/>
