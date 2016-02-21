@@ -15006,10 +15006,7 @@ Wickmann</description>
 <part name="FUSE_MOTOR_5" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR_6" library="fuse" deviceset="TR5" device=""/>
 <part name="FUSE_MOTOR_7" library="fuse" deviceset="TR5" device=""/>
-<part name="KICKER_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
 <part name="FUSE_KICKER" library="fuse" deviceset="TR5" device=""/>
-<part name="CHARGE_HEADER" library="SparkFun-Connectors" deviceset="M10" device="SILK_FEMALE_PTH"/>
-<part name="FUSE_CHARGER" library="fuse" deviceset="TR5" device=""/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
 <part name="JP2" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
@@ -15179,15 +15176,9 @@ should turn on fine with 3.3!</text>
 <attribute name="NAME" x="420.37" y="141.097" size="1.778" layer="95"/>
 <attribute name="VALUE" x="422.91" y="136.779" size="1.778" layer="96"/>
 </instance>
-<instance part="KICKER_HEADER" gate="G$1" x="530.86" y="132.08" rot="R180"/>
 <instance part="FUSE_KICKER" gate="1" x="510.54" y="127" smashed="yes">
 <attribute name="NAME" x="504.19" y="128.397" size="1.778" layer="95"/>
 <attribute name="VALUE" x="506.73" y="124.079" size="1.778" layer="96"/>
-</instance>
-<instance part="CHARGE_HEADER" gate="G$1" x="566.42" y="132.08" rot="R180"/>
-<instance part="FUSE_CHARGER" gate="1" x="546.1" y="127" smashed="yes">
-<attribute name="NAME" x="539.75" y="128.397" size="1.778" layer="95"/>
-<attribute name="VALUE" x="542.29" y="124.079" size="1.778" layer="96"/>
 </instance>
 <instance part="JP1" gate="G$1" x="271.78" y="154.94"/>
 <instance part="JP2" gate="G$1" x="327.66" y="152.4"/>
@@ -15351,14 +15342,6 @@ should turn on fine with 3.3!</text>
 <segment>
 <wire x1="505.46" y1="137.16" x2="520.7" y2="137.16" width="0.1524" layer="91"/>
 <label x="500.38" y="137.16" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="6"/>
-<junction x="520.7" y="137.16"/>
-</segment>
-<segment>
-<wire x1="541.02" y1="137.16" x2="556.26" y2="137.16" width="0.1524" layer="91"/>
-<label x="535.94" y="137.16" size="1.778" layer="95"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="6"/>
-<junction x="556.26" y="137.16"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -15622,25 +15605,11 @@ should turn on fine with 3.3!</text>
 </segment>
 <segment>
 <label x="500.38" y="134.62" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="7"/>
 <wire x1="520.7" y1="134.62" x2="518.16" y2="134.62" width="0.1524" layer="91"/>
-<junction x="520.7" y="134.62"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="8"/>
 <wire x1="518.16" y1="134.62" x2="505.46" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="520.7" y1="132.08" x2="518.16" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="518.16" y1="132.08" x2="518.16" y2="134.62" width="0.1524" layer="91"/>
 <junction x="518.16" y="134.62"/>
-</segment>
-<segment>
-<label x="535.94" y="134.62" size="1.778" layer="95"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="7"/>
-<wire x1="556.26" y1="134.62" x2="553.72" y2="134.62" width="0.1524" layer="91"/>
-<junction x="556.26" y="134.62"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="8"/>
-<wire x1="553.72" y1="134.62" x2="541.02" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="556.26" y1="132.08" x2="553.72" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="553.72" y1="132.08" x2="553.72" y2="134.62" width="0.1524" layer="91"/>
-<junction x="553.72" y="134.62"/>
 </segment>
 </net>
 <net name="COMP_OUT" class="0">
@@ -15775,15 +15744,7 @@ should turn on fine with 3.3!</text>
 </segment>
 <segment>
 <label x="500.38" y="139.7" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="5"/>
-<junction x="520.7" y="139.7"/>
 <wire x1="520.7" y1="139.7" x2="505.46" y2="139.7" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<label x="535.94" y="139.7" size="1.778" layer="95"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="5"/>
-<junction x="556.26" y="139.7"/>
-<wire x1="556.26" y1="139.7" x2="541.02" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CHIP_ENABLE" class="0">
@@ -15852,14 +15813,7 @@ should turn on fine with 3.3!</text>
 </segment>
 <segment>
 <label x="500.38" y="147.32" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="2"/>
-<junction x="520.7" y="147.32"/>
 <wire x1="520.7" y1="147.32" x2="505.46" y2="147.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="2"/>
-<wire x1="556.26" y1="147.32" x2="553.72" y2="147.32" width="0.1524" layer="91"/>
-<junction x="556.26" y="147.32"/>
 </segment>
 </net>
 <net name="UNBUF_DIVCAP" class="0">
@@ -16126,15 +16080,7 @@ should turn on fine with 3.3!</text>
 </segment>
 <segment>
 <label x="500.38" y="142.24" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="4"/>
-<junction x="520.7" y="142.24"/>
 <wire x1="520.7" y1="142.24" x2="505.46" y2="142.24" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<label x="535.94" y="142.24" size="1.778" layer="95"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="4"/>
-<junction x="556.26" y="142.24"/>
-<wire x1="556.26" y1="142.24" x2="541.02" y2="142.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -16464,17 +16410,8 @@ should turn on fine with 3.3!</text>
 </segment>
 <segment>
 <label x="500.38" y="144.78" size="1.778" layer="95"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="3"/>
 <wire x1="520.7" y1="144.78" x2="505.46" y2="144.78" width="0.1524" layer="91"/>
-<junction x="520.7" y="144.78"/>
 <label x="500.38" y="144.78" size="1.778" layer="95"/>
-</segment>
-<segment>
-<label x="535.94" y="144.78" size="1.778" layer="95"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="3"/>
-<wire x1="556.26" y1="144.78" x2="541.02" y2="144.78" width="0.1524" layer="91"/>
-<junction x="556.26" y="144.78"/>
-<label x="535.94" y="144.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SS4" class="0">
@@ -16549,32 +16486,12 @@ should turn on fine with 3.3!</text>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="KICKER_HEADER" gate="G$1" pin="10"/>
 <pinref part="FUSE_KICKER" gate="1" pin="2"/>
 <wire x1="520.7" y1="127" x2="518.16" y2="127" width="0.1524" layer="91"/>
-<pinref part="KICKER_HEADER" gate="G$1" pin="9"/>
 <wire x1="518.16" y1="127" x2="515.62" y2="127" width="0.1524" layer="91"/>
 <wire x1="520.7" y1="129.54" x2="518.16" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="518.16" y1="129.54" x2="518.16" y2="127" width="0.1524" layer="91"/>
 <junction x="518.16" y="127"/>
-</segment>
-</net>
-<net name="12V2" class="0">
-<segment>
-<pinref part="FUSE_CHARGER" gate="1" pin="1"/>
-<wire x1="541.02" y1="127" x2="535.94" y2="127" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="10"/>
-<pinref part="FUSE_CHARGER" gate="1" pin="2"/>
-<wire x1="556.26" y1="127" x2="553.72" y2="127" width="0.1524" layer="91"/>
-<pinref part="CHARGE_HEADER" gate="G$1" pin="9"/>
-<wire x1="553.72" y1="127" x2="551.18" y2="127" width="0.1524" layer="91"/>
-<wire x1="556.26" y1="129.54" x2="553.72" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="553.72" y1="129.54" x2="553.72" y2="127" width="0.1524" layer="91"/>
-<junction x="553.72" y="127"/>
 </segment>
 </net>
 </nets>
