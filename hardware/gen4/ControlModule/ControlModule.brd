@@ -972,7 +972,7 @@ design rules under a new name.</description>
 <element name="C4" library="SparkFun-Capacitors" package="1206" value="47uF" x="3" y="-11"/>
 <element name="C5" library="SparkFun-Capacitors" package="0805" value="1uF" x="-2" y="-11"/>
 <element name="C6" library="SparkFun-Capacitors" package="0805" value=".01uF" x="-5" y="-11"/>
-<element name="JP1" library="SparkFun-Connectors" package="2X20_SHROUDED_SMT" value="M20X2SHROUDED_SMT" x="-13" y="17"/>
+<element name="JP1" library="SparkFun-Connectors" package="2X20_SHROUDED_SMT" value="M20X2SHROUDED_SMT" x="-13" y="25"/>
 </elements>
 <signals>
 <signal name="GND">
