@@ -2697,13 +2697,7 @@ design rules under a new name.</description>
 <wire x1="68.555" y1="106.795" x2="65.14" y2="101.6" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DONE">
-<contactref element="CHARGE_U" pad="P$2"/>
-<contactref element="DONE_TEST" pad="P$1"/>
 <contactref element="SPARE_HEADER" pad="5"/>
-<contactref element="DONE_LED" pad="A"/>
-<wire x1="85.09" y1="147.32" x2="119.38" y2="107.95" width="0" layer="19" extent="1-1"/>
-<wire x1="64.285" y1="107.295" x2="85.09" y2="147.32" width="0" layer="19" extent="1-1"/>
-<wire x1="105.18" y1="104.14" x2="64.285" y2="107.295" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="TRANS_OUT">
 <contactref element="CHARGE_D" pad="A"/>
@@ -2957,6 +2951,35 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$28">
 <contactref element="KICKER" pad="2"/>
+</signal>
+<signal name="SS3">
+<contactref element="COM_BOARD" pad="24"/>
+</signal>
+<signal name="SS4">
+<contactref element="COM_BOARD" pad="26"/>
+</signal>
+<signal name="SS1">
+<contactref element="COM_BOARD" pad="20"/>
+</signal>
+<signal name="SCK">
+<contactref element="MOTOR4" pad="23"/>
+<contactref element="MOTOR1" pad="23"/>
+<wire x1="49.53" y1="48.5013" x2="110.49" y2="48.5013" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="MOSI">
+<contactref element="MOTOR4" pad="25"/>
+</signal>
+<signal name="MISO">
+<contactref element="MOTOR4" pad="27"/>
+<contactref element="MOTOR2" pad="27"/>
+<wire x1="115.57" y1="48.5013" x2="115.57" y2="70.0913" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="CHARGE_DONE">
+<contactref element="DONE_LED" pad="A"/>
+<contactref element="CHARGE_U" pad="P$2"/>
+<contactref element="DONE_TEST" pad="P$1"/>
+<wire x1="105.18" y1="104.14" x2="119.38" y2="107.95" width="0" layer="19" extent="1-1"/>
+<wire x1="64.285" y1="107.295" x2="105.18" y2="104.14" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
