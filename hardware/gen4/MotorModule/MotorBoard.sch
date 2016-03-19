@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -5827,9 +5827,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <instance part="Q6" gate="G$1" x="154.94" y="101.6"/>
 <instance part="FRAME7" gate="G$1" x="0" y="0"/>
 <instance part="FRAME7" gate="G$2" x="0" y="-35.56"/>
-<instance part="R2" gate="G$1" x="208.28" y="25.4"/>
-<instance part="R3" gate="G$1" x="208.28" y="20.32"/>
-<instance part="R4" gate="G$1" x="213.36" y="15.24"/>
+<instance part="R2" gate="G$1" x="208.28" y="30.48"/>
+<instance part="R3" gate="G$1" x="208.28" y="25.4"/>
+<instance part="R4" gate="G$1" x="213.36" y="20.32"/>
 <instance part="C4" gate="G$1" x="109.22" y="25.4" rot="R180"/>
 <instance part="C6" gate="G$1" x="121.92" y="30.48" rot="R180"/>
 <instance part="GND2" gate="1" x="111.76" y="30.48"/>
@@ -5888,7 +5888,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <instance part="R7" gate="G$1" x="73.66" y="63.5" rot="R270"/>
 <instance part="R9" gate="G$1" x="83.82" y="73.66" rot="R270"/>
 <instance part="R11" gate="G$1" x="91.44" y="25.4" rot="R180"/>
-<instance part="R15" gate="G$1" x="218.44" y="10.16"/>
+<instance part="R15" gate="G$1" x="218.44" y="15.24"/>
 <instance part="JP1" gate="G$1" x="30.48" y="68.58"/>
 <instance part="GND1" gate="1" x="38.1" y="60.96"/>
 <instance part="IC2" gate="G$1" x="127" y="132.08"/>
@@ -5940,7 +5940,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <segment>
 <pinref part="U$5" gate="G$1" pin="GND"/>
 <wire x1="215.9" y1="152.4" x2="215.9" y2="149.86" width="0.1524" layer="91"/>
-<label x="243.84" y="30.48" size="1.778" layer="95"/>
+<label x="243.84" y="33.02" size="1.778" layer="95"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -6039,8 +6039,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="MOSI" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="25.4" x2="200.66" y2="25.4" width="0.1524" layer="91"/>
-<label x="198.12" y="25.4" size="1.778" layer="95"/>
+<wire x1="203.2" y1="30.48" x2="200.66" y2="30.48" width="0.1524" layer="91"/>
+<label x="198.12" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <label x="76.2" y="127" size="1.778" layer="95"/>
@@ -6057,8 +6057,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="MISO" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="20.32" x2="200.66" y2="20.32" width="0.1524" layer="91"/>
-<label x="198.12" y="20.32" size="1.778" layer="95"/>
+<wire x1="203.2" y1="25.4" x2="200.66" y2="25.4" width="0.1524" layer="91"/>
+<label x="198.12" y="22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
 <label x="76.2" y="129.54" size="1.778" layer="95"/>
@@ -6073,8 +6073,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="SCK" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="208.28" y1="15.24" x2="200.66" y2="15.24" width="0.1524" layer="91"/>
-<label x="200.66" y="15.24" size="1.778" layer="95"/>
+<wire x1="208.28" y1="20.32" x2="200.66" y2="20.32" width="0.1524" layer="91"/>
+<label x="200.66" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
 <label x="76.2" y="132.08" size="1.778" layer="95"/>
@@ -6090,20 +6090,23 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="N$3" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="213.36" y1="20.32" x2="215.9" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="20.32" x2="215.9" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="27.94" x2="223.52" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="35.56" x2="226.06" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="31"/>
+<wire x1="213.36" y1="25.4" x2="215.9" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="25.4" x2="215.9" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="33.02" x2="220.98" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="38.1" x2="222.25" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="222.25" y1="38.1" x2="223.52" y2="36.83" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="30"/>
+<wire x1="223.52" y1="36.83" x2="240.03" y2="36.83" width="0.1524" layer="91"/>
+<wire x1="240.03" y1="36.83" x2="241.3" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="218.44" y1="15.24" x2="218.44" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="27.94" x2="223.52" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="33.02" x2="226.06" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="33"/>
+<wire x1="218.44" y1="20.32" x2="218.44" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="33.02" x2="220.98" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="31"/>
+<wire x1="220.98" y1="35.56" x2="226.06" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -6161,6 +6164,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="JP3" gate="G$1" pin="1"/>
 <junction x="226.06" y="73.66"/>
 <pinref part="JP3" gate="G$1" pin="3"/>
+<pinref part="JP3" gate="G$1" pin="5"/>
+<wire x1="226.06" y1="71.12" x2="226.06" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="6"/>
+<wire x1="241.3" y1="71.12" x2="241.3" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="114.3" y1="33.02" x2="114.3" y2="20.32" width="0.1524" layer="91"/>
@@ -6204,16 +6211,19 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <wire x1="228.6" y1="12.7" x2="226.06" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="15.24" x2="226.06" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="20.32" x2="226.06" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="25.4" x2="226.06" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="20.32" x2="241.3" y2="20.32" width="0.1524" layer="91"/>
 <wire x1="241.3" y1="20.32" x2="241.3" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="37"/>
 <pinref part="JP3" gate="G$1" pin="38"/>
 <pinref part="JP3" gate="G$1" pin="39"/>
-<junction x="226.06" y="25.4"/>
 <pinref part="JP3" gate="G$1" pin="40"/>
 <wire x1="241.3" y1="25.4" x2="241.3" y2="27.94" width="0.1524" layer="91"/>
 <junction x="241.3" y="25.4"/>
+<pinref part="JP3" gate="G$1" pin="37"/>
+<wire x1="226.06" y1="25.4" x2="226.06" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="35"/>
+<wire x1="226.06" y1="30.48" x2="226.06" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="36"/>
+<wire x1="241.3" y1="27.94" x2="241.3" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
@@ -6599,8 +6609,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 </net>
 <net name="SS_M" class="0">
 <segment>
-<wire x1="213.36" y1="10.16" x2="203.2" y2="10.16" width="0.1524" layer="91"/>
-<label x="200.66" y="10.16" size="1.778" layer="95"/>
+<wire x1="213.36" y1="15.24" x2="203.2" y2="15.24" width="0.1524" layer="91"/>
+<label x="200.66" y="15.24" size="1.778" layer="95"/>
 <pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 <segment>
@@ -6612,10 +6622,11 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="N$45" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="213.36" y1="25.4" x2="213.36" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="27.94" x2="223.52" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="38.1" x2="226.06" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="30.48" x2="213.36" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="33.02" x2="220.98" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="40.64" x2="223.52" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="JP3" gate="G$1" pin="29"/>
+<wire x1="223.52" y1="38.1" x2="226.06" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TSENSE1" class="0">
@@ -6791,19 +6802,21 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 </net>
 <net name="N$33" class="0">
 <segment>
-<wire x1="241.3" y1="30.48" x2="243.84" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="241.3" y1="30.48" x2="241.3" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="JP3" gate="G$1" pin="34"/>
-<pinref part="JP3" gate="G$1" pin="36"/>
-<junction x="241.3" y="30.48"/>
+<wire x1="241.3" y1="33.02" x2="243.84" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="33"/>
+<wire x1="241.3" y1="33.02" x2="226.06" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$34" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
-<wire x1="223.52" y1="10.16" x2="223.52" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="30.48" x2="226.06" y2="30.48" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="35"/>
+<wire x1="223.52" y1="15.24" x2="223.52" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="33.02" x2="224.79" y2="34.29" width="0.1524" layer="91"/>
+<wire x1="224.79" y1="34.29" x2="240.03" y2="34.29" width="0.1524" layer="91"/>
+<wire x1="240.03" y1="34.29" x2="241.3" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="G$1" pin="32"/>
+<junction x="241.3" y="35.56"/>
 </segment>
 </net>
 <net name="N$22" class="0">
