@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -15327,22 +15327,38 @@ should turn on fine with 3.3!</text>
 <label x="299.72" y="134.62" size="1.778" layer="95"/>
 <pinref part="MOTOR2" gate="G$1" pin="34"/>
 <wire x1="322.58" y1="134.62" x2="335.28" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="134.62" x2="304.8" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="134.62" x2="320.04" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="MOTOR2" gate="G$1" pin="33"/>
+<junction x="320.04" y="134.62"/>
+<wire x1="320.04" y1="134.62" x2="304.8" y2="134.62" width="0.1524" layer="91"/>
+<junction x="335.28" y="134.62"/>
 </segment>
 <segment>
 <label x="363.22" y="132.08" size="1.778" layer="95"/>
 <pinref part="MOTOR3" gate="G$1" pin="34"/>
-<wire x1="368.3" y1="132.08" x2="398.78" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="132.08" x2="383.54" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="MOTOR3" gate="G$1" pin="33"/>
+<junction x="383.54" y="132.08"/>
+<wire x1="383.54" y1="132.08" x2="398.78" y2="132.08" width="0.1524" layer="91"/>
+<junction x="398.78" y="132.08"/>
 </segment>
 <segment>
 <label x="421.64" y="129.54" size="1.778" layer="95"/>
 <pinref part="MOTOR4" gate="G$1" pin="34"/>
-<wire x1="426.72" y1="129.54" x2="457.2" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="129.54" x2="441.96" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="MOTOR4" gate="G$1" pin="33"/>
+<junction x="441.96" y="129.54"/>
+<wire x1="441.96" y1="129.54" x2="457.2" y2="129.54" width="0.1524" layer="91"/>
+<junction x="457.2" y="129.54"/>
 </segment>
 <segment>
 <label x="505.46" y="129.54" size="1.778" layer="95"/>
 <pinref part="COM_BOARD" gate="G$1" pin="34"/>
-<wire x1="510.54" y1="129.54" x2="541.02" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="129.54" x2="525.78" y2="129.54" width="0.1524" layer="91"/>
+<junction x="541.02" y="129.54"/>
+<pinref part="COM_BOARD" gate="G$1" pin="33"/>
+<junction x="525.78" y="129.54"/>
+<wire x1="525.78" y1="129.54" x2="541.02" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -15572,11 +15588,20 @@ should turn on fine with 3.3!</text>
 <wire x1="264.16" y1="132.08" x2="266.7" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="MOTOR1" gate="G$1" pin="40"/>
 <wire x1="266.7" y1="132.08" x2="281.94" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="281.94" y1="129.54" x2="264.16" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="281.94" y1="129.54" x2="266.7" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="MOTOR1" gate="G$1" pin="35"/>
+<wire x1="266.7" y1="129.54" x2="264.16" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="266.7" y1="132.08" x2="266.7" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="MOTOR1" gate="G$1" pin="36"/>
 <wire x1="281.94" y1="132.08" x2="281.94" y2="134.62" width="0.1524" layer="91"/>
+<junction x="281.94" y="129.54"/>
+<junction x="281.94" y="132.08"/>
+<junction x="281.94" y="134.62"/>
+<pinref part="MOTOR1" gate="G$1" pin="39"/>
+<junction x="266.7" y="129.54"/>
+<pinref part="MOTOR1" gate="G$1" pin="37"/>
+<junction x="266.7" y="132.08"/>
+<junction x="266.7" y="134.62"/>
 </segment>
 <segment>
 <label x="299.72" y="129.54" size="1.778" layer="95"/>
@@ -15587,11 +15612,20 @@ should turn on fine with 3.3!</text>
 <wire x1="317.5" y1="129.54" x2="320.04" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="40"/>
 <wire x1="320.04" y1="129.54" x2="335.28" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="127" x2="317.5" y2="127" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="127" x2="320.04" y2="127" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="35"/>
+<wire x1="320.04" y1="127" x2="317.5" y2="127" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="129.54" x2="320.04" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="36"/>
 <wire x1="335.28" y1="129.54" x2="335.28" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="MOTOR2" gate="G$1" pin="39"/>
+<junction x="320.04" y="127"/>
+<pinref part="MOTOR2" gate="G$1" pin="37"/>
+<junction x="320.04" y="129.54"/>
+<junction x="320.04" y="132.08"/>
+<junction x="335.28" y="132.08"/>
+<junction x="335.28" y="129.54"/>
+<junction x="335.28" y="127"/>
 </segment>
 <segment>
 <label x="363.22" y="127" size="1.778" layer="95"/>
@@ -15602,11 +15636,20 @@ should turn on fine with 3.3!</text>
 <wire x1="381" y1="127" x2="383.54" y2="127" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="40"/>
 <wire x1="383.54" y1="127" x2="398.78" y2="127" width="0.1524" layer="91"/>
-<wire x1="398.78" y1="124.46" x2="381" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="398.78" y1="124.46" x2="383.54" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="35"/>
+<wire x1="383.54" y1="124.46" x2="381" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="383.54" y1="127" x2="383.54" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="36"/>
 <wire x1="383.54" y1="129.54" x2="398.78" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="MOTOR3" gate="G$1" pin="39"/>
+<junction x="383.54" y="124.46"/>
+<pinref part="MOTOR3" gate="G$1" pin="37"/>
+<junction x="383.54" y="127"/>
+<junction x="383.54" y="129.54"/>
+<junction x="398.78" y="129.54"/>
+<junction x="398.78" y="127"/>
+<junction x="398.78" y="124.46"/>
 </segment>
 <segment>
 <label x="421.64" y="124.46" size="1.778" layer="95"/>
@@ -15625,6 +15668,13 @@ should turn on fine with 3.3!</text>
 <wire x1="457.2" y1="124.46" x2="441.96" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="MOTOR4" gate="G$1" pin="40"/>
 <wire x1="441.96" y1="121.92" x2="457.2" y2="121.92" width="0.1524" layer="91"/>
+<junction x="457.2" y="127"/>
+<junction x="441.96" y="127"/>
+<junction x="441.96" y="124.46"/>
+<pinref part="MOTOR4" gate="G$1" pin="39"/>
+<junction x="441.96" y="121.92"/>
+<junction x="457.2" y="121.92"/>
+<junction x="457.2" y="124.46"/>
 </segment>
 <segment>
 <label x="505.46" y="124.46" size="1.778" layer="95"/>
@@ -15639,7 +15689,16 @@ should turn on fine with 3.3!</text>
 <pinref part="COM_BOARD" gate="G$1" pin="38"/>
 <wire x1="525.78" y1="124.46" x2="541.02" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="COM_BOARD" gate="G$1" pin="40"/>
-<wire x1="523.24" y1="121.92" x2="541.02" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="523.24" y1="121.92" x2="525.78" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="COM_BOARD" gate="G$1" pin="39"/>
+<junction x="525.78" y="121.92"/>
+<wire x1="525.78" y1="121.92" x2="541.02" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="COM_BOARD" gate="G$1" pin="37"/>
+<junction x="525.78" y="124.46"/>
+<junction x="525.78" y="127"/>
+<junction x="541.02" y="127"/>
+<junction x="541.02" y="124.46"/>
+<junction x="541.02" y="121.92"/>
 </segment>
 </net>
 <net name="COMP_OUT" class="0">
@@ -15984,6 +16043,14 @@ should turn on fine with 3.3!</text>
 <wire x1="495.3" y1="167.64" x2="490.22" y2="167.64" width="0.1524" layer="91"/>
 <label x="485.14" y="167.64" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="3.3REG1" gate="G$1" pin="IN"/>
+<pinref part="ON/OFF" gate="G$1" pin="P2"/>
+<wire x1="393.7" y1="355.6" x2="403.86" y2="355.6" width="0.1524" layer="91"/>
+<pinref part="12V_TEST" gate="G$1" pin="P$1"/>
+<wire x1="403.86" y1="355.6" x2="414.02" y2="355.6" width="0.1524" layer="91"/>
+<junction x="403.86" y="355.6"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -16289,16 +16356,6 @@ should turn on fine with 3.3!</text>
 <wire x1="368.3" y1="360.68" x2="373.38" y2="360.68" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="3.3REG1" gate="G$1" pin="IN"/>
-<pinref part="ON/OFF" gate="G$1" pin="P2"/>
-<wire x1="393.7" y1="355.6" x2="403.86" y2="355.6" width="0.1524" layer="91"/>
-<pinref part="12V_TEST" gate="G$1" pin="P$1"/>
-<wire x1="403.86" y1="355.6" x2="414.02" y2="355.6" width="0.1524" layer="91"/>
-<junction x="403.86" y="355.6"/>
-</segment>
-</net>
 <net name="BATSENSE" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -16429,11 +16486,13 @@ should turn on fine with 3.3!</text>
 <label x="421.64" y="132.08" size="1.778" layer="95"/>
 <wire x1="441.96" y1="132.08" x2="426.72" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="MOTOR4" gate="G$1" pin="31"/>
+<junction x="441.96" y="132.08"/>
 </segment>
 <segment>
 <pinref part="COM_BOARD" gate="G$1" pin="26"/>
 <wire x1="541.02" y1="139.7" x2="553.72" y2="139.7" width="0.1524" layer="91"/>
 <label x="553.72" y="139.7" size="1.778" layer="95"/>
+<junction x="541.02" y="139.7"/>
 </segment>
 </net>
 <net name="SS1" class="0">
@@ -16441,11 +16500,13 @@ should turn on fine with 3.3!</text>
 <label x="246.38" y="139.7" size="1.778" layer="95"/>
 <wire x1="266.7" y1="139.7" x2="251.46" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="MOTOR1" gate="G$1" pin="31"/>
+<junction x="266.7" y="139.7"/>
 </segment>
 <segment>
 <pinref part="COM_BOARD" gate="G$1" pin="20"/>
 <wire x1="541.02" y1="147.32" x2="553.72" y2="147.32" width="0.1524" layer="91"/>
 <label x="553.72" y="147.32" size="1.778" layer="95"/>
+<junction x="541.02" y="147.32"/>
 </segment>
 </net>
 <net name="SS2" class="0">
@@ -16453,10 +16514,13 @@ should turn on fine with 3.3!</text>
 <label x="299.72" y="137.16" size="1.778" layer="95"/>
 <wire x1="320.04" y1="137.16" x2="304.8" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="31"/>
+<junction x="320.04" y="137.16"/>
 </segment>
 <segment>
-<wire x1="538.48" y1="144.78" x2="553.72" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="541.02" y1="144.78" x2="553.72" y2="144.78" width="0.1524" layer="91"/>
 <label x="553.72" y="144.78" size="1.778" layer="95"/>
+<pinref part="COM_BOARD" gate="G$1" pin="22"/>
+<junction x="541.02" y="144.78"/>
 </segment>
 </net>
 <net name="SS3" class="0">
@@ -16464,11 +16528,13 @@ should turn on fine with 3.3!</text>
 <label x="363.22" y="134.62" size="1.778" layer="95"/>
 <pinref part="MOTOR3" gate="G$1" pin="31"/>
 <wire x1="368.3" y1="134.62" x2="383.54" y2="134.62" width="0.1524" layer="91"/>
+<junction x="383.54" y="134.62"/>
 </segment>
 <segment>
 <pinref part="COM_BOARD" gate="G$1" pin="24"/>
 <wire x1="541.02" y1="142.24" x2="553.72" y2="142.24" width="0.1524" layer="91"/>
 <label x="553.72" y="142.24" size="1.778" layer="95"/>
+<junction x="541.02" y="142.24"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -16563,8 +16629,10 @@ should turn on fine with 3.3!</text>
 </net>
 <net name="SCK" class="0">
 <segment>
-<wire x1="538.48" y1="137.16" x2="553.72" y2="137.16" width="0.1524" layer="91"/>
 <label x="553.72" y="137.16" size="1.778" layer="95"/>
+<pinref part="COM_BOARD" gate="G$1" pin="28"/>
+<junction x="541.02" y="137.16"/>
+<wire x1="541.02" y1="137.16" x2="553.72" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="439.42" y1="134.62" x2="426.72" y2="134.62" width="0.1524" layer="91"/>
@@ -16581,6 +16649,7 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR3" gate="G$1" pin="32"/>
 <wire x1="377.19" y1="135.89" x2="397.51" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="397.51" y1="135.89" x2="398.78" y2="134.62" width="0.1524" layer="91"/>
+<junction x="398.78" y="134.62"/>
 </segment>
 <segment>
 <wire x1="317.754" y1="139.7" x2="304.8" y2="139.7" width="0.1524" layer="91"/>
@@ -16589,6 +16658,7 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR2" gate="G$1" pin="32"/>
 <wire x1="319.278" y1="138.176" x2="334.264" y2="138.176" width="0.1524" layer="91"/>
 <wire x1="334.264" y1="138.176" x2="335.28" y2="137.16" width="0.1524" layer="91"/>
+<junction x="335.28" y="137.16"/>
 </segment>
 <segment>
 <wire x1="264.16" y1="142.24" x2="251.46" y2="142.24" width="0.1524" layer="91"/>
@@ -16598,12 +16668,15 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR1" gate="G$1" pin="32"/>
 <wire x1="265.43" y1="140.716" x2="280.924" y2="140.716" width="0.1524" layer="91"/>
 <wire x1="280.924" y1="140.716" x2="281.94" y2="139.7" width="0.1524" layer="91"/>
+<junction x="281.94" y="139.7"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
 <segment>
-<wire x1="538.48" y1="134.62" x2="553.72" y2="134.62" width="0.1524" layer="91"/>
 <label x="553.72" y="134.62" size="1.778" layer="95"/>
+<pinref part="COM_BOARD" gate="G$1" pin="30"/>
+<junction x="541.02" y="134.62"/>
+<wire x1="541.02" y1="134.62" x2="553.72" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="439.42" y1="139.7" x2="426.72" y2="139.7" width="0.1524" layer="91"/>
@@ -16621,6 +16694,7 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR3" gate="G$1" pin="30"/>
 <wire x1="383.54" y1="138.43" x2="397.51" y2="138.43" width="0.1524" layer="91"/>
 <wire x1="397.51" y1="138.43" x2="398.78" y2="137.16" width="0.1524" layer="91"/>
+<junction x="398.78" y="137.16"/>
 </segment>
 <segment>
 <wire x1="317.5" y1="144.78" x2="304.8" y2="144.78" width="0.1524" layer="91"/>
@@ -16630,6 +16704,7 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR2" gate="G$1" pin="30"/>
 <wire x1="320.04" y1="140.97" x2="334.01" y2="140.97" width="0.1524" layer="91"/>
 <wire x1="334.01" y1="140.97" x2="335.28" y2="139.7" width="0.1524" layer="91"/>
+<junction x="335.28" y="139.7"/>
 </segment>
 <segment>
 <wire x1="264.16" y1="147.32" x2="251.46" y2="147.32" width="0.1524" layer="91"/>
@@ -16639,12 +16714,15 @@ should turn on fine with 3.3!</text>
 <pinref part="MOTOR1" gate="G$1" pin="30"/>
 <wire x1="267.462" y1="143.002" x2="281.178" y2="143.002" width="0.1524" layer="91"/>
 <wire x1="281.178" y1="143.002" x2="281.94" y2="142.24" width="0.1524" layer="91"/>
+<junction x="281.94" y="142.24"/>
 </segment>
 </net>
 <net name="MISO" class="0">
 <segment>
-<wire x1="538.48" y1="132.08" x2="553.72" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="541.02" y1="132.08" x2="553.72" y2="132.08" width="0.1524" layer="91"/>
 <label x="553.72" y="132.08" size="1.778" layer="95"/>
+<pinref part="COM_BOARD" gate="G$1" pin="32"/>
+<junction x="541.02" y="132.08"/>
 </segment>
 <segment>
 <wire x1="439.42" y1="137.16" x2="426.72" y2="137.16" width="0.1524" layer="91"/>
@@ -16657,18 +16735,21 @@ should turn on fine with 3.3!</text>
 <label x="363.22" y="139.7" size="1.778" layer="95"/>
 <pinref part="MOTOR3" gate="G$1" pin="29"/>
 <wire x1="381" y1="139.7" x2="383.54" y2="137.16" width="0.1524" layer="91"/>
+<junction x="383.54" y="137.16"/>
 </segment>
 <segment>
 <wire x1="317.5" y1="142.24" x2="304.8" y2="142.24" width="0.1524" layer="91"/>
 <label x="299.72" y="142.24" size="1.778" layer="95"/>
 <pinref part="MOTOR2" gate="G$1" pin="29"/>
 <wire x1="317.5" y1="142.24" x2="320.04" y2="139.7" width="0.1524" layer="91"/>
+<junction x="320.04" y="139.7"/>
 </segment>
 <segment>
 <wire x1="264.16" y1="144.78" x2="251.46" y2="144.78" width="0.1524" layer="91"/>
 <label x="246.38" y="144.78" size="1.778" layer="95"/>
 <pinref part="MOTOR1" gate="G$1" pin="29"/>
 <wire x1="264.16" y1="144.78" x2="266.7" y2="142.24" width="0.1524" layer="91"/>
+<junction x="266.7" y="142.24"/>
 </segment>
 </net>
 </nets>
