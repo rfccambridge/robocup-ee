@@ -15762,8 +15762,13 @@ should turn on fine with 3.3!</text>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="337.82" y1="266.7" x2="337.82" y2="274.32" width="0.1524" layer="91"/>
-<wire x1="337.82" y1="266.7" x2="347.98" y2="266.7" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="266.7" x2="342.9" y2="266.7" width="0.1524" layer="91"/>
 <label x="337.82" y="271.78" size="1.778" layer="95"/>
+<label x="543.56" y="154.94" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="14"/>
+<wire x1="541.02" y1="154.94" x2="551.18" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CAP+" class="0">
@@ -15841,10 +15846,16 @@ should turn on fine with 3.3!</text>
 <pinref part="CE_LED" gate="G$1" pin="A"/>
 <wire x1="294.64" y1="281.94" x2="294.64" y2="279.4" width="0.1524" layer="91"/>
 <junction x="294.64" y="281.94"/>
+<label x="264.16" y="281.94" size="1.778" layer="95"/>
+<label x="505.46" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="330.2" y1="220.98" x2="312.42" y2="223.52" width="0.1524" layer="91"/>
 <label x="312.42" y="223.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="13"/>
+<wire x1="525.78" y1="154.94" x2="510.54" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="KICK_ENABLE" class="0">
@@ -15858,10 +15869,15 @@ should turn on fine with 3.3!</text>
 <pinref part="KE_LED" gate="G$1" pin="A"/>
 <wire x1="287.02" y1="284.48" x2="287.02" y2="279.4" width="0.1524" layer="91"/>
 <junction x="287.02" y="284.48"/>
+<label x="505.46" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="330.2" y1="223.52" x2="312.42" y2="226.06" width="0.1524" layer="91"/>
 <label x="312.42" y="226.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="11"/>
+<wire x1="525.78" y1="157.48" x2="510.54" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="KICK_REF" class="0">
@@ -16328,6 +16344,17 @@ should turn on fine with 3.3!</text>
 <pinref part="DISCHARGE_Q1" gate="G$1" pin="G"/>
 <wire x1="584.2" y1="314.96" x2="589.28" y2="314.96" width="0.1524" layer="91"/>
 <label x="586.74" y="314.96" size="1.778" layer="95"/>
+<label x="543.56" y="152.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="18"/>
+<wire x1="541.02" y1="149.86" x2="551.18" y2="149.86" width="0.1524" layer="91"/>
+<junction x="541.02" y="149.86"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="16"/>
+<wire x1="541.02" y1="152.4" x2="551.18" y2="152.4" width="0.1524" layer="91"/>
+<junction x="541.02" y="152.4"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -16391,6 +16418,7 @@ should turn on fine with 3.3!</text>
 <pinref part="DRIB_TEST" gate="G$1" pin="P$1"/>
 <wire x1="289.56" y1="350.52" x2="271.78" y2="350.52" width="0.1524" layer="91"/>
 <junction x="289.56" y="350.52"/>
+<label x="543.56" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TO_DRIB" class="0">
@@ -16413,6 +16441,11 @@ should turn on fine with 3.3!</text>
 <wire x1="574.04" y1="259.08" x2="589.28" y2="259.08" width="0.1524" layer="91"/>
 <pinref part="R19" gate="G$1" pin="1"/>
 <label x="574.04" y="259.08" size="1.778" layer="95"/>
+<label x="508" y="160.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="9"/>
+<wire x1="525.78" y1="160.02" x2="510.54" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BB_IN" class="0">
@@ -16422,6 +16455,11 @@ should turn on fine with 3.3!</text>
 <wire x1="596.9" y1="292.1" x2="574.04" y2="292.1" width="0.1524" layer="91"/>
 <label x="574.04" y="292.1" size="1.778" layer="95"/>
 <pinref part="BB_CON" gate="G$1" pin="P$2"/>
+<label x="508" y="162.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="7"/>
+<wire x1="525.78" y1="162.56" x2="510.54" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">

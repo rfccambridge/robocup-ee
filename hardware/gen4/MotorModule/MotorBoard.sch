@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5805,6 +5805,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="JP4" library="SparkFun-Connectors" deviceset="M04" device="SMD_RA_FEMALE"/>
 <part name="U$1" library="texas2" deviceset="DRV8307" device=""/>
+<part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
+<part name="GND15" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND16" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5846,7 +5850,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <instance part="R79" gate="G$1" x="83.82" y="48.26" rot="R180"/>
 <instance part="C33" gate="G$1" x="83.82" y="147.32" rot="R180"/>
 <instance part="C40" gate="G$1" x="10.16" y="152.4" rot="R90"/>
-<instance part="R97" gate="G$1" x="12.7" y="162.56" rot="R90"/>
+<instance part="R97" gate="G$1" x="12.7" y="165.1" rot="R90"/>
 <instance part="R1" gate="G$1" x="154.94" y="167.64" rot="R90"/>
 <instance part="R99" gate="G$1" x="165.1" y="167.64" rot="R90"/>
 <instance part="R101" gate="G$1" x="175.26" y="167.64" rot="R90"/>
@@ -5900,6 +5904,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <instance part="GND14" gate="1" x="231.14" y="137.16" rot="R270"/>
 <instance part="JP4" gate="G$1" x="238.76" y="139.7" rot="R180"/>
 <instance part="U$1" gate="G$1" x="86.36" y="86.36" rot="R270"/>
+<instance part="C3" gate="G$1" x="111.76" y="132.08" rot="R180"/>
+<instance part="C5" gate="G$1" x="142.24" y="132.08" rot="R180"/>
+<instance part="GND15" gate="1" x="111.76" y="124.46"/>
+<instance part="GND16" gate="1" x="142.24" y="124.46"/>
 </instances>
 <busses>
 </busses>
@@ -5939,6 +5947,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <wire x1="17.78" y1="180.34" x2="22.86" y2="180.34" width="0.1524" layer="91"/>
 <label x="22.86" y="180.34" size="1.778" layer="95"/>
 <pinref part="S2" gate="S" pin="4"/>
+<wire x1="17.78" y1="180.34" x2="22.86" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C46" gate="G$1" pin="2"/>
@@ -6008,21 +6017,16 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="U$1" gate="G$1" pin="PAD"/>
 </segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="1"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C5" gate="G$1" pin="1"/>
+<pinref part="GND16" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VREG" class="0">
-<segment>
-<pinref part="R113" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="177.8" x2="20.32" y2="177.8" width="0.1524" layer="91"/>
-<label x="20.32" y="177.8" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="R63" gate="G$1" pin="1"/>
-<wire x1="73.66" y1="68.58" x2="78.74" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="73.66" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="78.74" x2="83.82" y2="83.82" width="0.1524" layer="91"/>
-</segment>
 <segment>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="38.1" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
@@ -6163,8 +6167,11 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="U$1" gate="G$1" pin="VM"/>
 </segment>
 <segment>
-<wire x1="116.84" y1="134.62" x2="109.22" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="134.62" x2="111.76" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="IN"/>
+<pinref part="C3" gate="G$1" pin="2"/>
+<wire x1="111.76" y1="134.62" x2="109.22" y2="134.62" width="0.1524" layer="91"/>
+<junction x="111.76" y="134.62"/>
 </segment>
 </net>
 <net name="12VGND" class="0">
@@ -6536,12 +6543,16 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <junction x="177.8" y="12.7"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <junction x="157.48" y="12.7"/>
+<wire x1="132.08" y1="12.7" x2="132.08" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="53.34" x2="129.54" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="ISEN"/>
+<wire x1="132.08" y1="12.7" x2="157.48" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AVCC" class="0">
 <segment>
 <pinref part="R97" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="157.48" x2="12.7" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="160.02" x2="12.7" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="C40" gate="G$1" pin="2"/>
 <pinref part="IC1" gate="G$1" pin="AVCC"/>
 <wire x1="12.7" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
@@ -6650,14 +6661,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="U$1" gate="G$1" pin="BRAKE"/>
 </segment>
 </net>
-<net name="N$5" class="0">
-<segment>
-<wire x1="157.48" y1="12.7" x2="132.08" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="12.7" x2="132.08" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="53.34" x2="129.54" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="ISEN"/>
-</segment>
-</net>
 <net name="N$24" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
@@ -6711,7 +6714,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="3.3V" class="0">
 <segment>
 <pinref part="R97" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="167.64" x2="12.7" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="170.18" x2="12.7" y2="172.72" width="0.1524" layer="91"/>
 <label x="10.16" y="167.64" size="1.778" layer="95" rot="R90"/>
 <label x="45.72" y="76.2" size="1.778" layer="95" rot="R180"/>
 <label x="142.24" y="137.16" size="1.778" layer="95"/>
@@ -6733,7 +6736,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="OUT"/>
-<wire x1="137.16" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="134.62" x2="142.24" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="142.24" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
+<junction x="142.24" y="134.62"/>
 </segment>
 <segment>
 <wire x1="88.9" y1="17.78" x2="101.6" y2="17.78" width="0.1524" layer="91"/>
@@ -6769,6 +6775,19 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <segment>
 <wire x1="228.6" y1="142.24" x2="233.68" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R63" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="68.58" x2="78.74" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="73.66" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="78.74" x2="83.82" y2="83.82" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R113" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="177.8" x2="20.32" y2="177.8" width="0.1524" layer="91"/>
+<label x="20.32" y="177.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -6813,47 +6832,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="104,1,99.06,149.86,U2,VCC_2,3.3V,,,"/>
-<approved hash="104,1,99.06,147.32,U2,VCC,3.3V,,,"/>
-<approved hash="202,1,99.06,137.16,U2,(TOSC1)_XTAL1,,,,"/>
-<approved hash="104,1,381,231.14,COMP1,V-,GND,,,"/>
-<approved hash="104,1,381,215.9,COMP1,V+,5V,,,"/>
-<approved hash="104,1,637.54,231.14,COMP2,V-,GND,,,"/>
-<approved hash="104,1,637.54,215.9,COMP2,V+,5V,,,"/>
-<approved hash="104,1,635,33.02,COMP4,V-,GND,,,"/>
-<approved hash="104,1,635,17.78,COMP4,V+,5V,,,"/>
-<approved hash="104,1,383.54,35.56,COMP3,V-,GND,,,"/>
-<approved hash="104,1,383.54,20.32,COMP3,V+,5V,,,"/>
-<approved hash="104,1,314.96,218.44,OP1,V+,5V,,,"/>
-<approved hash="104,1,314.96,233.68,OP1,V-,GND,,,"/>
-<approved hash="104,1,568.96,218.44,OP2,V+,5V,,,"/>
-<approved hash="104,1,568.96,233.68,OP2,V-,GND,,,"/>
-<approved hash="104,1,568.96,20.32,OP4,V+,5V,,,"/>
-<approved hash="104,1,568.96,35.56,OP4,V-,GND,,,"/>
-<approved hash="104,1,314.96,22.86,OP3,V+,5V,,,"/>
-<approved hash="104,1,314.96,38.1,OP3,V-,GND,,,"/>
-<approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
-<approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
-<approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
-<approved hash="106,1,215.9,162.56,SS_K,,,,,"/>
-<approved hash="111,1,388.62,106.68,M3O2,,,,,"/>
-<approved hash="111,1,393.7,109.22,M3O1,,,,,"/>
-<approved hash="111,1,655.32,106.68,M4O1,,,,,"/>
-<approved hash="111,1,650.24,104.14,M4O2,,,,,"/>
-<approved hash="111,1,657.86,304.8,M2O1,,,,,"/>
-<approved hash="111,1,652.78,302.26,M2O2,,,,,"/>
-<approved hash="111,1,396.24,304.8,M1O1,,,,,"/>
-<approved hash="111,1,391.16,302.26,M1O2,,,,,"/>
-<approved hash="111,1,327.66,30.48,SENSE3,,,,,"/>
-<approved hash="111,1,396.24,27.94,LIM3,,,,,"/>
-<approved hash="111,1,581.66,27.94,SENSE4,,,,,"/>
-<approved hash="111,1,647.7,25.4,LIM4,,,,,"/>
-<approved hash="111,1,650.24,223.52,LIM2,,,,,"/>
-<approved hash="111,1,581.66,226.06,SENSE2,,,,,"/>
-<approved hash="111,1,327.66,226.06,SENSE1,,,,,"/>
-<approved hash="111,1,393.7,223.52,LIM1,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
