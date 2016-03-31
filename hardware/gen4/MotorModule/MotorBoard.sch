@@ -6026,12 +6026,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="GND16" gate="1" pin="GND"/>
 </segment>
 </net>
-<net name="VREG" class="0">
-<segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="MOSI" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
@@ -6788,6 +6782,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="R113" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="177.8" x2="20.32" y2="177.8" width="0.1524" layer="91"/>
 <label x="20.32" y="177.8" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="2"/>
+<wire x1="38.1" y1="73.66" x2="43.18" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$33" class="0">
