@@ -440,19 +440,19 @@
 <smd name="GLC" x="-2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
 <smd name="LSS" x="-2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
 <smd name="HC" x="2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
-<smd name="27" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
-<smd name="26" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
-<smd name="25" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
-<smd name="24" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
-<smd name="23" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
-<smd name="22" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
-<smd name="21" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
-<smd name="20" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
-<smd name="19" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
-<smd name="18" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
-<smd name="17" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
-<smd name="16" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
-<smd name="15" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
+<smd name="HB" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
+<smd name="HA" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
+<smd name="BRAKEN" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
+<smd name="DIR" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
+<smd name="ENABLE" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
+<smd name="FAULT" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
+<smd name="VDD" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
+<smd name="TDEAD" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
+<smd name="SPEED" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
+<smd name="VBB" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GND" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CP1" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CP2" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
 <smd name="PAD" x="0" y="0.005" dx="6.6" dy="3.2" layer="1" rot="R90" cream="no"/>
 <text x="-2.1" y="5.0958" size="0.254" layer="25">&gt;Name</text>
 <text x="-2.1" y="-5.3346" size="0.254" layer="27">&gt;Value</text>
