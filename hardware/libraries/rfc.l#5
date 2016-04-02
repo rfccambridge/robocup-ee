@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.001" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -541,6 +541,25 @@
 <text x="-1.27" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-1.27" y="0" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
+<package name="POWRESISTOR">
+<smd name="P$1" x="-2.54" y="0" dx="1.65" dy="4.81" layer="1"/>
+<smd name="P$2" x="2.54" y="0" dx="1.65" dy="4.81" layer="1"/>
+<smd name="P$3" x="0" y="9.79" dx="7.87" dy="9.51" layer="1"/>
+<wire x1="-5.08" y1="5.08" x2="-3.175" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-3.175" y1="5.08" x2="-1.905" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="5.08" x2="1.905" y2="5.08" width="0.127" layer="21"/>
+<wire x1="1.905" y1="5.08" x2="3.175" y2="5.08" width="0.127" layer="21"/>
+<wire x1="3.175" y1="5.08" x2="5.02" y2="5.08" width="0.127" layer="21"/>
+<wire x1="5.02" y1="5.08" x2="5.02" y2="14.68" width="0.127" layer="21"/>
+<wire x1="5.02" y1="14.68" x2="-5.08" y2="14.68" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="14.68" x2="-5.08" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-3.175" y1="5.08" x2="-3.175" y2="0.254" width="0.127" layer="21"/>
+<wire x1="-3.175" y1="0.254" x2="-1.905" y2="0.254" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="0.254" x2="-1.905" y2="5.08" width="0.127" layer="21"/>
+<wire x1="3.175" y1="5.08" x2="3.2258" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="3.2258" y1="0.2032" x2="1.9558" y2="0.2032" width="0.127" layer="21"/>
+<wire x1="1.9558" y1="0.2032" x2="1.905" y2="5.08" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TXM-900-HP3-PPO">
@@ -903,6 +922,19 @@ Data sheet: http://www.allegromicro.com/~/media/Files/Datasheets/A4915-Datasheet
 <text x="0" y="40.64" size="1.778" layer="95">&gt;NAME</text>
 <text x="0" y="38.608" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
+<symbol name="POWERRESISTOR">
+<wire x1="1.524" y1="2.54" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="-1.27" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-3.81" x2="0" y2="-4.318" width="0.254" layer="94"/>
+<wire x1="1.524" y1="2.54" x2="0" y2="3.302" width="0.254" layer="94"/>
+<wire x1="0" y1="-4.318" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="3.302" x2="0" y2="4.572" width="0.254" layer="94"/>
+<pin name="1" x="0" y="5.08" length="point" rot="R270"/>
+<pin name="2" x="0" y="-5.08" length="point" rot="R270"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="TXM-900-HP3-PPO">
@@ -1241,11 +1273,44 @@ Can be totem pole or open collector&lt;br&gt;
 </devices>
 </deviceset>
 <deviceset name="A4915">
+<description>Allegro A4915
+3 phase motor control driver with built in hall effect commutation</description>
 <gates>
 <gate name="G$1" symbol="A4915" x="0" y="-7.62"/>
 </gates>
 <devices>
 <device name="" package="TSSOP28-GROUNDPAD">
+<connects>
+<connect gate="G$1" pin="BRAKEN" pad="BRAKEN"/>
+<connect gate="G$1" pin="CA" pad="CA"/>
+<connect gate="G$1" pin="CB" pad="CB"/>
+<connect gate="G$1" pin="CC" pad="CC"/>
+<connect gate="G$1" pin="CP1" pad="CP1"/>
+<connect gate="G$1" pin="CP2" pad="CP2"/>
+<connect gate="G$1" pin="DIR" pad="DIR"/>
+<connect gate="G$1" pin="ENABLE" pad="ENABLE"/>
+<connect gate="G$1" pin="FAULT" pad="FAULT"/>
+<connect gate="G$1" pin="GHA" pad="GHA"/>
+<connect gate="G$1" pin="GHB" pad="GHB"/>
+<connect gate="G$1" pin="GHC" pad="GHC"/>
+<connect gate="G$1" pin="GLA" pad="GLA"/>
+<connect gate="G$1" pin="GLB" pad="GLB"/>
+<connect gate="G$1" pin="GLC" pad="GLC"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="HA" pad="HA"/>
+<connect gate="G$1" pin="HB" pad="HB"/>
+<connect gate="G$1" pin="HC" pad="HC"/>
+<connect gate="G$1" pin="LSS" pad="LSS"/>
+<connect gate="G$1" pin="PAD" pad="PAD"/>
+<connect gate="G$1" pin="SA" pad="SA"/>
+<connect gate="G$1" pin="SB" pad="SB"/>
+<connect gate="G$1" pin="SC" pad="SC"/>
+<connect gate="G$1" pin="SPEED" pad="SPEED"/>
+<connect gate="G$1" pin="TDEAD" pad="TDEAD"/>
+<connect gate="G$1" pin="VBB" pad="VBB"/>
+<connect gate="G$1" pin="VDD" pad="VDD"/>
+<connect gate="G$1" pin="VREG" pad="VREG"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
