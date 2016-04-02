@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -425,35 +425,35 @@
 <wire x1="2.2762" y1="-4.8854" x2="-2.2762" y2="-4.8854" width="0.127" layer="21"/>
 <wire x1="-2.2762" y1="-4.8854" x2="-2.2762" y2="4.8958" width="0.127" layer="21"/>
 <circle x="-1.7" y="4.3958" radius="0.1414" width="0.05" layer="21"/>
-<smd name="14" x="-2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
-<smd name="13" x="-2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
-<smd name="12" x="-2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
-<smd name="11" x="-2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
-<smd name="10" x="-2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
-<smd name="9" x="-2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
-<smd name="8" x="-2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
-<smd name="7" x="-2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
-<smd name="6" x="-2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
-<smd name="5" x="-2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
-<smd name="4" x="-2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
-<smd name="3" x="-2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
-<smd name="2" x="-2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
-<smd name="1" x="-2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
-<smd name="28" x="2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
-<smd name="27" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
-<smd name="26" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
-<smd name="25" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
-<smd name="24" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
-<smd name="23" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
-<smd name="22" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
-<smd name="21" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
-<smd name="20" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
-<smd name="19" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
-<smd name="18" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
-<smd name="17" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
-<smd name="16" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
-<smd name="15" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
-<smd name="29" x="0" y="0.005" dx="6.6" dy="3.2" layer="1" rot="R90" cream="no"/>
+<smd name="VREG" x="-2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CA" x="-2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
+<smd name="SA" x="-2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GHA" x="-2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GLA" x="-2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CB" x="-2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
+<smd name="SB" x="-2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GHB" x="-2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GLB" x="-2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CC" x="-2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
+<smd name="SC" x="-2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GHC" x="-2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GLC" x="-2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
+<smd name="LSS" x="-2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
+<smd name="HC" x="2.921" y="4.2978" dx="0.8" dy="0.25" layer="1"/>
+<smd name="HB" x="2.921" y="3.6374" dx="0.8" dy="0.25" layer="1"/>
+<smd name="HA" x="2.921" y="2.977" dx="0.8" dy="0.25" layer="1"/>
+<smd name="BRAKEN" x="2.921" y="2.3166" dx="0.8" dy="0.25" layer="1"/>
+<smd name="DIR" x="2.921" y="1.6562" dx="0.8" dy="0.25" layer="1"/>
+<smd name="ENABLE" x="2.921" y="0.9958" dx="0.8" dy="0.25" layer="1"/>
+<smd name="FAULT" x="2.921" y="0.3354" dx="0.8" dy="0.25" layer="1"/>
+<smd name="VDD" x="2.927" y="-0.325" dx="0.8" dy="0.25" layer="1"/>
+<smd name="TDEAD" x="2.921" y="-0.9854" dx="0.8" dy="0.25" layer="1"/>
+<smd name="SPEED" x="2.921" y="-1.6458" dx="0.8" dy="0.25" layer="1"/>
+<smd name="VBB" x="2.921" y="-2.3062" dx="0.8" dy="0.25" layer="1"/>
+<smd name="GND" x="2.921" y="-2.9666" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CP1" x="2.921" y="-3.627" dx="0.8" dy="0.25" layer="1"/>
+<smd name="CP2" x="2.921" y="-4.2874" dx="0.8" dy="0.25" layer="1"/>
+<smd name="PAD" x="0" y="0.005" dx="6.6" dy="3.2" layer="1" rot="R90" cream="no"/>
 <text x="-2.1" y="5.0958" size="0.254" layer="25">&gt;Name</text>
 <text x="-2.1" y="-5.3346" size="0.254" layer="27">&gt;Value</text>
 <polygon width="0.127" layer="31">
@@ -1236,6 +1236,18 @@ Can be totem pole or open collector&lt;br&gt;
 <attribute name="PROD_ID" value="IC-12240"/>
 <attribute name="VALUE" value="PCA9685" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="A4915">
+<gates>
+<gate name="G$1" symbol="A4915" x="0" y="-7.62"/>
+</gates>
+<devices>
+<device name="" package="TSSOP28-GROUNDPAD">
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
