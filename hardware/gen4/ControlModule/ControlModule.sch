@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2421,19 +2421,6 @@ SMT header is CONN-09042.</description>
 <rectangle x1="4.2" y1="-3.1" x2="7.3" y2="-1.5" layer="39"/>
 <rectangle x1="4.2" y1="1.5" x2="7.3" y2="3.1" layer="39"/>
 </package>
-<package name="MPU-6050IMU">
-<description>MPU-6050 IMU</description>
-<pad name="SDA" x="0" y="0" drill="1.016" rot="R180"/>
-<pad name="GND" x="0" y="-2.54" drill="1.016" rot="R180"/>
-<pad name="VCC" x="0" y="-5.08" drill="1.016" shape="square" rot="R180"/>
-<pad name="SCL" x="0" y="2.54" drill="1.016" rot="R180"/>
-<pad name="INT" x="0" y="5.08" drill="1.016" rot="R180"/>
-<text x="4" y="0" size="1.27" layer="25" rot="R90" align="bottom-center">&gt;Name</text>
-<wire x1="2.54" y1="10.16" x2="2.54" y2="-10.16" width="0.127" layer="21"/>
-<wire x1="2.54" y1="-10.16" x2="-12.7" y2="-10.16" width="0.127" layer="21"/>
-<wire x1="-12.7" y1="-10.16" x2="-12.7" y2="10.16" width="0.127" layer="21"/>
-<wire x1="-12.7" y1="10.16" x2="2.54" y2="10.16" width="0.127" layer="21"/>
-</package>
 </packages>
 <symbols>
 <symbol name="TEST_PT">
@@ -2453,20 +2440,6 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
 <pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
 <pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
-</symbol>
-<symbol name="IMU">
-<description>MPU-6050 IMU</description>
-<pin name="VCC" x="-7.62" y="5.08" visible="pad" length="middle"/>
-<pin name="GND" x="-7.62" y="2.54" visible="pad" length="middle"/>
-<pin name="SDA" x="-7.62" y="0" visible="pad" length="middle"/>
-<pin name="SCL" x="-7.62" y="-2.54" visible="pad" length="middle"/>
-<pin name="INT" x="-7.62" y="-5.08" visible="pad" length="middle"/>
-<wire x1="-2.54" y1="7.62" x2="-2.54" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="95"/>
-<wire x1="5.08" y1="7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
-<text x="0" y="0" size="1.778" layer="94">IMU</text>
-<text x="-2.54" y="10.16" size="1.778" layer="94">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2497,26 +2470,6 @@ Use to probe a signal</description>
 <connect gate="G$1" pin="GND" pad="DRAIN"/>
 <connect gate="G$1" pin="IN" pad="GATE"/>
 <connect gate="G$1" pin="OUT" pad="SOURCE"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MPU6050IMU">
-<description>MPU6050 IMU</description>
-<gates>
-<gate name="G$1" symbol="IMU" x="0" y="0"/>
-</gates>
-<devices>
-<device name="MPU" package="MPU-6050IMU">
-<connects>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="INT" pad="INT"/>
-<connect gate="G$1" pin="SCL" pad="SCL"/>
-<connect gate="G$1" pin="SDA" pad="SDA"/>
-<connect gate="G$1" pin="VCC" pad="VCC"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -4453,7 +4406,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="LED1" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED2" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="LED3" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="IMU" library="gen3" deviceset="MPU6050IMU" device="MPU"/>
 <part name="PROG_CONNECTOR" library="SparkFun-Connectors" deviceset="M03X2" device="FEMALE" value="FEMALE 2x3"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
@@ -4500,7 +4452,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="LED1" gate="G$1" x="215.9" y="119.38"/>
 <instance part="LED2" gate="G$1" x="220.98" y="119.38"/>
 <instance part="LED3" gate="G$1" x="226.06" y="119.38"/>
-<instance part="IMU" gate="G$1" x="220.98" y="167.64"/>
 <instance part="PROG_CONNECTOR" gate="G$1" x="83.82" y="114.3"/>
 <instance part="C4" gate="G$1" x="104.14" y="132.08"/>
 <instance part="C5" gate="G$1" x="111.76" y="132.08"/>
@@ -4753,12 +4704,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <label x="17.78" y="137.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IMU" gate="G$1" pin="GND"/>
-<wire x1="213.36" y1="170.18" x2="205.74" y2="170.18" width="0.1524" layer="91"/>
-<label x="203.2" y="170.18" size="1.778" layer="95"/>
-<junction x="213.36" y="170.18"/>
-</segment>
-<segment>
 <pinref part="PROG_CONNECTOR" gate="G$1" pin="6"/>
 <wire x1="91.44" y1="111.76" x2="96.52" y2="111.76" width="0.1524" layer="91"/>
 <label x="96.52" y="111.76" size="1.778" layer="95"/>
@@ -4857,12 +4802,6 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <wire x1="142.24" y1="142.24" x2="154.94" y2="142.24" width="0.1524" layer="91"/>
 <junction x="154.94" y="142.24"/>
 <pinref part="C10" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="IMU" gate="G$1" pin="VCC"/>
-<wire x1="213.36" y1="172.72" x2="205.74" y2="172.72" width="0.1524" layer="91"/>
-<label x="203.2" y="172.72" size="1.778" layer="95"/>
-<junction x="213.36" y="172.72"/>
 </segment>
 <segment>
 <pinref part="PROG_CONNECTOR" gate="G$1" pin="2"/>
@@ -5011,31 +4950,13 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="SCL" class="0">
 <segment>
 <wire x1="99.06" y1="40.64" x2="101.6" y2="40.64" width="0.1524" layer="91"/>
-<label x="109.22" y="40.64" size="1.778" layer="95"/>
 <pinref part="IC1" gate="G$1" pin="PC1"/>
-<junction x="101.6" y="40.64"/>
-<wire x1="101.6" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IMU" gate="G$1" pin="SCL"/>
-<wire x1="213.36" y1="165.1" x2="205.74" y2="165.1" width="0.1524" layer="91"/>
-<label x="203.2" y="165.1" size="1.778" layer="95"/>
-<junction x="213.36" y="165.1"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
 <wire x1="99.06" y1="38.1" x2="101.6" y2="38.1" width="0.1524" layer="91"/>
-<label x="109.22" y="38.1" size="1.778" layer="95"/>
 <pinref part="IC1" gate="G$1" pin="PC0"/>
-<junction x="101.6" y="38.1"/>
-<wire x1="101.6" y1="38.1" x2="109.22" y2="38.1" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IMU" gate="G$1" pin="SDA"/>
-<wire x1="213.36" y1="167.64" x2="205.74" y2="167.64" width="0.1524" layer="91"/>
-<label x="203.2" y="167.64" size="1.778" layer="95"/>
-<junction x="213.36" y="167.64"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -5270,16 +5191,7 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <net name="INT" class="0">
 <segment>
 <wire x1="99.06" y1="43.18" x2="101.6" y2="43.18" width="0.1524" layer="91"/>
-<label x="109.22" y="43.18" size="1.778" layer="95"/>
 <pinref part="IC1" gate="G$1" pin="PC2"/>
-<junction x="101.6" y="43.18"/>
-<wire x1="101.6" y1="43.18" x2="109.22" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IMU" gate="G$1" pin="INT"/>
-<wire x1="213.36" y1="162.56" x2="205.74" y2="162.56" width="0.1524" layer="91"/>
-<label x="203.2" y="162.56" size="1.778" layer="95"/>
-<junction x="213.36" y="162.56"/>
 </segment>
 </net>
 <net name="GLED1" class="0">
