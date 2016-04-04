@@ -5744,9 +5744,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <part name="R6" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
 <part name="R8" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
 <part name="R10" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
-<part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
-<part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
-<part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
+<part name="R12" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
+<part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
+<part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="240"/>
 <part name="R78" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R79" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
@@ -5842,10 +5842,10 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <instance part="Q5" gate="G$1" x="193.04" y="25.4"/>
 <instance part="R6" gate="G$1" x="144.78" y="99.06"/>
 <instance part="R8" gate="G$1" x="165.1" y="88.9"/>
-<instance part="R10" gate="G$1" x="185.42" y="76.2"/>
+<instance part="R10" gate="G$1" x="180.34" y="78.74"/>
 <instance part="R12" gate="G$1" x="144.78" y="48.26"/>
 <instance part="R13" gate="G$1" x="165.1" y="33.02"/>
-<instance part="R14" gate="G$1" x="185.42" y="20.32"/>
+<instance part="R14" gate="G$1" x="185.42" y="22.86"/>
 <instance part="R78" gate="G$1" x="91.44" y="33.02" rot="R180"/>
 <instance part="R79" gate="G$1" x="83.82" y="48.26" rot="R180"/>
 <instance part="C33" gate="G$1" x="83.82" y="147.32" rot="R180"/>
@@ -6402,7 +6402,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <segment>
 <pinref part="Q2" gate="G$1" pin="P$3"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="78.74" x2="190.5" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="78.74" x2="185.42" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -6421,7 +6421,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <segment>
 <pinref part="Q5" gate="G$1" pin="P$3"/>
 <pinref part="R14" gate="G$1" pin="2"/>
-<wire x1="187.96" y1="22.86" x2="190.5" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="22.86" x2="190.5" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -6435,9 +6435,9 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="N$17" class="0">
 <segment>
 <wire x1="129.54" y1="55.88" x2="134.62" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="55.88" x2="134.62" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="55.88" x2="134.62" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="R14" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="20.32" x2="180.34" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="22.86" x2="180.34" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="UHSG"/>
 </segment>
 </net>
@@ -6470,8 +6470,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <net name="N$21" class="0">
 <segment>
 <pinref part="R10" gate="G$1" pin="1"/>
-<wire x1="180.34" y1="76.2" x2="149.86" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="76.2" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="78.74" x2="149.86" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="78.74" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="60.96" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="ULSG"/>
 </segment>
