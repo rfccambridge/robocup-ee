@@ -1204,9 +1204,9 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="R6" library="SparkFun-Resistors" package="0805" value="240" x="10.239375" y="24.685625" rot="R180"/>
 <element name="R8" library="SparkFun-Resistors" package="0805" value="240" x="10.6875" y="32.8753125" rot="R180"/>
 <element name="R10" library="SparkFun-Resistors" package="0805" value="240" x="12.7" y="40.3225" rot="R180"/>
-<element name="R12" library="SparkFun-Resistors" package="0805" value="0" x="30.63875" y="22.70125" rot="R180"/>
-<element name="R13" library="SparkFun-Resistors" package="0805" value="0" x="28.2575" y="32.7025" rot="R180"/>
-<element name="R14" library="SparkFun-Resistors" package="0805" value="0" x="28.41625" y="40.9575" rot="R180"/>
+<element name="R12" library="SparkFun-Resistors" package="0805" value="240" x="30.63875" y="22.70125" rot="R180"/>
+<element name="R13" library="SparkFun-Resistors" package="0805" value="240" x="28.2575" y="32.7025" rot="R180"/>
+<element name="R14" library="SparkFun-Resistors" package="0805" value="240" x="28.41625" y="40.9575" rot="R180"/>
 <element name="R78" library="SparkFun-Resistors" package="0805" value="1k" x="21.74875" y="7.77875" rot="R90"/>
 <element name="R79" library="SparkFun-Resistors" package="0805" value="1k" x="21.74875" y="4.7625" rot="R90"/>
 <element name="C33" library="SparkFun-Capacitors" package="0805" value=".1uF" x="14.76375" y="1.27" rot="R180"/>
