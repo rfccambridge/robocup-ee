@@ -13525,8 +13525,8 @@ Wickmann</description>
 <part name="GATE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="GND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="12VGND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="C6" library="rcl" deviceset="CPOL-US" device="E10-35" value="1000uF"/>
-<part name="C14" library="rcl" deviceset="CPOL-US" device="E10-35" value="1000uF"/>
+<part name="C6" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
+<part name="C14" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
 <part name="NEON" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="R24" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="536k"/>
 <part name="CAP+_TEST" library="gen3" deviceset="TEST_PT" device=""/>
