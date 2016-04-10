@@ -4730,6 +4730,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <smd name="38" x="3.5687" y="-21.59" dx="4.1402" dy="0.9906" layer="1"/>
 <smd name="39" x="-3.5687" y="-24.13" dx="4.1402" dy="0.9906" layer="1"/>
 <smd name="40" x="3.5687" y="-24.13" dx="4.1402" dy="0.9906" layer="1"/>
+<wire x1="-17" y1="30.84125" x2="16.875" y2="30.84125" width="0.127" layer="21"/>
+<wire x1="16.875" y1="30.84125" x2="16.875" y2="-30.84125" width="0.127" layer="21"/>
+<wire x1="16.875" y1="-30.84125" x2="-17" y2="-30.84125" width="0.127" layer="21"/>
+<wire x1="-17" y1="-30.84125" x2="-17" y2="30.84125" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -13502,7 +13506,6 @@ Wickmann</description>
 <part name="KICK_Q1" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="CHIP_FLY" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
 <part name="CHIP" library="gen3" deviceset="JST-2" device="2MM"/>
-<part name="FRAME3" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="43k"/>
 <part name="RVOUT" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="50.4k"/>
 <part name="RBG" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2.49k"/>
@@ -13527,7 +13530,6 @@ Wickmann</description>
 <part name="NEON" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="R24" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="536k"/>
 <part name="CAP+_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="C16" library="rcl" deviceset="CPOL-US" device="E10-35" value="1000uF"/>
 <part name="U$4" library="kickerchips" deviceset="FAN3111" device="1"/>
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="100"/>
 <part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="100"/>
@@ -13656,8 +13658,6 @@ for auto discharge</text>
 <instance part="KICK_Q1" gate="G$1" x="480.06" y="254"/>
 <instance part="CHIP_FLY" gate="G$1" x="480.06" y="274.32" rot="R90"/>
 <instance part="CHIP" gate="G$1" x="490.22" y="274.32"/>
-<instance part="FRAME3" gate="G$1" x="518.16" y="193.04"/>
-<instance part="FRAME3" gate="V" x="665.48" y="193.04"/>
 <instance part="R31" gate="G$1" x="675.64" y="299.72"/>
 <instance part="RVOUT" gate="G$1" x="675.64" y="314.96"/>
 <instance part="RBG" gate="G$1" x="685.8" y="261.62" rot="R90"/>
@@ -13682,7 +13682,6 @@ for auto discharge</text>
 <instance part="NEON" gate="G$1" x="629.92" y="353.06"/>
 <instance part="R24" gate="G$1" x="637.54" y="363.22" rot="R90"/>
 <instance part="CAP+_TEST" gate="G$1" x="678.18" y="370.84"/>
-<instance part="C16" gate="G$1" x="690.88" y="358.14"/>
 <instance part="U$4" gate="G$1" x="444.5" y="307.34"/>
 <instance part="R1" gate="G$1" x="467.36" y="309.88"/>
 <instance part="R2" gate="G$1" x="467.36" y="274.32"/>
@@ -14063,9 +14062,6 @@ for auto discharge</text>
 <junction x="678.18" y="350.52"/>
 <wire x1="678.18" y1="350.52" x2="678.18" y2="345.44" width="0.1524" layer="91"/>
 <label x="678.18" y="345.44" size="1.778" layer="95"/>
-<pinref part="C16" gate="G$1" pin="-"/>
-<wire x1="678.18" y1="350.52" x2="690.88" y2="350.52" width="0.1524" layer="91"/>
-<wire x1="690.88" y1="350.52" x2="690.88" y2="353.06" width="0.1524" layer="91"/>
 <junction x="678.18" y="350.52"/>
 </segment>
 <segment>
@@ -14363,9 +14359,6 @@ for auto discharge</text>
 <junction x="678.18" y="363.22"/>
 <label x="678.18" y="365.76" size="1.778" layer="95"/>
 <pinref part="CAP+_TEST" gate="G$1" pin="P$1"/>
-<pinref part="C16" gate="G$1" pin="+"/>
-<wire x1="678.18" y1="363.22" x2="690.88" y2="363.22" width="0.1524" layer="91"/>
-<wire x1="690.88" y1="363.22" x2="690.88" y2="360.68" width="0.1524" layer="91"/>
 <junction x="678.18" y="363.22"/>
 </segment>
 <segment>
