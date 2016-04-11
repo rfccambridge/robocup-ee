@@ -13593,6 +13593,7 @@ Wickmann</description>
 <part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="0"/>
 <part name="U$6" library="rfc" deviceset="13VZENER" device=""/>
 <part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2.1k"/>
+<part name="KICKER1" library="fuse" deviceset="TR5" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13767,6 +13768,10 @@ for auto discharge</text>
 <instance part="R13" gate="G$1" x="546.1" y="314.96" rot="R90"/>
 <instance part="U$6" gate="G$1" x="546.1" y="304.8" rot="R180"/>
 <instance part="R23" gate="G$1" x="599.44" y="320.04" rot="R180"/>
+<instance part="KICKER1" gate="1" x="617.22" y="335.28" smashed="yes">
+<attribute name="NAME" x="610.87" y="336.677" size="1.778" layer="95"/>
+<attribute name="VALUE" x="613.41" y="332.359" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -14510,41 +14515,6 @@ for auto discharge</text>
 </net>
 <net name="12V" class="0">
 <segment>
-<wire x1="637.54" y1="294.64" x2="627.38" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="627.38" y1="294.64" x2="627.38" y2="309.88" width="0.1524" layer="91"/>
-<wire x1="637.54" y1="309.88" x2="627.38" y2="309.88" width="0.1524" layer="91"/>
-<wire x1="627.38" y1="309.88" x2="627.38" y2="335.28" width="0.1524" layer="91"/>
-<wire x1="627.38" y1="335.28" x2="716.28" y2="335.28" width="0.1524" layer="91"/>
-<wire x1="716.28" y1="335.28" x2="721.36" y2="335.28" width="0.1524" layer="91"/>
-<junction x="627.38" y="309.88"/>
-<wire x1="627.38" y1="294.64" x2="627.38" y2="269.24" width="0.1524" layer="91"/>
-<junction x="627.38" y="294.64"/>
-<wire x1="716.28" y1="335.28" x2="716.28" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="716.28" y1="332.74" x2="716.28" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="716.28" y1="271.78" x2="723.9" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="723.9" y1="271.78" x2="723.9" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="716.28" y1="271.78" x2="708.66" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="708.66" y1="271.78" x2="708.66" y2="264.16" width="0.1524" layer="91"/>
-<junction x="716.28" y="335.28"/>
-<junction x="716.28" y="271.78"/>
-<wire x1="721.36" y1="332.74" x2="716.28" y2="332.74" width="0.1524" layer="91"/>
-<junction x="716.28" y="332.74"/>
-<pinref part="C18" gate="G$1" pin="1"/>
-<pinref part="C20" gate="G$1" pin="1"/>
-<pinref part="C21" gate="G$1" pin="1"/>
-<pinref part="CHARGE_U" gate="G$1" pin="VT"/>
-<pinref part="CHARGE_U" gate="G$1" pin="VCC"/>
-<pinref part="C23" gate="G$1" pin="1"/>
-<wire x1="734.06" y1="264.16" x2="734.06" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="734.06" y1="271.78" x2="723.9" y2="271.78" width="0.1524" layer="91"/>
-<junction x="723.9" y="271.78"/>
-<pinref part="U$3" gate="G$1" pin="P$4"/>
-<pinref part="U$3" gate="G$1" pin="P$5"/>
-<wire x1="627.38" y1="335.28" x2="614.68" y2="335.28" width="0.1524" layer="91"/>
-<junction x="627.38" y="335.28"/>
-<label x="614.68" y="335.28" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U$4" gate="G$1" pin="VDD"/>
 <wire x1="431.8" y1="312.42" x2="429.26" y2="312.42" width="0.1524" layer="91"/>
 <wire x1="429.26" y1="312.42" x2="429.26" y2="314.96" width="0.1524" layer="91"/>
@@ -14621,6 +14591,11 @@ for auto discharge</text>
 <wire x1="546.1" y1="307.34" x2="553.72" y2="307.34" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="-"/>
 <junction x="546.1" y="307.34"/>
+</segment>
+<segment>
+<pinref part="KICKER1" gate="1" pin="1"/>
+<wire x1="612.14" y1="335.28" x2="596.9" y2="335.28" width="0.1524" layer="91"/>
+<label x="596.9" y="335.28" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -15081,7 +15056,16 @@ for auto discharge</text>
 <pinref part="MOTOR3" gate="G$1" pin="4"/>
 <wire x1="383.54" y1="170.18" x2="398.78" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="2"/>
-<wire x1="381" y1="172.72" x2="398.78" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="381" y1="172.72" x2="383.54" y2="172.72" width="0.1524" layer="91"/>
+<junction x="398.78" y="172.72"/>
+<junction x="398.78" y="170.18"/>
+<junction x="398.78" y="167.64"/>
+<junction x="383.54" y="167.64"/>
+<pinref part="MOTOR3" gate="G$1" pin="3"/>
+<junction x="383.54" y="170.18"/>
+<pinref part="MOTOR3" gate="G$1" pin="1"/>
+<junction x="383.54" y="172.72"/>
+<wire x1="383.54" y1="172.72" x2="398.78" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -15103,6 +15087,12 @@ for auto discharge</text>
 <wire x1="441.96" y1="167.64" x2="441.96" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="MOTOR4" gate="G$1" pin="2"/>
 <wire x1="441.96" y1="170.18" x2="457.2" y2="170.18" width="0.1524" layer="91"/>
+<junction x="441.96" y="170.18"/>
+<junction x="441.96" y="165.1"/>
+<junction x="441.96" y="167.64"/>
+<junction x="457.2" y="167.64"/>
+<junction x="457.2" y="170.18"/>
+<junction x="457.2" y="165.1"/>
 </segment>
 </net>
 <net name="N$26" class="0">
@@ -15112,14 +15102,23 @@ for auto discharge</text>
 <wire x1="317.5" y1="175.26" x2="317.5" y2="172.72" width="0.1524" layer="91"/>
 <junction x="317.5" y="172.72"/>
 <pinref part="MOTOR2" gate="G$1" pin="2"/>
-<wire x1="317.5" y1="175.26" x2="335.28" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="175.26" x2="320.04" y2="175.26" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="4"/>
+<wire x1="320.04" y1="175.26" x2="335.28" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="335.28" y1="172.72" x2="320.04" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="317.5" y1="172.72" x2="320.04" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="5"/>
 <wire x1="320.04" y1="172.72" x2="320.04" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="MOTOR2" gate="G$1" pin="6"/>
 <wire x1="320.04" y1="170.18" x2="335.28" y2="170.18" width="0.1524" layer="91"/>
+<junction x="335.28" y="170.18"/>
+<junction x="335.28" y="172.72"/>
+<junction x="335.28" y="175.26"/>
+<pinref part="MOTOR2" gate="G$1" pin="1"/>
+<junction x="320.04" y="175.26"/>
+<pinref part="MOTOR2" gate="G$1" pin="3"/>
+<junction x="320.04" y="172.72"/>
+<junction x="320.04" y="170.18"/>
 </segment>
 </net>
 <net name="N$27" class="0">
@@ -15142,6 +15141,11 @@ for auto discharge</text>
 <wire x1="312.42" y1="246.38" x2="312.42" y2="243.84" width="0.1524" layer="91"/>
 <pinref part="MOTOR1" gate="G$1" pin="3"/>
 <junction x="297.18" y="246.38"/>
+<junction x="297.18" y="248.92"/>
+<junction x="297.18" y="243.84"/>
+<junction x="312.42" y="248.92"/>
+<junction x="312.42" y="246.38"/>
+<junction x="312.42" y="243.84"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -15160,6 +15164,9 @@ for auto discharge</text>
 <pinref part="COM_BOARD" gate="G$1" pin="1"/>
 <pinref part="COM_BOARD" gate="G$1" pin="3"/>
 <pinref part="COM_BOARD" gate="G$1" pin="5"/>
+<junction x="368.3" y="248.92"/>
+<junction x="368.3" y="246.38"/>
+<junction x="368.3" y="243.84"/>
 </segment>
 </net>
 <net name="SCK" class="0">
@@ -15322,6 +15329,44 @@ for auto discharge</text>
 <pinref part="U$2" gate="G$1" pin="DRAIN"/>
 <wire x1="546.1" y1="331.978" x2="546.1" y2="332.74" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="12V-KICKER" class="0">
+<segment>
+<wire x1="637.54" y1="294.64" x2="627.38" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="627.38" y1="294.64" x2="627.38" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="637.54" y1="309.88" x2="627.38" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="627.38" y1="309.88" x2="627.38" y2="335.28" width="0.1524" layer="91"/>
+<wire x1="627.38" y1="335.28" x2="716.28" y2="335.28" width="0.1524" layer="91"/>
+<wire x1="716.28" y1="335.28" x2="721.36" y2="335.28" width="0.1524" layer="91"/>
+<junction x="627.38" y="309.88"/>
+<wire x1="627.38" y1="294.64" x2="627.38" y2="269.24" width="0.1524" layer="91"/>
+<junction x="627.38" y="294.64"/>
+<wire x1="716.28" y1="335.28" x2="716.28" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="716.28" y1="332.74" x2="716.28" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="716.28" y1="271.78" x2="723.9" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="723.9" y1="271.78" x2="723.9" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="716.28" y1="271.78" x2="708.66" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="708.66" y1="271.78" x2="708.66" y2="264.16" width="0.1524" layer="91"/>
+<junction x="716.28" y="335.28"/>
+<junction x="716.28" y="271.78"/>
+<wire x1="721.36" y1="332.74" x2="716.28" y2="332.74" width="0.1524" layer="91"/>
+<junction x="716.28" y="332.74"/>
+<pinref part="C18" gate="G$1" pin="1"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+<pinref part="CHARGE_U" gate="G$1" pin="VT"/>
+<pinref part="CHARGE_U" gate="G$1" pin="VCC"/>
+<pinref part="C23" gate="G$1" pin="1"/>
+<wire x1="734.06" y1="264.16" x2="734.06" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="734.06" y1="271.78" x2="723.9" y2="271.78" width="0.1524" layer="91"/>
+<junction x="723.9" y="271.78"/>
+<pinref part="U$3" gate="G$1" pin="P$4"/>
+<pinref part="U$3" gate="G$1" pin="P$5"/>
+<wire x1="627.38" y1="335.28" x2="622.3" y2="335.28" width="0.1524" layer="91"/>
+<junction x="627.38" y="335.28"/>
+<label x="635" y="335.28" size="1.778" layer="95"/>
+<pinref part="KICKER1" gate="1" pin="2"/>
 </segment>
 </net>
 </nets>
