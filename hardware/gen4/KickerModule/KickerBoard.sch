@@ -13562,7 +13562,6 @@ Wickmann</description>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="80k"/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20k"/>
 <part name="12V_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="BATCLAMP1" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
 <part name="BATCLAMP2" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
 <part name="DRIB_TRAN" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="DRIB" library="gen3" deviceset="JST-2" device="2MM"/>
@@ -13715,9 +13714,6 @@ for auto discharge</text>
 <instance part="R17" gate="G$1" x="556.26" y="284.48" rot="R90"/>
 <instance part="R18" gate="G$1" x="556.26" y="269.24" rot="R90"/>
 <instance part="12V_TEST" gate="G$1" x="403.86" y="358.14"/>
-<instance part="BATCLAMP1" gate="G$1" x="543.56" y="281.94" smashed="yes" rot="R90">
-<attribute name="NAME" x="540.5374" y="279.4" size="1.778" layer="95" rot="R90"/>
-</instance>
 <instance part="BATCLAMP2" gate="G$1" x="543.56" y="271.78" smashed="yes" rot="R90">
 <attribute name="NAME" x="540.5374" y="261.62" size="1.778" layer="95" rot="R90"/>
 </instance>
@@ -13765,7 +13761,7 @@ for auto discharge</text>
 </instance>
 <instance part="U$2" gate="G$1" x="543.56" y="327.66"/>
 <instance part="R3" gate="G$1" x="532.13" y="323.85"/>
-<instance part="R16" gate="G$1" x="546.1" y="337.82"/>
+<instance part="R16" gate="G$1" x="546.1" y="337.82" rot="R180"/>
 <instance part="R22" gate="G$1" x="581.66" y="337.82"/>
 <instance part="U$5" gate="G$1" x="574.04" y="312.42"/>
 <instance part="R13" gate="G$1" x="546.1" y="314.96" rot="R90"/>
@@ -14391,11 +14387,11 @@ for auto discharge</text>
 </segment>
 <segment>
 <label x="561.34" y="347.98" size="1.778" layer="95"/>
-<pinref part="R16" gate="G$1" pin="1"/>
 <pinref part="R22" gate="G$1" pin="1"/>
-<wire x1="546.1" y1="342.9" x2="563.88" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="563.88" y1="342.9" x2="581.66" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="563.88" y1="342.9" x2="563.88" y2="347.98" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+<wire x1="563.88" y1="342.9" x2="546.1" y2="342.9" width="0.1524" layer="91"/>
 <junction x="563.88" y="342.9"/>
 </segment>
 </net>
@@ -14506,6 +14502,10 @@ for auto discharge</text>
 <wire x1="391.16" y1="297.18" x2="383.54" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="383.54" y1="297.18" x2="383.54" y2="302.26" width="0.1524" layer="91"/>
 <junction x="383.54" y="302.26"/>
+</segment>
+<segment>
+<pinref part="U$4" gate="G$1" pin="IN+"/>
+<wire x1="431.8" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -14757,12 +14757,6 @@ for auto discharge</text>
 <wire x1="454.66" y1="309.88" x2="462.28" y2="309.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="IN+"/>
-<wire x1="431.8" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="OUT"/>
@@ -14862,11 +14856,6 @@ for auto discharge</text>
 </net>
 <net name="DISCHARGE" class="0">
 <segment>
-<pinref part="COM_BOARD" gate="G$1" pin="18"/>
-<wire x1="383.54" y1="228.6" x2="393.7" y2="228.6" width="0.1524" layer="91"/>
-<junction x="383.54" y="228.6"/>
-</segment>
-<segment>
 <pinref part="COM_BOARD" gate="G$1" pin="16"/>
 <wire x1="383.54" y1="231.14" x2="393.7" y2="231.14" width="0.1524" layer="91"/>
 <junction x="383.54" y="231.14"/>
@@ -14902,19 +14891,10 @@ for auto discharge</text>
 <wire x1="548.64" y1="276.86" x2="543.56" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="543.56" y1="276.86" x2="533.4" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="543.56" y1="274.32" x2="543.56" y2="276.86" width="0.1524" layer="91"/>
-<pinref part="BATCLAMP1" gate="G$1" pin="A"/>
-<wire x1="543.56" y1="279.4" x2="543.56" y2="276.86" width="0.1524" layer="91"/>
 <pinref part="BATSENSE_TEST" gate="G$1" pin="P$1"/>
 <junction x="548.64" y="276.86"/>
 <junction x="556.26" y="276.86"/>
 <junction x="543.56" y="276.86"/>
-</segment>
-</net>
-<net name="5V" class="0">
-<segment>
-<pinref part="BATCLAMP1" gate="G$1" pin="C"/>
-<wire x1="543.56" y1="284.48" x2="543.56" y2="287.02" width="0.1524" layer="91"/>
-<label x="543.56" y="287.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DRIB" class="0">
@@ -14926,6 +14906,10 @@ for auto discharge</text>
 <wire x1="289.56" y1="350.52" x2="271.78" y2="350.52" width="0.1524" layer="91"/>
 <junction x="289.56" y="350.52"/>
 <label x="386.08" y="228.6" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="18"/>
+<wire x1="383.54" y1="228.6" x2="393.7" y2="228.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TO_DRIB" class="0">
@@ -15303,13 +15287,6 @@ for auto discharge</text>
 <junction x="297.18" y="213.36"/>
 </segment>
 </net>
-<net name="N$16" class="0">
-<segment>
-<wire x1="546.1" y1="332.74" x2="546.1" y2="331.978" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="DRAIN"/>
-<pinref part="R16" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="GATE"/>
@@ -15338,6 +15315,13 @@ for auto discharge</text>
 <pinref part="R23" gate="G$1" pin="2"/>
 <pinref part="U$5" gate="G$1" pin="DIODE+"/>
 <wire x1="594.36" y1="320.04" x2="591.82" y2="320.04" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="DRAIN"/>
+<wire x1="546.1" y1="331.978" x2="546.1" y2="332.74" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
