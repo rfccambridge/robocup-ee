@@ -13801,8 +13801,10 @@ for auto discharge</text>
 <pinref part="ANDS" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<wire x1="327.66" y1="302.26" x2="327.66" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="299.72" x2="327.66" y2="294.64" width="0.1524" layer="91"/>
 <label x="327.66" y="294.64" size="1.778" layer="95"/>
+<pinref part="CAP_COMP" gate="G$1" pin="V-"/>
+<junction x="327.66" y="299.72"/>
 </segment>
 <segment>
 <wire x1="685.8" y1="248.92" x2="670.56" y2="248.92" width="0.1524" layer="91"/>
@@ -14503,14 +14505,11 @@ for auto discharge</text>
 <wire x1="378.46" y1="302.26" x2="383.54" y2="302.26" width="0.1524" layer="91"/>
 <label x="396.24" y="302.26" size="1.778" layer="95"/>
 <pinref part="KICK_LED" gate="G$1" pin="A"/>
-<wire x1="383.54" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
 <wire x1="391.16" y1="297.18" x2="383.54" y2="297.18" width="0.1524" layer="91"/>
 <wire x1="383.54" y1="297.18" x2="383.54" y2="302.26" width="0.1524" layer="91"/>
 <junction x="383.54" y="302.26"/>
-</segment>
-<segment>
 <pinref part="U$4" gate="G$1" pin="IN+"/>
-<wire x1="431.8" y1="302.26" x2="403.86" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="383.54" y1="302.26" x2="431.8" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -15372,37 +15371,6 @@ for auto discharge</text>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="104,1,347.98,302.26,U1,VCC,5V,,,"/>
-<approved hash="104,1,101.6,157.48,U2,VCC_2,3.3V,,,"/>
-<approved hash="104,1,101.6,154.94,U2,VCC,3.3V,,,"/>
-<approved hash="104,1,101.6,152.4,U2,AVCC,N$11,,,"/>
-<approved hash="202,1,101.6,144.78,U2,(TOSC1)_XTAL1,,,,"/>
-<approved hash="104,1,327.66,289.56,U$5,V-,GND,,,"/>
-<approved hash="104,1,327.66,304.8,U$5,V+,5V,,,"/>
-<approved hash="104,1,406.4,246.38,U$8,V+,3.3V,,,"/>
-<approved hash="104,1,406.4,261.62,U$8,V-,GND,,,"/>
-<approved hash="106,1,215.9,160.02,SS_E1,,,,,"/>
-<approved hash="106,1,215.9,157.48,SS_E2,,,,,"/>
-<approved hash="106,1,215.9,154.94,SS_E3,,,,,"/>
-<approved hash="106,1,215.9,165.1,SS_M,,,,,"/>
-<approved hash="115,1,64.77,354.906,3.3REG,,,,,"/>
-<approved hash="115,1,64.77,324.426,5REG,,,,,"/>
-<approved hash="115,1,12.7201,363.22,BATT,,,,,"/>
-<approved hash="115,1,213.597,353.191,NEON,,,,,"/>
-<approved hash="115,1,43.5017,237.49,LED2,,,,,"/>
-<approved hash="115,1,48.5817,237.49,LED3,,,,,"/>
-<approved hash="115,1,53.6617,237.49,LED4,,,,,"/>
-<approved hash="115,1,58.7417,237.49,LED5,,,,,"/>
-<approved hash="115,1,63.8217,237.49,LED6,,,,,"/>
-<approved hash="115,1,68.9017,237.49,LED7,,,,,"/>
-<approved hash="115,1,488.167,130.622,ES2D,,,,,"/>
-<approved hash="115,1,458.977,299.72,Q1,,,,,"/>
-<approved hash="115,1,471.677,281.94,Q2,,,,,"/>
-<approved hash="115,1,197.357,248.92,Q4,,,,,"/>
-<approved hash="115,1,484.377,78.74,Q3,,,,,"/>
-<approved hash="115,1,231.817,310.955,BB_CON,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
