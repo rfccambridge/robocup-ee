@@ -58,8 +58,25 @@ void led_ctrl(int num, bool mode) {
 	}
 }
 
+char recv_char() {
+	while(!(USARTD1_STATUS & (1<<7))) {
+			// Wait for data
+	}
+	return USARTD1_DATA;
+}
+
+void send_str(char *str) {
+	while(*str) {
+		while(!(USARTD1_STATUS & (1 << 5))) {
+			// Wait for out register to clear
+		}
+		USARTD1_DATA = *str++;
+	}
+}
+
 int main(void)
 {
+	// IMPORTANT CLOCK CONFIG
 	OSC.CTRL |= 0b00000011;
 	CLK.PSCTRL = 0b00000000;
 	while(OSC.STATUS & (1 << 1) == 0) {
@@ -67,78 +84,31 @@ int main(void)
 	}
 	CCP = 0xD8;
 	CLK.CTRL = 0b00000001;
+	// CLOCK IS NOW 32MHz
 	
+	// OUTPUT PORT CONFIGS
 	PORTD_OUT |= 1 << 7;
 	PORTD_DIR |= 1 << 7;
 	PORTD_DIR |= (1 << PD1)^(1 << PD2);
 	PORTR_DIR |= (1 << PR0)^(1 << PR1);
+	// SET UP USART (9600 baud with 32MHz cpu clock)
+	// Use this: http://www.avrfreaks.net/forum/xmega-usart-baud-rate-calculator-tool
+	// to calculate the baud ctrl values
 	USARTD1_BAUDCTRLA = 0b11110101;
 	USARTD1_BAUDCTRLB = 0b11001100;
 	USARTD1_CTRLC = 0b00000011;
-	USARTD1_CTRLB |= 0b00010000;
+	USARTD1_CTRLB |= 0b00011000;
+	// USART READY
 	while(true) {
-		/*//volatile char val = 'f';
-		while(!(USARTD1_STATUS & (1<<5))) {
-			// Wait for data
-		}
-		USARTD1_DATA = 'h';*/
-		volatile char val = 'f';
-		while(!(USARTD1_STATUS & (1<<7))) {
-			// Wait for data
-		}
-		val = USARTD1_DATA;
-		if(val == 't')
+		volatile char c = recv_char();
+		if(c == 't')
 		{
 			PORTD_OUT |= (1 << PD1);
+			send_str("LED on");
 		}
 		else {
 			PORTD_OUT &= ~(1 << PD1);
+			send_str("LED off");
 		}
 	}
-	
-	// Setup pins as outputs
- 	PORTD_DIR |= (1 << PD1)^(1 << PD2);
- 	PORTR_DIR |= (1 << PR0)^(1 << PR1);
-	
-	led_ctrl(1,false);
-	led_ctrl(2,false);
-	led_ctrl(3,false);
-	led_ctrl(4,false);
-
-	// Blink LEDs in sequence
-    while(1)
-    {
-		led_ctrl(0,true);
-		
-		_delay_ms(DEL_AMT);
-		
-		led_ctrl(0,false);
-		led_ctrl(1,true);
-		
-		_delay_ms(DEL_AMT);
-		
-		led_ctrl(1,false);
-		led_ctrl(2,true);
-		
-		_delay_ms(DEL_AMT);
-		
-		led_ctrl(2,false);
-		led_ctrl(3,true);
-		
-		_delay_ms(DEL_AMT);
-		
-		led_ctrl(3,false);
-		
-		_delay_ms(DEL_AMT);
-		
-		for (int i = 0; i < 4; i++)
-			led_ctrl(i,true);
-		
-		_delay_ms(DEL_AMT);
-		
-		for (int i = 0; i < 4; i++)
-			led_ctrl(i,false);
-		
-		_delay_ms(DEL_AMT);
-		}
 }
