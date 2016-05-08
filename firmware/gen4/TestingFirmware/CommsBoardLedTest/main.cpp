@@ -7,15 +7,22 @@
 
 // Test LEDs on comms board - ports R and D
 
-#include <avr/io.h>
-#include <util/delay.h>
+//TX = PD7
+//RX = PD6
+// use USARTD1
 
 #define PD1 1
 #define PD2 2
 #define PR0 0
 #define PR1 1
 #define DEL_AMT 1000
- 
+
+#define F_CPU 32000000
+//3200000UL
+#define BAUD_R 9600
+
+#include <avr/io.h>
+#include <util/delay.h>
  
 // control LED x either on (1) or off (0)
 void led_ctrl(int num, bool mode) {
@@ -53,6 +60,42 @@ void led_ctrl(int num, bool mode) {
 
 int main(void)
 {
+	OSC.CTRL |= 0b00000011;
+	CLK.PSCTRL = 0b00000000;
+	while(OSC.STATUS & (1 << 1) == 0) {
+		
+	}
+	CCP = 0xD8;
+	CLK.CTRL = 0b00000001;
+	
+	PORTD_OUT |= 1 << 7;
+	PORTD_DIR |= 1 << 7;
+	PORTD_DIR |= (1 << PD1)^(1 << PD2);
+	PORTR_DIR |= (1 << PR0)^(1 << PR1);
+	USARTD1_BAUDCTRLA = 0b11110101;
+	USARTD1_BAUDCTRLB = 0b11001100;
+	USARTD1_CTRLC = 0b00000011;
+	USARTD1_CTRLB |= 0b00010000;
+	while(true) {
+		/*//volatile char val = 'f';
+		while(!(USARTD1_STATUS & (1<<5))) {
+			// Wait for data
+		}
+		USARTD1_DATA = 'h';*/
+		volatile char val = 'f';
+		while(!(USARTD1_STATUS & (1<<7))) {
+			// Wait for data
+		}
+		val = USARTD1_DATA;
+		if(val == 't')
+		{
+			PORTD_OUT |= (1 << PD1);
+		}
+		else {
+			PORTD_OUT &= ~(1 << PD1);
+		}
+	}
+	
 	// Setup pins as outputs
  	PORTD_DIR |= (1 << PD1)^(1 << PD2);
  	PORTR_DIR |= (1 << PR0)^(1 << PR1);
