@@ -13270,6 +13270,17 @@ Wickmann</description>
 <pad name="RIGHT" x="5.08" y="0" drill="0.8" shape="long" rot="R90"/>
 <circle x="-1.27" y="1.27" radius="0.254" width="0.127" layer="21"/>
 </package>
+<package name="SOP4">
+<wire x1="4.6228" y1="0" x2="4.6228" y2="5.08" width="0.127" layer="21"/>
+<wire x1="4.6228" y1="5.08" x2="-0.3302" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-0.3302" y1="5.08" x2="-0.3302" y2="0" width="0.127" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="4.6228" y2="0" width="0.127" layer="21"/>
+<smd name="2" x="3.3528" y="-0.5842" dx="1.143" dy="0.889" layer="1" rot="R90"/>
+<smd name="1" x="0.8128" y="-0.5842" dx="1.143" dy="0.889" layer="1" rot="R90"/>
+<smd name="4" x="0.8128" y="5.6388" dx="1.143" dy="0.889" layer="1" rot="R90"/>
+<smd name="3" x="3.3528" y="5.6642" dx="1.143" dy="0.889" layer="1" rot="R90"/>
+<circle x="0.635" y="0.9398" radius="0.42578125" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DEPLETION_NFET">
@@ -13310,6 +13321,65 @@ Wickmann</description>
 <wire x1="2.54" y1="7.366" x2="2.54" y2="7.62" width="0.254" layer="94"/>
 <wire x1="2.54" y1="2.794" x2="2.54" y2="2.54" width="0.254" layer="94"/>
 </symbol>
+<symbol name="SS_RELAY">
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="2.032" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.032" x2="5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="4.318" y1="3.048" x2="5.842" y2="3.048" width="0.254" layer="94"/>
+<wire x1="5.842" y1="3.048" x2="5.08" y2="2.032" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.032" x2="4.318" y2="3.048" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.032" x2="5.842" y2="2.032" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.032" x2="4.318" y2="2.032" width="0.254" layer="94"/>
+<wire x1="12.7" y1="7.62" x2="12.7" y2="6.35" width="0.254" layer="94"/>
+<wire x1="12.7" y1="6.35" x2="11.176" y2="6.35" width="0.254" layer="94"/>
+<wire x1="11.176" y1="6.35" x2="11.176" y2="6.858" width="0.254" layer="94"/>
+<wire x1="11.176" y1="6.35" x2="11.176" y2="5.842" width="0.254" layer="94"/>
+<wire x1="12.7" y1="4.826" x2="11.176" y2="4.826" width="0.254" layer="94"/>
+<wire x1="11.176" y1="4.826" x2="11.176" y2="5.334" width="0.254" layer="94"/>
+<wire x1="11.176" y1="4.826" x2="11.176" y2="4.318" width="0.254" layer="94"/>
+<wire x1="12.7" y1="3.302" x2="11.176" y2="3.302" width="0.254" layer="94"/>
+<wire x1="11.176" y1="3.302" x2="11.176" y2="3.81" width="0.254" layer="94"/>
+<wire x1="11.176" y1="3.302" x2="11.176" y2="2.794" width="0.254" layer="94"/>
+<wire x1="12.7" y1="4.826" x2="12.7" y2="3.302" width="0.254" layer="94"/>
+<wire x1="11.176" y1="4.826" x2="11.684" y2="5.334" width="0.254" layer="94"/>
+<wire x1="11.176" y1="4.826" x2="11.684" y2="4.318" width="0.254" layer="94"/>
+<wire x1="10.414" y1="6.35" x2="10.414" y2="4.826" width="0.254" layer="94"/>
+<wire x1="10.414" y1="4.826" x2="10.414" y2="3.302" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-2.54" x2="12.7" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-1.524" x2="11.176" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="11.176" y1="-1.524" x2="11.176" y2="-2.032" width="0.254" layer="94"/>
+<wire x1="11.176" y1="-1.524" x2="11.176" y2="-1.016" width="0.254" layer="94"/>
+<wire x1="12.7" y1="0" x2="11.176" y2="0" width="0.254" layer="94"/>
+<wire x1="11.176" y1="0" x2="11.176" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="11.176" y1="0" x2="11.176" y2="0.508" width="0.254" layer="94"/>
+<wire x1="12.7" y1="1.524" x2="11.176" y2="1.524" width="0.254" layer="94"/>
+<wire x1="11.176" y1="1.524" x2="11.176" y2="1.016" width="0.254" layer="94"/>
+<wire x1="11.176" y1="1.524" x2="11.176" y2="2.032" width="0.254" layer="94"/>
+<wire x1="12.7" y1="0" x2="12.7" y2="1.524" width="0.254" layer="94"/>
+<wire x1="11.176" y1="0" x2="11.684" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="11.176" y1="0" x2="11.684" y2="0.508" width="0.254" layer="94"/>
+<wire x1="10.414" y1="-1.524" x2="10.414" y2="0" width="0.254" layer="94"/>
+<wire x1="10.414" y1="0" x2="10.414" y2="1.524" width="0.254" layer="94"/>
+<wire x1="10.414" y1="4.826" x2="8.636" y2="4.826" width="0.254" layer="94"/>
+<wire x1="8.636" y1="4.826" x2="8.636" y2="0" width="0.254" layer="94"/>
+<wire x1="8.636" y1="0" x2="10.414" y2="0" width="0.254" layer="94"/>
+<wire x1="12.7" y1="1.524" x2="13.462" y2="1.524" width="0.254" layer="94"/>
+<wire x1="13.462" y1="1.524" x2="13.462" y2="3.302" width="0.254" layer="94"/>
+<wire x1="13.462" y1="3.302" x2="12.7" y2="3.302" width="0.254" layer="94"/>
+<pin name="LED+" x="0" y="7.62" visible="off" length="middle"/>
+<pin name="LED-" x="0" y="-2.54" visible="off" length="middle"/>
+<pin name="S1" x="17.78" y="7.62" visible="off" length="middle" rot="R180"/>
+<pin name="S2" x="17.78" y="-2.54" visible="off" length="middle" rot="R180"/>
+<wire x1="2.54" y1="9.144" x2="2.54" y2="-4.064" width="0.6096" layer="94"/>
+<wire x1="2.54" y1="-4.064" x2="15.24" y2="-4.064" width="0.6096" layer="94"/>
+<wire x1="15.24" y1="-4.064" x2="15.24" y2="9.144" width="0.6096" layer="94"/>
+<wire x1="15.24" y1="9.144" x2="2.54" y2="9.144" width="0.6096" layer="94"/>
+<wire x1="6.604" y1="3.302" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="3.048" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="7.112" y2="2.54" width="0.254" layer="94"/>
+<wire x1="6.604" y1="2.032" x2="7.62" y2="1.27" width="0.254" layer="94"/>
+<wire x1="7.62" y1="1.778" x2="7.62" y2="1.27" width="0.254" layer="94"/>
+<wire x1="7.62" y1="1.27" x2="7.112" y2="1.27" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IXTA3N50D2">
@@ -13339,6 +13409,24 @@ Wickmann</description>
 <connect gate="G$1" pin="BASE" pad="CENTER"/>
 <connect gate="G$1" pin="COLLECTOR" pad="LEFT"/>
 <connect gate="G$1" pin="EMITTER" pad="RIGHT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VO1400AEFTR">
+<gates>
+<gate name="G$1" symbol="SS_RELAY" x="-7.62" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="SOP4">
+<connects>
+<connect gate="G$1" pin="LED+" pad="1"/>
+<connect gate="G$1" pin="LED-" pad="2"/>
+<connect gate="G$1" pin="S1" pad="4"/>
+<connect gate="G$1" pin="S2" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -13464,6 +13552,9 @@ Wickmann</description>
 <part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="750"/>
 <part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250"/>
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="200"/>
+<part name="U$5" library="rfc" deviceset="VO1400AEFTR" device=""/>
+<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250"/>
+<part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="300"/>
 </parts>
 <sheets>
 <sheet>
@@ -13486,7 +13577,7 @@ the Caps are charged and dangerous</text>
 <text x="444.5" y="297.18" size="1.778" layer="97">threshold = 50% of xref</text>
 <text x="444.5" y="261.62" size="1.778" layer="97">threshold = 50% of xref</text>
 <text x="698.5" y="370.84" size="1.778" layer="97">same radius, but shorter than old caps</text>
-<text x="513.08" y="350.52" size="1.778" layer="97">Discharge Circuitry</text>
+<text x="518.16" y="353.06" size="1.778" layer="97">Discharge Circuitry</text>
 <text x="538.48" y="241.3" size="1.778" layer="97">capacitor sense circuitry</text>
 <text x="553.72" y="256.54" size="1.778" layer="97" rot="R180">15v -&gt; 3v division
 to measure battery voltage</text>
@@ -13495,14 +13586,15 @@ should turn on fine with 3.3!</text>
 <text x="574.04" y="246.38" size="1.778" layer="97">Breakbeam output:
 1.3v drop, 100mA.
 2V / 20 ohm = 100mA</text>
-<text x="513.08" y="345.44" size="1.27" layer="97">depletion mode nmos 
-for auto discharge</text>
 <text x="492.252" y="338.328" size="1.778" layer="97">solenoid</text>
 <text x="493.014" y="279.908" size="1.778" layer="97">solenoid</text>
 <text x="386.08" y="231.14" size="1.778" layer="97">DISCHARGE</text>
-<text x="561.34" y="330.2" size="1.27" layer="95">IXTA3N50D2</text>
-<text x="548.64" y="320.04" size="1.27" layer="95">ZTX718</text>
-<text x="510.54" y="307.34" size="1.016" layer="97">***need to tune these resistors***</text>
+<text x="584.2" y="332.74" size="1.27" layer="95">IXTA3N50D2</text>
+<text x="571.5" y="320.04" size="1.27" layer="95">ZTX718</text>
+<text x="548.64" y="307.34" size="1.016" layer="97">***need to tune these resistors***</text>
+<text x="584.2" y="330.2" size="1.016" layer="97">depletion mode</text>
+<text x="515.62" y="345.44" size="1.778" layer="97">DISCHARGE</text>
+<text x="524.764" y="317.5" size="1.778" layer="97">NO SSR</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
@@ -13632,12 +13724,15 @@ for auto discharge</text>
 <attribute name="NAME" x="610.87" y="336.677" size="1.778" layer="95"/>
 <attribute name="VALUE" x="613.41" y="332.359" size="1.778" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="558.8" y="327.66" rot="MR0"/>
-<instance part="U$6" gate="G$1" x="546.1" y="314.96"/>
-<instance part="R3" gate="G$1" x="538.48" y="325.12" rot="R180"/>
-<instance part="R13" gate="G$1" x="528.32" y="317.5" rot="R270"/>
-<instance part="R16" gate="G$1" x="528.32" y="332.74" rot="R270"/>
-<instance part="R25" gate="G$1" x="561.34" y="320.04" rot="R270"/>
+<instance part="U$2" gate="G$1" x="581.66" y="327.66" rot="MR0"/>
+<instance part="U$6" gate="G$1" x="568.96" y="314.96"/>
+<instance part="R3" gate="G$1" x="561.34" y="325.12" rot="R180"/>
+<instance part="R13" gate="G$1" x="551.18" y="317.5" rot="R270"/>
+<instance part="R16" gate="G$1" x="551.18" y="332.74" rot="R270"/>
+<instance part="R25" gate="G$1" x="584.2" y="320.04" rot="R270"/>
+<instance part="U$5" gate="G$1" x="520.7" y="325.12"/>
+<instance part="R23" gate="G$1" x="546.1" y="342.9" rot="R270"/>
+<instance part="R26" gate="G$1" x="518.16" y="337.82" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -13807,6 +13902,11 @@ for auto discharge</text>
 <pinref part="COM_BOARD" gate="G$1" pin="33"/>
 <junction x="368.3" y="208.28"/>
 <wire x1="368.3" y1="208.28" x2="383.54" y2="208.28" width="0.1524" layer="91"/>
+<label x="515.62" y="320.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="LED-"/>
+<wire x1="520.7" y1="322.58" x2="515.62" y2="322.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -13967,7 +14067,7 @@ for auto discharge</text>
 <pinref part="KICK_Q" gate="G$1" pin="S"/>
 <wire x1="482.6" y1="307.34" x2="482.6" y2="302.26" width="0.1524" layer="91"/>
 <label x="482.6" y="302.26" size="1.778" layer="95"/>
-<label x="541.02" y="309.88" size="1.778" layer="95"/>
+<label x="563.88" y="309.88" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BATT" gate="-2" pin="KL"/>
@@ -14123,12 +14223,16 @@ for auto discharge</text>
 <segment>
 <pinref part="U$6" gate="G$1" pin="COLLECTOR"/>
 <pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="548.64" y1="314.96" x2="548.64" y2="312.42" width="0.1524" layer="91"/>
-<wire x1="548.64" y1="312.42" x2="528.32" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="571.5" y1="314.96" x2="571.5" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="571.5" y1="312.42" x2="551.18" y2="312.42" width="0.1524" layer="91"/>
 <pinref part="R25" gate="G$1" pin="2"/>
-<wire x1="548.64" y1="312.42" x2="561.34" y2="312.42" width="0.1524" layer="91"/>
-<wire x1="561.34" y1="312.42" x2="561.34" y2="314.96" width="0.1524" layer="91"/>
-<junction x="548.64" y="312.42"/>
+<wire x1="571.5" y1="312.42" x2="584.2" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="584.2" y1="312.42" x2="584.2" y2="314.96" width="0.1524" layer="91"/>
+<junction x="571.5" y="312.42"/>
+<pinref part="U$5" gate="G$1" pin="S2"/>
+<wire x1="538.48" y1="322.58" x2="538.48" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="538.48" y1="312.42" x2="551.18" y2="312.42" width="0.1524" layer="91"/>
+<junction x="551.18" y="312.42"/>
 </segment>
 </net>
 <net name="COMP_OUT" class="0">
@@ -14248,8 +14352,8 @@ for auto discharge</text>
 <label x="482.6" y="287.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="553.72" y="340.36" size="1.778" layer="95"/>
-<wire x1="553.72" y1="337.82" x2="553.72" y2="340.36" width="0.1524" layer="91"/>
+<label x="576.58" y="340.36" size="1.778" layer="95"/>
+<wire x1="576.58" y1="337.82" x2="576.58" y2="340.36" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="DRAIN"/>
 </segment>
 </net>
@@ -14438,11 +14542,11 @@ for auto discharge</text>
 <pinref part="KICKER1" gate="1" pin="1"/>
 <wire x1="612.14" y1="335.28" x2="612.14" y2="345.44" width="0.1524" layer="91"/>
 <label x="612.14" y="345.44" size="1.778" layer="95"/>
-<label x="528.32" y="340.36" size="1.778" layer="95"/>
+<label x="546.1" y="350.52" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="528.32" y1="337.82" x2="528.32" y2="340.36" width="0.1524" layer="91"/>
+<pinref part="R23" gate="G$1" pin="1"/>
+<wire x1="546.1" y1="347.98" x2="546.1" y2="350.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -14681,6 +14785,10 @@ for auto discharge</text>
 <pinref part="COM_BOARD" gate="G$1" pin="16"/>
 <wire x1="383.54" y1="231.14" x2="393.7" y2="231.14" width="0.1524" layer="91"/>
 <junction x="383.54" y="231.14"/>
+</segment>
+<segment>
+<pinref part="R26" gate="G$1" pin="1"/>
+<wire x1="518.16" y1="342.9" x2="518.16" y2="345.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BAT+" class="0">
@@ -15178,32 +15286,50 @@ for auto discharge</text>
 <segment>
 <pinref part="U$2" gate="G$1" pin="SOURCE"/>
 <pinref part="U$6" gate="G$1" pin="EMITTER"/>
-<wire x1="553.72" y1="325.12" x2="548.64" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="576.58" y1="325.12" x2="571.5" y2="325.12" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="548.64" y1="325.12" x2="543.56" y2="325.12" width="0.1524" layer="91"/>
-<junction x="548.64" y="325.12"/>
+<wire x1="571.5" y1="325.12" x2="566.42" y2="325.12" width="0.1524" layer="91"/>
+<junction x="571.5" y="325.12"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="528.32" y1="327.66" x2="528.32" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="551.18" y1="327.66" x2="551.18" y2="325.12" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="528.32" y1="325.12" x2="528.32" y2="322.58" width="0.1524" layer="91"/>
-<wire x1="533.4" y1="325.12" x2="528.32" y2="325.12" width="0.1524" layer="91"/>
-<junction x="528.32" y="325.12"/>
+<wire x1="551.18" y1="325.12" x2="551.18" y2="322.58" width="0.1524" layer="91"/>
+<wire x1="556.26" y1="325.12" x2="551.18" y2="325.12" width="0.1524" layer="91"/>
+<junction x="551.18" y="325.12"/>
 <pinref part="U$6" gate="G$1" pin="BASE"/>
-<wire x1="543.56" y1="320.04" x2="533.4" y2="320.04" width="0.1524" layer="91"/>
-<wire x1="533.4" y1="320.04" x2="533.4" y2="325.12" width="0.1524" layer="91"/>
-<junction x="533.4" y="325.12"/>
+<wire x1="566.42" y1="320.04" x2="556.26" y2="320.04" width="0.1524" layer="91"/>
+<wire x1="556.26" y1="320.04" x2="556.26" y2="325.12" width="0.1524" layer="91"/>
+<junction x="556.26" y="325.12"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="GATE"/>
 <pinref part="R25" gate="G$1" pin="1"/>
-<wire x1="561.34" y1="325.12" x2="561.34" y2="327.66" width="0.1524" layer="91"/>
+<wire x1="584.2" y1="325.12" x2="584.2" y2="327.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$29" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="S1"/>
+<pinref part="R16" gate="G$1" pin="1"/>
+<wire x1="538.48" y1="332.74" x2="538.48" y2="337.82" width="0.1524" layer="91"/>
+<wire x1="538.48" y1="337.82" x2="546.1" y2="337.82" width="0.1524" layer="91"/>
+<pinref part="R23" gate="G$1" pin="2"/>
+<wire x1="546.1" y1="337.82" x2="551.18" y2="337.82" width="0.1524" layer="91"/>
+<junction x="546.1" y="337.82"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="LED+"/>
+<pinref part="R26" gate="G$1" pin="2"/>
+<wire x1="518.16" y1="332.74" x2="520.7" y2="332.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
