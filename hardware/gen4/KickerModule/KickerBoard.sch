@@ -13129,72 +13129,6 @@ Grid 5.00 mm&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="diode">
-<description>&lt;b&gt;Diodes&lt;/b&gt;&lt;p&gt;
-Based on the following sources:
-&lt;ul&gt;
-&lt;li&gt;Motorola : www.onsemi.com
-&lt;li&gt;Fairchild : www.fairchildsemi.com
-&lt;li&gt;Philips : www.semiconductors.com
-&lt;li&gt;Vishay : www.vishay.de
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="SOD323_ST">
-<description>&lt;b&gt;SOD-323&lt;/b&gt;&lt;p&gt;
-Source: www.st.com, BAT60J.pdf</description>
-<wire x1="-0.85" y1="0.55" x2="0.85" y2="0.55" width="0.1016" layer="21"/>
-<wire x1="0.85" y1="0.55" x2="0.85" y2="-0.55" width="0.1016" layer="51"/>
-<wire x1="0.85" y1="-0.55" x2="-0.85" y2="-0.55" width="0.1016" layer="21"/>
-<wire x1="-0.85" y1="-0.55" x2="-0.85" y2="0.55" width="0.1016" layer="51"/>
-<smd name="C" x="-1.25" y="0" dx="0.8" dy="0.6" layer="1"/>
-<smd name="A" x="1.25" y="0" dx="0.8" dy="0.6" layer="1"/>
-<text x="-1.65" y="0.75" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.65" y="-2" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.65" y1="-0.55" x2="-0.05" y2="0.55" layer="21"/>
-<rectangle x1="-1.35" y1="-0.15" x2="-0.8" y2="0.15" layer="51"/>
-<rectangle x1="0.8" y1="-0.15" x2="1.35" y2="0.15" layer="51"/>
-<rectangle x1="-0.85" y1="-0.55" x2="-0.05" y2="0.55" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="SCHOTTKY">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.905" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.905" y1="1.27" x2="1.905" y2="1.016" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0.635" y1="-1.016" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
-<text x="-2.286" y="1.905" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.286" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="BAT60J" prefix="D">
-<description>&lt;b&gt;Schottky barrier diode&lt;/b&gt;&lt;p&gt;
-Source: www.st.com, BAT60J.pdf</description>
-<gates>
-<gate name="G$1" symbol="SCHOTTKY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOD323_ST">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="fuse">
 <description>&lt;b&gt;Fuses and Fuse Holders&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -13280,6 +13214,20 @@ Wickmann</description>
 <smd name="4" x="0.8128" y="5.6388" dx="1.143" dy="0.889" layer="1" rot="R90"/>
 <smd name="3" x="3.3528" y="5.6642" dx="1.143" dy="0.889" layer="1" rot="R90"/>
 <circle x="0.635" y="0.9398" radius="0.42578125" width="0.127" layer="21"/>
+</package>
+<package name="THROUGH-HOLE-2">
+<pad name="+" x="0" y="0" drill="1.27" diameter="2.54"/>
+<pad name="-" x="17.78" y="0" drill="1.27" diameter="2.54"/>
+<wire x1="4.445" y1="1.905" x2="4.445" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="4.445" y1="-1.905" x2="10.16" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-1.905" x2="11.43" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="11.43" y1="-1.905" x2="13.335" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="13.335" y1="-1.905" x2="13.335" y2="1.905" width="0.127" layer="21"/>
+<wire x1="13.335" y1="1.905" x2="11.43" y2="1.905" width="0.127" layer="21"/>
+<wire x1="11.43" y1="1.905" x2="10.16" y2="1.905" width="0.127" layer="21"/>
+<wire x1="10.16" y1="1.905" x2="4.445" y2="1.905" width="0.127" layer="21"/>
+<wire x1="10.16" y1="-1.905" x2="10.16" y2="1.905" width="0.127" layer="21"/>
+<wire x1="11.43" y1="-1.905" x2="11.43" y2="1.905" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -13380,6 +13328,15 @@ Wickmann</description>
 <wire x1="7.62" y1="1.778" x2="7.62" y2="1.27" width="0.254" layer="94"/>
 <wire x1="7.62" y1="1.27" x2="7.112" y2="1.27" width="0.254" layer="94"/>
 </symbol>
+<symbol name="DIODE">
+<pin name="D+" x="0" y="2.54" visible="off" length="short" rot="R270"/>
+<pin name="D-" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
+<wire x1="-1.27" y1="1.016" x2="1.27" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.016" x2="0" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="-1.27" y2="1.016" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="1.27" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="-1.27" y2="-0.508" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IXTA3N50D2">
@@ -13427,6 +13384,22 @@ Wickmann</description>
 <connect gate="G$1" pin="LED-" pad="2"/>
 <connect gate="G$1" pin="S1" pad="4"/>
 <connect gate="G$1" pin="S2" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="1N4007">
+<gates>
+<gate name="G$1" symbol="DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THROUGH-HOLE-2">
+<connects>
+<connect gate="G$1" pin="D+" pad="+"/>
+<connect gate="G$1" pin="D-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -13528,7 +13501,6 @@ Wickmann</description>
 <part name="DRIB_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="BATSENSE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="TMP" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="0"/>
-<part name="POLARITY_PROTECT" library="diode" deviceset="BAT60J" device=""/>
 <part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
@@ -13555,6 +13527,7 @@ Wickmann</description>
 <part name="U$5" library="rfc" deviceset="VO1400AEFTR" device=""/>
 <part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250"/>
 <part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="300"/>
+<part name="U$7" library="rfc" deviceset="1N4007" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13685,10 +13658,6 @@ should turn on fine with 3.3!</text>
 <attribute name="NAME" x="544.83" y="274.32" size="1.778" layer="95"/>
 </instance>
 <instance part="TMP" gate="G$1" x="459.74" y="332.74" rot="MR180"/>
-<instance part="POLARITY_PROTECT" gate="G$1" x="365.76" y="360.68" smashed="yes">
-<attribute name="NAME" x="355.854" y="362.585" size="1.778" layer="95"/>
-<attribute name="VALUE" x="363.474" y="357.251" size="1.778" layer="96"/>
-</instance>
 <instance part="R19" gate="G$1" x="589.28" y="264.16" rot="R90"/>
 <instance part="C12" gate="G$1" x="579.12" y="276.86"/>
 <instance part="R20" gate="G$1" x="589.28" y="284.48"/>
@@ -13733,6 +13702,7 @@ should turn on fine with 3.3!</text>
 <instance part="U$5" gate="G$1" x="520.7" y="325.12"/>
 <instance part="R23" gate="G$1" x="546.1" y="342.9" rot="R270"/>
 <instance part="R26" gate="G$1" x="518.16" y="337.82" rot="R270"/>
+<instance part="U$7" gate="G$1" x="576.58" y="340.36"/>
 </instances>
 <busses>
 </busses>
@@ -14327,6 +14297,7 @@ should turn on fine with 3.3!</text>
 <pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="637.54" y1="368.3" x2="637.54" y2="373.38" width="0.1524" layer="91"/>
 <label x="637.54" y="373.38" size="1.778" layer="95"/>
+<label x="576.58" y="345.44" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="485.14" y1="337.82" x2="485.14" y2="335.28" width="0.1524" layer="91"/>
@@ -14352,9 +14323,8 @@ should turn on fine with 3.3!</text>
 <label x="482.6" y="287.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="576.58" y="340.36" size="1.778" layer="95"/>
-<wire x1="576.58" y1="337.82" x2="576.58" y2="340.36" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="DRAIN"/>
+<pinref part="U$7" gate="G$1" pin="D+"/>
+<wire x1="576.58" y1="342.9" x2="576.58" y2="345.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CHIP_ENABLE" class="0">
@@ -14791,19 +14761,6 @@ should turn on fine with 3.3!</text>
 <wire x1="518.16" y1="342.9" x2="518.16" y2="345.44" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="BAT+" class="0">
-<segment>
-<pinref part="ON/OFF" gate="G$1" pin="COM"/>
-<wire x1="373.38" y1="360.68" x2="373.38" y2="370.84" width="0.1524" layer="91"/>
-<wire x1="373.38" y1="370.84" x2="396.24" y2="370.84" width="0.1524" layer="91"/>
-<wire x1="396.24" y1="370.84" x2="396.24" y2="365.76" width="0.1524" layer="91"/>
-<pinref part="ON/OFF" gate="G$1" pin="P1"/>
-<wire x1="396.24" y1="365.76" x2="393.7" y2="365.76" width="0.1524" layer="91"/>
-<label x="381" y="370.84" size="1.778" layer="95"/>
-<pinref part="POLARITY_PROTECT" gate="G$1" pin="C"/>
-<wire x1="368.3" y1="360.68" x2="373.38" y2="360.68" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="BATSENSE" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="1"/>
@@ -14843,13 +14800,6 @@ should turn on fine with 3.3!</text>
 <wire x1="312.42" y1="363.22" x2="312.42" y2="358.14" width="0.1524" layer="91"/>
 <pinref part="DRIB_TRAN" gate="G$1" pin="D"/>
 <pinref part="DRIB" gate="G$1" pin="P$2"/>
-</segment>
-</net>
-<net name="BAT+_UNPROTECTED" class="0">
-<segment>
-<pinref part="BATT" gate="-1" pin="KL"/>
-<pinref part="POLARITY_PROTECT" gate="G$1" pin="A"/>
-<wire x1="363.22" y1="360.68" x2="358.14" y2="360.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BB_OUT" class="0">
@@ -15330,6 +15280,25 @@ should turn on fine with 3.3!</text>
 <pinref part="U$5" gate="G$1" pin="LED+"/>
 <pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="518.16" y1="332.74" x2="520.7" y2="332.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="DRAIN"/>
+<pinref part="U$7" gate="G$1" pin="D-"/>
+</segment>
+</net>
+<net name="BAT+" class="0">
+<segment>
+<pinref part="BATT" gate="-1" pin="KL"/>
+<pinref part="ON/OFF" gate="G$1" pin="COM"/>
+<wire x1="373.38" y1="360.68" x2="373.38" y2="370.84" width="0.1524" layer="91"/>
+<wire x1="373.38" y1="370.84" x2="396.24" y2="370.84" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="370.84" x2="396.24" y2="365.76" width="0.1524" layer="91"/>
+<pinref part="ON/OFF" gate="G$1" pin="P1"/>
+<wire x1="396.24" y1="365.76" x2="393.7" y2="365.76" width="0.1524" layer="91"/>
+<label x="381" y="370.84" size="1.778" layer="95"/>
+<wire x1="358.14" y1="360.68" x2="373.38" y2="360.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
