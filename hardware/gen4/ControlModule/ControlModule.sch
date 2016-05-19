@@ -3841,7 +3841,7 @@ SMT- SWCH-08247</description>
 <part name="TX" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="80k"/>
+<part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="80.6k"/>
 <part name="R9" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20k"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="3.3V" library="gen3" deviceset="TEST_PT" device=""/>
