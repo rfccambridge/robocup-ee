@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -13520,12 +13520,12 @@ Wickmann</description>
 <part name="KICKER1" library="fuse" deviceset="TR5" device=""/>
 <part name="U$2" library="rfc" deviceset="IXTA3N50D2" device=""/>
 <part name="U$6" library="rfc" deviceset="ZTX718" device=""/>
-<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
-<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="750"/>
-<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250"/>
+<part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250k"/>
+<part name="R13" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2.5k"/>
+<part name="R16" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R25" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="200"/>
 <part name="U$5" library="rfc" deviceset="VO1400AEFTR" device=""/>
-<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="250"/>
+<part name="R23" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1.5k"/>
 <part name="R26" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="300"/>
 <part name="U$7" library="rfc" deviceset="1N4007" device=""/>
 </parts>
