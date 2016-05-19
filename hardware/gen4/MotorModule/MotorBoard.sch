@@ -5248,8 +5248,8 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <text x="73.66" y="106.68" size="1.778" layer="95">ENABLE</text>
 <text x="78.74" y="33.02" size="1.778" layer="95">DIR</text>
 <text x="88.9" y="17.78" size="1.778" layer="95">5V</text>
-<text x="83.82" y="83.82" size="1.778" layer="95">5V</text>
 <text x="127" y="116.84" size="1.778" layer="95">5V</text>
+<text x="208.28" y="33.02" size="1.778" layer="95">5V</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="154.94" y="101.6"/>
@@ -6133,6 +6133,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <label x="142.24" y="137.16" size="1.778" layer="95"/>
 <label x="12.7" y="142.24" size="1.778" layer="95"/>
 <label x="228.6" y="142.24" size="1.778" layer="95"/>
+<label x="86.36" y="83.82" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
 <pinref part="C45" gate="G$1" pin="1"/>
@@ -6159,20 +6160,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <label x="195.58" y="162.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R105" gate="G$1" pin="2"/>
-<pinref part="R106" gate="G$1" pin="2"/>
-<wire x1="203.2" y1="35.56" x2="208.28" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="R107" gate="G$1" pin="2"/>
-<wire x1="208.28" y1="35.56" x2="213.36" y2="35.56" width="0.1524" layer="91"/>
-<junction x="208.28" y="35.56"/>
-<label x="208.28" y="33.02" size="1.778" layer="95"/>
-<wire x1="218.44" y1="45.72" x2="218.44" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="218.44" y1="35.56" x2="208.28" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="G$1" pin="23"/>
-<wire x1="218.44" y1="45.72" x2="226.06" y2="45.72" width="0.1524" layer="91"/>
-<junction x="226.06" y="45.72"/>
-</segment>
-<segment>
 <wire x1="228.6" y1="142.24" x2="233.68" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="G$1" pin="1"/>
 </segment>
@@ -6185,6 +6172,18 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <wire x1="33.02" y1="73.66" x2="38.1" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="A" pin="2"/>
 <junction x="33.02" y="73.66"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R63" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="68.58" x2="73.66" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="73.66" x2="78.74" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="73.66" x2="78.74" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="78.74" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
+<junction x="78.74" y="73.66"/>
+<wire x1="83.82" y1="78.74" x2="83.82" y2="81.28" width="0.1524" layer="91"/>
+<junction x="83.82" y="78.74"/>
 </segment>
 </net>
 <net name="N$34" class="0">
@@ -6240,20 +6239,20 @@ Source: http://focus.ti.com/lit/ds/symlink/tps65020.pdf</description>
 <pinref part="U$1" gate="G$1" pin="VREG"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="R63" gate="G$1" pin="1"/>
-<wire x1="73.66" y1="68.58" x2="73.66" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="73.66" x2="78.74" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="78.74" y1="73.66" x2="78.74" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="78.74" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
-<junction x="78.74" y="73.66"/>
-<wire x1="83.82" y1="78.74" x2="83.82" y2="83.82" width="0.1524" layer="91"/>
-<junction x="83.82" y="78.74"/>
-</segment>
-<segment>
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="127" y1="116.84" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R105" gate="G$1" pin="2"/>
+<pinref part="R106" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="35.56" x2="208.28" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="R107" gate="G$1" pin="2"/>
+<wire x1="208.28" y1="35.56" x2="213.36" y2="35.56" width="0.1524" layer="91"/>
+<junction x="208.28" y="35.56"/>
+<pinref part="JP3" gate="G$1" pin="23"/>
+<wire x1="213.36" y1="35.56" x2="215.9" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="35.56" x2="226.06" y2="45.72" width="0.1524" layer="91"/>
+<junction x="213.36" y="35.56"/>
 </segment>
 </net>
 </nets>
