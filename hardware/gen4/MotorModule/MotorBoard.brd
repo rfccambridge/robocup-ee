@@ -1289,11 +1289,15 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="4.1275" y="16.66875" extent="1-16" drill="0.3"/>
 <contactref element="JP3" pad="15"/>
 <contactref element="JP2" pad="6"/>
+<<<<<<< Updated upstream
 <wire x1="6.9075" y1="5.55625" x2="8.09625" y2="6.745" width="0.254" layer="16"/>
 <wire x1="8.09625" y1="6.745" x2="8.09625" y2="6.82625" width="0.254" layer="16"/>
 <via x="8.09625" y="6.82625" extent="1-16" drill="0.3"/>
 <wire x1="8.09625" y1="6.82625" x2="7.40875" y2="7.51375" width="0.254" layer="1"/>
 <wire x1="7.40875" y1="7.51375" x2="6.82625" y2="7.51375" width="0.254" layer="1"/>
+=======
+<wire x1="30.63875" y1="-4.445" x2="24.60625" y2="-4.60375" width="0" layer="19" extent="1-1"/>
+>>>>>>> Stashed changes
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
@@ -1529,6 +1533,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="31.27375" y="3.33375" extent="1-16" drill="0.6"/>
 <wire x1="31.27375" y1="3.33375" x2="31.27375" y2="3.96875" width="0.8128" layer="1"/>
 <wire x1="31.27375" y1="3.96875" x2="30.63875" y2="4.60375" width="0.8128" layer="1"/>
+<<<<<<< Updated upstream
 <wire x1="19.4437" y1="-7.3025" x2="19.3675" y2="-7.3787" width="0.254" layer="16"/>
 <wire x1="19.3675" y1="-10.00125" x2="19.52625" y2="-9.8425" width="0.8128" layer="16"/>
 <wire x1="19.52625" y1="-9.8425" x2="20.0025" y2="-9.8425" width="0.8128" layer="16"/>
@@ -1537,6 +1542,9 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="24.4475" y1="-11.7475" x2="31.27375" y2="-11.7475" width="0.8128" layer="16"/>
 <wire x1="31.27375" y1="-11.7475" x2="32.22625" y2="-10.795" width="0.8128" layer="16"/>
 <wire x1="19.4437" y1="-9.8425" x2="19.52625" y2="-9.8425" width="0.8128" layer="16"/>
+=======
+<wire x1="19.4437" y1="-7.3025" x2="22.01375" y2="1.27" width="0" layer="19" extent="1-16"/>
+>>>>>>> Stashed changes
 </signal>
 <signal name="M1QB">
 <contactref element="IC1" pad="41"/>
@@ -2283,20 +2291,44 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="18.7325" y1="-12.54125" x2="18.7325" y2="-10.31875" width="0.254" layer="1"/>
 <wire x1="18.7325" y1="-10.31875" x2="18.25625" y2="-10.31875" width="0.254" layer="1"/>
 <wire x1="10.82625" y1="-10.3375" x2="18.25625" y2="-10.31875" width="0.254" layer="1"/>
+<<<<<<< Updated upstream
 <wire x1="18.0975" y1="2.32875" x2="18.89125" y2="1.8525" width="0.254" layer="1"/>
 <wire x1="18.89125" y1="1.8525" x2="18.89125" y2="1.42875" width="0.254" layer="1"/>
 <wire x1="18.89125" y1="1.42875" x2="18.83875" y2="1.27" width="0.254" layer="1"/>
+=======
+<wire x1="17.145" y1="9.2075" x2="17.145" y2="8.41375" width="0.254" layer="1"/>
+<wire x1="17.145" y1="8.41375" x2="17.383125" y2="8.09625" width="0.254" layer="1"/>
+<wire x1="17.383125" y1="8.09625" x2="17.383125" y2="6.985" width="0.254" layer="1"/>
+<wire x1="17.383125" y1="6.985" x2="17.93875" y2="6.50875" width="0.254" layer="1"/>
+<wire x1="17.93875" y1="6.50875" x2="17.93875" y2="4.28625" width="0.254" layer="1"/>
+<wire x1="17.93875" y1="4.28625" x2="18.0975" y2="4.1275" width="0.254" layer="1"/>
+<wire x1="18.0975" y1="4.1275" x2="18.0975" y2="2.96375" width="0.254" layer="1"/>
+<wire x1="18.0975" y1="2.96375" x2="18.89125" y2="2.17" width="0.254" layer="1"/>
+<wire x1="18.89125" y1="2.17" x2="18.89125" y2="1.42875" width="0.254" layer="1"/>
+<wire x1="18.89125" y1="1.42875" x2="18.83875" y2="1.27" width="0.254" layer="1"/>
+<wire x1="5.9927" y1="12.965" x2="5.01015" y2="12.4587" width="0.3048" layer="1"/>
+>>>>>>> Stashed changes
 <wire x1="5.08" y1="9.31375" x2="5.08" y2="12.38885" width="0.6096" layer="1"/>
 <wire x1="5.08" y1="12.38885" x2="5.01015" y2="12.4587" width="0.6096" layer="1"/>
 <wire x1="6.9075" y1="0.47625" x2="8.89" y2="0.47625" width="0.254" layer="16"/>
 <wire x1="8.89" y1="0.47625" x2="9.36625" y2="0.9525" width="0.254" layer="16"/>
+<<<<<<< Updated upstream
 <wire x1="9.36625" y1="0.9525" x2="9.36625" y2="3.4925" width="0.254" layer="16"/>
 <via x="9.36625" y="3.4925" extent="1-16" drill="0.3"/>
+=======
+<wire x1="9.36625" y1="0.9525" x2="9.36625" y2="3.81" width="0.254" layer="16"/>
+<via x="9.36625" y="3.81" extent="1-16" drill="0.3"/>
+<wire x1="9.36625" y1="3.81" x2="11.36125" y2="3.81" width="0.254" layer="1"/>
+>>>>>>> Stashed changes
 <wire x1="8.52" y1="30.00375" x2="8.52" y2="32.22625" width="0.254" layer="16"/>
 <wire x1="6.1325" y1="21.935625" x2="6.1325" y2="19.20875" width="0.254" layer="16"/>
 <wire x1="6.1325" y1="19.20875" x2="6.1325" y2="15.29875" width="0.254" layer="16"/>
 <wire x1="6.1325" y1="15.29875" x2="6.82625" y2="14.2875" width="0.254" layer="16"/>
 <via x="6.82625" y="14.2875" extent="1-16" drill="0.3"/>
+<<<<<<< Updated upstream
+=======
+<wire x1="14.626875" y1="2.994375" x2="15.24" y2="2.38125" width="0.254" layer="1"/>
+>>>>>>> Stashed changes
 <wire x1="15.24" y1="2.38125" x2="17.515" y2="2.38125" width="0.254" layer="1"/>
 <wire x1="17.515" y1="2.38125" x2="18.0975" y2="2.32875" width="0.254" layer="1"/>
 <wire x1="22.46875" y1="-5.69625" x2="22.4875" y2="-5.715" width="0.254" layer="1"/>
@@ -2367,10 +2399,21 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="24.001696875" y1="-16.03375" x2="24.2104625" y2="-15.666234375" width="0.254" layer="16"/>
 <via x="24.2104625" y="-15.666234375" extent="1-16" drill="0.3"/>
 <wire x1="24.2104625" y1="-15.666234375" x2="24.106078125" y2="-15.387878125" width="0.254" layer="1"/>
+<<<<<<< Updated upstream
+=======
+<via x="17.145" y="9.2075" extent="1-16" drill="0.3"/>
+<wire x1="17.145" y1="9.2075" x2="21.59" y2="9.2075" width="0.254" layer="16"/>
+<wire x1="21.59" y1="9.2075" x2="22.06625" y2="9.68375" width="0.254" layer="16"/>
+<wire x1="22.06625" y1="9.68375" x2="22.06625" y2="12.22375" width="0.254" layer="16"/>
+<wire x1="22.06625" y1="12.22375" x2="22.86" y2="13.0175" width="0.254" layer="16"/>
+<via x="22.86" y="13.0175" extent="1-16" drill="0.3"/>
+<wire x1="22.86" y1="13.0175" x2="21.855" y2="13.0175" width="0.254" layer="1"/>
+>>>>>>> Stashed changes
 <contactref element="JP3" pad="23"/>
 <contactref element="JP2" pad="2"/>
 <wire x1="31.90875" y1="-0.59" x2="30.68375" y2="0.635" width="0.254" layer="1"/>
 <wire x1="30.68375" y1="0.635" x2="30.63875" y2="0.635" width="0.254" layer="1"/>
+<<<<<<< Updated upstream
 <wire x1="15.24" y1="2.38125" x2="15.24" y2="2.54" width="0.254" layer="1"/>
 <wire x1="15.24" y1="2.54" x2="14.9225" y2="2.8575" width="0.254" layer="1"/>
 <wire x1="14.9225" y1="2.8575" x2="10.31875" y2="2.8575" width="0.254" layer="1"/>
@@ -2379,6 +2422,11 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="5.01015" y1="13.26515" x2="6.0325" y2="14.2875" width="0.254" layer="1"/>
 <wire x1="6.0325" y1="14.2875" x2="6.82625" y2="14.2875" width="0.254" layer="1"/>
 <wire x1="18.0975" y1="2.32875" x2="19.4437" y2="10.4775" width="0" layer="19" extent="1-16"/>
+=======
+<wire x1="21.59" y1="9.2075" x2="19.4437" y2="10.4775" width="0" layer="19" extent="16-16"/>
+<wire x1="11.36125" y1="3.81" x2="14.626875" y2="2.994375" width="0" layer="19" extent="1-1"/>
+<wire x1="6.82625" y1="14.2875" x2="5.9927" y2="12.965" width="0" layer="19" extent="1-16"/>
+>>>>>>> Stashed changes
 </signal>
 <signal name="N$34">
 <contactref element="R15" pad="2"/>
@@ -2435,6 +2483,11 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="IC1" pad="34"/>
 <contactref element="JP2" pad="1"/>
 <wire x1="28.09875" y1="0.635" x2="29.36875" y2="-0.635" width="0.254" layer="16"/>
+<<<<<<< Updated upstream
+=======
+<wire x1="29.36875" y1="-0.635" x2="29.36875" y2="-13.17625" width="0.254" layer="16"/>
+<wire x1="29.36875" y1="-13.17625" x2="28.09875" y2="-14.44625" width="0.254" layer="16"/>
+>>>>>>> Stashed changes
 <wire x1="28.09875" y1="-14.44625" x2="24.4475" y2="-14.44625" width="0.254" layer="16"/>
 <wire x1="24.4475" y1="-14.44625" x2="24.28875" y2="-14.2875" width="0.254" layer="16"/>
 <wire x1="24.28875" y1="-14.2875" x2="12.065" y2="-14.2875" width="0.254" layer="16"/>
@@ -2449,6 +2502,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="20.47875" y="-3.730625" extent="1-16" drill="0.3"/>
 <wire x1="20.47875" y1="-3.730625" x2="20.66875" y2="-3.62" width="0.254" layer="1"/>
 <wire x1="20.66875" y1="-3.62" x2="20.66875" y2="-2.29625" width="0.254" layer="1"/>
+<<<<<<< Updated upstream
 <wire x1="28.09875" y1="-14.44625" x2="28.2575" y2="-14.2875" width="0.254" layer="16"/>
 <wire x1="28.2575" y1="-14.2875" x2="28.2575" y2="-13.335" width="0.254" layer="16"/>
 <via x="28.2575" y="-13.335" extent="1-16" drill="0.5"/>
@@ -2456,6 +2510,8 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="28.2575" y="-7.9375" extent="1-16" drill="0.5"/>
 <wire x1="28.2575" y1="-7.9375" x2="29.36875" y2="-6.82625" width="0.254" layer="16"/>
 <wire x1="29.36875" y1="-6.82625" x2="29.36875" y2="-0.635" width="0.254" layer="16"/>
+=======
+>>>>>>> Stashed changes
 </signal>
 <signal name="5V">
 <contactref element="U$1" pad="24"/>
@@ -2464,6 +2520,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="R63" pad="1"/>
 <contactref element="R9" pad="1"/>
 <contactref element="R17" pad="2"/>
+<<<<<<< Updated upstream
 <wire x1="11.4603125" y1="3.7109375" x2="13.02375" y2="3.7109375" width="0.254" layer="1"/>
 <wire x1="13.02375" y1="3.7109375" x2="14.626875" y2="3.7109375" width="0.254" layer="1"/>
 <wire x1="16.0425" y1="9.56875" x2="16.625" y2="9.56875" width="0.254" layer="1"/>
@@ -2490,6 +2547,13 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="4.92125" y1="9.286875" x2="4.92125" y2="4.92125" width="0.254" layer="16"/>
 <wire x1="4.92125" y1="4.92125" x2="5.23875" y2="4.60375" width="0.254" layer="16"/>
 <wire x1="5.23875" y1="4.60375" x2="9.36625" y2="4.60375" width="0.254" layer="16"/>
+=======
+<wire x1="16.0425" y1="9.56875" x2="21.74875" y2="12.91125" width="0" layer="19" extent="1-1"/>
+<wire x1="14.626875" y1="3.7109375" x2="16.0425" y2="9.56875" width="0" layer="19" extent="1-1"/>
+<wire x1="13.02375" y1="3.7109375" x2="14.626875" y2="3.7109375" width="0" layer="19" extent="1-1"/>
+<wire x1="11.4603125" y1="3.7109375" x2="13.02375" y2="3.7109375" width="0" layer="19" extent="1-1"/>
+<wire x1="6.82625" y1="12.965" x2="16.0425" y2="9.56875" width="0" layer="19" extent="1-1"/>
+>>>>>>> Stashed changes
 </signal>
 </signals>
 </board>
