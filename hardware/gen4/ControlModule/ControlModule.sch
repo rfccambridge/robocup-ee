@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -3549,10 +3549,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="1.905" y1="0.445" x2="2.16" y2="-0.01" width="0.127" layer="51"/>
 <wire x1="1.905" y1="-0.23" x2="1.905" y2="-1.115" width="0.127" layer="51"/>
 <circle x="0" y="0" radius="1.27" width="0.2032" layer="21"/>
-<smd name="1" x="-2.794" y="1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="2" x="2.794" y="1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="3" x="-2.794" y="-1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
-<smd name="4" x="2.794" y="-1.905" dx="0.762" dy="1.524" layer="1" rot="R90"/>
+<smd name="1" x="-4.75" y="2.25" dx="1.3" dy="1.55" layer="1" rot="R90"/>
+<smd name="2" x="4.75" y="2.25" dx="1.3" dy="1.55" layer="1" rot="R90"/>
+<smd name="3" x="-4.75" y="-2.25" dx="1.3" dy="1.55" layer="1" rot="R90"/>
+<smd name="4" x="4.75" y="-2.25" dx="1.3" dy="1.55" layer="1" rot="R90"/>
 <text x="-0.889" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
 <text x="-0.889" y="-2.032" size="0.4064" layer="27">&gt;Value</text>
 </package>
@@ -4048,9 +4048,6 @@ SMT- SWCH-08247</description>
 <junction x="40.64" y="101.6"/>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="S3" gate="S" pin="4"/>
-<pinref part="S3" gate="S" pin="3"/>
-<wire x1="33.02" y1="104.14" x2="33.02" y2="101.6" width="0.1524" layer="91"/>
-<junction x="33.02" y="101.6"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="A" pin="6"/>
@@ -4120,17 +4117,11 @@ SMT- SWCH-08247</description>
 <wire x1="132.08" y1="33.02" x2="132.08" y2="40.64" width="0.1524" layer="91"/>
 <label x="132.08" y="40.64" size="1.778" layer="95" rot="R180"/>
 <pinref part="S1" gate="S" pin="2"/>
-<pinref part="S1" gate="S" pin="1"/>
-<wire x1="132.08" y1="33.02" x2="134.62" y2="33.02" width="0.1524" layer="91"/>
-<junction x="132.08" y="33.02"/>
 </segment>
 <segment>
 <wire x1="22.86" y1="101.6" x2="17.78" y2="101.6" width="0.1524" layer="91"/>
 <label x="15.24" y="101.6" size="1.778" layer="95"/>
 <pinref part="S3" gate="S" pin="2"/>
-<pinref part="S3" gate="S" pin="1"/>
-<wire x1="22.86" y1="104.14" x2="22.86" y2="101.6" width="0.1524" layer="91"/>
-<junction x="22.86" y="101.6"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
@@ -4403,13 +4394,11 @@ SMT- SWCH-08247</description>
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="124.46" y1="22.86" x2="132.08" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="22.86" x2="134.62" y2="22.86" width="0.1524" layer="91"/>
-<label x="137.16" y="22.86" size="1.778" layer="95"/>
-<pinref part="S1" gate="S" pin="3"/>
-<wire x1="134.62" y1="22.86" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
-<junction x="134.62" y="22.86"/>
+<label x="137.16" y="20.32" size="1.778" layer="95"/>
 <pinref part="S1" gate="S" pin="4"/>
 <junction x="132.08" y="22.86"/>
+<wire x1="137.16" y1="20.32" x2="132.08" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="20.32" x2="132.08" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12V" class="0">
