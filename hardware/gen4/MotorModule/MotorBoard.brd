@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1.27" unitdist="mm" unit="mil" style="lines" multiple="1" display="yes" altdistance="2.5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.000123031496" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.000123031496" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -28,14 +28,14 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="14" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
@@ -2197,7 +2197,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="R3" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-1.74625" rot="MR0"/>
 <element name="R4" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-3.65125" rot="MR0"/>
 <element name="C4" library="SparkFun-Passives" package="0805" value="1uF" x="19.20875" y="4.7625" rot="R270"/>
-<element name="C6" library="SparkFun-Passives" package="0805" value="1uF" x="19.20875" y="13.81125" rot="R270"/>
+<element name="C6" library="SparkFun-Passives" package="0805" value="0.1uF" x="19.20875" y="13.81125" rot="R270"/>
 <element name="Q1" library="rfc" package="DPAK" value="" x="4.28625" y="32.86125"/>
 <element name="Q2" library="rfc" package="DPAK" value="" x="4.28625" y="40.79875"/>
 <element name="Q3" library="rfc" package="DPAK" value="" x="21.74875" y="25.0825"/>
@@ -2209,7 +2209,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="R12" library="SparkFun-Resistors" package="0805" value="240" x="30.63875" y="22.70125" rot="R180"/>
 <element name="R13" library="SparkFun-Resistors" package="0805" value="240" x="28.2575" y="32.7025" rot="R180"/>
 <element name="R14" library="SparkFun-Resistors" package="0805" value="240" x="28.41625" y="40.9575" rot="R180"/>
-<element name="R78" library="SparkFun-Resistors" package="0805" value="1k" x="21.2725" y="7.77875" rot="R90"/>
+<element name="R78" library="SparkFun-Resistors" package="0805" value="1k" x="21.534940625" y="7.77875" rot="R90"/>
 <element name="R79" library="SparkFun-Resistors" package="0805" value="1k" x="21.2725" y="4.7625" rot="R90"/>
 <element name="C33" library="SparkFun-Capacitors" package="0805" value=".1uF" x="14.76375" y="1.27" rot="R180"/>
 <element name="C40" library="SparkFun-Capacitors" package="0805" value=".1uF" x="11.58875" y="1.27"/>
@@ -2222,7 +2222,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="LED11" library="SparkFun-LED" package="LED-1206" value="" x="1.5875" y="-1.5875" rot="R90"/>
 <element name="LED13" library="SparkFun-LED" package="LED-1206" value="" x="1.5875" y="-6.6675" rot="R90"/>
 <element name="LED15" library="SparkFun-LED" package="LED-1206" value="" x="1.5875" y="-11.90625" rot="R90"/>
-<element name="R63" library="SparkFun-Resistors" package="0805" value="30k" x="13.02375" y="4.4839375" rot="R90"/>
+<element name="R63" library="SparkFun-Resistors" package="0805" value="30k" x="13.0262" y="4.36008125" rot="R90"/>
 <element name="C8" library="SparkFun-Passives" package="0805" value=".1uF" x="21.11375" y="1.27"/>
 <element name="C7" library="gen3" package="PANASONIC_D" value="100uF" x="29.27875" y="7.1171875" rot="R90">
 <attribute name="PROD_ID" value="CAP-10547" x="29.27875" y="7.1171875" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2250,12 +2250,12 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <attribute name="MF" value="" x="14.2875" y="-8.09625" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="14.2875" y="-8.09625" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C1" library="SparkFun-Passives" package="0805" value="1uF" x="19.33575" y="10.795" rot="R90"/>
+<element name="C1" library="SparkFun-Passives" package="0805" value="1uF" x="19.493203125" y="10.795" rot="R90"/>
 <element name="C12" library="SparkFun-Passives" package="0805" value=".1uF" x="21.74875" y="13.81125" rot="R270"/>
-<element name="C13" library="SparkFun-Passives" package="0805" value="0.1uF" x="19.33575" y="7.77875" rot="R90"/>
-<element name="R7" library="SparkFun-Resistors" package="0805" value="30k" x="14.626875" y="4.4839375" rot="R90"/>
-<element name="R9" library="SparkFun-Resistors" package="0805" value="15k" x="11.4603125" y="4.4839375" rot="R90"/>
-<element name="R11" library="SparkFun-Resistors" package="0805" value="1k" x="21.74875" y="10.795" rot="R90"/>
+<element name="C13" library="SparkFun-Passives" package="0805" value="0.1uF" x="19.479240625" y="7.75250625" rot="R90"/>
+<element name="R7" library="SparkFun-Resistors" package="0805" value="30k" x="14.629325" y="4.36008125" rot="R90"/>
+<element name="R9" library="SparkFun-Resistors" package="0805" value="15k" x="11.4627625" y="4.36008125" rot="R90"/>
+<element name="R11" library="SparkFun-Resistors" package="0805" value="1k" x="21.9692" y="10.805496875" rot="R90"/>
 <element name="R15" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-5.55625" rot="MR0"/>
 <element name="IC2" library="linear-technology" package="SOT223" value="3.3V REG" x="2.69875" y="15.5575">
 <attribute name="OC_NEWARK" value="57M2069" x="2.69875" y="15.5575" size="1.778" layer="27" display="off"/>
@@ -2314,12 +2314,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="C3" pad="1"/>
 <contactref element="C5" pad="1"/>
 <wire x1="16.2965" y1="10.56875" x2="17.56175" y2="10.56875" width="0.254" layer="1"/>
-<wire x1="17.56175" y1="10.56875" x2="18.44675" y2="9.68375" width="0.254" layer="1"/>
-<wire x1="18.44675" y1="9.68375" x2="18.44675" y2="8.183734375" width="0.254" layer="1"/>
-<wire x1="18.697796875" y1="7.77875" x2="19.05" y2="7.77875" width="0.254" layer="1"/>
-<wire x1="19.05" y1="7.77875" x2="19.20875" y2="7.62" width="0.254" layer="1"/>
-<wire x1="19.20875" y1="7.62" x2="19.33575" y2="6.87875" width="0.254" layer="1"/>
-<wire x1="19.33575" y1="6.87875" x2="19.20875" y2="5.6625" width="0.254" layer="1"/>
+<wire x1="17.56175" y1="10.56875" x2="18.4596375" y2="9.674803125" width="0.254" layer="1"/>
 <wire x1="15.0875" y1="-2.29625" x2="15.0875" y2="-1.105" width="0.254" layer="1"/>
 <wire x1="15.0875" y1="-1.105" x2="17.62125" y2="-1.11125" width="0.254" layer="1"/>
 <wire x1="17.62125" y1="-1.11125" x2="17.78" y2="-0.9525" width="0.254" layer="1"/>
@@ -2369,7 +2364,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="11.54249375" y="1.436540625" extent="1-16" drill="0.3"/>
 <wire x1="14.2875" y1="9.2075" x2="14.12875" y2="9.2075" width="0.254" layer="1"/>
 <wire x1="14.12875" y1="9.2075" x2="13.0175" y2="10.31875" width="0.254" layer="1"/>
-<via x="20.47875" y="11.7475" extent="1-16" drill="0.3"/>
+<via x="20.732440625" y="11.75974375" extent="1-16" drill="0.3"/>
 <via x="23.01875" y="14.12875" extent="1-16" drill="0.3"/>
 <via x="4.1275" y="20.47875" extent="1-16" drill="0.3"/>
 <via x="4.1275" y="16.66875" extent="1-16" drill="0.3"/>
@@ -2382,13 +2377,17 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="JP3" pad="34"/>
 <contactref element="JP3" pad="33"/>
 <contactref element="JP1" pad="10"/>
-<wire x1="18.697796875" y1="7.77875" x2="18.679515625" y2="7.76046875" width="0.254" layer="1"/>
-<wire x1="18.679515625" y1="7.76046875" x2="18.44675" y2="8.183734375" width="0.254" layer="1"/>
 <wire x1="11.54249375" y1="1.436540625" x2="11.54249375" y2="1.31668125" width="0.254" layer="1"/>
 <wire x1="11.54249375" y1="1.31668125" x2="11.555621875" y2="1.303553125" width="0.254" layer="1"/>
 <wire x1="11.555621875" y1="1.303553125" x2="10.722303125" y2="1.303553125" width="0.254" layer="1"/>
 <wire x1="10.722303125" y1="1.303553125" x2="10.68875" y2="1.27" width="0.254" layer="1"/>
 <contactref element="JP3" pad="22"/>
+<wire x1="18.4596375" y1="9.674803125" x2="18.59911875" y2="9.60561875" width="0.254" layer="1"/>
+<wire x1="18.59911875" y1="9.60561875" x2="18.59911875" y2="7.83124375" width="0.254" layer="1"/>
+<wire x1="18.59911875" y1="7.83124375" x2="19.479240625" y2="6.880825" width="0.254" layer="1"/>
+<wire x1="19.479240625" y1="6.880825" x2="19.479240625" y2="6.85250625" width="0.254" layer="1"/>
+<wire x1="19.479240625" y1="6.85250625" x2="19.20875" y2="6.582015625" width="0.254" layer="1"/>
+<wire x1="19.20875" y1="6.582015625" x2="19.20875" y2="5.6625" width="0.254" layer="1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
@@ -2547,13 +2546,11 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="JP3" pad="3"/>
 <contactref element="U$1" pad="27"/>
 <contactref element="C3" pad="2"/>
-<wire x1="19.33575" y1="8.67875" x2="19.33575" y2="9.895" width="0.254" layer="1"/>
+<wire x1="19.479240625" y1="8.65250625" x2="19.493203125" y2="9.895" width="0.254" layer="1"/>
 <wire x1="16.2965" y1="11.06875" x2="18.0985" y2="11.06875" width="0.254" layer="1"/>
-<wire x1="18.0985" y1="11.06875" x2="19.33575" y2="9.895" width="0.254" layer="1"/>
+<wire x1="18.0985" y1="11.06875" x2="19.493203125" y2="9.895" width="0.254" layer="1"/>
 <wire x1="20.21375" y1="1.27" x2="20.21375" y2="1.37625" width="0.254" layer="1"/>
 <wire x1="20.21375" y1="1.37625" x2="20.16125" y2="1.42875" width="0.254" layer="1"/>
-<wire x1="20.16125" y1="1.42875" x2="20.16125" y2="7.72625" width="0.254" layer="1"/>
-<wire x1="20.16125" y1="7.72625" x2="19.33575" y2="8.67875" width="0.254" layer="1"/>
 <wire x1="0.79375" y1="10.1075" x2="0.3175" y2="12.38885" width="0.6096" layer="1"/>
 <wire x1="0.3175" y1="12.38885" x2="0.38735" y2="12.4587" width="0.6096" layer="1"/>
 <wire x1="29.27875" y1="9.8171875" x2="29.36875" y2="9.8425" width="0.8128" layer="1"/>
@@ -2582,7 +2579,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="9.2075" y="40.3225" extent="1-16" drill="0.6"/>
 <wire x1="9.2075" y1="40.3225" x2="10.4013" y2="40.3225" width="1.016" layer="16"/>
 <wire x1="10.4013" y1="40.3225" x2="12.3063" y2="38.4175" width="1.016" layer="16"/>
-<wire x1="19.33575" y1="9.895" x2="19.57875" y2="9.895" width="0.254" layer="1"/>
+<wire x1="19.493203125" y1="9.895" x2="19.57875" y2="9.895" width="0.254" layer="1"/>
 <wire x1="19.57875" y1="9.895" x2="20.47875" y2="10.795" width="0.254" layer="1"/>
 <wire x1="20.47875" y1="10.795" x2="23.65375" y2="10.795" width="0.254" layer="1"/>
 <wire x1="23.65375" y1="10.795" x2="24.60625" y2="11.7475" width="0.254" layer="1"/>
@@ -2606,6 +2603,11 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="JP3" pad="6"/>
 <wire x1="12.3063" y1="33.3375" x2="12.3063" y2="35.8775" width="0.8128" layer="16"/>
 <wire x1="19.4437" y1="35.8775" x2="19.4437" y2="33.3375" width="0.8128" layer="16"/>
+<wire x1="19.479240625" y1="8.65250625" x2="20.484534375" y2="7.6472125" width="0.254" layer="1"/>
+<wire x1="20.484534375" y1="7.6472125" x2="20.484534375" y2="6.3685125" width="0.254" layer="1"/>
+<wire x1="20.484534375" y1="6.3685125" x2="20.282115625" y2="6.16609375" width="0.254" layer="1"/>
+<wire x1="20.282115625" y1="6.16609375" x2="20.282115625" y2="1.338365625" width="0.254" layer="1"/>
+<wire x1="20.282115625" y1="1.338365625" x2="20.21375" y2="1.27" width="0.254" layer="1"/>
 </signal>
 <signal name="12VGND">
 <contactref element="C8" pad="2"/>
@@ -2907,10 +2909,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <signal name="M1H2">
 <contactref element="R107" pad="1"/>
 <contactref element="U$1" pad="3"/>
-<wire x1="9.7385" y1="11.56875" x2="8.91" y2="11.56875" width="0.254" layer="1"/>
-<wire x1="8.91" y1="11.56875" x2="8.509" y2="11.65225" width="0.254" layer="1"/>
-<via x="8.509" y="11.65225" extent="1-16" drill="0.3"/>
-<wire x1="8.509" y1="11.65225" x2="8.509" y2="13.11275" width="0.254" layer="16"/>
+<via x="8.358775" y="11.710375" extent="1-16" drill="0.3"/>
 <via x="8.509" y="13.11275" extent="1-16" drill="0.3"/>
 <wire x1="8.509" y1="13.11275" x2="9.525" y2="14.12875" width="0.254" layer="1"/>
 <wire x1="9.525" y1="14.12875" x2="9.525" y2="16.1925" width="0.254" layer="1"/>
@@ -2944,6 +2943,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="9.144" y1="17.399" x2="9.144" y2="18.669" width="0.254" layer="16"/>
 <via x="9.144" y="18.669" extent="1-16" drill="0.381"/>
 <wire x1="9.144" y1="18.669" x2="9.525" y2="18.25625" width="0.254" layer="1"/>
+<wire x1="9.7385" y1="11.56875" x2="8.5004" y2="11.56875" width="0.254" layer="1"/>
+<wire x1="8.5004" y1="11.56875" x2="8.358775" y2="11.710375" width="0.254" layer="1"/>
+<wire x1="8.358775" y1="11.710375" x2="8.358775" y2="12.962525" width="0.254" layer="16"/>
+<wire x1="8.358775" y1="12.962525" x2="8.509" y2="13.11275" width="0.254" layer="16"/>
 </signal>
 <signal name="M1H1">
 <contactref element="R106" pad="1"/>
@@ -3006,10 +3009,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="8.5725" y1="3.33375" x2="9.8425" y2="4.47675" width="0.254" layer="1"/>
 <wire x1="9.8425" y1="4.47675" x2="15.71625" y2="4.47675" width="0.254" layer="1"/>
 <wire x1="15.71625" y1="4.47675" x2="15.71625" y2="5.87375" width="0.254" layer="1"/>
-<wire x1="15.71625" y1="5.87375" x2="15.52575" y2="6.06425" width="0.254" layer="1"/>
-<wire x1="15.52575" y1="6.06425" x2="15.08125" y2="6.06425" width="0.254" layer="1"/>
-<wire x1="15.08125" y1="6.06425" x2="14.76375" y2="6.38175" width="0.254" layer="1"/>
-<wire x1="14.76375" y1="6.38175" x2="14.76375" y2="7.29" width="0.254" layer="1"/>
+<wire x1="14.76375" y1="6.27635" x2="14.76375" y2="7.29" width="0.254" layer="1"/>
 <wire x1="14.76375" y1="7.29" x2="14.7675" y2="7.03975" width="0.254" layer="1"/>
 <wire x1="18.89125" y1="-13.97" x2="19.20875" y2="-14.2875" width="0.1524" layer="1"/>
 <wire x1="19.20875" y1="-14.2875" x2="19.20875" y2="-15.08125" width="0.1524" layer="1"/>
@@ -3024,6 +3024,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="21.04" y1="-12.15" x2="20.166875" y2="-12.15" width="0.254" layer="1"/>
 <wire x1="20.166875" y1="-12.15" x2="20.081875" y2="-12.065" width="0.254" layer="1"/>
 <wire x1="20.081875" y1="-12.065" x2="20.0875" y2="-12.09625" width="0.254" layer="1"/>
+<wire x1="15.066565625" y1="5.970184375" x2="15.619815625" y2="5.970184375" width="0.254" layer="1"/>
+<wire x1="15.619815625" y1="5.970184375" x2="15.71625" y2="5.87375" width="0.254" layer="1"/>
+<wire x1="14.76375" y1="6.27635" x2="14.762075" y2="6.274675" width="0.254" layer="1"/>
+<wire x1="14.762075" y1="6.274675" x2="15.066565625" y2="5.970184375" width="0.254" layer="1"/>
 </signal>
 <signal name="BREN">
 <contactref element="R79" pad="2"/>
@@ -3177,10 +3181,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="18.25625" y="19.20875" extent="1-16" drill="0.3"/>
 <contactref element="U$1" pad="40"/>
 <wire x1="10.7675" y1="13.59775" x2="10.7675" y2="16.982" width="0.254" layer="1"/>
-<wire x1="10.7675" y1="16.982" x2="10.7315" y2="17.018" width="0.254" layer="1"/>
-<via x="10.7315" y="17.018" extent="1-16" drill="0.381"/>
+<wire x1="10.7675" y1="16.982" x2="10.734325" y2="17.0293" width="0.254" layer="1"/>
+<via x="10.734325" y="17.0293" extent="1-16" drill="0.381"/>
 <wire x1="16.51" y1="16.98625" x2="10.76325" y2="16.98625" width="0.254" layer="16"/>
-<wire x1="10.76325" y1="16.98625" x2="10.7315" y2="17.018" width="0.254" layer="16"/>
+<wire x1="10.76325" y1="16.98625" x2="10.734325" y2="17.0293" width="0.254" layer="16"/>
 </signal>
 <signal name="N$20">
 <contactref element="R8" pad="1"/>
@@ -3280,10 +3284,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="16.1925" y1="7.3025" x2="16.35125" y2="7.3025" width="0.254" layer="16"/>
 <wire x1="16.35125" y1="7.3025" x2="17.145" y2="6.6675" width="0.254" layer="16"/>
 <wire x1="17.145" y1="6.6675" x2="22.70125" y2="6.6675" width="0.254" layer="16"/>
-<wire x1="22.70125" y1="6.6675" x2="23.1775" y2="7.14375" width="0.254" layer="16"/>
-<via x="23.1775" y="7.14375" extent="1-16" drill="0.3"/>
-<wire x1="23.1775" y1="7.14375" x2="22.01375" y2="7.14375" width="0.254" layer="1"/>
-<wire x1="22.01375" y1="7.14375" x2="21.2725" y2="6.87875" width="0.254" layer="1"/>
+<wire x1="22.70125" y1="6.6675" x2="23.4544875" y2="7.136459375" width="0.254" layer="16"/>
+<via x="23.4544875" y="7.136459375" extent="1-16" drill="0.3"/>
+<wire x1="23.4544875" y1="7.136459375" x2="22.01375" y2="7.14375" width="0.254" layer="1"/>
+<wire x1="22.01375" y1="7.14375" x2="21.534940625" y2="6.87875" width="0.254" layer="1"/>
 <wire x1="16.2965" y1="8.06875" x2="16.69625" y2="8.06875" width="0.254" layer="1"/>
 <wire x1="16.69625" y1="8.06875" x2="16.891" y2="8.0645" width="0.254" layer="1"/>
 <wire x1="16.891" y1="8.0645" x2="16.891" y2="7.6835" width="0.254" layer="1"/>
@@ -3408,9 +3412,9 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="24.13" y1="6.19125" x2="24.765" y2="6.82625" width="0.254" layer="16"/>
 <wire x1="24.765" y1="6.82625" x2="24.765" y2="7.77875" width="0.254" layer="16"/>
 <via x="24.765" y="7.77875" extent="1-16" drill="0.3"/>
-<wire x1="24.765" y1="7.77875" x2="22.38375" y2="7.77875" width="0.254" layer="1"/>
-<via x="22.38375" y="7.77875" extent="1-16" drill="0.3"/>
-<wire x1="22.38375" y1="7.77875" x2="19.60245" y2="7.77875" width="0.254" layer="16"/>
+<wire x1="24.765" y1="7.77875" x2="22.748209375" y2="7.77145625" width="0.254" layer="1"/>
+<via x="22.748209375" y="7.77145625" extent="1-16" drill="0.3"/>
+<wire x1="22.748209375" y1="7.77145625" x2="19.60245" y2="7.77875" width="0.254" layer="16"/>
 <wire x1="19.60245" y1="7.77875" x2="19.4437" y2="7.9375" width="0.254" layer="16"/>
 </signal>
 <signal name="TSENSE1">
@@ -3449,17 +3453,19 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="C1" pad="2"/>
 <contactref element="U$1" pad="28"/>
 <wire x1="16.2965" y1="11.56875" x2="19.0825" y2="11.56875" width="0.254" layer="1"/>
-<wire x1="19.0825" y1="11.56875" x2="19.33575" y2="11.695" width="0.254" layer="1"/>
+<wire x1="19.0825" y1="11.56875" x2="19.493203125" y2="11.695" width="0.254" layer="1"/>
 </signal>
 <signal name="N$15">
 <contactref element="C4" pad="2"/>
 <contactref element="U$1" pad="25"/>
 <wire x1="16.2965" y1="10.06875" x2="17.49025" y2="10.06875" width="0.254" layer="1"/>
-<wire x1="17.49025" y1="10.06875" x2="18.034" y2="9.525" width="0.254" layer="1"/>
-<wire x1="18.034" y1="9.525" x2="18.034" y2="7.493" width="0.254" layer="1"/>
-<wire x1="18.034" y1="7.493" x2="18.25625" y2="7.20725" width="0.254" layer="1"/>
 <wire x1="18.25625" y1="7.20725" x2="18.25625" y2="4.815" width="0.254" layer="1"/>
 <wire x1="18.25625" y1="4.815" x2="19.20875" y2="3.8625" width="0.254" layer="1"/>
+<wire x1="18.19445625" y1="9.36454375" x2="18.19445625" y2="7.271775" width="0.254" layer="1"/>
+<wire x1="18.19445625" y1="7.271775" x2="18.21319375" y2="7.264953125" width="0.254" layer="1"/>
+<wire x1="18.21319375" y1="7.264953125" x2="18.21319375" y2="7.25030625" width="0.254" layer="1"/>
+<wire x1="18.21319375" y1="7.25030625" x2="18.25625" y2="7.20725" width="0.254" layer="1"/>
+<wire x1="18.19445625" y1="9.36454375" x2="17.49025" y2="10.06875" width="0.254" layer="1"/>
 </signal>
 <signal name="N$23">
 <contactref element="R79" pad="1"/>
@@ -3479,22 +3485,25 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <signal name="N$24">
 <contactref element="R7" pad="2"/>
 <contactref element="U$1" pad="18"/>
-<wire x1="14.626875" y1="5.3839375" x2="14.2675" y2="6.1243125" width="0.254" layer="1"/>
-<wire x1="14.2675" y1="6.1243125" x2="14.2675" y2="7.03975" width="0.254" layer="1"/>
+<wire x1="14.2675" y1="5.62190625" x2="14.2675" y2="7.03975" width="0.254" layer="1"/>
+<wire x1="14.2675" y1="5.62190625" x2="14.629325" y2="5.26008125" width="0.254" layer="1"/>
 </signal>
 <signal name="N$28">
 <contactref element="R63" pad="2"/>
 <contactref element="U$1" pad="17"/>
-<wire x1="13.02375" y1="5.3839375" x2="13.7675" y2="6.0641875" width="0.254" layer="1"/>
 <wire x1="13.7675" y1="6.0641875" x2="13.7675" y2="7.03975" width="0.254" layer="1"/>
+<wire x1="13.7675" y1="6.0641875" x2="13.0262" y2="5.3228875" width="0.254" layer="1"/>
+<wire x1="13.0262" y1="5.3228875" x2="13.0262" y2="5.26008125" width="0.254" layer="1"/>
 </signal>
 <signal name="N$31">
 <contactref element="R9" pad="2"/>
 <contactref element="U$1" pad="16"/>
 <wire x1="13.2675" y1="7.03975" x2="13.2675" y2="6.44125" width="0.254" layer="1"/>
-<wire x1="13.2675" y1="6.44125" x2="13.17625" y2="6.0325" width="0.254" layer="1"/>
-<wire x1="13.17625" y1="6.0325" x2="11.473875" y2="6.0325" width="0.254" layer="1"/>
-<wire x1="11.473875" y1="6.0325" x2="11.4603125" y2="5.3839375" width="0.254" layer="1"/>
+<wire x1="11.4590875" y1="6.00934375" x2="11.4627625" y2="5.26008125" width="0.254" layer="1"/>
+<wire x1="13.2675" y1="7.03975" x2="13.2675" y2="6.243778125" width="0.254" layer="1"/>
+<wire x1="13.2675" y1="6.243778125" x2="13.03309375" y2="6.009371875" width="0.254" layer="1"/>
+<wire x1="13.03309375" y1="6.009371875" x2="11.459115625" y2="6.009371875" width="0.254" layer="1"/>
+<wire x1="11.459115625" y1="6.009371875" x2="11.4590875" y2="6.00934375" width="0.254" layer="1"/>
 </signal>
 <signal name="N$32">
 <contactref element="R11" pad="1"/>
@@ -3511,7 +3520,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="23.65375" y1="9.68375" x2="23.33625" y2="10.00125" width="0.254" layer="16"/>
 <via x="23.33625" y="10.00125" extent="1-16" drill="0.3"/>
 <wire x1="23.33625" y1="10.00125" x2="21.855" y2="10.00125" width="0.254" layer="1"/>
-<wire x1="21.855" y1="10.00125" x2="21.74875" y2="9.895" width="0.254" layer="1"/>
+<wire x1="21.855" y1="10.00125" x2="21.9692" y2="9.905496875" width="0.254" layer="1"/>
 <wire x1="16.355" y1="8.56875" x2="16.35875" y2="8.5725" width="0.254" layer="1"/>
 <wire x1="16.35875" y1="8.5725" x2="16.98625" y2="8.5725" width="0.254" layer="1"/>
 <wire x1="16.98625" y1="8.5725" x2="17.30375" y2="8.255" width="0.254" layer="1"/>
@@ -3541,10 +3550,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="25.4" y1="9.2075" x2="26.3525" y2="10.16" width="0.254" layer="1"/>
 <wire x1="26.3525" y1="10.16" x2="26.3525" y2="11.7475" width="0.254" layer="1"/>
 <via x="26.3525" y="11.7475" extent="1-16" drill="0.3"/>
-<wire x1="26.3525" y1="11.7475" x2="23.01875" y2="11.7475" width="0.254" layer="16"/>
-<via x="23.01875" y="11.7475" extent="1-16" drill="0.3"/>
-<wire x1="23.01875" y1="11.7475" x2="21.80125" y2="11.7475" width="0.254" layer="1"/>
-<wire x1="21.80125" y1="11.7475" x2="21.74875" y2="11.695" width="0.254" layer="1"/>
+<wire x1="26.3525" y1="11.7475" x2="23.3513375" y2="11.7475" width="0.254" layer="16"/>
+<via x="23.3513375" y="11.7475" extent="1-16" drill="0.3"/>
+<wire x1="23.3513375" y1="11.7475" x2="21.80125" y2="11.7475" width="0.254" layer="1"/>
+<wire x1="21.80125" y1="11.7475" x2="21.9692" y2="11.705496875" width="0.254" layer="1"/>
 </signal>
 <signal name="DIR">
 <contactref element="IC1" pad="25"/>
@@ -3570,7 +3579,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="24.60625" y1="8.89" x2="22.38375" y2="8.89" width="0.254" layer="1"/>
 <wire x1="22.38375" y1="8.89" x2="22.06625" y2="8.5725" width="0.254" layer="1"/>
 <wire x1="22.06625" y1="8.5725" x2="21.855" y2="8.5725" width="0.254" layer="1"/>
-<wire x1="21.855" y1="8.5725" x2="21.2725" y2="8.67875" width="0.254" layer="1"/>
+<wire x1="21.855" y1="8.5725" x2="21.534940625" y2="8.67875" width="0.254" layer="1"/>
 <wire x1="21.11375" y1="-10.31875" x2="21.11375" y2="-9.940215625" width="0.254" layer="1"/>
 <wire x1="21.11375" y1="-9.940215625" x2="21.387478125" y2="-9.68991875" width="0.254" layer="1"/>
 <wire x1="21.387478125" y1="-9.68991875" x2="21.396265625" y2="-9.68113125" width="0.254" layer="1"/>
@@ -3592,12 +3601,13 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="5.08" y1="9.31375" x2="5.08" y2="12.38885" width="0.6096" layer="1"/>
 <wire x1="5.08" y1="12.38885" x2="5.01015" y2="12.4587" width="0.6096" layer="1"/>
 <wire x1="8.888125" y1="1.744375" x2="9.36625" y2="2.2225" width="0.254" layer="16"/>
-<wire x1="9.36625" y1="2.2225" x2="9.36625" y2="2.8575" width="0.254" layer="16"/>
-<via x="9.36625" y="2.8575" extent="1-16" drill="0.3"/>
+<wire x1="9.36625" y1="2.2225" x2="9.36625" y2="2.57495" width="0.254" layer="16"/>
+<via x="9.36625" y="2.57495" extent="1-16" drill="0.3"/>
 <wire x1="6.1325" y1="21.935625" x2="6.1325" y2="15.29875" width="0.254" layer="16"/>
 <wire x1="6.1325" y1="15.29875" x2="6.82625" y2="14.2875" width="0.254" layer="16"/>
 <via x="6.82625" y="14.2875" extent="1-16" drill="0.3"/>
-<wire x1="15.24" y1="2.38125" x2="17.515" y2="2.38125" width="0.254" layer="1"/>
+<wire x1="15.24" y1="2.38125" x2="15.344821875" y2="2.38125" width="0.254" layer="1"/>
+<wire x1="15.344821875" y1="2.38125" x2="17.515" y2="2.38125" width="0.254" layer="1"/>
 <wire x1="17.515" y1="2.38125" x2="18.0975" y2="2.32875" width="0.254" layer="1"/>
 <wire x1="23.588146875" y1="-5.548959375" x2="23.588146875" y2="-3.167709375" width="0.254" layer="1"/>
 <wire x1="18.89125" y1="-0.3175" x2="18.83875" y2="-0.265" width="0.254" layer="1"/>
@@ -3623,18 +3633,16 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="19.84375" y1="-15.71625" x2="20.16125" y2="-15.875" width="0.254" layer="16"/>
 <wire x1="20.16125" y1="-15.875" x2="20.985446875" y2="-15.875" width="0.254" layer="16"/>
 <wire x1="15.24" y1="2.38125" x2="15.24" y2="2.54" width="0.254" layer="1"/>
-<wire x1="15.24" y1="2.54" x2="14.9225" y2="2.8575" width="0.254" layer="1"/>
-<wire x1="14.9225" y1="2.8575" x2="9.36625" y2="2.8575" width="0.254" layer="1"/>
+<wire x1="15.24" y1="2.54" x2="14.626875" y2="3.153125" width="0.254" layer="1"/>
 <wire x1="5.01015" y1="12.4587" x2="5.01015" y2="13.26515" width="0.254" layer="1"/>
 <wire x1="5.01015" y1="13.26515" x2="6.0325" y2="14.2875" width="0.254" layer="1"/>
 <wire x1="6.0325" y1="14.2875" x2="6.82625" y2="14.2875" width="0.254" layer="1"/>
 <contactref element="R7" pad="1"/>
 <contactref element="R63" pad="1"/>
 <contactref element="R9" pad="1"/>
-<wire x1="11.4603125" y1="3.5839375" x2="13.02375" y2="3.5839375" width="0.254" layer="1"/>
-<wire x1="14.626875" y1="3.5839375" x2="13.02375" y2="3.5839375" width="0.254" layer="1"/>
-<wire x1="14.626875" y1="3.5839375" x2="14.626875" y2="3.153125" width="0.254" layer="1"/>
-<wire x1="14.626875" y1="3.153125" x2="14.9225" y2="2.8575" width="0.254" layer="1"/>
+<wire x1="11.4627625" y1="3.46008125" x2="13.0262" y2="3.46008125" width="0.254" layer="1"/>
+<wire x1="14.629325" y1="3.46008125" x2="13.0262" y2="3.46008125" width="0.254" layer="1"/>
+<wire x1="14.629325" y1="3.46008125" x2="14.626875" y2="3.153125" width="0.254" layer="1"/>
 <contactref element="JP3" pad="26"/>
 <wire x1="8.016875" y1="1.744375" x2="8.888125" y2="1.744375" width="0.254" layer="16"/>
 <wire x1="12.3063" y1="7.9375" x2="7.9375" y2="7.9375" width="0.254" layer="16"/>
@@ -3684,6 +3692,9 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="23.42210625" y1="-5.715" x2="23.588146875" y2="-5.548959375" width="0.254" layer="1"/>
 <wire x1="18.89125" y1="-0.3175" x2="20.7379375" y2="-0.3175" width="0.254" layer="1"/>
 <wire x1="20.7379375" y1="-0.3175" x2="23.588146875" y2="-3.167709375" width="0.254" layer="1"/>
+<wire x1="15.151121875" y1="2.57495" x2="15.344821875" y2="2.38125" width="0.254" layer="1"/>
+<wire x1="9.36625" y1="2.57495" x2="10.25138125" y2="3.46008125" width="0.254" layer="1"/>
+<wire x1="10.25138125" y1="3.46008125" x2="11.4627625" y2="3.46008125" width="0.254" layer="1"/>
 </signal>
 <signal name="N$34">
 <contactref element="R15" pad="2"/>
@@ -3717,17 +3728,18 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="6.76375" y1="11.06875" x2="6.82625" y2="11.32375" width="0.254" layer="1"/>
 <wire x1="9.7385" y1="10.06875" x2="9.5925" y2="10.06875" width="0.254" layer="1"/>
 <wire x1="9.7385" y1="12.06875" x2="9.11225" y2="12.065" width="0.254" layer="1"/>
-<wire x1="9.11225" y1="12.065" x2="8.636" y2="12.28725" width="0.254" layer="1"/>
-<wire x1="8.636" y1="12.28725" x2="6.985" y2="12.28725" width="0.254" layer="1"/>
-<wire x1="6.985" y1="12.28725" x2="6.82625" y2="12.065" width="0.254" layer="1"/>
 <wire x1="6.82625" y1="12.065" x2="6.82625" y2="11.32375" width="0.254" layer="1"/>
 <wire x1="9.7385" y1="11.06875" x2="8.14775" y2="11.06875" width="0.254" layer="1"/>
 <wire x1="6.82625" y1="9.31375" x2="7.0595" y2="9.0805" width="0.254" layer="1"/>
-<wire x1="7.0595" y1="9.0805" x2="8.255" y2="9.0805" width="0.254" layer="1"/>
+<wire x1="7.0595" y1="9.0805" x2="8.332028125" y2="9.0805" width="0.254" layer="1"/>
 <wire x1="9.7385" y1="10.06875" x2="8.86225" y2="10.06875" width="0.254" layer="1"/>
-<wire x1="8.86225" y1="10.06875" x2="8.5725" y2="9.779" width="0.254" layer="1"/>
-<wire x1="8.5725" y1="9.779" x2="8.5725" y2="9.398" width="0.254" layer="1"/>
-<wire x1="8.5725" y1="9.398" x2="8.255" y2="9.0805" width="0.254" layer="1"/>
+<wire x1="8.654059375" y1="9.860559375" x2="8.654059375" y2="9.40253125" width="0.254" layer="1"/>
+<wire x1="8.654059375" y1="9.40253125" x2="8.332028125" y2="9.0805" width="0.254" layer="1"/>
+<wire x1="8.86225" y1="10.06875" x2="8.654059375" y2="9.860559375" width="0.254" layer="1"/>
+<wire x1="6.82625" y1="12.065" x2="7.155671875" y2="12.394421875" width="0.254" layer="1"/>
+<wire x1="7.155671875" y1="12.394421875" x2="8.64196875" y2="12.394421875" width="0.254" layer="1"/>
+<wire x1="8.64196875" y1="12.394421875" x2="8.971390625" y2="12.065" width="0.254" layer="1"/>
+<wire x1="8.971390625" y1="12.065" x2="9.11225" y2="12.065" width="0.254" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="C6" pad="2"/>
@@ -3776,10 +3788,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="C12" pad="2"/>
 <contactref element="R17" pad="2"/>
 <wire x1="16.2965" y1="9.56875" x2="17.29175" y2="9.56875" width="0.254" layer="1"/>
-<wire x1="17.29175" y1="9.56875" x2="17.4625" y2="9.398" width="0.254" layer="1"/>
-<wire x1="17.4625" y1="9.398" x2="17.446625" y2="9.2075" width="0.254" layer="1"/>
-<via x="17.446625" y="9.2075" extent="1-16" drill="0.3"/>
-<wire x1="17.446625" y1="9.2075" x2="15.24" y2="7.46125" width="0.254" layer="16"/>
+<wire x1="17.29175" y1="9.56875" x2="17.525771875" y2="9.338240625" width="0.254" layer="1"/>
+<wire x1="17.525771875" y1="9.338240625" x2="17.5309875" y2="9.10204375" width="0.254" layer="1"/>
+<via x="17.5309875" y="9.10204375" extent="1-16" drill="0.3"/>
+<wire x1="17.5309875" y1="9.10204375" x2="15.24" y2="7.46125" width="0.254" layer="16"/>
 <wire x1="15.24" y1="7.46125" x2="15.24" y2="4.7625" width="0.254" layer="16"/>
 <wire x1="15.24" y1="4.7625" x2="15.08125" y2="4.47675" width="0.254" layer="16"/>
 <wire x1="15.08125" y1="4.47675" x2="5.36575" y2="4.47675" width="0.254" layer="16"/>
@@ -3788,7 +3800,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="23.1775" y="12.85875" extent="1-16" drill="0.3"/>
 <wire x1="23.1775" y1="12.85875" x2="21.9075" y2="11.58875" width="0.254" layer="16"/>
 <wire x1="21.9075" y1="11.58875" x2="21.9075" y2="10.31875" width="0.254" layer="16"/>
-<wire x1="21.43125" y1="9.2075" x2="17.446625" y2="9.2075" width="0.254" layer="16"/>
+<wire x1="21.43125" y1="9.2075" x2="17.5309875" y2="9.10204375" width="0.254" layer="16"/>
 <wire x1="6.82625" y1="13.12375" x2="5.93528125" y2="12.09255625" width="0.254" layer="1"/>
 <wire x1="5.93528125" y1="12.09255625" x2="5.9358125" y2="10.39429375" width="0.254" layer="1"/>
 <via x="5.9358125" y="10.39429375" extent="1-16" drill="0.3"/>
@@ -3827,12 +3839,12 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 </signal>
 </signals>
 <errors>
-<approved hash="18,29,e5a8dc6b2ba3c811"/>
-<approved hash="18,29,23168d15e88c9cfe"/>
 <approved hash="5,1,3f1338d03b48e14c"/>
 <approved hash="19,1,e1f9b67fb7e5e063"/>
+<approved hash="5,1,b29584ed2ba0e3c0"/>
 <approved hash="5,16,3228b04a1db62b44"/>
 <approved hash="5,16,b76b28cccee4ef2c"/>
+<approved hash="5,16,ed73886ab1c52bb6"/>
 </errors>
 </board>
 </drawing>
