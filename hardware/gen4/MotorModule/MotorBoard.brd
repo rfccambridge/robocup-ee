@@ -2257,7 +2257,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="R9" library="SparkFun-Resistors" package="0805" value="15k" x="11.4603125" y="4.6109375" rot="R90"/>
 <element name="R11" library="SparkFun-Resistors" package="0805" value="1k" x="21.74875" y="10.795" rot="R90"/>
 <element name="R15" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-5.55625" rot="MR0"/>
-<element name="IC2" library="linear-technology" package="SOT223" value="" x="2.69875" y="15.5575">
+<element name="IC2" library="linear-technology" package="SOT223" value="3.3V REG" x="2.69875" y="15.5575">
 <attribute name="OC_NEWARK" value="57M2069" x="2.69875" y="15.5575" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="LT1129CST-5#PBF" x="2.69875" y="15.5575" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="2.69875" y="15.5575" size="1.778" layer="27" display="off"/>
@@ -2273,7 +2273,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="C3" library="SparkFun-Capacitors" package="0805" value=".1uF" x="0.79375" y="9.2075" rot="R90"/>
 <element name="C5" library="SparkFun-Capacitors" package="0805" value=".1uF" x="5.08" y="8.41375" rot="R90"/>
 <element name="R18" library="resistor" package="R2512" value="0.05" x="28.41625" y="27.78125" rot="MR90"/>
-<element name="JP1" library="pinhead" package="2X05" value="" x="29.36875" y="-3.65125" rot="R90"/>
+<element name="JP1" library="pinhead" package="2X05" value="DEBUG" x="29.36875" y="-3.65125" rot="R90"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -2937,9 +2937,6 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <wire x1="7.62" y1="20.955" x2="6.82625" y2="20.16125" width="0.254" layer="1"/>
 <via x="6.82625" y="20.16125" extent="1-16" drill="0.3"/>
 </signal>
-<signal name="SENSE1">
-<contactref element="IC1" pad="21"/>
-</signal>
 <signal name="PWM1">
 <contactref element="IC1" pad="23"/>
 <contactref element="U$1" pad="19"/>
@@ -3454,9 +3451,6 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <via x="23.01875" y="11.7475" extent="1-16" drill="0.3"/>
 <wire x1="23.01875" y1="11.7475" x2="21.80125" y2="11.7475" width="0.254" layer="1"/>
 <wire x1="21.80125" y1="11.7475" x2="21.74875" y2="11.695" width="0.254" layer="1"/>
-</signal>
-<signal name="FAULT1">
-<contactref element="IC1" pad="20"/>
 </signal>
 <signal name="DIR">
 <contactref element="IC1" pad="25"/>
