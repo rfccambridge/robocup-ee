@@ -28,14 +28,14 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="yes"/>
-<layer number="22" name="bPlace" color="14" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
@@ -2197,7 +2197,7 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <element name="R3" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-1.74625" rot="MR0"/>
 <element name="R4" library="SparkFun-Passives" package="0805" value="4.7k" x="24.13" y="-3.65125" rot="MR0"/>
 <element name="C4" library="SparkFun-Passives" package="0805" value="1uF" x="19.20875" y="4.7625" rot="R270"/>
-<element name="C6" library="SparkFun-Passives" package="0805" value="1uF" x="19.20875" y="13.81125" rot="R270"/>
+<element name="C6" library="SparkFun-Passives" package="0805" value="0.1uF" x="19.20875" y="13.81125" rot="R270"/>
 <element name="Q1" library="rfc" package="DPAK" value="" x="4.28625" y="32.86125"/>
 <element name="Q2" library="rfc" package="DPAK" value="" x="4.28625" y="40.79875"/>
 <element name="Q3" library="rfc" package="DPAK" value="" x="21.74875" y="25.0825"/>
