@@ -28,8 +28,8 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="16" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="14" fill="1" visible="no" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
@@ -2390,7 +2390,10 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 <contactref element="JP1" pad="10"/>
 <wire x1="18.697796875" y1="7.77875" x2="18.679515625" y2="7.76046875" width="0.254" layer="1"/>
 <wire x1="18.679515625" y1="7.76046875" x2="18.25625" y2="8.183734375" width="0.254" layer="1"/>
-<wire x1="10.68875" y1="1.27" x2="11.54249375" y2="1.436540625" width="0" layer="19" extent="1-1"/>
+<wire x1="11.54249375" y1="1.436540625" x2="11.54249375" y2="1.31668125" width="0.254" layer="1"/>
+<wire x1="11.54249375" y1="1.31668125" x2="11.555621875" y2="1.303553125" width="0.254" layer="1"/>
+<wire x1="11.555621875" y1="1.303553125" x2="10.722303125" y2="1.303553125" width="0.254" layer="1"/>
+<wire x1="10.722303125" y1="1.303553125" x2="10.68875" y2="1.27" width="0.254" layer="1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
@@ -3746,6 +3749,8 @@ Min trace width, spacing, drill size and dimension clearance for Advanced Circui
 </signal>
 </signals>
 <errors>
+<approved hash="18,29,23168d15e88c9cfe"/>
+<approved hash="18,29,e5a8dc6b2ba3c811"/>
 <approved hash="5,1,3f1338d03b48e14c"/>
 <approved hash="19,1,e1f9b67fb7e5e063"/>
 <approved hash="5,16,3228b04a1db62b44"/>
