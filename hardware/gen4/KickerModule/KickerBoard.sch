@@ -14137,6 +14137,21 @@ Wickmann</description>
 <wire x1="0" y1="-0.508" x2="1.27" y2="-0.508" width="0.254" layer="94"/>
 <wire x1="0" y1="-0.508" x2="-1.27" y2="-0.508" width="0.254" layer="94"/>
 </symbol>
+<symbol name="ZENER">
+<wire x1="0" y1="2.54" x2="0" y2="1.016" width="0.254" layer="94"/>
+<wire x1="0" y1="1.016" x2="0" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="1.016" x2="-1.27" y2="1.016" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.016" x2="0" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="1.27" y2="1.016" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.016" x2="0" y2="1.016" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="-1.27" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-0.508" x2="-1.524" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="0" y1="-0.508" x2="1.27" y2="-0.508" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-0.508" x2="1.524" y2="-0.254" width="0.254" layer="94"/>
+<pin name="-" x="0" y="-2.54" visible="off" length="point" rot="R90"/>
+<pin name="+" x="0" y="2.54" visible="off" length="point" rot="R270"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IXTA3N50D2">
@@ -14200,6 +14215,22 @@ Wickmann</description>
 <connects>
 <connect gate="G$1" pin="D+" pad="+"/>
 <connect gate="G$1" pin="D-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="13VZENER">
+<gates>
+<gate name="G$1" symbol="ZENER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THROUGH-HOLE-2">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14336,6 +14367,8 @@ Wickmann</description>
 <part name="JP2" library="SparkFun-Connectors" deviceset="M04" device="SMD_RA_FEMALE"/>
 <part name="JP3" library="SparkFun-Connectors" deviceset="M04" device="SMD_RA_FEMALE"/>
 <part name="JP4" library="SparkFun-Connectors" deviceset="M04" device="SMD_RA_FEMALE"/>
+<part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="U$12" library="rfc" deviceset="13VZENER" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14519,6 +14552,8 @@ should turn on fine with 3.3!</text>
 <instance part="JP2" gate="G$1" x="426.72" y="139.7" rot="MR0"/>
 <instance part="JP3" gate="G$1" x="510.54" y="139.7" rot="MR0"/>
 <instance part="JP4" gate="G$1" x="325.12" y="213.36" rot="MR0"/>
+<instance part="R22" gate="G$1" x="612.14" y="312.42"/>
+<instance part="U$12" gate="G$1" x="401.32" y="353.06" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -14804,6 +14839,7 @@ should turn on fine with 3.3!</text>
 <wire x1="454.66" y1="269.24" x2="457.2" y2="269.24" width="0.1524" layer="91"/>
 <wire x1="457.2" y1="269.24" x2="457.2" y2="284.48" width="0.1524" layer="91"/>
 <label x="457.2" y="284.48" size="1.778" layer="95"/>
+<label x="604.52" y="320.04" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="449.58" y1="355.6" x2="462.28" y2="355.6" width="0.1524" layer="91"/>
@@ -14858,6 +14894,11 @@ should turn on fine with 3.3!</text>
 <pinref part="JP4" gate="G$1" pin="4"/>
 <wire x1="320.04" y1="218.44" x2="312.42" y2="218.44" width="0.1524" layer="91"/>
 <label x="314.96" y="218.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R22" gate="G$1" pin="1"/>
+<wire x1="607.06" y1="312.42" x2="604.52" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="604.52" y1="312.42" x2="604.52" y2="320.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12VGND" class="0">
@@ -14959,7 +15000,8 @@ should turn on fine with 3.3!</text>
 <wire x1="449.58" y1="342.9" x2="462.28" y2="342.9" width="0.1524" layer="91"/>
 <junction x="449.58" y="342.9"/>
 <pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="393.7" y1="332.74" x2="419.1" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="332.74" x2="401.32" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="401.32" y1="332.74" x2="419.1" y2="332.74" width="0.1524" layer="91"/>
 <wire x1="419.1" y1="332.74" x2="449.58" y2="332.74" width="0.1524" layer="91"/>
 <wire x1="449.58" y1="332.74" x2="449.58" y2="342.9" width="0.1524" layer="91"/>
 <pinref part="3.3REG1" gate="G$1" pin="GND"/>
@@ -14968,6 +15010,9 @@ should turn on fine with 3.3!</text>
 <pinref part="TMP" gate="G$1" pin="1"/>
 <wire x1="449.58" y1="332.74" x2="454.66" y2="332.74" width="0.1524" layer="91"/>
 <junction x="449.58" y="332.74"/>
+<pinref part="U$12" gate="G$1" pin="+"/>
+<wire x1="401.32" y1="350.52" x2="401.32" y2="332.74" width="0.1524" layer="91"/>
+<junction x="401.32" y="332.74"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="347.98" x2="312.42" y2="340.36" width="0.1524" layer="91"/>
@@ -15392,10 +15437,13 @@ should turn on fine with 3.3!</text>
 <segment>
 <pinref part="3.3REG1" gate="G$1" pin="IN"/>
 <pinref part="ON/OFF" gate="G$1" pin="P2"/>
-<wire x1="393.7" y1="355.6" x2="403.86" y2="355.6" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="355.6" x2="401.32" y2="355.6" width="0.1524" layer="91"/>
 <pinref part="12V_TEST" gate="G$1" pin="P$1"/>
+<wire x1="401.32" y1="355.6" x2="403.86" y2="355.6" width="0.1524" layer="91"/>
 <wire x1="403.86" y1="355.6" x2="414.02" y2="355.6" width="0.1524" layer="91"/>
 <junction x="403.86" y="355.6"/>
+<pinref part="U$12" gate="G$1" pin="-"/>
+<junction x="401.32" y="355.6"/>
 </segment>
 <segment>
 <pinref part="KICKER1" gate="1" pin="1"/>
@@ -15739,8 +15787,11 @@ should turn on fine with 3.3!</text>
 <pinref part="CHARGE_U" gate="G$1" pin="~DN"/>
 <pinref part="DONE_TEST" gate="G$1" pin="P$1"/>
 <wire x1="617.22" y1="304.8" x2="607.06" y2="304.8" width="0.1524" layer="91"/>
-<wire x1="617.22" y1="317.5" x2="617.22" y2="304.8" width="0.1524" layer="91"/>
+<wire x1="617.22" y1="317.5" x2="617.22" y2="312.42" width="0.1524" layer="91"/>
 <junction x="617.22" y="304.8"/>
+<pinref part="R22" gate="G$1" pin="2"/>
+<wire x1="617.22" y1="312.42" x2="617.22" y2="304.8" width="0.1524" layer="91"/>
+<junction x="617.22" y="312.42"/>
 </segment>
 </net>
 <net name="SS4" class="0">
