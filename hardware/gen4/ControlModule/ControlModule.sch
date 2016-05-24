@@ -3835,7 +3835,7 @@ SMT- SWCH-08247</description>
 <part name="C3" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1uF"/>
 <part name="U$1" library="SparkFun-Electromechanical" deviceset="4-POS-DIP" device=""/>
 <part name="XBEE" library="SparkFun-RF" deviceset="XBEE-1" device="B1"/>
-<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.01uF"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="RX" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="TX" library="gen3" deviceset="TEST_PT" device=""/>
@@ -3846,7 +3846,7 @@ SMT- SWCH-08247</description>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="3.3V" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="3.3REG" library="gen3" deviceset="3.3REG1A" device="REG"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C7" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.01uF"/>
 <part name="C10" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
@@ -3861,7 +3861,7 @@ SMT- SWCH-08247</description>
 <part name="LED3" library="SparkFun-LED" deviceset="LED" device="1206"/>
 <part name="C4" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="C5" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
-<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
+<part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.01uF"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
 <part name="S3" library="SparkFun-Retired" deviceset="TAC_SWITCH" device="SMD" value="TAC_SWITCHSMD"/>
 <part name="S1" library="SparkFun-Retired" deviceset="TAC_SWITCH" device="SMD" value="TAC_SWITCHSMD"/>
