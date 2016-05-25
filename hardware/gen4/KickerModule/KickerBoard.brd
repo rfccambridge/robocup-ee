@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.635" unitdist="mm" unit="mil" style="lines" multiple="1" display="no" altdistance="0.3175" altunitdist="mm" altunit="mil"/>
+<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.3175" altunitdist="mm" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -169,6 +169,20 @@
 <wire x1="22.225" y1="-1.27" x2="0" y2="20.955" width="0.4064" layer="20"/>
 <wire x1="0" y1="20.955" x2="0" y2="119.365" width="0.4064" layer="20"/>
 <text x="-11.43" y="55.88" size="1.778" layer="20" rot="R90">MOTOR BOARD DIMENSION</text>
+<circle x="-156.54451875" y="29.649165625" radius="1.5875" width="0" layer="20"/>
+<circle x="-172.5444875" y="76.1492" radius="1.5875" width="0" layer="20"/>
+<circle x="-55.54471875" y="29.649165625" radius="1.5875" width="0" layer="20"/>
+<circle x="-156.54451875" y="128.149096875" radius="1.5875" width="0" layer="20"/>
+<circle x="-55.54471875" y="128.149096875" radius="1.5875" width="0" layer="20"/>
+<circle x="-39.544496875" y="76.1492" radius="1.5875" width="0" layer="20"/>
+<wire x1="-68.54469375" y1="7.649209375" x2="-33.544509375" y2="42.649140625" width="0" layer="20"/>
+<wire x1="-143.54454375" y1="7.649209375" x2="-68.54469375" y2="7.649209375" width="0" layer="20"/>
+<wire x1="-178.544475" y1="42.649140625" x2="-143.54454375" y2="7.649209375" width="0" layer="20"/>
+<wire x1="-178.544475" y1="112.649253125" x2="-178.544475" y2="42.649140625" width="0" layer="20"/>
+<wire x1="-141.044675" y1="150.14930625" x2="-178.544475" y2="112.649253125" width="0" layer="20"/>
+<wire x1="-71.0445625" y1="150.14930625" x2="-141.044675" y2="150.14930625" width="0" layer="20"/>
+<wire x1="-33.544509375" y1="112.649253125" x2="-71.0445625" y2="150.14930625" width="0" layer="20"/>
+<wire x1="-33.544509375" y1="42.649140625" x2="-33.544509375" y2="112.649253125" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="gen3">
@@ -1731,10 +1745,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <smd name="38" x="3.5687" y="-21.59" dx="4.1402" dy="0.9906" layer="1"/>
 <smd name="39" x="-3.5687" y="-24.13" dx="4.1402" dy="0.9906" layer="1"/>
 <smd name="40" x="3.5687" y="-24.13" dx="4.1402" dy="0.9906" layer="1"/>
-<wire x1="-17" y1="30.84125" x2="16.875" y2="30.84125" width="0.127" layer="21"/>
-<wire x1="16.875" y1="30.84125" x2="16.875" y2="-30.84125" width="0.127" layer="21"/>
-<wire x1="16.875" y1="-30.84125" x2="-17" y2="-30.84125" width="0.127" layer="21"/>
-<wire x1="-17" y1="-30.84125" x2="-17" y2="30.84125" width="0.127" layer="21"/>
+<wire x1="-17.78" y1="30.84125" x2="17.78" y2="30.84125" width="0.127" layer="21"/>
+<wire x1="17.78" y1="30.84125" x2="17.78" y2="-30.84125" width="0.127" layer="21"/>
+<wire x1="17.78" y1="-30.84125" x2="-17.78" y2="-30.84125" width="0.127" layer="21"/>
+<wire x1="-17.78" y1="-30.84125" x2="-17.78" y2="30.84125" width="0.127" layer="21"/>
 </package>
 <package name="1X04_SMD_RA_FEMALE">
 <wire x1="-5.205" y1="4.25" x2="-5.205" y2="-4.25" width="0.1778" layer="21"/>
@@ -2890,14 +2904,6 @@ design rules under a new name.</description>
 <wire x1="31.75" y1="76.835" x2="28.575" y2="76.835" width="0.4064" layer="16"/>
 <wire x1="28.575" y1="76.835" x2="22.225" y2="83.185" width="0.4064" layer="16"/>
 <wire x1="22.225" y1="83.185" x2="22.225" y2="83.82" width="0.4064" layer="16"/>
-<polygon width="0.254" layer="1" pour="cutout">
-<vertex x="0" y="-5.08"/>
-<vertex x="0.635" y="119.38"/>
-<vertex x="28.575" y="147.32"/>
-<vertex x="111.125" y="147.955"/>
-<vertex x="139.065" y="120.65"/>
-<vertex x="139.7" y="-5.08"/>
-</polygon>
 <polygon width="0.254" layer="16" pour="cutout">
 <vertex x="139.7" y="-5.08"/>
 <vertex x="139.065" y="120.65"/>
