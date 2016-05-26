@@ -1916,6 +1916,14 @@ SMT header is CONN-09042.</description>
 <rectangle x1="4.2" y1="-3.1" x2="7.3" y2="-1.5" layer="39"/>
 <rectangle x1="4.2" y1="1.5" x2="7.3" y2="3.1" layer="39"/>
 </package>
+<package name="0805">
+<wire x1="-0.3" y1="0.6" x2="0.3" y2="0.6" width="0.1524" layer="21"/>
+<wire x1="-0.3" y1="-0.6" x2="0.3" y2="-0.6" width="0.1524" layer="21"/>
+<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<text x="-0.762" y="0.8255" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="TEST_PT">
@@ -1935,6 +1943,16 @@ provides an easy access for an oscilloscope probe</description>
 <pin name="IN" x="-7.62" y="5.08" visible="pin" length="short" direction="in"/>
 <pin name="OUT" x="-7.62" y="-5.08" visible="pin" length="short"/>
 <pin name="GND" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
+</symbol>
+<symbol name="INDUCTOR">
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="4.572" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="4.572" y1="0" x2="6.35" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="6.35" y1="0" x2="8.382" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="8.382" y1="0" x2="10.16" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94"/>
+<pin name="P$1" x="0" y="0" visible="off" length="point"/>
+<pin name="P$2" x="12.7" y="0" visible="off" length="point" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1965,6 +1983,22 @@ Use to probe a signal</description>
 <connect gate="G$1" pin="GND" pad="DRAIN"/>
 <connect gate="G$1" pin="IN" pad="GATE"/>
 <connect gate="G$1" pin="OUT" pad="SOURCE"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="INDUCTOR">
+<gates>
+<gate name="G$1" symbol="INDUCTOR" x="-5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3866,6 +3900,7 @@ SMT- SWCH-08247</description>
 <part name="S3" library="SparkFun-Retired" deviceset="TAC_SWITCH" device="SMD" value="TAC_SWITCHSMD"/>
 <part name="S1" library="SparkFun-Retired" deviceset="TAC_SWITCH" device="SMD" value="TAC_SWITCHSMD"/>
 <part name="JP3" library="pinhead" deviceset="PINHD-2X5" device="" value="DEBUG"/>
+<part name="U$2" library="gen3" deviceset="INDUCTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3912,6 +3947,7 @@ SMT- SWCH-08247</description>
 <instance part="S3" gate="S" x="27.94" y="104.14"/>
 <instance part="S1" gate="S" x="134.62" y="27.94" rot="R270"/>
 <instance part="JP3" gate="A" x="83.82" y="109.22"/>
+<instance part="U$2" gate="G$1" x="144.78" y="116.84"/>
 </instances>
 <busses>
 </busses>
@@ -4133,13 +4169,16 @@ SMT- SWCH-08247</description>
 <label x="167.64" y="124.46" size="1.778" layer="95"/>
 <pinref part="C13" gate="G$1" pin="2"/>
 <wire x1="167.64" y1="132.08" x2="167.64" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="129.54" x2="154.94" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="180.34" y1="132.08" x2="180.34" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="129.54" x2="180.34" y2="129.54" width="0.1524" layer="91"/>
 <junction x="167.64" y="129.54"/>
 <wire x1="167.64" y1="129.54" x2="167.64" y2="127" width="0.1524" layer="91"/>
 <pinref part="C10" gate="G$1" pin="2"/>
+<pinref part="U$2" gate="G$1" pin="P$2"/>
+<wire x1="154.94" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="129.54" x2="157.48" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED9" gate="G$1" pin="C"/>
@@ -4506,6 +4545,10 @@ SMT- SWCH-08247</description>
 <wire x1="111.76" y1="129.54" x2="104.14" y2="129.54" width="0.1524" layer="91"/>
 <junction x="111.76" y="129.54"/>
 <junction x="119.38" y="129.54"/>
+<pinref part="U$2" gate="G$1" pin="P$1"/>
+<wire x1="137.16" y1="121.92" x2="144.78" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="121.92" x2="144.78" y2="116.84" width="0.1524" layer="91"/>
+<junction x="137.16" y="121.92"/>
 </segment>
 <segment>
 <wire x1="20.32" y1="132.08" x2="20.32" y2="134.62" width="0.1524" layer="91"/>

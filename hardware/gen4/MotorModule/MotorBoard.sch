@@ -3124,6 +3124,14 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <text x="0" y="2.54" size="1.778" layer="25">&gt;NAME</text>
 <text x="0" y="0" size="1.778" layer="27">&gt;VALUE</text>
 </package>
+<package name="0805">
+<wire x1="-0.3" y1="0.6" x2="0.3" y2="0.6" width="0.1524" layer="21"/>
+<wire x1="-0.3" y1="-0.6" x2="0.3" y2="-0.6" width="0.1524" layer="21"/>
+<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<text x="-0.762" y="0.8255" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP_POL">
@@ -3168,6 +3176,16 @@ provides an easy access for an oscilloscope probe</description>
 <wire x1="-1.27" y1="-1.27" x2="25.4" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="25.4" y1="-1.27" x2="25.4" y2="7.62" width="0.254" layer="94"/>
 <wire x1="25.4" y1="7.62" x2="-1.27" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="INDUCTOR">
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="4.572" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="4.572" y1="0" x2="6.35" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="6.35" y1="0" x2="8.382" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="8.382" y1="0" x2="10.16" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94"/>
+<pin name="P$1" x="0" y="0" visible="off" length="point"/>
+<pin name="P$2" x="12.7" y="0" visible="off" length="point" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3291,6 +3309,22 @@ Use to probe a signal</description>
 </gates>
 <devices>
 <device name="" package="LOGO">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="INDUCTOR">
+<gates>
+<gate name="G$1" symbol="INDUCTOR" x="-5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -8196,6 +8230,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="GND16" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R18" library="resistor" deviceset="R-US_" device="R2512" value="0.05"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X5" device="" value="DEBUG"/>
+<part name="U$2" library="gen3" deviceset="INDUCTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8284,6 +8319,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="GND16" gate="1" x="142.24" y="124.46"/>
 <instance part="R18" gate="G$1" x="149.86" y="7.62" rot="R90"/>
 <instance part="JP1" gate="A" x="27.94" y="71.12"/>
+<instance part="U$2" gate="G$1" x="101.6" y="175.26"/>
 </instances>
 <busses>
 </busses>
@@ -8324,6 +8360,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="S2" gate="S" pin="4"/>
 <wire x1="17.78" y1="180.34" x2="22.86" y2="180.34" width="0.1524" layer="91"/>
 <junction x="17.78" y="180.34"/>
+<label x="116.84" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="C46" gate="G$1" pin="2"/>
@@ -8405,6 +8442,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="JP3" gate="G$1" pin="22"/>
 <pinref part="GND10" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="P$2"/>
+<wire x1="114.3" y1="175.26" x2="119.38" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -8567,6 +8608,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <label x="195.58" y="139.7" size="1.778" layer="95"/>
 <wire x1="195.58" y1="127" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="A"/>
+<label x="88.9" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="228.6" y1="12.7" x2="228.6" y2="10.16" width="0.1524" layer="91"/>
@@ -8598,6 +8640,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="2.54" x2="149.86" y2="2.54" width="0.1524" layer="91"/>
 <label x="157.48" y="2.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="96.52" y1="175.26" x2="101.6" y2="175.26" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="M1QB" class="0">
