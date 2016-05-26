@@ -3242,6 +3242,14 @@ digikey: A101390CT-ND</description>
 <wire x1="4.75" y1="-0.75" x2="5.25" y2="-0.75" width="0.0508" layer="21"/>
 <wire x1="5.25" y1="-0.75" x2="5.25" y2="-1.25" width="0.0508" layer="21"/>
 </package>
+<package name="0805">
+<wire x1="-0.3" y1="0.6" x2="0.3" y2="0.6" width="0.1524" layer="21"/>
+<wire x1="-0.3" y1="-0.6" x2="0.3" y2="-0.6" width="0.1524" layer="21"/>
+<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<text x="-0.762" y="0.8255" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DIODE-ZENER">
@@ -3464,6 +3472,16 @@ Converts from motor ribbon cable to 1mm pitch smd</description>
 <wire x1="5.08" y1="15.24" x2="-2.54" y2="15.24" width="0.254" layer="94"/>
 <text x="-2.54" y="-17.78" size="1.778" layer="96">&gt;VALUE</text>
 <text x="-2.54" y="15.748" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="INDUCTOR">
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="4.572" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="4.572" y1="0" x2="6.35" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="6.35" y1="0" x2="8.382" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="8.382" y1="0" x2="10.16" y2="0" width="0.254" layer="94" curve="-196.260205"/>
+<wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94"/>
+<pin name="P$1" x="0" y="0" visible="off" length="point"/>
+<pin name="P$2" x="12.7" y="0" visible="off" length="point" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -4298,6 +4316,22 @@ bottom side connector for ribbon cable</description>
 <connect gate="G$1" pin="P$7" pad="5"/>
 <connect gate="G$1" pin="P$8" pad="4"/>
 <connect gate="G$1" pin="P$9" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="INDUCTOR">
+<gates>
+<gate name="G$1" symbol="INDUCTOR" x="-5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14331,7 +14365,6 @@ Wickmann</description>
 <part name="DRIB" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="DRIB_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="BATSENSE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="TMP" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="0"/>
 <part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
@@ -14369,6 +14402,7 @@ Wickmann</description>
 <part name="JP4" library="SparkFun-Connectors" deviceset="M04" device="SMD_RA_FEMALE"/>
 <part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="U$12" library="rfc" deviceset="13VZENER" device=""/>
+<part name="U$13" library="gen3" deviceset="INDUCTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14498,7 +14532,6 @@ should turn on fine with 3.3!</text>
 <instance part="BATSENSE_TEST" gate="G$1" x="548.64" y="279.4" smashed="yes">
 <attribute name="NAME" x="544.83" y="274.32" size="1.778" layer="95"/>
 </instance>
-<instance part="TMP" gate="G$1" x="459.74" y="332.74" rot="MR180"/>
 <instance part="R19" gate="G$1" x="589.28" y="264.16" rot="R90"/>
 <instance part="C12" gate="G$1" x="579.12" y="276.86"/>
 <instance part="R20" gate="G$1" x="589.28" y="284.48"/>
@@ -14554,6 +14587,7 @@ should turn on fine with 3.3!</text>
 <instance part="JP4" gate="G$1" x="325.12" y="213.36" rot="MR0"/>
 <instance part="R22" gate="G$1" x="612.14" y="312.42"/>
 <instance part="U$12" gate="G$1" x="401.32" y="353.06" rot="R180"/>
+<instance part="U$13" gate="G$1" x="449.58" y="332.74"/>
 </instances>
 <busses>
 </busses>
@@ -14657,9 +14691,9 @@ should turn on fine with 3.3!</text>
 <label x="541.02" y="264.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="TMP" gate="G$1" pin="2"/>
-<wire x1="464.82" y1="332.74" x2="467.36" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="332.74" x2="467.36" y2="332.74" width="0.1524" layer="91"/>
 <label x="464.82" y="332.74" size="1.778" layer="95"/>
+<pinref part="U$13" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <wire x1="601.98" y1="264.16" x2="594.36" y2="264.16" width="0.1524" layer="91"/>
@@ -15007,12 +15041,11 @@ should turn on fine with 3.3!</text>
 <pinref part="3.3REG1" gate="G$1" pin="GND"/>
 <wire x1="419.1" y1="337.82" x2="419.1" y2="332.74" width="0.1524" layer="91"/>
 <junction x="419.1" y="332.74"/>
-<pinref part="TMP" gate="G$1" pin="1"/>
-<wire x1="449.58" y1="332.74" x2="454.66" y2="332.74" width="0.1524" layer="91"/>
-<junction x="449.58" y="332.74"/>
 <pinref part="U$12" gate="G$1" pin="+"/>
 <wire x1="401.32" y1="350.52" x2="401.32" y2="332.74" width="0.1524" layer="91"/>
 <junction x="401.32" y="332.74"/>
+<pinref part="U$13" gate="G$1" pin="P$1"/>
+<junction x="449.58" y="332.74"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="347.98" x2="312.42" y2="340.36" width="0.1524" layer="91"/>
