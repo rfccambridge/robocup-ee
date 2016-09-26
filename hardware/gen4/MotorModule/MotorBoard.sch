@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8605,10 +8605,12 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pinref part="C8" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<label x="195.58" y="139.7" size="1.778" layer="95"/>
-<wire x1="195.58" y1="127" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
+<label x="213.36" y="124.46" size="1.778" layer="95"/>
+<wire x1="195.58" y1="127" x2="195.58" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="A"/>
 <label x="88.9" y="175.26" size="1.778" layer="95"/>
+<wire x1="195.58" y1="129.54" x2="210.82" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="129.54" x2="210.82" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="228.6" y1="12.7" x2="228.6" y2="10.16" width="0.1524" layer="91"/>

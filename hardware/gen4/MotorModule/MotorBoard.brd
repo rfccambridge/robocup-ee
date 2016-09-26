@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2616,6 +2616,8 @@ Your Eurocircuits Team
 <wire x1="30.023528125" y1="2.4735875" x2="29.901475" y2="2.351534375" width="0.254" layer="1"/>
 <contactref element="U$2" pad="2"/>
 <wire x1="28.09875" y1="1.42875" x2="29.901475" y2="2.351534375" width="0.254" layer="1"/>
+<wire x1="21.74875" y1="14.71125" x2="23.01875" y2="14.12875" width="0" layer="19" extent="1-1"/>
+<wire x1="20.732440625" y1="11.75974375" x2="21.74875" y2="14.71125" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="R2" pad="1"/>
