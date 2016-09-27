@@ -1,4 +1,0 @@
-In order to open up this project, go to Atmel Studio 7, and open:
-
-  robocup-ee/firmware/gen5/SAM3s_Firmware/SAM3s_Firmware/SAM3s_Firmware.cproj
- 
