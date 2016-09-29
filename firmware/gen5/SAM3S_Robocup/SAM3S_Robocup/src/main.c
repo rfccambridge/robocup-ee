@@ -1,7 +1,7 @@
 /**
  * Author: Liam Mulshine & ___
  *
- * Robocup Firmware
+ * RFC Cambridge Firmware
  */
 
 #include <asf.h>

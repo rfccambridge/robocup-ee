@@ -3,7 +3,7 @@
 
 #define PWM1 IOPORT_CREATE_PIN(PIOA,0)
 
-test_pwm()
+void test_pwm(void)
 {
 	// configure pin 0 to respond to peripheral_A PWM
 	pio_configure_pin(PWM1,PIO_TYPE_PIO_PERIPH_A);
@@ -33,4 +33,10 @@ test_pwm()
 	// finally, enable pwm channel
 	pwm_channel_enable(PWM, PWM_CHANNEL_0);
 	
+}
+
+void update_duty_cycle(uint32_t duty_cycle)
+{
+	// set update duty cycle register to specified duty cycle. Duty cycle will change on next duty cycle period due to double buffering system
+	REG_PWM_CPRDUPD0 = duty_cycle;
 }
