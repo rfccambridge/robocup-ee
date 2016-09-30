@@ -11,4 +11,6 @@
 
 #include <pwm_driver.h>
 
+#include <motor_module.h>
+
 #endif /* ROBOCUP_DRIVERS */

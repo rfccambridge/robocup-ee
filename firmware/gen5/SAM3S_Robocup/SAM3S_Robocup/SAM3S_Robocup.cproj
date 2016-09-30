@@ -521,6 +521,12 @@
     <Folder Include="src\config\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonalDrivers\motor_module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PersonalDrivers\motor_module.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="PersonalDrivers\pwm_driver.c">
       <SubType>compile</SubType>
     </Compile>

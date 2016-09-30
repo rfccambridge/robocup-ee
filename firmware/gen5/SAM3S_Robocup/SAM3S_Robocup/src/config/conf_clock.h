@@ -2,7 +2,7 @@
  * \file
  *
  * \brief SAM3S clock configuration.
- *
+ * 
  * Copyright (c) 2011-2015 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
@@ -46,6 +46,12 @@
 
 #ifndef CONF_CLOCK_H_INCLUDED
 #define CONF_CLOCK_H_INCLUDED
+
+#define BOARD_FREQ_SLCK_XTAL      (32768UL)
+#define BOARD_FREQ_SLCK_BYPASS    (32768UL)
+#define BOARD_FREQ_MAINCK_XTAL    (12000000UL)
+#define BOARD_FREQ_MAINCK_BYPASS  (12000000UL)
+#define BOARD_OSC_STARTUP_US      (15625UL)
 
 #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
 // Fpll0 = (Fclk * PLL_mul) / PLL_div
