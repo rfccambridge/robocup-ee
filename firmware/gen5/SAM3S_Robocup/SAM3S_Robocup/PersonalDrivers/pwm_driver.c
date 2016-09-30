@@ -43,8 +43,8 @@ void test_pwm(void)
 	
 	// specify channel settings and initialize
 	pwm_1.ul_prescaler = PWM_CMR_CPRE_CLKA;
-	pwm_1.ul_period = 100;
-	pwm_1.ul_duty = 50;
+	pwm_1.ul_period = 10000;
+	pwm_1.ul_duty = 500;
 	pwm_1.channel = PWM_CHANNEL_0;
 	pwm_channel_init(PWM, &pwm_1);
 	
