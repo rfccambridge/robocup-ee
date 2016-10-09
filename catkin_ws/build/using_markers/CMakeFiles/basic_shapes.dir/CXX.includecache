@@ -11,6 +11,8 @@ ros/ros.h
 -
 visualization_msgs/Marker.h
 -
+cmath
+-
 
 /opt/ros/kinetic/include/XmlRpcDecl.h
 ros/macros.h
