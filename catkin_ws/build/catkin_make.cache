@@ -1,0 +1,2 @@
+using_markers
+-DCATKIN_DEVEL_PREFIX=/home/ljmulshine/robocup-ee/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ljmulshine/robocup-ee/catkin_ws/install -G Unix Makefiles

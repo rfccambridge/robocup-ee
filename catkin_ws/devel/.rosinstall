@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ljmulshine/robocup-ee/catkin_ws/devel/setup.sh
