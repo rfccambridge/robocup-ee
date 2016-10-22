@@ -35,10 +35,10 @@ int main (void)
 	initialize_motor(&motor0,CHANNEL0);
 	initialize_motor(&motor1,CHANNEL1);
 	initialize_motor(&motor2,CHANNEL2);
-	initialize_motor(&motor3,CHANNEL3);
+	initialize_motor(&motor3,CHANNEL3); 
 	
 	// test dac function
-	test_dac();
+	test_dac();  
 
 	while(1){
 		
