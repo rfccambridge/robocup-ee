@@ -16,7 +16,7 @@ void configure_pwm(){
 	pio_configure_pin(PWM3,PIO_TYPE_PIO_PERIPH_A);
 	// configure pin 14 to respond to peripheral_B PWM
 	pio_configure_pin(PWM4,PIO_TYPE_PIO_PERIPH_B); // PWMH3 is part of peripheral B
-	
+
 	// enable PWM module to receive master clock
 	pmc_enable_periph_clk(ID_PWM);
 }

@@ -37,8 +37,16 @@ int main (void)
 	initialize_motor(&motor2,CHANNEL2);
 	initialize_motor(&motor3,CHANNEL3);
 	
+	// test dac function
 	test_dac();
-    //test_pwm();
-	while(1);
+
+	while(1){
+		
+		// check if another conversion is ready to be performed, and if so write to the conversion data register
+		if(dacc_get_interrupt_status(DACC) & 0x8){
+			dacc_write_conversion_data(DACC,0xFFF/2);
+		}
+		
+	};
 	/* Insert application code here, after the board has been initialized. */
 }
