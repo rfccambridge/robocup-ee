@@ -35,8 +35,9 @@ int main (void)
 	initialize_motor(&motor0,CHANNEL0);
 	initialize_motor(&motor1,CHANNEL1);
 	initialize_motor(&motor2,CHANNEL2);
-	initialize_motor(&motor2,CHANNEL3);
+	initialize_motor(&motor3,CHANNEL3);
 	
+	test_dac();
     //test_pwm();
 	while(1);
 	/* Insert application code here, after the board has been initialized. */

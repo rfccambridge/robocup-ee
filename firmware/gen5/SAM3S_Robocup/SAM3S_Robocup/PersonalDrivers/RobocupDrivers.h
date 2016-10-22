@@ -13,4 +13,6 @@
 
 #include <motor_module.h>
 
+#include <dac_driver.h>
+
 #endif /* ROBOCUP_DRIVERS */
