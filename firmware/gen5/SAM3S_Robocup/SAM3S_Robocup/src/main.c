@@ -45,7 +45,7 @@ int main (void)
 
 		// right now we set the kicker reference value each time through the loop. 
 		// We may want to change this later on if we find that this is a bottle neck in
-		// out control loop
+		// our control loop
 		set_kick_ref(kicker_speed);	
 		/* Insert application code here, after the board has been initialized. */
 	}
