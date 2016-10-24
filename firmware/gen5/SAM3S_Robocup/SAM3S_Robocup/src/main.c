@@ -25,8 +25,10 @@ int main (void)
 		
 	//	REG_PWM_FCR = 1;	// clear the pwm fault if you accidentally set pwm period or duty cycle to an bad value :)	
 
-	// configure pwm module to allow for motor control
+	// configure PWM module to allow for motor speed control
 	configure_pwm();
+	//configure DAC in order to set kicker reference values later
+	configure_dac();
 	
 	Motor motor0;
 	Motor motor1;
@@ -37,16 +39,14 @@ int main (void)
 	initialize_motor(&motor2,CHANNEL2);
 	initialize_motor(&motor3,CHANNEL3); 
 	
-	// test dac function
-	test_dac();  
+	uint32_t kicker_speed = 30;
 
-	while(1){
-		
-		// check if another conversion is ready to be performed, and if so write to the conversion data register
-		if(dacc_get_interrupt_status(DACC) & 0x8){
-			dacc_write_conversion_data(DACC,0xFFF/2);
-		}
-		
-	};
-	/* Insert application code here, after the board has been initialized. */
+    while(1){
+
+		// right now we set the kicker reference value each time through the loop. 
+		// We may want to change this later on if we find that this is a bottle neck in
+		// out control loop
+		set_kick_ref(kicker_speed);	
+		/* Insert application code here, after the board has been initialized. */
+	}
 }

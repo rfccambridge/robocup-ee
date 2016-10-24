@@ -15,4 +15,6 @@
 
 #include <dac_driver.h>
 
+#include <kicker_driver.h>
+
 #endif /* ROBOCUP_DRIVERS */
