@@ -2,6 +2,7 @@
 #include <ros/ros.h>
 #include "std_msgs/Int8.h"
 #include <visualization_msgs/Marker.h>
+#include <std_msgs/Int8.h>
 
 #include <cmath>
 
