@@ -104,7 +104,7 @@ catkin_package(
    INCLUDE_DIRS include
    LIBRARIES using_markers
    CATKIN_DEPENDS roscpp visualization_msgs message_runtime
-   DEPENDS system_lib
+#   DEPENDS system_lib
 )
 
 ###########
@@ -115,13 +115,14 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(using_markers
-#   src/${PROJECT_NAME}/using_markers.cpp
-# )
+add_library(using_markers
+   src/cube_obj.cpp
+)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -187,7 +188,7 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(basic_shapes src/basic_shapes.cpp)
+add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
 add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
