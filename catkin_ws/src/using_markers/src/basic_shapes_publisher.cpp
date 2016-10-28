@@ -8,6 +8,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "int8_publisher");
 
   ros::NodeHandle n;
+
+  //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
   ros::Publisher chatter_pub = n.advertise<std_msgs::Int8>("chatter", 1000);
   ros::Rate loop_rate(10);
 
@@ -18,6 +20,7 @@ int main(int argc, char **argv)
     std_msgs::Int8 msg;
     msg.data = count += dir;
 
+    printf("Sending value: %d\n", msg.data);
     chatter_pub.publish(msg);
 
     //Process all of the callbacks and sleep a bit between loops
