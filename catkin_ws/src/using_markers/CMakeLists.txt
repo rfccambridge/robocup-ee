@@ -119,27 +119,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+
 ## Declare a C++ library
 add_library(using_markers
    src/cube_obj.cpp
 )
 
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-# add_dependencies(using_markers ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Declare a C++ executable
-# add_executable(using_markers_node src/using_markers_node.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(using_markers_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(using_markers_node
-#   ${catkin_LIBRARIES}
-# )
 
 #############
 ## Install ##
@@ -156,11 +141,11 @@ add_library(using_markers
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS using_markers using_markers_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#install(TARGETS using_markers using_markers_node
+ #  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+ #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ #)
 
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
@@ -193,3 +178,19 @@ target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
 add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
 target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
+
+
+## Add cmake target dependencies of the library
+## as an example, code may need to be generated before libraries
+## either from message generation or dynamic reconfigure
+add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
+
+## Declare a C++ executable
+
+
+## Add cmake target dependencies of the executable
+## same as for the library above
+add_dependencies(basic_shapes ${catkin_EXPORTED_TARGETS})
+
+
+

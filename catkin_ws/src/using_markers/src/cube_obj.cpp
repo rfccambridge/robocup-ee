@@ -1,6 +1,7 @@
 
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
+#include <using_markers/robotCommand.h>
 
 #include "cube_obj.h"
 
@@ -15,3 +16,6 @@ void Cube::set_pos_x(const std_msgs::Int8 _x)
   printf("Setting x position to: %d\n", _x.data);
   pose.position.x = _x.data;
 }
+
+
+
