@@ -44,22 +44,26 @@ int main( int argc, char** argv )
   float f = 0.0;
 
   uint32_t shape = visualization_msgs::Marker::CUBE;
+  uint32_t sphere = visualization_msgs::Marker::SPHERE;
+
+  float ball_x = -3.0;
   while (ros::ok())
   {
 // %Tag(MARKER_INIT)%
-    visualization_msgs::Marker points, line_strip, line_list, marker;
-    marker.header.frame_id = points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "/my_frame";
-    marker.header.stamp = points.header.stamp = line_strip.header.stamp = line_list.header.stamp = ros::Time::now();
-    marker.ns = points.ns = line_strip.ns = line_list.ns = "basic_shapes";
-    points.action = line_strip.action = line_list.action = visualization_msgs::Marker::ADD;
-    points.pose.orientation.w = line_strip.pose.orientation.w = line_list.pose.orientation.w = 1.0;
+    visualization_msgs::Marker points, line_strip, line_list, marker, ball;
+    ball.header.frame_id = marker.header.frame_id = points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "/my_frame";
+    ball.header.stamp = marker.header.stamp = points.header.stamp = line_strip.header.stamp = line_list.header.stamp = ros::Time::now();
+    ball.ns = marker.ns = points.ns = line_strip.ns = line_list.ns = "basic_shapes";
+    ball.action = points.action = line_strip.action = line_list.action = visualization_msgs::Marker::ADD;
+    ball.pose.orientation.w = points.pose.orientation.w = line_strip.pose.orientation.w = line_list.pose.orientation.w = 1.0;
 // %EndTag(MARKER_INIT)%
 
-// %Tag(ID)%
+// %Tag(ID)%s
     points.id = 0;
     line_strip.id = 1;
     line_list.id = 2;
     marker.id = 3;
+    ball.id = 4;
 // %EndTag(ID)%
 
 // %Tag(TYPE)%
@@ -67,6 +71,7 @@ int main( int argc, char** argv )
     line_strip.type = visualization_msgs::Marker::LINE_STRIP;
     line_list.type = visualization_msgs::Marker::LINE_LIST;
     marker.type = shape;
+    ball.type = sphere;
 // %EndTag(TYPE)%
 
 // %Tag(SCALE)%
@@ -114,15 +119,38 @@ int main( int argc, char** argv )
     marker.color.a = 1.0;
 
     marker.lifetime = ros::Duration();
-    
+    // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
+    ball.pose.position.x = ball_x;
+    ball.pose.position.y = -3;
+    ball.pose.position.z = 0;
+    ball.pose.orientation.x = 0.0;
+    ball.pose.orientation.y = 0.0;
+    ball.pose.orientation.z = 0.0;
+    ball.pose.orientation.w = 1.0;
+
+    // Set the scale of the marker -- 1x1x1 here means 1m on a side
+    ball.scale.x = 1.0;
+    ball.scale.y = 1.0;
+    ball.scale.z = 1.0;
+
+    // Set the color -- be sure to set alpha to something non-zero!
+    ball.color.r = 0.0f;
+    ball.color.g = 1.0f;
+    ball.color.b = 0.0f;
+    ball.color.a = 1.0;
+
+    ball.lifetime = ros::Duration();
+    ball_x += 0.1;
     
 
 // %Tag(HELIX)%
     // Create the vertices for the points and lines
-    for (uint32_t i = 0; i < 5; ++i)
+    float verts[5][2] = {{4.5,3},{-4.5,3},{-4.5,-3},{4.5,-3}, {4.5,3}};
+
+    for (uint32_t i = 0; i <= 4; ++i)
     {
-      float x = 5;
-      float y = i;
+      float x = verts[i][0];
+      float y = verts[i][1];
       float z = 0;
 
       geometry_msgs::Point p;
@@ -132,17 +160,14 @@ int main( int argc, char** argv )
 
       points.points.push_back(p);
       line_strip.points.push_back(p);
-
-      // The line list needs two points for each line
-      line_list.points.push_back(p);
-      p.z += 1.0;
-      line_list.points.push_back(p);
     }
+
 // %EndTag(HELIX)%
     marker_pub.publish(points);
     marker_pub.publish(line_strip);
     marker_pub.publish(line_list);
     marker_pub.publish(marker);
+    marker_pub.publish(ball);
 
     r.sleep();
   }
