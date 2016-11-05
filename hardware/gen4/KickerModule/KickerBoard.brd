@@ -7654,7 +7654,7 @@ Your Eurocircuits Team
 <element name="MOTOR3" library="SparkFun-Connectors" package="2X20_SHROUDED_SMT" value="M20X2SHROUDED_SMT" x="87.63" y="67.945" rot="R180"/>
 <element name="MOTOR4" library="SparkFun-Connectors" package="2X20_SHROUDED_SMT" value="M20X2SHROUDED_SMT" x="123.5075" y="67.945" rot="R180"/>
 <element name="COM_BOARD" library="SparkFun-Connectors" package="2X20_SHROUDED_SMT" value="M20X2SHROUDED_SMT" x="75.565" y="20.955" rot="R270"/>
-<element name="KICKER" library="fuse" package="TR5" value="" x="114.935" y="21.59" rot="R270">
+<element name="COMS_BOARD_FUSE" library="fuse" package="TR5" value="" x="114.935" y="21.59" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="127.635" y="31.75" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="127.635" y="31.75" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="127.635" y="31.75" size="1.778" layer="27" rot="R270" display="off"/>
@@ -8653,7 +8653,7 @@ Your Eurocircuits Team
 <contactref element="FUSE_MOTOR_5" pad="1"/>
 <contactref element="FUSE_MOTOR_6" pad="1"/>
 <contactref element="FUSE_MOTOR_7" pad="1"/>
-<contactref element="KICKER" pad="1"/>
+<contactref element="COMS_BOARD_FUSE" pad="1"/>
 <contactref element="3.3REG1" pad="GATE"/>
 <contactref element="ON/OFF" pad="IN2"/>
 <contactref element="12V_TEST" pad="P$1"/>
@@ -9127,7 +9127,7 @@ Your Eurocircuits Team
 <wire x1="27.305" y1="35.9537" x2="27.305" y2="27.94" width="1.6764" layer="1"/>
 </signal>
 <signal name="N$28">
-<contactref element="KICKER" pad="2"/>
+<contactref element="COMS_BOARD_FUSE" pad="2"/>
 <contactref element="COM_BOARD" pad="1"/>
 <contactref element="COM_BOARD" pad="3"/>
 <contactref element="COM_BOARD" pad="5"/>

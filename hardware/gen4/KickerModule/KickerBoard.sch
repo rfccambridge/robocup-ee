@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14380,7 +14380,7 @@ Wickmann</description>
 <part name="MOTOR3" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
 <part name="MOTOR4" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
 <part name="COM_BOARD" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED_SMT"/>
-<part name="KICKER" library="fuse" deviceset="TR5" device=""/>
+<part name="COMS_BOARD_FUSE" library="fuse" deviceset="TR5" device=""/>
 <part name="KICKER1" library="fuse" deviceset="TR5" device=""/>
 <part name="U$2" library="rfc" deviceset="IXTA3N50D2" device=""/>
 <part name="U$6" library="rfc" deviceset="ZTX718" device=""/>
@@ -14559,8 +14559,8 @@ should turn on fine with 3.3!</text>
 <instance part="MOTOR3" gate="G$1" x="406.4" y="152.4"/>
 <instance part="MOTOR4" gate="G$1" x="485.14" y="152.4"/>
 <instance part="COM_BOARD" gate="G$1" x="375.92" y="226.06"/>
-<instance part="KICKER" gate="1" x="342.9" y="246.38" smashed="yes">
-<attribute name="NAME" x="336.55" y="247.777" size="1.778" layer="95"/>
+<instance part="COMS_BOARD_FUSE" gate="1" x="342.9" y="246.38" smashed="yes">
+<attribute name="NAME" x="328.93" y="250.317" size="1.778" layer="95"/>
 <attribute name="VALUE" x="339.09" y="243.459" size="1.778" layer="96"/>
 </instance>
 <instance part="KICKER1" gate="1" x="617.22" y="335.28" smashed="yes">
@@ -15463,7 +15463,7 @@ should turn on fine with 3.3!</text>
 <label x="452.12" y="172.72" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="KICKER" gate="1" pin="1"/>
+<pinref part="COMS_BOARD_FUSE" gate="1" pin="1"/>
 <wire x1="337.82" y1="246.38" x2="332.74" y2="246.38" width="0.1524" layer="91"/>
 <label x="327.66" y="246.38" size="1.778" layer="95"/>
 </segment>
@@ -15990,7 +15990,7 @@ should turn on fine with 3.3!</text>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="KICKER" gate="1" pin="2"/>
+<pinref part="COMS_BOARD_FUSE" gate="1" pin="2"/>
 <wire x1="353.06" y1="246.38" x2="350.52" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="350.52" y1="246.38" x2="347.98" y2="246.38" width="0.1524" layer="91"/>
 <wire x1="353.06" y1="248.92" x2="350.52" y2="248.92" width="0.1524" layer="91"/>
