@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     //Create and populate a message to send
     using_markers::robotCommand msg;
     msg.speed = 1;
-		msg.dir = dir;
+    msg.dir = dir;
 
     printf("Sending value: %d\n", count);
     chatter_pub.publish(msg);
@@ -28,14 +28,14 @@ int main(int argc, char **argv)
     //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();
     loop_rate.sleep();
-		
-		if(count > 10)
-		{
-			count = -10;
-			dir *= -1;
-		}
-		else 
-			count++;
+	
+    //Reset count every 20 iterations
+    if(count >= 20)
+    {
+      count = 0;
+      dir *= -1;
+    }else 
+      count++;
 
   }
 

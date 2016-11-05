@@ -1,7 +1,5 @@
 
 #include <ros/ros.h>
-#include <visualization_msgs/Marker.h>
-#include <using_markers/robotCommand.h>
 
 #include "cube_obj.h"
 
@@ -11,10 +9,10 @@
 // header is used
 int Cube::running_id = 0;
 
-void Cube::set_pos_x(const std_msgs::Int8 _x)
+void Cube::set_pos_x(const using_markers::robotCommand command)
 {
-  printf("Setting x position to: %d\n", _x.data);
-  pose.position.x = _x.data;
+  printf("Received %d %d\n", command.dir, command.speed);
+  pose.position.x += command.dir * command.speed;
 }
 
 

@@ -4,7 +4,7 @@
 
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
-#include <std_msgs/Int8.h>
+#include <using_markers/robotCommand.h>
 
 class Cube : public visualization_msgs::Marker
 {
@@ -45,7 +45,7 @@ public:
     color.a = 1.0;
   }
 
-  void set_pos_x(const std_msgs::Int8 i);
+  void set_pos_x(const using_markers::robotCommand command);
 };
 
 #endif // MACRO
