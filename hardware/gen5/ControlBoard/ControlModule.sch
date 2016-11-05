@@ -3487,6 +3487,7 @@ SMT- SWCH-08247</description>
 <sheet>
 <plain>
 <text x="45.72" y="157.48" size="1.778" layer="99">We need to add the I2C lines here</text>
+<text x="45.72" y="152.4" size="1.778" layer="99">Also, we definitely do not need a 40 pin connector</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
