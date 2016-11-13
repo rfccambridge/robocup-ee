@@ -9,7 +9,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "points_and_lines");
 
   ros::NodeHandle n;
-  ros::Rate loop_rate(30);
+  ros::Rate loop_rate(10);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
 
   //Instantiate a cube for us to move
