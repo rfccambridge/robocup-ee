@@ -46,7 +46,7 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
+add_message_files(
     FILES
     robotCommand.msg
 )
@@ -121,9 +121,9 @@ include_directories(
 
 
 ## Declare a C++ library
-add_library(using_markers
-   src/cube_obj.cpp
-)
+#add_library(using_markers
+#   add library files here
+#)
 
 
 #############
@@ -179,7 +179,6 @@ target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
 target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
 
-
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -187,10 +186,6 @@ add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 
-
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(basic_shapes ${catkin_EXPORTED_TARGETS})
-
-
-
