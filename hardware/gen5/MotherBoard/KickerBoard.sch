@@ -14937,7 +14937,7 @@ amount. delta Voltage ~ Velocity.</text>
 <text x="261.62" y="314.96" size="1.778" layer="97">reference voltage -&gt; comparator AND 
 kick_enable -&gt; opto isolators -&gt;
  transistor -&gt; KICK!</text>
-<text x="414.02" y="238.76" size="1.778" layer="97">add 100k pullup to 3.3v on 
+<text x="416.56" y="238.76" size="1.778" layer="97">add 100k pullup to 3.3v on 
 micro board, or use internal 
 pullup for done</text>
 <text x="622.3" y="340.36" size="1.778" layer="97">Neon Indicator light to show when
@@ -15590,17 +15590,12 @@ KICK_REF to range from approximately
 <segment>
 <wire x1="368.3" y1="309.88" x2="368.3" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="368.3" y1="325.12" x2="345.44" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="345.44" y1="325.12" x2="340.36" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="325.12" x2="307.34" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="345.44" y1="325.12" x2="307.34" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="307.34" y1="325.12" x2="307.34" y2="330.2" width="0.1524" layer="91"/>
-<junction x="340.36" y="325.12"/>
 <label x="309.88" y="330.2" size="1.778" layer="95"/>
 <pinref part="C15" gate="G$1" pin="1"/>
 <junction x="307.34" y="325.12"/>
 <pinref part="ANDS" gate="G$1" pin="VDD"/>
-<pinref part="U$18" gate="G$1" pin="VDD"/>
-<wire x1="337.82" y1="314.96" x2="340.36" y2="314.96" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="314.96" x2="340.36" y2="325.12" width="0.1524" layer="91"/>
 <pinref part="R29" gate="G$1" pin="1"/>
 <wire x1="345.44" y1="322.58" x2="345.44" y2="325.12" width="0.1524" layer="91"/>
 <junction x="345.44" y="325.12"/>
@@ -16297,6 +16292,12 @@ KICK_REF to range from approximately
 <wire x1="360.68" y1="243.84" x2="360.68" y2="251.46" width="0.1524" layer="91"/>
 <junction x="368.3" y="243.84"/>
 <label x="358.14" y="251.46" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$18" gate="G$1" pin="VDD"/>
+<wire x1="337.82" y1="314.96" x2="340.36" y2="314.96" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="314.96" x2="340.36" y2="332.74" width="0.1524" layer="91"/>
+<label x="340.36" y="330.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
