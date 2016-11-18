@@ -40,8 +40,7 @@ int main(int argc, char **argv)
 
     //Create and populate a message to send
     using_markers::robotCommand msg;
-    msg.speed = 1;
-    msg.dir = dir;
+    msg.speed0 = dir*1;
 
     printf("Sending value: %d\n", count);
     chatter_pub.publish(msg);

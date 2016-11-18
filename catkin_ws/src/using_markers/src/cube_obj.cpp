@@ -15,8 +15,8 @@ std::map<int, Cube*> Cube::static_cubes;
 
 void Cube::set_pos_x(const using_markers::robotCommand command)
 {
-  printf("Received %d %d\n", command.dir, command.speed);
-  pose.position.x += command.dir * command.speed;
+  printf("Received %d\n", command.speed0);
+  pose.position.x += command.speed0;
 }
 
 bool Cube::service_get_pos(using_markers::robotPosSrv::Request  &req,
