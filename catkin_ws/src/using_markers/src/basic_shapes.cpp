@@ -12,6 +12,9 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(30);
   ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
 
+  //Advertise the `speed` service for the cube objects
+  ros::ServiceServer service = n.advertiseService("service_get_pos", &Cube::service_get_pos);
+
   //Instantiate a cube for us to move
   Cube cube(0, 0, 0);
 	
