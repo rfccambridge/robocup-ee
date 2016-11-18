@@ -14806,8 +14806,8 @@ Wickmann</description>
 <part name="CHARGE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="DONE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="GATE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="GND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="12VGND_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="GND" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="12VGND" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="C6" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
 <part name="C14" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
 <part name="NEON" library="pinhead" deviceset="PINHD-1X2" device=""/>
@@ -14838,18 +14838,18 @@ Wickmann</description>
 <part name="BATT" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="C8" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="1uF"/>
 <part name="ON/OFF" library="gen3" deviceset="SPDT-SWITCH" device=""/>
-<part name="3.3V_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="3.3V" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="3.3REG1" library="gen3" deviceset="3.3REG1A" device="REG"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".01uF"/>
 <part name="C11" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="R17" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="80k"/>
 <part name="R18" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20k"/>
-<part name="12V_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="12V" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="BATCLAMP2" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
 <part name="DRIB_TRAN" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="DRIB" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="DRIB_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="BATSENSE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="BAT" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="R19" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="20"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="4.7uF"/>
 <part name="R20" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
@@ -15004,7 +15004,7 @@ KICK_REF to range from approximately
 <instance part="C5" gate="G$1" x="576.58" y="231.14"/>
 <instance part="KICK_FLY" gate="G$1" x="480.06" y="332.74" rot="R90"/>
 <instance part="ANDS" gate="G$1" x="365.76" y="302.26"/>
-<instance part="KICK" gate="G$1" x="490.22" y="332.74"/>
+<instance part="KICK" gate="G$1" x="490.22" y="335.28"/>
 <instance part="KICK_Q1" gate="G$1" x="480.06" y="254"/>
 <instance part="CHIP_FLY" gate="G$1" x="480.06" y="274.32" rot="R90"/>
 <instance part="CHIP" gate="G$1" x="490.22" y="274.32"/>
@@ -15025,8 +15025,8 @@ KICK_REF to range from approximately
 <instance part="CHARGE_TEST" gate="G$1" x="622.3" y="314.96"/>
 <instance part="DONE_TEST" gate="G$1" x="617.22" y="320.04"/>
 <instance part="GATE_TEST" gate="G$1" x="688.34" y="317.5"/>
-<instance part="GND_TEST" gate="G$1" x="655.32" y="254"/>
-<instance part="12VGND_TEST" gate="G$1" x="754.38" y="248.92" rot="R270"/>
+<instance part="GND" gate="G$1" x="655.32" y="254"/>
+<instance part="12VGND" gate="G$1" x="754.38" y="248.92" rot="R270"/>
 <instance part="C6" gate="G$1" x="665.48" y="358.14"/>
 <instance part="C14" gate="G$1" x="678.18" y="358.14"/>
 <instance part="NEON" gate="G$1" x="629.92" y="353.06"/>
@@ -15058,20 +15058,20 @@ KICK_REF to range from approximately
 <instance part="BATT" gate="-2" x="353.06" y="350.52"/>
 <instance part="C8" gate="G$1" x="449.58" y="347.98"/>
 <instance part="ON/OFF" gate="G$1" x="383.54" y="360.68"/>
-<instance part="3.3V_TEST" gate="G$1" x="441.96" y="358.14"/>
+<instance part="3.3V" gate="G$1" x="441.96" y="358.14"/>
 <instance part="3.3REG1" gate="G$1" x="419.1" y="347.98" rot="MR270"/>
 <instance part="C9" gate="G$1" x="462.28" y="347.98"/>
 <instance part="C11" gate="G$1" x="436.88" y="347.98"/>
 <instance part="R17" gate="G$1" x="556.26" y="284.48" rot="R90"/>
 <instance part="R18" gate="G$1" x="556.26" y="269.24" rot="R90"/>
-<instance part="12V_TEST" gate="G$1" x="403.86" y="358.14"/>
+<instance part="12V" gate="G$1" x="403.86" y="358.14"/>
 <instance part="BATCLAMP2" gate="G$1" x="543.56" y="271.78" smashed="yes" rot="R90">
 <attribute name="NAME" x="540.5374" y="261.62" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="DRIB_TRAN" gate="G$1" x="309.88" y="353.06"/>
 <instance part="DRIB" gate="G$1" x="332.74" y="365.76"/>
 <instance part="DRIB_TEST" gate="G$1" x="289.56" y="353.06"/>
-<instance part="BATSENSE_TEST" gate="G$1" x="548.64" y="279.4" smashed="yes">
+<instance part="BAT" gate="G$1" x="548.64" y="279.4" smashed="yes">
 <attribute name="NAME" x="544.83" y="274.32" size="1.778" layer="95"/>
 </instance>
 <instance part="R19" gate="G$1" x="589.28" y="264.16" rot="R90"/>
@@ -15211,7 +15211,7 @@ KICK_REF to range from approximately
 <pinref part="C18" gate="G$1" pin="2"/>
 <pinref part="C19" gate="G$1" pin="2"/>
 <pinref part="CHARGE_U" gate="G$1" pin="GND"/>
-<pinref part="GND_TEST" gate="G$1" pin="P$1"/>
+<pinref part="GND" gate="G$1" pin="P$1"/>
 <wire x1="655.32" y1="251.46" x2="655.32" y2="248.92" width="0.1524" layer="91"/>
 <junction x="655.32" y="248.92"/>
 </segment>
@@ -15627,7 +15627,7 @@ KICK_REF to range from approximately
 <wire x1="449.58" y1="353.06" x2="449.58" y2="355.6" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="1"/>
 <wire x1="462.28" y1="355.6" x2="462.28" y2="353.06" width="0.1524" layer="91"/>
-<pinref part="3.3V_TEST" gate="G$1" pin="P$1"/>
+<pinref part="3.3V" gate="G$1" pin="P$1"/>
 <wire x1="449.58" y1="355.6" x2="441.96" y2="355.6" width="0.1524" layer="91"/>
 <junction x="449.58" y="355.6"/>
 <wire x1="436.88" y1="353.06" x2="436.88" y2="355.6" width="0.1524" layer="91"/>
@@ -15815,7 +15815,7 @@ KICK_REF to range from approximately
 <junction x="734.06" y="248.92"/>
 <wire x1="716.28" y1="248.92" x2="716.28" y2="241.3" width="0.1524" layer="91"/>
 <junction x="716.28" y="248.92"/>
-<pinref part="12VGND_TEST" gate="G$1" pin="P$1"/>
+<pinref part="12VGND" gate="G$1" pin="P$1"/>
 <junction x="751.84" y="248.92"/>
 </segment>
 <segment>
@@ -16103,7 +16103,6 @@ KICK_REF to range from approximately
 <label x="579.12" y="342.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="485.14" y1="337.82" x2="485.14" y2="335.28" width="0.1524" layer="91"/>
 <pinref part="KICK_FLY" gate="G$1" pin="C"/>
 <wire x1="480.06" y1="335.28" x2="480.06" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="480.06" y1="337.82" x2="482.6" y2="337.82" width="0.1524" layer="91"/>
@@ -16271,7 +16270,7 @@ KICK_REF to range from approximately
 <pinref part="3.3REG1" gate="G$1" pin="IN"/>
 <pinref part="ON/OFF" gate="G$1" pin="P2"/>
 <wire x1="393.7" y1="355.6" x2="401.32" y2="355.6" width="0.1524" layer="91"/>
-<pinref part="12V_TEST" gate="G$1" pin="P$1"/>
+<pinref part="12V" gate="G$1" pin="P$1"/>
 <wire x1="401.32" y1="355.6" x2="403.86" y2="355.6" width="0.1524" layer="91"/>
 <wire x1="403.86" y1="355.6" x2="414.02" y2="355.6" width="0.1524" layer="91"/>
 <junction x="403.86" y="355.6"/>
@@ -16467,7 +16466,7 @@ KICK_REF to range from approximately
 <net name="LOWKICK" class="0">
 <segment>
 <pinref part="KICK" gate="G$1" pin="P$2"/>
-<wire x1="485.14" y1="325.12" x2="485.14" y2="330.2" width="0.1524" layer="91"/>
+<wire x1="485.14" y1="325.12" x2="485.14" y2="332.74" width="0.1524" layer="91"/>
 <pinref part="KICK_FLY" gate="G$1" pin="A"/>
 <wire x1="480.06" y1="330.2" x2="480.06" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="480.06" y1="325.12" x2="482.6" y2="325.12" width="0.1524" layer="91"/>
@@ -16549,7 +16548,7 @@ KICK_REF to range from approximately
 <wire x1="548.64" y1="276.86" x2="543.56" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="543.56" y1="276.86" x2="533.4" y2="276.86" width="0.1524" layer="91"/>
 <wire x1="543.56" y1="274.32" x2="543.56" y2="276.86" width="0.1524" layer="91"/>
-<pinref part="BATSENSE_TEST" gate="G$1" pin="P$1"/>
+<pinref part="BAT" gate="G$1" pin="P$1"/>
 <junction x="548.64" y="276.86"/>
 <junction x="556.26" y="276.86"/>
 <junction x="543.56" y="276.86"/>
