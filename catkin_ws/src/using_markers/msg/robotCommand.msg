@@ -1,8 +1,8 @@
 int8 ID
 
-int8 speed0
-int8 speed1
-int8 speed2
-int8 speed3
+float64 speed0
+float64 speed1
+float64 speed2
+float64 speed3
 
 

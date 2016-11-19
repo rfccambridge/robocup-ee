@@ -4,6 +4,69 @@
 #include <using_markers/robotCommand.h> // include custom message 
 #include <using_markers/robotPosSrv.h>
 
+float error_i_x = 0;
+float error_i_y = 0;
+
+
+int rate = 100; // If you change this value, you must also change it in cube_obj.c and basic_shapes.c
+float dt = 1.0/(float)rate;
+float k_p = .5;
+float k_i = .1;
+float k_d = .1;
+float x_end = 10.0; // final position
+float y_end = 10.0;
+int count = 0;
+
+//************************************************************************
+// PID controller implementation
+// 
+// x_end: 	desired x-position
+// y_end: 	desired y-position
+// x:				current x-position
+// y: 			current y-position
+//
+// u: 			controller output
+// 
+void controller(float x_end, float y_end, float x, float y, float* u) {
+
+	// position and error terms			
+	float pos_x, error_x, error_d_x = 0.0;	
+	float pos_y, error_y, error_d_y = 0.0;
+
+	// commanded velocity
+	float v_x = 0.0; 	
+	float v_y = 0.0;
+
+	error_x = x_end - x;
+	error_i_x = error_i_x + error_x*dt;
+	error_d_x = (error_x)/dt;
+
+	error_y = y_end - y;
+	error_i_y = error_i_y + error_y*dt;
+	error_d_y = (error_y)/dt;
+
+	// controller output (velocity)
+	v_x = k_p * error_x + k_i * error_i_x + k_d * error_d_x;
+	v_y = k_p * error_y + k_i * error_i_y + k_d * error_d_y;
+
+	// Ensure that velocity is within the physical limits of the robot
+	if (v_x > 10.0)
+		v_x = 10.0;
+	if (v_x < -10.0)
+		v_x = -10.0;
+
+	if (v_y > 10.0)
+		v_y = 10.0;
+	if (v_y < -10.0)
+		v_y = -10.0;
+
+	// store controller outputs in contoller
+	u[0] = v_x;
+	u[1] = v_y;
+	
+}
+
+
 int main(int argc, char **argv)
 {
   //Initialize our ROS system
@@ -12,13 +75,15 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
-  ros::Publisher chatter_pub = n.advertise<using_markers::robotCommand>("chatter", 1000);
+  ros::Publisher chatter_pub = n.advertise<using_markers::robotCommand>("chatter", 1);
   ros::ServiceClient pos_client = n.serviceClient<using_markers::robotPosSrv>("service_get_pos", true);
-  ros::Rate loop_rate(10);
+  ros::Rate loop_rate(rate);
 
-  int count = 0, dir = 1;
+	float u[2];
+
   while(ros::ok())
   {
+	count++;
     //Request the cube's position with ID of 0
     using_markers::robotPosSrv srv;
     srv.request.robotID = 0;
@@ -33,25 +98,28 @@ int main(int argc, char **argv)
       loop_rate.sleep();
     }
 
-    if(pos_client.call(srv))
-      printf("The robot's pos is (%d, %d)\n", srv.response.pos_x, srv.response.pos_y);
-    else
-      fprintf(stderr, "Error: The pos client call failed!\n");
+    if(pos_client.call(srv)) {
+      printf("The robot's pos is (%f, %f)\n", srv.response.pos_x, srv.response.pos_y);
 
-    //Create and populate a message to send
-    using_markers::robotCommand msg;
-    msg.speed0 = dir*1;
 
-    printf("Sending value: %d\n", count);
-    chatter_pub.publish(msg);
+			// Create and populate a message to send
+		  using_markers::robotCommand msg;
 	
-    //Reset count every 20 iterations
-    if(count >= 20)
-    {
-      count = 0;
-      dir *= -1;
-    }else 
-      count++;
+			// get control input, u, given desired x and y positions
+			controller(x_end, y_end,srv.response.pos_x,srv.response.pos_y, u);
+
+			printf("x_vel = %f\ny_vel = %f\n",u[0],u[1]);
+			
+			// ultimately we will want to change how we set wheel speeds  
+			msg.speed0 = u[0];
+			msg.speed2 = u[0];
+			msg.speed1 = u[1];
+			msg.speed3 = u[1];
+
+		  chatter_pub.publish(msg);
+		}
+		else
+      	fprintf(stderr, "Error: The pos client call failed!\n");
 
     //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();
