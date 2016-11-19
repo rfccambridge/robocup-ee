@@ -14802,10 +14802,10 @@ Wickmann</description>
 <part name="C23" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="SWITCH_Q" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="U$3" library="gen3" deviceset="32052-TRANSFORMER" device=""/>
-<part name="DRAIN_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="CHARGE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="DONE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="GATE_TEST" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="DRAIN" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="CHARGE" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="DONE" library="gen3" deviceset="TEST_PT" device=""/>
+<part name="GATE" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="GND" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="12VGND" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="C6" library="rcl" deviceset="CPOL-US" device="E10-35" value="1500uF"/>
@@ -15021,10 +15021,10 @@ KICK_REF to range from approximately
 <instance part="C23" gate="G$1" x="734.06" y="259.08"/>
 <instance part="SWITCH_Q" gate="G$1" x="695.96" y="297.18"/>
 <instance part="U$3" gate="G$1" x="734.06" y="320.04"/>
-<instance part="DRAIN_TEST" gate="G$1" x="698.5" y="309.88"/>
-<instance part="CHARGE_TEST" gate="G$1" x="622.3" y="314.96"/>
-<instance part="DONE_TEST" gate="G$1" x="617.22" y="320.04"/>
-<instance part="GATE_TEST" gate="G$1" x="688.34" y="317.5"/>
+<instance part="DRAIN" gate="G$1" x="698.5" y="309.88"/>
+<instance part="CHARGE" gate="G$1" x="622.3" y="314.96"/>
+<instance part="DONE" gate="G$1" x="617.22" y="320.04"/>
+<instance part="GATE" gate="G$1" x="688.34" y="317.5"/>
 <instance part="GND" gate="G$1" x="655.32" y="254"/>
 <instance part="12VGND" gate="G$1" x="754.38" y="248.92" rot="R270"/>
 <instance part="C6" gate="G$1" x="665.48" y="358.14"/>
@@ -16330,7 +16330,7 @@ KICK_REF to range from approximately
 <pinref part="SWITCH_Q" gate="G$1" pin="D"/>
 <pinref part="U$3" gate="G$1" pin="P$6"/>
 <pinref part="U$3" gate="G$1" pin="P$7"/>
-<pinref part="DRAIN_TEST" gate="G$1" pin="P$1"/>
+<pinref part="DRAIN" gate="G$1" pin="P$1"/>
 <wire x1="698.5" y1="307.34" x2="698.5" y2="304.8" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -16339,7 +16339,7 @@ KICK_REF to range from approximately
 <wire x1="668.02" y1="294.64" x2="688.34" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="CHARGE_U" gate="G$1" pin="GATE"/>
 <pinref part="SWITCH_Q" gate="G$1" pin="G"/>
-<pinref part="GATE_TEST" gate="G$1" pin="P$1"/>
+<pinref part="GATE" gate="G$1" pin="P$1"/>
 <wire x1="688.34" y1="294.64" x2="690.88" y2="294.64" width="0.1524" layer="91"/>
 <wire x1="688.34" y1="314.96" x2="688.34" y2="294.64" width="0.1524" layer="91"/>
 <junction x="688.34" y="294.64"/>
@@ -16365,7 +16365,7 @@ KICK_REF to range from approximately
 <wire x1="637.54" y1="299.72" x2="622.3" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="CHARGE_U" gate="G$1" pin="CHRG"/>
 <label x="607.06" y="299.72" size="1.778" layer="95"/>
-<pinref part="CHARGE_TEST" gate="G$1" pin="P$1"/>
+<pinref part="CHARGE" gate="G$1" pin="P$1"/>
 <wire x1="622.3" y1="299.72" x2="607.06" y2="299.72" width="0.1524" layer="91"/>
 <wire x1="622.3" y1="312.42" x2="622.3" y2="299.72" width="0.1524" layer="91"/>
 <junction x="622.3" y="299.72"/>
@@ -16634,7 +16634,7 @@ KICK_REF to range from approximately
 <wire x1="637.54" y1="304.8" x2="617.22" y2="304.8" width="0.1524" layer="91"/>
 <label x="607.06" y="304.8" size="1.778" layer="95"/>
 <pinref part="CHARGE_U" gate="G$1" pin="~DN"/>
-<pinref part="DONE_TEST" gate="G$1" pin="P$1"/>
+<pinref part="DONE" gate="G$1" pin="P$1"/>
 <wire x1="617.22" y1="304.8" x2="607.06" y2="304.8" width="0.1524" layer="91"/>
 <wire x1="617.22" y1="317.5" x2="617.22" y2="312.42" width="0.1524" layer="91"/>
 <junction x="617.22" y="304.8"/>
