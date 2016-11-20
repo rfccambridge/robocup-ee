@@ -12,21 +12,27 @@ float ball_y = 0.0;
  */
 void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {
-  if(msg->data.c_str()[0] == 'd') {
-    ball_x += 0.1;
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
-  }
-  else if(msg->data.c_str()[0] == 'a') {
-    ball_x -= 0.1;
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
-  }
-  else if(msg->data.c_str()[0] == 'w') {
-    ball_y += 0.1;
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
-  }
-  else if(msg->data.c_str()[0] == 's') {
-    ball_y -= 0.1;
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
+  switch(msg->data.c_str()[0]) {
+    case 'd': {
+      ball_x += 0.1;
+      ROS_INFO("I heard: [%s]", msg->data.c_str());
+      break;
+    }
+    case 'a': {
+      ball_x -= 0.1;
+      ROS_INFO("I heard: [%s]", msg->data.c_str());
+      break;
+    }
+    case 'w': {
+      ball_y += 0.1;
+      ROS_INFO("I heard: [%s]", msg->data.c_str());
+      break;
+    }
+    case 's': {
+      ball_y -= 0.1;
+      ROS_INFO("I heard: [%s]", msg->data.c_str());
+      break;
+    }
   }
 }
 
