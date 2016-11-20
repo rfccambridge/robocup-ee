@@ -11,7 +11,7 @@
 int Cube::running_id = 0;
 
 int rate = 100; // If you change this value, you must also change it in 
-										 // basic_shapes_publisher.c and basic_shapes.c
+// basic_shapes_publisher.c and basic_shapes.c
 float dt = 1.0/(float)rate;
 
 //Declare the static_cubes
@@ -20,8 +20,11 @@ std::map<int, Cube*> Cube::static_cubes;
 void Cube::set_pos_x(const using_markers::robotCommand command)
 {
   printf("Received %f\n", command.speed0); 
-  pose.position.x += command.speed0*dt;
-	pose.position.y += command.speed1*dt;
+
+  //TODO: incorporate speed2 and speed3 into this
+  // This only drives in straight lines
+  pose.position.x += command.speed0 * dt;
+  pose.position.y += command.speed1 * dt;
 	
 }
 
