@@ -16886,6 +16886,11 @@ KICK_REF to range from approximately
 <wire x1="505.46" y1="137.16" x2="492.76" y2="137.16" width="0.1524" layer="91"/>
 <label x="495.3" y="137.16" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA24"/>
+<wire x1="746.76" y1="68.58" x2="746.76" y2="30.48" width="0.1524" layer="91"/>
+<label x="746.76" y="30.48" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="M1QA-4" class="0">
 <segment>
@@ -16893,6 +16898,12 @@ KICK_REF to range from approximately
 <pinref part="JP3" gate="G$1" pin="3"/>
 <wire x1="505.46" y1="142.24" x2="492.76" y2="142.24" width="0.1524" layer="91"/>
 <label x="495.3" y="142.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA31"/>
+<wire x1="762" y1="139.7" x2="762" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="762" y1="154.94" x2="779.78" y2="154.94" width="0.1524" layer="91"/>
+<label x="774.7" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB-3" class="0">
@@ -16902,6 +16913,11 @@ KICK_REF to range from approximately
 <wire x1="421.64" y1="137.16" x2="414.02" y2="137.16" width="0.1524" layer="91"/>
 <label x="414.02" y="137.16" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA29"/>
+<wire x1="784.86" y1="106.68" x2="812.8" y2="106.68" width="0.1524" layer="91"/>
+<label x="807.72" y="106.68" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M1QA-3" class="0">
 <segment>
@@ -16909,6 +16925,11 @@ KICK_REF to range from approximately
 <pinref part="JP2" gate="G$1" pin="3"/>
 <wire x1="421.64" y1="142.24" x2="414.02" y2="142.24" width="0.1524" layer="91"/>
 <label x="414.02" y="142.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA30"/>
+<wire x1="784.86" y1="109.22" x2="812.8" y2="109.22" width="0.1524" layer="91"/>
+<label x="807.72" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB-2" class="0">
@@ -16918,6 +16939,11 @@ KICK_REF to range from approximately
 <wire x1="342.9" y1="137.16" x2="335.28" y2="137.16" width="0.1524" layer="91"/>
 <label x="335.28" y="137.16" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA28"/>
+<wire x1="784.86" y1="99.06" x2="812.8" y2="99.06" width="0.1524" layer="91"/>
+<label x="807.72" y="99.06" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M1QA-2" class="0">
 <segment>
@@ -16925,6 +16951,11 @@ KICK_REF to range from approximately
 <pinref part="JP1" gate="G$1" pin="3"/>
 <wire x1="342.9" y1="142.24" x2="335.28" y2="142.24" width="0.1524" layer="91"/>
 <label x="335.28" y="142.24" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA27"/>
+<wire x1="784.86" y1="96.52" x2="812.8" y2="96.52" width="0.1524" layer="91"/>
+<label x="807.72" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB-1" class="0">
@@ -16934,6 +16965,11 @@ KICK_REF to range from approximately
 <wire x1="332.74" y1="210.82" x2="312.42" y2="210.82" width="0.1524" layer="91"/>
 <label x="317.5" y="210.82" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA26"/>
+<wire x1="754.38" y1="68.58" x2="754.38" y2="30.48" width="0.1524" layer="91"/>
+<label x="754.38" y="30.48" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="M1QA-1" class="0">
 <segment>
@@ -16941,6 +16977,11 @@ KICK_REF to range from approximately
 <pinref part="JP4" gate="G$1" pin="3"/>
 <wire x1="332.74" y1="215.9" x2="312.42" y2="215.9" width="0.1524" layer="91"/>
 <label x="317.5" y="215.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PA25"/>
+<wire x1="751.84" y1="68.58" x2="751.84" y2="30.48" width="0.1524" layer="91"/>
+<label x="751.84" y="30.48" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="N$37" class="0">
@@ -17516,63 +17557,6 @@ KICK_REF to range from approximately
 <junction x="833.12" y="111.76"/>
 <label x="835.66" y="109.22" size="1.778" layer="95"/>
 <pinref part="R35" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="M3QB" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA24"/>
-<wire x1="746.76" y1="68.58" x2="746.76" y2="30.48" width="0.1524" layer="91"/>
-<label x="746.76" y="30.48" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="M2QA" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA25"/>
-<wire x1="751.84" y1="68.58" x2="751.84" y2="30.48" width="0.1524" layer="91"/>
-<label x="751.84" y="30.48" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="M2QB" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA26"/>
-<wire x1="754.38" y1="68.58" x2="754.38" y2="30.48" width="0.1524" layer="91"/>
-<label x="754.38" y="30.48" size="1.778" layer="95" rot="R90"/>
-</segment>
-</net>
-<net name="M1QA" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA27"/>
-<wire x1="784.86" y1="96.52" x2="812.8" y2="96.52" width="0.1524" layer="91"/>
-<label x="807.72" y="96.52" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="M1QB" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA28"/>
-<wire x1="784.86" y1="99.06" x2="812.8" y2="99.06" width="0.1524" layer="91"/>
-<label x="807.72" y="99.06" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="M0QA" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA30"/>
-<wire x1="784.86" y1="109.22" x2="812.8" y2="109.22" width="0.1524" layer="91"/>
-<label x="807.72" y="109.22" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="M0QB" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA29"/>
-<wire x1="784.86" y1="106.68" x2="812.8" y2="106.68" width="0.1524" layer="91"/>
-<label x="807.72" y="106.68" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="M3QA" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="PA31"/>
-<wire x1="762" y1="139.7" x2="762" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="762" y1="154.94" x2="779.78" y2="154.94" width="0.1524" layer="91"/>
-<label x="774.7" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$35" class="0">
