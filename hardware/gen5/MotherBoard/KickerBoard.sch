@@ -17547,6 +17547,11 @@ KICK_REF to range from approximately
 <label x="825.5" y="93.98" size="1.778" layer="95"/>
 <pinref part="R36" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="17"/>
+<wire x1="368.3" y1="228.6" x2="358.14" y2="228.6" width="0.1524" layer="91"/>
+<label x="358.14" y="228.6" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="TWD" class="0">
 <segment>
@@ -17557,6 +17562,11 @@ KICK_REF to range from approximately
 <junction x="833.12" y="111.76"/>
 <label x="835.66" y="109.22" size="1.778" layer="95"/>
 <pinref part="R35" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="COM_BOARD" gate="G$1" pin="19"/>
+<wire x1="368.3" y1="226.06" x2="358.14" y2="226.06" width="0.1524" layer="91"/>
+<label x="358.14" y="226.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$35" class="0">
