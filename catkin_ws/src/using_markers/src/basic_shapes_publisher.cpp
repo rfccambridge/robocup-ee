@@ -20,6 +20,7 @@ const float dt = 1.0 / (float)rate;
 // 
 void controller(float x_end, float y_end, float x, float y, float *u) 
 {
+  //Make this function reusable, ie: w/o the static
   static float error_i_x = 0, error_i_y = 0;
   const float k_p = 0.5, k_i = 0.1, k_d = 0.1;
 
@@ -32,34 +33,34 @@ void controller(float x_end, float y_end, float x, float y, float *u)
   float v_y = 0.0;
 
   error_x = x_end - x;
-  error_i_x = error_i_x + error_x*dt;
-  error_d_x = (error_x)/dt;
+  error_i_x += error_x * dt;
+  error_d_x = error_x / dt;
 
   error_y = y_end - y;
-  error_i_y = error_i_y + error_y*dt;
-  error_d_y = (error_y)/dt;
+  error_i_y += error_y * dt;
+  error_d_y = error_y / dt;
 
   // controller output (velocity)
   v_x = k_p * error_x + k_i * error_i_x + k_d * error_d_x;
   v_y = k_p * error_y + k_i * error_i_y + k_d * error_d_y;
 
   // Ensure that velocity is within the physical limits of the robot
-  if (v_x > 10.0)
+  if(v_x > 10.0)
     v_x = 10.0;
-  if (v_x < -10.0)
+  if(v_x < -10.0)
     v_x = -10.0;
 
-  if (v_y > 10.0)
+  if(v_y > 10.0)
     v_y = 10.0;
-  if (v_y < -10.0)
+  if(v_y < -10.0)
     v_y = -10.0;
 
   // store controller outputs in contoller
   u[0] = v_x;
   u[1] = v_y;
-	
-}
 
+  return;
+}
 
 int main(int argc, char **argv)
 {
@@ -91,7 +92,8 @@ int main(int argc, char **argv)
       loop_rate.sleep();
     }
 
-    if(pos_client.call(srv)) {
+    if(pos_client.call(srv)) 
+    {
       printf("The robot's pos is (%f, %f)\n", srv.response.pos_x, srv.response.pos_y);
 
       // Create and populate a message to send
@@ -100,15 +102,14 @@ int main(int argc, char **argv)
       //Get control input, u, given desired x and y positions
       controller(10, 10, srv.response.pos_x,srv.response.pos_y, u);
 
-      printf("x_vel = %f\ny_vel = %f\n",u[0],u[1]);
+      printf("x_vel = %f\ny_vel = %f\n", u[0], u[1]);
 			
       // ultimately we will want to change how we set wheel speeds  
       msg.speed0 = msg.speed2 = u[0];
       msg.speed1 = msg.speed3 = u[1];
 
       chatter_pub.publish(msg);
-    }
-    else
+    }else
       fprintf(stderr, "Error: The pos client call failed!\n");
 
     //Process all of the callbacks and sleep a bit between loops
