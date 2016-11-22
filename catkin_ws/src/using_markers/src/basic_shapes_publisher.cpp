@@ -4,9 +4,7 @@
 #include <using_markers/robotCommand.h> // include custom message 
 #include <using_markers/robotPosSrv.h>
 
-//TODO: Move these to a common file
-const int rate = 100; // If you change this value, you must also change it in cube_obj.c and basic_shapes.c
-const float dt = 1.0 / (float)rate;
+#include "universal_constants.h"
 
 //************************************************************************
 // PID controller implementation

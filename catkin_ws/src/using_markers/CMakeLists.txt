@@ -176,7 +176,7 @@ include_directories(
 add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
-add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
+add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/universal_constants.cpp)
 target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
