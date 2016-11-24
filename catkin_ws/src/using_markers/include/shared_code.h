@@ -2,7 +2,7 @@
 #ifndef UNIVERSAL_CONSTANTS
 #define UNIVERSAL_CONSTANTS
 
-extern const int rate;
-extern const float dt;
+#define RATE 100
+#define DT (1.0 / RATE)
 
 #endif /* UNIVERSAL_CONSTANTS */

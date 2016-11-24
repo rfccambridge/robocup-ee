@@ -2,8 +2,6 @@
 #ifndef CUBE_OBJ
 #define CUBE_OBJ
 
-#include <map>
-
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 #include <using_markers/robotCommand.h>
@@ -14,7 +12,6 @@
 class Cube : public visualization_msgs::Marker, public CubeComSpecs<Cube>
 {
 protected:
-  static std::map<int, Cube*> static_cubes;
   ros::ServiceServer server_get_pos;
   ros::Subscriber subscriber_set_pos;
   
@@ -25,11 +22,8 @@ public:
     header.frame_id = "/my_frame";
     header.stamp = ros::Time::now();
     ns = "basic_shapes";
-    id = running_id;
+    id = com_id; //Set the `Marker` id based on the associated `CubeComSpecs` id
     type = visualization_msgs::Marker::CUBE;
-
-    //Add `this` to the map of cubes
-    static_cubes.insert(std::pair<int, Cube*>(id, this));
 
     lifetime = ros::Duration();
 
@@ -59,8 +53,6 @@ public:
     server_get_pos = n.advertiseService(name_service_get_pos(), &Cube::server_get_pos_handle, this);
     subscriber_set_pos = n.subscribe(name_messenger_set_pos(), 1, &Cube::subscriber_set_pos_handle, this);    
   }
-
-  static Cube *lookup_cube(uint8_t id);
 
   //Sets the x position based on an incoming message
   void subscriber_set_pos_handle(const using_markers::robotCommand command);

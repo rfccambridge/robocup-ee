@@ -5,20 +5,6 @@
 #include "cube_obj.h"
 #include "shared_code.h"
 
-//Declare the static_cubes
-std::map<int, Cube*> Cube::static_cubes;
-
-Cube *Cube::lookup_cube(uint8_t id)
-{
-  std::map<int, Cube*>::iterator it = static_cubes.find(id);
-
-  //Return accordingly based on whether cube `id` was found
-  if(it == static_cubes.end())
-    return NULL;
-  else
-    return it->second;
-}
-
 void Cube::subscriber_set_pos_handle(const using_markers::robotCommand command)
 {
   printf("Received %f\n", command.speed0); 

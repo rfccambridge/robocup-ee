@@ -173,11 +173,11 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp src/shared_code.cpp)
+add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
 #~ADDED
-#~add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/shared_code.cpp)
+#~add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
 #~target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library

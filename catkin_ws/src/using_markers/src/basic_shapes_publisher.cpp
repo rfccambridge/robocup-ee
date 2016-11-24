@@ -1,73 +1,20 @@
 
-#include "ros/ros.h"
+#include <stdio.h>
+#include <ros/ros.h>
 
 #include "shared_code.h"
 
-//************************************************************************
-// PID controller implementation
-// 
-// x_end: 	desired x-position
-// y_end: 	desired y-position
-// x:				current x-position
-// y: 			current y-position
-//
-// u: 			controller output
-// 
-void controller(float x_end, float y_end, float x, float y, float *u) 
-{
-  //Make this function reusable, ie: w/o the static
-  static float error_i_x = 0, error_i_y = 0;
-  const float k_p = 0.5, k_i = 0.1, k_d = 0.1;
 
-  // position and error terms			
-  float pos_x, error_x, error_d_x = 0.0;	
-  float pos_y, error_y, error_d_y = 0.0;
-
-  // commanded velocity
-  float v_x = 0.0; 	
-  float v_y = 0.0;
-
-  error_x = x_end - x;
-  error_i_x += error_x * dt;
-  error_d_x = error_x / dt;
-
-  error_y = y_end - y;
-  error_i_y += error_y * dt;
-  error_d_y = error_y / dt;
-
-  // controller output (velocity)
-  v_x = k_p * error_x + k_i * error_i_x + k_d * error_d_x;
-  v_y = k_p * error_y + k_i * error_i_y + k_d * error_d_y;
-
-  // Ensure that velocity is within the physical limits of the robot
-  if(v_x > 10.0)
-    v_x = 10.0;
-  if(v_x < -10.0)
-    v_x = -10.0;
-
-  if(v_y > 10.0)
-    v_y = 10.0;
-  if(v_y < -10.0)
-    v_y = -10.0;
-
-  // store controller outputs in contoller
-  u[0] = v_x;
-  u[1] = v_y;
-
-  return;
-}
 
 int main(int argc, char **argv)
 {
   //Initialize our ROS system
   ros::init(argc, argv, "command_publisher");
 
+  ros::Rate loop_rate(RATE);
+
   ros::NodeHandle n;
   CubeInterface::initialize_coms(n); //Initialize the communication interface for the cubes
-
-  ros::Rate loop_rate(rate);
-
-  float u[2];
 
   while(ros::ok())
   {
