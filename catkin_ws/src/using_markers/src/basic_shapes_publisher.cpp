@@ -4,7 +4,7 @@
 #include <using_markers/robotCommand.h> // include custom message 
 #include <using_markers/robotPosSrv.h>
 
-#include "universal_constants.h"
+#include "shared_code.h"
 
 //************************************************************************
 // PID controller implementation
@@ -63,7 +63,7 @@ void controller(float x_end, float y_end, float x, float y, float *u)
 int main(int argc, char **argv)
 {
   //Initialize our ROS system
-  ros::init(argc, argv, "int8_publisher");
+  ros::init(argc, argv, "command_publisher");
 
   ros::NodeHandle n;
 

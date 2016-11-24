@@ -53,9 +53,10 @@ public:
     color.a = 1.0;
   }
 
+  static Cube *lookup_cube(uint8_t id);
+
   //Sets the x position based on an incoming message
-  //TODO: make this static
-  void set_pos_x(const using_markers::robotCommand command);
+  static bool set_pos_x(const using_markers::robotCommand command);
   
   //
   // Cube Services

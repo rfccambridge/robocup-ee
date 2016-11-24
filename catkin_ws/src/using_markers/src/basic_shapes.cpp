@@ -23,7 +23,7 @@ int main(int argc, char **argv)
   Cube cube(0, 0, 0);
 	
   //Register this cube's x coords to change according to the influx of messages from  "chatter"
-  ros::Subscriber sub = n.subscribe("chatter", 1, &Cube::set_pos_x, &cube);
+  ros::Subscriber sub = n.subscribe("chatter", 1, &Cube::set_pos_x);
 
   uint32_t shape = visualization_msgs::Marker::CUBE;
   while(ros::ok())
