@@ -9,20 +9,23 @@
 #include <using_markers/robotCommand.h>
 #include <using_markers/robotPosSrv.h>
 
-class Cube : public visualization_msgs::Marker
+#include "cube_com_specs.h"
+
+class Cube : public visualization_msgs::Marker, public CubeComSpecs<Cube>
 {
 protected:
-  static int running_id;
   static std::map<int, Cube*> static_cubes;
+  ros::ServiceServer service_get_pos;
+  ros::Subscriber subscriber_set_pos;
   
 public:
-  Cube(double _x, double _y, double _z)
+  Cube(ros::NodeHandle n, double _x, double _y, double _z)
   {
     //All of these fields are inherited from the `Marker` type
     header.frame_id = "/my_frame";
     header.stamp = ros::Time::now();
     ns = "basic_shapes";
-    id = running_id++;
+    id = running_id;
     type = visualization_msgs::Marker::CUBE;
 
     //Add `this` to the map of cubes
@@ -51,17 +54,21 @@ public:
     color.g = 1.0f;
     color.b = 0.0f;
     color.a = 1.0;
+
+    //Initialize the services and subscriptions
+    service_get_pos = n.advertiseService(name_service_get_pos(), &Cube::service_get_pos_handle, this);
+    subscriber_set_pos = n.subscribe(name_subscriber_set_pos(), 1, &Cube::subscriber_set_pos_handle, this);    
   }
 
   static Cube *lookup_cube(uint8_t id);
 
   //Sets the x position based on an incoming message
-  static bool set_pos_x(const using_markers::robotCommand command);
+  void subscriber_set_pos_handle(const using_markers::robotCommand command);
   
   //
   // Cube Services
   //
-  static bool service_get_pos(using_markers::robotPosSrv::Request  &req,
+  bool service_get_pos_handle(using_markers::robotPosSrv::Request  &req,
                               using_markers::robotPosSrv::Response &res);
 
 };
