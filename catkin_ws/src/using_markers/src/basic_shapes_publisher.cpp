@@ -1,8 +1,5 @@
 
 #include "ros/ros.h"
-#include "std_msgs/Int8.h"
-#include <using_markers/robotCommand.h> // include custom message 
-#include <using_markers/robotPosSrv.h>
 
 #include "shared_code.h"
 
@@ -66,10 +63,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "command_publisher");
 
   ros::NodeHandle n;
+  CubeInterface::initialize_coms(n); //Initialize the communication interface for the cubes
 
-  //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
-  ros::Publisher chatter_pub = n.advertise<using_markers::robotCommand>("chatter", 1);
-  ros::ServiceClient pos_client = n.serviceClient<using_markers::robotPosSrv>("service_get_pos", true);
   ros::Rate loop_rate(rate);
 
   float u[2];
@@ -81,10 +76,10 @@ int main(int argc, char **argv)
     srv.request.robotID = 0;
 
     //Loop until `pos_client` connects
-    while(ros::ok() && !pos_client)
+    while(ros::ok() && !CubeInterface::coms_alive())
     {
       printf("Unable to connect the pos client, trying to reconnect again...\n");
-      pos_client = n.serviceClient<using_markers::robotPosSrv>("service_get_pos", true);
+      CubeInterface::initialize_coms(n); //Retry the failed connections
 
       ros::spinOnce();
       loop_rate.sleep();
@@ -118,3 +113,6 @@ int main(int argc, char **argv)
 
   return 0;
 }
+
+//TODO: Make a CubeInterface obj that inherits from CubeComSpecs and packages the publisher and service client
+// nicely into it. Also, begin making the brain and spin functions

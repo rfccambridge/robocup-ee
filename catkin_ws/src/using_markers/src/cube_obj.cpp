@@ -31,8 +31,8 @@ void Cube::subscriber_set_pos_handle(const using_markers::robotCommand command)
   return;
 }
 
-bool Cube::service_get_pos_handle(using_markers::robotPosSrv::Request  &req, 
-                                  using_markers::robotPosSrv::Response &res)
+bool Cube::server_get_pos_handle(using_markers::robotPosSrv::Request  &req, 
+                                 using_markers::robotPosSrv::Response &res)
 {
   //Assign the response `pos_x`
   res.pos_x = pose.position.x;
