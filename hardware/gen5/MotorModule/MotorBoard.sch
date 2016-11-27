@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7448,6 +7448,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 these fault signals inputs 
 to our main MCU</text>
 <text x="254" y="43.18" size="1.778" layer="99">Why do we have a 3.3V input here?</text>
+<text x="259.08" y="40.64" size="1.778" layer="97">Was an output. Probs not necessary anymore, assuming main board doesn't need it.</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="154.94" y="101.6"/>
