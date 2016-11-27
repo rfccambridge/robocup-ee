@@ -5,6 +5,8 @@
 #include <string>
 #include <map>
 
+#include "shared_code.h"
+
 //The template is a mere trick to get the static variable contained only
 // count the instances of each individual derived class
 template <typename Derived>
@@ -37,7 +39,7 @@ protected:
 
     //Return accordingly based on whether `id` was found
     if(it == map_instances.end())
-      return NULL;
+      PRINT_ERROR_AND(return NULL);
     else
       return it->second;
   }

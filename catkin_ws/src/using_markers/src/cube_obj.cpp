@@ -28,7 +28,7 @@ void Cube::subscriber_set_pos_handle(const using_markers::robotCommand command)
 
   Cube *cube = lookup_by_id(command.robotID);
   if(!cube)
-    return; //Return on error
+    PRINT_ERROR_AND(return); //Return on error
 
   //TODO: incorporate speed2 and speed3 into this
   // This only drives in straight lines
@@ -43,7 +43,7 @@ bool Cube::server_get_pos_handle(using_markers::robotPosSrv::Request  &req,
 {
   Cube *cube = lookup_by_id(req.robotID);
   if(!cube)
-    return false; //Return `false` on error
+    PRINT_ERROR_AND(return false); //Return `false` on error
 
   //Assign the response `pos_x`
   res.pos_x = cube->pose.position.x;
