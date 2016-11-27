@@ -176,14 +176,13 @@ include_directories(
 add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
-#~ADDED
-#~add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
-#~target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
+add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/cube_interface.cpp)
+target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-#~add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
+add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 

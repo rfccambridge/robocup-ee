@@ -11,34 +11,32 @@ template <typename Derived>
 class CubeComSpecs
 {
 protected:
-  static int n_instances;
-  static std::map<int, Derived*> derived_instances;
+  static int running_id;
+  static std::map<int, Derived*> map_instances;
 
   int com_id;
 
   CubeComSpecs()
   {
-    com_id = n_instances++;
+    com_id = running_id++;
 
     //Add `this` to the map of derived instances
-    dp = dynamic_cast<Derived*>(this); //Extract a pointer of the `Derived` type
-    derived_instances.insert(std::pair<int, Derived*>(com_id, dp));
+    Derived* dp = (Derived*)this; //Extract a pointer of the `Derived` type
+    map_instances.insert(std::pair<int, Derived*>(com_id, dp));
   }
 
   ~CubeComSpecs()
   {
-    --n_instances;
-
     //Remove `this` to the map of derived instances
-    derived_instances.erase(com_id);
+    map_instances.erase(com_id);
   }
 
-  static Derived *lookup_by_id(const int id) const
+  static Derived *lookup_by_id(const int id)
   {
-    std::map<int, Derived*>::iterator it = derived_instances.find(id);
+    typename std::map<int, Derived*>::iterator it = map_instances.find(id);
 
     //Return accordingly based on whether `id` was found
-    if(it == derived_instances.end())
+    if(it == map_instances.end())
       return NULL;
     else
       return it->second;
@@ -58,9 +56,9 @@ protected:
 
 //Declare the static template types
 template <typename Derived> 
-int CubeComSpecs<Derived>::n_instances = 0;
+int CubeComSpecs<Derived>::running_id = 0;
 
 template <typename Derived> 
-std::map<int, Derived*> derived_instances;
+std::map<int, Derived*> CubeComSpecs<Derived>::map_instances;
 
 #endif /* CUBE_COM_SPECS_H */
