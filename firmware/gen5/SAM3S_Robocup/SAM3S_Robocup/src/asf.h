@@ -90,6 +90,9 @@
 // From module: System Clock Control - SAM3S implementation
 #include <sysclk.h>
 
+// From module: TWI - Two-wire Interface
+#include <twi.h>
+
 // From module: pio_handler support enabled
 #include <pio_handler.h>
 
