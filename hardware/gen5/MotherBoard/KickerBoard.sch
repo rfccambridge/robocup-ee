@@ -14925,6 +14925,8 @@ Wickmann</description>
 <part name="U$17" library="gen3" deviceset="2CHAN_4INPUT_AND" device=""/>
 <part name="U$18" library="foe-scale" deviceset="LM311" device=""/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="1uF"/>
+<part name="U$19" library="gen3" deviceset="INDUCTOR" device=""/>
+<part name="U$20" library="gen3" deviceset="INDUCTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14962,7 +14964,6 @@ should turn on fine with 3.3!</text>
 <text x="574.04" y="317.5" size="1.27" layer="95">ZTX718</text>
 <text x="551.18" y="304.8" size="1.016" layer="97">***need to tune these resistors***</text>
 <text x="586.74" y="327.66" size="1.016" layer="97">depletion mode</text>
-<text x="518.16" y="342.9" size="1.778" layer="97">DISCHARGE</text>
 <text x="527.304" y="314.96" size="1.778" layer="97">NO SSR</text>
 <text x="711.2" y="203.2" size="1.778" layer="97">External Oscillator is not strictly
 necessary. Only if we want to 
@@ -14987,6 +14988,8 @@ DAC on the MCU has a minimum
 output voltage of ~0.5V, but we want 
 KICK_REF to range from approximately
 0 to 2.5 V</text>
+<text x="210.82" y="233.68" size="1.778" layer="97">P8, P9, P10 are for Hall Sensors outputs... needed 
+for proper operation of motor controller</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
@@ -15125,8 +15128,8 @@ KICK_REF to range from approximately
 <instance part="JP4" gate="G$1" x="337.82" y="213.36" rot="MR0"/>
 <instance part="R22" gate="G$1" x="612.14" y="312.42"/>
 <instance part="U$12" gate="G$1" x="401.32" y="353.06" rot="R180"/>
-<instance part="U$13" gate="G$1" x="449.58" y="332.74"/>
-<instance part="U$14" gate="G$1" x="568.96" y="154.94"/>
+<instance part="U$13" gate="G$1" x="500.38" y="370.84" rot="R270"/>
+<instance part="U$14" gate="G$1" x="571.5" y="154.94"/>
 <instance part="U1" gate="G$1" x="749.3" y="104.14"/>
 <instance part="R27" gate="G$1" x="586.74" y="190.5" rot="R90"/>
 <instance part="R28" gate="G$1" x="594.36" y="190.5" rot="R90"/>
@@ -15164,6 +15167,8 @@ KICK_REF to range from approximately
 <instance part="U$17" gate="G$1" x="642.62" y="83.82"/>
 <instance part="U$18" gate="G$1" x="325.12" y="307.34"/>
 <instance part="C33" gate="G$1" x="332.74" y="332.74"/>
+<instance part="U$19" gate="G$1" x="490.22" y="370.84" rot="R270"/>
+<instance part="U$20" gate="G$1" x="495.3" y="370.84" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -15253,21 +15258,6 @@ KICK_REF to range from approximately
 <label x="579.12" y="365.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R18" gate="G$1" pin="1"/>
-<wire x1="556.26" y1="264.16" x2="556.26" y2="261.62" width="0.1524" layer="91"/>
-<label x="556.26" y="259.08" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="BATCLAMP2" gate="G$1" pin="A"/>
-<wire x1="543.56" y1="269.24" x2="543.56" y2="266.7" width="0.1524" layer="91"/>
-<label x="541.02" y="264.16" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="462.28" y1="332.74" x2="467.36" y2="332.74" width="0.1524" layer="91"/>
-<label x="464.82" y="332.74" size="1.778" layer="95"/>
-<pinref part="U$13" gate="G$1" pin="P$2"/>
-</segment>
-<segment>
 <wire x1="601.98" y1="264.16" x2="594.36" y2="264.16" width="0.1524" layer="91"/>
 <label x="594.36" y="264.16" size="1.778" layer="95"/>
 <pinref part="BB_CON" gate="G$1" pin="P$5"/>
@@ -15281,11 +15271,6 @@ KICK_REF to range from approximately
 <pinref part="BB_CON" gate="G$1" pin="P$3"/>
 </segment>
 <segment>
-<pinref part="R21" gate="G$1" pin="1"/>
-<wire x1="472.44" y1="335.28" x2="472.44" y2="332.74" width="0.1524" layer="91"/>
-<label x="472.44" y="332.74" size="1.778" layer="95"/>
-</segment>
-<segment>
 <label x="347.98" y="208.28" size="1.778" layer="95"/>
 <wire x1="353.06" y1="208.28" x2="368.3" y2="208.28" width="0.1524" layer="91"/>
 <pinref part="COM_BOARD" gate="G$1" pin="33"/>
@@ -15297,30 +15282,14 @@ KICK_REF to range from approximately
 <segment>
 <pinref part="U$5" gate="G$1" pin="LED-"/>
 <wire x1="523.24" y1="320.04" x2="518.16" y2="320.04" width="0.1524" layer="91"/>
+<label x="518.16" y="320.04" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="30"/>
-<pinref part="JP3" gate="G$1" pin="2"/>
-<wire x1="505.46" y1="139.7" x2="492.76" y2="139.7" width="0.1524" layer="91"/>
-<label x="495.3" y="139.7" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MOTOR3" gate="G$1" pin="30"/>
-<pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="421.64" y1="139.7" x2="414.02" y2="139.7" width="0.1524" layer="91"/>
-<label x="416.56" y="139.7" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MOTOR2" gate="G$1" pin="30"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="342.9" y1="139.7" x2="335.28" y2="139.7" width="0.1524" layer="91"/>
-<label x="335.28" y="139.7" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$8" gate="G$1" pin="P$7"/>
-<wire x1="287.02" y1="154.94" x2="289.56" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="289.56" y1="157.48" x2="292.1" y2="157.48" width="0.1524" layer="91"/>
-<label x="289.56" y="157.48" size="1.778" layer="95"/>
+<wire x1="342.9" y1="139.7" x2="340.36" y2="139.7" width="0.1524" layer="91"/>
+<label x="355.6" y="134.62" size="1.778" layer="95"/>
+<wire x1="342.9" y1="139.7" x2="355.6" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="139.7" x2="355.6" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="GND@1"/>
@@ -15354,30 +15323,30 @@ KICK_REF to range from approximately
 <wire x1="553.72" y1="137.16" x2="553.72" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="G$1" pin="GND7"/>
 <wire x1="553.72" y1="132.08" x2="553.72" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="566.42" y1="137.16" x2="553.72" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="137.16" x2="553.72" y2="137.16" width="0.1524" layer="91"/>
 <junction x="553.72" y="137.16"/>
 <pinref part="U$14" gate="G$1" pin="GND6"/>
-<wire x1="566.42" y1="142.24" x2="553.72" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="142.24" x2="553.72" y2="142.24" width="0.1524" layer="91"/>
 <junction x="553.72" y="142.24"/>
 <pinref part="U$14" gate="G$1" pin="GND5"/>
-<wire x1="566.42" y1="147.32" x2="553.72" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="147.32" x2="553.72" y2="147.32" width="0.1524" layer="91"/>
 <junction x="553.72" y="147.32"/>
 <pinref part="U$14" gate="G$1" pin="GND4"/>
-<wire x1="566.42" y1="152.4" x2="553.72" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="152.4" x2="553.72" y2="152.4" width="0.1524" layer="91"/>
 <junction x="553.72" y="152.4"/>
 <pinref part="U$14" gate="G$1" pin="GND3"/>
-<wire x1="566.42" y1="157.48" x2="553.72" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="157.48" x2="553.72" y2="157.48" width="0.1524" layer="91"/>
 <junction x="553.72" y="157.48"/>
 <pinref part="U$14" gate="G$1" pin="GND2"/>
-<wire x1="566.42" y1="162.56" x2="553.72" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="162.56" x2="553.72" y2="162.56" width="0.1524" layer="91"/>
 <junction x="553.72" y="162.56"/>
 <pinref part="U$14" gate="G$1" pin="GND1"/>
-<wire x1="566.42" y1="167.64" x2="553.72" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="167.64" x2="553.72" y2="167.64" width="0.1524" layer="91"/>
 <junction x="553.72" y="167.64"/>
 <pinref part="U$14" gate="G$1" pin="GND8"/>
-<wire x1="553.72" y1="132.08" x2="566.42" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="553.72" y1="132.08" x2="568.96" y2="132.08" width="0.1524" layer="91"/>
 <junction x="553.72" y="132.08"/>
-<wire x1="553.72" y1="172.72" x2="566.42" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="553.72" y1="172.72" x2="568.96" y2="172.72" width="0.1524" layer="91"/>
 <label x="553.72" y="124.46" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
@@ -15456,9 +15425,8 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <pinref part="C30" gate="G$1" pin="1"/>
-<wire x1="749.3" y1="48.26" x2="749.3" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="749.3" y1="43.18" x2="754.38" y2="43.18" width="0.1524" layer="91"/>
-<label x="754.38" y="43.18" size="1.778" layer="95" rot="R180"/>
+<wire x1="749.3" y1="40.64" x2="749.3" y2="48.26" width="0.1524" layer="91"/>
+<label x="749.3" y="45.72" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
 <pinref part="C31" gate="G$1" pin="1"/>
@@ -15489,6 +15457,7 @@ KICK_REF to range from approximately
 <segment>
 <pinref part="U$17" gate="G$1" pin="GND"/>
 <wire x1="650.24" y1="58.42" x2="650.24" y2="50.8" width="0.1524" layer="91"/>
+<label x="650.24" y="50.8" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
 <pinref part="U$18" gate="G$1" pin="VCC"/>
@@ -15502,10 +15471,48 @@ KICK_REF to range from approximately
 <label x="330.2" y="327.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR1" gate="G$1" pin="30"/>
+<pinref part="3.3REG1" gate="G$1" pin="GND"/>
+<wire x1="419.1" y1="332.74" x2="419.1" y2="337.82" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="332.74" x2="436.88" y2="332.74" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="436.88" y1="332.74" x2="436.88" y2="342.9" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="342.9" x2="436.88" y2="345.44" width="0.1524" layer="91"/>
+<wire x1="436.88" y1="342.9" x2="449.58" y2="342.9" width="0.1524" layer="91"/>
+<junction x="436.88" y="342.9"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<wire x1="449.58" y1="342.9" x2="449.58" y2="345.44" width="0.1524" layer="91"/>
+<wire x1="449.58" y1="342.9" x2="462.28" y2="342.9" width="0.1524" layer="91"/>
+<junction x="449.58" y="342.9"/>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="462.28" y1="342.9" x2="462.28" y2="345.44" width="0.1524" layer="91"/>
+<label x="426.72" y="332.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$19" gate="G$1" pin="P$2"/>
+<pinref part="U$20" gate="G$1" pin="P$2"/>
+<wire x1="495.3" y1="358.14" x2="490.22" y2="358.14" width="0.1524" layer="91"/>
+<pinref part="U$13" gate="G$1" pin="P$2"/>
+<wire x1="495.3" y1="358.14" x2="497.84" y2="358.14" width="0.1524" layer="91"/>
+<junction x="495.3" y="358.14"/>
+<wire x1="497.84" y1="358.14" x2="500.38" y2="358.14" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="358.14" x2="497.84" y2="353.06" width="0.1524" layer="91"/>
+<junction x="497.84" y="358.14"/>
+<label x="497.84" y="353.06" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="G$1" pin="2"/>
+<wire x1="421.64" y1="139.7" x2="434.34" y2="139.7" width="0.1524" layer="91"/>
+<label x="429.26" y="137.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="2"/>
+<wire x1="505.46" y1="139.7" x2="520.7" y2="139.7" width="0.1524" layer="91"/>
+<label x="518.16" y="139.7" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="JP4" gate="G$1" pin="2"/>
-<wire x1="332.74" y1="213.36" x2="312.42" y2="213.36" width="0.1524" layer="91"/>
-<label x="317.5" y="213.36" size="1.778" layer="95"/>
+<wire x1="332.74" y1="213.36" x2="347.98" y2="213.36" width="0.1524" layer="91"/>
+<label x="342.9" y="213.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -15551,7 +15558,6 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <wire x1="449.58" y1="355.6" x2="462.28" y2="355.6" width="0.1524" layer="91"/>
-<label x="467.36" y="355.6" size="1.778" layer="95"/>
 <pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="449.58" y1="353.06" x2="449.58" y2="355.6" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="1"/>
@@ -15566,9 +15572,7 @@ KICK_REF to range from approximately
 <wire x1="424.18" y1="355.6" x2="436.88" y2="355.6" width="0.1524" layer="91"/>
 <junction x="436.88" y="355.6"/>
 <pinref part="C11" gate="G$1" pin="1"/>
-<junction x="462.28" y="355.6"/>
-<pinref part="PW_LED1" gate="G$1" pin="A"/>
-<wire x1="462.28" y1="355.6" x2="472.44" y2="355.6" width="0.1524" layer="91"/>
+<label x="454.66" y="355.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
@@ -15580,42 +15584,39 @@ KICK_REF to range from approximately
 <label x="571.5" y="284.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MOTOR3" gate="G$1" pin="26"/>
 <pinref part="JP2" gate="G$1" pin="4"/>
-<wire x1="421.64" y1="144.78" x2="414.02" y2="144.78" width="0.1524" layer="91"/>
-<label x="416.56" y="144.78" size="1.778" layer="95"/>
+<label x="434.34" y="144.78" size="1.778" layer="95"/>
+<wire x1="421.64" y1="144.78" x2="434.34" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MOTOR4" gate="G$1" pin="26"/>
 <pinref part="JP3" gate="G$1" pin="4"/>
-<wire x1="505.46" y1="144.78" x2="492.76" y2="144.78" width="0.1524" layer="91"/>
-<label x="495.3" y="144.78" size="1.778" layer="95"/>
+<label x="518.16" y="144.78" size="1.778" layer="95"/>
+<wire x1="505.46" y1="144.78" x2="520.7" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MOTOR2" gate="G$1" pin="26"/>
 <pinref part="JP1" gate="G$1" pin="4"/>
-<wire x1="342.9" y1="144.78" x2="335.28" y2="144.78" width="0.1524" layer="91"/>
-<label x="335.28" y="144.78" size="1.778" layer="95"/>
+<label x="353.06" y="144.78" size="1.778" layer="95"/>
+<wire x1="342.9" y1="144.78" x2="355.6" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="MOTOR1" gate="G$1" pin="26"/>
 <pinref part="JP4" gate="G$1" pin="4"/>
-<wire x1="332.74" y1="218.44" x2="312.42" y2="218.44" width="0.1524" layer="91"/>
-<label x="317.5" y="218.44" size="1.778" layer="95"/>
+<label x="345.44" y="218.44" size="1.778" layer="95"/>
+<wire x1="332.74" y1="218.44" x2="347.98" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="1"/>
 <wire x1="607.06" y1="312.42" x2="604.52" y2="312.42" width="0.1524" layer="91"/>
 <wire x1="604.52" y1="312.42" x2="604.52" y2="320.04" width="0.1524" layer="91"/>
+<label x="604.52" y="320.04" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="VIN_OPT"/>
-<wire x1="566.42" y1="177.8" x2="551.18" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="568.96" y1="177.8" x2="551.18" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="551.18" y1="177.8" x2="551.18" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="551.18" y1="200.66" x2="574.04" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="574.04" y1="200.66" x2="574.04" y2="205.74" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="G$1" pin="VIN"/>
-<wire x1="571.5" y1="177.8" x2="581.66" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="177.8" x2="581.66" y2="177.8" width="0.1524" layer="91"/>
 <wire x1="581.66" y1="177.8" x2="581.66" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="574.04" y1="200.66" x2="581.66" y2="200.66" width="0.1524" layer="91"/>
 <junction x="574.04" y="200.66"/>
@@ -15714,6 +15715,18 @@ KICK_REF to range from approximately
 <wire x1="650.24" y1="88.9" x2="650.24" y2="93.98" width="0.1524" layer="91"/>
 <label x="650.24" y="91.44" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="VDDIN"/>
+<wire x1="711.2" y1="109.22" x2="645.16" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="C22" gate="G$1" pin="1"/>
+<pinref part="C24" gate="G$1" pin="1"/>
+<wire x1="645.16" y1="109.22" x2="635" y2="109.22" width="0.1524" layer="91"/>
+<junction x="645.16" y="109.22"/>
+<pinref part="C25" gate="G$1" pin="1"/>
+<wire x1="635" y1="109.22" x2="624.84" y2="109.22" width="0.1524" layer="91"/>
+<junction x="635" y="109.22"/>
+<label x="650.24" y="109.22" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="12VGND" class="0">
 <segment>
@@ -15797,35 +15810,7 @@ KICK_REF to range from approximately
 <pinref part="KICK_Q" gate="G$1" pin="S"/>
 <wire x1="482.6" y1="307.34" x2="482.6" y2="302.26" width="0.1524" layer="91"/>
 <label x="482.6" y="302.26" size="1.778" layer="95"/>
-<label x="566.42" y="307.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="BATT" gate="-2" pin="KL"/>
-<wire x1="358.14" y1="350.52" x2="393.7" y2="350.52" width="0.1524" layer="91"/>
-<label x="373.38" y="350.52" size="1.778" layer="95"/>
-<wire x1="393.7" y1="350.52" x2="393.7" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="345.44" x2="436.88" y2="342.9" width="0.1524" layer="91"/>
-<label x="449.58" y="337.82" size="1.778" layer="95"/>
-<pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="449.58" y1="345.44" x2="449.58" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="449.58" y1="342.9" x2="436.88" y2="342.9" width="0.1524" layer="91"/>
-<pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="462.28" y1="345.44" x2="462.28" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="449.58" y1="342.9" x2="462.28" y2="342.9" width="0.1524" layer="91"/>
-<junction x="449.58" y="342.9"/>
-<pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="393.7" y1="332.74" x2="401.32" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="401.32" y1="332.74" x2="419.1" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="419.1" y1="332.74" x2="449.58" y2="332.74" width="0.1524" layer="91"/>
-<wire x1="449.58" y1="332.74" x2="449.58" y2="342.9" width="0.1524" layer="91"/>
-<pinref part="3.3REG1" gate="G$1" pin="GND"/>
-<wire x1="419.1" y1="337.82" x2="419.1" y2="332.74" width="0.1524" layer="91"/>
-<junction x="419.1" y="332.74"/>
-<pinref part="U$12" gate="G$1" pin="+"/>
-<wire x1="401.32" y1="350.52" x2="401.32" y2="332.74" width="0.1524" layer="91"/>
-<junction x="401.32" y="332.74"/>
-<pinref part="U$13" gate="G$1" pin="P$1"/>
-<junction x="449.58" y="332.74"/>
+<label x="482.6" y="302.26" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="347.98" x2="312.42" y2="340.36" width="0.1524" layer="91"/>
@@ -15942,6 +15927,7 @@ KICK_REF to range from approximately
 <wire x1="541.02" y1="320.04" x2="541.02" y2="309.88" width="0.1524" layer="91"/>
 <wire x1="541.02" y1="309.88" x2="553.72" y2="309.88" width="0.1524" layer="91"/>
 <junction x="553.72" y="309.88"/>
+<label x="563.88" y="307.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$11" gate="G$1" pin="P$7"/>
@@ -15960,25 +15946,6 @@ KICK_REF to range from approximately
 <junction x="297.18" y="208.28"/>
 <pinref part="MOTOR1" gate="G$1" pin="34"/>
 <wire x1="297.18" y1="208.28" x2="312.42" y2="208.28" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U$8" gate="G$1" pin="P$6"/>
-<pinref part="U$8" gate="G$1" pin="P$5"/>
-<wire x1="287.02" y1="157.48" x2="287.02" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="287.02" y1="160.02" x2="314.96" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="314.96" y1="160.02" x2="317.5" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="MOTOR2" gate="G$1" pin="15"/>
-<wire x1="317.5" y1="157.48" x2="320.04" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="MOTOR2" gate="G$1" pin="17"/>
-<wire x1="320.04" y1="154.94" x2="320.04" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="MOTOR2" gate="G$1" pin="16"/>
-<wire x1="320.04" y1="157.48" x2="335.28" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="MOTOR2" gate="G$1" pin="18"/>
-<wire x1="335.28" y1="157.48" x2="335.28" y2="154.94" width="0.1524" layer="91"/>
-<junction x="320.04" y="157.48"/>
-<junction x="320.04" y="154.94"/>
-<junction x="335.28" y="157.48"/>
-<junction x="335.28" y="154.94"/>
 </segment>
 <segment>
 <label x="299.72" y="134.62" size="1.778" layer="95"/>
@@ -16032,6 +15999,47 @@ KICK_REF to range from approximately
 <pinref part="MOTOR4" gate="G$1" pin="22"/>
 <wire x1="492.76" y1="149.86" x2="497.84" y2="149.86" width="0.1524" layer="91"/>
 <label x="492.76" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="BATT" gate="-2" pin="KL"/>
+<wire x1="358.14" y1="350.52" x2="393.7" y2="350.52" width="0.1524" layer="91"/>
+<label x="373.38" y="350.52" size="1.778" layer="95"/>
+<pinref part="U$12" gate="G$1" pin="+"/>
+<wire x1="401.32" y1="350.52" x2="401.32" y2="347.98" width="0.1524" layer="91"/>
+<wire x1="401.32" y1="347.98" x2="393.7" y2="347.98" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="347.98" x2="393.7" y2="350.52" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$13" gate="G$1" pin="P$1"/>
+<pinref part="U$19" gate="G$1" pin="P$1"/>
+<wire x1="495.3" y1="370.84" x2="500.38" y2="370.84" width="0.1524" layer="91"/>
+<junction x="495.3" y="370.84"/>
+<pinref part="U$20" gate="G$1" pin="P$1"/>
+<wire x1="495.3" y1="370.84" x2="492.76" y2="370.84" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="370.84" x2="490.22" y2="370.84" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="370.84" x2="492.76" y2="375.92" width="0.1524" layer="91"/>
+<junction x="492.76" y="370.84"/>
+<label x="492.76" y="375.92" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="P$7"/>
+<wire x1="287.02" y1="154.94" x2="289.56" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="157.48" x2="292.1" y2="157.48" width="0.1524" layer="91"/>
+<label x="289.56" y="157.48" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="BATCLAMP2" gate="G$1" pin="A"/>
+<wire x1="543.56" y1="269.24" x2="543.56" y2="264.16" width="0.1524" layer="91"/>
+<pinref part="R18" gate="G$1" pin="1"/>
+<wire x1="543.56" y1="264.16" x2="551.18" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="551.18" y1="264.16" x2="556.26" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="551.18" y1="264.16" x2="551.18" y2="259.08" width="0.1524" layer="91"/>
+<label x="553.72" y="259.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="472.44" y1="335.28" x2="472.44" y2="327.66" width="0.1524" layer="91"/>
+<label x="467.36" y="330.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="COMP_OUT" class="0">
@@ -16146,6 +16154,7 @@ KICK_REF to range from approximately
 <segment>
 <pinref part="U$7" gate="G$1" pin="D+"/>
 <wire x1="579.12" y1="340.36" x2="579.12" y2="342.9" width="0.1524" layer="91"/>
+<label x="579.12" y="342.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CHIP_ENABLE" class="0">
@@ -16295,16 +16304,18 @@ KICK_REF to range from approximately
 <junction x="403.86" y="355.6"/>
 <pinref part="U$12" gate="G$1" pin="-"/>
 <junction x="401.32" y="355.6"/>
+<label x="396.24" y="355.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="KICKER1" gate="1" pin="1"/>
 <wire x1="612.14" y1="335.28" x2="612.14" y2="345.44" width="0.1524" layer="91"/>
 <label x="612.14" y="345.44" size="1.778" layer="95"/>
-<label x="548.64" y="347.98" size="1.778" layer="95"/>
+<label x="612.14" y="345.44" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R23" gate="G$1" pin="1"/>
 <wire x1="548.64" y1="345.44" x2="548.64" y2="347.98" width="0.1524" layer="91"/>
+<label x="548.64" y="347.98" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="COM_BOARD" gate="G$1" pin="1"/>
@@ -16327,6 +16338,11 @@ KICK_REF to range from approximately
 <wire x1="340.36" y1="337.82" x2="340.36" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="332.74" y1="337.82" x2="340.36" y2="337.82" width="0.1524" layer="91"/>
 <junction x="340.36" y="337.82"/>
+</segment>
+<segment>
+<pinref part="PW_LED1" gate="G$1" pin="A"/>
+<wire x1="472.44" y1="355.6" x2="472.44" y2="365.76" width="0.1524" layer="91"/>
+<label x="472.44" y="363.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -16548,6 +16564,7 @@ KICK_REF to range from approximately
 <segment>
 <pinref part="R26" gate="G$1" pin="1"/>
 <wire x1="520.7" y1="340.36" x2="520.7" y2="342.9" width="0.1524" layer="91"/>
+<label x="520.7" y="342.9" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA23"/>
@@ -17363,14 +17380,14 @@ KICK_REF to range from approximately
 <segment>
 <pinref part="U$14" gate="G$1" pin="TRST"/>
 <pinref part="R32" gate="G$1" pin="1"/>
-<wire x1="571.5" y1="172.72" x2="609.6" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="172.72" x2="609.6" y2="172.72" width="0.1524" layer="91"/>
 <wire x1="609.6" y1="172.72" x2="609.6" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RST" class="0">
 <segment>
 <pinref part="U$14" gate="G$1" pin="RESET"/>
-<wire x1="571.5" y1="142.24" x2="632.46" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="142.24" x2="632.46" y2="142.24" width="0.1524" layer="91"/>
 <label x="627.38" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -17382,9 +17399,9 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="RTCK"/>
-<wire x1="571.5" y1="152.4" x2="617.22" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="152.4" x2="617.22" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="G$1" pin="TCLK"/>
-<wire x1="571.5" y1="157.48" x2="617.22" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="157.48" x2="617.22" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="1"/>
 <wire x1="617.22" y1="157.48" x2="617.22" y2="185.42" width="0.1524" layer="91"/>
 <junction x="617.22" y="157.48"/>
@@ -17401,7 +17418,7 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="TMS"/>
-<wire x1="571.5" y1="162.56" x2="594.36" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="162.56" x2="594.36" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="594.36" y1="185.42" x2="594.36" y2="162.56" width="0.1524" layer="91"/>
 <wire x1="594.36" y1="162.56" x2="596.9" y2="162.56" width="0.1524" layer="91"/>
@@ -17418,7 +17435,7 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="TDO"/>
-<wire x1="571.5" y1="147.32" x2="586.74" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="147.32" x2="586.74" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="R27" gate="G$1" pin="1"/>
 <wire x1="586.74" y1="185.42" x2="586.74" y2="147.32" width="0.1524" layer="91"/>
 <junction x="586.74" y="147.32"/>
@@ -17434,7 +17451,7 @@ KICK_REF to range from approximately
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="TDI"/>
-<wire x1="571.5" y1="167.64" x2="601.98" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="167.64" x2="601.98" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="R30" gate="G$1" pin="1"/>
 <wire x1="601.98" y1="185.42" x2="601.98" y2="167.64" width="0.1524" layer="91"/>
 <junction x="601.98" y="167.64"/>
@@ -17477,19 +17494,6 @@ KICK_REF to range from approximately
 <junction x="871.22" y="116.84"/>
 </segment>
 </net>
-<net name="N$34" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="VDDIN"/>
-<wire x1="711.2" y1="109.22" x2="645.16" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="C22" gate="G$1" pin="1"/>
-<pinref part="C24" gate="G$1" pin="1"/>
-<wire x1="645.16" y1="109.22" x2="635" y2="109.22" width="0.1524" layer="91"/>
-<junction x="645.16" y="109.22"/>
-<pinref part="C25" gate="G$1" pin="1"/>
-<wire x1="635" y1="109.22" x2="624.84" y2="109.22" width="0.1524" layer="91"/>
-<junction x="635" y="109.22"/>
-</segment>
-</net>
 <net name="VDDOUT" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="VDDOUT"/>
@@ -17519,12 +17523,11 @@ KICK_REF to range from approximately
 <pinref part="U1" gate="G$1" pin="VDDCORE"/>
 </segment>
 <segment>
-<wire x1="749.3" y1="68.58" x2="749.3" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="C30" gate="G$1" pin="2"/>
 <wire x1="749.3" y1="58.42" x2="749.3" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="749.3" y1="58.42" x2="754.38" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="749.3" y1="58.42" x2="749.3" y2="68.58" width="0.1524" layer="91"/>
 <junction x="749.3" y="58.42"/>
-<label x="759.46" y="58.42" size="1.778" layer="95" rot="R180"/>
+<label x="749.3" y="60.96" size="1.778" layer="95" rot="R270"/>
 <pinref part="U1" gate="G$1" pin="VDDCORE@1"/>
 </segment>
 <segment>
@@ -17780,6 +17783,28 @@ KICK_REF to range from approximately
 <pinref part="U1" gate="G$1" pin="PA20/AD3"/>
 <wire x1="678.18" y1="86.36" x2="711.2" y2="86.36" width="0.1524" layer="91"/>
 <label x="670.56" y="83.82" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="U$8" gate="G$1" pin="P$6"/>
+<pinref part="U$8" gate="G$1" pin="P$5"/>
+<wire x1="287.02" y1="157.48" x2="287.02" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="MOTOR2" gate="G$1" pin="15"/>
+<wire x1="287.02" y1="160.02" x2="317.5" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="317.5" y1="160.02" x2="320.04" y2="157.48" width="0.1524" layer="91"/>
+<junction x="287.02" y="160.02"/>
+<pinref part="MOTOR2" gate="G$1" pin="17"/>
+<wire x1="320.04" y1="157.48" x2="320.04" y2="154.94" width="0.1524" layer="91"/>
+<junction x="320.04" y="157.48"/>
+<pinref part="MOTOR2" gate="G$1" pin="16"/>
+<wire x1="320.04" y1="157.48" x2="335.28" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="MOTOR2" gate="G$1" pin="18"/>
+<wire x1="335.28" y1="157.48" x2="335.28" y2="154.94" width="0.1524" layer="91"/>
+<junction x="335.28" y="157.48"/>
+<wire x1="335.28" y1="154.94" x2="320.04" y2="154.94" width="0.1524" layer="91"/>
+<junction x="335.28" y="154.94"/>
+<junction x="320.04" y="154.94"/>
 </segment>
 </net>
 </nets>
