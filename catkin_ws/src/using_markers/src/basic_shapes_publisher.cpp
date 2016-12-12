@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(RATE);
 
   //TODO: make this more how it should be
-  CubeInterface c1;
+  CubeInterface c1(RED);
   c1.goto_xy_pos(10, 10);
 
   while(ros::ok())

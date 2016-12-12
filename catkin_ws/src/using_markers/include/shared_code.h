@@ -14,4 +14,10 @@
     RET_CMD;                                                            \
   }while(0)                                                             \
 
+#define ROBOT_COMMAND_TOPIC "messenger_set_pos"
+#define ROBOT_POS_SERVER "service_get_pos"
+
+// different colors indicate different robots
+enum {RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE};
+
 #endif /* UNIVERSAL_CONSTANTS */

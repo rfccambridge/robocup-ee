@@ -7,9 +7,7 @@
 #include <using_markers/robotCommand.h>
 #include <using_markers/robotPosSrv.h>
 
-#include "cube_com_specs.h"
-
-class CubeInterface : public CubeComSpecs<CubeInterface>
+class CubeInterface 
 {
 protected:
   static ros::ServiceClient client_get_pos;
@@ -30,6 +28,11 @@ protected:
 
 public:
 
+	// TODO: make this an enum type
+	int id;
+
+	CubeInterface(int _id) : id(_id) {}
+
   //!!!TODO
   //!!!TODO: Enclose the commands from the controller better
   //!!!TODO
@@ -42,11 +45,11 @@ public:
   static void initialize_coms(ros::NodeHandle n)
   {
     if(!client_get_pos)
-      client_get_pos = n.serviceClient<using_markers::robotPosSrv>(name_service_get_pos(), true);
+      client_get_pos = n.serviceClient<using_markers::robotPosSrv>(ROBOT_POS_SERVER, true);
 
     //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
     if(!publisher_set_vels)
-      publisher_set_vels = n.advertise<using_markers::robotCommand>(name_messenger_set_pos(), 1);
+      publisher_set_vels = n.advertise<using_markers::robotCommand>(ROBOT_COMMAND_TOPIC, 1);
   }
 
   //Checks connection status

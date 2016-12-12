@@ -16,9 +16,9 @@ bool CubeInterface::call_for_cur_pos(float ret_cur_pos[2])
   //Retrieve the current x and y positions of the robot
   float cur_x, cur_y;
 
-  //Request the cube's position with ID of `com_id` from `CubeComSpecs`
+  //Request the cube's position with ID of `id`
   using_markers::robotPosSrv srv;
-  srv.request.robotID = com_id;
+  srv.request.robotID = id;
 
   //TODO: Figure out why I can get the pos!
   printf("POOP %d\n", (bool)client_get_pos.exists());
@@ -129,8 +129,8 @@ bool CubeInterface::spin()
   //Create and populate a message to send
   using_markers::robotCommand msg;
 
-  //Set the `robotID` by `com_id` from `CubeComSpecs`
-  msg.robotID = com_id;
+  //Set the `robotID` by `id`
+  msg.robotID = id;
 
   //TODO: ultimately we will want to change how we set wheel speeds  
   msg.speed0 = msg.speed2 = vel_x;
