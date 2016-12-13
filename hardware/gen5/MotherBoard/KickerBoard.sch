@@ -17947,10 +17947,10 @@ for proper operation of motor controller</text>
 <net name="FAULT" class="0">
 <segment>
 <pinref part="U$17" gate="G$1" pin="1Y"/>
-<wire x1="665.48" y1="83.82" x2="678.18" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="678.18" y1="83.82" x2="678.18" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="665.48" y1="83.82" x2="706.12" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="706.12" y1="83.82" x2="706.12" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="PA20/AD3"/>
-<wire x1="678.18" y1="86.36" x2="711.2" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="706.12" y1="86.36" x2="711.2" y2="86.36" width="0.1524" layer="91"/>
 <label x="670.56" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
