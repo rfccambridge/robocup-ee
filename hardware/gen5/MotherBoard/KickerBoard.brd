@@ -4700,7 +4700,6 @@ design rules under a new name.</description>
 <contactref element="FUSE_MOTOR_6" pad="2"/>
 <contactref element="MOTOR3" pad="5"/>
 <contactref element="MOTOR3" pad="6"/>
-<contactref element="MOTOR3" pad="4"/>
 <contactref element="MOTOR3" pad="2"/>
 <contactref element="MOTOR3" pad="3"/>
 <contactref element="MOTOR3" pad="1"/>
@@ -4717,7 +4716,6 @@ design rules under a new name.</description>
 <wire x1="100.2792" y1="22.9108" x2="100.2792" y2="20.1297625" width="1.9304" layer="1"/>
 <wire x1="100.2792" y1="20.1297625" x2="100.258775" y2="20.1093375" width="1.9304" layer="1"/>
 <wire x1="93.121375" y1="20.1093375" x2="100.258775" y2="20.1093375" width="1.016" layer="1"/>
-<wire x1="93.121375" y1="23.322175" x2="93.121375" y2="22.6493375" width="0.2032" layer="1"/>
 <wire x1="100.258775" y1="22.6493375" x2="100.258775" y2="22.890375" width="0.2032" layer="1"/>
 <wire x1="100.258775" y1="22.890375" x2="100.2792" y2="22.9108" width="0.2032" layer="1"/>
 </signal>

@@ -15159,6 +15159,7 @@ KICK_REF to range from approximately
 0 to 2.5 V</text>
 <text x="210.82" y="233.68" size="1.778" layer="97">P8, P9, P10 are for Hall Sensors outputs... needed 
 for proper operation of motor controller</text>
+<text x="685.8" y="55.88" size="1.778" layer="97">Separate Fault Pins</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
@@ -15439,11 +15440,6 @@ for proper operation of motor controller</text>
 <junction x="579.12" y="274.32"/>
 <label x="571.5" y="274.32" size="1.778" layer="95"/>
 <pinref part="BB_CON" gate="G$1" pin="P$3"/>
-</segment>
-<segment>
-<label x="347.98" y="208.28" size="1.778" layer="95"/>
-<label x="518.16" y="317.5" size="1.778" layer="95"/>
-<wire x1="353.06" y1="208.28" x2="383.54" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$5" gate="G$1" pin="LED-"/>
@@ -16032,7 +16028,6 @@ for proper operation of motor controller</text>
 <junction x="335.28" y="127"/>
 </segment>
 <segment>
-<label x="378.46" y="129.54" size="1.778" layer="95"/>
 <wire x1="396.24" y1="129.54" x2="383.54" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="396.24" y1="127" x2="396.24" y2="129.54" width="0.1524" layer="91"/>
 <junction x="396.24" y="129.54"/>
@@ -16134,7 +16129,6 @@ for proper operation of motor controller</text>
 <label x="375.92" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="378.46" y="134.62" size="1.778" layer="95"/>
 <pinref part="MOTOR3" gate="G$1" pin="34"/>
 <wire x1="383.54" y1="134.62" x2="398.78" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="33"/>
@@ -16494,12 +16488,6 @@ for proper operation of motor controller</text>
 <pinref part="R23" gate="G$1" pin="1"/>
 <wire x1="548.64" y1="345.44" x2="548.64" y2="347.98" width="0.1524" layer="91"/>
 <label x="548.64" y="347.98" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="368.3" y1="248.92" x2="368.3" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="368.3" y1="243.84" x2="360.68" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="360.68" y1="243.84" x2="360.68" y2="251.46" width="0.1524" layer="91"/>
-<label x="358.14" y="251.46" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$18" gate="G$1" pin="VDD"/>
@@ -16879,12 +16867,9 @@ for proper operation of motor controller</text>
 <wire x1="398.78" y1="172.72" x2="398.78" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="6"/>
 <wire x1="398.78" y1="170.18" x2="414.02" y2="170.18" width="0.1524" layer="91"/>
-<pinref part="MOTOR3" gate="G$1" pin="4"/>
-<wire x1="398.78" y1="172.72" x2="414.02" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="MOTOR3" gate="G$1" pin="2"/>
 <wire x1="396.24" y1="175.26" x2="398.78" y2="175.26" width="0.1524" layer="91"/>
 <junction x="414.02" y="175.26"/>
-<junction x="414.02" y="172.72"/>
 <junction x="414.02" y="170.18"/>
 <junction x="398.78" y="170.18"/>
 <pinref part="MOTOR3" gate="G$1" pin="3"/>
@@ -17735,10 +17720,6 @@ for proper operation of motor controller</text>
 <pinref part="R36" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<wire x1="368.3" y1="228.6" x2="358.14" y2="228.6" width="0.1524" layer="91"/>
-<label x="358.14" y="228.6" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="SV1" gate="1" pin="5"/>
 <wire x1="398.78" y1="233.68" x2="406.4" y2="233.68" width="0.1524" layer="91"/>
 <label x="401.32" y="233.68" size="1.778" layer="95"/>
@@ -17753,10 +17734,6 @@ for proper operation of motor controller</text>
 <junction x="833.12" y="111.76"/>
 <label x="835.66" y="109.22" size="1.778" layer="95"/>
 <pinref part="R35" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<wire x1="368.3" y1="226.06" x2="358.14" y2="226.06" width="0.1524" layer="91"/>
-<label x="358.14" y="226.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SV1" gate="1" pin="6"/>
