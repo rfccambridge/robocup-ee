@@ -5,13 +5,13 @@
 
 int main(int argc, char **argv)
 {
+	printf("hello!");
   //Initialize our ROS system
   ros::init(argc, argv, "points_and_lines");
 
   ros::NodeHandle n;
 
   ros::Rate loop_rate(RATE);
-
   //Instantiate a cube for us to move
   Game game(n);
 	game.create_cube(RED,0,0,0);
