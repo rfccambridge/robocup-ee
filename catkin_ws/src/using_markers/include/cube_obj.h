@@ -42,7 +42,6 @@ public:
     color.b = 0.0f;
     color.a = 1.0;
   }
-
 };
 
 #endif // MACRO

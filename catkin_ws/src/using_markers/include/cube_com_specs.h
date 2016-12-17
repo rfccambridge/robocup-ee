@@ -2,8 +2,8 @@
 #ifndef CUBE_COM_SPECS_H
 #define CUBE_COM_SPECS_H
 
-#include <string>
 #include <map>
+#include <string>
 
 #include "shared_code.h"
 
@@ -14,7 +14,7 @@ class CubeComSpecs
 {
 protected:
   static int running_id;
-  static std::map<int, Derived*> map_instances;
+  static std::map<int, Derived *> map_instances;
 
   int com_id;
 
@@ -23,8 +23,8 @@ protected:
     com_id = running_id++;
 
     //Add `this` to the map of derived instances
-    Derived* dp = (Derived*)this; //Extract a pointer of the `Derived` type
-    map_instances.insert(std::pair<int, Derived*>(com_id, dp));
+    Derived *dp = (Derived *)this; //Extract a pointer of the `Derived` type
+    map_instances.insert(std::pair<int, Derived *>(com_id, dp));
   }
 
   ~CubeComSpecs()
@@ -35,7 +35,7 @@ protected:
 
   static Derived *lookup_by_id(const int id)
   {
-    typename std::map<int, Derived*>::iterator it = map_instances.find(id);
+    typename std::map<int, Derived *>::iterator it = map_instances.find(id);
 
     //Return accordingly based on whether `id` was found
     if(it == map_instances.end())
@@ -53,14 +53,13 @@ protected:
   {
     return "messenger_set_pos";
   }
-
 };
 
 //Declare the static template types
-template <typename Derived> 
+template <typename Derived>
 int CubeComSpecs<Derived>::running_id = 0;
 
-template <typename Derived> 
-std::map<int, Derived*> CubeComSpecs<Derived>::map_instances;
+template <typename Derived>
+std::map<int, Derived *> CubeComSpecs<Derived>::map_instances;
 
 #endif /* CUBE_COM_SPECS_H */

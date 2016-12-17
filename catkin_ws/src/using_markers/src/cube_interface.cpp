@@ -1,14 +1,14 @@
 
-#include <stdio.h>
 #include <ros/ros.h>
+#include <stdio.h>
 
-#include "shared_code.h"
 #include "cube_interface.h"
+#include "shared_code.h"
 
 ros::ServiceClient CubeInterface::client_get_pos;
 ros::Publisher CubeInterface::publisher_set_vels;
 
-//Calls the cube server to retrieve the current position 
+//Calls the cube server to retrieve the current position
 //
 // Outputs in `ret_cur_pos` as [cur_x, cur_y] or returns false on error
 bool CubeInterface::call_for_cur_pos(float ret_cur_pos[2])
@@ -30,7 +30,8 @@ bool CubeInterface::call_for_cur_pos(float ret_cur_pos[2])
 
     ret_cur_pos[0] = srv.response.pos_x;
     ret_cur_pos[1] = srv.response.pos_y;
-  }else{
+  } else
+  {
     fprintf(stderr, "Error: The pos client call failed!\n");
     return false;
   }
@@ -42,12 +43,12 @@ bool CubeInterface::call_for_cur_pos(float ret_cur_pos[2])
 // PID controller implementation
 //
 // Outputs the velocities in `ret_vels` as [vel_x, vel_y] or returns false on error
-bool CubeInterface::pid_calc_vels(float ret_vels[2]) 
+bool CubeInterface::pid_calc_vels(float ret_vels[2])
 {
   const float k_p = 0.5, k_i = 0.1, k_d = 0.1;
 
-  //Error terms			
-  float error_x, error_d_x = 0.0;	
+  //Error terms
+  float error_x, error_d_x = 0.0;
   float error_y, error_d_y = 0.0;
 
   //Commanded velocities
@@ -132,7 +133,7 @@ bool CubeInterface::spin()
   //Set the `robotID` by `id`
   msg.robotID = id;
 
-  //TODO: ultimately we will want to change how we set wheel speeds  
+  //TODO: ultimately we will want to change how we set wheel speeds
   msg.speed0 = msg.speed2 = vel_x;
   msg.speed1 = msg.speed3 = vel_y;
 

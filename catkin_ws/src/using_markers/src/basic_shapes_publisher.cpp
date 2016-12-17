@@ -1,9 +1,9 @@
 
-#include <stdio.h>
 #include <ros/ros.h>
+#include <stdio.h>
 
-#include "shared_code.h"
 #include "cube_interface.h"
+#include "shared_code.h"
 
 int main(int argc, char **argv)
 {
@@ -36,7 +36,6 @@ int main(int argc, char **argv)
     //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();
     loop_rate.sleep();
-
   }
 
   return 0;

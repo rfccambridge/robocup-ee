@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 
-#include "shared_code.h"
 #include "game.h"
+#include "shared_code.h"
 
 int main(int argc, char **argv)
 {
@@ -14,8 +14,8 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(RATE);
   //Instantiate a cube for us to move
   Game game(n);
-	game.create_cube(RED,0,0,0);
-	
+  game.create_cube(RED, 0, 0, 0);
+
   while(ros::ok())
   {
     //Loop until all coms are alive
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     }
 
     //Render all of the markers
-  	game.render_markers();
+    game.render_markers();
 
     //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();

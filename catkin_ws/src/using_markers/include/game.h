@@ -4,12 +4,12 @@
 #include <map>
 
 #include <ros/ros.h>
-#include <visualization_msgs/Marker.h>
 #include <using_markers/robotCommand.h>
 #include <using_markers/robotPosSrv.h>
+#include <visualization_msgs/Marker.h>
 
-#include "shared_code.h"
 #include "cube_obj.h"
+#include "shared_code.h"
 
 typedef visualization_msgs::Marker marker_t;
 
@@ -20,32 +20,31 @@ protected:
   static ros::Subscriber subscriber_set_pos;
   static ros::Publisher publisher_render;
 
-	static std::map<int, marker_t*> map_instances;
+  static std::map<int, marker_t *> map_instances;
 
 public:
-	Game(ros::NodeHandle n) 
-	{
-		// TODO: we can create 6 robots and a ball or something
-		initialize_coms(n);
-	}
+  Game(ros::NodeHandle n)
+  {
+    // TODO: we can create 6 robots and a ball or something
+    initialize_coms(n);
+  }
 
-	~Game() 
-	{
-		std::map<int, marker_t*>::iterator it = map_instances.begin();
-  	for(; it != map_instances.end(); ++it)
-			free(it->second);
-	}
-
+  ~Game()
+  {
+    std::map<int, marker_t *>::iterator it = map_instances.begin();
+    for(; it != map_instances.end(); ++it)
+      free(it->second);
+  }
 
   void render_markers();
 
   //Sets the x position based on an incoming message
- 	static void subscriber_set_pos_handle(const using_markers::robotCommand command);
-  
+  static void subscriber_set_pos_handle(const using_markers::robotCommand command);
+
   //
   // Cube Services
   //
-  static bool server_get_pos_handle(using_markers::robotPosSrv::Request  &req,
+  static bool server_get_pos_handle(using_markers::robotPosSrv::Request &req,
                                     using_markers::robotPosSrv::Response &res);
 
   //Initializes the communication interfaces
@@ -59,7 +58,7 @@ public:
       server_get_pos = n.advertiseService(ROBOT_POS_SERVER, server_get_pos_handle);
 
     if(!subscriber_set_pos)
-      subscriber_set_pos = n.subscribe(ROBOT_COMMAND_TOPIC, 1, subscriber_set_pos_handle);        
+      subscriber_set_pos = n.subscribe(ROBOT_COMMAND_TOPIC, 1, subscriber_set_pos_handle);
   }
 
   //Checks connection status
@@ -68,20 +67,20 @@ public:
     return publisher_render && server_get_pos && subscriber_set_pos;
   }
 
-	//Creates Cube
-	static void create_cube(int id, double _x, double _y, double _z) 
-	{
-			Cube* c = (Cube*) malloc(sizeof(Cube));
-			*c = Cube(id, _x, _y, _z);
-
-			// TODO Change Derived type
-			map_instances.insert(std::pair<int, marker_t*>(id, c));
-	}
-
-	// TODO make this work for Cubes and the ball... change Derived type
-	static marker_t* lookup_by_id(const int id)
+  //Creates Cube
+  static void create_cube(int id, double _x, double _y, double _z)
   {
-    std::map<int, marker_t*>::iterator it = map_instances.find(id);
+    Cube *c = (Cube *)malloc(sizeof(Cube));
+    *c = Cube(id, _x, _y, _z);
+
+    // TODO Change Derived type
+    map_instances.insert(std::pair<int, marker_t *>(id, c));
+  }
+
+  // TODO make this work for Cubes and the ball... change Derived type
+  static marker_t *lookup_by_id(const int id)
+  {
+    std::map<int, marker_t *>::iterator it = map_instances.find(id);
 
     //Return accordingly based on whether `id` was found
     if(it == map_instances.end())
@@ -89,7 +88,6 @@ public:
     else
       return it->second;
   }
-	
 };
 
 #endif // MACRO
