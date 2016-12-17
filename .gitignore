@@ -10,3 +10,7 @@
 *.l#1
 *.zip
 *.pro
+
+#Editor temp files
+\#*
+.\#*
