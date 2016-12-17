@@ -20,23 +20,23 @@ public:
 
     lifetime = ros::Duration();
 
-    //Set the pose position from the input arguments
+    // Set the pose position from the input arguments
     pose.position.x = _x;
     pose.position.y = _y;
     pose.position.z = _z;
 
-    //Set all of the other values to their default
+    // Set all of the other values to their default
     pose.orientation.x = 0.0;
     pose.orientation.y = 0.0;
     pose.orientation.z = 0.0;
     pose.orientation.w = 1.0;
 
-    //1x1x1 here means 1m on a side
+    // 1x1x1 here means 1m on a side
     scale.x = 1.0;
     scale.y = 1.0;
     scale.z = 1.0;
 
-    //Be sure to set alpha to something non-zero!
+    // Be sure to set alpha to something non-zero!
     color.r = 0.0f;
     color.g = 1.0f;
     color.b = 0.0f;
