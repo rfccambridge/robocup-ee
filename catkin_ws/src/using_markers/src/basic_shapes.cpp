@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-	printf("hello!");
+
   //Initialize our ROS system
   ros::init(argc, argv, "points_and_lines");
 
