@@ -15073,7 +15073,6 @@ Y referse to the signal (A or B). </text>
 <wire x1="889" y1="198.12" x2="889" y2="177.8" width="0.1524" layer="97"/>
 <wire x1="889" y1="177.8" x2="822.96" y2="177.8" width="0.1524" layer="97"/>
 <wire x1="822.96" y1="177.8" x2="822.96" y2="198.12" width="0.1524" layer="97"/>
-<text x="612.14" y="48.26" size="1.778" layer="97">AND fault signals to determine if one of our motors is faulting</text>
 <text x="193.04" y="297.18" size="1.778" layer="97">Voff</text>
 <text x="208.28" y="312.42" size="1.778" layer="97">Differential Amplifier: Needed since the 
 DAC on the MCU has a minimum 
@@ -15082,7 +15081,6 @@ KICK_REF to range from approximately
 0 to 2.5 V</text>
 <text x="210.82" y="233.68" size="1.778" layer="97">P8, P9, P10 are for Hall Sensors outputs... needed 
 for proper operation of motor controller</text>
-<text x="685.8" y="55.88" size="1.778" layer="97">Separate Fault Pins</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
@@ -17735,10 +17733,6 @@ for proper operation of motor controller</text>
 <label x="304.8" y="137.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="622.3" y="83.82" size="1.778" layer="95"/>
-<wire x1="637.54" y1="83.82" x2="622.3" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="PA19/AD2"/>
 <wire x1="711.2" y1="93.98" x2="695.96" y2="93.98" width="0.1524" layer="91"/>
 <label x="698.5" y="93.98" size="1.778" layer="95"/>
@@ -17835,10 +17829,6 @@ for proper operation of motor controller</text>
 <label x="281.94" y="210.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<label x="622.3" y="86.36" size="1.778" layer="95"/>
-<wire x1="637.54" y1="86.36" x2="622.3" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="PA17/AD0"/>
 <wire x1="711.2" y1="104.14" x2="695.96" y2="104.14" width="0.1524" layer="91"/>
 <label x="698.5" y="104.14" size="1.778" layer="95"/>
@@ -17851,10 +17841,6 @@ for proper operation of motor controller</text>
 <label x="383.54" y="137.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="637.54" y1="81.28" x2="622.3" y2="81.28" width="0.1524" layer="91"/>
-<label x="622.3" y="81.28" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="PA20/AD3"/>
 <wire x1="711.2" y1="86.36" x2="698.5" y2="86.36" width="0.1524" layer="91"/>
 <label x="698.5" y="86.36" size="1.778" layer="95"/>
@@ -17865,10 +17851,6 @@ for proper operation of motor controller</text>
 <pinref part="MOTOR4" gate="G$1" pin="31"/>
 <wire x1="477.52" y1="137.16" x2="462.28" y2="137.16" width="0.1524" layer="91"/>
 <label x="462.28" y="137.16" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="637.54" y1="78.74" x2="622.3" y2="78.74" width="0.1524" layer="91"/>
-<label x="622.3" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA16"/>
