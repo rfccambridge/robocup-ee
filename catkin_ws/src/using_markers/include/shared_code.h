@@ -26,7 +26,8 @@ enum
   YELLOW,
   GREEN,
   BLUE,
-  PURPLE
+  PURPLE,
+  BALL_ID
 };
 
 #endif /* UNIVERSAL_CONSTANTS */

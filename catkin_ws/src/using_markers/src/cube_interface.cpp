@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 #include "cube_interface.h"
-#include "shared_code.h"
 
 ros::ServiceClient CubeInterface::client_get_pos;
 ros::Publisher CubeInterface::publisher_set_vels;
@@ -19,9 +18,6 @@ bool CubeInterface::call_for_cur_pos(float ret_cur_pos[2])
   // Request the cube's position with ID of `id`
   using_markers::robotPosSrv srv;
   srv.request.robotID = id;
-
-  // TODO: Figure out why I can get the pos!
-  printf("POOP %d\n", (bool)client_get_pos.exists());
 
   // Send this request via the `client_get_pos`
   if(client_get_pos.call(srv))

@@ -22,6 +22,7 @@ SpaceBeforeParens: Never
 PointerAlignment: Left
 IndentCaseLabels: false
 ColumnLimit: 100
+ReflowComments: false
 
 AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: false
