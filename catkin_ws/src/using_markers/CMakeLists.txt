@@ -46,7 +46,7 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
+add_message_files(
     FILES
     robotCommand.msg
 )
@@ -54,7 +54,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
-   robotCommandSrv.srv
+   robotPosSrv.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -121,9 +121,9 @@ include_directories(
 
 
 ## Declare a C++ library
-add_library(using_markers
-   src/cube_obj.cpp
-)
+#add_library(using_markers
+#   add library files here
+#)
 
 
 #############
@@ -173,12 +173,11 @@ add_library(using_markers
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(basic_shapes src/basic_shapes.cpp src/cube_obj.cpp)
+add_executable(basic_shapes src/basic_shapes.cpp src/game.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
-add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp)
+add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/cube_interface.cpp)
 target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
-
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -187,10 +186,6 @@ add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 
-
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(basic_shapes ${catkin_EXPORTED_TARGETS})
-
-
-

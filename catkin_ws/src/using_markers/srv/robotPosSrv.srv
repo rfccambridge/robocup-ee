@@ -1,0 +1,4 @@
+int8 robotID
+---
+float64 pos_x
+float64 pos_y

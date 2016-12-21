@@ -1,28 +1,35 @@
-
 #include <ros/ros.h>
 
-#include "cube_obj.h"
+#include "game.h"
+#include "shared_code.h"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
   //Initialize our ROS system
   ros::init(argc, argv, "points_and_lines");
 
   ros::NodeHandle n;
-  ros::Rate loop_rate(30);
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 10);
 
+  ros::Rate loop_rate(RATE);
   //Instantiate a cube for us to move
-  Cube cube(0, 0, 0);
-	
-  //Register this cube's x coords to change according to the influx of messages from  "chatter"
-  ros::Subscriber sub = n.subscribe("chatter", 1000, &Cube::set_pos_x, &cube);
+  Game game(n);
+  game.create_cube(RED, 0, 0, 0);
+  game.create_ball(BALL_ID, 5, 0, 0);
 
-  uint32_t shape = visualization_msgs::Marker::CUBE;
   while(ros::ok())
   {
-    //Make sure to publish the down-casted `cube`
-    marker_pub.publish((visualization_msgs::Marker)cube);
+    //Loop until all coms are alive
+    while(ros::ok() && !Game::coms_alive())
+    {
+      printf("Cube coms are down, trying to reconnect again...\n");
+      Game::initialize_coms(n); //Retry the failed connections
+
+      ros::spinOnce();
+      loop_rate.sleep();
+    }
+
+    //Render all of the markers
+    game.render_markers();
 
     //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();
