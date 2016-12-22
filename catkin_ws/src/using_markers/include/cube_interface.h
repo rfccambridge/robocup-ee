@@ -31,8 +31,8 @@ protected:
 public:
   // TODO: make this an enum type
   int id;
-  
-CubeInterface(int _id) : id(_id) {}
+
+  CubeInterface(int _id) : id(_id) {}
 
   //!!!TODO
   //!!!TODO: Enclose the commands from the controller better

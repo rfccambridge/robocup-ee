@@ -31,7 +31,7 @@ void Game::subscriber_set_pos_handle(const using_markers::robotCommand command)
 
   marker_t* cube = Game::lookup_by_id(command.robotID);
   if(!cube)
-    PRINT_ERROR_AND(return); //Return on error
+    PRINT_ERROR_AND(return ); //Return on error
 
   //TODO: incorporate speed2 and speed3 into this
   //This only drives in straight lines
