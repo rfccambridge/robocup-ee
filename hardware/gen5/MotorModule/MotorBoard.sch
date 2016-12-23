@@ -6488,40 +6488,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="supply2">
-<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
-GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
-Please keep in mind, that these devices are necessary for the
-automatic wiring of the supply signals.&lt;p&gt;
-The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
-In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-</packages>
-<symbols>
-<symbol name="GND">
-<wire x1="-1.27" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="GND" prefix="SUPPLY">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="GND" symbol="GND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 In this library you'll find connectors and sockets- basically anything that can be plugged into or onto.&lt;br&gt;&lt;br&gt;
@@ -7363,15 +7329,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND16" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R18" library="resistor" deviceset="R-US_" device="R2512" value="0.05"/>
 <part name="U$2" library="gen3" deviceset="INDUCTOR" device=""/>
-<part name="12VGND" library="supply2" deviceset="GND" device=""/>
-<part name="12VGND1" library="supply2" deviceset="GND" device=""/>
-<part name="12VGND2" library="supply2" deviceset="GND" device=""/>
 <part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R3" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R4" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="J1" library="SparkFun-Connectors" deviceset="M20X2" device="SHROUDED"/>
-<part name="12VGND4" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7433,15 +7395,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND16" gate="1" x="55.88" y="154.94"/>
 <instance part="R18" gate="G$1" x="139.7" y="10.16" rot="R90"/>
 <instance part="U$2" gate="G$1" x="35.56" y="137.16"/>
-<instance part="12VGND" gate="GND" x="25.4" y="154.94"/>
-<instance part="12VGND1" gate="GND" x="185.42" y="124.46"/>
-<instance part="12VGND2" gate="GND" x="139.7" y="2.54"/>
 <instance part="R2" gate="G$1" x="215.9" y="134.62" rot="R270"/>
 <instance part="R3" gate="G$1" x="208.28" y="134.62" rot="R270"/>
 <instance part="R4" gate="G$1" x="223.52" y="134.62" rot="R270"/>
 <instance part="GND1" gate="1" x="132.08" y="147.32"/>
 <instance part="J1" gate="G$1" x="226.06" y="88.9"/>
-<instance part="12VGND4" gate="GND" x="238.76" y="60.96"/>
 </instances>
 <busses>
 </busses>
@@ -7484,10 +7442,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U$2" gate="G$1" pin="P$2"/>
 <wire x1="48.26" y1="137.16" x2="53.34" y2="137.16" width="0.1524" layer="91"/>
 <label x="53.34" y="137.16" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="C3" gate="G$1" pin="1"/>
-<pinref part="12VGND" gate="GND" pin="GND"/>
 </segment>
 <segment>
 <pinref part="LED9" gate="G$1" pin="C"/>
@@ -7580,19 +7534,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C8" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<label x="187.96" y="127" size="1.778" layer="95"/>
+<label x="172.72" y="132.08" size="1.778" layer="95"/>
 <wire x1="172.72" y1="129.54" x2="172.72" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="D5" gate="G$1" pin="A"/>
 <label x="22.86" y="137.16" size="1.778" layer="95"/>
-<wire x1="172.72" y1="132.08" x2="185.42" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="132.08" x2="185.42" y2="127" width="0.1524" layer="91"/>
-<label x="20.32" y="149.86" size="1.778" layer="95"/>
-<pinref part="12VGND1" gate="GND" pin="GND"/>
+<wire x1="172.72" y1="132.08" x2="182.88" y2="132.08" width="0.1524" layer="91"/>
+<label x="20.32" y="152.4" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R18" gate="G$1" pin="1"/>
-<label x="142.24" y="2.54" size="1.778" layer="95"/>
-<pinref part="12VGND2" gate="GND" pin="GND"/>
+<label x="139.7" y="2.54" size="1.778" layer="95"/>
+<wire x1="139.7" y1="2.54" x2="139.7" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="30.48" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
@@ -7616,7 +7568,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="218.44" y="63.5"/>
 <wire x1="233.68" y1="63.5" x2="238.76" y2="63.5" width="0.1524" layer="91"/>
 <label x="236.22" y="63.5" size="1.778" layer="95"/>
-<pinref part="12VGND4" gate="GND" pin="GND"/>
 <pinref part="J1" gate="G$1" pin="33"/>
 <wire x1="218.44" y1="68.58" x2="218.44" y2="71.12" width="0.1524" layer="91"/>
 <junction x="218.44" y="68.58"/>
@@ -7628,6 +7579,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="J1" gate="G$1" pin="22"/>
 <wire x1="233.68" y1="86.36" x2="238.76" y2="86.36" width="0.1524" layer="91"/>
 <label x="236.22" y="86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="154.94" x2="25.4" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="M1O1" class="0">
@@ -8129,26 +8084,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,20.32,137.16,IC1,GND3,GND,,,"/>
-<approved hash="104,1,20.32,147.32,IC1,VCC2,3.3V,,,"/>
-<approved hash="104,1,20.32,144.78,IC1,VCC1,3.3V,,,"/>
-<approved hash="104,1,20.32,142.24,IC1,VCC,3.3V,,,"/>
-<approved hash="104,1,20.32,132.08,IC1,GND1,GND,,,"/>
-<approved hash="104,1,20.32,134.62,IC1,GND2,GND,,,"/>
-<approved hash="112,1,189.23,78.74,,,,,,"/>
-<approved hash="112,1,189.23,22.86,,,,,,"/>
-<approved hash="111,1,175.26,63.5,M1O1,,,,,"/>
-<approved hash="111,1,185.42,60.96,M1O2,,,,,"/>
-<approved hash="113,1,154.177,101.6,Q6,,,,,"/>
-<approved hash="113,1,174.497,91.44,Q1,,,,,"/>
-<approved hash="113,1,192.277,81.28,Q2,,,,,"/>
-<approved hash="113,1,154.177,50.8,Q3,,,,,"/>
-<approved hash="113,1,174.497,35.56,Q4,,,,,"/>
-<approved hash="113,1,192.277,25.4,Q5,,,,,"/>
-<approved hash="113,1,155.262,156.21,LED9,,,,,"/>
-<approved hash="113,1,165.422,156.21,LED11,,,,,"/>
-<approved hash="113,1,175.582,156.21,LED13,,,,,"/>
-<approved hash="113,1,185.742,156.21,LED15,,,,,"/>
+<approved hash="113,1,128.777,104.14,Q6,,,,,"/>
+<approved hash="113,1,149.097,93.98,Q1,,,,,"/>
+<approved hash="113,1,169.417,86.36,Q2,,,,,"/>
+<approved hash="113,1,128.777,53.34,Q3,,,,,"/>
+<approved hash="113,1,149.097,38.1,Q4,,,,,"/>
+<approved hash="113,1,169.417,27.94,Q5,,,,,"/>
+<approved hash="113,1,99.3817,153.67,LED9,,,,,"/>
+<approved hash="113,1,109.542,153.67,LED11,,,,,"/>
+<approved hash="113,1,119.702,153.67,LED13,,,,,"/>
+<approved hash="113,1,129.862,153.67,LED15,,,,,"/>
+<approved hash="115,1,25.4,156.21,12VGND,,,,,"/>
+<approved hash="115,1,33.02,137.16,12VGND,,,,,"/>
 </errors>
 </schematic>
 </drawing>
