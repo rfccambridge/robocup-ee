@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <map>
+#include <stdexcept>
 
 #include <ros/ros.h>
 #include <using_markers/robotCommand.h>
@@ -18,7 +19,8 @@ protected:
   static ros::Subscriber subscriber_set_pos;
   static ros::Publisher publisher_render;
 
-  static std::map<int, marker_t*> map_markers;
+  //A map of marker ID's and polymorphic casts of custom marker types -- ewww
+  static std::map<int, CustomMarker*> map_markers;
 
 public:
   Game(ros::NodeHandle n)
@@ -27,29 +29,24 @@ public:
     initialize_coms(n);
   }
 
-  ~Game()
-  {
-    std::map<int, marker_t*>::iterator it = map_markers.begin();
-    for(; it != map_markers.end(); ++it)
-      delete it->second;
-  }
-
   void render_markers();
 
   //Creates a `Cube` and adds it to the `map_markers`
   void create_cube(int id, double _x, double _y, double _z)
   {
-    Cube* c = new Cube(id, _x, _y, _z);
+    //Cast to a polymorphic type
+    CustomMarker *c = new Cube(id, _x, _y, _z);
 
-    map_markers.insert(std::pair<int, marker_t*>(id, c));
+    map_markers.insert(std::pair<int, CustomMarker*>(id, c));
   }
 
   //Creates a `Ball` and adds it to the `map_markers`
   void create_ball(int id, double _x, double _y, double _z)
   {
-    Ball* b = new Ball(id, _x, _y, _z);
+    //Cast to a polymorphic type
+    CustomMarker *b = new Ball(id, _x, _y, _z);
 
-    map_markers.insert(std::pair<int, marker_t*>(id, b));
+    map_markers.insert(std::pair<int, CustomMarker*>(id, b));
   }
 
   //Sets the x position based on an incoming message
@@ -75,15 +72,20 @@ public:
   //Checks connection status
   static bool coms_alive() { return publisher_render && server_get_pos && subscriber_set_pos; }
 
-  static marker_t* lookup_by_id(const int id)
+  static CustomMarker *lookup_by_id(const int id)
   {
-    std::map<int, marker_t*>::iterator it = map_markers.find(id);
+    std::map<int, CustomMarker*>::iterator it = map_markers.find(id);
 
     //Return accordingly based on whether `id` was found
     if(it == map_markers.end())
-      PRINT_ERROR_AND(return NULL);
-    else
+    {
+      boost::format err_fmt("Marker id %1% not found in map look up");
+      std::string e_str = boost::str(err_fmt % id);
+
+      PRINT_ERROR_AND(throw std::out_of_range(e_str));
+    }else
       return it->second;
+
   }
 };
 

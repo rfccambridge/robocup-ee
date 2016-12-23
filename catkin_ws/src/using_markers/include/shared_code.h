@@ -8,6 +8,12 @@
 #define RATE 100
 #define DT (1.0 / RATE)
 
+#define PRINT_ERROR(ERR)                                                \
+  do                                                                    \
+  {                                                                     \
+    fprintf(stderr, "Error at %s :: Line %d :: %s\n", __PRETTY_FUNCTION__, __LINE__, ERR); \
+  } while(0)
+
 #define PRINT_ERROR_AND(RET_CMD)                                                \
   do                                                                            \
   {                                                                             \
