@@ -2291,15 +2291,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <rectangle x1="2.4" y1="-0.7" x2="2.65" y2="0.65" layer="51"/>
 <rectangle x1="-1" y1="-1.05" x2="-0.7" y2="1.05" layer="21"/>
 </package>
-<package name="TESTING_PT">
-<pad name="P$1" x="0" y="0" drill="0.8"/>
-<wire x1="-1" y1="1" x2="-1" y2="-1" width="0.127" layer="21"/>
-<wire x1="-1" y1="-1" x2="1" y2="-1" width="0.127" layer="21"/>
-<wire x1="1" y1="-1" x2="1" y2="1" width="0.127" layer="21"/>
-<wire x1="1" y1="1" x2="-1" y2="1" width="0.127" layer="21"/>
-<text x="0" y="1.5" size="0.8128" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-2.31" size="0.8128" layer="26" rot="MR0" align="bottom-center">&gt;NAME</text>
-</package>
 <package name="DO214AA">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <wire x1="-2.4" y1="1.1" x2="2.4" y2="1.1" width="0.254" layer="51"/>
@@ -2379,13 +2370,6 @@ Basic small signal diode good up to 200mA. SMB footprint. Common part #: BAS16</
 <pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
 <wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
-</symbol>
-<symbol name="TEST_PT">
-<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
-provides an easy access for an oscilloscope probe</description>
-<pin name="P$1" x="0" y="-2.54" visible="off" length="short" rot="R90"/>
-<text x="-3.81" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<circle x="0" y="1.27" radius="1.27" width="0.254" layer="94"/>
 </symbol>
 <symbol name="LOGO">
 <text x="0" y="5.08" size="1.778" layer="94">RFC Cambridge</text>
@@ -2498,23 +2482,6 @@ Production Part - 8199
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="TEST_PT">
-<description>&lt;b&gt;Testing Point&lt;/b&gt;&lt;p&gt;
-Use to probe a signal</description>
-<gates>
-<gate name="G$1" symbol="TEST_PT" x="0" y="-2.54"/>
-</gates>
-<devices>
-<device name="" package="TESTING_PT">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -7376,9 +7343,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C8" library="SparkFun-Passives" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="C7" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="D5" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
-<part name="M1O1" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="M1O2" library="gen3" deviceset="TEST_PT" device=""/>
-<part name="M1O3" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="C2" library="gen3" deviceset="CAP-POLAR" device="" value="100uF"/>
 <part name="GEN_5_REV_A" library="gen3" deviceset="LOGO" device="" value="Fall 2016"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -7415,6 +7379,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="30.48" y="10.16" size="1.778" layer="97">5V output from motor driver</text>
 <text x="157.48" y="55.88" size="1.778" layer="97">Need to connect these with high current</text>
 <text x="157.48" y="53.34" size="1.778" layer="97">Separate connector?</text>
+<text x="254" y="81.28" size="1.778" layer="97">24, 26, and 30 are unconnected in Rev A</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="129.54" y="104.14"/>
@@ -7448,9 +7413,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="C8" gate="G$1" x="157.48" y="116.84"/>
 <instance part="C7" gate="G$1" x="137.16" y="119.38"/>
 <instance part="D5" gate="G$1" x="172.72" y="127" rot="R270"/>
-<instance part="M1O1" gate="G$1" x="139.7" y="78.74"/>
-<instance part="M1O2" gate="G$1" x="160.02" y="71.12"/>
-<instance part="M1O3" gate="G$1" x="167.64" y="63.5"/>
 <instance part="C2" gate="G$1" x="144.78" y="119.38"/>
 <instance part="GEN_5_REV_A" gate="G$1" x="7.62" y="22.86"/>
 <instance part="GND11" gate="1" x="96.52" y="147.32"/>
@@ -7655,21 +7617,29 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="233.68" y1="63.5" x2="238.76" y2="63.5" width="0.1524" layer="91"/>
 <label x="236.22" y="63.5" size="1.778" layer="95"/>
 <pinref part="12VGND4" gate="GND" pin="GND"/>
+<pinref part="J1" gate="G$1" pin="33"/>
+<wire x1="218.44" y1="68.58" x2="218.44" y2="71.12" width="0.1524" layer="91"/>
+<junction x="218.44" y="68.58"/>
+<pinref part="J1" gate="G$1" pin="34"/>
+<wire x1="233.68" y1="68.58" x2="233.68" y2="71.12" width="0.1524" layer="91"/>
+<junction x="233.68" y="68.58"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="22"/>
+<wire x1="233.68" y1="86.36" x2="238.76" y2="86.36" width="0.1524" layer="91"/>
+<label x="236.22" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1O1" class="0">
 <segment>
 <pinref part="Q6" gate="G$1" pin="P$2"/>
 <wire x1="104.14" y1="76.2" x2="132.08" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="76.2" x2="132.08" y2="76.2" width="0.1524" layer="91"/>
 <junction x="132.08" y="76.2"/>
 <pinref part="Q3" gate="G$1" pin="P$1"/>
 <wire x1="132.08" y1="76.2" x2="132.08" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="99.06" x2="132.08" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="M1O1" gate="G$1" pin="P$1"/>
 <pinref part="U$1" gate="G$1" pin="W"/>
-<wire x1="139.7" y1="76.2" x2="182.88" y2="76.2" width="0.1524" layer="91"/>
-<junction x="139.7" y="76.2"/>
+<wire x1="132.08" y1="76.2" x2="182.88" y2="76.2" width="0.1524" layer="91"/>
 <label x="177.8" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -7694,7 +7664,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="152.4" y1="88.9" x2="152.4" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="68.58" x2="152.4" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="Q4" gate="G$1" pin="P$1"/>
-<pinref part="M1O2" gate="G$1" pin="P$1"/>
 <wire x1="104.14" y1="68.58" x2="160.02" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="V"/>
 <junction x="160.02" y="68.58"/>
@@ -7724,8 +7693,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="Q5" gate="G$1" pin="P$1"/>
 <wire x1="172.72" y1="81.28" x2="172.72" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="60.96" x2="172.72" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="M1O3" gate="G$1" pin="P$1"/>
-<junction x="167.64" y="60.96"/>
 <pinref part="U$1" gate="G$1" pin="U"/>
 <wire x1="172.72" y1="60.96" x2="182.88" y2="60.96" width="0.1524" layer="91"/>
 <label x="177.8" y="60.96" size="1.778" layer="95"/>
@@ -8027,9 +7994,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="93.98" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="22"/>
-<wire x1="233.68" y1="86.36" x2="238.76" y2="86.36" width="0.1524" layer="91"/>
-<label x="236.22" y="86.36" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="30"/>
+<wire x1="233.68" y1="76.2" x2="238.76" y2="76.2" width="0.1524" layer="91"/>
+<label x="236.22" y="76.2" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIR" class="0">
