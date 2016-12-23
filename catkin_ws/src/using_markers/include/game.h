@@ -35,7 +35,7 @@ public:
   void create_cube(int id, double _x, double _y, double _z)
   {
     //Cast to a polymorphic type
-    CustomMarker *c = new Cube(id, _x, _y, _z);
+    CustomMarker* c = new Cube(id, _x, _y, _z);
 
     map_markers.insert(std::pair<int, CustomMarker*>(id, c));
   }
@@ -44,7 +44,7 @@ public:
   void create_ball(int id, double _x, double _y, double _z)
   {
     //Cast to a polymorphic type
-    CustomMarker *b = new Ball(id, _x, _y, _z);
+    CustomMarker* b = new Ball(id, _x, _y, _z);
 
     map_markers.insert(std::pair<int, CustomMarker*>(id, b));
   }
@@ -72,7 +72,7 @@ public:
   //Checks connection status
   static bool coms_alive() { return publisher_render && server_get_pos && subscriber_set_pos; }
 
-  static CustomMarker *lookup_by_id(const int id)
+  static CustomMarker* lookup_by_id(const int id)
   {
     std::map<int, CustomMarker*>::iterator it = map_markers.find(id);
 
@@ -83,9 +83,8 @@ public:
       std::string e_str = boost::str(err_fmt % id);
 
       PRINT_ERROR_AND(throw std::out_of_range(e_str));
-    }else
+    } else
       return it->second;
-
   }
 };
 

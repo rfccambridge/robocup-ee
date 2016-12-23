@@ -19,7 +19,7 @@ void Game::render_markers()
   for(; it != map_markers.end(); ++it)
   {
     //Make sure to publish the down-casted `cube`
-    CustomMarker *marker = it->second;
+    CustomMarker* marker = it->second;
 
     //TODO: Do I have to spin after this since publisher_render only has a stack of size 1
     publisher_render.publish(*(visualization_msgs::Marker*)marker);
@@ -31,10 +31,10 @@ void Game::subscriber_set_pos_handle(const using_markers::robotCommand command)
 {
   printf("Received %f for robot ID %d\n", command.speed0, command.robotID);
 
-  try 
+  try
   {
     //Throws exception upon look up failure
-    CustomMarker *marker = Game::lookup_by_id(command.robotID);
+    CustomMarker* marker = Game::lookup_by_id(command.robotID);
 
     //Sanity check: allow only markers with the appropriate permissions to continue
     if(!(marker->getComPermissions() & PERM_SET_POS))
@@ -42,8 +42,8 @@ void Game::subscriber_set_pos_handle(const using_markers::robotCommand command)
 
     marker->pose.position.x += command.speed0 * DT;
     marker->pose.position.y += command.speed1 * DT;
-
-  }catch(const std::exception &e) 
+  }
+  catch(const std::exception& e)
   {
     PRINT_ERROR(e.what());
     return; //Return on error
@@ -56,7 +56,7 @@ bool Game::server_get_pos_handle(using_markers::robotPosSrv::Request& req,
   try
   {
     //Throws exception upon look up failure
-    CustomMarker *marker = Game::lookup_by_id(req.robotID);
+    CustomMarker* marker = Game::lookup_by_id(req.robotID);
 
     //Sanity check: allow only markers with the appropriate permissions to continue
     if(!(marker->getComPermissions() & PERM_GET_POS))
@@ -65,8 +65,8 @@ bool Game::server_get_pos_handle(using_markers::robotPosSrv::Request& req,
     //Assign the response accordingly
     res.pos_x = marker->pose.position.x;
     res.pos_y = marker->pose.position.y;
-
-  }catch(const std::exception &e)
+  }
+  catch(const std::exception& e)
   {
     PRINT_ERROR(e.what());
     return false; //Return `false` on error
