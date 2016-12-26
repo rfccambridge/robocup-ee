@@ -29,6 +29,14 @@ public:
     initialize_coms(n);
   }
 
+  ~Game()
+  {
+    //Clean all of the allocated markers
+    std::map<int, CustomMarker*>::iterator it = map_markers.begin();
+    for(; it != map_markers.end(); ++it)
+      delete it->second;
+  }
+
   void render_markers();
 
   //Creates an `OurRobot` and adds it to the `map_markers`
