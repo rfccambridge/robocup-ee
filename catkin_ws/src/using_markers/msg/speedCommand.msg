@@ -1,4 +1,4 @@
-int8 robotID
+int8 markerID
 
 float64 speed0
 float64 speed1

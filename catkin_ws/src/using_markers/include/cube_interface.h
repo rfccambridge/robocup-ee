@@ -4,7 +4,7 @@
 
 #include <ros/ros.h>
 
-#include <using_markers/robotCommand.h>
+#include <using_markers/speedCommand.h>
 #include <using_markers/robotPosSrv.h>
 
 #include "shared_code.h"
@@ -50,7 +50,7 @@ public:
 
     //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
     if(!publisher_set_vels)
-      publisher_set_vels = n.advertise<using_markers::robotCommand>(ROBOT_COMMAND_TOPIC, 1);
+      publisher_set_vels = n.advertise<using_markers::speedCommand>(ROBOT_COMMAND_TOPIC, 1);
   }
 
   //Checks connection status

@@ -125,10 +125,10 @@ bool CubeInterface::spin()
   }
 
   // Create and populate a message to send
-  using_markers::robotCommand msg;
+  using_markers::speedCommand msg;
 
-  // Set the `robotID` by `id`
-  msg.robotID = id;
+  // Set the `markerID` by `id`
+  msg.markerID = id;
 
   // TODO: ultimately we will want to change how we set wheel speeds
   msg.speed0 = msg.speed2 = vel_x;

@@ -5,7 +5,7 @@
 #include <stdexcept>
 
 #include <ros/ros.h>
-#include <using_markers/robotCommand.h>
+#include <using_markers/speedCommand.h>
 #include <using_markers/robotPosSrv.h>
 #include <visualization_msgs/Marker.h>
 
@@ -50,7 +50,7 @@ public:
   }
 
   //Sets the x position based on an incoming message
-  static void subscriber_set_pos_handle(const using_markers::robotCommand command);
+  static void subscriber_set_pos_handle(const using_markers::speedCommand command);
 
   static bool server_get_pos_handle(using_markers::robotPosSrv::Request& req,
                                     using_markers::robotPosSrv::Response& res);

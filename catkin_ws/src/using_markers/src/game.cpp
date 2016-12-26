@@ -27,18 +27,18 @@ void Game::render_markers()
 }
 
 //TODO: maybe make position update more general
-void Game::subscriber_set_pos_handle(const using_markers::robotCommand command)
+void Game::subscriber_set_pos_handle(const using_markers::speedCommand command)
 {
-  printf("Received %f for robot ID %d\n", command.speed0, command.robotID);
+  printf("Received %f for marker ID %d\n", command.speed0, command.markerID);
 
   try
   {
     //Throws exception upon look up failure
-    CustomMarker* marker = Game::lookup_by_id(command.robotID);
+    CustomMarker* marker = Game::lookup_by_id(command.markerID);
 
     //Sanity check: allow only markers with the appropriate permissions to continue
     if(!(marker->getComPermissions() & PERM_SET_POS))
-      throw std::runtime_error("Marker not allowed to operate in set position function.");
+      throw std::runtime_error("Marker not lowed to operate in set position function.");
 
     marker->pose.position.x += command.speed0 * DT;
     marker->pose.position.y += command.speed1 * DT;
