@@ -5,8 +5,8 @@
 #include <stdexcept>
 
 #include <ros/ros.h>
+#include <using_markers/markerPosSrv.h>
 #include <using_markers/speedCommand.h>
-#include <using_markers/robotPosSrv.h>
 #include <visualization_msgs/Marker.h>
 
 #include "custom_markers.h"
@@ -31,13 +31,13 @@ public:
 
   void render_markers();
 
-  //Creates a `Cube` and adds it to the `map_markers`
-  void create_cube(int id, double _x, double _y, double _z)
+  //Creates an `OurRobot` and adds it to the `map_markers`
+  void create_our_robot(int id, double _x, double _y, double _z)
   {
     //Cast to a polymorphic type
-    CustomMarker* c = new Cube(id, _x, _y, _z);
+    CustomMarker* r = new OurRobot(id, _x, _y, _z);
 
-    map_markers.insert(std::pair<int, CustomMarker*>(id, c));
+    map_markers.insert(std::pair<int, CustomMarker*>(id, r));
   }
 
   //Creates a `Ball` and adds it to the `map_markers`
@@ -52,8 +52,8 @@ public:
   //Sets the x position based on an incoming message
   static void subscriber_set_pos_handle(const using_markers::speedCommand command);
 
-  static bool server_get_pos_handle(using_markers::robotPosSrv::Request& req,
-                                    using_markers::robotPosSrv::Response& res);
+  static bool server_get_pos_handle(using_markers::markerPosSrv::Request& req,
+                                    using_markers::markerPosSrv::Response& res);
 
   //Initializes the communication interfaces
   static void initialize_coms(ros::NodeHandle n)
@@ -63,10 +63,10 @@ public:
       publisher_render = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
 
     if(!server_get_pos)
-      server_get_pos = n.advertiseService(ROBOT_POS_SERVER, server_get_pos_handle);
+      server_get_pos = n.advertiseService(MARKER_POS_SERVER, server_get_pos_handle);
 
     if(!subscriber_set_pos)
-      subscriber_set_pos = n.subscribe(ROBOT_COMMAND_TOPIC, 1, subscriber_set_pos_handle);
+      subscriber_set_pos = n.subscribe(MARKER_COMMAND_TOPIC, 1, subscriber_set_pos_handle);
   }
 
   //Checks connection status

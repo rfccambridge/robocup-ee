@@ -14,8 +14,10 @@
 //Marker types (cube, sphere, etc.) are secretly just 8bit integers as spec'd by ros
 typedef uint8_t marker_type_t;
 
-typedef enum { M_CUBE,
-               M_BALL } marker_identity_t;
+typedef enum {
+  M_OUR_ROBOT,
+  M_BALL
+} marker_identity_t;
 
 //The permissions flag bits for weather certain communication handles can operate over certain custom markers
 typedef uint8_t com_permissions_t;
@@ -58,14 +60,14 @@ public:
   virtual com_permissions_t getComPermissions() = 0;
 };
 
-class Cube : public CustomMarker
+class OurRobot : public CustomMarker
 {
 public:
-  Cube(int robot_id, double _x, double _y, double _z);
+  OurRobot(int robot_id, double _x, double _y, double _z);
 
-  marker_identity_t getMarkerIdentity() { return M_CUBE; }
+  marker_identity_t getMarkerIdentity() { return M_OUR_ROBOT; }
 
-  //Allow both getting and setting the position of the cube
+  //Allow both getting and setting the position of our robots
   com_permissions_t getComPermissions() { return PERM_GET_POS | PERM_SET_POS; }
 };
 

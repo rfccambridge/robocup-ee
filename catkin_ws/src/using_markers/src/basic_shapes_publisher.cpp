@@ -2,38 +2,37 @@
 #include <ros/ros.h>
 #include <stdio.h>
 
-#include "cube_interface.h"
+#include "robot_interface.h"
 #include "shared_code.h"
 
 int main(int argc, char** argv)
 {
-  // Initialize our ROS system
+  //Initialize our ROS system
   ros::init(argc, argv, "command_publisher");
 
   ros::NodeHandle n;
-  CubeInterface::initialize_coms(n); // Initialize the communication interface for the cubes
+  RobotInterface::initialize_coms(n); //Initialize the communication interface for our robots
 
   ros::Rate loop_rate(RATE);
 
-  // TODO: make this more how it should be
-  CubeInterface c1(RED);
-  c1.goto_xy_pos(10, 10);
+  RobotInterface r1(RED_ID);
+  r1.goto_xy_pos(10, 10);
 
   while(ros::ok())
   {
-    // Loop until all coms are alive
-    while(ros::ok() && !CubeInterface::coms_alive())
+    //Loop until all coms are alive
+    while(ros::ok() && !RobotInterface::coms_alive())
     {
-      printf("CubeInterface coms are down, trying to reconnect again...\n");
-      CubeInterface::initialize_coms(n); // Retry the failed connections
+      printf("RobotInterface coms are down, trying to reconnect again...\n");
+      RobotInterface::initialize_coms(n); //Retry the failed connections
 
       ros::spinOnce();
       loop_rate.sleep();
     }
 
-    c1.spin();
+    r1.spin();
 
-    // Process all of the callbacks and sleep a bit between loops
+    //Process all of the callbacks and sleep a bit between loops
     ros::spinOnce();
     loop_rate.sleep();
   }

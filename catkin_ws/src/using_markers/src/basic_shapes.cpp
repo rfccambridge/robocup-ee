@@ -11,9 +11,10 @@ int main(int argc, char** argv)
   ros::NodeHandle n;
 
   ros::Rate loop_rate(RATE);
-  //Instantiate a cube for us to move
+
+  //Instantiate a robot and ball for us to use
   Game game(n);
-  game.create_cube(RED, 0, 0, 0);
+  game.create_our_robot(RED_ID, 0, 0, 0);
   game.create_ball(BALL_ID, 5, 0, 0);
 
   while(ros::ok())
@@ -21,7 +22,7 @@ int main(int argc, char** argv)
     //Loop until all coms are alive
     while(ros::ok() && !Game::coms_alive())
     {
-      printf("Cube coms are down, trying to reconnect again...\n");
+      printf("Game coms are down, trying to reconnect again...\n");
       Game::initialize_coms(n); //Retry the failed connections
 
       ros::spinOnce();

@@ -18,7 +18,7 @@ void Game::render_markers()
   std::map<int, CustomMarker*>::iterator it = map_markers.begin();
   for(; it != map_markers.end(); ++it)
   {
-    //Make sure to publish the down-casted `cube`
+    //Make sure to publish the down-casted `CustomMarker`
     CustomMarker* marker = it->second;
 
     //TODO: Do I have to spin after this since publisher_render only has a stack of size 1
@@ -50,13 +50,13 @@ void Game::subscriber_set_pos_handle(const using_markers::speedCommand command)
   }
 }
 
-bool Game::server_get_pos_handle(using_markers::robotPosSrv::Request& req,
-                                 using_markers::robotPosSrv::Response& res)
+bool Game::server_get_pos_handle(using_markers::markerPosSrv::Request& req,
+                                 using_markers::markerPosSrv::Response& res)
 {
   try
   {
     //Throws exception upon look up failure
-    CustomMarker* marker = Game::lookup_by_id(req.robotID);
+    CustomMarker* marker = Game::lookup_by_id(req.markerID);
 
     //Sanity check: allow only markers with the appropriate permissions to continue
     if(!(marker->getComPermissions() & PERM_GET_POS))

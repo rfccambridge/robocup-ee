@@ -54,7 +54,7 @@ add_message_files(
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
-   robotPosSrv.srv
+   markerPosSrv.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -176,7 +176,7 @@ include_directories(
 add_executable(basic_shapes src/basic_shapes.cpp src/game.cpp src/custom_markers.cpp)
 target_link_libraries(basic_shapes ${catkin_LIBRARIES})
 
-add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/cube_interface.cpp)
+add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/robot_interface.cpp)
 target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
