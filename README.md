@@ -19,6 +19,7 @@
 
 ## Running the Rendered, Simulator and Engine
 ### Renderer
+- `roscore`
 - `rosrun rviz rviz`
 
 ### Simulator
