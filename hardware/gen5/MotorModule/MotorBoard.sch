@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6848,6 +6848,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6856,7 +6858,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="157.48" y="55.88" size="1.778" layer="97">Need to connect these with high current</text>
 <text x="157.48" y="53.34" size="1.778" layer="97">Separate connector?</text>
 <text x="254" y="81.28" size="1.778" layer="97">24, 26, and 30 are unconnected in Rev A</text>
-<text x="25.4" y="71.12" size="1.778" layer="97">Need to enable pullups on M3.</text>
+<text x="12.7" y="91.44" size="1.778" layer="97">Need to enable pullups on M3.</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="129.54" y="104.14"/>
@@ -6911,6 +6913,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND7" gate="1" x="142.24" y="111.76"/>
 <instance part="GND8" gate="1" x="139.7" y="2.54"/>
 <instance part="GND9" gate="1" x="213.36" y="60.96"/>
+<instance part="R5" gate="G$1" x="38.1" y="78.74" rot="R90"/>
+<instance part="R7" gate="G$1" x="45.72" y="73.66" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -7405,8 +7409,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="HALLOUT" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="HALLOUT"/>
-<wire x1="63.5" y1="66.04" x2="25.4" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="66.04" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
 <label x="25.4" y="66.04" size="1.778" layer="95"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="38.1" y1="66.04" x2="25.4" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="73.66" x2="38.1" y2="66.04" width="0.1524" layer="91"/>
+<junction x="38.1" y="66.04"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="24"/>
@@ -7498,12 +7506,26 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="215.9" y="142.24" size="1.778" layer="95"/>
 <wire x1="215.9" y1="139.7" x2="215.9" y2="142.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="38.1" y1="83.82" x2="38.1" y2="88.9" width="0.1524" layer="91"/>
+<label x="35.56" y="86.36" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="78.74" x2="45.72" y2="83.82" width="0.1524" layer="91"/>
+<label x="43.18" y="81.28" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="LOCKN" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="LOCKN"/>
-<wire x1="25.4" y1="60.96" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
 <label x="25.4" y="60.96" size="1.778" layer="95"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="45.72" y1="60.96" x2="63.5" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="68.58" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
+<junction x="45.72" y="60.96"/>
 </segment>
 <segment>
 <pinref part="LED13" gate="G$1" pin="C"/>
