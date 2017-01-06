@@ -96,7 +96,7 @@ generate_messages(
 ###################################
 ## The catkin_package macro generates cmake config files for your package
 ## Declare things to be passed to dependent projects
-## INCLUDE_DIRS: uncomment this if you package contains header files
+## INCLUDE_DIRS: uncomment this if your package contains header files
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
@@ -173,19 +173,19 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(basic_shapes src/basic_shapes.cpp src/game.cpp src/custom_markers.cpp)
-target_link_libraries(basic_shapes ${catkin_LIBRARIES})
+add_executable(simulator src/simulator.cpp src/game.cpp src/custom_markers.cpp)
+target_link_libraries(simulator ${catkin_LIBRARIES})
 
-add_executable(basic_shapes_publisher src/basic_shapes_publisher.cpp src/robot_interface.cpp)
-target_link_libraries(basic_shapes_publisher ${catkin_LIBRARIES})
+add_executable(brain src/brain.cpp src/robot_interface.cpp)
+target_link_libraries(brain ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-add_dependencies(basic_shapes_publisher ${catkin_EXPORTED_TARGETS})
+add_dependencies(brain ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(basic_shapes ${catkin_EXPORTED_TARGETS})
+add_dependencies(simulator ${catkin_EXPORTED_TARGETS})

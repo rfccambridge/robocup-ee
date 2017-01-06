@@ -12,9 +12,6 @@ ros::Publisher RobotInterface::publisher_set_vels;
 //Outputs in `ret_cur_pos` as [cur_x, cur_y] or returns false on error
 bool RobotInterface::call_for_cur_pos(float ret_cur_pos[2])
 {
-  //Retrieve the current x and y positions of the robot
-  float cur_x, cur_y;
-
   //Request the robot's position with ID of `id`
   using_markers::markerPosSrv srv;
   srv.request.markerID = id;

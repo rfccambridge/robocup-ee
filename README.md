@@ -23,7 +23,7 @@
 - `rosrun rviz rviz`
 
 ### Simulator
-- `rosrun using_markers basic_shapes`
+- `rosrun using_markers simulator`
 
 ### Engine
-- `rosrun using_markers basic_shapes_publisher`
+- `rosrun using_markers brain`
