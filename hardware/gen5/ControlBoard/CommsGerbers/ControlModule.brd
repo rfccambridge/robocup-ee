@@ -155,9 +155,9 @@
 <board>
 <plain>
 <wire x1="0" y1="0" x2="38.5" y2="0" width="0" layer="20"/>
-<wire x1="38.5" y1="0" x2="38.5" y2="64.9" width="0" layer="20"/>
-<wire x1="38.5" y1="64.9" x2="0" y2="64.9" width="0" layer="20"/>
-<wire x1="0" y1="64.9" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="38.5" y1="0" x2="38.4" y2="65.3" width="0" layer="20"/>
+<wire x1="38.4" y1="65.3" x2="-0.5" y2="65.3" width="0" layer="20"/>
+<wire x1="-0.5" y1="65.3" x2="0" y2="0" width="0" layer="20"/>
 <text x="-13.6" y="68.5" size="1.778" layer="48">Might need to be condensed further. I have some ideas if necessary.</text>
 </plain>
 <libraries>
@@ -1319,8 +1319,8 @@ design rules under a new name.</description>
 <wire x1="22.32" y1="38.9" x2="22.38" y2="38.96" width="0.254" layer="16"/>
 <wire x1="11.1" y1="20.31" x2="11.11" y2="20.3" width="0.254" layer="16"/>
 <wire x1="11.11" y1="20.3" x2="12.75" y2="20.3" width="0.254" layer="16"/>
-<wire x1="9.08" y1="45.41" x2="5.07" y2="45.4" width="0.254" layer="1"/>
-<wire x1="5.07" y1="45.4" x2="6.9" y2="45.4" width="0.254" layer="1"/>
+<wire x1="9.08" y1="45.41" x2="7.67" y2="45.4" width="0.254" layer="1"/>
+<wire x1="7.67" y1="45.4" x2="6.9" y2="45.4" width="0.254" layer="1"/>
 <wire x1="9.08" y1="35.91" x2="9.08" y2="36.92" width="0.254" layer="1"/>
 <wire x1="9.08" y1="36.92" x2="7.8" y2="38.2" width="0.254" layer="1"/>
 <wire x1="7.8" y1="38.2" x2="7.8" y2="42.3" width="0.254" layer="1"/>
@@ -1616,11 +1616,6 @@ design rules under a new name.</description>
 <wire x1="28.99" y1="48.63" x2="28.99" y2="46.42" width="0.254" layer="16"/>
 <wire x1="28.99" y1="46.42" x2="28.99" y2="44.51" width="0.254" layer="16"/>
 <wire x1="28.99" y1="44.51" x2="29.49" y2="44.01" width="0.254" layer="16"/>
-<wire x1="16.63" y1="44.83" x2="16.9" y2="45.1" width="0.254" layer="16"/>
-<wire x1="16.9" y1="45.1" x2="21.1" y2="45.1" width="0.254" layer="16"/>
-<wire x1="21.1" y1="45.1" x2="27" y2="51" width="0.254" layer="16"/>
-<wire x1="27" y1="51" x2="28.3" y2="51" width="0.254" layer="16"/>
-<wire x1="28.3" y1="51" x2="28.99" y2="50.31" width="0.254" layer="16"/>
 <wire x1="28.99" y1="50.31" x2="28.99" y2="50.2" width="0.254" layer="16"/>
 <contactref element="SV2" pad="1"/>
 <contactref element="SV2" pad="2"/>
@@ -1639,16 +1634,16 @@ design rules under a new name.</description>
 <polygon width="0.254" layer="1">
 <vertex x="0" y="7.2"/>
 <vertex x="39.3" y="7.2"/>
-<vertex x="39.3" y="64.9"/>
-<vertex x="0" y="64.9"/>
+<vertex x="39.3" y="65.3"/>
+<vertex x="-0.4" y="65.3"/>
 </polygon>
 </signal>
 <signal name="N$6">
 <polygon width="0.254" layer="16">
 <vertex x="0" y="7.2"/>
 <vertex x="39.3" y="7.2"/>
-<vertex x="39.3" y="64.9"/>
-<vertex x="0" y="64.9"/>
+<vertex x="39.2" y="65.3"/>
+<vertex x="-0.6" y="65.3"/>
 </polygon>
 </signal>
 </signals>
