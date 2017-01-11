@@ -6850,6 +6850,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -6915,6 +6916,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND9" gate="1" x="213.36" y="60.96"/>
 <instance part="R5" gate="G$1" x="38.1" y="78.74" rot="R90"/>
 <instance part="R7" gate="G$1" x="45.72" y="73.66" rot="R90"/>
+<instance part="R9" gate="G$1" x="58.42" y="35.56" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -7424,10 +7426,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </net>
 <net name="ENABLE" class="0">
 <segment>
-<wire x1="76.2" y1="27.94" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="27.94" x2="58.42" y2="27.94" width="0.1524" layer="91"/>
 <label x="48.26" y="27.94" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="ENABLEN"/>
+<wire x1="58.42" y1="27.94" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="35.56" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="27.94" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
+<junction x="58.42" y="27.94"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
@@ -7515,6 +7521,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="78.74" x2="45.72" y2="83.82" width="0.1524" layer="91"/>
 <label x="43.18" y="81.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="40.64" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
+<label x="58.42" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="LOCKN" class="0">
