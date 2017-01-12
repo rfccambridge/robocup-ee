@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14866,7 +14866,7 @@ W = angled&lt;p&gt;
 <part name="FRAME4" library="SparkFun-Aesthetics" deviceset="FRAME-LETTER" device=""/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="1M"/>
 <part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10K"/>
-<part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="10k"/>
+<part name="R29" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1M"/>
 <part name="C15" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="CLAMP1" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
 <part name="CLAMP2" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>

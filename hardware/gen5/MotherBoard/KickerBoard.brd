@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7884,7 +7884,7 @@ design rules under a new name.</description>
 <element name="R26" library="SparkFun-Passives" package="0805" value="300" x="17.090346875" y="101.401421875" rot="R180"/>
 <element name="R27" library="SparkFun-Resistors" package="0805" value="47k" x="66.896503125" y="26.212446875" rot="R270"/>
 <element name="R28" library="SparkFun-Resistors" package="0805" value="47k" x="62.34625" y="26.265115625" rot="R270"/>
-<element name="R29" library="SparkFun-Passives" package="0805" value="10k" x="67.08728125" y="78.530103125" rot="R180"/>
+<element name="R29" library="SparkFun-Passives" package="0805" value="1M" x="67.08728125" y="78.530103125" rot="R180"/>
 <element name="R3" library="SparkFun-Passives" package="0805" value="250k" x="17.363334375" y="115.925046875" rot="R270"/>
 <element name="R30" library="SparkFun-Resistors" package="0805" value="47k" x="59.818115625" y="26.275159375" rot="R270"/>
 <element name="R31" library="SparkFun-Passives" package="0805" value="43k" x="69.516453125" y="97.369559375"/>
