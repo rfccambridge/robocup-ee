@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -155,9 +155,9 @@
 <board>
 <plain>
 <wire x1="0" y1="0" x2="38.5" y2="0" width="0" layer="20"/>
-<wire x1="38.5" y1="0" x2="38.4" y2="65.3" width="0" layer="20"/>
-<wire x1="38.4" y1="65.3" x2="-0.5" y2="65.3" width="0" layer="20"/>
-<wire x1="-0.5" y1="65.3" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="38.5" y1="0" x2="38.5" y2="65.3" width="0" layer="20"/>
+<wire x1="38.5" y1="65.3" x2="0" y2="65.3" width="0" layer="20"/>
+<wire x1="0" y1="65.3" x2="0" y2="0" width="0" layer="20"/>
 <dimension x1="38.5" y1="0" x2="38.4" y2="65.3" x3="51.11475" y3="32.66939375" textsize="1.778" layer="20" unit="inch"/>
 <dimension x1="39.2" y1="65.3" x2="-0.6" y2="65.3" x3="19.3" y3="70" textsize="1.778" layer="20" unit="inch"/>
 </plain>
@@ -1240,7 +1240,18 @@ design rules under a new name.</description>
 <contactref element="3.3REG" pad="DRAIN"/>
 <wire x1="29.4" y1="40.5" x2="30.98" y2="40.5" width="0.2032" layer="16"/>
 <wire x1="30.98" y1="40.5" x2="31.08" y2="40.6" width="0.2032" layer="16"/>
-<wire x1="16.4416" y1="42" x2="16.63" y2="41.26" width="0" layer="19" extent="1-16"/>
+<polygon width="0.254" layer="1">
+<vertex x="0" y="7.2"/>
+<vertex x="39.3" y="7.2"/>
+<vertex x="39.3" y="65.3"/>
+<vertex x="-0.4" y="65.3"/>
+</polygon>
+<polygon width="0.254" layer="16">
+<vertex x="0" y="7.2"/>
+<vertex x="39.3" y="7.2"/>
+<vertex x="39.2" y="65.3"/>
+<vertex x="-0.6" y="65.3"/>
+</polygon>
 </signal>
 <signal name="3.3V">
 <contactref element="XBEE" pad="1"/>
@@ -1631,22 +1642,6 @@ design rules under a new name.</description>
 <wire x1="30.1" y1="50.2" x2="28.99" y2="50.2" width="0.254" layer="16"/>
 <contactref element="U$2" pad="1"/>
 <wire x1="31.08" y1="42.4" x2="29.8" y2="42.4" width="0.2032" layer="16"/>
-</signal>
-<signal name="N$4">
-<polygon width="0.254" layer="1">
-<vertex x="0" y="7.2"/>
-<vertex x="39.3" y="7.2"/>
-<vertex x="39.3" y="65.3"/>
-<vertex x="-0.4" y="65.3"/>
-</polygon>
-</signal>
-<signal name="N$6">
-<polygon width="0.254" layer="16">
-<vertex x="0" y="7.2"/>
-<vertex x="39.3" y="7.2"/>
-<vertex x="39.2" y="65.3"/>
-<vertex x="-0.6" y="65.3"/>
-</polygon>
 </signal>
 </signals>
 </board>
