@@ -4,6 +4,9 @@
 #include "board.h"
 #include <asf.h>
 
+// set up kicker
+void configure_kicker(void);
+
 // set the reference voltage to set kick speed
 void set_kick_ref(uint32_t speed); 
 
