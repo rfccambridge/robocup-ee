@@ -38,7 +38,7 @@
 #include <math.h>
 #include <stdint.h>
 
-#include "ros/duration.h"
+#include "duration.h"
 
 namespace ros
 {

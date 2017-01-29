@@ -30,6 +30,11 @@
       <framework-data>
   <options>
     <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.delay" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.utils.interrupt" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.ioport" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.basic.clock" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="mega.drivers.usart" value="Add" config="" content-id="Atmel.ASF" />
   </options>
   <configurations />
   <files>
@@ -51,6 +56,17 @@
     <file path="src/ASF/mega/utils/preprocessor/tpaste.h" framework="" version="" source="mega/utils/preprocessor/tpaste.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/mega/utils/progmem.h" framework="" version="" source="mega/utils/progmem.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/mega/utils/status_codes.h" framework="" version="" source="mega/utils/status_codes.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/drivers/cpu/mega_reset_cause.h" framework="" version="3.32.0" source="mega\drivers\cpu\mega_reset_cause.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/mega/sysclk.c" framework="" version="3.32.0" source="common\services\clock\mega\sysclk.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/mega/sysclk.h" framework="" version="3.32.0" source="common\services\clock\mega\sysclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/sysclk.h" framework="" version="3.32.0" source="common\services\clock\sysclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/Config/conf_clock.h" framework="" version="3.32.0" source="common\services\clock\mega\module_config\conf_clock.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/delay/mega/cycle_counter.h" framework="" version="3.32.0" source="common\services\delay\mega\cycle_counter.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/delay/delay.h" framework="" version="3.32.0" source="common\services\delay\delay.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/ioport/ioport.h" framework="" version="3.32.0" source="common\services\ioport\ioport.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/ioport/mega/ioport.h" framework="" version="3.32.0" source="common\services\ioport\mega\ioport.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/drivers/usart/usart_mega.c" framework="" version="3.32.0" source="mega\drivers\usart\usart_mega.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/drivers/usart/usart_mega.h" framework="" version="3.32.0" source="mega\drivers\usart\usart_mega.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.32.0/common.applications.user_application.user_board.mega/html/index.html" />
   <offline-documentation help="" />
@@ -87,6 +103,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -113,6 +134,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
@@ -134,6 +160,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcccpp.assembler.general.IncludePaths>
 </AvrGccCpp>
@@ -164,6 +195,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -191,6 +227,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcccpp.compiler.directories.IncludePaths>
   <avrgcccpp.compiler.optimization.level>Optimize (-O1)</avrgcccpp.compiler.optimization.level>
@@ -213,6 +254,11 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/mega/drivers/cpu</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/mega/drivers/usart</Value>
     </ListValues>
   </avrgcccpp.assembler.general.IncludePaths>
   <avrgcccpp.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcccpp.assembler.debugging.DebugLevel>
@@ -223,6 +269,165 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\common\services\clock\mega\sysclk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ASF\mega\drivers\usart\usart_mega.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\duration.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\duration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\msg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\node_handle.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\publisher.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\service_client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\service_server.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\subscriber.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\ros\time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Bool.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Byte.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\ByteMultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Char.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\ColorRGBA.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Duration.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Empty.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Float32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Float32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Float64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Float64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Header.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int16MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Int8MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\MultiArrayDimension.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\MultiArrayLayout.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\String.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\Time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt16MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt32.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt32MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt64.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt64MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\std_msgs\UInt8MultiArray.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\time.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\mega\drivers\usart\usart_mega.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\ioport\mega\ioport.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\ioport\ioport.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\delay\delay.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\delay\mega\cycle_counter.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\config\conf_clock.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\sysclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\mega\sysclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\mega\drivers\cpu\mega_reset_cause.h">
+      <SubType>compile</SubType>
+    </None>
     <None Include="src\asf.h">
       <SubType>compile</SubType>
     </None>
@@ -287,14 +492,27 @@
     <Folder Include="src\ASF\common\" />
     <Folder Include="src\ASF\common\boards\" />
     <Folder Include="src\ASF\common\boards\user_board\" />
+    <Folder Include="src\ASF\common\services\" />
+    <Folder Include="src\ASF\common\services\clock\" />
+    <Folder Include="src\ASF\common\services\clock\mega\" />
+    <Folder Include="src\ASF\common\services\delay\" />
+    <Folder Include="src\ASF\common\services\delay\mega\" />
+    <Folder Include="src\ASF\common\services\ioport\" />
+    <Folder Include="src\ASF\common\services\ioport\mega\" />
     <Folder Include="src\ASF\common\utils\" />
     <Folder Include="src\ASF\common\utils\interrupt\" />
     <Folder Include="src\ASF\common\utils\make\" />
     <Folder Include="src\ASF\mega\" />
+    <Folder Include="src\ASF\mega\drivers\" />
+    <Folder Include="src\ASF\mega\drivers\cpu\" />
+    <Folder Include="src\ASF\mega\drivers\usart\" />
     <Folder Include="src\ASF\mega\utils\" />
     <Folder Include="src\ASF\mega\utils\assembler\" />
     <Folder Include="src\ASF\mega\utils\preprocessor\" />
     <Folder Include="src\config\" />
+    <Folder Include="src\ros_lib\" />
+    <Folder Include="src\ros_lib\ros\" />
+    <Folder Include="src\ros_lib\std_msgs\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

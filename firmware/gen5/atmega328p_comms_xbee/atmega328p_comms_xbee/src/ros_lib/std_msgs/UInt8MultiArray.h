@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
-#include "ros/msg.h"
-#include "std_msgs/MultiArrayLayout.h"
+#include "ros_lib/ros/msg.h"
+#include "ros_lib/std_msgs/MultiArrayLayout.h"
 
 namespace std_msgs
 {
