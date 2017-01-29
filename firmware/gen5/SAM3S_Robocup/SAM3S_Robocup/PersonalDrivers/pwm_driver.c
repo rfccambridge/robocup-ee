@@ -81,7 +81,7 @@ void attach_motor(Motor *m) {
 			// specify channel settings and initialize
 			pwm_0.ul_prescaler = PWM_CMR_CPRE_CLKB;
 			pwm_0.ul_period = 1000;
-			pwm_0.ul_duty = 500;
+			pwm_0.ul_duty = 100;
 			pwm_0.channel = PWM_CHANNEL_0;
 			pwm_channel_init(PWM, &pwm_0);
 		
