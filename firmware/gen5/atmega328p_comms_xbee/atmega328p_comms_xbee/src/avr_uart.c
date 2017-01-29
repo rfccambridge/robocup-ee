@@ -27,7 +27,7 @@ void avr_uart_send_byte(uint8_t tx_byte) {
 // Receive one char if available, -1 else
 int16_t avr_uart_receive_byte(void) {
 	if ((UCSR0A & _BV(RXC0)) != 0)
-		return UDR0;
+	return UDR0;
 	else
-		return -1;
+	return -1;
 }
