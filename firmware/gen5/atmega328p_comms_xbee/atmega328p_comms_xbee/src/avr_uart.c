@@ -7,6 +7,7 @@
 #include "avr_uart.h"
 #include <avr/io.h>
 
+#define F_CPU 8000000UL
 #define BAUD 57600
 #define UBRR_VAL ((F_CPU / (16UL * BAUD)) - 1)
 #define _BV(bit) (1 << (bit))

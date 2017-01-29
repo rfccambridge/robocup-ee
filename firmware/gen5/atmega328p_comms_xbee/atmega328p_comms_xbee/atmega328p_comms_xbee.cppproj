@@ -266,16 +266,49 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="main.cpp">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\ASF\common\services\clock\mega\sysclk.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ASF\mega\drivers\usart\usart_mega.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\Atmega328pHardware.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\avr_time.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\avr_time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\avr_uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\avr_uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\main.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ros_lib\duration.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\rosserial_msgs\Log.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\rosserial_msgs\RequestMessageInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\rosserial_msgs\RequestParam.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\rosserial_msgs\RequestServiceInfo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\ros_lib\rosserial_msgs\TopicInfo.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\ros_lib\ros\duration.h">
@@ -401,6 +434,9 @@
     <Compile Include="src\ros_lib\time.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="atmega328p_comms_xbee.componentinfo.xml">
+      <SubType>compile</SubType>
+    </None>
     <None Include="src\ASF\mega\drivers\usart\usart_mega.h">
       <SubType>compile</SubType>
     </None>
@@ -482,9 +518,6 @@
     <None Include="src\ASF\mega\utils\preprocessor\tpaste.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\main.c">
-      <SubType>compile</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
@@ -511,6 +544,7 @@
     <Folder Include="src\ASF\mega\utils\preprocessor\" />
     <Folder Include="src\config\" />
     <Folder Include="src\ros_lib\" />
+    <Folder Include="src\ros_lib\rosserial_msgs\" />
     <Folder Include="src\ros_lib\ros\" />
     <Folder Include="src\ros_lib\std_msgs\" />
   </ItemGroup>

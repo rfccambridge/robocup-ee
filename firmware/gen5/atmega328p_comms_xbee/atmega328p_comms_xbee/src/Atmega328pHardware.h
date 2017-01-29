@@ -17,7 +17,7 @@ extern "C" {
 
 class Atmega328pHardware {
 	public:
-		Atmega328pHardware();
+		Atmega328pHardware() {}
 		
 		// Initialize micro
 		void init(void) {

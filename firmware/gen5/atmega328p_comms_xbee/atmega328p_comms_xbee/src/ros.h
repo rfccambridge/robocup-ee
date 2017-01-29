@@ -9,7 +9,7 @@
 #include "Atmega328pHardware.h"
 
 namespace ros {
-	typedef ros::NodeHandle_<Atmega328pHardware> NodeHandle;
+	typedef ros::NodeHandle_<Atmega328pHardware, 25, 25, 100, 100> NodeHandle;
 }
 
 #endif

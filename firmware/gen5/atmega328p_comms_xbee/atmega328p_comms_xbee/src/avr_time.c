@@ -9,6 +9,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+#define F_CPU 8000000UL
 #define CLOCKS_PER_MS F_CPU / 1000UL
 // Timer is 8 bits and prescaled by 64
 #define CLOCKS_PER_TIMER_OFLOW 64UL * 256UL
