@@ -1,3 +1,9 @@
+/* avr_uart.c
+ * UART driver for atmega328p.
+ *
+ * Jon Cruz
+ */
+
 #include "avr_uart.h"
 #include <avr/io.h>
 

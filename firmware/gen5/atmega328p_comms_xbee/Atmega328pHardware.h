@@ -1,5 +1,12 @@
-#ifndef _ATMEGA328P_H_
-#define _ATMEGA328P_H_
+/* Atmega328pHardware.h
+ * Hardware header for atmega328p for use with
+ * ROS and rosserial package.
+ *
+ * Jon Cruz
+ */
+
+#ifndef _ATMEGA328P_HARDWARE_H_
+#define _ATMEGA328P_HARDWARE_H_
 
 extern "C" {
 	#include <avr/interrupt.h>
@@ -8,9 +15,9 @@ extern "C" {
 	#include "avr_uart.h"
 }
 
-class Atmega328p {
+class Atmega328pHardware {
 	public:
-		Atmega328p();
+		Atmega328pHardware();
 		
 		// Initialize micro
 		void init(void) {

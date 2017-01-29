@@ -1,3 +1,10 @@
+/* avr_time.c
+ * Uses timer overflow to return current time in
+ * milliseconds.
+ *
+ * Jon Cruz
+ */
+
 #include "avr_time.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>

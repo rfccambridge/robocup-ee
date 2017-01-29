@@ -1,3 +1,7 @@
+/* avr_time.h
+ * Jon Cruz
+ */
+
 #ifndef _AVR_TIME_H_
 #define _AVR_TIME_H_
 

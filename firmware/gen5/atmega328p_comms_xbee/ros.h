@@ -1,11 +1,15 @@
+/* ros.h
+ * Jon Cruz
+ */
+
 #ifndef _ROS_H_
 #define _ROS_H_
 
-#include "ros/node_handle.h"
-#include "atmega328p.h"
+#include "ros_lib/ros/node_handle.h"
+#include "Atmega328pHardware.h"
 
 namespace ros {
-	typedef ros::NodeHandle_<Atmega328p> NodeHandle;
+	typedef ros::NodeHandle_<Atmega328pHardware> NodeHandle;
 }
 
 #endif
