@@ -177,14 +177,6 @@ install(PROGRAMS
 add_executable(simulator src/simulator.cpp src/game.cpp src/custom_markers.cpp)
 target_link_libraries(simulator ${catkin_LIBRARIES})
 
-add_executable(brain src/brain.cpp src/robot_interface.cpp)
-target_link_libraries(brain ${catkin_LIBRARIES})
-
-## Add cmake target dependencies of the library
-## as an example, code may need to be generated before libraries
-## either from message generation or dynamic reconfigure
-add_dependencies(brain ${catkin_EXPORTED_TARGETS})
-
 ## Declare a C++ executable
 
 ## Add cmake target dependencies of the executable
