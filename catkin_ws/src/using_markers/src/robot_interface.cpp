@@ -102,7 +102,7 @@ void RobotInterface::goto_xy_pos(const int x, const int y)
 }
 
 //Operate the PID and send the output messages
-// Returns false on error
+//Returns false on error
 bool RobotInterface::spin()
 {
   //Retrieve the calculated velocities

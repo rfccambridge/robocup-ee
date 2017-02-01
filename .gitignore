@@ -10,6 +10,7 @@
 *.l#1
 *.zip
 *.pro
+*.pyc
 
 #Editor temp files
 \#*
