@@ -137,7 +137,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 
 install(PROGRAMS
-  src/listener.py src/publisher.py src/braindog.py
+  src/brain.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -175,7 +175,9 @@ install(PROGRAMS
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 add_executable(simulator src/simulator.cpp src/game.cpp src/custom_markers.cpp)
+add_dependencies(simulator ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(simulator ${catkin_LIBRARIES})
+
 
 ## Declare a C++ executable
 
