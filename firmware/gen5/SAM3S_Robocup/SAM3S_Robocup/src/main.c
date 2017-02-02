@@ -19,10 +19,22 @@ extern pwm_channel_t pwm_1;
 #define DIR2 IOPORT_CREATE_PIN(PIOA,12)
 #define FAULTN2 IOPORT_CREATE_PIN(PIOA,20)
 
-
+int i = 0;
 void SysTick_Handler( void )
-{
-	ioport_toggle_pin_level(DISCHARGE);
+{	
+	i++;
+	if (i > 10)
+	{
+		i = 0;
+		ioport_set_pin_level(CHARGE, false);
+	}
+	if (i == 2)
+	{
+		ioport_set_pin_level(CHARGE,true);
+	}
+	
+	
+	
 }
 
 int main (void)
@@ -41,8 +53,8 @@ int main (void)
 	
 	ioport_set_pin_level(BREN0,false);
 	ioport_set_pin_level(DIR0,false);
-	ioport_set_pin_dir(CHARGE,IOPORT_DIR_INPUT);
-	//ioport_set_pin_level(CHARGE,false);
+	ioport_set_pin_dir(CHARGE,IOPORT_DIR_OUTPUT);
+	ioport_set_pin_level(CHARGE,false);
 	ioport_set_pin_level(CHARGE_DONE,IOPORT_DIR_INPUT);
 	
 	
@@ -73,14 +85,15 @@ int main (void)
 	configure_kicker();
 	//chip_enable();
 	//kick_enable();
-	SysTick_Config(sysclk_get_cpu_hz() * 10);
+	SysTick_Config(BOARD_FREQ_MAINCK_BYPASS);
 
     while(1){
-	/*	
-		if(ioport_get_pin_level(CHARGE_DONE))
-			ioport_set_pin_level(CHARGE,true);
-	    else
-		ioport_set_pin_level(CHARGE,false);*/
+		
+		if(!ioport_get_pin_level(CHARGE_DONE))
+		{
+			ioport_set_pin_level(CHARGE,false);
+			kick_enable();
+		}
 
 		// right now we set the kicker reference value each time through the loop. 
 		// We may want to change this later on if we find that this is a bottle neck in
