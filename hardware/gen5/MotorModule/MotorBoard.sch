@@ -6855,11 +6855,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <sheets>
 <sheet>
 <plain>
-<text x="30.48" y="10.16" size="1.778" layer="97">5V output from motor driver</text>
+<text x="35.56" y="20.32" size="1.778" layer="97">5V output from motor driver</text>
 <text x="157.48" y="55.88" size="1.778" layer="97">Need to connect these with high current</text>
 <text x="157.48" y="53.34" size="1.778" layer="97">Separate connector?</text>
 <text x="254" y="81.28" size="1.778" layer="97">24, 26, and 30 are unconnected in Rev A</text>
-<text x="12.7" y="91.44" size="1.778" layer="97">Need to enable pullups on M3.</text>
+<text x="2.54" y="81.28" size="1.778" layer="97">Need to enable pullups on M3.</text>
+<text x="2.54" y="86.36" size="1.778" layer="97">Only connect pullups to 5V if the signals
+are isolated from the main board. Once we 
+fix the main board, these pullups should remain
+disconnected at all times</text>
 </plain>
 <instances>
 <instance part="Q6" gate="G$1" x="129.54" y="104.14"/>
@@ -7576,4 +7580,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </errors>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
