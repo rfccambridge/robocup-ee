@@ -5,6 +5,11 @@
 #include <motor_module.h>
 #include <asf.h>
 
+pwm_channel_t pwm_0;
+pwm_channel_t pwm_1;
+pwm_channel_t pwm_2;
+pwm_channel_t pwm_3;
+
  // Test function for PWM Module
 void test_pwm(void);
 

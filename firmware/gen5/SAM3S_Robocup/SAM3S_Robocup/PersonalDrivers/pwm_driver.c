@@ -21,48 +21,29 @@ void configure_pwm(){
 	pmc_enable_periph_clk(ID_PWM);
 }
 
-void test_pwm(void)
-{
-	// configure pin 0 to respond to peripheral_A PWM
-	pio_configure_pin(PWM1,PIO_TYPE_PIO_PERIPH_A);
-	
-	// create instance of pwm channel for configuration
-	pwm_channel_t pwm_1;
-	
-	// enable PWM module to receive master clock
-	pmc_enable_periph_clk(ID_PWM);
-	
-	// disable PWM channel in order to change clock configuration, then initialize PWM module clock details 
-	pwm_channel_disable(PWM, PWM_CHANNEL_0);
-	pwm_clock_t clock_setting = {
-		.ul_clka = 0,
-		.ul_clkb = 2500 * 1000, // dont use clockA! It will save you lots of debugging time
-		.ul_mck = sysclk_get_cpu_hz()
-	};
-	pwm_init(PWM, &clock_setting);
-	
-	// specify channel settings and initialize
-	pwm_1.ul_prescaler = PWM_CMR_CPRE_CLKB;
-	pwm_1.ul_period = 1000;
-	pwm_1.ul_duty = 500;
-	pwm_1.channel = PWM_CHANNEL_0;
-	pwm_channel_init(PWM, &pwm_1);
-	
-	// finally, enable pwm channel
-	pwm_channel_enable(PWM, PWM_CHANNEL_0);
-	
-}
-
 void update_duty_cycle(uint32_t duty_cycle, Channel chan) {
 	// set update duty cycle register to specified duty cycle. Duty cycle will change on next duty cycle period due to double buffering system
-	pwm_channel_update_duty(PWM,PWM_CHANNEL_0,500);
+	switch(chan)
+	{
+		case CHANNEL0:
+			pwm_channel_update_duty(PWM,&pwm_0,duty_cycle);
+			break;		
+		case CHANNEL1:
+			pwm_channel_update_duty(PWM,&pwm_1,duty_cycle);
+			break;
+		case CHANNEL2:
+			pwm_channel_update_duty(PWM,&pwm_2,duty_cycle);
+			break;
+		case CHANNEL3:
+			pwm_channel_update_duty(PWM,&pwm_3,duty_cycle);
+			break;
+	}
 }
 
-pwm_channel_t pwm_0;
-pwm_channel_t pwm_1;
-pwm_channel_t pwm_2;
-pwm_channel_t pwm_3;
-
+/*
+*	Attaches motor struct, m, to the pwm channel specified by the motor struct's channel value and enables the pwm channel. 
+*
+*/
 void attach_motor(Motor *m) {
 	
 	switch(m->motor_channel){

@@ -33,5 +33,6 @@ typedef struct motor {
 
 // Initialize motor to default settings (forward direction, zero speed)
 void initialize_motor(Motor *m, Channel chan);
+void update_speed(Motor *m, uint32_t speed);
 
 #endif
