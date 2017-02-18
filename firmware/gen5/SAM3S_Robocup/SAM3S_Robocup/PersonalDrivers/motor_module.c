@@ -9,3 +9,10 @@ void initialize_motor(Motor *m, Channel chan) {
 	
 	attach_motor(m);
 }
+
+void update_speed(Motor *m, uint32_t speed)
+{
+	if(speed > 1000)
+		speed = 1000;
+	update_duty_cycle(speed, m->motor_channel);	
+}
