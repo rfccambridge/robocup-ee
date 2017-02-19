@@ -18,13 +18,13 @@ def brain():
 		#Instantiate robots
 		#TODO: Introduce more intelligence here
 		r1 = RobotInterface(MarkerID.RED)
-		r1.goto_xy_pos(10,10)
 		
 		# set loop rate
 		rate = rospy.Rate(RATE)
 
 		#Main loop
 		while not rospy.is_shutdown():
+                        r1.goto_xy_pos(10, 10)
 			r1.spin()
 			rate.sleep()
 

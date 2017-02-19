@@ -29,11 +29,13 @@ int main(int argc, char** argv)
       loop_rate.sleep();
     }
 
+    //Process all of the callbacks
+    ros::spinOnce();
+
     //Render all of the markers
     game.render_markers();
 
-    //Process all of the callbacks and sleep a bit between loops
-    ros::spinOnce();
+    //Sleep a bit between loops
     loop_rate.sleep();
   }
 }
