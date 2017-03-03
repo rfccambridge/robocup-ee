@@ -104,7 +104,6 @@ catkin_package(
    INCLUDE_DIRS include
    LIBRARIES using_markers
    CATKIN_DEPENDS roscpp visualization_msgs message_runtime
-#   DEPENDS system_lib
 )
 
 ###########
@@ -124,6 +123,7 @@ include_directories(
 #add_library(using_markers
 #   add library files here
 #)
+
 
 
 #############

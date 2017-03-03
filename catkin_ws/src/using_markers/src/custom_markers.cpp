@@ -57,7 +57,7 @@ static inline std_msgs::ColorRGBA create_colorRGBA(double _r, double _g, double 
 }
 
 OurRobot::OurRobot(int robot_id, double _x, double _y, double _z)
-    : CustomMarker(robot_id, visualization_msgs::Marker::CYLINDER,
+    : CustomMarker(robot_id, visualization_msgs::Marker::CUBE,
                    create_point(_x, _y, _z),      //Set the initial pose position from the input arguments
                    create_quaternion(0, 0, 0, 1), //Set the initial pose orientation to a default
                    create_vector3(1, 1, 1),       //Set the initial scale, 1x1x1 means 1m per side

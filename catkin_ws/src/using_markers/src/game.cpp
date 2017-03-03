@@ -1,5 +1,6 @@
 #include <map>
 #include <stdexcept>
+#include <cmath>
 
 #include <ros/ros.h>
 
@@ -15,6 +16,7 @@ std::map<int, CustomMarker*> Game::map_markers;
 
 void Game::render_markers()
 {
+			
   std::map<int, CustomMarker*>::iterator it = map_markers.begin();
   for(; it != map_markers.end(); ++it)
   {
@@ -42,6 +44,10 @@ void Game::subscriber_set_pos_handle(const using_markers::speedCommand command)
 
     marker->pose.position.x += command.speed0 * DT;
     marker->pose.position.y += command.speed1 * DT;
+		
+		// Uncomment this and remake to see marker continuously rotate
+		Game::rotate_marker(marker,-.01);
+		
   }
   catch(const std::exception& e)
   {
@@ -65,6 +71,7 @@ bool Game::server_get_pos_handle(using_markers::markerPosSrv::Request& req,
     //Assign the response accordingly
     res.pos_x = marker->pose.position.x;
     res.pos_y = marker->pose.position.y;
+		
   }
   catch(const std::exception& e)
   {

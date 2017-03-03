@@ -3,6 +3,7 @@
 
 #include <map>
 #include <stdexcept>
+#include <cmath>
 
 #include <ros/ros.h>
 #include <using_markers/markerPosSrv.h>
@@ -37,6 +38,34 @@ public:
       delete it->second;
   }
 
+	// rotates marker `rotation` radians
+	static void rotate_marker(CustomMarker* marker, float rotation)
+	{
+			// intialize unit quaternion with z-axis as axis of rotation
+			float q_x = 0.0;
+			float q_y = 0.0;
+			float q_z = 1.0;
+			float q_w = 0.0;
+
+			// unit quaternion for rotation 
+			float local_x = q_x*sinf(rotation/2.0);
+			float local_y = q_y * sinf(rotation/2.0);
+			float local_z = q_z * sinf(rotation/2.0);
+			float local_w = cosf(rotation/2.0);
+
+			// store marker's initial quaternion (before rotation)
+			float total_x = marker->pose.orientation.x;
+			float total_y = marker->pose.orientation.y;
+			float total_z = marker->pose.orientation.z;
+			float total_w = marker->pose.orientation.w;
+		
+			// execute rotation calculation, and set new values for the marker's quaternion
+			marker->pose.orientation.x = local_w*total_x +  local_x*total_w  +  local_y*total_z - local_z*total_y;
+			marker->pose.orientation.y = local_w*total_y -  local_x*total_z  +  local_y*total_w + local_z*total_x;
+			marker->pose.orientation.z = local_w*total_z +  local_x*total_y  -  local_y*total_x + local_z*total_w;
+			marker->pose.orientation.w = local_w*total_w -  local_x*total_x  -  local_y*total_y - local_z*total_z;
+	}
+
   void render_markers();
 
   //Creates an `OurRobot` and adds it to the `map_markers`
@@ -68,7 +97,7 @@ public:
   {
     //Establish a connection to the simulation renderer
     if(!publisher_render)
-      publisher_render = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+      publisher_render = n.advertise<visualization_msgs::Marker>("visualization_marker", 100);
 
     if(!server_get_pos)
       server_get_pos = n.advertiseService(MARKER_POS_SERVER, server_get_pos_handle);
