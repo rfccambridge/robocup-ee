@@ -93,7 +93,7 @@ extern "C" {
 void twi_enable_master_mode(Twi *p_twi)
 {
 	/* Set Master Disable bit and Slave Disable bit */
-	p_twi->TWI_CR = TWI_CR_MSDIS;
+	//p_twi->TWI_CR = TWI_CR_MSDIS;
 	p_twi->TWI_CR = TWI_CR_SVDIS;
 
 	/* Set Master Enable bit */
@@ -132,13 +132,13 @@ uint32_t twi_master_init(Twi *p_twi, const twi_options_t *p_opt)
 	/* Reset TWI peripheral */
 	twi_reset(p_twi);
 
-	twi_enable_master_mode(p_twi);
-
 	/* Select the speed */
 	if (twi_set_speed(p_twi, p_opt->speed, p_opt->master_clk) == FAIL) {
 		/* The desired speed setting is rejected */
 		status = TWI_INVALID_ARGUMENT;
 	}
+
+	twi_enable_master_mode(p_twi);
 
 	if (p_opt->smbus == 1) {
 		p_twi->TWI_CR = TWI_CR_QUICK;
@@ -354,7 +354,7 @@ uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet)
 			return TWI_RECEIVE_NACK;
 		}
 
-		if (!(status & TWI_SR_TXRDY)) {
+		if (!(status & TWI_SR_TXRDY)) { 
 			continue;
 		}
 		p_twi->TWI_THR = *buffer++;
