@@ -9,22 +9,21 @@ from robot_interface import RobotInterface
 from shared_code import *
 
 def brain():
-	try:
+        try:
 		#Initialize the communication interface for our robots
 		RobotInterface.initialize_coms()
-		if not RobotInterface.client_get_pos:
-			print "Failed!"
 		
 		#Instantiate robots
 		#TODO: Introduce more intelligence here
 		r1 = RobotInterface(MarkerID.RED)
+                ball = RobotInterface(MarkerID.BALL)
 		
 		# set loop rate
 		rate = rospy.Rate(RATE)
 
 		#Main loop
 		while not rospy.is_shutdown():
-                        r1.goto_xy_pos(10, 10)
+                        r1.goto_xy_pos(10, 0)
 			r1.spin()
 			rate.sleep()
 

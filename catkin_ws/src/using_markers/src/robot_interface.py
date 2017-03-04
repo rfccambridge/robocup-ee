@@ -16,14 +16,20 @@ class RobotInterface:
     client_get_pos = None
     publisher_set_vels = None
 
-		# Calls the game server to retrieve the current position
-		# Outputs in `ret_cur_pos` as cur_x, cur_y tuple
+    #Hold a list of all of the instances of `RobotInterface`'s created
+    all_instances = []
+
+    # Calls the game server to retrieve the current position
+    # Outputs in `ret_cur_pos` as cur_x, cur_y tuple
+    #
+    #TODO: Consider adding an argument that determines whether this function must
+    # pull infos from the connection, or use a cached value updated at intervals
     def call_for_cur_pos(self):		
     	# Request the robot's position with ID of `id`
     	# Send this request via the `client_get_pos`
-      resp = RobotInterface.client_get_pos(self.id)
-      print "The marker's pos is " + str(resp.pos_x) + " " + str(resp.pos_y) 
-      return resp.pos_x, resp.pos_y
+        resp = RobotInterface.client_get_pos(self.id)
+        print "The marker's pos is " + str(resp.pos_x) + " " + str(resp.pos_y) 
+        return resp.pos_x, resp.pos_y
 
     #Calculates the xy velocities of the robot given its current position and a desired destination
     # using a PID controller implementation
@@ -71,7 +77,7 @@ class RobotInterface:
 
     def astar(self, start, goal, xdim, ydim, obstacles):
         """Takes a `start` and `goal` tuple of coords, and returns a list of the best path between those points.
-        The `obstacles` is a list of lambda functions of two args, (x and y), that tell if a given point
+        The `obstacles` is a list of lambda functions of two arguments, x and y, that tell if a given point
         is valid or encroaches the obstacle."""
 
         def heuristic(a, b):
@@ -133,16 +139,52 @@ class RobotInterface:
         #No valid path was found!
         return False
 
+    def get_obstacle_ranges(self):
+        """Returns a list of lambda functions taking two arguments, x and y, that will respectively return `True` if
+        the input x-y coordinate is within the spacial boundary of an instance on the map minus the calling one """
+        ret = []
+        for inst in RobotInterface.all_instances:
+            #Never count the calling instance as an obstacle
+            if inst.id == self.id:
+                continue
+
+            inst_cur_x, inst_cur_y = inst.call_for_cur_pos()
+
+            #Build a lambda function that returns `True` if the input `x`, `y`
+            # are within the bounds of this instance
+            fn = lambda x, y: abs(inst_cur_x - x) < inst.x_size / 2.0 and abs(inst_cur_y - y) < inst.y_size / 2.0
+
+            ret.append(fn)
+
+        return ret
+
     #!!!TODO
     #!!!TODO: Enclose the commands from the controller better
     #!!!TODO
     def goto_xy_pos(self, x, y):
 
+        #The flag that will determine if astar should be calculated or not. It is set under various circumstances
+        calc_path = False
+
         cur_x, cur_y = self.call_for_cur_pos()
+        obstacles = self.get_obstacle_ranges()
+
+        #The cases where the path should be recalculated
+        if self.path == []: #If there is no path currently queued up
+            calc_path = True
+        elif (x, y) != self.path[-1]: #If the end destination no longer matches that of the queued path
+            calc_path = True
+        else: #If `calc_path` has not been set yet, then run the exhaustive obstacle search
+            #Test every point on every obstacle, setting `calc_path` if necessary
+            for pt in self.path:
+                for obst_fn in obstacles:
+                    if obst_fn(*pt): #If the queued path encroaches on an onstacle
+                        calc_path = True
+                        break
 
         #TODO: Figure out granularity of field and obstacle list
-        if self.path == []:
-            self.path = self.astar((int(cur_x), int(cur_y)), (x, y), 50, 50, [])
+        if calc_path:
+            self.path = self.astar((int(cur_x), int(cur_y)), (x, y), 50, 50, obstacles)
 
             #If the returned list is empty, then we are at our final destination
             if self.path == []:
@@ -215,6 +257,12 @@ class RobotInterface:
 
         #Instantiate various variables and record initial values
         self.id = _id
+
+        #TODO: Possibly make the dimensions variable by input
+        self.x_size = self.y_size = 1
+
+        #Add this instance to `RobotInterface.all_instances`
+        RobotInterface.all_instances.append(self)
 
     def __del__(self):
         RobotInterface.client_get_pos.close()

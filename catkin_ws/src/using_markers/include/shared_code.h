@@ -24,7 +24,7 @@
 #define MARKER_COMMAND_TOPIC "messenger_set_pos"
 #define MARKER_POS_SERVER "service_get_pos"
 
-// different colors indicate different robots
+//Different colors indicate different robots
 enum
 {
   RED_ID,
