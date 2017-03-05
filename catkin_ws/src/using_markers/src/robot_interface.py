@@ -8,6 +8,9 @@ import rospy
 from shared_code import *
 from using_markers.srv import *
 from using_markers.msg import *
+from numpy import *
+
+import numpy as np
 
 from heapq import *
 
@@ -184,9 +187,28 @@ class RobotInterface:
         #Where vel_x and vel_y are robot velocities, wheel_pos_x and wheel_pos_y are the wheel 
         # positions relative to the robot, w is the angular velocity to rotate the robot
 				#!!!TODO
-        msg.speed0 = msg.speed2 = vel_x
-        msg.speed1 = msg.speed3 = vel_y
+				
+        #Distance between wheels and robot
+        d = 4
+				#!!!TODO: Integrate angular velocity into the speed_command messaging topic
+        vel_w = 0
 
+        #Kinematics of our system
+        dynamics = np.array([[ 0,  1, d],
+                             [-1,  0, d],
+                             [ 0, -1, d],
+                             [ 1,  0, d]])
+
+        robot_speeds = np.array([[vel_x],[vel_y],[vel_w]])
+        
+        motor_speeds = np.dot(dynamics,robot_speeds)
+        print motor_speeds
+
+        msg.speed0 = motor_speeds[0]
+        msg.speed1 = motor_speeds[2]
+        msg.speed2 = motor_speeds[1]
+        msg.speed3 = motor_speeds[3]
+        
         #Send the message to 'MARKER_COMMAND_TOPIC'
         RobotInterface.publisher_set_vels.publish(msg)
 
