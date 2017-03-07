@@ -8,6 +8,10 @@
 #define RATE 100
 #define DT (1.0 / RATE)
 
+#define d 4.0
+
+#define PI 3.14159265358979323846
+
 #define PRINT_ERROR(ERR)                                                                   \
   do                                                                                       \
   {                                                                                        \

@@ -18,3 +18,6 @@ def enum(*sequential, **named):
 #Instantiate the ID's of all of the markers in play
 MarkerID = enum('RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'BALL')
 
+#Distance between center of robot and wheel
+d = 4.0
+

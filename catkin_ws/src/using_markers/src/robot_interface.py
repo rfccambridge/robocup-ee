@@ -31,8 +31,8 @@ class RobotInterface:
     	# Request the robot's position with ID of `id`
     	# Send this request via the `client_get_pos`
         resp = RobotInterface.client_get_pos(self.id)
-        print "The marker's pos is " + str(resp.pos_x) + " " + str(resp.pos_y) 
-        return resp.pos_x, resp.pos_y
+        #print "The marker's pos is " + str(resp.pos_x) + " " + str(resp.pos_y) 
+        return resp.pos_x, resp.pos_y, resp.pose
 
     #Calculates the xy velocities of the robot given its current position and a desired destination
     # using a PID controller implementation
@@ -50,8 +50,8 @@ class RobotInterface:
         vel_x = vel_y = 0.0
         
         #TODO: Make sure `self.call_for_cur_pos` throws an exception on error
-        cur_x, cur_y = self.call_for_cur_pos()            
-
+        cur_x, cur_y, pose = self.call_for_cur_pos()      
+      
         error_x = self.cmd_x_pos - cur_x
         self.error_i_x += error_x * DT
         error_d_x = error_x / DT
@@ -74,7 +74,8 @@ class RobotInterface:
             vel_y = 10.0
         elif vel_y < -10.0:
             vel_y = -10.0
-            
+
+				
         #Store the controller outputs in the controller
         return vel_x, vel_y
 
@@ -151,7 +152,7 @@ class RobotInterface:
             if inst.id == self.id:
                 continue
 
-            inst_cur_x, inst_cur_y = inst.call_for_cur_pos()
+            inst_cur_x, inst_cur_y, inst_pose = inst.call_for_cur_pos()
 
             #Build a lambda function that returns `True` if the input `x`, `y`
             # are within the bounds of this instance
@@ -169,7 +170,7 @@ class RobotInterface:
         #The flag that will determine if astar should be calculated or not. It is set under various circumstances
         calc_path = False
 
-        cur_x, cur_y = self.call_for_cur_pos()
+        cur_x, cur_y, pose = self.call_for_cur_pos()
         obstacles = self.get_obstacle_ranges()
 
         #The cases where the path should be recalculated
@@ -209,7 +210,7 @@ class RobotInterface:
 
     #Operate the PID and send the output messages
     def spin(self):
-        print "spinning!"
+        #print "spinning!"
 
         #Get velocities (assume it doesn't fail)
         vel_x, vel_y = self.pid_calc_vels()
@@ -229,11 +230,9 @@ class RobotInterface:
         #Where vel_x and vel_y are robot velocities, wheel_pos_x and wheel_pos_y are the wheel 
         # positions relative to the robot, w is the angular velocity to rotate the robot
 				#!!!TODO
-				
-        #Distance between wheels and robot
-        d = 4
+
 				#!!!TODO: Integrate angular velocity into the speed_command messaging topic
-        vel_w = 0
+        vel_w = 10
 
         #Kinematics of our system
         dynamics = np.array([[ 0,  1, d],
@@ -244,11 +243,10 @@ class RobotInterface:
         robot_speeds = np.array([[vel_x],[vel_y],[vel_w]])
         
         motor_speeds = np.dot(dynamics,robot_speeds)
-        print motor_speeds
-
+        
         msg.speed0 = motor_speeds[0]
-        msg.speed1 = motor_speeds[2]
-        msg.speed2 = motor_speeds[1]
+        msg.speed1 = motor_speeds[1]
+        msg.speed2 = motor_speeds[2]
         msg.speed3 = motor_speeds[3]
         
         #Send the message to 'MARKER_COMMAND_TOPIC'
