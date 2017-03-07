@@ -36,6 +36,7 @@ class RobotInterface:
 
     #Calculates the xy velocities of the robot given its current position and a desired destination
     # using a PID controller implementation
+    #Velocities are transformed to the robot frame of reference which depends on its pose
     def pid_calc_vels(self):        
         #Constant scaling factors
         K_P = 0.5
@@ -51,7 +52,7 @@ class RobotInterface:
         
         #TODO: Make sure `self.call_for_cur_pos` throws an exception on error
         cur_x, cur_y, pose = self.call_for_cur_pos()      
-      
+        
         error_x = self.cmd_x_pos - cur_x
         self.error_i_x += error_x * DT
         error_d_x = error_x / DT
@@ -74,10 +75,14 @@ class RobotInterface:
             vel_y = 10.0
         elif vel_y < -10.0:
             vel_y = -10.0
+        print pose
+       
+			  #Transform velocities to robot frame of reference
+        vel_x_trans = vel_y*cos(pose - PI/2.0) + vel_x*cos(pose)
+        vel_y_trans = vel_y*cos(pose) + vel_x*cos(pose + PI/2.0)
 
-				
         #Store the controller outputs in the controller
-        return vel_x, vel_y
+        return vel_x_trans, vel_y_trans
 
     def astar(self, start, goal, xdim, ydim, obstacles):
         """Takes a `start` and `goal` tuple of coords, and returns a list of the best path between those points.
@@ -232,7 +237,7 @@ class RobotInterface:
 				#!!!TODO
 
 				#!!!TODO: Integrate angular velocity into the speed_command messaging topic
-        vel_w = 10
+        vel_w = 1
 
         #Kinematics of our system
         dynamics = np.array([[ 0,  1, d],

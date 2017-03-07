@@ -66,6 +66,15 @@ public:
 			marker->pose.orientation.w = local_w*total_w -  local_x*total_x  -  local_y*total_y - local_z*total_z;
 	}
 
+	//Returns the current pose of the robot in radians
+	static float get_pose (CustomMarker* marker)
+	{
+		if (marker->pose.orientation.z < 0.0)
+			return (2*PI - 2*acos(marker->pose.orientation.w));
+		else 
+			return (2*acos(marker->pose.orientation.w));
+	}
+
   void render_markers();
 
   //Creates an `OurRobot` and adds it to the `map_markers`

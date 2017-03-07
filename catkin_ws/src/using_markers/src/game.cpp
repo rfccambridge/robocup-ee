@@ -53,10 +53,15 @@ void Game::subscriber_set_pos_handle(const using_markers::speedCommand command)
 
 		// angular velocity
 		float omega = 0.25/d*(command.speed0 + command.speed1 + command.speed2 + command.speed3);
-
-    marker->pose.position.x += vel_x * DT;
-    marker->pose.position.y += vel_y * DT;
+		float pose = get_pose(marker);
 		
+
+		//Transform velocities to lab frame of reference
+    float vel_x_trans = vel_y*cos(pose + PI/2.0) + vel_x*cos(pose);
+    float vel_y_trans = vel_y*cos(pose) + vel_x*cos(pose - PI/2.0);
+
+    marker->pose.position.x += vel_x_trans * DT;
+    marker->pose.position.y += vel_y_trans * DT;
 		
 		// Uncomment this and remake to see marker continuously rotate
 		Game::rotate_marker(marker,omega*DT);
@@ -84,13 +89,7 @@ bool Game::server_get_pos_handle(using_markers::markerPosSrv::Request& req,
     //Assign the response accordingly
     res.pos_x = marker->pose.position.x;
     res.pos_y = marker->pose.position.y;
-
-		// determine pose from quaternion - pose is represented in radians
-		if (marker->pose.orientation.z < 0.0)
-			res.pose = 2*PI - 2*acos(marker->pose.orientation.w);
-		else 
-			res.pose = 2*acos(marker->pose.orientation.w);
-		
+		res.pose = get_pose(marker);
   }
   catch(const std::exception& e)
   {
