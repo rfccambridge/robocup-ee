@@ -15213,6 +15213,7 @@ KICK_REF to range from approximately
 for proper operation of motor controller</text>
 <text x="523.24" y="99.06" size="1.778" layer="97">INTA and INTB are programmed to be logically ORed so
  that an interrupt on either port will cause both pins to activate</text>
+<text x="414.02" y="96.52" size="1.778" layer="91">5 Volt Regulator</text>
 </plain>
 <instances>
 <instance part="FRAME4" gate="G$1" x="259.08" y="193.04"/>
@@ -15837,25 +15838,8 @@ for proper operation of motor controller</text>
 <label x="571.5" y="284.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="G$1" pin="4"/>
-<label x="434.34" y="144.78" size="1.778" layer="95"/>
-<wire x1="426.72" y1="144.78" x2="434.34" y2="144.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="JP3" gate="G$1" pin="4"/>
-<label x="518.16" y="144.78" size="1.778" layer="95"/>
-<wire x1="505.46" y1="144.78" x2="520.7" y2="144.78" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="4"/>
 <label x="355.6" y="149.86" size="1.778" layer="95"/>
-<wire x1="347.98" y1="144.78" x2="358.14" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="144.78" x2="358.14" y2="149.86" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="JP4" gate="G$1" pin="4"/>
-<label x="345.44" y="218.44" size="1.778" layer="95"/>
-<wire x1="332.74" y1="218.44" x2="347.98" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R22" gate="G$1" pin="1"/>
@@ -16021,24 +16005,6 @@ for proper operation of motor controller</text>
 <pinref part="C38" gate="G$1" pin="1"/>
 <wire x1="558.8" y1="68.58" x2="571.5" y2="68.58" width="0.1524" layer="91"/>
 <junction x="571.5" y="68.58"/>
-</segment>
-<segment>
-<wire x1="452.12" y1="93.98" x2="464.82" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="C39" gate="G$1" pin="1"/>
-<wire x1="452.12" y1="91.44" x2="452.12" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="C40" gate="G$1" pin="1"/>
-<wire x1="464.82" y1="93.98" x2="464.82" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="5V1" gate="G$1" pin="P$1"/>
-<wire x1="452.12" y1="93.98" x2="444.5" y2="93.98" width="0.1524" layer="91"/>
-<junction x="452.12" y="93.98"/>
-<wire x1="439.42" y1="91.44" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="444.5" y1="93.98" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
-<junction x="444.5" y="93.98"/>
-<pinref part="5REG3" gate="G$1" pin="OUT"/>
-<wire x1="426.72" y1="93.98" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
-<junction x="439.42" y="93.98"/>
-<pinref part="C41" gate="G$1" pin="1"/>
-<label x="457.2" y="93.98" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12VGND" class="0">
@@ -18355,6 +18321,42 @@ for proper operation of motor controller</text>
 <pinref part="U1" gate="G$1" pin="JTAGSEL"/>
 <wire x1="767.08" y1="139.7" x2="767.08" y2="152.4" width="0.1524" layer="91"/>
 <label x="767.08" y="144.78" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="5V" class="0">
+<segment>
+<wire x1="452.12" y1="93.98" x2="464.82" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="C39" gate="G$1" pin="1"/>
+<wire x1="452.12" y1="91.44" x2="452.12" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="C40" gate="G$1" pin="1"/>
+<wire x1="464.82" y1="93.98" x2="464.82" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="5V1" gate="G$1" pin="P$1"/>
+<wire x1="452.12" y1="93.98" x2="444.5" y2="93.98" width="0.1524" layer="91"/>
+<junction x="452.12" y="93.98"/>
+<wire x1="439.42" y1="91.44" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="93.98" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
+<junction x="444.5" y="93.98"/>
+<pinref part="5REG3" gate="G$1" pin="OUT"/>
+<wire x1="426.72" y1="93.98" x2="439.42" y2="93.98" width="0.1524" layer="91"/>
+<junction x="439.42" y="93.98"/>
+<pinref part="C41" gate="G$1" pin="1"/>
+<label x="457.2" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="G$1" pin="4"/>
+<wire x1="426.72" y1="144.78" x2="434.34" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP3" gate="G$1" pin="4"/>
+<wire x1="505.46" y1="144.78" x2="513.08" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="4"/>
+<wire x1="347.98" y1="144.78" x2="355.6" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP4" gate="G$1" pin="4"/>
+<wire x1="332.74" y1="218.44" x2="340.36" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
