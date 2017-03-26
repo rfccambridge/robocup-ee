@@ -7186,14 +7186,14 @@ disconnected at all times</text>
 <label x="91.44" y="116.84" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="20"/>
-<wire x1="233.68" y1="88.9" x2="238.76" y2="88.9" width="0.1524" layer="91"/>
-<label x="236.22" y="88.9" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="215.9" y1="129.54" x2="215.9" y2="121.92" width="0.1524" layer="91"/>
 <label x="215.9" y="121.92" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="19"/>
+<wire x1="218.44" y1="88.9" x2="208.28" y2="88.9" width="0.1524" layer="91"/>
+<label x="208.28" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1H1" class="0">
@@ -7203,14 +7203,14 @@ disconnected at all times</text>
 <label x="86.36" y="116.84" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="19"/>
-<wire x1="218.44" y1="88.9" x2="208.28" y2="88.9" width="0.1524" layer="91"/>
-<label x="208.28" y="88.9" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="208.28" y1="129.54" x2="208.28" y2="121.92" width="0.1524" layer="91"/>
 <label x="208.28" y="121.92" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="20"/>
+<wire x1="233.68" y1="88.9" x2="238.76" y2="88.9" width="0.1524" layer="91"/>
+<label x="236.22" y="88.9" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PWM" class="0">
