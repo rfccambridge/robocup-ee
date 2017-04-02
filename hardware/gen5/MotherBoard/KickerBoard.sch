@@ -13997,6 +13997,11 @@ Wickmann</description>
 <wire x1="10.16" y1="-1.905" x2="10.16" y2="1.905" width="0.127" layer="21"/>
 <wire x1="11.43" y1="-1.905" x2="11.43" y2="1.905" width="0.127" layer="21"/>
 </package>
+<package name="SOT-23">
+<smd name="D" x="0" y="0" dx="1" dy="0.7" layer="1"/>
+<smd name="G" x="-2.4" y="0.95" dx="1" dy="0.7" layer="1"/>
+<smd name="S" x="-2.4" y="-0.95" dx="1" dy="0.7" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DEPLETION_NFET">
@@ -14120,6 +14125,40 @@ Wickmann</description>
 <pin name="-" x="0" y="-2.54" visible="off" length="point" rot="R90"/>
 <pin name="+" x="0" y="2.54" visible="off" length="point" rot="R270"/>
 </symbol>
+<symbol name="MOSFET">
+<wire x1="0.508" y1="1.778" x2="2.54" y2="1.778" width="0.127" layer="94"/>
+<wire x1="2.54" y1="1.778" x2="5.08" y2="1.778" width="0.127" layer="94"/>
+<wire x1="5.08" y1="1.778" x2="5.08" y2="0.762" width="0.127" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="5.08" y2="-1.778" width="0.127" layer="94"/>
+<wire x1="5.08" y1="-1.778" x2="2.54" y2="-1.778" width="0.127" layer="94"/>
+<wire x1="2.54" y1="-1.778" x2="0.508" y2="-1.778" width="0.127" layer="94"/>
+<wire x1="1.524" y1="0" x2="2.54" y2="0" width="0.127" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-1.778" width="0.127" layer="94"/>
+<wire x1="4.572" y1="0.762" x2="5.08" y2="0.762" width="0.127" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="5.588" y2="0.762" width="0.127" layer="94"/>
+<wire x1="5.588" y1="0.762" x2="5.842" y2="1.016" width="0.127" layer="94"/>
+<wire x1="4.572" y1="0.762" x2="4.318" y2="0.508" width="0.127" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="4.572" y2="-0.254" width="0.127" layer="94"/>
+<wire x1="4.572" y1="-0.254" x2="5.588" y2="-0.254" width="0.127" layer="94"/>
+<wire x1="5.588" y1="-0.254" x2="5.08" y2="0.762" width="0.127" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-1.27" y2="-2.54" width="0.127" layer="94"/>
+<wire x1="2.54" y1="-1.778" x2="2.54" y2="-2.54" width="0.127" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.778" width="0.127" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-1.27" y2="-2.54" width="0.127" layer="94"/>
+<text x="6.35" y="2.54" size="0.7" layer="95" font="vector" ratio="10">&gt;NAME</text>
+<text x="6.35" y="-1.524" size="0.7" layer="95" font="vector" ratio="10">&gt;VALUE</text>
+<rectangle x1="-0.508" y1="-0.762" x2="0.508" y2="0.762" layer="94"/>
+<rectangle x1="-0.508" y1="-2.54" x2="0.508" y2="-1.016" layer="94"/>
+<rectangle x1="-0.508" y1="1.016" x2="0.508" y2="2.54" layer="94"/>
+<pin name="D" x="2.54" y="5.08" visible="off" length="short" rot="R270"/>
+<pin name="S" x="2.54" y="-5.08" visible="off" length="short" rot="R90"/>
+<pin name="G" x="-5.08" y="-2.54" visible="off" length="short"/>
+<polygon width="0.127" layer="94">
+<vertex x="0.508" y="0"/>
+<vertex x="1.524" y="0.508"/>
+<vertex x="1.524" y="-0.508"/>
+</polygon>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IXTA3N50D2">
@@ -14199,6 +14238,27 @@ Wickmann</description>
 <connects>
 <connect gate="G$1" pin="+" pad="+"/>
 <connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="N-FET">
+<description>Small N-fet
+	MOSFET N-CH 60V 300MA SOT-23
+
+2N7002K-T1-E3</description>
+<gates>
+<gate name="G$1" symbol="MOSFET" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT-23">
+<connects>
+<connect gate="G$1" pin="D" pad="D"/>
+<connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -15164,6 +15224,7 @@ W = angled&lt;p&gt;
 <part name="R57" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="75k"/>
 <part name="R58" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="39k"/>
 <part name="R59" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="75k"/>
+<part name="U$22" library="rfc" deviceset="N-FET" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15284,8 +15345,8 @@ for proper operation of motor controller</text>
 <instance part="KE_LED" gate="G$1" x="287.02" y="276.86"/>
 <instance part="CE_LED" gate="G$1" x="294.64" y="276.86"/>
 <instance part="R5" gate="G$1" x="294.64" y="264.16" rot="R270"/>
-<instance part="COMP_LED" gate="G$1" x="358.14" y="317.5" rot="R90"/>
-<instance part="R6" gate="G$1" x="375.92" y="317.5" rot="R180"/>
+<instance part="COMP_LED" gate="G$1" x="363.22" y="332.74" rot="R90"/>
+<instance part="R6" gate="G$1" x="375.92" y="332.74" rot="R180"/>
 <instance part="KICK_LED" gate="G$1" x="393.7" y="297.18" rot="R90"/>
 <instance part="CHIP_LED" gate="G$1" x="398.78" y="261.62" rot="R90"/>
 <instance part="R9" gate="G$1" x="406.4" y="297.18" rot="R180"/>
@@ -15434,6 +15495,7 @@ for proper operation of motor controller</text>
 <instance part="R57" gate="G$1" x="137.16" y="147.32" rot="R270"/>
 <instance part="R58" gate="G$1" x="132.08" y="127" rot="R180"/>
 <instance part="R59" gate="G$1" x="137.16" y="121.92" rot="R270"/>
+<instance part="U$22" gate="G$1" x="378.46" y="317.5"/>
 </instances>
 <busses>
 </busses>
@@ -15461,10 +15523,9 @@ for proper operation of motor controller</text>
 <label x="287.02" y="256.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="381" y1="317.5" x2="383.54" y2="317.5" width="0.1524" layer="91"/>
-<wire x1="383.54" y1="317.5" x2="383.54" y2="312.42" width="0.1524" layer="91"/>
-<label x="383.54" y="312.42" size="1.778" layer="95"/>
+<wire x1="381" y1="312.42" x2="381" y2="307.34" width="0.1524" layer="91"/>
+<label x="381" y="307.34" size="1.778" layer="95"/>
+<pinref part="U$22" gate="G$1" pin="S"/>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
@@ -16071,6 +16132,12 @@ for proper operation of motor controller</text>
 <wire x1="558.8" y1="68.58" x2="571.5" y2="68.58" width="0.1524" layer="91"/>
 <junction x="571.5" y="68.58"/>
 </segment>
+<segment>
+<pinref part="COMP_LED" gate="G$1" pin="A"/>
+<wire x1="360.68" y1="332.74" x2="355.6" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="355.6" y1="332.74" x2="355.6" y2="342.9" width="0.1524" layer="91"/>
+<label x="355.6" y="340.36" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="12VGND" class="0">
 <segment>
@@ -16450,13 +16517,13 @@ for proper operation of motor controller</text>
 <wire x1="353.06" y1="304.8" x2="353.06" y2="287.02" width="0.1524" layer="91"/>
 <pinref part="ANDS" gate="G$1" pin="A2"/>
 <wire x1="353.06" y1="287.02" x2="355.6" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="COMP_LED" gate="G$1" pin="A"/>
-<wire x1="355.6" y1="317.5" x2="353.06" y2="317.5" width="0.1524" layer="91"/>
-<wire x1="353.06" y1="317.5" x2="353.06" y2="307.34" width="0.1524" layer="91"/>
+<wire x1="353.06" y1="314.96" x2="353.06" y2="307.34" width="0.1524" layer="91"/>
 <junction x="353.06" y="307.34"/>
 <pinref part="U$18" gate="G$1" pin="COUT"/>
 <wire x1="337.82" y1="309.88" x2="345.44" y2="309.88" width="0.1524" layer="91"/>
 <junction x="345.44" y="309.88"/>
+<wire x1="353.06" y1="314.96" x2="373.38" y2="314.96" width="0.1524" layer="91"/>
+<pinref part="U$22" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="AND_CHIP" class="0">
@@ -16922,13 +16989,6 @@ for proper operation of motor controller</text>
 <pinref part="CE_LED" gate="G$1" pin="C"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="294.64" y1="271.78" x2="294.64" y2="269.24" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="COMP_LED" gate="G$1" pin="C"/>
-<pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="363.22" y1="317.5" x2="370.84" y2="317.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -18516,6 +18576,20 @@ for proper operation of motor controller</text>
 <pinref part="U1" gate="G$1" pin="PA24"/>
 <wire x1="746.76" y1="68.58" x2="746.76" y2="30.48" width="0.1524" layer="91"/>
 <label x="746.76" y="30.48" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<wire x1="381" y1="322.58" x2="381" y2="332.74" width="0.1524" layer="91"/>
+<pinref part="R6" gate="G$1" pin="1"/>
+<pinref part="U$22" gate="G$1" pin="D"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="COMP_LED" gate="G$1" pin="C"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+<wire x1="368.3" y1="332.74" x2="370.84" y2="332.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
