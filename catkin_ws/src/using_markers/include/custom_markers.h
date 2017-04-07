@@ -16,7 +16,8 @@ typedef uint8_t marker_type_t;
 
 typedef enum {
   M_OUR_ROBOT,
-  M_BALL
+  M_BALL,
+  M_FIELD
 } marker_identity_t;
 
 //The permissions flag bits for weather certain communication handles can operate over certain custom markers
@@ -64,7 +65,7 @@ class OurRobot : public CustomMarker
 {
 public:
   OurRobot(int robot_id, double _x, double _y, double _z);
-
+  
   marker_identity_t getMarkerIdentity() { return M_OUR_ROBOT; }
 
   //Allow both getting and setting the position of our robots
@@ -79,6 +80,15 @@ public:
   marker_identity_t getMarkerIdentity() { return M_BALL; }
 
   //Allow only getting position of the ball
+  com_permissions_t getComPermissions() { return PERM_GET_POS; }
+};
+
+class Field : public CustomMarker
+{
+public:
+  Field(int field_id);
+
+  marker_identity_t getMarkerIdentity() { return M_FIELD; }
   com_permissions_t getComPermissions() { return PERM_GET_POS; }
 };
 

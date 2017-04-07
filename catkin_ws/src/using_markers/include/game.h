@@ -95,6 +95,37 @@ public:
     map_markers.insert(std::pair<int, CustomMarker*>(id, b));
   }
 
+  //Creates the 6m x 9m field
+  void create_field(int id)
+  {
+    // creates the marker by repeatedly pushing points onto
+    // a linestrip to form rectangle
+    // TODO: add midline and other features of the field
+    CustomMarker* f = new Field(id);
+    geometry_msgs::Point p;
+    p.x = 0;
+    p.y = 0;
+    p.z = 0;
+    f->points.push_back(p);
+    p.x = 9;
+    p.y = 0;
+    p.z = 0;
+    f->points.push_back(p);
+    p.x = 9;
+    p.y = 6;
+    p.z = 0;
+    f->points.push_back(p);
+    p.x = 0;
+    p.y = 6;
+    p.z = 0;
+    f->points.push_back(p);
+    p.x = 0;
+    p.y = 0;
+    p.z = 0;
+    f->points.push_back(p);
+    map_markers.insert(std::pair<int, CustomMarker*>(id, f));
+  }
+
   //Sets the x position based on an incoming message
   static void subscriber_set_pos_handle(const using_markers::speedCommand command);
 

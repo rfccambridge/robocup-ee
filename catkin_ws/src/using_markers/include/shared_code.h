@@ -37,7 +37,8 @@ enum
   GREEN_ID,
   BLUE_ID,
   PURPLE_ID,
-  BALL_ID
+  BALL_ID,
+  FIELD_ID
 };
 
 #endif /* UNIVERSAL_CONSTANTS */
