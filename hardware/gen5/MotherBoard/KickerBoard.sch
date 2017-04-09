@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17382,6 +17382,7 @@ for proper operation of motor controller</text>
 <segment>
 <pinref part="JP3" gate="G$1" pin="3"/>
 <wire x1="513.08" y1="142.24" x2="508" y2="142.24" width="0.1524" layer="91"/>
+<label x="505.46" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB-3" class="0">
