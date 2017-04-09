@@ -17,7 +17,8 @@ typedef uint8_t marker_type_t;
 typedef enum {
   M_OUR_ROBOT,
   M_BALL,
-  M_FIELD
+  M_FIELD_LINES,
+  M_FIELD_GRASS
 } marker_identity_t;
 
 //The permissions flag bits for weather certain communication handles can operate over certain custom markers
@@ -61,6 +62,7 @@ public:
   virtual com_permissions_t getComPermissions() = 0;
 };
 
+// TODO: make the dimensions of robot and ball to scale
 class OurRobot : public CustomMarker
 {
 public:
@@ -83,12 +85,21 @@ public:
   com_permissions_t getComPermissions() { return PERM_GET_POS; }
 };
 
-class Field : public CustomMarker
+class FieldLines : public CustomMarker
 {
 public:
-  Field(int field_id);
+  FieldLines(int field_lines_id);
 
-  marker_identity_t getMarkerIdentity() { return M_FIELD; }
+  marker_identity_t getMarkerIdentity() { return M_FIELD_LINES; }
+  com_permissions_t getComPermissions() { return PERM_GET_POS; }
+};
+
+class FieldGrass : public CustomMarker
+{
+public:
+  FieldGrass(int field_grass_id);
+
+  marker_identity_t getMarkerIdentity() { return M_FIELD_GRASS; }
   com_permissions_t getComPermissions() { return PERM_GET_POS; }
 };
 

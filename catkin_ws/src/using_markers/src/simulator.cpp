@@ -16,7 +16,7 @@ int main(int argc, char** argv)
   Game game(n);
   game.create_our_robot(RED_ID, 0, 0, 0);
   game.create_ball(BALL_ID, 5, 0, 0);
-  game.create_field(FIELD_ID);
+  game.create_field(FIELD_LINES_ID, FIELD_GRASS_ID);
 
   while(ros::ok())
   {

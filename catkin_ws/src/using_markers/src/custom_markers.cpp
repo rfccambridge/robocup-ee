@@ -9,6 +9,7 @@
 #include <std_msgs/ColorRGBA.h>
 
 #include "custom_markers.h"
+#include "shared_code.h"
 
 //
 //Small helper functions meant only for this file
@@ -73,11 +74,21 @@ Ball::Ball(int ball_id, double _x, double _y, double _z)
                    create_colorRGBA(0, 0, 1, 1))     //Set the default color to blue
 {
 }
-Field::Field(int field_id)
-    : CustomMarker(field_id, visualization_msgs::Marker::LINE_STRIP,
-                   create_point(0, 0, 0),      //Set the initial pose position from the input arguments
-                   create_quaternion(0, 0, 0, 1), //Set the initial pose orientation to a default
-                   create_vector3(.1, 1, 1),       //Set the initial scale, 1x1x1 means 1m per side
+FieldLines::FieldLines(int field_lines_id)
+    : CustomMarker(field_lines_id, visualization_msgs::Marker::LINE_LIST,
+                   create_point(0, 0, 0),      //Set the initial pose position
+                   create_quaternion(0, 0, 0, 1), //Set the initial pose orientation
+                   create_vector3(.1, 1, 1),       //Set the initial scale, first coordinate is line width
+                   create_colorRGBA(1, 1, 1, 1))  //Set the default color to green
+{
+}
+FieldGrass::FieldGrass(int field_grass_id)
+    : CustomMarker(field_grass_id, visualization_msgs::Marker::CUBE,
+                   //Set the initial pose position from the input arguments
+                   create_point(FIELD_LENGTH / 2., FIELD_WIDTH / 2., -.01), 
+                   create_quaternion(0, 0, 0, 1), //Set the initial pose orientation 
+                   //Set the initial scale, 1x1x1 means 1m per side
+                   create_vector3(FIELD_LENGTH, FIELD_WIDTH, .01),       
                    create_colorRGBA(0, 1, 0, 1))  //Set the default color to green
 {
 }

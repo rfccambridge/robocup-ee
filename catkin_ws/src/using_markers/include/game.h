@@ -96,34 +96,48 @@ public:
   }
 
   //Creates the 6m x 9m field
-  void create_field(int id)
+  void create_field(int lines_id, int grass_id)
   {
     // creates the marker by repeatedly pushing points onto
-    // a linestrip to form rectangle
-    // TODO: add midline and other features of the field
-    CustomMarker* f = new Field(id);
+    // a linelist to form rectangle
+    CustomMarker* f = new FieldLines(lines_id);
     geometry_msgs::Point p;
     p.x = 0;
     p.y = 0;
     p.z = 0;
     f->points.push_back(p);
-    p.x = 9;
+    p.x = FIELD_LENGTH;
     p.y = 0;
     p.z = 0;
     f->points.push_back(p);
-    p.x = 9;
-    p.y = 6;
+    f->points.push_back(p);
+    p.x = FIELD_LENGTH;
+    p.y = FIELD_WIDTH;
     p.z = 0;
     f->points.push_back(p);
+    f->points.push_back(p);
     p.x = 0;
-    p.y = 6;
+    p.y = FIELD_WIDTH;
     p.z = 0;
+    f->points.push_back(p);
     f->points.push_back(p);
     p.x = 0;
     p.y = 0;
     p.z = 0;
     f->points.push_back(p);
-    map_markers.insert(std::pair<int, CustomMarker*>(id, f));
+    p.x = FIELD_LENGTH / 2.;
+    p.y = 0;
+    p.z = 0;
+    f->points.push_back(p);
+    p.x = FIELD_LENGTH / 2.;
+    p.y = FIELD_WIDTH;
+    p.z = 0;
+    f->points.push_back(p);
+    // TODO: added boxes (and goals?) according to field specs
+    map_markers.insert(std::pair<int, CustomMarker*>(lines_id, f));
+    // also add the grass
+    CustomMarker* g = new FieldGrass(grass_id);
+    map_markers.insert(std::pair<int, CustomMarker*>(grass_id, g));
   }
 
   //Sets the x position based on an incoming message

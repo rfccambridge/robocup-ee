@@ -2,6 +2,10 @@
 #ifndef UNIVERSAL_CONSTANTS
 #define UNIVERSAL_CONSTANTS
 
+// Field constants
+#define FIELD_LENGTH 9
+#define FIELD_WIDTH 6
+
 // For error log printing
 #include <stdio.h>
 
@@ -38,7 +42,8 @@ enum
   BLUE_ID,
   PURPLE_ID,
   BALL_ID,
-  FIELD_ID
+  FIELD_LINES_ID,
+  FIELD_GRASS_ID
 };
 
 #endif /* UNIVERSAL_CONSTANTS */
