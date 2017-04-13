@@ -5,6 +5,8 @@
 // Field constants
 #define FIELD_LENGTH 9
 #define FIELD_WIDTH 6
+#define FIELD_CIRCLE 2
+#define FIELD_LINE_WIDTH .05 // official is .01 but hard to see
 
 // For error log printing
 #include <stdio.h>
@@ -43,7 +45,9 @@ enum
   PURPLE_ID,
   BALL_ID,
   FIELD_LINES_ID,
-  FIELD_GRASS_ID
+  FIELD_GRASS_ID,
+  FIELD_CIRCLE_ID1,
+  FIELD_CIRCLE_ID2
 };
 
 #endif /* UNIVERSAL_CONSTANTS */

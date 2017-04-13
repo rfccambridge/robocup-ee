@@ -57,6 +57,7 @@ static inline std_msgs::ColorRGBA create_colorRGBA(double _r, double _g, double 
   return c;
 }
 
+// TODO: set all dimensions and positions to scale of actual field
 OurRobot::OurRobot(int robot_id, double _x, double _y, double _z)
     : CustomMarker(robot_id, visualization_msgs::Marker::CUBE,
                    create_point(_x, _y, _z),      //Set the initial pose position from the input arguments
@@ -76,10 +77,11 @@ Ball::Ball(int ball_id, double _x, double _y, double _z)
 }
 FieldLines::FieldLines(int field_lines_id)
     : CustomMarker(field_lines_id, visualization_msgs::Marker::LINE_LIST,
-                   create_point(0, 0, 0),      //Set the initial pose position
+                   create_point(0, 0, 0.03),      //Set the initial pose position
                    create_quaternion(0, 0, 0, 1), //Set the initial pose orientation
-                   create_vector3(.1, 1, 1),       //Set the initial scale, first coordinate is line width
-                   create_colorRGBA(1, 1, 1, 1))  //Set the default color to green
+                   create_vector3(FIELD_LINE_WIDTH, 1, 1),       
+                   //Set the initial scale, first coordinate is line width
+                   create_colorRGBA(1, 1, 1, 1))  //Set the default color to white
 {
 }
 FieldGrass::FieldGrass(int field_grass_id)
@@ -90,5 +92,15 @@ FieldGrass::FieldGrass(int field_grass_id)
                    //Set the initial scale, 1x1x1 means 1m per side
                    create_vector3(FIELD_LENGTH, FIELD_WIDTH, .01),       
                    create_colorRGBA(0, 1, 0, 1))  //Set the default color to green
+{
+}
+FieldCircle::FieldCircle(int field_circle_id, double diameter, double height, int r, int g, int b, int a)
+    : CustomMarker(field_circle_id, visualization_msgs::Marker::CYLINDER,
+                   //Set the initial pose position from the input arguments
+                   create_point(FIELD_LENGTH / 2., FIELD_WIDTH / 2., 0), 
+                   create_quaternion(0, 0, 0, 1), //Set the initial pose orientation 
+                   //Set the initial scale, 1x1x1 means 1m per side
+                   create_vector3(diameter, diameter, height),       
+                   create_colorRGBA(r, g, b, a))  //Set the default color to chosen
 {
 }

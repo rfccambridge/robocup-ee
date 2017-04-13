@@ -18,7 +18,8 @@ typedef enum {
   M_OUR_ROBOT,
   M_BALL,
   M_FIELD_LINES,
-  M_FIELD_GRASS
+  M_FIELD_GRASS,
+  M_FIELD_CIRCLE
 } marker_identity_t;
 
 //The permissions flag bits for weather certain communication handles can operate over certain custom markers
@@ -100,6 +101,15 @@ public:
   FieldGrass(int field_grass_id);
 
   marker_identity_t getMarkerIdentity() { return M_FIELD_GRASS; }
+  com_permissions_t getComPermissions() { return PERM_GET_POS; }
+};
+class FieldCircle : public CustomMarker
+{
+public:
+  FieldCircle(int field_circle_id, double diameter, double height,
+              int r, int g, int b, int a);
+
+  marker_identity_t getMarkerIdentity() { return M_FIELD_CIRCLE; }
   com_permissions_t getComPermissions() { return PERM_GET_POS; }
 };
 
