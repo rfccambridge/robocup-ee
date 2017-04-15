@@ -16,7 +16,7 @@ def brain():
 		#Instantiate robots
 		#TODO: Introduce more intelligence here
 		r1 = RobotInterface(MarkerID.RED)
-                ball = RobotInterface(MarkerID.BALL)
+   	ball = RobotInterface(MarkerID.BALL)
 		
 		# set loop rate
 		rate = rospy.Rate(RATE)

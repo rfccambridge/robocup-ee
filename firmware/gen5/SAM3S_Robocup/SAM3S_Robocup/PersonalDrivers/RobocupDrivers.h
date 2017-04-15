@@ -13,4 +13,10 @@
 
 #include <motor_module.h>
 
+#include <dac_driver.h>
+
+#include <kicker_driver.h>
+
+#include <TWI_Driver.h>
+
 #endif /* ROBOCUP_DRIVERS */

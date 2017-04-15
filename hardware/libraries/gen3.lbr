@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.000000123031" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3499,6 +3499,32 @@ connector</description>
 <wire x1="24.5" y1="-16.5" x2="20.5" y2="-16.5" width="0.127" layer="21"/>
 <wire x1="20.5" y1="-16.5" x2="20.5" y2="-10" width="0.127" layer="21"/>
 </package>
+<package name="SOIC-14">
+</package>
+<package name="TSSOP14">
+<smd name="1" x="-1.95" y="-3.3" dx="0.38" dy="2.6" layer="1"/>
+<smd name="2" x="-1.3" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="3" x="-0.65" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="4" x="0" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="5" x="0.65" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="6" x="1.3" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="7" x="1.95" y="-3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="11" x="0" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="10" x="0.65" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="9" x="1.3" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="8" x="1.95" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="12" x="-0.65" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="13" x="-1.3" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<smd name="14" x="-1.95" y="3.25" dx="0.38" dy="2.6" layer="1"/>
+<text x="3.81" y="2.54" size="0.6096" layer="21">&gt;NAME</text>
+<circle x="-2.355990625" y="-1.5302625" radius="0.257078125" width="0.127" layer="21"/>
+<wire x1="-2.872896875" y1="2.47320625" x2="2.54" y2="2.47320625" width="0.127" layer="21"/>
+<wire x1="2.54" y1="2.47320625" x2="2.550440625" y2="-2.52855625" width="0.127" layer="21"/>
+<wire x1="-2.75209375" y1="2.467175" x2="-2.8841" y2="2.4454875" width="0.127" layer="21"/>
+<wire x1="-2.8841" y1="2.4454875" x2="-2.8841" y2="-2.50686875" width="0.127" layer="21"/>
+<wire x1="-2.8841" y1="-2.50686875" x2="2.550440625" y2="-2.52855625" width="0.127" layer="21"/>
+<wire x1="2.550440625" y1="-2.52855625" x2="2.5529875" y2="-2.396759375" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="A4915">
@@ -4068,6 +4094,32 @@ Dual AND gate</description>
 <wire x1="10.16" y1="0" x2="12.7" y2="0" width="0.254" layer="94"/>
 <pin name="P$1" x="0" y="0" visible="off" length="point"/>
 <pin name="P$2" x="12.7" y="0" visible="off" length="point" rot="R180"/>
+</symbol>
+<symbol name="AND-4-INPUTS">
+<wire x1="0" y1="5.08" x2="0" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="-12.7" x2="0" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="0" y1="-25.4" x2="9.5603875" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="9.5603875" y1="-25.4" x2="15.24" y2="-19.7203875" width="0.254" layer="94" curve="90"/>
+<wire x1="15.24" y1="-19.7203875" x2="15.24" y2="-18.3796125" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-18.3796125" x2="9.5603875" y2="-12.7" width="0.254" layer="94" curve="90"/>
+<wire x1="9.5603875" y1="-12.7" x2="0" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="0" y1="-7.62" x2="9.5603875" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="9.5603875" y1="-7.62" x2="15.24" y2="-1.9403875" width="0.254" layer="94" curve="90"/>
+<wire x1="15.24" y1="-1.9403875" x2="15.24" y2="-0.5996125" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-0.5996125" x2="9.5603875" y2="5.08" width="0.254" layer="94" curve="90"/>
+<wire x1="9.5603875" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
+<pin name="1A" x="-5.08" y="2.54" length="middle"/>
+<pin name="1B" x="-5.08" y="0" length="middle"/>
+<pin name="1C" x="-5.08" y="-2.54" length="middle"/>
+<pin name="1D" x="-5.08" y="-5.08" length="middle"/>
+<pin name="2A" x="-5.08" y="-15.24" length="middle"/>
+<pin name="2B" x="-5.08" y="-17.78" length="middle"/>
+<pin name="2C" x="-5.08" y="-20.32" length="middle"/>
+<pin name="2D" x="-5.08" y="-22.86" length="middle"/>
+<pin name="VCC" x="7.62" y="5.08" length="point" rot="R90"/>
+<pin name="GND" x="7.62" y="-25.4" length="point" rot="R270"/>
+<pin name="1Y" x="22.86" y="0" rot="R180"/>
+<pin name="2Y" x="22.86" y="-17.78" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5356,6 +5408,32 @@ digikey #: 732-2129-1-ND</description>
 <connects>
 <connect gate="G$1" pin="P$1" pad="1"/>
 <connect gate="G$1" pin="P$2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="2CHAN_4INPUT_AND">
+<gates>
+<gate name="G$1" symbol="AND-4-INPUTS" x="-5.08" y="10.16"/>
+</gates>
+<devices>
+<device name="" package="TSSOP14">
+<connects>
+<connect gate="G$1" pin="1A" pad="1"/>
+<connect gate="G$1" pin="1B" pad="2"/>
+<connect gate="G$1" pin="1C" pad="4"/>
+<connect gate="G$1" pin="1D" pad="5"/>
+<connect gate="G$1" pin="1Y" pad="6"/>
+<connect gate="G$1" pin="2A" pad="9"/>
+<connect gate="G$1" pin="2B" pad="10"/>
+<connect gate="G$1" pin="2C" pad="12"/>
+<connect gate="G$1" pin="2D" pad="13"/>
+<connect gate="G$1" pin="2Y" pad="8"/>
+<connect gate="G$1" pin="GND" pad="7"/>
+<connect gate="G$1" pin="VCC" pad="14"/>
 </connects>
 <technologies>
 <technology name=""/>

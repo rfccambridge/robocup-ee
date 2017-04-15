@@ -59,6 +59,12 @@
 // From module: Common build items for user board support templates
 #include <user_board.h>
 
+// From module: DACC - Digital-to-Analog Converter
+#include <dacc.h>
+
+// From module: GPIO - General purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -86,6 +92,9 @@
 
 // From module: System Clock Control - SAM3S implementation
 #include <sysclk.h>
+
+// From module: TWI - Two-wire Interface
+#include <twi.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

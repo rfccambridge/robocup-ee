@@ -1,0 +1,47 @@
+Partlist exported from C:/Users/joncr_000/robocup/robocup-ee/hardware/gen5/ControlBoard/ControlModule.sch at 12/26/2016 15:41:58
+
+Part    Value         Device           Package               Description                                             MF MPN           OC_FARNELL OC_NEWARK PACKAGE PROD_ID    SUPPLIER VALUE        
+3.3REG  3.3REG1AREG   3.3REG1AREG      DPAK                                                                                                                                                         
+C4      47uF          CAP1206          1206                  Capacitor                                                                                                                              
+C5      1uF           CAP0805          0805                  Capacitor                                                                                                                              
+C6      0.01uF        CAP0805          0805                  Capacitor                                                                                                                              
+C7      0.01uF        CAP0805          0805                  Capacitor                                                                                                                              
+C8      10uF          CAP0805          0805                  Capacitor                                                                                                                              
+C9      0.1uF         CAP0805          0805                  Capacitor                                                                                                                              
+C10     47uF          CAP1206          1206                  Capacitor                                                                                                                              
+C11     0.01uF        CAP0805          0805                  Capacitor                                                                                                                              
+C12     1uF           CAP0805          0805                  Capacitor                                                                                                                              
+C13     1uF           CAP0805          0805                  Capacitor                                                                                                                              
+C14     0.1uF         CAP0805          0805                  Capacitor                                                                                                                              
+FRAME1  FRAME-LETTER  FRAME-LETTER     CREATIVE_COMMONS      Schematic Frame                                                                                                                        
+PWR_LED               LED1206          LED-1206              LEDs                                                                                                                                   
+Q1      BSS123        BSS123           SOT23                 N-CHANNEL MOS FET                                                                                                                      
+Q2      BSS123        BSS123           SOT23                 N-CHANNEL MOS FET                                                                                                                      
+R1      100           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R2      10k           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R3      0             RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R4      0             RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R5      10k           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R6      100           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R7      100           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R8      10k           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R9      10k           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R10     100           RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R13     1k            RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R14     1k            RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R15     1k            RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+R16     1k            RESISTOR0805-RES 0805                  Resistor                                                                                                                               
+RX      TEST_PT       TEST_PT          TESTING_PT            Testing Point                                                                                                                          
+RX_LED                LED1206          LED-1206              LEDs                                                                                                                                   
+S2      TAC_SWITCHSMD TAC_SWITCHSMD    TACTILE-SWITCH-SMD    Momentary Switch                                                                                      SWCH-08247          TAC_SWITCHSMD
+S4      TAC_SWITCHSMD TAC_SWITCHSMD    TACTILE-SWITCH-SMD    Momentary Switch                                                                                      SWCH-08247          TAC_SWITCHSMD
+SCK_LED               LED1206          LED-1206              LEDs                                                                                                                                   
+SV1     ICSP          MA03-2           MA03-2                PIN HEADER                                                               unknown    unknown                                            
+SV2                   MA10-1W          MA10-1W               PIN HEADER                                                               unknown    unknown                                            
+SV3                   MA10-1W          MA10-1W               PIN HEADER                                                               unknown    unknown                                            
+TX      TEST_PT       TEST_PT          TESTING_PT            Testing Point                                                                                                                          
+TX_LED                LED1206          LED-1206              LEDs                                                                                                                                   
+U$1     4-POS-DIP     4-POS-DIP        4-POS-DIP-SMD         4 Position DIP Switch                                                                                 SWCH-12418                       
+U$2     INDUCTOR      INDUCTOR         0805                                                                                                                                                         
+U1      ATMEGA328P-AU ATMEGA328P-AU    QFP80P900X900X120-32N 8-bit Microcontroller with In-System Programmable Flash    ATMEGA328P-AU 1715486    14R4631   TQFP-32            Atmel                 
+XBEE    XBEE-1B1      XBEE-1B1         XBEE-1                Xbee module footprints                                                                                                                 
