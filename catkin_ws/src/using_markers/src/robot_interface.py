@@ -19,8 +19,8 @@ class RobotInterface:
     client_get_pos = None
     publisher_set_vels = None
 
-    #Hold a list of all of the instances of `RobotInterface`'s created
-    all_instances = []
+    #Hold a dict of all of the instances of `RobotInterface`'s created
+    all_instances = {}
 
     # Calls the game server to retrieve the current position
     # Outputs in `ret_cur_pos` as cur_x, cur_y tuple
@@ -77,7 +77,7 @@ class RobotInterface:
             vel_y = -10.0
         print pose
        
-			  #Transform velocities to robot frame of reference
+        #Transform velocities to robot frame of reference
         vel_x_trans = vel_y*cos(pose - PI/2.0) + vel_x*cos(pose)
         vel_y_trans = vel_y*cos(pose) + vel_x*cos(pose + PI/2.0)
 
@@ -152,12 +152,12 @@ class RobotInterface:
         """Returns a list of lambda functions taking two arguments, x and y, that will respectively return `True` if
         the input x-y coordinate is within the spacial boundary of an instance on the map minus the calling one """
         ret = []
-        for inst in RobotInterface.all_instances:
+        for inst in RobotInterface.all_instances.values():
             #Never count the calling instance as an obstacle
             if inst.id == self.id:
                 continue
 
-            inst_cur_x, inst_cur_y, inst_pose = inst.call_for_cur_pos()
+            inst_cur_x, inst_cur_y, _ = inst.call_for_cur_pos()
 
             #Build a lambda function that returns `True` if the input `x`, `y`
             # are within the bounds of this instance
@@ -175,7 +175,7 @@ class RobotInterface:
         #The flag that will determine if astar should be calculated or not. It is set under various circumstances
         calc_path = False
 
-        cur_x, cur_y, pose = self.call_for_cur_pos()
+        cur_x, cur_y, _ = self.call_for_cur_pos()
         obstacles = self.get_obstacle_ranges()
 
         #The cases where the path should be recalculated
@@ -187,7 +187,7 @@ class RobotInterface:
             #Test every point on every obstacle, setting `calc_path` if necessary
             for pt in self.path:
                 for obst_fn in obstacles:
-                    if obst_fn(*pt): #If the queued path encroaches on an onstacle
+                    if obst_fn(*pt): #If the queued path encroaches on an obstacle
                         calc_path = True
                         break
 
@@ -270,7 +270,6 @@ class RobotInterface:
         #TODO: Find a way to test if the publisher is already online!
         #TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
         cls.publisher_set_vels = rospy.Publisher(MARKER_COMMAND_TOPIC, speedCommand, queue_size=10)
-        
 
     def __init__(self, _id):
         #!!!TODO
@@ -280,6 +279,9 @@ class RobotInterface:
         self.error_i_x = self.error_i_y = 0
         self.path = []
 
+        #Initialize a no operation `role_fn`
+        self.role_fn = lambda: False
+
         #Instantiate various variables and record initial values
         self.id = _id
 
@@ -287,7 +289,7 @@ class RobotInterface:
         self.x_size = self.y_size = 1
 
         #Add this instance to `RobotInterface.all_instances`
-        RobotInterface.all_instances.append(self)
+        RobotInterface.all_instances[self.id] = self
 
     def __del__(self):
         RobotInterface.client_get_pos.close()
