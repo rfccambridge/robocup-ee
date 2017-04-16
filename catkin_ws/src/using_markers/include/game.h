@@ -98,6 +98,8 @@ public:
   //Creates the 6m x 9m field
   void create_field(int lines_id, int grass_id, int circle_id1, int circle_id2)
   {
+    NonactiveMarker* field = new Field("package://src/using_markers/include/field_lines.STL");
+    //publisher_render.publish(*(visualization_msgs::Marker*)field);
     // creates the marker by repeatedly pushing points onto
     // a linelist to form rectangle
     CustomMarker* f = new FieldLines(lines_id);
@@ -134,16 +136,17 @@ public:
     p.z = 0;
     f->points.push_back(p);
     // TODO: added boxes (and goals?) according to field specs
-    map_markers.insert(std::pair<int, CustomMarker*>(lines_id, f));
+    //map_markers.insert(std::pair<int, CustomMarker*>(lines_id, f));
     // also add the grass
     CustomMarker* g = new FieldGrass(grass_id);
-    map_markers.insert(std::pair<int, CustomMarker*>(grass_id, g));
+    publisher_render.publish(*(visualization_msgs::Marker*)g);
+    //map_markers.insert(std::pair<int, CustomMarker*>(grass_id, g));
     // also add the grass using 2 concentric cylinders
     CustomMarker* c1 = new FieldCircle(circle_id1, FIELD_CIRCLE + FIELD_LINE_WIDTH * 2,
                                        .01, 1, 1, 1, 1);
-    map_markers.insert(std::pair<int, CustomMarker*>(circle_id1, c1));
+    //map_markers.insert(std::pair<int, CustomMarker*>(circle_id1, c1));
     CustomMarker* c2 = new FieldCircle(circle_id2, FIELD_CIRCLE, .02, 0, 1, 0, 1);
-    map_markers.insert(std::pair<int, CustomMarker*>(circle_id2, c2));
+    //map_markers.insert(std::pair<int, CustomMarker*>(circle_id2, c2));
   }
 
   //Sets the x position based on an incoming message
