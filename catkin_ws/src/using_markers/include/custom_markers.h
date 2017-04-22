@@ -30,6 +30,32 @@ typedef uint8_t com_permissions_t;
 #define PERM_GET_POS 0b1
 #define PERM_SET_POS (PERM_GET_POS << 1)
 
+class NonactiveMarker : public visualization_msgs::Marker
+{
+public:
+  NonactiveMarker(marker_type_t marker_type,
+               geometry_msgs::Point _position,
+               geometry_msgs::Quaternion _orientation,
+               geometry_msgs::Vector3 _scale,
+               std_msgs::ColorRGBA _color)
+  {
+    //All of these fields are inherited from the `Marker` type
+    header.frame_id = "/my_frame";
+    header.stamp = ros::Time::now();
+    ns = "basic_shapes";
+
+    type = marker_type;
+
+    lifetime = ros::Duration();
+
+    //Set the input geometry traits
+    pose.position = _position;
+    pose.orientation = _orientation;
+    scale = _scale;
+    color = _color;
+  }
+};
+
 class CustomMarker : public visualization_msgs::Marker
 {
 public:
@@ -84,6 +110,12 @@ public:
 
   //Allow only getting position of the ball
   com_permissions_t getComPermissions() { return PERM_GET_POS; }
+};
+
+class Field : public NonactiveMarker
+{
+public:
+  Field(char* file);
 };
 
 class FieldLines : public CustomMarker

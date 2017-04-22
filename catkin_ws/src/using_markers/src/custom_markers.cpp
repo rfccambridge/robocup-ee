@@ -75,6 +75,15 @@ Ball::Ball(int ball_id, double _x, double _y, double _z)
                    create_colorRGBA(0, 0, 1, 1))     //Set the default color to blue
 {
 }
+Field::Field(char* file)
+    : NonactiveMarker(visualization_msgs::Marker::MESH_RESOURCE,
+                   create_point(0, 0, 0),         //Set the initial pose position from the input arguments
+                   create_quaternion(0, 0, 0, 1),    //Set the initial pose orientation to a default
+                   create_vector3(1, 1, 1), //Set the initial scale
+                   create_colorRGBA(1, 1, 1, 1))     //Set the default color to white
+{
+  mesh_resource = file;
+}
 FieldLines::FieldLines(int field_lines_id)
     : CustomMarker(field_lines_id, visualization_msgs::Marker::LINE_LIST,
                    create_point(0, 0, 0.03),      //Set the initial pose position
