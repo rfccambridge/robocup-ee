@@ -1,6 +1,6 @@
+#include <cmath>
 #include <map>
 #include <stdexcept>
-#include <cmath>
 
 #include <ros/ros.h>
 
@@ -16,7 +16,7 @@ std::map<int, CustomMarker*> Game::map_markers;
 
 void Game::render_markers()
 {
-			
+
   std::map<int, CustomMarker*>::iterator it = map_markers.begin();
   for(; it != map_markers.end(); ++it)
   {
@@ -42,30 +42,26 @@ void Game::subscriber_set_pos_handle(const using_markers::speedCommand command)
     if(!(marker->getComPermissions() & PERM_SET_POS))
       throw std::runtime_error("Marker not lowed to operate in set position function.");
 
+    //!!!TODO: 	Convert command.speed0-3 to v_x (velocity in the x direction,
+    //!!! 			v_y (velocity in the y direction), and w (angular velocity)
+    //!!!
 
+    float vel_x = 0.5 * (command.speed3 - command.speed1);
+    float vel_y = 0.5 * (command.speed0 - command.speed2);
 
-		//!!!TODO: 	Convert command.speed0-3 to v_x (velocity in the x direction,
-		//!!! 			v_y (velocity in the y direction), and w (angular velocity)
-		//!!!	
-		
-		float vel_x = 0.5*(command.speed3 - command.speed1);
-		float vel_y = 0.5*(command.speed0 - command.speed2);
+    // angular velocity
+    float omega = 0.25 / d * (command.speed0 + command.speed1 + command.speed2 + command.speed3);
+    float pose = get_pose(marker);
 
-		// angular velocity
-		float omega = 0.25/d*(command.speed0 + command.speed1 + command.speed2 + command.speed3);
-		float pose = get_pose(marker);
-		
-
-		//Transform velocities to lab frame of reference
-    float vel_x_trans = vel_y*cos(pose + PI/2.0) + vel_x*cos(pose);
-    float vel_y_trans = vel_y*cos(pose) + vel_x*cos(pose - PI/2.0);
+    //Transform velocities to lab frame of reference
+    float vel_x_trans = vel_y * cos(pose + PI / 2.0) + vel_x * cos(pose);
+    float vel_y_trans = vel_y * cos(pose) + vel_x * cos(pose - PI / 2.0);
 
     marker->pose.position.x += vel_x_trans * DT;
     marker->pose.position.y += vel_y_trans * DT;
-		
-		// Uncomment this and remake to see marker continuously rotate
-		Game::rotate_marker(marker,omega*DT);
-		
+
+    // Uncomment this and remake to see marker continuously rotate
+    Game::rotate_marker(marker, omega * DT);
   }
   catch(const std::exception& e)
   {
@@ -89,7 +85,7 @@ bool Game::server_get_pos_handle(using_markers::markerPosSrv::Request& req,
     //Assign the response accordingly
     res.pos_x = marker->pose.position.x;
     res.pos_y = marker->pose.position.y;
-		res.pose = get_pose(marker);
+    res.pose = get_pose(marker);
   }
   catch(const std::exception& e)
   {

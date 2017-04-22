@@ -68,7 +68,7 @@ class OurRobot : public CustomMarker
 {
 public:
   OurRobot(int robot_id, double _x, double _y, double _z);
-  
+
   marker_identity_t getMarkerIdentity() { return M_OUR_ROBOT; }
 
   //Allow both getting and setting the position of our robots
