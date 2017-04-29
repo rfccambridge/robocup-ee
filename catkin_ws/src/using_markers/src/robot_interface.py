@@ -8,19 +8,31 @@ import rospy
 from shared_code import *
 from using_markers.srv import *
 from using_markers.msg import *
-from numpy import *
 
 import numpy as np
+from numpy import *
 
 from heapq import *
 
-class RobotInterface:
+class MarkerInterface:
     #Instantiate the variables to be used for communication
     client_get_pos = None
     publisher_set_vels = None
 
-    #Hold a dict of all of the instances of `RobotInterface`'s created
+    #A dict indexed by marker type to a dict all of the instances of 
+    # said marker created. A dict of dicts in short
     all_instances = {}
+
+    #Initializes the communication interfaces
+    @classmethod
+    def initialize_coms(cls):
+        #Block until the service becomes available
+        rospy.wait_for_service(MARKER_POS_SERVER)
+        cls.client_get_pos = rospy.ServiceProxy(MARKER_POS_SERVER, markerPosSrv, persistent=True)
+
+        #TODO: Find a way to test if the publisher is already online!
+        #TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
+        cls.publisher_set_vels = rospy.Publisher(MARKER_COMMAND_TOPIC, speedCommand, queue_size=10)
 
     # Calls the game server to retrieve the current position
     # Outputs in `ret_cur_pos` as cur_x, cur_y tuple
@@ -30,9 +42,28 @@ class RobotInterface:
     def call_for_cur_pos(self):		
     	# Request the robot's position with ID of `id`
     	# Send this request via the `client_get_pos`
-        resp = RobotInterface.client_get_pos(self.id)
-        #print "The marker's pos is " + str(resp.pos_x) + " " + str(resp.pos_y) 
+        resp = MarkerInterface.client_get_pos(self.id)
         return resp.pos_x, resp.pos_y, resp.pose
+
+    def __init__(self, marker_type, _id):
+        #Instantiate various variables and record initial values
+        self.marker_type = marker_type
+        self.id = _id
+
+        #TODO: Possibly make the dimensions variable by input
+        self.x_size = self.y_size = 1
+
+        #Add this instance to the dict of dicts `MarkerInterface.all_instances`
+        if self.marker_type not in MarkerInterface.all_instances:
+            MarkerInterface.all_instances[self.marker_type] = {}
+
+        MarkerInterface.all_instances[self.marker_type][self.id] = self
+
+    def __del__(self):
+        MarkerInterface.client_get_pos.close()
+        MarkerInterface.publisher_set_vels.unregister()
+    
+class RobotInterface(MarkerInterface):
 
     #Calculates the xy velocities of the robot given its current position and a desired destination
     # using a PID controller implementation
@@ -152,7 +183,10 @@ class RobotInterface:
         """Returns a list of lambda functions taking two arguments, x and y, that will respectively return `True` if
         the input x-y coordinate is within the spacial boundary of an instance on the map minus the calling one """
         ret = []
-        for inst in RobotInterface.all_instances.values():
+        #!!!TODO!!!
+        #!!!TODO!!! This should iterate through most of the markers, but not all like the field!
+        #!!!TODO!!!
+        for inst in RobotInterface.all_instances[MarkerType.BALL].values():
             #Never count the calling instance as an obstacle
             if inst.id == self.id:
                 continue
@@ -215,8 +249,6 @@ class RobotInterface:
 
     #Operate the PID and send the output messages
     def spin(self):
-        #print "spinning!"
-
         #Get velocities (assume it doesn't fail)
         vel_x, vel_y = self.pid_calc_vels()
       
@@ -257,21 +289,10 @@ class RobotInterface:
         #Send the message to 'MARKER_COMMAND_TOPIC'
         RobotInterface.publisher_set_vels.publish(msg)
 
-    #TODO
-    #TODO: Figure out how to specify the message types!
-    #TODO
-    #Initializes the communication interfaces
-    @classmethod
-    def initialize_coms(cls):
-        #Block until the service becomes available
-        rospy.wait_for_service(MARKER_POS_SERVER)
-        cls.client_get_pos = rospy.ServiceProxy(MARKER_POS_SERVER, markerPosSrv, persistent=True)
-
-        #TODO: Find a way to test if the publisher is already online!
-        #TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
-        cls.publisher_set_vels = rospy.Publisher(MARKER_COMMAND_TOPIC, speedCommand, queue_size=10)
-
     def __init__(self, _id):
+        #Call the parent's constructor
+        MarkerInterface.__init__(self, MarkerType.OUR_ROBOT, _id)
+
         #!!!TODO
         #!!!TODO: Enclose the commands from the controller better
         #!!!TODO
@@ -281,16 +302,3 @@ class RobotInterface:
 
         #Initialize a no operation `role_fn`
         self.role_fn = lambda: False
-
-        #Instantiate various variables and record initial values
-        self.id = _id
-
-        #TODO: Possibly make the dimensions variable by input
-        self.x_size = self.y_size = 1
-
-        #Add this instance to `RobotInterface.all_instances`
-        RobotInterface.all_instances[self.id] = self
-
-    def __del__(self):
-        RobotInterface.client_get_pos.close()
-        RobotInterface.publisher_set_vels.unregister()

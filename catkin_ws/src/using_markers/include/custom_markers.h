@@ -34,10 +34,10 @@ class NonactiveMarker : public visualization_msgs::Marker
 {
 public:
   NonactiveMarker(marker_type_t marker_type,
-               geometry_msgs::Point _position,
-               geometry_msgs::Quaternion _orientation,
-               geometry_msgs::Vector3 _scale,
-               std_msgs::ColorRGBA _color)
+                  geometry_msgs::Point _position,
+                  geometry_msgs::Quaternion _orientation,
+                  geometry_msgs::Vector3 _scale,
+                  std_msgs::ColorRGBA _color)
   {
     //All of these fields are inherited from the `Marker` type
     header.frame_id = "/my_frame";

@@ -77,10 +77,10 @@ Ball::Ball(int ball_id, double _x, double _y, double _z)
 }
 Field::Field(char* file)
     : NonactiveMarker(visualization_msgs::Marker::MESH_RESOURCE,
-                   create_point(0, 0, 0),         //Set the initial pose position from the input arguments
-                   create_quaternion(0, 0, 0, 1),    //Set the initial pose orientation to a default
-                   create_vector3(1, 1, 1), //Set the initial scale
-                   create_colorRGBA(1, 1, 1, 1))     //Set the default color to white
+                      create_point(0, 0, 0),         //Set the initial pose position from the input arguments
+                      create_quaternion(0, 0, 0, 1), //Set the initial pose orientation to a default
+                      create_vector3(1, 1, 1),       //Set the initial scale
+                      create_colorRGBA(1, 1, 1, 1))  //Set the default color to white
 {
   mesh_resource = file;
 }

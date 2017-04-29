@@ -17,9 +17,11 @@ def enum(*sequential, **named):
     enums = dict(zip(sequential, range(len(sequential))), **named)
     return type('Enum', (), enums)
 
-#TODO: uncomment and check if this works
-#Instantiate the ID's of all of the markers in play
-MarkerID = enum('RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'BALL')
+#Instantiate identifiers for the different types of markers on the field
+MarkerType = enum('OUR_ROBOT', 'OPP_ROBOT', 'BALL', 'STATIC_OBJ')
+
+#Instantiate the ID's of all of our robots in play
+RobotID = enum('RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'PURPLE', 'BALL')
 
 #Distance between center of robot and wheel
 d = 4.0
