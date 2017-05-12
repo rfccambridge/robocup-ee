@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -637,6 +637,11 @@
 <pad name="P$20" x="24.13" y="0" drill="0.8128" diameter="0.9652" shape="long" rot="R90"/>
 <circle x="-1.27" y="1.27" radius="0.359209375" width="0.127" layer="21"/>
 </package>
+<package name="SOT-23">
+<smd name="D" x="0" y="0" dx="1" dy="0.7" layer="1"/>
+<smd name="G" x="-2.4" y="0.95" dx="1" dy="0.7" layer="1"/>
+<smd name="S" x="-2.4" y="-0.95" dx="1" dy="0.7" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TXM-900-HP3-PPO">
@@ -754,9 +759,9 @@
 <rectangle x1="-0.508" y1="-0.762" x2="0.508" y2="0.762" layer="94"/>
 <rectangle x1="-0.508" y1="-2.54" x2="0.508" y2="-1.016" layer="94"/>
 <rectangle x1="-0.508" y1="1.016" x2="0.508" y2="2.54" layer="94"/>
-<pin name="P$1" x="2.54" y="5.08" visible="off" length="short" rot="R270"/>
-<pin name="P$2" x="2.54" y="-5.08" visible="off" length="short" rot="R90"/>
-<pin name="P$3" x="-5.08" y="-2.54" visible="off" length="short"/>
+<pin name="D" x="2.54" y="5.08" visible="off" length="short" rot="R270"/>
+<pin name="S" x="2.54" y="-5.08" visible="off" length="short" rot="R90"/>
+<pin name="G" x="-5.08" y="-2.54" visible="off" length="short"/>
 <polygon width="0.127" layer="94">
 <vertex x="0.508" y="0"/>
 <vertex x="1.524" y="0.508"/>
@@ -1296,9 +1301,9 @@ Data sheet: http://www.allegromicro.com/~/media/Files/Datasheets/A4915-Datasheet
 <devices>
 <device name="" package="DPAK">
 <connects>
-<connect gate="G$1" pin="P$1" pad="DRAIN"/>
-<connect gate="G$1" pin="P$2" pad="SOURCE"/>
-<connect gate="G$1" pin="P$3" pad="GATE"/>
+<connect gate="G$1" pin="D" pad="DRAIN"/>
+<connect gate="G$1" pin="G" pad="GATE"/>
+<connect gate="G$1" pin="S" pad="SOURCE"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -1734,6 +1739,27 @@ Can be totem pole or open collector&lt;br&gt;
 <connect gate="G$1" pin="P$7" pad="P$7"/>
 <connect gate="G$1" pin="P$8" pad="P$8"/>
 <connect gate="G$1" pin="P$9" pad="P$9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="N-FET">
+<description>Small N-fet
+	MOSFET N-CH 60V 300MA SOT-23
+
+2N7002K-T1-E3</description>
+<gates>
+<gate name="G$1" symbol="MOSFET" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT-23">
+<connects>
+<connect gate="G$1" pin="D" pad="D"/>
+<connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
 </connects>
 <technologies>
 <technology name=""/>
