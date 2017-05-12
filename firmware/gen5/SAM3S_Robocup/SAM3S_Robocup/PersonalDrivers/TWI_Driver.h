@@ -52,4 +52,7 @@ void configure_io_expander (void);
 // sends a packet of information to any device given its address, and internal address (if applicable)
 void send_packet(uint8_t internal_addr, uint8_t internal_addr_sz, uint8_t device_addr, uint8_t *buf, uint8_t buf_sz);
 
+// receives a packet of information from a slave device given its address, and internal address (if applicable) 
+void receive_packet(uint8_t internal_addr, uint8_t internal_addr_sz, uint8_t device_addr, uint8_t *buf, uint8_t buf_sz);
+
 #endif /* TWI_DRIVER_H_ */
