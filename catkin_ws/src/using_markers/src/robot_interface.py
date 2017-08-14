@@ -28,7 +28,7 @@ class MarkerInterface:
     def initialize_coms(cls):
         #Block until the service becomes available
         rospy.wait_for_service(MARKER_POS_SERVER)
-        cls.client_get_pos = rospy.ServiceProxy(MARKER_POS_SERVER, markerPosSrv, persistent=True)
+        cls.client_get_pos = rospy.ServiceProxy(MARKER_POS_SERVER, markerPosSrv, persistent=False)
 
         #TODO: Find a way to test if the publisher is already online!
         #TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
@@ -106,12 +106,23 @@ class RobotInterface(MarkerInterface):
             vel_y = 10.0
         elif vel_y < -10.0:
             vel_y = -10.0
-        print pose
-       
+
         #Transform velocities to robot frame of reference
         vel_x_trans = vel_y*cos(pose - PI/2.0) + vel_x*cos(pose)
         vel_y_trans = vel_y*cos(pose) + vel_x*cos(pose + PI/2.0)
 
+        """
+        # Uncomment for debugging information  
+        print "cmd_pos_x: ", self.cmd_x_pos
+        print "cmd_pos_y: ", self.cmd_y_pos
+        print "cur_x: ", cur_x
+        print "cur_y: ", cur_y
+        print "error_x: ", error_d_x
+        print "error_y: ", error_d_y
+        print "vel_x: ", vel_x
+        print "vel_y: ", vel_y
+        """
+        
         #Store the controller outputs in the controller
         return vel_x_trans, vel_y_trans
 
@@ -119,7 +130,6 @@ class RobotInterface(MarkerInterface):
         """Takes a `start` and `goal` tuple of coords, and returns a list of the best path between those points.
         The `obstacles` is a list of lambda functions of two arguments, x and y, that tell if a given point
         is valid or encroaches the obstacle."""
-
         def heuristic(a, b):
             return (b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2
 
@@ -185,14 +195,16 @@ class RobotInterface(MarkerInterface):
         ret = []
         #!!!TODO!!!
         #!!!TODO!!! This should iterate through most of the markers, but not all like the field!
-        #!!!TODO!!!
-        for inst in RobotInterface.all_instances[MarkerType.BALL].values():
+        #!!!TODO!!! Right now it only iterates through the ball!
+        for inst in MarkerInterface.all_instances[MarkerType.BALL].values():
             #Never count the calling instance as an obstacle
             if inst.id == self.id:
-                continue
+                continue 
+            
+            #!!!TODO!!! Figure out why this isnt reporting info about the ball!!
 
             inst_cur_x, inst_cur_y, _ = inst.call_for_cur_pos()
-
+            print "Position: (", inst_cur_x, ", ", inst_cur_y, ")"
             #Build a lambda function that returns `True` if the input `x`, `y`
             # are within the bounds of this instance
             fn = lambda x, y: abs(inst_cur_x - x) < inst.x_size / 2.0 and abs(inst_cur_y - y) < inst.y_size / 2.0
@@ -208,40 +220,50 @@ class RobotInterface(MarkerInterface):
 
         #The flag that will determine if astar should be calculated or not. It is set under various circumstances
         calc_path = False
-
+            
         cur_x, cur_y, _ = self.call_for_cur_pos()
         obstacles = self.get_obstacle_ranges()
 
         #The cases where the path should be recalculated
-        if self.path == []: #If there is no path currently queued up
+        if self.path == []: #if there is no path currently queued up
             calc_path = True
         elif (x, y) != self.path[-1]: #If the end destination no longer matches that of the queued path
             calc_path = True
+        """This check is keeping the robot from moving. There appears to be a bug in get_obstacle_ranges()"""
+        """
         else: #If `calc_path` has not been set yet, then run the exhaustive obstacle search
             #Test every point on every obstacle, setting `calc_path` if necessary
             for pt in self.path:
                 for obst_fn in obstacles:
                     if obst_fn(*pt): #If the queued path encroaches on an obstacle
                         calc_path = True
-                        break
+                        break"""
 
         #TODO: Figure out granularity of field and obstacle list
         if calc_path:
             self.path = self.astar((int(cur_x), int(cur_y)), (x, y), 50, 50, obstacles)
-
+            # Reset error counters for PID controller 
+            self.error_i_x = self.error_i_y = 0;
+            
             #If the returned list is empty, then we are at our final destination
             if self.path == []:
+                return
+
+            if self.path == False:
+                print >> sys.stderr, 'No path found to (%d, %d)' % (x, y)
+                self.path = []
                 return
 
         threshold = 0.5 #TODO: Figure this out!
         fst_x, fst_y = self.path[0]
 
-        #Check intermediate step thresholds
-        if (fst_x - cur_x) < threshold and (fst_y - cur_y) < threshold:
-            self.path.pop(0)    #Delete the first element of the list
+        print "\nPath: ", self.path, "\n"
 
-            #Reset the error counters for the PID controller
-            self.error_i_x = self.error_i_y = 0;
+        #Check intermediate step thresholds
+        if abs(fst_x - cur_x) < threshold and abs(fst_y - cur_y) < threshold:
+            self.path.pop(0)    #Delete the first element of the list
+        	  # Reset error counters for PID controller 
+            self.error_i_x = self.error_i_y = 0
 
         #Set the desired step destination
         self.cmd_x_pos = fst_x

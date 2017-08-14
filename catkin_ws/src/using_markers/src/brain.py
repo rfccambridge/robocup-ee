@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-###############################################################################
+#############################################################s##################
 #                           The Brain of Our Robots                           #
 ###############################################################################
 import rospy
@@ -19,7 +19,9 @@ def role_move_right(robot):
 def state_operator(game_state):
     #TODO: This is temporary code
     r1 = MarkerInterface.all_instances[MarkerType.OUR_ROBOT][RobotID.RED]
-
+    r1.role_fn = lambda: role_move_left(r1)
+   
+    """
     #Set an initial role function on game start
     if game_state == GameStates.INIT:
             r1.role_fn = lambda: role_move_left(r1)
@@ -30,6 +32,7 @@ def state_operator(game_state):
                     r1.role_fn = lambda: role_move_right(r1)
             elif r1_x < 1:
                     r1.role_fn = lambda: role_move_left(r1)
+    """
 
 def brain():
     try:
@@ -57,6 +60,7 @@ def brain():
                 inst.spin()
 
             rate.sleep()
+            
 
     #Catch Service related exception
     except rospy.service.ServiceException:

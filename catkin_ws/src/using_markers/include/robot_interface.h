@@ -46,7 +46,7 @@ public:
   static void initialize_coms(ros::NodeHandle n)
   {
     if(!client_get_pos)
-      client_get_pos = n.serviceClient<using_markers::markerPosSrv>(MARKER_POS_SERVER, true);
+      client_get_pos = n.serviceClient<using_markers::markerPosSrv>(MARKER_POS_SERVER, false);
 
     //TODO: Make this publish float64 instead, as per what the pose.position variables are spec'd to
     if(!publisher_set_vels)
