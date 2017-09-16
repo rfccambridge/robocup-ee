@@ -17,6 +17,6 @@
 
 #include <kicker_driver.h>
 
-#include <TWI_Driver.h>
+#include <twi_driver.h>
 
 #endif /* ROBOCUP_DRIVERS */

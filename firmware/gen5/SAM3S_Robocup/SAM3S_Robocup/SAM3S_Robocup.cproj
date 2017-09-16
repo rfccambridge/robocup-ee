@@ -558,6 +558,12 @@
     <Compile Include="PersonalDrivers\dac_driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="PersonalDrivers\io_expander.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PersonalDrivers\io_expander.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="PersonalDrivers\pins.h">
       <SubType>compile</SubType>
     </Compile>

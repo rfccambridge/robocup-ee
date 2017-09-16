@@ -9,8 +9,14 @@
 #ifndef PINS_H_
 #define PINS_H_
 
+/******************************
+ * Includes
+ ******************************/
 #include <asf.h>
 
+/******************************
+ * Constant and Macro Definitions
+ ******************************/
 #define DISCHARGE IOPORT_CREATE_PIN(PIOA,23)
 #define CHARGE IOPORT_CREATE_PIN(PIOB,3)
 #define CHARGE_DONE IOPORT_CREATE_PIN(PIOB,2)
@@ -24,20 +30,9 @@
 #define BREN1 IOPORT_CREATE_PIN(PIOA,8)
 #define FAULTN1 IOPORT_CREATE_PIN(PIOA,19)
 
-void input_change_handle () 
-{
-	ioport_set_pin_level(DISCHARGE, true);
-	uint8_t test[1] = {0};
-	//!!!TODO: decode received buffer for each GPIO and perform 
-	receive_packet(INTCAPA,sizeof(uint8_t),IO_EXPANDER_ADDRESS,test,sizeof(uint8_t));
-	receive_packet(INTCAPB,sizeof(uint8_t),IO_EXPANDER_ADDRESS,test,sizeof(uint8_t));
-	receive_packet(GPIOA,sizeof(uint8_t),IO_EXPANDER_ADDRESS,test,sizeof(uint8_t));
-	receive_packet(GPIOB,sizeof(uint8_t),IO_EXPANDER_ADDRESS,test,sizeof(uint8_t));
-}
-
 void pin_config(void)
 {
-	ioport_init();
+	ioport_init(); // enable ioport peripheral system clock
 	
 	//!!!TODO: Get rid of all unnecessary input/output pins due to introduction of IO-Expander
 	// set pin directions
@@ -67,16 +62,6 @@ void pin_config(void)
 	ioport_set_pin_level(DIR1,false);							// DIR1 - HIGH
 	ioport_set_pin_level(DIR2,false);							// DIR2 - LOW
 	ioport_set_pin_level(CHARGE,false);							// CHARGE - LOW	
-	
-	// enable external interrupts to interface with IO-Expander 
-	pmc_enable_periph_clk(ID_PIOA);
-	pio_set_input(PIOA,PIO_PA9,PIO_INPUT);
-//	pio_set_input(PIOA,PIO_PA20,PIO_INPUT);
-	pio_handler_set(PIOA,ID_PIOA,PIO_PA9,PIO_IT_RISE_EDGE,input_change_handle);
-//	pio_handler_set(PIOA,ID_PIOA,PIO_PA20,PIO_IT_RISE_EDGE,input_change_handle);
-	pio_enable_interrupt(PIOA,PIO_PA9);
-//	pio_enable_interrupt(PIOA,PIO_PA20);
-	NVIC_EnableIRQ(PIOA_IRQn);
 }
 
 #endif /* PINS_H_ */

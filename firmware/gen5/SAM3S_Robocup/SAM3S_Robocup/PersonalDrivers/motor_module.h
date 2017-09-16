@@ -3,6 +3,7 @@
 
 #include "board.h"
 
+//TODO think of a way to remove  this from this file so that pwm does not depend on it
 // PWM channel on which to attach motor driver
 typedef enum channel {
 	CHANNEL0,
@@ -11,28 +12,8 @@ typedef enum channel {
 	CHANNEL3
 }Channel;
 
-// Direction of motion for motor
-typedef enum direction {
-	FORWARD,
-	REVERSE	
-}Direction;
-
-// motor structure
-typedef struct motor {
-	
-	// motor channel - do not change once initialized
-	Channel motor_channel;
-	
-	// motor speed - need to do sync up with others on how we will be representing speed in our data transfer
-	uint8_t speed;
-	
-	// motor direction element
-	Direction motor_direction;
-	
-}Motor;
-
-// Initialize motor to default settings (forward direction, zero speed)
-void initialize_motor(Motor *m, Channel chan);
-void update_speed(Motor *m, uint32_t speed);
+// Update four motor speeds
+void update_motor_speeds(uint32_t speed0, uint32_t speed1, uint32_t speed2, uint32_t speed3);
+void initialize_motors(void);
 
 #endif
