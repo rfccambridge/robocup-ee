@@ -38,11 +38,11 @@ def brain():
     try:
         #Initialize the communication interface for our robots
         MarkerInterface.initialize_coms()
-		
+
         #Instantiate robots
         #TODO: Introduce more intelligence here
         r1 = RobotInterface(RobotID.RED)
-        ball = MarkerInterface(MarkerType.BALL, None)
+        ball = MarkerInterface(MarkerType.BALL, RobotID.BALL)
 
         #Initialize the states and roles
         state_operator(GameStates.INIT)
