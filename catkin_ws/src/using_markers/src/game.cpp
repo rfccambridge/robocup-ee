@@ -26,6 +26,35 @@ void Game::render_markers()
     //TODO: Do I have to spin after this since publisher_render only has a stack of size 1
     publisher_render.publish(*(visualization_msgs::Marker*)marker);
   }
+
+  visualization_msgs::Marker field_marker;
+  field_marker.header.frame_id = "/my_frame"; //SPECIFIC (hardcoded)
+  field_marker.header.stamp = ros::Time::now();
+  field_marker.ns = "field_mesh";
+  field_marker.id = 1;
+  field_marker.type = visualization_msgs::Marker::MESH_RESOURCE;
+  field_marker.action = visualization_msgs::Marker::ADD;
+
+  field_marker.pose.position.x = -4.73;
+  field_marker.pose.position.y = 3.0;
+  field_marker.pose.position.z = 0;
+  field_marker.pose.orientation.x = 0.707;
+  field_marker.pose.orientation.y = 0;
+  field_marker.pose.orientation.z = 0;
+  field_marker.pose.orientation.w = 0.707;
+
+  field_marker.scale.x = 0.001;
+  field_marker.scale.y = 0.001;
+  field_marker.scale.z = 0.001;
+
+  field_marker.color.r = 0.0;
+  field_marker.color.g = 1.0;
+  field_marker.color.b = 1.0;
+  field_marker.color.a = 1.0;
+
+  field_marker.mesh_resource = "package://using_markers/include/field_lines.stl";
+  publisher_render.publish(field_marker);
+
 }
 
 //TODO: maybe make position update more general

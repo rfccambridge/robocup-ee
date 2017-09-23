@@ -36,6 +36,7 @@ int main(int argc, char** argv)
 
     //Render all of the markers
     game.render_markers();
+    
 
     //Sleep a bit between loops
     loop_rate.sleep();

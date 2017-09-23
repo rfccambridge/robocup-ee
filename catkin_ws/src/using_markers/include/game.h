@@ -98,7 +98,7 @@ public:
   //Creates the 6m x 9m field
   void create_field(int lines_id, int grass_id, int circle_id1, int circle_id2)
   {
-    NonactiveMarker* field = new Field("package://src/using_markers/include/field_lines.STL");
+    NonactiveMarker* field = new Field("package://src/using_markers/include/field_lines.stl");
     //publisher_render.publish(*(visualization_msgs::Marker*)field);
     // creates the marker by repeatedly pushing points onto
     // a linelist to form rectangle
