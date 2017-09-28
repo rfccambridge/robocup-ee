@@ -14,5 +14,7 @@ void update_speed(Motor *m, uint32_t speed)
 {
 	if(speed > 1000)
 		speed = 1000;
+	else if (speed < 0)
+		speed = 0;
 	update_duty_cycle(speed, m->motor_channel);	
 }
