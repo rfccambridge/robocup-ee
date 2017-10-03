@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="7" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.000123031496" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="yes"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="yes"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="yes"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="yes"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="yes"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="yes"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="yes"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="yes"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="yes"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="yes"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="yes"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="yes"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -7602,7 +7603,7 @@ W = angled&lt;p&gt;
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default *">
+<designrules name="typical_4pcb">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -7618,25 +7619,25 @@ may have different requirements, so please make the
 necessary adjustments and save your customized
 design rules under a new name.</description>
 <param name="layerSetup" value="(1*16)"/>
-<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="1.5mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="8mil"/>
-<param name="mdWirePad" value="8mil"/>
-<param name="mdWireVia" value="8mil"/>
-<param name="mdPadPad" value="8mil"/>
-<param name="mdPadVia" value="8mil"/>
-<param name="mdViaVia" value="8mil"/>
-<param name="mdSmdPad" value="8mil"/>
-<param name="mdSmdVia" value="8mil"/>
-<param name="mdSmdSmd" value="8mil"/>
+<param name="mtCopper" value="0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm 0.035559375mm"/>
+<param name="mtIsolate" value="1.501140625mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm 0.149859375mm 0.200659375mm"/>
+<param name="mdWireWire" value="6mil"/>
+<param name="mdWirePad" value="6mil"/>
+<param name="mdWireVia" value="6mil"/>
+<param name="mdPadPad" value="6mil"/>
+<param name="mdPadVia" value="6mil"/>
+<param name="mdViaVia" value="6mil"/>
+<param name="mdSmdPad" value="6mil"/>
+<param name="mdSmdVia" value="6mil"/>
+<param name="mdSmdSmd" value="6mil"/>
 <param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
+<param name="mdCopperDimension" value="15mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="8mil"/>
-<param name="msDrill" value="0.3mm"/>
-<param name="msMicroVia" value="9.99mm"/>
+<param name="msWidth" value="10mil"/>
+<param name="msDrill" value="15mil"/>
+<param name="msMicroVia" value="9.98981875mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
@@ -7790,10 +7791,10 @@ design rules under a new name.</description>
 <element name="BATCLAMP2" library="gen3" package="DO214AC" value="DIODE-ZENERDO214AC" x="110.4053375" y="122.9768125" rot="R270"/>
 <element name="BAT" library="gen3" package="TESTING_PT" value="TEST_PT" x="117.0472625" y="127.018890625"/>
 <element name="BATT" library="con-wago-500" package="W237-102" value="" x="129.81150625" y="101.88236875" rot="R270">
+<attribute name="MF" value="" x="129.81150625" y="101.88236875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="237-102" x="129.81150625" y="101.88236875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="129.81150625" y="101.88236875" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="70K9898" x="129.81150625" y="101.88236875" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MF" value="" x="129.81150625" y="101.88236875" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="BB_CON" library="gen3" package="JST-5-2MM" value="JST-5" x="104.8949" y="3.0644875"/>
 <element name="C1" library="SparkFun-Capacitors" package="0805" value="10pF" x="62.952259375" y="58.920496875" rot="R90"/>
@@ -7852,28 +7853,28 @@ design rules under a new name.</description>
 <element name="DRIB_TRAN" library="gen3" package="DPAK" value="" x="16.185534375" y="86.392128125" rot="MR180"/>
 <element name="FRAME4" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="-101.6" y="156.21"/>
 <element name="FUSE_MOTOR_3" library="fuse" package="TR5" value="" x="2.92145" y="71.01485625">
+<attribute name="MF" value="" x="2.92145" y="71.01485625" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="2.92145" y="71.01485625" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="2.92145" y="71.01485625" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="2.92145" y="71.01485625" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="" x="2.92145" y="71.01485625" size="1.778" layer="27" display="off"/>
 </element>
 <element name="FUSE_MOTOR_5" library="fuse" package="TR5" value="" x="129.582359375" y="19.75186875" rot="R135">
+<attribute name="MF" value="" x="129.582359375" y="19.75186875" size="1.778" layer="27" rot="R135" display="off"/>
 <attribute name="MPN" value="" x="129.582359375" y="19.75186875" size="1.778" layer="27" rot="R135" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="129.582359375" y="19.75186875" size="1.778" layer="27" rot="R135" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="129.582359375" y="19.75186875" size="1.778" layer="27" rot="R135" display="off"/>
-<attribute name="MF" value="" x="129.582359375" y="19.75186875" size="1.778" layer="27" rot="R135" display="off"/>
 </element>
 <element name="FUSE_MOTOR_6" library="fuse" package="TR5" value="" x="107.665790625" y="14.71138125" rot="MR90">
+<attribute name="MF" value="" x="107.665790625" y="14.71138125" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MPN" value="" x="107.665790625" y="14.71138125" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="107.665790625" y="14.71138125" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="107.665790625" y="14.71138125" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MF" value="" x="107.665790625" y="14.71138125" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
 <element name="FUSE_MOTOR_7" library="fuse" package="TR5" value="" x="29.720440625" y="66.170090625" rot="R315">
+<attribute name="MF" value="" x="29.720440625" y="66.170090625" size="1.778" layer="27" rot="R315" display="off"/>
 <attribute name="MPN" value="" x="29.720440625" y="66.170090625" size="1.778" layer="27" rot="R315" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="29.720440625" y="66.170090625" size="1.778" layer="27" rot="R315" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="29.720440625" y="66.170090625" size="1.778" layer="27" rot="R315" display="off"/>
-<attribute name="MF" value="" x="29.720440625" y="66.170090625" size="1.778" layer="27" rot="R315" display="off"/>
 </element>
 <element name="GATE" library="gen3" package="TESTING_PT" value="TEST_PT" x="61.177803125" y="101.689646875"/>
 <element name="GND" library="gen3" package="TESTING_PT" value="TEST_PT" x="84.07955" y="15.99875"/>
@@ -7884,10 +7885,10 @@ design rules under a new name.</description>
 <element name="KE_LED" library="SparkFun-LED" package="LED-1206" value="" x="17.22275625" y="78.985409375" rot="R90"/>
 <element name="KICK" library="gen3" package="JST-2-2MM" value="JST-22MM" x="3.4152625" y="79.261978125" rot="R90"/>
 <element name="KICKER1" library="fuse" package="TR5" value="" x="106.04325625" y="102.064884375" rot="R180">
+<attribute name="MF" value="" x="106.04325625" y="102.064884375" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="" x="106.04325625" y="102.064884375" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="106.04325625" y="102.064884375" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="106.04325625" y="102.064884375" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="" x="106.04325625" y="102.064884375" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="KICKREF" library="SparkFun-AnalogIC" package="SOT23-5" value="MCP6291T-E/OT" x="81.471984375" y="67.344596875">
 <attribute name="PROD_ID" value="IC-11991" x="81.471984375" y="67.344596875" size="1.778" layer="27" display="off"/>
@@ -7971,15 +7972,15 @@ design rules under a new name.</description>
 <element name="U$19" library="gen3" package="0805" value="INDUCTOR" x="89.1032" y="21.2344" rot="R180"/>
 <element name="U$20" library="gen3" package="0805" value="INDUCTOR" x="47.5742" y="17.2974" rot="MR180"/>
 <element name="SV1" library="con-lstb" package="MA10-1W" value="" x="83.2104" y="8.6868" rot="R180">
-<attribute name="OC_FARNELL" value="unknown" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="83.2104" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="SV2" library="con-lstb" package="MA10-1W" value="" x="45.1404" y="8.6868" rot="R180">
-<attribute name="OC_FARNELL" value="unknown" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="45.1404" y="8.6868" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C34" library="SparkFun-Capacitors" package="1206" value="47uF" x="36.83" y="100.965" rot="R90"/>
@@ -13332,91 +13333,6 @@ design rules under a new name.</description>
 <wire x1="68.606971875" y1="83.364371875" x2="68.606971875" y2="81.16828125" width="0.254" layer="1"/>
 </signal>
 </signals>
-<errors>
-<approved hash="5,1,babf2b78b4c9d9c7"/>
-<approved hash="5,1,48e7e0b78239d6a4"/>
-<approved hash="5,1,b8ccc7a63e9c587d"/>
-<approved hash="5,1,bab3c7563f9c5bf2"/>
-<approved hash="5,1,b65dc7463e7c56ec"/>
-<approved hash="5,1,acfe67a5bca2ff48"/>
-<approved hash="5,1,acfe67a5bca2ff48"/>
-<approved hash="5,1,bd22c7563e7c5d83"/>
-<approved hash="5,1,63b7e028c29c5986"/>
-<approved hash="5,1,6d26e0c8c27c5717"/>
-<approved hash="5,1,9a381197023d1d6e"/>
-<approved hash="5,1,61c8e0d8c39c5a09"/>
-<approved hash="5,1,6659e0d8c27c5c78"/>
-<approved hash="5,1,4de5f33574635e4f"/>
-<approved hash="5,1,ca164dcfbb444120"/>
-<approved hash="5,1,2427139718ad52a4"/>
-<approved hash="5,1,e31e1393f83c1d6b"/>
-<approved hash="5,1,244df5f07e66d65f"/>
-<approved hash="5,1,1527f5fc7e6ee731"/>
-<approved hash="5,1,1096f5fc7e6ee280"/>
-<approved hash="5,1,0a9ff5cc7e5ef889"/>
-<approved hash="5,1,040ef5ec7e7ef618"/>
-<approved hash="5,1,1bb4f5f07e66e9a6"/>
-<approved hash="5,1,19c5f5f07e66ebd7"/>
-<approved hash="5,1,1209f5f07e6ee013"/>
-<approved hash="5,1,2df8f5f07e6edfe2"/>
-<approved hash="5,1,0781f5f07e1ef5eb"/>
-<approved hash="5,1,0170f5f07e7ef37a"/>
-<approved hash="5,1,1e52f5f47e66ec44"/>
-<approved hash="5,1,1ce3f5f47e66eef5"/>
-<approved hash="5,1,2adaf5f47e66d8cc"/>
-<approved hash="5,1,2f6bf5f47e66dd7d"/>
-<approved hash="5,1,256c4a6381af7552"/>
-<approved hash="5,1,a038ca6b81a77006"/>
-<approved hash="5,1,3f154a7381bf6f2b"/>
-<approved hash="5,1,6542fe44b272b50f"/>
-<approved hash="5,1,a3eae224ae336ff6"/>
-<approved hash="5,1,f4476f44b272b50a"/>
-<approved hash="5,1,32ef7324ae336ff3"/>
-<approved hash="5,1,4739dc44b672b174"/>
-<approved hash="5,1,8191c024aa336b8d"/>
-<approved hash="5,1,d63a4d44b672b177"/>
-<approved hash="5,1,10925124aa336b8e"/>
-<approved hash="5,1,213cba44ba72bd71"/>
-<approved hash="5,1,e794a624a6336788"/>
-<approved hash="5,1,b0312b44ba72bd7c"/>
-<approved hash="5,1,76993724a6336785"/>
-<approved hash="5,1,c59b8424aa336b87"/>
-<approved hash="5,1,03339844b672b17e"/>
-<approved hash="5,1,92340944b672b179"/>
-<approved hash="5,1,549c1524aa336b80"/>
-<approved hash="5,1,ed367644b272b57b"/>
-<approved hash="5,1,2b9e6a24ae336f82"/>
-<approved hash="5,1,ba80fb24ae336f9c"/>
-<approved hash="5,1,7c28e744b272b565"/>
-<approved hash="5,1,b51b3a1c81af753a"/>
-<approved hash="5,1,af623a0c81bf6f43"/>
-<approved hash="5,1,304fba1481a7706e"/>
-<approved hash="5,1,09854824aa336b99"/>
-<approved hash="5,1,cf2d5444b672b160"/>
-<approved hash="5,1,9887d924aa336b9b"/>
-<approved hash="5,1,5e2fc544b672b162"/>
-<approved hash="5,1,a9203244ca72cd6d"/>
-<approved hash="5,1,6f882e24d6331794"/>
-<approved hash="5,1,fe8abf24b6337796"/>
-<approved hash="5,1,3822a344aa72ad6f"/>
-<approved hash="5,1,4d8f0c24aa336b93"/>
-<approved hash="5,1,8b271044b672b16a"/>
-<approved hash="5,1,83fb6de40e66e9e9"/>
-<approved hash="5,1,8d686de80e6ee77e"/>
-<approved hash="5,1,818a6de40e66eb98"/>
-<approved hash="5,1,88d96de80e6ee2cf"/>
-<approved hash="5,1,8a466de40e6ee05c"/>
-<approved hash="5,1,b2956de00e66d883"/>
-<approved hash="5,1,b7246de00e66dd32"/>
-<approved hash="5,1,bc026de40e66d610"/>
-<approved hash="5,1,b5b76de40e6edfad"/>
-<approved hash="5,1,92d06dd80e5ef8c6"/>
-<approved hash="5,1,861d6de00e66ec0b"/>
-<approved hash="5,1,84ac6de00e66eeba"/>
-<approved hash="5,1,9c416df80e7ef657"/>
-<approved hash="5,1,993f6de40e7ef335"/>
-<approved hash="5,1,9fce6de40e1ef5a4"/>
-</errors>
 </board>
 </drawing>
 </eagle>
