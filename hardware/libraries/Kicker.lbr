@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
+<<<<<<< HEAD
 <eagle version="8.4.0">
+=======
+<eagle version="8.5.2">
+>>>>>>> e2e315f6bca98c3ad4a47943dbae83b4bced00f6
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -169,8 +173,6 @@
 <smd name="17" x="7.15" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="16" x="7.8" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="15" x="8.45" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
-<dimension x1="0" y1="7.2" x2="0" y2="0" x3="-7.2" y3="3.6" textsize="1.27" layer="20" dtype="vertical"/>
-<dimension x1="0" y1="7.15" x2="0.65" y2="7.15" x3="0.325" y3="11.05" textsize="1.27" layer="20" dtype="vertical"/>
 </package>
 <package name="CONN-POWER">
 <wire x1="-3.96" y1="3.96" x2="-3.96" y2="-7.92" width="0.127" layer="21"/>
