@@ -765,15 +765,15 @@
 <wire x1="4.318" y1="-3.3" x2="4.318" y2="-3.302" width="0.127" layer="21"/>
 </package>
 <package name="2X5">
-<pad name="10" x="0" y="1.27" drill="0.7" diameter="0.889"/>
-<pad name="9" x="1.27" y="1.27" drill="0.7" diameter="0.889"/>
-<pad name="2" x="1.27" y="0" drill="0.7" diameter="0.889"/>
-<pad name="3" x="2.54" y="0" drill="0.7" diameter="0.889"/>
-<pad name="8" x="2.54" y="1.27" drill="0.7" diameter="0.889"/>
-<pad name="7" x="3.81" y="1.27" drill="0.7" diameter="0.889"/>
-<pad name="4" x="3.81" y="0" drill="0.7" diameter="0.889"/>
-<pad name="5" x="5.08" y="0" drill="0.7" diameter="0.889"/>
-<pad name="6" x="5.08" y="1.27" drill="0.7" diameter="0.889"/>
+<pad name="10" x="0" y="1.27" drill="0.7" diameter="1.016"/>
+<pad name="9" x="1.27" y="1.27" drill="0.7" diameter="1.016"/>
+<pad name="2" x="1.27" y="0" drill="0.7" diameter="1.016"/>
+<pad name="3" x="2.54" y="0" drill="0.7" diameter="1.016"/>
+<pad name="8" x="2.54" y="1.27" drill="0.7" diameter="1.016"/>
+<pad name="7" x="3.81" y="1.27" drill="0.7" diameter="1.016"/>
+<pad name="4" x="3.81" y="0" drill="0.7" diameter="1.016"/>
+<pad name="5" x="5.08" y="0" drill="0.7" diameter="1.016"/>
+<pad name="6" x="5.08" y="1.27" drill="0.7" diameter="1.016"/>
 <wire x1="-3.785" y1="-1.915" x2="1.27" y2="-1.915" width="0.127" layer="21"/>
 <wire x1="1.27" y1="-1.915" x2="1.27" y2="-1.905" width="0.127" layer="21"/>
 <wire x1="8.865" y1="-1.915" x2="3.81" y2="-1.915" width="0.127" layer="21"/>
@@ -781,7 +781,7 @@
 <wire x1="8.865" y1="-1.915" x2="8.865" y2="3.185" width="0.127" layer="21"/>
 <wire x1="8.865" y1="3.185" x2="-3.785" y2="3.185" width="0.127" layer="21"/>
 <wire x1="-3.785" y1="3.185" x2="-3.785" y2="-1.915" width="0.127" layer="21"/>
-<pad name="1" x="0" y="0" drill="0.7" diameter="0.889" shape="square"/>
+<pad name="1" x="0" y="0" drill="0.7" diameter="1.016" shape="square"/>
 <text x="0" y="3.81" size="1" layer="21">&gt;NAME</text>
 </package>
 </packages>
