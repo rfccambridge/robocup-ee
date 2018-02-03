@@ -6009,46 +6009,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="Kicker">
-<packages>
-<package name="POWER_CONN_2X1">
-<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
-<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
-<wire x1="-3.96" y1="3.96" x2="-3.96" y2="-7.92" width="0.127" layer="21"/>
-<wire x1="-3.96" y1="-7.92" x2="3.96" y2="-7.92" width="0.127" layer="21"/>
-<wire x1="3.96" y1="-7.92" x2="3.96" y2="3.96" width="0.127" layer="21"/>
-<wire x1="3.96" y1="3.96" x2="-3.96" y2="3.96" width="0.127" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="POWER_CONN_2X1">
-<pin name="+" x="-7.62" y="2.54" length="middle"/>
-<pin name="-" x="-7.62" y="-2.54" length="middle"/>
-<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="POWER_CONN_2X1">
-<gates>
-<gate name="G$1" symbol="POWER_CONN_2X1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="POWER_CONN_2X1">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors" urn="urn:adsk.eagle:library:513">
 <description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
 This library contains electrically-functional connectors. 
@@ -7942,6 +7902,47 @@ This footprint was designed to help hold the alignment of a through-hole compone
 </deviceset>
 </devicesets>
 </library>
+<library name="Kicker">
+<packages>
+<package name="POWER_CONN_2X1">
+<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
+<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
+<wire x1="-3.84" y1="1.92" x2="3.84" y2="1.92" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="1.94" x2="-14.9" y2="-5.92" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="1.94" x2="4" y2="1.94" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="-5.92" x2="4" y2="-5.92" width="0.127" layer="21"/>
+<wire x1="4" y1="-5.92" x2="4" y2="1.94" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="POWER_CONN_2X1">
+<pin name="+" x="-7.62" y="2.54" length="middle"/>
+<pin name="-" x="-7.62" y="-2.54" length="middle"/>
+<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="POWER_CONN_2X1">
+<gates>
+<gate name="G$1" symbol="POWER_CONN_2X1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POWER_CONN_2X1">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -8006,7 +8007,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
 <part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05X2" device="SHD" package3d_urn="urn:adsk.eagle:package:38000/1"/>
 <part name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_08" device="LONGPADS" package3d_urn="urn:adsk.eagle:package:38142/1"/>
-<part name="U$3" library="Kicker" deviceset="POWER_CONN_2X1" device=""/>
+<part name="U$2" library="Kicker" deviceset="POWER_CONN_2X1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8077,7 +8078,7 @@ disconnected at all times</text>
 <instance part="R9" gate="G$1" x="58.42" y="35.56" rot="R90"/>
 <instance part="J2" gate="G$1" x="266.7" y="114.3"/>
 <instance part="J3" gate="G$1" x="261.62" y="66.04" rot="R180"/>
-<instance part="U$3" gate="G$1" x="223.52" y="43.18"/>
+<instance part="U$2" gate="G$1" x="215.9" y="45.72"/>
 </instances>
 <busses>
 </busses>
@@ -8152,9 +8153,9 @@ disconnected at all times</text>
 <label x="251.46" y="63.5" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="-"/>
-<wire x1="215.9" y1="40.64" x2="210.82" y2="40.64" width="0.1524" layer="91"/>
-<label x="210.82" y="40.64" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="-"/>
+<wire x1="208.28" y1="43.18" x2="205.74" y2="43.18" width="0.1524" layer="91"/>
+<label x="205.74" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -8204,9 +8205,9 @@ disconnected at all times</text>
 <label x="114.3" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$3" gate="G$1" pin="+"/>
-<wire x1="215.9" y1="45.72" x2="210.82" y2="45.72" width="0.1524" layer="91"/>
-<label x="210.82" y="45.72" size="1.778" layer="95"/>
+<pinref part="U$2" gate="G$1" pin="+"/>
+<wire x1="208.28" y1="48.26" x2="205.74" y2="48.26" width="0.1524" layer="91"/>
+<label x="205.74" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1O1" class="0">
