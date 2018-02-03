@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
-<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.000000123031" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3526,16 +3525,6 @@ connector</description>
 <wire x1="-2.8841" y1="-2.50686875" x2="2.550440625" y2="-2.52855625" width="0.127" layer="21"/>
 <wire x1="2.550440625" y1="-2.52855625" x2="2.5529875" y2="-2.396759375" width="0.127" layer="21"/>
 </package>
-<package name="2X2CONNECTOR">
-<pad name="P1" x="0" y="0" drill="1.016" diameter="1.8796" shape="square"/>
-<pad name="P4" x="2.54" y="0" drill="1.016" diameter="1.8796"/>
-<pad name="P3" x="2.54" y="-2.54" drill="1.016" diameter="1.8796"/>
-<pad name="P2" x="0" y="-2.54" drill="1.016" diameter="1.8796"/>
-<wire x1="-2.54" y1="2.54" x2="5.08" y2="2.54" width="0.127" layer="21"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.127" layer="21"/>
-<wire x1="5.08" y1="-5.08" x2="-2.54" y2="-5.08" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="2.54" width="0.127" layer="21"/>
-</package>
 </packages>
 <symbols>
 <symbol name="A4915">
@@ -4131,16 +4120,6 @@ Dual AND gate</description>
 <pin name="GND" x="7.62" y="-25.4" length="point" rot="R270"/>
 <pin name="1Y" x="22.86" y="0" rot="R180"/>
 <pin name="2Y" x="22.86" y="-17.78" rot="R180"/>
-</symbol>
-<symbol name="2X2CONNECTOR">
-<pin name="P4" x="7.62" y="7.62" length="short"/>
-<pin name="P3" x="7.62" y="5.08" length="short"/>
-<pin name="P2" x="2.54" y="5.08" length="short" rot="R180"/>
-<pin name="P1" x="2.54" y="7.62" length="short" rot="R180"/>
-<wire x1="2.54" y1="10.16" x2="2.54" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="7.62" y2="10.16" width="0.254" layer="94"/>
-<wire x1="7.62" y1="10.16" x2="2.54" y2="10.16" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5455,24 +5434,6 @@ digikey #: 732-2129-1-ND</description>
 <connect gate="G$1" pin="2Y" pad="8"/>
 <connect gate="G$1" pin="GND" pad="7"/>
 <connect gate="G$1" pin="VCC" pad="14"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="2X2CONNECTOR">
-<gates>
-<gate name="G$1" symbol="2X2CONNECTOR" x="-2.54" y="-2.54"/>
-</gates>
-<devices>
-<device name="" package="2X2CONNECTOR">
-<connects>
-<connect gate="G$1" pin="P1" pad="P1"/>
-<connect gate="G$1" pin="P2" pad="P2"/>
-<connect gate="G$1" pin="P3" pad="P3"/>
-<connect gate="G$1" pin="P4" pad="P4"/>
 </connects>
 <technologies>
 <technology name=""/>

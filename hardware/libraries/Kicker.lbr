@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<<<<<<< HEAD
-<eagle version="8.4.0">
-=======
 <eagle version="8.5.2">
->>>>>>> e2e315f6bca98c3ad4a47943dbae83b4bced00f6
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -174,15 +170,6 @@
 <smd name="16" x="7.8" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="15" x="8.45" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 </package>
-<package name="CONN-POWER">
-<wire x1="-3.96" y1="3.96" x2="-3.96" y2="-7.92" width="0.127" layer="21"/>
-<wire x1="-3.96" y1="-7.92" x2="3.96" y2="-7.92" width="0.127" layer="21"/>
-<wire x1="3.96" y1="-7.92" x2="3.96" y2="3.96" width="0.127" layer="21"/>
-<wire x1="3.96" y1="3.96" x2="-3.96" y2="3.96" width="0.127" layer="21"/>
-<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
-<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
-<text x="0" y="1.27" size="1.27" layer="21">+</text>
-</package>
 </packages>
 <symbols>
 <symbol name="STANDARD">
@@ -285,15 +272,6 @@
 <wire x1="33.02" y1="17.78" x2="0" y2="17.78" width="0.254" layer="94"/>
 <text x="36.322" y="5.08" size="1.27" layer="95" rot="R90">MCP23017</text>
 </symbol>
-<symbol name="CONN-POWER">
-<pin name="+" x="-5.08" y="2.54" length="middle"/>
-<pin name="-" x="-5.08" y="-2.54" length="middle"/>
-<wire x1="0" y1="5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
-<text x="-2.54" y="2.54" size="1.778" layer="94">+</text>
-</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A0009-AL">
@@ -383,22 +361,6 @@
 <connect gate="G$1" pin="SDA" pad="13"/>
 <connect gate="G$1" pin="VDD" pad="9"/>
 <connect gate="G$1" pin="VSS" pad="10"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="CONN-POWER">
-<gates>
-<gate name="G$1" symbol="CONN-POWER" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="CONN-POWER">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
 </connects>
 <technologies>
 <technology name=""/>
