@@ -6011,34 +6011,32 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </library>
 <library name="Kicker">
 <packages>
-<package name="CONN-POWER">
+<package name="POWER_CONN_2X1">
+<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
+<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
 <wire x1="-3.96" y1="3.96" x2="-3.96" y2="-7.92" width="0.127" layer="21"/>
 <wire x1="-3.96" y1="-7.92" x2="3.96" y2="-7.92" width="0.127" layer="21"/>
 <wire x1="3.96" y1="-7.92" x2="3.96" y2="3.96" width="0.127" layer="21"/>
 <wire x1="3.96" y1="3.96" x2="-3.96" y2="3.96" width="0.127" layer="21"/>
-<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
-<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
-<text x="0" y="1.27" size="1.27" layer="21">+</text>
 </package>
 </packages>
 <symbols>
-<symbol name="CONN-POWER">
-<pin name="+" x="-5.08" y="2.54" length="middle"/>
-<pin name="-" x="-5.08" y="-2.54" length="middle"/>
-<wire x1="0" y1="5.08" x2="0" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="0" y2="5.08" width="0.254" layer="94"/>
-<text x="-2.54" y="2.54" size="1.778" layer="94">+</text>
+<symbol name="POWER_CONN_2X1">
+<pin name="+" x="-7.62" y="2.54" length="middle"/>
+<pin name="-" x="-7.62" y="-2.54" length="middle"/>
+<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CONN-POWER">
+<deviceset name="POWER_CONN_2X1">
 <gates>
-<gate name="G$1" symbol="CONN-POWER" x="0" y="0"/>
+<gate name="G$1" symbol="POWER_CONN_2X1" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="CONN-POWER">
+<device name="" package="POWER_CONN_2X1">
 <connects>
 <connect gate="G$1" pin="+" pad="+"/>
 <connect gate="G$1" pin="-" pad="-"/>
@@ -8006,9 +8004,9 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
-<part name="U$2" library="Kicker" deviceset="CONN-POWER" device=""/>
 <part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05X2" device="SHD" package3d_urn="urn:adsk.eagle:package:38000/1"/>
 <part name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_08" device="LONGPADS" package3d_urn="urn:adsk.eagle:package:38142/1"/>
+<part name="U$3" library="Kicker" deviceset="POWER_CONN_2X1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8077,9 +8075,9 @@ disconnected at all times</text>
 <instance part="R5" gate="G$1" x="38.1" y="78.74" rot="R90"/>
 <instance part="R7" gate="G$1" x="45.72" y="73.66" rot="R90"/>
 <instance part="R9" gate="G$1" x="58.42" y="35.56" rot="R90"/>
-<instance part="U$2" gate="G$1" x="220.98" y="30.48"/>
 <instance part="J2" gate="G$1" x="266.7" y="114.3"/>
 <instance part="J3" gate="G$1" x="261.62" y="66.04" rot="R180"/>
+<instance part="U$3" gate="G$1" x="223.52" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -8144,11 +8142,6 @@ disconnected at all times</text>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="-"/>
-<wire x1="215.9" y1="27.94" x2="210.82" y2="27.94" width="0.1524" layer="91"/>
-<label x="210.82" y="27.94" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="259.08" y1="119.38" x2="254" y2="119.38" width="0.1524" layer="91"/>
 <label x="254" y="119.38" size="1.778" layer="95"/>
@@ -8157,6 +8150,11 @@ disconnected at all times</text>
 <pinref part="J3" gate="G$1" pin="5"/>
 <wire x1="256.54" y1="63.5" x2="251.46" y2="63.5" width="0.1524" layer="91"/>
 <label x="251.46" y="63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="-"/>
+<wire x1="215.9" y1="40.64" x2="210.82" y2="40.64" width="0.1524" layer="91"/>
+<label x="210.82" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -8206,9 +8204,9 @@ disconnected at all times</text>
 <label x="114.3" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="+"/>
-<wire x1="215.9" y1="33.02" x2="210.82" y2="33.02" width="0.1524" layer="91"/>
-<label x="210.82" y="33.02" size="1.778" layer="95"/>
+<pinref part="U$3" gate="G$1" pin="+"/>
+<wire x1="215.9" y1="45.72" x2="210.82" y2="45.72" width="0.1524" layer="91"/>
+<label x="210.82" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1O1" class="0">
