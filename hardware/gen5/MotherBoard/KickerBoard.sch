@@ -17185,12 +17185,10 @@ Wickmann</description>
 <part name="U$7" library="rfc" deviceset="1N4007" device=""/>
 <part name="R22" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
 <part name="U$12" library="rfc" deviceset="13VZENER" device=""/>
-<part name="U$13" library="gen3" deviceset="INDUCTOR" device=""/>
 <part name="R37" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100k"/>
 <part name="U$18" library="foe-scale" deviceset="LM311" device=""/>
 <part name="C33" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="1uF"/>
 <part name="U$19" library="gen3" deviceset="INDUCTOR" device=""/>
-<part name="U$20" library="gen3" deviceset="INDUCTOR" device=""/>
 <part name="C34" library="SparkFun-Capacitors" deviceset="CAP" device="1206" value="47uF"/>
 <part name="R43" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="100"/>
 <part name="U$17" library="Kicker" deviceset="IO-EXPANDER" device=""/>
@@ -17341,7 +17339,7 @@ for proper operation of motor controller</text>
 <instance part="CHARGE" gate="G$1" x="622.3" y="314.96"/>
 <instance part="DONE" gate="G$1" x="617.22" y="320.04"/>
 <instance part="GATE" gate="G$1" x="688.34" y="317.5"/>
-<instance part="GND" gate="G$1" x="497.84" y="350.52" rot="R180"/>
+<instance part="GND" gate="G$1" x="492.76" y="353.06" rot="R180"/>
 <instance part="12VGND" gate="G$1" x="754.38" y="248.92" rot="R270"/>
 <instance part="C6" gate="G$1" x="665.48" y="358.14"/>
 <instance part="C14" gate="G$1" x="678.18" y="358.14"/>
@@ -17414,12 +17412,10 @@ for proper operation of motor controller</text>
 <instance part="U$7" gate="G$1" x="579.12" y="337.82"/>
 <instance part="R22" gate="G$1" x="612.14" y="312.42"/>
 <instance part="U$12" gate="G$1" x="396.24" y="353.06" rot="R180"/>
-<instance part="U$13" gate="G$1" x="500.38" y="370.84" rot="R270"/>
 <instance part="R37" gate="G$1" x="284.48" y="304.8"/>
 <instance part="U$18" gate="G$1" x="325.12" y="307.34"/>
 <instance part="C33" gate="G$1" x="332.74" y="332.74"/>
-<instance part="U$19" gate="G$1" x="490.22" y="370.84" rot="R270"/>
-<instance part="U$20" gate="G$1" x="495.3" y="370.84" rot="R270"/>
+<instance part="U$19" gate="G$1" x="492.76" y="370.84" rot="R270"/>
 <instance part="C34" gate="G$1" x="744.22" y="259.08"/>
 <instance part="R43" gate="G$1" x="678.18" y="294.64"/>
 <instance part="U$17" gate="G$1" x="523.24" y="88.9" rot="R270"/>
@@ -17560,15 +17556,9 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="U$19" gate="G$1" pin="P$2"/>
-<pinref part="U$20" gate="G$1" pin="P$2"/>
-<wire x1="495.3" y1="358.14" x2="490.22" y2="358.14" width="0.1524" layer="91"/>
-<pinref part="U$13" gate="G$1" pin="P$2"/>
-<wire x1="495.3" y1="358.14" x2="497.84" y2="358.14" width="0.1524" layer="91"/>
-<junction x="495.3" y="358.14"/>
-<wire x1="497.84" y1="358.14" x2="500.38" y2="358.14" width="0.1524" layer="91"/>
-<wire x1="497.84" y1="358.14" x2="497.84" y2="353.06" width="0.1524" layer="91"/>
-<junction x="497.84" y="358.14"/>
-<label x="497.84" y="353.06" size="1.778" layer="95"/>
+<wire x1="492.76" y1="358.14" x2="492.76" y2="355.6" width="0.1524" layer="91"/>
+<junction x="492.76" y="358.14"/>
+<label x="495.3" y="358.14" size="1.778" layer="95"/>
 <pinref part="GND" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
@@ -18019,15 +18009,8 @@ for proper operation of motor controller</text>
 <pinref part="U$12" gate="G$1" pin="+"/>
 </segment>
 <segment>
-<pinref part="U$13" gate="G$1" pin="P$1"/>
 <pinref part="U$19" gate="G$1" pin="P$1"/>
-<wire x1="495.3" y1="370.84" x2="500.38" y2="370.84" width="0.1524" layer="91"/>
-<junction x="495.3" y="370.84"/>
-<pinref part="U$20" gate="G$1" pin="P$1"/>
-<wire x1="495.3" y1="370.84" x2="492.76" y2="370.84" width="0.1524" layer="91"/>
-<wire x1="492.76" y1="370.84" x2="490.22" y2="370.84" width="0.1524" layer="91"/>
 <wire x1="492.76" y1="370.84" x2="492.76" y2="375.92" width="0.1524" layer="91"/>
-<junction x="492.76" y="370.84"/>
 <label x="492.76" y="375.92" size="1.778" layer="95"/>
 </segment>
 <segment>
