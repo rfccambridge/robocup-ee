@@ -16468,7 +16468,7 @@ the Caps are charged and dangerous</text>
 <text x="698.5" y="370.84" size="1.778" layer="97">same radius, but shorter than old caps</text>
 <text x="520.7" y="350.52" size="1.778" layer="97">Discharge Circuitry</text>
 <text x="845.82" y="355.6" size="1.778" layer="97" rot="MR0">capacitor sense circuitry</text>
-<text x="330.2" y="386.08" size="1.778" layer="97" rot="R180">15v -&gt; 3v division
+<text x="543.56" y="452.12" size="1.778" layer="97" rot="R180">15v -&gt; 3v division
 to measure battery voltage</text>
 <text x="279.4" y="342.9" size="1.778" layer="97">max gate threshold: 2.6V. 
 should turn on fine with 3.3!</text>
@@ -16487,22 +16487,31 @@ TWD is the data line for TWI (I2C)
 
 They each have pullups as is required 
 by TWI (I2C) protocol</text>
-<text x="208.28" y="312.42" size="1.778" layer="97">Differential Amplifier: Needed since the 
-DAC on the MCU has a minimum 
-output voltage of ~0.5V, but we want 
-KICK_REF to range from approximately
-0 to 2.5 V</text>
-<text x="210.82" y="233.68" size="1.778" layer="97">P8, P9, P10 are for Hall Sensors outputs... needed 
-for proper operation of motor controller</text>
 <text x="543.56" y="152.4" size="1.778" layer="97">INTA and INTB are programmed to be logically ORed so
  that an interrupt on either port will cause both pins to activate</text>
-<text x="398.78" y="411.48" size="1.778" layer="91">5 Volt Regulator</text>
+<text x="406.4" y="436.88" size="1.778" layer="91">5 Volt Regulator</text>
 <text x="162.56" y="213.36" size="1.778" layer="91">5V -&gt; 3.3V dividers (Rin = 114k)</text>
 <text x="373.38" y="160.02" size="1.778" layer="97">Consider whether or not we should use the on-board 3.3V regulator</text>
 <text x="129.54" y="358.14" size="1.778" layer="104" rot="R90">MOTOR0</text>
 <text x="177.8" y="307.34" size="1.778" layer="104" rot="R90">MOTOR1</text>
 <text x="177.8" y="358.14" size="1.778" layer="104" rot="R90">MOTOR3</text>
 <text x="129.54" y="309.88" size="1.778" layer="104" rot="R90">MOTOR2</text>
+<wire x1="271.78" y1="187.96" x2="668.02" y2="187.96" width="0.1524" layer="97"/>
+<wire x1="668.02" y1="187.96" x2="668.02" y2="20.32" width="0.1524" layer="97"/>
+<wire x1="668.02" y1="20.32" x2="271.78" y2="20.32" width="0.1524" layer="97"/>
+<wire x1="271.78" y1="20.32" x2="271.78" y2="187.96" width="0.1524" layer="97"/>
+<wire x1="243.84" y1="96.52" x2="91.44" y2="96.52" width="0.1524" layer="97"/>
+<wire x1="91.44" y1="96.52" x2="91.44" y2="398.78" width="0.1524" layer="97"/>
+<wire x1="91.44" y1="398.78" x2="243.84" y2="398.78" width="0.1524" layer="97"/>
+<wire x1="243.84" y1="398.78" x2="243.84" y2="96.52" width="0.1524" layer="97"/>
+<wire x1="381" y1="388.62" x2="571.5" y2="388.62" width="0.1524" layer="97"/>
+<wire x1="571.5" y1="388.62" x2="571.5" y2="495.3" width="0.1524" layer="97"/>
+<wire x1="571.5" y1="495.3" x2="381" y2="495.3" width="0.1524" layer="97"/>
+<wire x1="381" y1="495.3" x2="381" y2="388.62" width="0.1524" layer="97"/>
+<wire x1="261.62" y1="190.5" x2="327.66" y2="190.5" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="190.5" x2="327.66" y2="248.92" width="0.1524" layer="97"/>
+<wire x1="327.66" y1="248.92" x2="261.62" y2="248.92" width="0.1524" layer="97"/>
+<wire x1="261.62" y1="248.92" x2="261.62" y2="190.5" width="0.1524" layer="97"/>
 </plain>
 <instances>
 <instance part="R14" gate="G$1" x="779.78" y="353.06" rot="MR90"/>
@@ -16558,35 +16567,35 @@ for proper operation of motor controller</text>
 <instance part="KE_LED" gate="G$1" x="287.02" y="271.78"/>
 <instance part="CE_LED" gate="G$1" x="299.72" y="271.78"/>
 <instance part="R5" gate="G$1" x="299.72" y="261.62" rot="R270"/>
-<instance part="KICK_READY" gate="G$1" x="381" y="335.28"/>
+<instance part="KICK_READY" gate="G$1" x="381" y="340.36"/>
 <instance part="R6" gate="G$1" x="381" y="327.66" rot="R90"/>
 <instance part="KICK_LED" gate="G$1" x="393.7" y="297.18" rot="R90"/>
 <instance part="CHIP_LED" gate="G$1" x="398.78" y="261.62" rot="R90"/>
 <instance part="R9" gate="G$1" x="406.4" y="297.18" rot="R180"/>
 <instance part="R10" gate="G$1" x="411.48" y="261.62" rot="R180"/>
-<instance part="R11" gate="G$1" x="571.5" y="274.32"/>
-<instance part="CHARGE_LED" gate="G$1" x="558.8" y="274.32" rot="R90"/>
-<instance part="DONE_LED" gate="G$1" x="558.8" y="264.16" rot="R90"/>
-<instance part="R12" gate="G$1" x="571.5" y="264.16"/>
-<instance part="BATT" gate="-1" x="353.06" y="360.68"/>
-<instance part="BATT" gate="-2" x="353.06" y="350.52"/>
-<instance part="C8" gate="G$1" x="449.58" y="347.98"/>
-<instance part="ON/OFF" gate="G$1" x="383.54" y="360.68"/>
-<instance part="3.3V" gate="G$1" x="441.96" y="358.14"/>
-<instance part="3.3REG1" gate="G$1" x="411.48" y="347.98" rot="MR270"/>
-<instance part="C9" gate="G$1" x="462.28" y="347.98"/>
-<instance part="C11" gate="G$1" x="436.88" y="347.98"/>
-<instance part="R17" gate="G$1" x="332.74" y="414.02" rot="R90"/>
-<instance part="R18" gate="G$1" x="332.74" y="398.78" rot="R90"/>
-<instance part="12V" gate="G$1" x="401.32" y="358.14"/>
-<instance part="BATCLAMP2" gate="G$1" x="320.04" y="401.32" smashed="yes" rot="R90">
-<attribute name="NAME" x="317.0174" y="391.16" size="1.778" layer="95" rot="R90"/>
+<instance part="R11" gate="G$1" x="563.88" y="266.7" rot="R270"/>
+<instance part="CHARGE_LED" gate="G$1" x="563.88" y="279.4"/>
+<instance part="DONE_LED" gate="G$1" x="553.72" y="279.4"/>
+<instance part="R12" gate="G$1" x="553.72" y="266.7" rot="R270"/>
+<instance part="BATT" gate="-1" x="444.5" y="464.82"/>
+<instance part="BATT" gate="-2" x="444.5" y="454.66"/>
+<instance part="C8" gate="G$1" x="535.94" y="426.72"/>
+<instance part="ON/OFF" gate="G$1" x="474.98" y="464.82"/>
+<instance part="3.3V" gate="G$1" x="528.32" y="436.88"/>
+<instance part="3.3REG1" gate="G$1" x="497.84" y="426.72" rot="MR270"/>
+<instance part="C9" gate="G$1" x="546.1" y="426.72"/>
+<instance part="C11" gate="G$1" x="523.24" y="426.72"/>
+<instance part="R17" gate="G$1" x="546.1" y="480.06" rot="R90"/>
+<instance part="R18" gate="G$1" x="546.1" y="464.82" rot="R90"/>
+<instance part="12V" gate="G$1" x="492.76" y="462.28"/>
+<instance part="BATCLAMP2" gate="G$1" x="533.4" y="467.36" smashed="yes" rot="R90">
+<attribute name="NAME" x="530.3774" y="457.2" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="DRIB_TRAN" gate="G$1" x="309.88" y="353.06"/>
 <instance part="DRIB" gate="G$1" x="332.74" y="365.76"/>
 <instance part="DRIB_TEST" gate="G$1" x="289.56" y="353.06"/>
-<instance part="BAT" gate="G$1" x="325.12" y="408.94" smashed="yes">
-<attribute name="NAME" x="321.31" y="403.86" size="1.778" layer="95"/>
+<instance part="BAT" gate="G$1" x="538.48" y="474.98" smashed="yes">
+<attribute name="NAME" x="534.67" y="469.9" size="1.778" layer="95"/>
 </instance>
 <instance part="R19" gate="G$1" x="287.02" y="210.82" rot="R90"/>
 <instance part="C12" gate="G$1" x="276.86" y="223.52"/>
@@ -16609,7 +16618,7 @@ for proper operation of motor controller</text>
 <instance part="R26" gate="G$1" x="520.7" y="335.28" rot="R270"/>
 <instance part="U$7" gate="G$1" x="579.12" y="337.82"/>
 <instance part="R22" gate="G$1" x="612.14" y="312.42"/>
-<instance part="U$12" gate="G$1" x="396.24" y="353.06" rot="R180"/>
+<instance part="U$12" gate="G$1" x="487.68" y="457.2" rot="R180"/>
 <instance part="R37" gate="G$1" x="284.48" y="304.8"/>
 <instance part="U$18" gate="G$1" x="325.12" y="307.34"/>
 <instance part="C33" gate="G$1" x="332.74" y="332.74"/>
@@ -16622,10 +16631,10 @@ for proper operation of motor controller</text>
 <instance part="U$21" gate="G$1" x="619.76" y="142.24" rot="R270"/>
 <instance part="C37" gate="G$1" x="591.82" y="116.84"/>
 <instance part="C38" gate="G$1" x="579.12" y="116.84"/>
-<instance part="C39" gate="G$1" x="436.88" y="401.32"/>
-<instance part="5REG" gate="G$1" x="406.4" y="401.32" rot="MR270"/>
-<instance part="C40" gate="G$1" x="449.58" y="401.32"/>
-<instance part="C41" gate="G$1" x="424.18" y="401.32"/>
+<instance part="C39" gate="G$1" x="444.5" y="426.72"/>
+<instance part="5REG" gate="G$1" x="414.02" y="426.72" rot="MR270"/>
+<instance part="C40" gate="G$1" x="457.2" y="426.72"/>
+<instance part="C41" gate="G$1" x="431.8" y="426.72"/>
 <instance part="R44" gate="G$1" x="190.5" y="203.2" rot="R180"/>
 <instance part="R45" gate="G$1" x="195.58" y="198.12" rot="R270"/>
 <instance part="R46" gate="G$1" x="190.5" y="177.8" rot="R180"/>
@@ -16742,20 +16751,20 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="3.3REG1" gate="G$1" pin="GND"/>
-<wire x1="411.48" y1="332.74" x2="411.48" y2="337.82" width="0.1524" layer="91"/>
-<wire x1="411.48" y1="332.74" x2="436.88" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="411.48" x2="497.84" y2="416.56" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="411.48" x2="523.24" y2="411.48" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="436.88" y1="332.74" x2="436.88" y2="342.9" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="342.9" x2="436.88" y2="345.44" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="342.9" x2="449.58" y2="342.9" width="0.1524" layer="91"/>
-<junction x="436.88" y="342.9"/>
+<wire x1="523.24" y1="411.48" x2="523.24" y2="421.64" width="0.1524" layer="91"/>
+<wire x1="523.24" y1="421.64" x2="523.24" y2="424.18" width="0.1524" layer="91"/>
+<wire x1="523.24" y1="421.64" x2="535.94" y2="421.64" width="0.1524" layer="91"/>
+<junction x="523.24" y="421.64"/>
 <pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="449.58" y1="342.9" x2="449.58" y2="345.44" width="0.1524" layer="91"/>
-<wire x1="449.58" y1="342.9" x2="462.28" y2="342.9" width="0.1524" layer="91"/>
-<junction x="449.58" y="342.9"/>
+<wire x1="535.94" y1="421.64" x2="535.94" y2="424.18" width="0.1524" layer="91"/>
+<wire x1="535.94" y1="421.64" x2="546.1" y2="421.64" width="0.1524" layer="91"/>
+<junction x="535.94" y="421.64"/>
 <pinref part="C9" gate="G$1" pin="2"/>
-<wire x1="462.28" y1="342.9" x2="462.28" y2="345.44" width="0.1524" layer="91"/>
-<label x="426.72" y="332.74" size="1.778" layer="95"/>
+<wire x1="546.1" y1="421.64" x2="546.1" y2="424.18" width="0.1524" layer="91"/>
+<label x="513.08" y="411.48" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$19" gate="G$1" pin="P$2"/>
@@ -16834,20 +16843,20 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="5REG" gate="G$1" pin="GND"/>
-<wire x1="406.4" y1="386.08" x2="406.4" y2="391.16" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="386.08" x2="424.18" y2="386.08" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="411.48" x2="414.02" y2="416.56" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="411.48" x2="431.8" y2="411.48" width="0.1524" layer="91"/>
 <pinref part="C41" gate="G$1" pin="2"/>
-<wire x1="424.18" y1="386.08" x2="424.18" y2="396.24" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="396.24" x2="424.18" y2="398.78" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="396.24" x2="436.88" y2="396.24" width="0.1524" layer="91"/>
-<junction x="424.18" y="396.24"/>
+<wire x1="431.8" y1="411.48" x2="431.8" y2="421.64" width="0.1524" layer="91"/>
+<wire x1="431.8" y1="421.64" x2="431.8" y2="424.18" width="0.1524" layer="91"/>
+<wire x1="431.8" y1="421.64" x2="444.5" y2="421.64" width="0.1524" layer="91"/>
+<junction x="431.8" y="421.64"/>
 <pinref part="C39" gate="G$1" pin="2"/>
-<wire x1="436.88" y1="396.24" x2="436.88" y2="398.78" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="396.24" x2="449.58" y2="396.24" width="0.1524" layer="91"/>
-<junction x="436.88" y="396.24"/>
+<wire x1="444.5" y1="421.64" x2="444.5" y2="424.18" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="421.64" x2="457.2" y2="421.64" width="0.1524" layer="91"/>
+<junction x="444.5" y="421.64"/>
 <pinref part="C40" gate="G$1" pin="2"/>
-<wire x1="449.58" y1="396.24" x2="449.58" y2="398.78" width="0.1524" layer="91"/>
-<label x="414.02" y="386.08" size="1.778" layer="95"/>
+<wire x1="457.2" y1="421.64" x2="457.2" y2="424.18" width="0.1524" layer="91"/>
+<label x="421.64" y="411.48" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R53" gate="G$1" pin="2"/>
@@ -16897,8 +16906,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="576.58" y1="274.32" x2="584.2" y2="274.32" width="0.1524" layer="91"/>
-<label x="581.66" y="274.32" size="1.778" layer="95"/>
+<wire x1="563.88" y1="261.62" x2="563.88" y2="254" width="0.1524" layer="91"/>
+<label x="563.88" y="256.54" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="GND"/>
@@ -17000,22 +17009,22 @@ for proper operation of motor controller</text>
 <label x="604.52" y="320.04" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="449.58" y1="355.6" x2="462.28" y2="355.6" width="0.1524" layer="91"/>
+<wire x1="535.94" y1="434.34" x2="546.1" y2="434.34" width="0.1524" layer="91"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="449.58" y1="353.06" x2="449.58" y2="355.6" width="0.1524" layer="91"/>
+<wire x1="535.94" y1="431.8" x2="535.94" y2="434.34" width="0.1524" layer="91"/>
 <pinref part="C9" gate="G$1" pin="1"/>
-<wire x1="462.28" y1="355.6" x2="462.28" y2="353.06" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="434.34" x2="546.1" y2="431.8" width="0.1524" layer="91"/>
 <pinref part="3.3V" gate="G$1" pin="P$1"/>
-<wire x1="449.58" y1="355.6" x2="441.96" y2="355.6" width="0.1524" layer="91"/>
-<junction x="449.58" y="355.6"/>
-<wire x1="436.88" y1="353.06" x2="436.88" y2="355.6" width="0.1524" layer="91"/>
-<wire x1="441.96" y1="355.6" x2="436.88" y2="355.6" width="0.1524" layer="91"/>
-<junction x="441.96" y="355.6"/>
+<wire x1="535.94" y1="434.34" x2="528.32" y2="434.34" width="0.1524" layer="91"/>
+<junction x="535.94" y="434.34"/>
+<wire x1="523.24" y1="431.8" x2="523.24" y2="434.34" width="0.1524" layer="91"/>
+<wire x1="528.32" y1="434.34" x2="523.24" y2="434.34" width="0.1524" layer="91"/>
+<junction x="528.32" y="434.34"/>
 <pinref part="C11" gate="G$1" pin="1"/>
-<label x="454.66" y="355.6" size="1.778" layer="95"/>
-<junction x="436.88" y="355.6"/>
+<label x="541.02" y="434.34" size="1.778" layer="95"/>
+<junction x="523.24" y="434.34"/>
 <pinref part="3.3REG1" gate="G$1" pin="OUT"/>
-<wire x1="416.56" y1="355.6" x2="436.88" y2="355.6" width="0.1524" layer="91"/>
+<wire x1="502.92" y1="434.34" x2="523.24" y2="434.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
@@ -17034,13 +17043,13 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="DONE_LED" gate="G$1" pin="A"/>
-<wire x1="556.26" y1="264.16" x2="543.56" y2="264.16" width="0.1524" layer="91"/>
-<label x="543.56" y="264.16" size="1.778" layer="95"/>
+<wire x1="553.72" y1="281.94" x2="553.72" y2="294.64" width="0.1524" layer="91"/>
+<label x="553.72" y="294.64" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
 <pinref part="KICK_READY" gate="G$1" pin="A"/>
-<wire x1="381" y1="337.82" x2="381" y2="342.9" width="0.1524" layer="91"/>
-<label x="375.92" y="340.36" size="1.778" layer="95"/>
+<wire x1="381" y1="342.9" x2="381" y2="347.98" width="0.1524" layer="91"/>
+<label x="375.92" y="347.98" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R27" gate="G$1" pin="2"/>
@@ -17181,8 +17190,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="BATT" gate="-2" pin="KL"/>
-<wire x1="358.14" y1="350.52" x2="396.24" y2="350.52" width="0.1524" layer="91"/>
-<label x="373.38" y="350.52" size="1.778" layer="95"/>
+<wire x1="449.58" y1="454.66" x2="487.68" y2="454.66" width="0.1524" layer="91"/>
+<label x="464.82" y="454.66" size="1.778" layer="95"/>
 <pinref part="U$12" gate="G$1" pin="+"/>
 </segment>
 <segment>
@@ -17192,12 +17201,12 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="BATCLAMP2" gate="G$1" pin="A"/>
-<wire x1="320.04" y1="398.78" x2="320.04" y2="393.7" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="464.82" x2="533.4" y2="459.74" width="0.1524" layer="91"/>
 <pinref part="R18" gate="G$1" pin="1"/>
-<wire x1="320.04" y1="393.7" x2="327.66" y2="393.7" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="393.7" x2="332.74" y2="393.7" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="393.7" x2="327.66" y2="388.62" width="0.1524" layer="91"/>
-<label x="330.2" y="388.62" size="1.778" layer="95"/>
+<wire x1="533.4" y1="459.74" x2="541.02" y2="459.74" width="0.1524" layer="91"/>
+<wire x1="541.02" y1="459.74" x2="546.1" y2="459.74" width="0.1524" layer="91"/>
+<wire x1="541.02" y1="459.74" x2="541.02" y2="454.66" width="0.1524" layer="91"/>
+<label x="543.56" y="454.66" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R21" gate="G$1" pin="1"/>
@@ -17453,8 +17462,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="332.74" y1="419.1" x2="332.74" y2="421.64" width="0.1524" layer="91"/>
-<label x="332.74" y="421.64" size="1.778" layer="95"/>
+<wire x1="546.1" y1="485.14" x2="546.1" y2="487.68" width="0.1524" layer="91"/>
+<label x="546.1" y="487.68" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="373.38" x2="312.42" y2="368.3" width="0.1524" layer="91"/>
@@ -17464,15 +17473,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="3.3REG1" gate="G$1" pin="IN"/>
-<pinref part="ON/OFF" gate="G$1" pin="P2"/>
-<wire x1="393.7" y1="355.6" x2="396.24" y2="355.6" width="0.1524" layer="91"/>
-<pinref part="12V" gate="G$1" pin="P$1"/>
-<wire x1="396.24" y1="355.6" x2="401.32" y2="355.6" width="0.1524" layer="91"/>
-<wire x1="401.32" y1="355.6" x2="406.4" y2="355.6" width="0.1524" layer="91"/>
-<junction x="401.32" y="355.6"/>
-<pinref part="U$12" gate="G$1" pin="-"/>
-<junction x="396.24" y="355.6"/>
-<label x="396.24" y="355.6" size="1.778" layer="95"/>
+<wire x1="492.76" y1="434.34" x2="480.06" y2="434.34" width="0.1524" layer="91"/>
+<label x="480.06" y="434.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="KICKER1" gate="1" pin="1"/>
@@ -17502,8 +17504,17 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="5REG" gate="G$1" pin="IN"/>
-<label x="383.54" y="408.94" size="1.778" layer="95"/>
-<wire x1="381" y1="408.94" x2="401.32" y2="408.94" width="0.1524" layer="91"/>
+<label x="391.16" y="434.34" size="1.778" layer="95"/>
+<wire x1="388.62" y1="434.34" x2="408.94" y2="434.34" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="12V" gate="G$1" pin="P$1"/>
+<wire x1="487.68" y1="459.74" x2="492.76" y2="459.74" width="0.1524" layer="91"/>
+<pinref part="U$12" gate="G$1" pin="-"/>
+<junction x="487.68" y="459.74"/>
+<pinref part="ON/OFF" gate="G$1" pin="P2"/>
+<wire x1="485.14" y1="459.74" x2="487.68" y2="459.74" width="0.1524" layer="91"/>
+<label x="487.68" y="459.74" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -17568,8 +17579,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="CHARGE_LED" gate="G$1" pin="A"/>
-<wire x1="556.26" y1="274.32" x2="543.56" y2="274.32" width="0.1524" layer="91"/>
-<label x="543.56" y="274.32" size="1.778" layer="95"/>
+<wire x1="563.88" y1="281.94" x2="563.88" y2="294.64" width="0.1524" layer="91"/>
+<label x="563.88" y="294.64" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="0/RX"/>
@@ -17702,14 +17713,14 @@ for proper operation of motor controller</text>
 <segment>
 <pinref part="R12" gate="G$1" pin="1"/>
 <pinref part="DONE_LED" gate="G$1" pin="C"/>
-<wire x1="566.42" y1="264.16" x2="563.88" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="553.72" y1="271.78" x2="553.72" y2="274.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
 <pinref part="CHARGE_LED" gate="G$1" pin="C"/>
-<wire x1="566.42" y1="274.32" x2="563.88" y2="274.32" width="0.1524" layer="91"/>
+<wire x1="563.88" y1="271.78" x2="563.88" y2="274.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="DISCHARGE" class="0">
@@ -17728,18 +17739,18 @@ for proper operation of motor controller</text>
 <segment>
 <pinref part="R17" gate="G$1" pin="1"/>
 <pinref part="R18" gate="G$1" pin="2"/>
-<wire x1="332.74" y1="403.86" x2="332.74" y2="406.4" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="406.4" x2="332.74" y2="408.94" width="0.1524" layer="91"/>
-<wire x1="332.74" y1="406.4" x2="325.12" y2="406.4" width="0.1524" layer="91"/>
-<label x="304.8" y="406.4" size="1.778" layer="95"/>
+<wire x1="546.1" y1="469.9" x2="546.1" y2="472.44" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="472.44" x2="546.1" y2="474.98" width="0.1524" layer="91"/>
+<wire x1="546.1" y1="472.44" x2="538.48" y2="472.44" width="0.1524" layer="91"/>
+<label x="518.16" y="472.44" size="1.778" layer="95"/>
 <pinref part="BATCLAMP2" gate="G$1" pin="C"/>
-<wire x1="325.12" y1="406.4" x2="320.04" y2="406.4" width="0.1524" layer="91"/>
-<wire x1="320.04" y1="406.4" x2="309.88" y2="406.4" width="0.1524" layer="91"/>
-<wire x1="320.04" y1="403.86" x2="320.04" y2="406.4" width="0.1524" layer="91"/>
+<wire x1="538.48" y1="472.44" x2="533.4" y2="472.44" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="472.44" x2="523.24" y2="472.44" width="0.1524" layer="91"/>
+<wire x1="533.4" y1="469.9" x2="533.4" y2="472.44" width="0.1524" layer="91"/>
 <pinref part="BAT" gate="G$1" pin="P$1"/>
-<junction x="325.12" y="406.4"/>
-<junction x="332.74" y="406.4"/>
-<junction x="320.04" y="406.4"/>
+<junction x="538.48" y="472.44"/>
+<junction x="546.1" y="472.44"/>
+<junction x="533.4" y="472.44"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="23/A9"/>
@@ -17832,8 +17843,8 @@ for proper operation of motor controller</text>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="576.58" y1="264.16" x2="584.2" y2="264.16" width="0.1524" layer="91"/>
-<label x="579.12" y="264.16" size="1.778" layer="95"/>
+<wire x1="553.72" y1="261.62" x2="553.72" y2="254" width="0.1524" layer="91"/>
+<label x="553.72" y="259.08" size="1.778" layer="95" rot="R270"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="1/TX"/>
@@ -17943,13 +17954,13 @@ for proper operation of motor controller</text>
 <segment>
 <pinref part="BATT" gate="-1" pin="KL"/>
 <pinref part="ON/OFF" gate="G$1" pin="COM"/>
-<wire x1="373.38" y1="360.68" x2="373.38" y2="370.84" width="0.1524" layer="91"/>
-<wire x1="373.38" y1="370.84" x2="396.24" y2="370.84" width="0.1524" layer="91"/>
-<wire x1="396.24" y1="370.84" x2="396.24" y2="365.76" width="0.1524" layer="91"/>
+<wire x1="464.82" y1="464.82" x2="464.82" y2="474.98" width="0.1524" layer="91"/>
+<wire x1="464.82" y1="474.98" x2="487.68" y2="474.98" width="0.1524" layer="91"/>
+<wire x1="487.68" y1="474.98" x2="487.68" y2="469.9" width="0.1524" layer="91"/>
 <pinref part="ON/OFF" gate="G$1" pin="P1"/>
-<wire x1="396.24" y1="365.76" x2="393.7" y2="365.76" width="0.1524" layer="91"/>
-<label x="381" y="370.84" size="1.778" layer="95"/>
-<wire x1="358.14" y1="360.68" x2="373.38" y2="360.68" width="0.1524" layer="91"/>
+<wire x1="487.68" y1="469.9" x2="485.14" y2="469.9" width="0.1524" layer="91"/>
+<label x="472.44" y="474.98" size="1.778" layer="95"/>
+<wire x1="449.58" y1="464.82" x2="464.82" y2="464.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="M1QB-4" class="0">
@@ -18411,19 +18422,19 @@ for proper operation of motor controller</text>
 </net>
 <net name="5V" class="0">
 <segment>
-<wire x1="436.88" y1="408.94" x2="449.58" y2="408.94" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="434.34" x2="457.2" y2="434.34" width="0.1524" layer="91"/>
 <pinref part="C39" gate="G$1" pin="1"/>
-<wire x1="436.88" y1="406.4" x2="436.88" y2="408.94" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="431.8" x2="444.5" y2="434.34" width="0.1524" layer="91"/>
 <pinref part="C40" gate="G$1" pin="1"/>
-<wire x1="449.58" y1="408.94" x2="449.58" y2="406.4" width="0.1524" layer="91"/>
-<wire x1="436.88" y1="408.94" x2="424.18" y2="408.94" width="0.1524" layer="91"/>
-<junction x="436.88" y="408.94"/>
-<wire x1="424.18" y1="406.4" x2="424.18" y2="408.94" width="0.1524" layer="91"/>
+<wire x1="457.2" y1="434.34" x2="457.2" y2="431.8" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="434.34" x2="431.8" y2="434.34" width="0.1524" layer="91"/>
+<junction x="444.5" y="434.34"/>
+<wire x1="431.8" y1="431.8" x2="431.8" y2="434.34" width="0.1524" layer="91"/>
 <pinref part="5REG" gate="G$1" pin="OUT"/>
-<wire x1="411.48" y1="408.94" x2="424.18" y2="408.94" width="0.1524" layer="91"/>
-<junction x="424.18" y="408.94"/>
+<wire x1="419.1" y1="434.34" x2="431.8" y2="434.34" width="0.1524" layer="91"/>
+<junction x="431.8" y="434.34"/>
 <pinref part="C41" gate="G$1" pin="1"/>
-<label x="441.96" y="408.94" size="1.778" layer="95"/>
+<label x="449.58" y="434.34" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="144.78" y1="261.62" x2="137.16" y2="261.62" width="0.1524" layer="91"/>
@@ -18620,7 +18631,7 @@ for proper operation of motor controller</text>
 <segment>
 <pinref part="KICK_READY" gate="G$1" pin="C"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="381" y1="330.2" x2="381" y2="332.74" width="0.1524" layer="91"/>
+<wire x1="381" y1="335.28" x2="381" y2="332.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SDA" class="0">
