@@ -8274,11 +8274,6 @@ disconnected at all times</text>
 <label x="223.52" y="121.92" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="7"/>
-<wire x1="259.08" y1="111.76" x2="254" y2="111.76" width="0.1524" layer="91"/>
-<label x="254" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="J3" gate="G$1" pin="8"/>
 <wire x1="256.54" y1="55.88" x2="251.46" y2="55.88" width="0.1524" layer="91"/>
 <label x="251.46" y="55.88" size="1.778" layer="95"/>
@@ -8294,11 +8289,6 @@ disconnected at all times</text>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="215.9" y1="129.54" x2="215.9" y2="121.92" width="0.1524" layer="91"/>
 <label x="215.9" y="121.92" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="J2" gate="G$1" pin="5"/>
-<wire x1="259.08" y1="114.3" x2="254" y2="114.3" width="0.1524" layer="91"/>
-<label x="254" y="114.3" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="7"/>
@@ -8318,11 +8308,6 @@ disconnected at all times</text>
 <label x="208.28" y="121.92" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="3"/>
-<wire x1="259.08" y1="116.84" x2="254" y2="116.84" width="0.1524" layer="91"/>
-<label x="254" y="116.84" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="J3" gate="G$1" pin="6"/>
 <wire x1="256.54" y1="60.96" x2="251.46" y2="60.96" width="0.1524" layer="91"/>
 <label x="251.46" y="60.96" size="1.778" layer="95"/>
@@ -8335,9 +8320,9 @@ disconnected at all times</text>
 <pinref part="U$1" gate="G$1" pin="PWM"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="4"/>
-<wire x1="274.32" y1="116.84" x2="281.94" y2="116.84" width="0.1524" layer="91"/>
-<label x="279.4" y="116.84" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="7"/>
+<wire x1="259.08" y1="111.76" x2="254" y2="111.76" width="0.1524" layer="91"/>
+<label x="254" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BRAKE" class="0">
@@ -8352,9 +8337,9 @@ disconnected at all times</text>
 <label x="127" y="175.26" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="2"/>
-<wire x1="274.32" y1="119.38" x2="279.4" y2="119.38" width="0.1524" layer="91"/>
-<label x="279.4" y="119.38" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="6"/>
+<wire x1="274.32" y1="114.3" x2="279.4" y2="114.3" width="0.1524" layer="91"/>
+<label x="276.86" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -8522,9 +8507,9 @@ disconnected at all times</text>
 <label x="104.14" y="142.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="6"/>
-<wire x1="274.32" y1="114.3" x2="279.4" y2="114.3" width="0.1524" layer="91"/>
-<label x="276.86" y="114.3" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="10"/>
+<wire x1="274.32" y1="109.22" x2="279.4" y2="109.22" width="0.1524" layer="91"/>
+<label x="276.86" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="HALLOUT" class="0">
@@ -8538,9 +8523,9 @@ disconnected at all times</text>
 <junction x="38.1" y="66.04"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="8"/>
-<wire x1="274.32" y1="111.76" x2="279.4" y2="111.76" width="0.1524" layer="91"/>
-<label x="276.86" y="111.76" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="9"/>
+<wire x1="259.08" y1="109.22" x2="254" y2="109.22" width="0.1524" layer="91"/>
+<label x="254" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="ENABLE" class="0">
@@ -8559,6 +8544,11 @@ disconnected at all times</text>
 <wire x1="99.06" y1="170.18" x2="99.06" y2="175.26" width="0.1524" layer="91"/>
 <label x="93.98" y="175.26" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="8"/>
+<wire x1="274.32" y1="111.76" x2="279.4" y2="111.76" width="0.1524" layer="91"/>
+<label x="276.86" y="111.76" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="DIR" class="0">
 <segment>
@@ -8567,9 +8557,9 @@ disconnected at all times</text>
 <pinref part="U$1" gate="G$1" pin="DIR"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="9"/>
-<wire x1="259.08" y1="109.22" x2="254" y2="109.22" width="0.1524" layer="91"/>
-<label x="254" y="109.22" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="4"/>
+<wire x1="274.32" y1="116.84" x2="281.94" y2="116.84" width="0.1524" layer="91"/>
+<label x="279.4" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -8658,9 +8648,9 @@ disconnected at all times</text>
 <label x="116.84" y="142.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="J2" gate="G$1" pin="10"/>
-<wire x1="274.32" y1="109.22" x2="279.4" y2="109.22" width="0.1524" layer="91"/>
-<label x="276.86" y="109.22" size="1.778" layer="95"/>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="274.32" y1="119.38" x2="279.4" y2="119.38" width="0.1524" layer="91"/>
+<label x="279.4" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$4" class="0">
