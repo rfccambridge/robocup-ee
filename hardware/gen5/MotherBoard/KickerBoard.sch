@@ -15375,6 +15375,13 @@ Wickmann</description>
 <smd name="G" x="-2.4" y="0.95" dx="1" dy="0.7" layer="1"/>
 <smd name="S" x="-2.4" y="-0.95" dx="1" dy="0.7" layer="1"/>
 </package>
+<package name="MOTOR">
+<wire x1="1.27" y1="0" x2="60.96" y2="0" width="0.127" layer="21"/>
+<wire x1="60.96" y1="0" x2="60.96" y2="50.292" width="0.127" layer="21"/>
+<wire x1="60.96" y1="50.292" x2="0" y2="50.292" width="0.127" layer="21"/>
+<wire x1="0" y1="50.292" x2="0" y2="0" width="0.127" layer="21"/>
+<wire x1="0" y1="0" x2="1.27" y2="0" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="DEPLETION_NFET">
@@ -15532,6 +15539,13 @@ Wickmann</description>
 <vertex x="1.524" y="-0.508"/>
 </polygon>
 </symbol>
+<symbol name="MOTOR">
+<wire x1="-7.62" y1="12.7" x2="10.16" y2="12.7" width="0.254" layer="94"/>
+<wire x1="10.16" y1="12.7" x2="10.16" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-12.7" x2="-7.62" y2="-12.7" width="0.254" layer="94"/>
+<text x="-2.54" y="-15.24" size="1.778" layer="94">MOTOR</text>
+<wire x1="-7.62" y1="-12.7" x2="-7.62" y2="12.7" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="IXTA3N50D2">
@@ -15633,6 +15647,18 @@ Wickmann</description>
 <connect gate="G$1" pin="G" pad="G"/>
 <connect gate="G$1" pin="S" pad="S"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOTOR">
+<gates>
+<gate name="G$1" symbol="MOTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MOTOR">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -16444,6 +16470,8 @@ Wickmann</description>
 <part name="R33" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R34" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+<part name="U$9" library="rfc" deviceset="MOTOR" device=""/>
+<part name="U$10" library="rfc" deviceset="MOTOR" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16673,6 +16701,8 @@ by TWI (I2C) protocol</text>
 <instance part="R33" gate="G$1" x="467.36" y="137.16" rot="R90"/>
 <instance part="R34" gate="G$1" x="474.98" y="132.08" rot="R90"/>
 <instance part="C13" gate="G$1" x="449.58" y="134.62" rot="R90"/>
+<instance part="U$9" gate="G$1" x="218.44" y="279.4"/>
+<instance part="U$10" gate="G$1" x="218.44" y="243.84"/>
 </instances>
 <busses>
 </busses>
