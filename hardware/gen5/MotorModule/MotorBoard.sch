@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.0">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8261,6 +8261,11 @@ disconnected at all times</text>
 <wire x1="172.72" y1="60.96" x2="182.88" y2="60.96" width="0.1524" layer="91"/>
 <label x="177.8" y="60.96" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="256.54" y1="68.58" x2="251.46" y2="68.58" width="0.1524" layer="91"/>
+<label x="251.46" y="68.58" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="M1H3" class="0">
 <segment>
@@ -8659,13 +8664,6 @@ disconnected at all times</text>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="91.44" y1="35.56" x2="91.44" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="91.44" y1="25.4" x2="96.52" y2="25.4" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="MO13" class="0">
-<segment>
-<pinref part="J3" gate="G$1" pin="3"/>
-<wire x1="256.54" y1="68.58" x2="251.46" y2="68.58" width="0.1524" layer="91"/>
-<label x="251.46" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
