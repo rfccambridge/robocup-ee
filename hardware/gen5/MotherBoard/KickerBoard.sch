@@ -5093,6 +5093,18 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <rectangle x1="-1.524" y1="-2.794" x2="-1.016" y2="-2.286" layer="51"/>
 <rectangle x1="1.016" y1="-2.794" x2="1.524" y2="-2.286" layer="51"/>
 </package>
+<package name="1X02-PHEONIX">
+<pad name="1" x="0" y="0" drill="1.3" shape="square"/>
+<pad name="2" x="5.08" y="0" drill="1.3"/>
+<wire x1="-2.54" y1="4.6" x2="7.62" y2="4.6" width="0.127" layer="21"/>
+<wire x1="7.62" y1="4.6" x2="7.62" y2="-5.2" width="0.127" layer="21"/>
+<wire x1="7.62" y1="-5.2" x2="-2.54" y2="-5.2" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-5.2" x2="-2.54" y2="4.6" width="0.127" layer="21"/>
+<wire x1="-2.481628125" y1="5.042590625" x2="7.62535625" y2="5.042590625" width="0.127" layer="21"/>
+<wire x1="7.62535625" y1="5.042590625" x2="7.62535625" y2="4.54968125" width="0.127" layer="21"/>
+<wire x1="-2.495359375" y1="5.037146875" x2="-2.541784375" y2="5.037146875" width="0.127" layer="21"/>
+<wire x1="-2.541784375" y1="5.037146875" x2="-2.541784375" y2="4.5612875" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="M04">
@@ -5138,6 +5150,18 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pin name="5" x="-7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1"/>
 <pin name="3" x="-7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1"/>
 <pin name="1" x="-7.62" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1"/>
+</symbol>
+<symbol name="M02">
+<wire x1="3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.6096" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-2.54" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="3.81" y2="5.08" width="0.4064" layer="94"/>
+<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
+<pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -5537,6 +5561,22 @@ Standard 10-pin dual row 0.1" header. Commonly used with AVR-ISP. Use with Spark
 <connect gate="G$1" pin="7" pad="7"/>
 <connect gate="G$1" pin="8" pad="8"/>
 <connect gate="G$1" pin="9" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PHEONIX-SCREW-TERM">
+<gates>
+<gate name="G$1" symbol="M02" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X02-PHEONIX">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -16472,6 +16512,8 @@ Wickmann</description>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="U$9" library="rfc" deviceset="MOTOR" device=""/>
 <part name="U$10" library="rfc" deviceset="MOTOR" device=""/>
+<part name="U$11" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
+<part name="U$13" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -16703,6 +16745,8 @@ by TWI (I2C) protocol</text>
 <instance part="C13" gate="G$1" x="449.58" y="134.62" rot="R90"/>
 <instance part="U$9" gate="G$1" x="218.44" y="279.4"/>
 <instance part="U$10" gate="G$1" x="218.44" y="243.84"/>
+<instance part="U$11" gate="G$1" x="99.06" y="259.08"/>
+<instance part="U$13" gate="G$1" x="99.06" y="236.22"/>
 </instances>
 <busses>
 </busses>
@@ -17273,6 +17317,16 @@ by TWI (I2C) protocol</text>
 <wire x1="820.42" y1="347.98" x2="820.42" y2="350.52" width="0.1524" layer="91"/>
 <label x="820.42" y="350.52" size="1.778" layer="95" rot="MR0"/>
 </segment>
+<segment>
+<pinref part="U$13" gate="G$1" pin="2"/>
+<wire x1="106.68" y1="238.76" x2="114.3" y2="238.76" width="0.1524" layer="91"/>
+<label x="111.76" y="238.76" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$11" gate="G$1" pin="2"/>
+<wire x1="106.68" y1="261.62" x2="114.3" y2="261.62" width="0.1524" layer="91"/>
+<label x="111.76" y="261.62" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="COMP_OUT" class="0">
 <segment>
@@ -17545,6 +17599,16 @@ by TWI (I2C) protocol</text>
 <pinref part="ON/OFF" gate="G$1" pin="P2"/>
 <wire x1="485.14" y1="459.74" x2="487.68" y2="459.74" width="0.1524" layer="91"/>
 <label x="487.68" y="459.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$13" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="236.22" x2="114.3" y2="236.22" width="0.1524" layer="91"/>
+<label x="111.76" y="236.22" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$11" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="259.08" x2="114.3" y2="259.08" width="0.1524" layer="91"/>
+<label x="111.76" y="259.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
