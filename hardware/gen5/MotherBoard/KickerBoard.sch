@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.5.2">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -14790,12 +14790,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </technologies>
 </device>
 </devices>
-<spice>
-<pinmapping spiceprefix="C">
-<pinmap gate="G$1" pin="+" pinorder="1"/>
-<pinmap gate="G$1" pin="-" pinorder="2"/>
-</pinmapping>
-</spice>
 </deviceset>
 </devicesets>
 </library>
@@ -15813,6 +15807,35 @@ Wickmann</description>
 <smd name="16" x="7.8" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="15" x="8.45" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 </package>
+<package name="MOTOR_BOARD">
+<wire x1="0" y1="0" x2="0" y2="29.5" width="0.127" layer="21"/>
+<wire x1="0" y1="29.5" x2="47" y2="29.5" width="0.127" layer="21"/>
+<wire x1="47" y1="29.5" x2="47" y2="0" width="0.127" layer="21"/>
+<wire x1="47" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
+<circle x="2.5" y="4.5" radius="1.5" width="0.127" layer="21"/>
+<circle x="2.5" y="17.5" radius="1.5" width="0.127" layer="21"/>
+<hole x="2.5" y="17.5" drill="3"/>
+<hole x="2.5" y="4.5" drill="3"/>
+<hole x="44" y="27.5" drill="3"/>
+<circle x="44" y="27.5" radius="1.5" width="0.127" layer="21"/>
+<hole x="44" y="12.5" drill="3"/>
+<circle x="44" y="12.5" radius="1.5" width="0.127" layer="21"/>
+<wire x1="24.13" y1="27.94" x2="24.13" y2="22.86" width="0.127" layer="21"/>
+<wire x1="24.13" y1="22.86" x2="38.1" y2="22.86" width="0.127" layer="21"/>
+<wire x1="38.1" y1="22.86" x2="38.1" y2="27.94" width="0.127" layer="21"/>
+<wire x1="38.1" y1="27.94" x2="24.13" y2="27.94" width="0.127" layer="21"/>
+<wire x1="27.94" y1="7.62" x2="41.91" y2="7.62" width="0.127" layer="21"/>
+<wire x1="41.91" y1="7.62" x2="41.91" y2="1.27" width="0.127" layer="21"/>
+<wire x1="41.91" y1="1.27" x2="27.94" y2="1.27" width="0.127" layer="21"/>
+<wire x1="27.94" y1="1.27" x2="27.94" y2="7.62" width="0.127" layer="21"/>
+<wire x1="2.54" y1="27.94" x2="11.43" y2="27.94" width="0.127" layer="21"/>
+<wire x1="11.43" y1="27.94" x2="11.43" y2="21.59" width="0.127" layer="21"/>
+<wire x1="11.43" y1="21.59" x2="2.54" y2="21.59" width="0.127" layer="21"/>
+<wire x1="2.54" y1="21.59" x2="2.54" y2="27.94" width="0.127" layer="21"/>
+<text x="3.81" y="24.13" size="1.27" layer="21">POWER</text>
+<text x="26.67" y="25.4" size="1.27" layer="21">TO MOTOR</text>
+<text x="26.67" y="8.89" size="1.27" layer="21">CONTROL_SIGNALS</text>
+</package>
 </packages>
 <symbols>
 <symbol name="IO-EXPANDER">
@@ -15849,6 +15872,13 @@ Wickmann</description>
 <wire x1="33.02" y1="0" x2="33.02" y2="17.78" width="0.254" layer="94"/>
 <wire x1="33.02" y1="17.78" x2="0" y2="17.78" width="0.254" layer="94"/>
 <text x="36.322" y="5.08" size="1.27" layer="95" rot="R90">MCP23017</text>
+</symbol>
+<symbol name="MOTOR_BOARD">
+<wire x1="-17.78" y1="17.78" x2="38.1" y2="17.78" width="0.254" layer="94"/>
+<wire x1="38.1" y1="17.78" x2="38.1" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="38.1" y1="-15.24" x2="-17.78" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-15.24" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
+<text x="0" y="15.24" size="1.27" layer="94">MOTOR BOARD Template</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -15888,6 +15918,18 @@ Wickmann</description>
 <connect gate="G$1" pin="VDD" pad="9"/>
 <connect gate="G$1" pin="VSS" pad="10"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOTOR_BOARD">
+<gates>
+<gate name="G$1" symbol="MOTOR_BOARD" x="17.78" y="15.24"/>
+</gates>
+<devices>
+<device name="" package="MOTOR_BOARD">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -16510,10 +16552,12 @@ Wickmann</description>
 <part name="R33" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="R34" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
+
 <part name="U$9" library="rfc" deviceset="MOTOR" device=""/>
 <part name="U$10" library="rfc" deviceset="MOTOR" device=""/>
 <part name="U$11" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
 <part name="U$13" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
+
 </parts>
 <sheets>
 <sheet>
@@ -16747,6 +16791,7 @@ by TWI (I2C) protocol</text>
 <instance part="U$10" gate="G$1" x="218.44" y="243.84"/>
 <instance part="U$11" gate="G$1" x="99.06" y="259.08"/>
 <instance part="U$13" gate="G$1" x="99.06" y="236.22"/>
+
 </instances>
 <busses>
 </busses>
@@ -18918,12 +18963,6 @@ will not be understood (or retained) with this version.
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
-</note>
-<note version="8.4" severity="warning">
-Since Version 8.4, EAGLE supports properties for SPICE simulation. 
-Probes in schematics and SPICE mapping objects found in parts and library devices
-will not be understood with this version. Update EAGLE to the latest version
-for full support of SPICE simulation. 
 </note>
 </compatibility>
 </eagle>
