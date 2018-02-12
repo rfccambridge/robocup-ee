@@ -8004,7 +8004,7 @@ This footprint was designed to help hold the alignment of a through-hole compone
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R5" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="R7" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
-<part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="0"/>
+<part name="R9" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="10k"/>
 <part name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_05X2" device="SHD" package3d_urn="urn:adsk.eagle:package:38000/1"/>
 <part name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_08" device="LONGPADS" package3d_urn="urn:adsk.eagle:package:38142/1"/>
 <part name="U$2" library="Kicker" deviceset="POWER_CONN_2X1" device=""/>
@@ -8075,7 +8075,7 @@ disconnected at all times</text>
 <instance part="GND8" gate="1" x="139.7" y="2.54"/>
 <instance part="R5" gate="G$1" x="38.1" y="78.74" rot="R90"/>
 <instance part="R7" gate="G$1" x="45.72" y="73.66" rot="R90"/>
-<instance part="R9" gate="G$1" x="58.42" y="35.56" rot="R90"/>
+<instance part="R9" gate="G$1" x="50.8" y="68.58" rot="R90"/>
 <instance part="J2" gate="G$1" x="266.7" y="114.3"/>
 <instance part="J3" gate="G$1" x="261.62" y="66.04" rot="R180"/>
 <instance part="U$2" gate="G$1" x="215.9" y="45.72"/>
@@ -8503,8 +8503,11 @@ disconnected at all times</text>
 <net name="FAULTN" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="FAULTN"/>
-<wire x1="63.5" y1="63.5" x2="25.4" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="63.5" x2="50.8" y2="63.5" width="0.1524" layer="91"/>
 <label x="25.4" y="63.5" size="1.778" layer="95"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="50.8" y1="63.5" x2="25.4" y2="63.5" width="0.1524" layer="91"/>
+<junction x="50.8" y="63.5"/>
 </segment>
 <segment>
 <pinref part="LED11" gate="G$1" pin="C"/>
@@ -8535,14 +8538,10 @@ disconnected at all times</text>
 </net>
 <net name="ENABLE" class="0">
 <segment>
-<wire x1="76.2" y1="27.94" x2="58.42" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="27.94" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
 <label x="48.26" y="27.94" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="ENABLEN"/>
-<wire x1="58.42" y1="27.94" x2="48.26" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="35.56" x2="76.2" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="58.42" y1="27.94" x2="58.42" y2="30.48" width="0.1524" layer="91"/>
-<junction x="58.42" y="27.94"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
@@ -8628,8 +8627,8 @@ disconnected at all times</text>
 </segment>
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="40.64" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
-<label x="58.42" y="43.18" size="1.778" layer="95"/>
+<wire x1="50.8" y1="73.66" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
+<label x="50.8" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="4"/>
