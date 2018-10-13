@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="8.3.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -14,7 +15,7 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -38,7 +39,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -168,8 +169,44 @@
 <smd name="17" x="7.15" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="16" x="7.8" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="15" x="8.45" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
-<dimension x1="0" y1="7.2" x2="0" y2="0" x3="-7.2" y3="3.6" textsize="1.27" layer="20" dtype="vertical"/>
-<dimension x1="0" y1="7.15" x2="0.65" y2="7.15" x3="0.325" y3="11.05" textsize="1.27" layer="20" dtype="vertical"/>
+</package>
+<package name="POWER_CONN_2X1">
+<pad name="+" x="0" y="0" drill="1.65" shape="long"/>
+<pad name="-" x="0" y="-3.96" drill="1.65" shape="long"/>
+<wire x1="-3.84" y1="1.92" x2="3.84" y2="1.92" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="1.94" x2="-14.9" y2="-5.92" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="1.94" x2="4" y2="1.94" width="0.127" layer="21"/>
+<wire x1="-14.9" y1="-5.92" x2="4" y2="-5.92" width="0.127" layer="21"/>
+<wire x1="4" y1="-5.92" x2="4" y2="1.94" width="0.127" layer="21"/>
+</package>
+<package name="MOTOR_BOARD">
+<wire x1="0" y1="0" x2="0" y2="29.5" width="0.127" layer="21"/>
+<wire x1="0" y1="29.5" x2="47" y2="29.5" width="0.127" layer="21"/>
+<wire x1="47" y1="29.5" x2="47" y2="0" width="0.127" layer="21"/>
+<wire x1="47" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
+<circle x="2.5" y="4.5" radius="1.5" width="0.127" layer="21"/>
+<circle x="2.5" y="17.5" radius="1.5" width="0.127" layer="21"/>
+<hole x="2.5" y="17.5" drill="3"/>
+<hole x="2.5" y="4.5" drill="3"/>
+<hole x="44" y="27.5" drill="3"/>
+<circle x="44" y="27.5" radius="1.5" width="0.127" layer="21"/>
+<hole x="44" y="12.5" drill="3"/>
+<circle x="44" y="12.5" radius="1.5" width="0.127" layer="21"/>
+<wire x1="24.13" y1="27.94" x2="24.13" y2="22.86" width="0.127" layer="21"/>
+<wire x1="24.13" y1="22.86" x2="38.1" y2="22.86" width="0.127" layer="21"/>
+<wire x1="38.1" y1="22.86" x2="38.1" y2="27.94" width="0.127" layer="21"/>
+<wire x1="38.1" y1="27.94" x2="24.13" y2="27.94" width="0.127" layer="21"/>
+<wire x1="27.94" y1="7.62" x2="41.91" y2="7.62" width="0.127" layer="21"/>
+<wire x1="41.91" y1="7.62" x2="41.91" y2="1.27" width="0.127" layer="21"/>
+<wire x1="41.91" y1="1.27" x2="27.94" y2="1.27" width="0.127" layer="21"/>
+<wire x1="27.94" y1="1.27" x2="27.94" y2="7.62" width="0.127" layer="21"/>
+<wire x1="2.54" y1="27.94" x2="11.43" y2="27.94" width="0.127" layer="21"/>
+<wire x1="11.43" y1="27.94" x2="11.43" y2="21.59" width="0.127" layer="21"/>
+<wire x1="11.43" y1="21.59" x2="2.54" y2="21.59" width="0.127" layer="21"/>
+<wire x1="2.54" y1="21.59" x2="2.54" y2="27.94" width="0.127" layer="21"/>
+<text x="3.81" y="24.13" size="1.27" layer="21">POWER</text>
+<text x="26.67" y="25.4" size="1.27" layer="21">TO MOTOR</text>
+<text x="26.67" y="8.89" size="1.27" layer="21">CONTROL_SIGNALS</text>
 </package>
 </packages>
 <symbols>
@@ -273,6 +310,21 @@
 <wire x1="33.02" y1="17.78" x2="0" y2="17.78" width="0.254" layer="94"/>
 <text x="36.322" y="5.08" size="1.27" layer="95" rot="R90">MCP23017</text>
 </symbol>
+<symbol name="POWER_CONN_2X1">
+<pin name="+" x="-7.62" y="2.54" length="middle"/>
+<pin name="-" x="-7.62" y="-2.54" length="middle"/>
+<wire x1="2.54" y1="5.08" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+</symbol>
+<symbol name="MOTOR_BOARD">
+<wire x1="-17.78" y1="17.78" x2="38.1" y2="17.78" width="0.254" layer="94"/>
+<wire x1="38.1" y1="17.78" x2="38.1" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="38.1" y1="-15.24" x2="-17.78" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-15.24" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
+<text x="0" y="15.24" size="1.27" layer="94">MOTOR BOARD Template</text>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A0009-AL">
@@ -363,6 +415,34 @@
 <connect gate="G$1" pin="VDD" pad="9"/>
 <connect gate="G$1" pin="VSS" pad="10"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="POWER_CONN_2X1">
+<gates>
+<gate name="G$1" symbol="POWER_CONN_2X1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="POWER_CONN_2X1">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOTOR_BOARD">
+<gates>
+<gate name="G$1" symbol="MOTOR_BOARD" x="17.78" y="15.24"/>
+</gates>
+<devices>
+<device name="" package="MOTOR_BOARD">
 <technologies>
 <technology name=""/>
 </technologies>
