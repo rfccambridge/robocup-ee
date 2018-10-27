@@ -19923,110 +19923,318 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="transistor-power" urn="urn:adsk.eagle:library:400">
-<description>&lt;b&gt;Power Transistors&lt;/b&gt;&lt;p&gt;
+<library name="new-st">
+<description>&lt;b&gt;ST Microelectronics Devices&lt;/b&gt;&lt;p&gt;
+Microcontrollers,  I2C components, linear devices&lt;p&gt;
+http://www.st.com&lt;p&gt;
+&lt;i&gt;Include st-microelectronics-2.lbr, st-microelectronics-3.lbr.&lt;p&gt;&lt;/i&gt;
+
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="LFPAK33" urn="urn:adsk.eagle:footprint:29432/1" library_version="2">
-<description>&lt;b&gt; LFPAK33 using NextPower Technology&lt;/b&gt; SOT1210&lt;p&gt;
-PSMN013-30MLC  N-channel 30 V 13.6 mΩ logic level MOSFET&lt;p&gt;
-Source: &lt;a href="http://www.nxp.com/documents/data_sheet/PSMN013-30MLC.pdf"&gt; Data sheet &lt;/a&gt;&lt;br&gt;
-PSMN013-30MLC © NXP B.V. 2012. All rights reserved.</description>
-<wire x1="-1.6" y1="1.25" x2="1.6" y2="1.25" width="0.2032" layer="51"/>
-<wire x1="1.6" y1="1.25" x2="1.6" y2="-1.25" width="0.2032" layer="21"/>
-<wire x1="1.6" y1="-1.25" x2="-1.6" y2="-1.25" width="0.2032" layer="51"/>
-<wire x1="-1.6" y1="-1.25" x2="-1.6" y2="1.25" width="0.2032" layer="21"/>
-<rectangle x1="-1.15" y1="1.35" x2="-0.8" y2="1.6" layer="51"/>
-<rectangle x1="-1.15" y1="-1.8" x2="-0.8" y2="-1.35" layer="51"/>
-<rectangle x1="-0.5" y1="1.35" x2="-0.15" y2="1.6" layer="51"/>
-<rectangle x1="-0.5" y1="-1.8" x2="-0.15" y2="-1.35" layer="51"/>
-<rectangle x1="0.15" y1="1.35" x2="0.5" y2="1.6" layer="51"/>
-<rectangle x1="0.15" y1="-1.8" x2="0.5" y2="-1.35" layer="51"/>
-<rectangle x1="0.8" y1="1.35" x2="1.15" y2="1.6" layer="51"/>
-<rectangle x1="0.8" y1="-1.8" x2="1.15" y2="-1.35" layer="51"/>
-<smd name="1" x="-0.975" y="-1.625" dx="0.4" dy="0.8" layer="1"/>
-<smd name="2" x="-0.325" y="-1.625" dx="0.4" dy="0.8" layer="1"/>
-<smd name="3" x="0.325" y="-1.625" dx="0.4" dy="0.8" layer="1"/>
-<smd name="4" x="0.975" y="-1.625" dx="0.4" dy="0.8" layer="1"/>
-<smd name="MB" x="0" y="0.425" dx="2.45" dy="2.35" layer="1"/>
-<text x="-1.7016" y="1.8286" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.7016" y="-4.0316" size="1.27" layer="27">&gt;VALUE</text>
+<package name="MULTIPOWERSO-30" urn="urn:adsk.eagle:footprint:26780/1">
+<description>&lt;b&gt;MultiPowerSO-30&lt;/b&gt;&lt;p&gt;
+Source: http://pdf1.alldatasheet.com/datasheet-pdf/view/84563/STMICROELECTRONICS/VNH3SP30.html</description>
+<wire x1="-8" y1="8" x2="8" y2="8" width="0.127" layer="21"/>
+<wire x1="8" y1="8" x2="8.6" y2="7.4" width="0.127" layer="21"/>
+<wire x1="8.6" y1="7.4" x2="8.6" y2="-7.4" width="0.127" layer="21"/>
+<wire x1="8.6" y1="-7.4" x2="8" y2="-8" width="0.127" layer="21"/>
+<wire x1="8" y1="-8" x2="-8" y2="-8" width="0.127" layer="21"/>
+<wire x1="-8" y1="-8" x2="-8.6" y2="-7.4" width="0.127" layer="21"/>
+<wire x1="-8.6" y1="-7.4" x2="-8.6" y2="7.4" width="0.127" layer="21"/>
+<wire x1="-8.6" y1="7.4" x2="-8" y2="8" width="0.127" layer="21"/>
+<circle x="-7" y="-6.5" radius="0.5" width="0.127" layer="21"/>
+<circle x="-6" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="-6" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="6" y="5.5" radius="0.4" width="0" layer="29"/>
+<circle x="6" y="5.5" radius="0.3" width="0" layer="31"/>
+<circle x="-6" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="-6" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="6" y="3.5" radius="0.4" width="0" layer="29"/>
+<circle x="6" y="3.5" radius="0.3" width="0" layer="31"/>
+<circle x="-6" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="-6" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="6" y="1.5" radius="0.4" width="0" layer="29"/>
+<circle x="6" y="1.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="-1.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="-1.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="-1.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="-1.5" radius="0.3" width="0" layer="31"/>
+<circle x="0" y="-1.5" radius="0.4" width="0" layer="29"/>
+<circle x="0" y="-1.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="-1.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="-1.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="-1.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="-1.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="-3.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="-3.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="-3.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="-3.5" radius="0.3" width="0" layer="31"/>
+<circle x="0" y="-3.5" radius="0.4" width="0" layer="29"/>
+<circle x="0" y="-3.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="-3.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="-3.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="-3.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="-3.5" radius="0.3" width="0" layer="31"/>
+<circle x="-4" y="-5.5" radius="0.4" width="0" layer="29"/>
+<circle x="-4" y="-5.5" radius="0.3" width="0" layer="31"/>
+<circle x="-2" y="-5.5" radius="0.4" width="0" layer="29"/>
+<circle x="-2" y="-5.5" radius="0.3" width="0" layer="31"/>
+<circle x="0" y="-5.5" radius="0.4" width="0" layer="29"/>
+<circle x="0" y="-5.5" radius="0.3" width="0" layer="31"/>
+<circle x="2" y="-5.5" radius="0.4" width="0" layer="29"/>
+<circle x="2" y="-5.5" radius="0.3" width="0" layer="31"/>
+<circle x="4" y="-5.5" radius="0.4" width="0" layer="29"/>
+<circle x="4" y="-5.5" radius="0.3" width="0" layer="31"/>
+<smd name="1" x="-7" y="-4" dx="12" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="2" x="-6" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="3" x="-5" y="-8" dx="4" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="4" x="-4" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="5" x="-3" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="6" x="-2" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="7" x="-1" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="8" x="0" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="9" x="1" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="10" x="2" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="11" x="3" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="12" x="4" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="13" x="5" y="-8" dx="4" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="14" x="6" y="-9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="15" x="7" y="-4" dx="12" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="16" x="7" y="4" dx="12" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="17" x="6" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="18" x="5" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="19" x="4" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="20" x="3" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="21" x="2" y="8" dx="4" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="22" x="1" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="23" x="0" y="8" dx="4" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="24" x="-1" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="25" x="-2" y="8" dx="4" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="26" x="-3" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="27" x="-4" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="28" x="-5" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="29" x="-6" y="9" dx="2" dy="0.508" layer="1" rot="R90"/>
+<smd name="30" x="-7" y="4" dx="12" dy="0.508" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="VCC" x="0" y="-3.5" dx="6" dy="11" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="VCC@1" x="0" y="3.145" dx="0.65" dy="8.3" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="OUTA" x="-4.25" y="3.5" dx="6.5" dy="6" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="OUTB" x="4.25" y="3.5" dx="6.5" dy="6" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="OUTA@1" x="-7" y="-2.755" dx="1" dy="7.5" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="OUTB@1" x="7" y="-2.755" dx="1" dy="7.5" layer="1" rot="R180" stop="no" cream="no"/>
+<text x="-8.89" y="-6.35" size="1.27" layer="25" rot="R90">&gt;NAME</text>
+<text x="10.16" y="-6.985" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-7.35" y1="7.895" x2="-6.65" y2="10.095" layer="29"/>
+<rectangle x1="-7.25" y1="7.995" x2="-6.75" y2="9.995" layer="31"/>
+<rectangle x1="-2.35" y1="7.895" x2="-1.65" y2="10.095" layer="29"/>
+<rectangle x1="-2.25" y1="7.995" x2="-1.75" y2="9.995" layer="31"/>
+<rectangle x1="-0.35" y1="7.895" x2="0.35" y2="10.095" layer="29"/>
+<rectangle x1="-0.25" y1="7.995" x2="0.25" y2="9.995" layer="31"/>
+<rectangle x1="1.65" y1="7.895" x2="2.35" y2="10.095" layer="29"/>
+<rectangle x1="1.75" y1="7.995" x2="2.25" y2="9.995" layer="31"/>
+<rectangle x1="6.65" y1="7.895" x2="7.35" y2="10.095" layer="29"/>
+<rectangle x1="6.75" y1="7.995" x2="7.25" y2="9.995" layer="31"/>
+<rectangle x1="-7.35" y1="-10.095" x2="-6.65" y2="-7.895" layer="29" rot="R180"/>
+<rectangle x1="-7.25" y1="-9.995" x2="-6.75" y2="-7.995" layer="31" rot="R180"/>
+<rectangle x1="-5.35" y1="-10.095" x2="-4.65" y2="-7.895" layer="29" rot="R180"/>
+<rectangle x1="-5.25" y1="-9.995" x2="-4.75" y2="-7.995" layer="31" rot="R180"/>
+<rectangle x1="4.65" y1="-10.095" x2="5.35" y2="-7.895" layer="29" rot="R180"/>
+<rectangle x1="4.75" y1="-9.995" x2="5.25" y2="-7.995" layer="31" rot="R180"/>
+<rectangle x1="6.65" y1="-10.095" x2="7.35" y2="-7.895" layer="29" rot="R180"/>
+<rectangle x1="6.75" y1="-9.995" x2="7.25" y2="-7.995" layer="31" rot="R180"/>
 </package>
 </packages>
 <packages3d>
-<package3d name="LFPAK33" urn="urn:adsk.eagle:package:29530/1" type="box" library_version="2">
-<description> LFPAK33 using NextPower Technology SOT1210
-PSMN013-30MLC  N-channel 30 V 13.6 mΩ logic level MOSFET
-Source:  Data sheet 
-PSMN013-30MLC © NXP B.V. 2012. All rights reserved.</description>
+<package3d name="MULTIPOWERSO-30" urn="urn:adsk.eagle:package:26846/1" type="box">
+<description>MultiPowerSO-30
+Source: http://pdf1.alldatasheet.com/datasheet-pdf/view/84563/STMICROELECTRONICS/VNH3SP30.html</description>
 <packageinstances>
-<packageinstance name="LFPAK33"/>
+<packageinstance name="MULTIPOWERSO-30"/>
 </packageinstances>
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="HEXFET_N" urn="urn:adsk.eagle:symbol:29402/1" library_version="2">
-<wire x1="-1.1176" y1="2.413" x2="-1.1176" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-1.1176" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="2.54" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="0" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="0.508" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="1.651" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<symbol name="VNH5019A-E">
+<wire x1="-17.78" y1="35.56" x2="-17.78" y2="-27.94" width="0.1524" layer="94"/>
+<wire x1="-17.78" y1="-27.94" x2="20.32" y2="-27.94" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="-27.94" x2="20.32" y2="35.56" width="0.1524" layer="94"/>
+<pin name="OUTA" x="25.4" y="0" length="middle" rot="R180"/>
+<pin name="VCC" x="25.4" y="10.16" length="middle" rot="R180"/>
+<pin name="INA" x="-22.86" y="17.78" length="middle"/>
+<pin name="ENA/DIAGA" x="-22.86" y="30.48" length="middle"/>
+<pin name="CS_DIS" x="-22.86" y="-2.54" length="middle"/>
+<pin name="PWM" x="-22.86" y="5.08" length="middle"/>
+<pin name="CS" x="-22.86" y="-7.62" length="middle"/>
+<pin name="ENB/DIAGB" x="-22.86" y="25.4" length="middle"/>
+<pin name="INB" x="-22.86" y="12.7" length="middle"/>
+<pin name="CP" x="12.7" y="40.64" length="middle" rot="R270"/>
+<pin name="VBAT" x="2.54" y="40.64" length="middle" rot="R270"/>
+<pin name="OUTB" x="25.4" y="-17.78" length="middle" rot="R180"/>
+<pin name="GNDA" x="-22.86" y="-17.78" length="middle"/>
+<pin name="GNDB" x="-22.86" y="-22.86" length="middle"/>
+<wire x1="-17.78" y1="35.56" x2="20.32" y2="35.56" width="0.1524" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="VNH5019A-E">
+<description>New part</description>
+<gates>
+<gate name="VNH5019A-E" symbol="VNH5019A-E" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MULTIPOWERSO-30">
+<connects>
+<connect gate="VNH5019A-E" pin="CP" pad="11"/>
+<connect gate="VNH5019A-E" pin="CS" pad="8"/>
+<connect gate="VNH5019A-E" pin="CS_DIS" pad="6"/>
+<connect gate="VNH5019A-E" pin="ENA/DIAGA" pad="5"/>
+<connect gate="VNH5019A-E" pin="ENB/DIAGB" pad="9"/>
+<connect gate="VNH5019A-E" pin="GNDA" pad="26 27 28"/>
+<connect gate="VNH5019A-E" pin="GNDB" pad="18 19 20"/>
+<connect gate="VNH5019A-E" pin="INA" pad="4"/>
+<connect gate="VNH5019A-E" pin="INB" pad="10"/>
+<connect gate="VNH5019A-E" pin="OUTA" pad="1 25 30 OUTA OUTA@1"/>
+<connect gate="VNH5019A-E" pin="OUTB" pad="15 16 21 OUTB OUTB@1"/>
+<connect gate="VNH5019A-E" pin="PWM" pad="7"/>
+<connect gate="VNH5019A-E" pin="VBAT" pad="12"/>
+<connect gate="VNH5019A-E" pin="VCC" pad="3 13 23 VCC VCC@1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:26846/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="transistor-power" urn="urn:adsk.eagle:library:400">
+<description>&lt;b&gt;Power Transistors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO-247AD-V" urn="urn:adsk.eagle:footprint:29406/1" library_version="2">
+<description>&lt;b&gt;TO-247 AD&lt;/b&gt; vertical&lt;p&gt;
+Source: http://www.ixys.com/91529.pdf</description>
+<wire x1="-7.874" y1="-0.09" x2="7.874" y2="-0.09" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="-5.39" x2="7.874" y2="-0.09" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-0.09" x2="-7.874" y2="-5.39" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-5.39" x2="7.874" y2="-5.39" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="-0.04" x2="-1.5" y2="-1.59" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="-1.5" y1="-1.59" x2="-1.5" y2="-5.34" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="1.5" y1="-5.34" x2="1.5" y2="-1.59" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="1.5" y1="-1.59" x2="1.5" y2="-0.04" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="-7.874" y1="-1.59" x2="7.874" y2="-1.59" width="0.1524" layer="51"/>
+<wire x1="-7.8" y1="-1.59" x2="-6.95" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="-4.05" y1="-1.59" x2="-1.5" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="1.5" y1="-1.59" x2="4.05" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="7" y1="-1.59" x2="7.85" y2="-1.59" width="0.1524" layer="21"/>
+<pad name="G" x="-5.5" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<pad name="D" x="0" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<pad name="S" x="5.5" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<text x="-7.62" y="-7.685" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-7.62" y="-9.59" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-6.5" y1="-2.94" x2="-4.5" y2="-2.14" layer="51"/>
+<rectangle x1="-1" y1="-2.94" x2="1" y2="-2.14" layer="51"/>
+<rectangle x1="4.5" y1="-2.94" x2="6.5" y2="-2.14" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="TO-247AD-V" urn="urn:adsk.eagle:package:29508/1" type="box" library_version="2">
+<description>TO-247 AD vertical
+Source: http://www.ixys.com/91529.pdf</description>
+<packageinstances>
+<packageinstance name="TO-247AD-V"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="MOSFET_N" urn="urn:adsk.eagle:symbol:29426/1" library_version="2">
+<wire x1="-1.016" y1="2.54" x2="-1.016" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="2.159" width="0.1524" layer="94"/>
+<wire x1="0.508" y1="-2.159" x2="2.54" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.159" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="0.381" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
 <wire x1="3.302" y1="0.508" x2="3.81" y2="0.508" width="0.1524" layer="94"/>
 <wire x1="3.81" y1="0.508" x2="4.318" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="1.905" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="1.905" x2="0.5334" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="0.508" x2="3.81" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="-1.905" x2="3.81" y2="-0.127" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
-<circle x="2.54" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
+<wire x1="3.81" y1="2.159" x2="2.54" y2="2.159" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.159" x2="0.5334" y2="2.159" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="0.508" x2="3.81" y2="2.159" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-2.159" x2="3.81" y2="-0.127" width="0.1524" layer="94"/>
+<wire x1="3.81" y1="-2.159" x2="2.54" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-2.159" width="0.1524" layer="94"/>
+<circle x="2.54" y="2.159" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="-2.159" radius="0.127" width="0.4064" layer="94"/>
 <text x="6.35" y="2.54" size="1.778" layer="95">&gt;NAME</text>
 <text x="6.35" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-2.54" x2="0.508" y2="-1.27" layer="94"/>
-<rectangle x1="-0.254" y1="1.27" x2="0.508" y2="2.54" layer="94"/>
+<text x="1.397" y="3.556" size="0.8128" layer="93">D</text>
+<text x="1.397" y="-4.318" size="0.8128" layer="93">S</text>
+<text x="-2.286" y="-1.778" size="0.8128" layer="93">G</text>
+<rectangle x1="-0.254" y1="-2.794" x2="0.508" y2="-1.27" layer="94"/>
+<rectangle x1="-0.254" y1="1.27" x2="0.508" y2="2.794" layer="94"/>
 <rectangle x1="-0.254" y1="-0.889" x2="0.508" y2="0.889" layer="94"/>
 <pin name="G" x="-2.54" y="-2.54" visible="off" length="point" direction="pas"/>
-<pin name="D" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 <pin name="S" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<polygon width="0.1524" layer="94">
-<vertex x="0.508" y="0"/>
-<vertex x="1.778" y="-0.508"/>
-<vertex x="1.778" y="0.508"/>
-</polygon>
+<pin name="D" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
 <polygon width="0.1524" layer="94">
 <vertex x="3.81" y="0.508"/>
 <vertex x="3.302" y="-0.254"/>
 <vertex x="4.318" y="-0.254"/>
 </polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="0.635" y="0"/>
+<vertex x="1.905" y="-0.508"/>
+<vertex x="1.905" y="0.508"/>
+</polygon>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PSMN013-30MLC" urn="urn:adsk.eagle:component:29606/1" prefix="Q" library_version="2">
-<description>&lt;b&gt;N-channel 30 V 13.6 mΩ logic level MOSFET&lt;/b&gt;&lt;p&gt;
-NextPower Technology&lt;br&gt;
-Source: &lt;a href="http://www.nxp.com/documents/data_sheet/PSMN013-30MLC.pdf"&gt; Data sheet &lt;/a&gt;&lt;br&gt;
-PSMN013-30MLC © NXP B.V. 2012. All rights reserved.</description>
+<deviceset name="IRFP25*" urn="urn:adsk.eagle:component:29582/1" prefix="Q" library_version="2">
+<description>&lt;b&gt;33A/27A, 200V/150V, 0.085/0.012 Ohm, N-Channel Power MOSFET&lt;/b&gt;&lt;p&gt;
+Source: Fairchild Semiconductor Corporation</description>
 <gates>
-<gate name="G$1" symbol="HEXFET_N" x="0" y="0"/>
+<gate name="G$1" symbol="MOSFET_N" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="LFPAK33">
+<device name="" package="TO-247AD-V">
 <connects>
-<connect gate="G$1" pin="D" pad="MB"/>
-<connect gate="G$1" pin="G" pad="4"/>
-<connect gate="G$1" pin="S" pad="1 2 3"/>
+<connect gate="G$1" pin="D" pad="D"/>
+<connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:29530/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29508/1"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="PSMN013-30MLC" constant="no"/>
-<attribute name="OC_FARNELL" value="2115260" constant="no"/>
-<attribute name="OC_NEWARK" value="05W5709" constant="no"/>
-</technology>
+<technology name="0"/>
+<technology name="1"/>
+<technology name="2"/>
+<technology name="3"/>
 </technologies>
 </device>
 </devices>
@@ -20122,7 +20330,8 @@ PSMN013-30MLC © NXP B.V. 2012. All rights reserved.</description>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="085CS-1AW" package3d_urn="urn:adsk.eagle:package:23385/1" value="47uF"/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device="" value="VDD"/>
-<part name="Q7" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="PSMN013-30MLC" device="" package3d_urn="urn:adsk.eagle:package:29530/1"/>
+<part name="U$3" library="new-st" deviceset="VNH5019A-E" device="" package3d_urn="urn:adsk.eagle:package:26846/1"/>
+<part name="Q7" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IRFP25*" device="" package3d_urn="urn:adsk.eagle:package:29508/1" technology="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -20443,6 +20652,7 @@ disconnected at all times</text>
 <instance part="P+3" gate="1" x="424.18" y="12.7" smashed="yes">
 <attribute name="VALUE" x="421.64" y="7.62" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="U$3" gate="VNH5019A-E" x="469.9" y="-35.56" smashed="yes"/>
 <instance part="Q7" gate="G$1" x="485.14" y="7.62" smashed="yes" rot="MR90">
 <attribute name="NAME" x="487.68" y="13.97" size="1.778" layer="95" rot="MR90"/>
 <attribute name="VALUE" x="485.14" y="13.97" size="1.778" layer="96" rot="MR90"/>
@@ -20556,6 +20766,8 @@ disconnected at all times</text>
 <wire x1="447.04" y1="-58.42" x2="441.96" y2="-58.42" width="0.1524" layer="91"/>
 <junction x="441.96" y="-58.42"/>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="GNDA"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="GNDB"/>
 </segment>
 </net>
 <net name="12V" class="0">
@@ -21113,6 +21325,7 @@ disconnected at all times</text>
 <segment>
 <pinref part="R19" gate="G$1" pin="1"/>
 <wire x1="447.04" y1="-17.78" x2="436.88" y2="-17.78" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="INA"/>
 </segment>
 </net>
 <net name="N$29" class="0">
@@ -21128,12 +21341,14 @@ disconnected at all times</text>
 <segment>
 <pinref part="R21" gate="G$1" pin="1"/>
 <wire x1="447.04" y1="-22.86" x2="431.8" y2="-22.86" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="INB"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
 <wire x1="447.04" y1="-30.48" x2="434.34" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="PWM"/>
 </segment>
 </net>
 <net name="N$34" class="0">
@@ -21144,6 +21359,7 @@ disconnected at all times</text>
 <wire x1="434.34" y1="-45.72" x2="434.34" y2="-43.18" width="0.1524" layer="91"/>
 <junction x="434.34" y="-43.18"/>
 <wire x1="447.04" y1="-43.18" x2="434.34" y2="-43.18" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="CS"/>
 </segment>
 </net>
 <net name="N$35" class="0">
@@ -21173,6 +21389,7 @@ disconnected at all times</text>
 <wire x1="535.94" y1="-68.58" x2="495.3" y2="-68.58" width="0.1524" layer="91"/>
 <wire x1="495.3" y1="-68.58" x2="495.3" y2="-53.34" width="0.1524" layer="91"/>
 <junction x="535.94" y="-68.58"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="OUTB"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -21198,6 +21415,7 @@ disconnected at all times</text>
 <wire x1="535.94" y1="-35.56" x2="558.8" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="535.94" y="-35.56"/>
 <wire x1="495.3" y1="-35.56" x2="535.94" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="OUTA"/>
 </segment>
 </net>
 <net name="N$36" class="0">
@@ -21217,6 +21435,7 @@ disconnected at all times</text>
 <wire x1="495.3" y1="-25.4" x2="505.46" y2="-25.4" width="0.1524" layer="91"/>
 <wire x1="505.46" y1="-25.4" x2="505.46" y2="10.16" width="0.1524" layer="91"/>
 <junction x="505.46" y="10.16"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="VCC"/>
 <pinref part="Q7" gate="G$1" pin="D"/>
 </segment>
 </net>
@@ -21225,6 +21444,7 @@ disconnected at all times</text>
 <pinref part="P+2" gate="1" pin="+5V"/>
 <wire x1="472.44" y1="10.16" x2="472.44" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="472.44" y1="10.16" x2="480.06" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="VBAT"/>
 <pinref part="Q7" gate="G$1" pin="S"/>
 </segment>
 <segment>
@@ -21250,6 +21470,14 @@ disconnected at all times</text>
 <junction x="424.18" y="-5.08"/>
 <wire x1="444.5" y1="-10.16" x2="444.5" y2="-5.08" width="0.1524" layer="91"/>
 <junction x="444.5" y="-5.08"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="ENA/DIAGA"/>
+<pinref part="U$3" gate="VNH5019A-E" pin="ENB/DIAGB"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U$3" gate="VNH5019A-E" pin="CP"/>
+<pinref part="Q7" gate="G$1" pin="G"/>
 </segment>
 </net>
 </nets>
