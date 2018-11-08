@@ -9442,7 +9442,6 @@ design rules under a new name.</description>
 <via x="98.8032" y="46.5836" extent="1-16" drill="0.35"/>
 <wire x1="98.8032" y1="46.5836" x2="88.149" y2="46.5836" width="0.1524" layer="1"/>
 <wire x1="88.149" y1="46.5836" x2="87.7934" y2="46.228" width="0.1524" layer="1"/>
-<<<<<<< HEAD
 <wire x1="20.9434125" y1="81.039209375" x2="20.9434125" y2="84.6106125" width="0.1524" layer="16"/>
 <wire x1="20.9434125" y1="84.6106125" x2="22.5381" y2="84.6106125" width="0.1524" layer="16"/>
 <wire x1="22.5381" y1="84.6106125" x2="22.6720125" y2="84.744525" width="0.1524" layer="16"/>
@@ -9457,7 +9456,6 @@ design rules under a new name.</description>
 <wire x1="58.691496875" y1="80.968153125" x2="58.071446875" y2="80.968153125" width="0.1524" layer="1"/>
 <wire x1="60.77395625" y1="83.0506125" x2="58.691496875" y2="80.968153125" width="0.1524" layer="1"/>
 <wire x1="92.4306" y1="68.977975" x2="95.64354375" y2="72.19091875" width="0.1524" layer="1"/>
-=======
 <contactref element="Q1" pad="E"/>
 <contactref element="Q2" pad="E"/>
 <wire x1="62.0776" y1="82.20596875" x2="58.071446875" y2="80.968153125" width="0" layer="19" extent="1-1"/>
@@ -9465,7 +9463,6 @@ design rules under a new name.</description>
 <wire x1="22.262590625" y1="81.039209375" x2="22.5806" y2="87.2998" width="0" layer="19" extent="3-16"/>
 <wire x1="-45.9342" y1="64.7982" x2="2.032" y2="27.6606" width="0" layer="19" extent="1-16"/>
 <wire x1="-46.112" y1="86.8454" x2="-45.9342" y2="64.7982" width="0" layer="19" extent="1-1"/>
->>>>>>> 79b6fb68cec40029d3fb4eb61823146d25a21a42
 </signal>
 <signal name="COMP_OUT">
 <contactref element="R29" pad="2"/>
