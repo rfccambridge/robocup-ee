@@ -9,7 +9,7 @@
 </settings>
 <grid distance="7" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.000003125" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top(3v3+)" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top(3v3+)" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="12V+" color="15" fill="9" visible="no" active="yes"/>
 <layer number="3" name="12VGND" color="62" fill="9" visible="no" active="yes"/>
 <layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
