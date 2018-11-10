@@ -16369,92 +16369,200 @@ Wickmann</description>
 <description>&lt;b&gt;Power Transistors&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="TO268" urn="urn:adsk.eagle:footprint:29409/1" library_version="2">
-<description>&lt;b&gt;TO-268&lt;/b&gt;&lt;p&gt;
-Source: http://www.ixys.com/98989.pdf</description>
-<wire x1="-7.9" y1="-6.9" x2="7.9" y2="-6.9" width="0.2032" layer="21"/>
-<wire x1="7.9" y1="-6.9" x2="7.9" y2="5.3" width="0.2032" layer="51"/>
-<wire x1="7.9" y1="5.3" x2="6.95" y2="6.9" width="0.2032" layer="51"/>
-<wire x1="6.95" y1="6.9" x2="-7" y2="6.9" width="0.2032" layer="51"/>
-<wire x1="-7" y1="6.9" x2="-7.9" y2="5.3" width="0.2032" layer="51"/>
-<wire x1="-7.9" y1="5.3" x2="-7.9" y2="-6.9" width="0.2032" layer="51"/>
-<wire x1="7.9" y1="5.3" x2="7.9" y2="6.9" width="0.2032" layer="51"/>
-<wire x1="7.9" y1="6.9" x2="7.2" y2="8.05" width="0.2032" layer="51"/>
-<wire x1="-7.9" y1="5.3" x2="-7.9" y2="6.9" width="0.2032" layer="51"/>
-<wire x1="7.2" y1="8.05" x2="-7.2" y2="8.05" width="0.2032" layer="51"/>
-<wire x1="-7.9" y1="6.9" x2="-7.2" y2="8.05" width="0.2032" layer="51"/>
-<wire x1="-7.9" y1="-6.9" x2="-7.9" y2="-4.65" width="0.2032" layer="21"/>
-<wire x1="7.9" y1="-4.65" x2="7.9" y2="-6.9" width="0.2032" layer="21"/>
-<smd name="G" x="-5.45" y="-9.7" dx="2.5" dy="3.5" layer="1"/>
-<smd name="C@1" x="-4.25" y="2.25" dx="8.5" dy="13" layer="1"/>
-<smd name="E" x="5.45" y="-9.7" dx="2.5" dy="3.5" layer="1"/>
-<smd name="C@2" x="4.25" y="2.25" dx="8.5" dy="13" layer="1"/>
-<text x="-4.445" y="-6.35" size="1.27" layer="25">&gt;NAME</text>
-<text x="-8.89" y="-6.35" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-1.35" y1="-8.4" x2="1.35" y2="-7" layer="21"/>
-<rectangle x1="-6.5" y1="-8.4" x2="-4.4" y2="-7" layer="51"/>
-<rectangle x1="4.4" y1="-8.4" x2="6.5" y2="-7" layer="51"/>
-<rectangle x1="4.4" y1="-11.1" x2="6.5" y2="-8.4" layer="51"/>
-<rectangle x1="-6.5" y1="-11.1" x2="-4.4" y2="-8.4" layer="51"/>
+<package name="TO-247AD-H" urn="urn:adsk.eagle:footprint:29405/1" library_version="2">
+<description>&lt;b&gt;TO-247 AD&lt;/b&gt; horizontal&lt;p&gt;
+Source: http://www.ixys.com/91529.pdf</description>
+<wire x1="-7.874" y1="-15" x2="7.874" y2="-15" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="-2.189" x2="7.874" y2="-15" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="5.955" x2="-7.874" y2="5.955" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-15" x2="-7.874" y2="-2.189" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-2.189" x2="-7.874" y2="2.121" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="2.121" x2="-7.874" y2="5.955" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="2.121" x2="6.5" y2="2.121" width="0.1524" layer="21"/>
+<wire x1="6.5" y1="2.121" x2="6.5" y2="-2.189" width="0.1524" layer="21"/>
+<wire x1="6.5" y1="-2.189" x2="7.874" y2="-2.189" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="2.121" x2="-6.5" y2="2.121" width="0.1524" layer="21"/>
+<wire x1="-6.5" y1="2.121" x2="-6.5" y2="-2.189" width="0.1524" layer="21"/>
+<wire x1="-6.5" y1="-2.189" x2="-7.874" y2="-2.189" width="0.1524" layer="21"/>
+<wire x1="7.82" y1="5.32" x2="-7.82" y2="5.32" width="0.0508" layer="21"/>
+<wire x1="7.874" y1="5.955" x2="7.874" y2="2.121" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="2.121" x2="7.874" y2="-2.189" width="0.1524" layer="21"/>
+<pad name="G" x="-5.5" y="-20.65" drill="1.6" shape="long" rot="R90"/>
+<pad name="D" x="0" y="-20.65" drill="1.6" shape="long" rot="R90"/>
+<pad name="S" x="5.5" y="-20.65" drill="1.6" shape="long" rot="R90"/>
+<text x="-5.08" y="-8.015" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-5.08" y="-10.555" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="4.5" y1="-17.65" x2="6.5" y2="-15" layer="21"/>
+<rectangle x1="-1" y1="-17.65" x2="1" y2="-15" layer="21"/>
+<rectangle x1="-6.5" y1="-17.65" x2="-4.5" y2="-15" layer="21"/>
+<rectangle x1="-6.5" y1="-19.683" x2="-4.5" y2="-17.65" layer="51"/>
+<rectangle x1="-6.223" y1="-20.65" x2="-4.75" y2="-19.683" layer="51"/>
+<rectangle x1="-1" y1="-19.683" x2="1" y2="-17.651" layer="51"/>
+<rectangle x1="-0.635" y1="-20.65" x2="0.635" y2="-19.683" layer="51"/>
+<rectangle x1="4.5" y1="-19.683" x2="6.5" y2="-17.651" layer="51"/>
+<rectangle x1="4.75" y1="-20.65" x2="6.223" y2="-19.683" layer="51"/>
+<hole x="0" y="0" drill="3.65"/>
+</package>
+<package name="TO-247AD-V" urn="urn:adsk.eagle:footprint:29406/1" library_version="2">
+<description>&lt;b&gt;TO-247 AD&lt;/b&gt; vertical&lt;p&gt;
+Source: http://www.ixys.com/91529.pdf</description>
+<wire x1="-7.874" y1="-0.09" x2="7.874" y2="-0.09" width="0.1524" layer="21"/>
+<wire x1="7.874" y1="-5.39" x2="7.874" y2="-0.09" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-0.09" x2="-7.874" y2="-5.39" width="0.1524" layer="21"/>
+<wire x1="-7.874" y1="-5.39" x2="7.874" y2="-5.39" width="0.1524" layer="21"/>
+<wire x1="-1.5" y1="-0.04" x2="-1.5" y2="-1.59" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="-1.5" y1="-1.59" x2="-1.5" y2="-5.34" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="1.5" y1="-5.34" x2="1.5" y2="-1.59" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="1.5" y1="-1.59" x2="1.5" y2="-0.04" width="0.0634" layer="21" style="shortdash"/>
+<wire x1="-7.874" y1="-1.59" x2="7.874" y2="-1.59" width="0.1524" layer="51"/>
+<wire x1="-7.8" y1="-1.59" x2="-6.95" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="-4.05" y1="-1.59" x2="-1.5" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="1.5" y1="-1.59" x2="4.05" y2="-1.59" width="0.1524" layer="21"/>
+<wire x1="7" y1="-1.59" x2="7.85" y2="-1.59" width="0.1524" layer="21"/>
+<pad name="G" x="-5.5" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<pad name="D" x="0" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<pad name="S" x="5.5" y="-2.54" drill="1.6" shape="long" rot="R90"/>
+<text x="-7.62" y="-7.685" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="-7.62" y="-9.59" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-6.5" y1="-2.94" x2="-4.5" y2="-2.14" layer="51"/>
+<rectangle x1="-1" y1="-2.94" x2="1" y2="-2.14" layer="51"/>
+<rectangle x1="4.5" y1="-2.94" x2="6.5" y2="-2.14" layer="51"/>
+</package>
+<package name="TO204" urn="urn:adsk.eagle:footprint:29407/1" library_version="2">
+<description>&lt;b&gt;TO-204 AA&lt;/b&gt;&lt;p&gt;
+Source: http://www.ixys.com/91529.pdf</description>
+<wire x1="17.55" y1="3.6" x2="7.25" y2="10.6" width="0.2032" layer="21"/>
+<wire x1="-17.55" y1="-3.6" x2="-7.25" y2="-10.6" width="0.2032" layer="21"/>
+<wire x1="17.55" y1="-3.6" x2="7.25" y2="-10.6" width="0.2032" layer="21"/>
+<wire x1="-17.55" y1="3.6" x2="-7.25" y2="10.6" width="0.2032" layer="21"/>
+<wire x1="-17.55" y1="3.6" x2="-17.55" y2="-3.6" width="0.2032" layer="21" curve="111.599"/>
+<wire x1="-7.25" y1="-10.6" x2="7.25" y2="-10.6" width="0.2032" layer="21" curve="68.4008"/>
+<wire x1="17.55" y1="-3.6" x2="17.55" y2="3.6" width="0.2032" layer="21" curve="111.599"/>
+<wire x1="7.25" y1="10.6" x2="-7.25" y2="10.6" width="0.2032" layer="21" curve="68.4008"/>
+<circle x="0" y="0" radius="9.9" width="0.2032" layer="21"/>
+<pad name="D" x="-15.075" y="0" drill="4.2" diameter="6.4516"/>
+<pad name="D@1" x="15.075" y="0" drill="4.2" diameter="6.4516"/>
+<pad name="S" x="-1.565" y="5.335" drill="1.3" diameter="2.2"/>
+<pad name="G" x="-1.565" y="-5.335" drill="1.3" diameter="2.2"/>
+<text x="0" y="2.54" size="1.27" layer="25">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <packages3d>
-<package3d name="TO268" urn="urn:adsk.eagle:package:29509/1" type="box" library_version="2">
-<description>TO-268
-Source: http://www.ixys.com/98989.pdf</description>
+<package3d name="TO-247AD-H" urn="urn:adsk.eagle:package:29513/1" type="box" library_version="2">
+<description>TO-247 AD horizontal
+Source: http://www.ixys.com/91529.pdf</description>
 <packageinstances>
-<packageinstance name="TO268"/>
+<packageinstance name="TO-247AD-H"/>
+</packageinstances>
+</package3d>
+<package3d name="TO-247AD-V" urn="urn:adsk.eagle:package:29508/1" type="box" library_version="2">
+<description>TO-247 AD vertical
+Source: http://www.ixys.com/91529.pdf</description>
+<packageinstances>
+<packageinstance name="TO-247AD-V"/>
+</packageinstances>
+</package3d>
+<package3d name="TO204" urn="urn:adsk.eagle:package:29507/2" type="model" library_version="2">
+<description>TO-204 AA
+Source: http://www.ixys.com/91529.pdf</description>
+<packageinstances>
+<packageinstance name="TO204"/>
 </packageinstances>
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="IXIS-IGBT-NPN" urn="urn:adsk.eagle:symbol:29408/1" library_version="2">
-<wire x1="2.54" y1="2.54" x2="0" y2="0" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="1.524" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="2.159" y1="-2.159" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
-<wire x1="1.778" y1="-1.016" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
-<wire x1="2.286" y1="-2.286" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="2.286" y1="-2.286" x2="1.016" y2="-1.778" width="0.1524" layer="94"/>
-<wire x1="1.016" y1="-1.778" x2="1.778" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="2.159" y1="-2.159" x2="1.778" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.778" y1="-1.27" x2="1.524" y2="-1.524" width="0.254" layer="94"/>
-<wire x1="1.524" y1="-1.524" x2="1.27" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.778" x2="2.159" y2="-2.159" width="0.254" layer="94"/>
-<wire x1="2.159" y1="-2.159" x2="1.524" y2="-1.524" width="0.254" layer="94"/>
-<wire x1="1.524" y1="-1.778" x2="1.778" y2="-1.524" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-1.27" y2="1.27" width="0.1524" layer="94"/>
-<text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="0" y1="-2.54" x2="0.381" y2="2.54" layer="94"/>
-<pin name="G" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
-<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
-<pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<symbol name="MFNS" urn="urn:adsk.eagle:symbol:29370/1" library_version="2">
+<wire x1="-1.1176" y1="2.413" x2="-1.1176" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-1.1176" y1="-2.54" x2="-2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="1.905" x2="0.5334" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="0.508" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="1.905" x2="5.08" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="1.905" x2="5.08" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="5.08" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="4.445" y2="-0.635" width="0.1524" layer="94"/>
+<wire x1="4.445" y1="-0.635" x2="5.715" y2="-0.635" width="0.1524" layer="94"/>
+<wire x1="5.715" y1="-0.635" x2="5.08" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="4.445" y1="0.762" x2="5.08" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="0.762" x2="5.715" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="5.715" y1="0.762" x2="5.969" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="4.445" y1="0.762" x2="4.191" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="0.508" y1="0" x2="1.778" y2="-0.508" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="-0.508" x2="1.778" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="0.508" x2="0.508" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="0.254" x2="0.762" y2="0" width="0.3048" layer="94"/>
+<wire x1="0.762" y1="0" x2="1.651" y2="-0.254" width="0.3048" layer="94"/>
+<wire x1="1.651" y1="-0.254" x2="1.651" y2="0" width="0.3048" layer="94"/>
+<wire x1="1.651" y1="0" x2="1.397" y2="0" width="0.3048" layer="94"/>
+<circle x="2.54" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
+<circle x="2.54" y="1.905" radius="0.127" width="0.4064" layer="94"/>
+<text x="7.62" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="7.62" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<text x="1.27" y="2.54" size="0.8128" layer="93">D</text>
+<text x="1.27" y="-3.175" size="0.8128" layer="93">S</text>
+<text x="-2.54" y="-1.27" size="0.8128" layer="93">G</text>
+<rectangle x1="-0.254" y1="-2.54" x2="0.508" y2="-1.27" layer="94"/>
+<rectangle x1="-0.254" y1="1.27" x2="0.508" y2="2.54" layer="94"/>
+<rectangle x1="-0.254" y1="-0.889" x2="0.508" y2="0.889" layer="94"/>
+<pin name="G" x="-2.54" y="-2.54" visible="off" length="point" direction="pas"/>
+<pin name="D" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="IXG?*N170" urn="urn:adsk.eagle:component:29583/1" prefix="Q" library_version="2">
-<description>&lt;b&gt;High Voltage IGBT&lt;/b&gt;&lt;p&gt;
-Source: http://www.ixys.com/98989.pdf</description>
+<deviceset name="IXF?6N*" urn="urn:adsk.eagle:component:29585/2" prefix="Q" library_version="2">
+<description>&lt;b&gt;HiPerFET (TM)  Power MOSFET&lt;/b&gt;&lt;p&gt;
+N-Channel Enhancement Mode HDMOS Family&lt;br&gt;
+Source: http://www.ixys.com/91529.pdf</description>
 <gates>
-<gate name="G$1" symbol="IXIS-IGBT-NPN" x="0" y="0"/>
+<gate name="G$1" symbol="MFNS" x="0" y="0"/>
 </gates>
 <devices>
-<device name="T" package="TO268">
+<device name="H_" package="TO-247AD-H">
 <connects>
-<connect gate="G$1" pin="C" pad="C@1 C@2" route="any"/>
-<connect gate="G$1" pin="E" pad="E"/>
+<connect gate="G$1" pin="D" pad="D"/>
 <connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:29509/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29513/1"/>
 </package3dinstances>
 <technologies>
-<technology name="10"/>
-<technology name="16"/>
-<technology name="24"/>
-<technology name="32"/>
-<technology name="6"/>
+<technology name="100"/>
+<technology name="90"/>
+</technologies>
+</device>
+<device name="H" package="TO-247AD-V">
+<connects>
+<connect gate="G$1" pin="D" pad="D"/>
+<connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29508/1"/>
+</package3dinstances>
+<technologies>
+<technology name="100"/>
+<technology name="90"/>
+</technologies>
+</device>
+<device name="M" package="TO204">
+<connects>
+<connect gate="G$1" pin="D" pad="D"/>
+<connect gate="G$1" pin="G" pad="G"/>
+<connect gate="G$1" pin="S" pad="S"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29507/2"/>
+</package3dinstances>
+<technologies>
+<technology name="100"/>
+<technology name="90"/>
 </technologies>
 </device>
 </devices>
@@ -16624,8 +16732,8 @@ Source: http://www.ixys.com/98989.pdf</description>
 <part name="U$13" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
 <part name="U$9" library="Kicker" deviceset="MOTOR_BOARD" device=""/>
 <part name="U$10" library="Kicker" deviceset="MOTOR_BOARD" device=""/>
-<part name="Q1" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXG?*N170" device="T" package3d_urn="urn:adsk.eagle:package:29509/1" technology="6"/>
-<part name="Q2" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXG?*N170" device="T" package3d_urn="urn:adsk.eagle:package:29509/1" technology="6"/>
+<part name="Q3" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXF?6N*" device="H" package3d_urn="urn:adsk.eagle:package:29508/1" technology="90"/>
+<part name="Q2" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXF?6N*" device="H" package3d_urn="urn:adsk.eagle:package:29508/1" technology="90"/>
 </parts>
 <sheets>
 <sheet>
@@ -16694,9 +16802,9 @@ by TWI (I2C) protocol</text>
 <wire x1="327.66" y1="190.5" x2="327.66" y2="248.92" width="0.1524" layer="97"/>
 <wire x1="327.66" y1="248.92" x2="261.62" y2="248.92" width="0.1524" layer="97"/>
 <wire x1="261.62" y1="248.92" x2="261.62" y2="190.5" width="0.1524" layer="97"/>
-<text x="485.14" y="304.8" size="1.778" layer="91">package is correct
+<text x="487.68" y="307.34" size="1.778" layer="91">package is correct
 part is IXFT94N30P3</text>
-<text x="485.14" y="248.92" size="1.778" layer="91">package is correct
+<text x="487.68" y="248.92" size="1.778" layer="91">package is correct
 part is IXFT94N30P3</text>
 </plain>
 <instances>
@@ -17242,13 +17350,13 @@ part is IXFT94N30P3</text>
 </instance>
 <instance part="U$9" gate="G$1" x="223.52" y="261.62" smashed="yes" rot="R90"/>
 <instance part="U$10" gate="G$1" x="223.52" y="330.2" smashed="yes" rot="R90"/>
-<instance part="Q1" gate="G$1" x="480.06" y="254" smashed="yes">
-<attribute name="NAME" x="485.14" y="256.54" size="1.778" layer="95"/>
-<attribute name="VALUE" x="485.14" y="254" size="1.778" layer="96"/>
+<instance part="Q3" gate="G$1" x="480.06" y="312.42" smashed="yes">
+<attribute name="NAME" x="487.68" y="314.96" size="1.778" layer="95"/>
+<attribute name="VALUE" x="487.68" y="312.42" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="480.06" y="309.88" smashed="yes">
-<attribute name="NAME" x="485.14" y="312.42" size="1.778" layer="95"/>
-<attribute name="VALUE" x="485.14" y="309.88" size="1.778" layer="96"/>
+<instance part="Q2" gate="G$1" x="480.06" y="254" smashed="yes">
+<attribute name="NAME" x="487.68" y="256.54" size="1.778" layer="95"/>
+<attribute name="VALUE" x="487.68" y="254" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -17656,6 +17764,26 @@ part is IXFT94N30P3</text>
 <wire x1="416.56" y1="124.46" x2="406.4" y2="124.46" width="0.1524" layer="91"/>
 <label x="406.4" y="124.46" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="7"/>
+<wire x1="139.7" y1="353.06" x2="139.7" y2="342.9" width="0.1524" layer="91"/>
+<label x="139.7" y="342.9" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="J2" gate="G$1" pin="7"/>
+<wire x1="187.96" y1="353.06" x2="187.96" y2="342.9" width="0.1524" layer="91"/>
+<label x="187.96" y="342.9" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="3"/>
+<wire x1="139.7" y1="304.8" x2="139.7" y2="294.64" width="0.1524" layer="91"/>
+<label x="139.7" y="294.64" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="187.96" y1="302.26" x2="187.96" y2="294.64" width="0.1524" layer="91"/>
+<label x="187.96" y="294.64" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="12VGND" class="0">
 <segment>
@@ -17737,13 +17865,13 @@ part is IXFT94N30P3</text>
 <segment>
 <wire x1="482.6" y1="248.92" x2="482.6" y2="243.84" width="0.1524" layer="91"/>
 <label x="482.6" y="243.84" size="1.778" layer="95"/>
-<pinref part="Q1" gate="G$1" pin="E"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
 </segment>
 <segment>
-<wire x1="482.6" y1="304.8" x2="482.6" y2="302.26" width="0.1524" layer="91"/>
 <label x="482.6" y="302.26" size="1.778" layer="95"/>
 <label x="482.6" y="302.26" size="1.778" layer="95"/>
-<pinref part="Q2" gate="G$1" pin="E"/>
+<pinref part="Q3" gate="G$1" pin="S"/>
+<wire x1="482.6" y1="307.34" x2="482.6" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="347.98" x2="312.42" y2="340.36" width="0.1524" layer="91"/>
@@ -18243,8 +18371,9 @@ part is IXFT94N30P3</text>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
 <wire x1="472.44" y1="274.32" x2="474.98" y2="274.32" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="274.32" x2="474.98" y2="254" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="G$1" pin="G"/>
+<wire x1="474.98" y1="274.32" x2="474.98" y2="251.46" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<wire x1="477.52" y1="251.46" x2="474.98" y2="251.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LOWCHIP" class="0">
@@ -18257,14 +18386,15 @@ part is IXFT94N30P3</text>
 <wire x1="482.6" y1="266.7" x2="485.14" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="482.6" y1="266.7" x2="482.6" y2="259.08" width="0.1524" layer="91"/>
 <junction x="482.6" y="266.7"/>
-<pinref part="Q1" gate="G$1" pin="C"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="474.98" y1="309.88" x2="472.44" y2="309.88" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="G"/>
+<pinref part="Q3" gate="G$1" pin="G"/>
+<wire x1="477.52" y1="309.88" x2="472.44" y2="309.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LOWKICK" class="0">
@@ -18276,8 +18406,9 @@ part is IXFT94N30P3</text>
 <wire x1="480.06" y1="325.12" x2="482.6" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="482.6" y1="325.12" x2="485.14" y2="325.12" width="0.1524" layer="91"/>
 <junction x="482.6" y="325.12"/>
-<wire x1="482.6" y1="325.12" x2="482.6" y2="314.96" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="C"/>
+<wire x1="482.6" y1="325.12" x2="482.6" y2="317.5" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="D"/>
+<wire x1="482.6" y1="317.5" x2="482.6" y2="314.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
