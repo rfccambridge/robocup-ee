@@ -16966,9 +16966,13 @@ by TWI (I2C) protocol</text>
 <segment>
 <pinref part="C10" gate="G$1" pin="1"/>
 <wire x1="403.86" y1="86.36" x2="403.86" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="403.86" y1="91.44" x2="383.54" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="403.86" y1="91.44" x2="393.7" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="91.44" x2="383.54" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="383.54" y1="91.44" x2="383.54" y2="88.9" width="0.1524" layer="91"/>
 <label x="375.92" y="88.9" size="1.778" layer="95"/>
+<pinref part="C1" gate="G$1" pin="1"/>
+<wire x1="393.7" y1="86.36" x2="393.7" y2="91.44" width="0.1524" layer="91"/>
+<junction x="393.7" y="91.44"/>
 </segment>
 <segment>
 <pinref part="U$15" gate="G$1" pin="GND"/>
@@ -17159,6 +17163,7 @@ by TWI (I2C) protocol</text>
 <wire x1="360.68" y1="157.48" x2="365.76" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="365.76" y1="157.48" x2="365.76" y2="160.02" width="0.1524" layer="91"/>
 <label x="365.76" y="160.02" size="1.778" layer="95"/>
+<junction x="365.76" y="157.48"/>
 </segment>
 <segment>
 <pinref part="U$15" gate="G$1" pin="VDD"/>
@@ -17306,6 +17311,7 @@ by TWI (I2C) protocol</text>
 <wire x1="541.02" y1="459.74" x2="546.1" y2="459.74" width="0.1524" layer="91"/>
 <wire x1="541.02" y1="459.74" x2="541.02" y2="454.66" width="0.1524" layer="91"/>
 <label x="543.56" y="454.66" size="1.778" layer="95"/>
+<junction x="541.02" y="459.74"/>
 </segment>
 <segment>
 <pinref part="R21" gate="G$1" pin="1"/>
@@ -17346,9 +17352,6 @@ by TWI (I2C) protocol</text>
 <pinref part="U$13" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="238.76" x2="114.3" y2="238.76" width="0.1524" layer="91"/>
 <label x="111.76" y="238.76" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="-40.64" y1="266.7" x2="-27.94" y2="266.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$16" gate="G$1" pin="GNDB"/>
@@ -17549,6 +17552,7 @@ by TWI (I2C) protocol</text>
 <wire x1="482.6" y1="279.4" x2="482.6" y2="287.02" width="0.1524" layer="91"/>
 <wire x1="482.6" y1="287.02" x2="490.22" y2="287.02" width="0.1524" layer="91"/>
 <label x="482.6" y="287.02" size="1.778" layer="95"/>
+<junction x="482.6" y="279.4"/>
 </segment>
 <segment>
 <pinref part="U$7" gate="G$1" pin="D+"/>
@@ -17732,7 +17736,6 @@ by TWI (I2C) protocol</text>
 <junction x="-33.02" y="307.34"/>
 <label x="-96.52" y="271.78" size="1.778" layer="95"/>
 <pinref part="C16" gate="G$1" pin="1"/>
-<junction x="-35.56" y="314.96"/>
 </segment>
 <segment>
 <pinref part="U$23" gate="G$1" pin="VBAT"/>
@@ -17745,7 +17748,6 @@ by TWI (I2C) protocol</text>
 <junction x="-12.7" y="210.82"/>
 <label x="-76.2" y="175.26" size="1.778" layer="95"/>
 <pinref part="C25" gate="G$1" pin="1"/>
-<junction x="-15.24" y="218.44"/>
 </segment>
 <segment>
 <pinref part="U$25" gate="G$1" pin="VBAT"/>
@@ -17758,7 +17760,6 @@ by TWI (I2C) protocol</text>
 <junction x="2.54" y="114.3"/>
 <label x="-60.96" y="78.74" size="1.778" layer="95"/>
 <pinref part="C29" gate="G$1" pin="1"/>
-<junction x="0" y="121.92"/>
 </segment>
 <segment>
 <pinref part="U$27" gate="G$1" pin="VBAT"/>
@@ -17770,7 +17771,7 @@ by TWI (I2C) protocol</text>
 <wire x1="53.34" y1="30.48" x2="53.34" y2="25.4" width="0.1524" layer="91"/>
 <junction x="53.34" y="30.48"/>
 <pinref part="C42" gate="G$1" pin="1"/>
-<junction x="50.8" y="38.1"/>
+<label x="2.54" y="0" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -18217,6 +18218,7 @@ by TWI (I2C) protocol</text>
 <wire x1="487.68" y1="469.9" x2="485.14" y2="469.9" width="0.1524" layer="91"/>
 <label x="472.44" y="474.98" size="1.778" layer="95"/>
 <wire x1="449.58" y1="464.82" x2="464.82" y2="464.82" width="0.1524" layer="91"/>
+<junction x="464.82" y="464.82"/>
 </segment>
 </net>
 <net name="M1QB-4" class="0">
@@ -18486,15 +18488,14 @@ by TWI (I2C) protocol</text>
 <pinref part="R32" gate="G$1" pin="2"/>
 <wire x1="459.74" y1="147.32" x2="459.74" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="R34" gate="G$1" pin="2"/>
-<wire x1="464.82" y1="152.4" x2="467.36" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="467.36" y1="152.4" x2="474.98" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="474.98" y1="152.4" x2="474.98" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="467.36" y1="142.24" x2="467.36" y2="152.4" width="0.1524" layer="91"/>
 <junction x="467.36" y="152.4"/>
-<wire x1="459.74" y1="152.4" x2="464.82" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="464.82" y1="152.4" x2="464.82" y2="154.94" width="0.1524" layer="91"/>
-<label x="464.82" y="154.94" size="1.778" layer="95"/>
+<wire x1="459.74" y1="152.4" x2="467.36" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="152.4" x2="467.36" y2="154.94" width="0.1524" layer="91"/>
+<label x="467.36" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-10.16" y1="284.48" x2="-17.78" y2="284.48" width="0.1524" layer="91"/>
@@ -18559,6 +18560,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R47" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="177.8" x2="208.28" y2="177.8" width="0.1524" layer="91"/>
 <label x="200.66" y="177.8" size="1.778" layer="95"/>
+<junction x="195.58" y="177.8"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="14/A0"/>
@@ -18572,6 +18574,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R51" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="127" x2="208.28" y2="127" width="0.1524" layer="91"/>
 <label x="200.66" y="127" size="1.778" layer="95"/>
+<junction x="195.58" y="127"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="16/A2"/>
@@ -18585,6 +18588,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R55" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="177.8" x2="149.86" y2="177.8" width="0.1524" layer="91"/>
 <label x="144.78" y="177.8" size="1.778" layer="95"/>
+<junction x="137.16" y="177.8"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="15/A1"/>
@@ -18598,6 +18602,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R57" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="152.4" x2="149.86" y2="152.4" width="0.1524" layer="91"/>
 <label x="142.24" y="152.4" size="1.778" layer="95"/>
+<junction x="137.16" y="152.4"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="25"/>
@@ -18611,6 +18616,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R59" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="127" x2="149.86" y2="127" width="0.1524" layer="91"/>
 <label x="142.24" y="127" size="1.778" layer="95"/>
+<junction x="137.16" y="127"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="17/A3"/>
@@ -18624,6 +18630,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R53" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="203.2" x2="149.86" y2="203.2" width="0.1524" layer="91"/>
 <label x="142.24" y="203.2" size="1.778" layer="95"/>
+<junction x="137.16" y="203.2"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="27"/>
@@ -18637,6 +18644,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R45" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="203.2" x2="208.28" y2="203.2" width="0.1524" layer="91"/>
 <label x="200.66" y="203.2" size="1.778" layer="95"/>
+<junction x="195.58" y="203.2"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="28"/>
@@ -18650,6 +18658,7 @@ by TWI (I2C) protocol</text>
 <pinref part="R49" gate="G$1" pin="1"/>
 <wire x1="195.58" y1="152.4" x2="208.28" y2="152.4" width="0.1524" layer="91"/>
 <label x="200.66" y="152.4" size="1.778" layer="95"/>
+<junction x="195.58" y="152.4"/>
 </segment>
 <segment>
 <pinref part="U$14" gate="G$1" pin="26"/>
@@ -18700,12 +18709,6 @@ by TWI (I2C) protocol</text>
 <pinref part="U$8" gate="G$1" pin="SCL1"/>
 <wire x1="416.56" y1="119.38" x2="406.4" y2="119.38" width="0.1524" layer="91"/>
 <label x="406.4" y="119.38" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="393.7" y1="86.36" x2="393.7" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RX" class="0">
@@ -18855,6 +18858,7 @@ by TWI (I2C) protocol</text>
 <wire x1="-68.58" y1="294.64" x2="-78.74" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="R61" gate="G$1" pin="2"/>
 <wire x1="-68.58" y1="330.2" x2="-63.5" y2="330.2" width="0.1524" layer="91"/>
+<junction x="-68.58" y="330.2"/>
 </segment>
 </net>
 <net name="N$27" class="0">
@@ -19000,6 +19004,7 @@ by TWI (I2C) protocol</text>
 <wire x1="-48.26" y1="198.12" x2="-58.42" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="R72" gate="G$1" pin="2"/>
 <wire x1="-48.26" y1="233.68" x2="-43.18" y2="233.68" width="0.1524" layer="91"/>
+<junction x="-48.26" y="233.68"/>
 </segment>
 </net>
 <net name="N$45" class="0">
@@ -19206,6 +19211,7 @@ by TWI (I2C) protocol</text>
 <wire x1="-33.02" y1="101.6" x2="-43.18" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="R83" gate="G$1" pin="2"/>
 <wire x1="-33.02" y1="137.16" x2="-27.94" y2="137.16" width="0.1524" layer="91"/>
+<junction x="-33.02" y="137.16"/>
 </segment>
 </net>
 <net name="N$54" class="0">
@@ -19382,6 +19388,7 @@ by TWI (I2C) protocol</text>
 <wire x1="17.78" y1="17.78" x2="7.62" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="R94" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="53.34" x2="22.86" y2="53.34" width="0.1524" layer="91"/>
+<junction x="17.78" y="53.34"/>
 </segment>
 </net>
 <net name="N$63" class="0">
