@@ -14720,35 +14720,6 @@ Wickmann</description>
 <smd name="16" x="7.8" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 <smd name="15" x="8.45" y="7.2" dx="0.45" dy="1.75" layer="1" rot="R180"/>
 </package>
-<package name="MOTOR_BOARD">
-<wire x1="0" y1="0" x2="0" y2="29.5" width="0.127" layer="21"/>
-<wire x1="0" y1="29.5" x2="47" y2="29.5" width="0.127" layer="21"/>
-<wire x1="47" y1="29.5" x2="47" y2="0" width="0.127" layer="21"/>
-<wire x1="47" y1="0" x2="0" y2="0" width="0.127" layer="21"/>
-<circle x="2.5" y="4.5" radius="1.5" width="0.127" layer="21"/>
-<circle x="2.5" y="17.5" radius="1.5" width="0.127" layer="21"/>
-<hole x="2.5" y="17.5" drill="3"/>
-<hole x="2.5" y="4.5" drill="3"/>
-<hole x="44" y="27.5" drill="3"/>
-<circle x="44" y="27.5" radius="1.5" width="0.127" layer="21"/>
-<hole x="44" y="12.5" drill="3"/>
-<circle x="44" y="12.5" radius="1.5" width="0.127" layer="21"/>
-<wire x1="24.13" y1="27.94" x2="24.13" y2="22.86" width="0.127" layer="21"/>
-<wire x1="24.13" y1="22.86" x2="38.1" y2="22.86" width="0.127" layer="21"/>
-<wire x1="38.1" y1="22.86" x2="38.1" y2="27.94" width="0.127" layer="21"/>
-<wire x1="38.1" y1="27.94" x2="24.13" y2="27.94" width="0.127" layer="21"/>
-<wire x1="27.94" y1="7.62" x2="41.91" y2="7.62" width="0.127" layer="21"/>
-<wire x1="41.91" y1="7.62" x2="41.91" y2="1.27" width="0.127" layer="21"/>
-<wire x1="41.91" y1="1.27" x2="27.94" y2="1.27" width="0.127" layer="21"/>
-<wire x1="27.94" y1="1.27" x2="27.94" y2="7.62" width="0.127" layer="21"/>
-<wire x1="2.54" y1="27.94" x2="11.43" y2="27.94" width="0.127" layer="21"/>
-<wire x1="11.43" y1="27.94" x2="11.43" y2="21.59" width="0.127" layer="21"/>
-<wire x1="11.43" y1="21.59" x2="2.54" y2="21.59" width="0.127" layer="21"/>
-<wire x1="2.54" y1="21.59" x2="2.54" y2="27.94" width="0.127" layer="21"/>
-<text x="3.81" y="24.13" size="1.27" layer="21">POWER</text>
-<text x="26.67" y="25.4" size="1.27" layer="21">TO MOTOR</text>
-<text x="26.67" y="8.89" size="1.27" layer="21">CONTROL_SIGNALS</text>
-</package>
 </packages>
 <symbols>
 <symbol name="IO-EXPANDER">
@@ -14785,13 +14756,6 @@ Wickmann</description>
 <wire x1="33.02" y1="0" x2="33.02" y2="17.78" width="0.254" layer="94"/>
 <wire x1="33.02" y1="17.78" x2="0" y2="17.78" width="0.254" layer="94"/>
 <text x="36.322" y="5.08" size="1.27" layer="95" rot="R90">MCP23017</text>
-</symbol>
-<symbol name="MOTOR_BOARD">
-<wire x1="-17.78" y1="17.78" x2="38.1" y2="17.78" width="0.254" layer="94"/>
-<wire x1="38.1" y1="17.78" x2="38.1" y2="-15.24" width="0.254" layer="94"/>
-<wire x1="38.1" y1="-15.24" x2="-17.78" y2="-15.24" width="0.254" layer="94"/>
-<wire x1="-17.78" y1="-15.24" x2="-17.78" y2="17.78" width="0.254" layer="94"/>
-<text x="0" y="15.24" size="1.27" layer="94">MOTOR BOARD Template</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -14831,18 +14795,6 @@ Wickmann</description>
 <connect gate="G$1" pin="VDD" pad="9"/>
 <connect gate="G$1" pin="VSS" pad="10"/>
 </connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MOTOR_BOARD">
-<gates>
-<gate name="G$1" symbol="MOTOR_BOARD" x="17.78" y="15.24"/>
-</gates>
-<devices>
-<device name="" package="MOTOR_BOARD">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -15592,6 +15544,102 @@ The high-side driver switch is designed using STMicroelectronics’ well known a
 </deviceset>
 </devicesets>
 </library>
+<library name="transistor-power" urn="urn:adsk.eagle:library:400">
+<description>&lt;b&gt;Power Transistors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO268" urn="urn:adsk.eagle:footprint:29409/1" library_version="3">
+<description>&lt;b&gt;TO-268&lt;/b&gt;&lt;p&gt;
+Source: http://www.ixys.com/98989.pdf</description>
+<wire x1="-7.9" y1="-6.9" x2="7.9" y2="-6.9" width="0.2032" layer="21"/>
+<wire x1="7.9" y1="-6.9" x2="7.9" y2="5.3" width="0.2032" layer="51"/>
+<wire x1="7.9" y1="5.3" x2="6.95" y2="6.9" width="0.2032" layer="51"/>
+<wire x1="6.95" y1="6.9" x2="-7" y2="6.9" width="0.2032" layer="51"/>
+<wire x1="-7" y1="6.9" x2="-7.9" y2="5.3" width="0.2032" layer="51"/>
+<wire x1="-7.9" y1="5.3" x2="-7.9" y2="-6.9" width="0.2032" layer="51"/>
+<wire x1="7.9" y1="5.3" x2="7.9" y2="6.9" width="0.2032" layer="51"/>
+<wire x1="7.9" y1="6.9" x2="7.2" y2="8.05" width="0.2032" layer="51"/>
+<wire x1="-7.9" y1="5.3" x2="-7.9" y2="6.9" width="0.2032" layer="51"/>
+<wire x1="7.2" y1="8.05" x2="-7.2" y2="8.05" width="0.2032" layer="51"/>
+<wire x1="-7.9" y1="6.9" x2="-7.2" y2="8.05" width="0.2032" layer="51"/>
+<wire x1="-7.9" y1="-6.9" x2="-7.9" y2="-4.65" width="0.2032" layer="21"/>
+<wire x1="7.9" y1="-4.65" x2="7.9" y2="-6.9" width="0.2032" layer="21"/>
+<smd name="G" x="-5.45" y="-9.7" dx="2.5" dy="3.5" layer="1"/>
+<smd name="C@1" x="-4.25" y="2.25" dx="8.5" dy="13" layer="1"/>
+<smd name="E" x="5.45" y="-9.7" dx="2.5" dy="3.5" layer="1"/>
+<smd name="C@2" x="4.25" y="2.25" dx="8.5" dy="13" layer="1"/>
+<text x="-4.445" y="-6.35" size="1.27" layer="25">&gt;NAME</text>
+<text x="-8.89" y="-6.35" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<rectangle x1="-1.35" y1="-8.4" x2="1.35" y2="-7" layer="21"/>
+<rectangle x1="-6.5" y1="-8.4" x2="-4.4" y2="-7" layer="51"/>
+<rectangle x1="4.4" y1="-8.4" x2="6.5" y2="-7" layer="51"/>
+<rectangle x1="4.4" y1="-11.1" x2="6.5" y2="-8.4" layer="51"/>
+<rectangle x1="-6.5" y1="-11.1" x2="-4.4" y2="-8.4" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="TO268" urn="urn:adsk.eagle:package:29509/1" type="box" library_version="3">
+<description>TO-268
+Source: http://www.ixys.com/98989.pdf</description>
+<packageinstances>
+<packageinstance name="TO268"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="IXIS-IGBT-NPN" urn="urn:adsk.eagle:symbol:29408/1" library_version="3">
+<wire x1="2.54" y1="2.54" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="1.524" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="2.159" y1="-2.159" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="-1.016" x2="2.286" y2="-2.286" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-2.286" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-2.286" x2="1.016" y2="-1.778" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.778" x2="1.778" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.159" y1="-2.159" x2="1.778" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.778" y1="-1.27" x2="1.524" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="1.524" y1="-1.524" x2="1.27" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.778" x2="2.159" y2="-2.159" width="0.254" layer="94"/>
+<wire x1="2.159" y1="-2.159" x2="1.524" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="1.524" y1="-1.778" x2="1.778" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="1.27" width="0.1524" layer="94"/>
+<text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="0" y1="-2.54" x2="0.381" y2="2.54" layer="94"/>
+<pin name="G" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="IXG?*N170" urn="urn:adsk.eagle:component:29583/1" prefix="Q" library_version="3">
+<description>&lt;b&gt;High Voltage IGBT&lt;/b&gt;&lt;p&gt;
+Source: http://www.ixys.com/98989.pdf</description>
+<gates>
+<gate name="G$1" symbol="IXIS-IGBT-NPN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="T" package="TO268">
+<connects>
+<connect gate="G$1" pin="C" pad="C@1 C@2" route="any"/>
+<connect gate="G$1" pin="E" pad="E"/>
+<connect gate="G$1" pin="G" pad="G"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:29509/1"/>
+</package3dinstances>
+<technologies>
+<technology name="10"/>
+<technology name="16"/>
+<technology name="24"/>
+<technology name="32"/>
+<technology name="6"/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -15608,7 +15656,6 @@ The high-side driver switch is designed using STMicroelectronics’ well known a
 <part name="C15" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value=".1uF"/>
 <part name="CLAMP1" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
 <part name="CLAMP2" library="gen3" deviceset="DIODE-ZENER" device="DO214AC" value="DIODE-ZENERDO214AC"/>
-<part name="KICK_Q" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="CAP/100" library="gen3" deviceset="TEST_PT" device=""/>
 <part name="CAP_SENSE_BUF" library="SparkFun-AnalogIC" deviceset="MCP6291" device="T-E/OT"/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
@@ -15616,7 +15663,6 @@ The high-side driver switch is designed using STMicroelectronics’ well known a
 <part name="KICK_FLY" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
 <part name="ANDS" library="gen3" deviceset="AND-DUAL" device=""/>
 <part name="KICK" library="gen3" deviceset="JST-2" device="2MM"/>
-<part name="KICK_Q1" library="gen3" deviceset="N-MOSFET" device="DPAK"/>
 <part name="CHIP_FLY" library="gen3" deviceset="DIODE-ZENER" device="DO214AB"/>
 <part name="CHIP" library="gen3" deviceset="JST-2" device="2MM"/>
 <part name="R31" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="43k"/>
@@ -15746,8 +15792,6 @@ The high-side driver switch is designed using STMicroelectronics’ well known a
 <part name="R34" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7k"/>
 <part name="C13" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="U$13" library="SparkFun-Connectors" deviceset="PHEONIX-SCREW-TERM" device=""/>
-<part name="U$9" library="Kicker" deviceset="MOTOR_BOARD" device=""/>
-<part name="U$10" library="Kicker" deviceset="MOTOR_BOARD" device=""/>
 <part name="U$16" library="IAD-Library" deviceset="VNH5019" device=""/>
 <part name="U$20" library="IAD-Library" deviceset="MOSFET-NCH" device=""/>
 <part name="R35" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
@@ -15828,6 +15872,8 @@ The high-side driver switch is designed using STMicroelectronics’ well known a
 <part name="R94" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R95" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
 <part name="R96" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1k"/>
+<part name="Q1" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXG?*N170" device="T" package3d_urn="urn:adsk.eagle:package:29509/1" technology="6" value="IXFT94N30P3"/>
+<part name="Q2" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IXG?*N170" device="T" package3d_urn="urn:adsk.eagle:package:29509/1" technology="6" value="IXFT94N30P3"/>
 </parts>
 <sheets>
 <sheet>
@@ -15920,10 +15966,6 @@ by TWI (I2C) protocol</text>
 <instance part="CLAMP2" gate="G$1" x="797.56" y="332.74" smashed="yes" rot="MR90">
 <attribute name="NAME" x="798.0426" y="335.28" size="1.778" layer="95" rot="MR90"/>
 </instance>
-<instance part="KICK_Q" gate="G$1" x="480.06" y="312.42" smashed="yes">
-<attribute name="NAME" x="486.41" y="314.96" size="0.7" layer="95" font="vector" ratio="10"/>
-<attribute name="VALUE" x="486.41" y="310.896" size="0.7" layer="95" font="vector" ratio="10"/>
-</instance>
 <instance part="CAP/100" gate="G$1" x="853.44" y="342.9" smashed="yes" rot="MR0">
 <attribute name="NAME" x="857.25" y="345.44" size="1.778" layer="95" rot="MR0"/>
 </instance>
@@ -15947,10 +15989,6 @@ by TWI (I2C) protocol</text>
 </instance>
 <instance part="KICK" gate="G$1" x="490.22" y="335.28" smashed="yes">
 <attribute name="NAME" x="487.68" y="327.66" size="1.778" layer="95"/>
-</instance>
-<instance part="KICK_Q1" gate="G$1" x="480.06" y="254" smashed="yes">
-<attribute name="NAME" x="486.41" y="256.54" size="0.7" layer="95" font="vector" ratio="10"/>
-<attribute name="VALUE" x="486.41" y="252.476" size="0.7" layer="95" font="vector" ratio="10"/>
 </instance>
 <instance part="CHIP_FLY" gate="G$1" x="480.06" y="274.32" smashed="yes" rot="R90">
 <attribute name="NAME" x="479.5774" y="276.86" size="1.778" layer="95" rot="R90"/>
@@ -16410,8 +16448,6 @@ by TWI (I2C) protocol</text>
 <attribute name="VALUE" x="96.52" y="231.14" size="1.778" layer="96"/>
 <attribute name="NAME" x="96.52" y="242.062" size="1.778" layer="95"/>
 </instance>
-<instance part="U$9" gate="G$1" x="223.52" y="261.62" smashed="yes" rot="R90"/>
-<instance part="U$10" gate="G$1" x="223.52" y="330.2" smashed="yes" rot="R90"/>
 <instance part="U$16" gate="G$1" x="-60.96" y="287.02" smashed="yes">
 <attribute name="NAME" x="-73.66" y="302.26" size="1.778" layer="96"/>
 <attribute name="VALUE" x="-73.66" y="269.24" size="1.778" layer="96"/>
@@ -16731,6 +16767,14 @@ by TWI (I2C) protocol</text>
 <instance part="R96" gate="G$1" x="48.26" y="10.16" smashed="yes">
 <attribute name="NAME" x="44.45" y="11.6586" size="1.778" layer="95"/>
 <attribute name="VALUE" x="44.45" y="6.858" size="1.778" layer="96"/>
+</instance>
+<instance part="Q1" gate="G$1" x="480.06" y="312.42" smashed="yes">
+<attribute name="NAME" x="485.14" y="314.96" size="1.778" layer="95"/>
+<attribute name="VALUE" x="485.14" y="312.42" size="1.778" layer="96"/>
+</instance>
+<instance part="Q2" gate="G$1" x="480.06" y="254" smashed="yes">
+<attribute name="NAME" x="485.14" y="256.54" size="1.778" layer="95"/>
+<attribute name="VALUE" x="485.14" y="254" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -17262,15 +17306,16 @@ by TWI (I2C) protocol</text>
 <junction x="424.18" y="271.78"/>
 </segment>
 <segment>
-<pinref part="KICK_Q1" gate="G$1" pin="S"/>
 <wire x1="482.6" y1="248.92" x2="482.6" y2="243.84" width="0.1524" layer="91"/>
 <label x="482.6" y="243.84" size="1.778" layer="95"/>
+<pinref part="Q2" gate="G$1" pin="E"/>
 </segment>
 <segment>
-<pinref part="KICK_Q" gate="G$1" pin="S"/>
+<label x="482.6" y="302.26" size="1.778" layer="95"/>
+<label x="482.6" y="302.26" size="1.778" layer="95"/>
+<pinref part="Q1" gate="G$1" pin="E"/>
 <wire x1="482.6" y1="307.34" x2="482.6" y2="302.26" width="0.1524" layer="91"/>
-<label x="482.6" y="302.26" size="1.778" layer="95"/>
-<label x="482.6" y="302.26" size="1.778" layer="95"/>
+<junction x="482.6" y="307.34"/>
 </segment>
 <segment>
 <wire x1="312.42" y1="347.98" x2="312.42" y2="340.36" width="0.1524" layer="91"/>
@@ -17902,9 +17947,11 @@ by TWI (I2C) protocol</text>
 <net name="N$3" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="KICK_Q1" gate="G$1" pin="G"/>
 <wire x1="472.44" y1="274.32" x2="474.98" y2="274.32" width="0.1524" layer="91"/>
-<wire x1="474.98" y1="274.32" x2="474.98" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="474.98" y1="274.32" x2="474.98" y2="254" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<wire x1="474.98" y1="254" x2="474.98" y2="251.46" width="0.1524" layer="91"/>
+<junction x="474.98" y="254"/>
 </segment>
 </net>
 <net name="LOWCHIP" class="0">
@@ -17917,14 +17964,14 @@ by TWI (I2C) protocol</text>
 <wire x1="482.6" y1="266.7" x2="485.14" y2="266.7" width="0.1524" layer="91"/>
 <wire x1="482.6" y1="266.7" x2="482.6" y2="259.08" width="0.1524" layer="91"/>
 <junction x="482.6" y="266.7"/>
-<pinref part="KICK_Q1" gate="G$1" pin="D"/>
+<pinref part="Q2" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
-<pinref part="KICK_Q" gate="G$1" pin="G"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="474.98" y1="309.88" x2="472.44" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="474.98" y1="312.42" x2="472.44" y2="309.88" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="G"/>
 </segment>
 </net>
 <net name="LOWKICK" class="0">
@@ -17936,8 +17983,8 @@ by TWI (I2C) protocol</text>
 <wire x1="480.06" y1="325.12" x2="482.6" y2="325.12" width="0.1524" layer="91"/>
 <wire x1="482.6" y1="325.12" x2="485.14" y2="325.12" width="0.1524" layer="91"/>
 <junction x="482.6" y="325.12"/>
-<pinref part="KICK_Q" gate="G$1" pin="D"/>
 <wire x1="482.6" y1="325.12" x2="482.6" y2="317.5" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$11" class="0">
