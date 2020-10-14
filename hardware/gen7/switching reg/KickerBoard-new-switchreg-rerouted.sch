@@ -17531,6 +17531,66 @@ by TWI (I2C) protocol</text>
 <wire x1="416.56" y1="124.46" x2="406.4" y2="124.46" width="0.1524" layer="91"/>
 <label x="406.4" y="124.46" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$21" gate="G$1" pin="VDD"/>
+<wire x1="-147.32" y1="386.08" x2="-160.02" y2="386.08" width="0.1524" layer="91"/>
+<wire x1="-160.02" y1="386.08" x2="-160.02" y2="391.16" width="0.1524" layer="91"/>
+<label x="-162.56" y="391.16" size="1.778" layer="95"/>
+<pinref part="C37" gate="G$1" pin="1"/>
+<wire x1="-175.26" y1="386.08" x2="-160.02" y2="386.08" width="0.1524" layer="91"/>
+<junction x="-160.02" y="386.08"/>
+<pinref part="C38" gate="G$1" pin="1"/>
+<wire x1="-187.96" y1="386.08" x2="-175.26" y2="386.08" width="0.1524" layer="91"/>
+<junction x="-175.26" y="386.08"/>
+</segment>
+<segment>
+<pinref part="U$17" gate="G$1" pin="VDD"/>
+<wire x1="-66.04" y1="391.16" x2="-86.36" y2="391.16" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="391.16" x2="-86.36" y2="396.24" width="0.1524" layer="91"/>
+<label x="-86.36" y="396.24" size="1.778" layer="95"/>
+<pinref part="C35" gate="G$1" pin="1"/>
+<wire x1="-93.98" y1="391.16" x2="-86.36" y2="391.16" width="0.1524" layer="91"/>
+<junction x="-86.36" y="391.16"/>
+<pinref part="C36" gate="G$1" pin="1"/>
+<wire x1="-106.68" y1="391.16" x2="-93.98" y2="391.16" width="0.1524" layer="91"/>
+<junction x="-93.98" y="391.16"/>
+</segment>
+<segment>
+<pinref part="R80" gate="G$1" pin="2"/>
+<pinref part="R81" gate="G$1" pin="2"/>
+<wire x1="-63.5" y1="101.6" x2="-63.5" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-63.5" y1="106.68" x2="-68.58" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="-68.58" y1="106.68" x2="-68.58" y2="111.76" width="0.1524" layer="91"/>
+<junction x="-68.58" y="106.68"/>
+<label x="-68.58" y="111.76" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R91" gate="G$1" pin="2"/>
+<pinref part="R92" gate="G$1" pin="2"/>
+<wire x1="-12.7" y1="17.78" x2="-12.7" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="22.86" x2="-17.78" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="22.86" x2="-17.78" y2="27.94" width="0.1524" layer="91"/>
+<junction x="-17.78" y="22.86"/>
+<label x="-17.78" y="27.94" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R69" gate="G$1" pin="2"/>
+<pinref part="R70" gate="G$1" pin="2"/>
+<wire x1="-78.74" y1="198.12" x2="-78.74" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="-78.74" y1="203.2" x2="-83.82" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="-83.82" y1="203.2" x2="-83.82" y2="208.28" width="0.1524" layer="91"/>
+<junction x="-83.82" y="203.2"/>
+<label x="-83.82" y="208.28" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R41" gate="G$1" pin="2"/>
+<pinref part="R42" gate="G$1" pin="2"/>
+<wire x1="-99.06" y1="294.64" x2="-99.06" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="-99.06" y1="299.72" x2="-104.14" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="-104.14" y1="299.72" x2="-104.14" y2="304.8" width="0.1524" layer="91"/>
+<junction x="-104.14" y="299.72"/>
+<label x="-104.14" y="304.8" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="12VGND" class="0">
 <segment>
@@ -18782,18 +18842,6 @@ by TWI (I2C) protocol</text>
 <label x="342.9" y="157.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$21" gate="G$1" pin="VDD"/>
-<wire x1="-147.32" y1="386.08" x2="-160.02" y2="386.08" width="0.1524" layer="91"/>
-<wire x1="-160.02" y1="386.08" x2="-160.02" y2="391.16" width="0.1524" layer="91"/>
-<label x="-162.56" y="391.16" size="1.778" layer="95"/>
-<pinref part="C37" gate="G$1" pin="1"/>
-<wire x1="-175.26" y1="386.08" x2="-160.02" y2="386.08" width="0.1524" layer="91"/>
-<junction x="-160.02" y="386.08"/>
-<pinref part="C38" gate="G$1" pin="1"/>
-<wire x1="-187.96" y1="386.08" x2="-175.26" y2="386.08" width="0.1524" layer="91"/>
-<junction x="-175.26" y="386.08"/>
-</segment>
-<segment>
 <pinref part="U$21" gate="G$1" pin="RESET/"/>
 <wire x1="-129.54" y1="381" x2="-124.46" y2="381" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="381" x2="-121.92" y2="381" width="0.1524" layer="91"/>
@@ -18803,18 +18851,6 @@ by TWI (I2C) protocol</text>
 <wire x1="-129.54" y1="378.46" x2="-124.46" y2="378.46" width="0.1524" layer="91"/>
 <wire x1="-124.46" y1="378.46" x2="-124.46" y2="381" width="0.1524" layer="91"/>
 <junction x="-124.46" y="381"/>
-</segment>
-<segment>
-<pinref part="U$17" gate="G$1" pin="VDD"/>
-<wire x1="-66.04" y1="391.16" x2="-86.36" y2="391.16" width="0.1524" layer="91"/>
-<wire x1="-86.36" y1="391.16" x2="-86.36" y2="396.24" width="0.1524" layer="91"/>
-<label x="-86.36" y="396.24" size="1.778" layer="95"/>
-<pinref part="C35" gate="G$1" pin="1"/>
-<wire x1="-93.98" y1="391.16" x2="-86.36" y2="391.16" width="0.1524" layer="91"/>
-<junction x="-86.36" y="391.16"/>
-<pinref part="C36" gate="G$1" pin="1"/>
-<wire x1="-106.68" y1="391.16" x2="-93.98" y2="391.16" width="0.1524" layer="91"/>
-<junction x="-93.98" y="391.16"/>
 </segment>
 <segment>
 <pinref part="U$17" gate="G$1" pin="RESET/"/>
@@ -18841,27 +18877,9 @@ by TWI (I2C) protocol</text>
 <label x="-17.78" y="284.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R41" gate="G$1" pin="2"/>
-<pinref part="R42" gate="G$1" pin="2"/>
-<wire x1="-99.06" y1="294.64" x2="-99.06" y2="299.72" width="0.1524" layer="91"/>
-<wire x1="-99.06" y1="299.72" x2="-104.14" y2="299.72" width="0.1524" layer="91"/>
-<wire x1="-104.14" y1="299.72" x2="-104.14" y2="304.8" width="0.1524" layer="91"/>
-<junction x="-104.14" y="299.72"/>
-<label x="-104.14" y="304.8" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="10.16" y1="187.96" x2="2.54" y2="187.96" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="A" pin="4"/>
 <label x="2.54" y="187.96" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R69" gate="G$1" pin="2"/>
-<pinref part="R70" gate="G$1" pin="2"/>
-<wire x1="-78.74" y1="198.12" x2="-78.74" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="-78.74" y1="203.2" x2="-83.82" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="203.2" x2="-83.82" y2="208.28" width="0.1524" layer="91"/>
-<junction x="-83.82" y="203.2"/>
-<label x="-83.82" y="208.28" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="25.4" y1="91.44" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
@@ -18869,27 +18887,9 @@ by TWI (I2C) protocol</text>
 <label x="17.78" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R80" gate="G$1" pin="2"/>
-<pinref part="R81" gate="G$1" pin="2"/>
-<wire x1="-63.5" y1="101.6" x2="-63.5" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-63.5" y1="106.68" x2="-68.58" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-68.58" y1="106.68" x2="-68.58" y2="111.76" width="0.1524" layer="91"/>
-<junction x="-68.58" y="106.68"/>
-<label x="-68.58" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
 <wire x1="76.2" y1="7.62" x2="68.58" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="JP4" gate="A" pin="4"/>
 <label x="68.58" y="7.62" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="R91" gate="G$1" pin="2"/>
-<pinref part="R92" gate="G$1" pin="2"/>
-<wire x1="-12.7" y1="17.78" x2="-12.7" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="22.86" x2="-17.78" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="22.86" x2="-17.78" y2="27.94" width="0.1524" layer="91"/>
-<junction x="-17.78" y="22.86"/>
-<label x="-17.78" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="M1QB-3OUT" class="0">
