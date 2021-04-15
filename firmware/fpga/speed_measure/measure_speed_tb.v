@@ -9,8 +9,8 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module MotorControlModule; 
-    `include "../sv/measure_speed.v"
+module measure_speed_tb;
+    `include "./measure_speed.v"
 
     reg [1:0] enc;
 	 //reg [15:0] speed;
@@ -31,10 +31,10 @@ module MotorControlModule;
 	 
 	 int rand_delay;
  
-    std::randomize(rand_delay) with {
-      rand_delay < 100;
-      rand_delay > 0;
-    };
+    //std::randomize(rand_delay) with {
+    //  rand_delay < 100;
+    //  rand_delay > 0;
+    //};
 
     measure_speed UUT (.enc(enc), .clk(clk), .reset(reset), .enc_count(count));
     
