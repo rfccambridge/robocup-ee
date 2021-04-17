@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../pwm_control.srcs/sources_1/new/clk_to_pwm.sv" \
+"../../../../pwm_control.srcs/sim_1/new/clk_to_pwm_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
