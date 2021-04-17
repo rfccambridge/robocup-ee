@@ -15,10 +15,12 @@ module measure_speed(
 
    input wire [1:0] enc;
 	input wire clk, reset;
+
+   wire count_up, count_down;
 	 
    //output reg [7:0] speed = 8'b00000000;
 	 
-	output reg [15:0] enc_count = 16'b0;
+   output reg [15:0] enc_count = 16'b0;
 
 	//parameter definitions
 	localparam STEP_0 = 'b00;
@@ -29,12 +31,12 @@ module measure_speed(
 	//previous enc state
 	reg [1:0] enc_d; always @(posedge clk) enc_d <= enc;
 	
-	wire count_up = ( ((STEP_0 == enc_d) && (STEP_1 == enc)) 
+   assign count_up = ( ((STEP_0 == enc_d) && (STEP_1 == enc)) 
 	                || ((STEP_1 == enc_d) && (STEP_3 == enc))
 						 || ((STEP_3 == enc_d) && (STEP_2 == enc))
 						 || ((STEP_2 == enc_d) && (STEP_0 == enc)) );
 
-   wire count_down = ( ((STEP_0 == enc_d) && (STEP_2 == enc)) 
+   assign count_down = ( ((STEP_0 == enc_d) && (STEP_2 == enc)) 
 	                || ((STEP_2 == enc_d) && (STEP_3 == enc))
 						 || ((STEP_3 == enc_d) && (STEP_1 == enc))
 						 || ((STEP_1 == enc_d) && (STEP_0 == enc)) );
@@ -44,11 +46,21 @@ module measure_speed(
 	   if ( reset ) begin
           enc_count <= 0;
       end else begin
-          if (count_up) begin
+          if (( ((STEP_0 == enc_d) && (STEP_1 == enc))
+                        || ((STEP_1 == enc_d) && (STEP_3 == enc))
+                                                 || ((STEP_3 == enc_d) && (STEP_2 == enc))
+                                                 || ((STEP_2 == enc_d) && (STEP_0 == enc)) )) begin
               enc_count <= enc_count + 1;
-          end else if ( count_down ) begin
+          end else if ( ( ((STEP_0 == enc_d) && (STEP_2 == enc))
+                        || ((STEP_2 == enc_d) && (STEP_3 == enc))
+                                                 || ((STEP_3 == enc_d) && (STEP_1 == enc))
+                                                 || ((STEP_1 == enc_d) && (STEP_0 == enc)) )) begin
               enc_count <= enc_count - 1;
           end
+	  //$display("count_up: %d", count_up);
+	  //$display("count_down: %d", count_down);
+	  //$display("enc in mod: %d", enc);
+	  //$display("enc_d in mod: %d", enc_d);
       end
 	end : ENCODER_COUNTER
 

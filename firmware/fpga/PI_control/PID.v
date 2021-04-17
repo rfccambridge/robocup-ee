@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-`default_nettype none //helps catch typo-related bugs
 //////////////////////////////////////////////////////////////////////////////////
 // 
 // CS 141 - Fall 2015
@@ -16,8 +14,8 @@ module PID #(parameter W=15) // bit width - 1
   input signed [W:0] e_in, // input
   input clk,
   input reset);
-  parameter kp=2;
-  parameter ki=10;
+  parameter kp=0.1;
+  parameter ki=0.2;
   parameter kd=0;
   parameter k1=kp+ki+kd; // change these values to suit your system
   parameter k2 = -kp-2*kd;
@@ -37,4 +35,3 @@ module PID #(parameter W=15) // bit width - 1
     u_prev <= u_out;
   end
 endmodule
-`default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
